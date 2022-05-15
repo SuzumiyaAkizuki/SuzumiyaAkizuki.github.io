@@ -1,0 +1,2 @@
+# akizuki
+My personial blog.
