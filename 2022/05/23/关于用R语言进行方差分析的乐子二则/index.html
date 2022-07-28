@@ -1,0 +1,1000 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <link rel="icon" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="SuzumiyaAkizuki">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="我们都知道R语言是非常强的统计工具，今天想着用R语言来做数理统计作业，却被摆了两道，哈哈。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于用R语言进行方差分析的乐子二则">
+<meta property="og:url" content="https://suzumiyaakizuki.github.io/2022/05/23/%E5%85%B3%E4%BA%8E%E7%94%A8R%E8%AF%AD%E8%A8%80%E8%BF%9B%E8%A1%8C%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E7%9A%84%E4%B9%90%E5%AD%90%E4%BA%8C%E5%88%99/index.html">
+<meta property="og:site_name" content="凉宫秋月的文艺部">
+<meta property="og:description" content="我们都知道R语言是非常强的统计工具，今天想着用R语言来做数理统计作业，却被摆了两道，哈哈。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/R-happy.jpg">
+<meta property="article:published_time" content="2022-05-23T14:38:13.000Z">
+<meta property="article:modified_time" content="2022-07-03T14:45:48.822Z">
+<meta property="article:author" content="SuzumiyaAkizuki">
+<meta property="article:tag" content="数理统计">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/R-happy.jpg">
+  
+  
+  
+  <title>关于用R语言进行方差分析的乐子二则 - 凉宫秋月的文艺部</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"suzumiyaakizuki.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":"G-J01HK5TZ0Y","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"QGqf9VPGTa96KerO0JvDW3Ld-gzGzoHsz","app_key":"RhwwUaYq4lMo1tCJwcQTWdRp","server_url":"https://qgqf9vpg.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.google-analytics.com/analytics.js', function() {
+          window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
+          ga.l = +new Date;
+          ga('create', 'G-J01HK5TZ0Y', 'auto');
+          ga('send', 'pageview');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>凉宫秋月的文艺部</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友情链接
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/R-happy.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="关于用R语言进行方差分析的乐子二则"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        SuzumiyaAkizuki
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-05-23 22:38" pubdate>
+          2022年5月23日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          7 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">关于用R语言进行方差分析的乐子二则</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>我们都知道R语言是非常强的统计工具，今天想着用R语言来做数理统计作业，却被摆了两道，哈哈。</p>
+<span id="more"></span>
+<h2 id="方差分析">方差分析</h2>
+<p>要讨论这两则乐子，首先要知道什么是方差分析。</p>
+<h3 id="单变量方差分析">单变量方差分析</h3>
+<p>单因素方差分析可以看成基础统计中两样本<span class="math inline">\(t\)</span>检验的一个推广， 要比较试验观测值的某个因变量（称为“指标”）按照一个分组变量（称为“因素”）分组后， 各组的因变量均值有无显著差异。</p>
+<p>设因素A有p个不同的水平<span class="math inline">\(A_1,A_2,\cdots,A_p\)</span>,在每个水平下，总体<span class="math inline">\(X_i\sim N(\mu_i,\sigma^2)\)</span>,需要检验的是这<span class="math inline">\(p\)</span>个样本的平均值有没有显著差异，即： <span class="math display">\[
+H_0:\mu_1=\mu_2=\cdots=\mu_p
+\]</span> 一般地，我们在每个水平中抽取<span class="math inline">\(r\)</span>个样本，形成如下的样本表：</p>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(A_1\)</span></th>
+<th><span class="math inline">\(x_{11}\)</span></th>
+<th><span class="math inline">\(x_{12}\)</span></th>
+<th><span class="math inline">\(\cdots\)</span></th>
+<th><span class="math inline">\(x_{1r}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(A_2\)</span></td>
+<td><span class="math inline">\(x_{21}\)</span></td>
+<td><span class="math inline">\(x_{22}\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(x_{2r}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\cdots\)</span></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(A_P\)</span></td>
+<td><span class="math inline">\(x_{p1}\)</span></td>
+<td><span class="math inline">\(x_{p2}\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(x_{pr}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>【例】：用R语言对下列数据进行方差分析：</p>
+<table>
+<thead>
+<tr class="header">
+<th>A</th>
+<th>B</th>
+<th>C</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>58</td>
+<td>58</td>
+<td>48</td>
+</tr>
+<tr class="even">
+<td>64</td>
+<td>69</td>
+<td>57</td>
+</tr>
+<tr class="odd">
+<td>55</td>
+<td>71</td>
+<td>59</td>
+</tr>
+<tr class="even">
+<td>66</td>
+<td>64</td>
+<td>47</td>
+</tr>
+<tr class="odd">
+<td>67</td>
+<td>68</td>
+<td>49</td>
+</tr>
+</tbody>
+</table>
+<p>【解】先把表格转换成纵列形式</p>
+<table>
+<thead>
+<tr class="header">
+<th>grp</th>
+<th>y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>58</td>
+</tr>
+<tr class="even">
+<td>A</td>
+<td>64</td>
+</tr>
+<tr class="odd">
+<td>A</td>
+<td>55</td>
+</tr>
+<tr class="even">
+<td>A</td>
+<td>66</td>
+</tr>
+<tr class="odd">
+<td>A</td>
+<td>67</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>58</td>
+</tr>
+<tr class="odd">
+<td>B</td>
+<td>69</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>71</td>
+</tr>
+<tr class="odd">
+<td>B</td>
+<td>64</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>68</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>48</td>
+</tr>
+<tr class="even">
+<td>C</td>
+<td>57</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>59</td>
+</tr>
+<tr class="even">
+<td>C</td>
+<td>47</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>49</td>
+</tr>
+</tbody>
+</table>
+<p>将上表保存为<code>R1.csv</code>，在”我的文档“中。在R软件中输入：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs R">data <span class="hljs-operator">&lt;-</span> read.csv<span class="hljs-punctuation">(</span><span class="hljs-string">&quot;R1.csv&quot;</span><span class="hljs-punctuation">)</span><br>data<br></code></pre></td></tr></table></figure>
+<p>可以读入数据，并展示数据。</p>
+<p>然后建立方差分析模型，在R软件中输入：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs R">mod <span class="hljs-operator">&lt;-</span> aov<span class="hljs-punctuation">(</span>y<span class="hljs-operator">~</span>grp<span class="hljs-punctuation">,</span>data<span class="hljs-punctuation">)</span><br>summary<span class="hljs-punctuation">(</span>mod<span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+<p>即可输出分析结果，如下：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs R">            Df Sum Sq Mean Sq <span class="hljs-built_in">F</span> value  Pr<span class="hljs-punctuation">(</span><span class="hljs-operator">&gt;</span><span class="hljs-built_in">F</span><span class="hljs-punctuation">)</span>   <br>grp          <span class="hljs-number">2</span>    <span class="hljs-number">520</span>  <span class="hljs-number">260.00</span>   <span class="hljs-number">9.176</span> <span class="hljs-number">0.00382</span> <span class="hljs-operator">*</span><span class="hljs-operator">*</span><br>Residuals   <span class="hljs-number">12</span>    <span class="hljs-number">340</span>   <span class="hljs-number">28.33</span>                   <br><span class="hljs-operator">-</span><span class="hljs-operator">-</span><span class="hljs-operator">-</span><br>Signif. codes<span class="hljs-operator">:</span>  <span class="hljs-number">0</span> ‘<span class="hljs-operator">*</span><span class="hljs-operator">*</span><span class="hljs-operator">*</span>’ <span class="hljs-number">0.001</span> ‘<span class="hljs-operator">*</span><span class="hljs-operator">*</span>’ <span class="hljs-number">0.01</span> ‘<span class="hljs-operator">*</span>’ <span class="hljs-number">0.05</span> ‘.’ <span class="hljs-number">0.1</span> ‘ ’ <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+<p>我们看到<code>grp</code>的<span class="math inline">\(P_r\)</span>值有<span class="math inline">\(0.00382&lt;0.05\)</span>，所以可以认为各组之间有显著差异。</p>
+<h3 id="双变量方差分析">双变量方差分析</h3>
+<p>在实际任务中，影响实验结果的因素可能不止一个，这时就要用到双变量方差分析（或者正交实验）。在两个因素的实验中，不但每一个因素会对结果起作用，而且两个因素联合起来往往也会对结果起作用。如果你不能理解这个结论，不妨设想这样一个例子：工人在工厂工作时，对工人效率的影响因素有工人和机器。如果工人专业技能高、机器运行状况好，那么效率很自然地就会比较高。但是一个资质平平的工人如果对某个状况一般的机器非常熟悉，以至于把这个机器什么时候会出现什么误差都记得滚瓜烂熟，那么把他俩结合起来，也有可能获得很高的效率。</p>
+<p>为了进行双变量方差分析，进行双因素重复性实验，得到的数据表往往是这样给出的：</p>
+<p><img src="https://suzumiyaakizuki.github.io/post-images/1653320029199.png" srcset="/img/loading.gif" lazyload /></p>
+<p>这时，我就美美地开始做题了！</p>
+<h2 id="第一道题">第一道题</h2>
+<p><img src="https://suzumiyaakizuki.github.io/post-images/1653320064532.png" srcset="/img/loading.gif" lazyload /></p>
+<p>我一看这不简单？于是美美列了个表：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs R">   A B   Y<br><span class="hljs-number">1</span>  <span class="hljs-number">1</span> <span class="hljs-number">1</span>  <span class="hljs-number">95</span><br><span class="hljs-number">2</span>  <span class="hljs-number">2</span> <span class="hljs-number">1</span>  <span class="hljs-number">95</span><br><span class="hljs-number">3</span>  <span class="hljs-number">3</span> <span class="hljs-number">1</span> <span class="hljs-number">106</span><br><span class="hljs-number">4</span>  <span class="hljs-number">4</span> <span class="hljs-number">1</span>  <span class="hljs-number">98</span><br><span class="hljs-number">5</span>  <span class="hljs-number">5</span> <span class="hljs-number">1</span> <span class="hljs-number">102</span><br><span class="hljs-number">6</span>  <span class="hljs-number">6</span> <span class="hljs-number">1</span> <span class="hljs-number">112</span><br><span class="hljs-number">7</span>  <span class="hljs-number">7</span> <span class="hljs-number">1</span> <span class="hljs-number">105</span><br><span class="hljs-number">8</span>  <span class="hljs-number">8</span> <span class="hljs-number">1</span>  <span class="hljs-number">95</span><br><span class="hljs-number">9</span>  <span class="hljs-number">1</span> <span class="hljs-number">2</span>  <span class="hljs-number">95</span><br><span class="hljs-number">10</span> <span class="hljs-number">2</span> <span class="hljs-number">2</span>  <span class="hljs-number">94</span><br><span class="hljs-number">11</span> <span class="hljs-number">3</span> <span class="hljs-number">2</span> <span class="hljs-number">105</span><br><span class="hljs-number">12</span> <span class="hljs-number">4</span> <span class="hljs-number">2</span>  <span class="hljs-number">97</span><br><span class="hljs-number">13</span> <span class="hljs-number">5</span> <span class="hljs-number">2</span>  <span class="hljs-number">98</span><br><span class="hljs-number">14</span> <span class="hljs-number">6</span> <span class="hljs-number">2</span> <span class="hljs-number">112</span><br><span class="hljs-number">15</span> <span class="hljs-number">7</span> <span class="hljs-number">2</span> <span class="hljs-number">103</span><br><span class="hljs-number">16</span> <span class="hljs-number">8</span> <span class="hljs-number">2</span>  <span class="hljs-number">92</span><br><span class="hljs-number">17</span> <span class="hljs-number">1</span> <span class="hljs-number">3</span>  <span class="hljs-number">89</span><br><span class="hljs-number">18</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span>  <span class="hljs-number">88</span><br><span class="hljs-number">19</span> <span class="hljs-number">3</span> <span class="hljs-number">3</span>  <span class="hljs-number">87</span><br><span class="hljs-number">20</span> <span class="hljs-number">4</span> <span class="hljs-number">3</span>  <span class="hljs-number">95</span><br><span class="hljs-number">21</span> <span class="hljs-number">5</span> <span class="hljs-number">3</span>  <span class="hljs-number">97</span><br><span class="hljs-number">22</span> <span class="hljs-number">6</span> <span class="hljs-number">3</span> <span class="hljs-number">101</span><br><span class="hljs-number">23</span> <span class="hljs-number">7</span> <span class="hljs-number">3</span>  <span class="hljs-number">97</span><br><span class="hljs-number">24</span> <span class="hljs-number">8</span> <span class="hljs-number">3</span>  <span class="hljs-number">90</span><br><span class="hljs-number">25</span> <span class="hljs-number">1</span> <span class="hljs-number">4</span>  <span class="hljs-number">83</span><br><span class="hljs-number">26</span> <span class="hljs-number">2</span> <span class="hljs-number">4</span>  <span class="hljs-number">84</span><br><span class="hljs-number">27</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span>  <span class="hljs-number">90</span><br><span class="hljs-number">28</span> <span class="hljs-number">4</span> <span class="hljs-number">4</span>  <span class="hljs-number">90</span><br><span class="hljs-number">29</span> <span class="hljs-number">5</span> <span class="hljs-number">4</span>  <span class="hljs-number">88</span><br><span class="hljs-number">30</span> <span class="hljs-number">6</span> <span class="hljs-number">4</span>  <span class="hljs-number">94</span><br><span class="hljs-number">31</span> <span class="hljs-number">7</span> <span class="hljs-number">4</span>  <span class="hljs-number">88</span><br><span class="hljs-number">32</span> <span class="hljs-number">8</span> <span class="hljs-number">4</span>  <span class="hljs-number">80</span><br></code></pre></td></tr></table></figure>
+<p>读取数据：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R">X<span class="hljs-operator">=</span>read.csv<span class="hljs-punctuation">(</span><span class="hljs-string">&quot;R.csv&quot;</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+<p>建立模型并分析：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs R">mod<span class="hljs-operator">&lt;-</span>aov<span class="hljs-punctuation">(</span>Y<span class="hljs-operator">~</span>A<span class="hljs-operator">+</span>B<span class="hljs-punctuation">,</span>X<span class="hljs-punctuation">)</span><br>summary<span class="hljs-punctuation">(</span>mod<span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs R">            Df Sum Sq Mean Sq <span class="hljs-built_in">F</span> value   Pr<span class="hljs-punctuation">(</span><span class="hljs-operator">&gt;</span><span class="hljs-built_in">F</span><span class="hljs-punctuation">)</span>    <br>A            <span class="hljs-number">1</span>   <span class="hljs-number">74.0</span>    <span class="hljs-number">74.0</span>   <span class="hljs-number">2.385</span>    <span class="hljs-number">0.133</span>    <br>B            <span class="hljs-number">1</span>  <span class="hljs-number">926.4</span>   <span class="hljs-number">926.4</span>  <span class="hljs-number">29.857</span> <span class="hljs-number">6.99e-06</span> <span class="hljs-operator">*</span><span class="hljs-operator">*</span><span class="hljs-operator">*</span><br>Residuals   <span class="hljs-number">29</span>  <span class="hljs-number">899.8</span>    <span class="hljs-number">31.0</span>                     <br><span class="hljs-operator">-</span><span class="hljs-operator">-</span><span class="hljs-operator">-</span><br>Signif. codes<span class="hljs-operator">:</span>  <span class="hljs-number">0</span> ‘<span class="hljs-operator">*</span><span class="hljs-operator">*</span><span class="hljs-operator">*</span>’ <span class="hljs-number">0.001</span> ‘<span class="hljs-operator">*</span><span class="hljs-operator">*</span>’ <span class="hljs-number">0.01</span> ‘<span class="hljs-operator">*</span>’ <span class="hljs-number">0.05</span> ‘.’ <span class="hljs-number">0.1</span> ‘ ’ <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+<p>其中：</p>
+<table>
+<thead>
+<tr class="header">
+<th>项目</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Df</td>
+<td>自由度</td>
+</tr>
+<tr class="even">
+<td>Sum Sq</td>
+<td>平方和</td>
+</tr>
+<tr class="odd">
+<td>Mean Sq</td>
+<td>均方</td>
+</tr>
+<tr class="even">
+<td>F value</td>
+<td>F值</td>
+</tr>
+<tr class="odd">
+<td>Pr(&gt;F)</td>
+<td>p值</td>
+</tr>
+</tbody>
+</table>
+<p>哈哈，聪明的你一定看出问题了吧，那就是这俩的自由度都是<span class="math inline">\(1\)</span>，这是怎么会事呢？</p>
+<p>原来是因为我的两个标签<span class="math inline">\(A\)</span>和<span class="math inline">\(B\)</span>都用了数字，而R语言里的数据类型有数字、字符等。它把我们的1，2，3，...当成了一个连续变量，于是就出错了。当然这个问题可以用<code>ac.factor()</code>函数解决，但是我直接把标签换成字母也能解决。</p>
+<p>修改了以后的输出为：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs R">            Df Sum Sq Mean Sq <span class="hljs-built_in">F</span> value   Pr<span class="hljs-punctuation">(</span><span class="hljs-operator">&gt;</span><span class="hljs-built_in">F</span><span class="hljs-punctuation">)</span>    <br>A            <span class="hljs-number">7</span>  <span class="hljs-number">747.5</span>   <span class="hljs-number">106.8</span>   <span class="hljs-number">12.78</span> <span class="hljs-number">2.62e-06</span> <span class="hljs-operator">*</span><span class="hljs-operator">*</span><span class="hljs-operator">*</span><br>B            <span class="hljs-number">3</span>  <span class="hljs-number">977.3</span>   <span class="hljs-number">325.8</span>   <span class="hljs-number">39.00</span> <span class="hljs-number">9.12e-09</span> <span class="hljs-operator">*</span><span class="hljs-operator">*</span><span class="hljs-operator">*</span><br>Residuals   <span class="hljs-number">21</span>  <span class="hljs-number">175.4</span>     <span class="hljs-number">8.4</span>                     <br><span class="hljs-operator">-</span><span class="hljs-operator">-</span><span class="hljs-operator">-</span><br>Signif. codes<span class="hljs-operator">:</span>  <span class="hljs-number">0</span> ‘<span class="hljs-operator">*</span><span class="hljs-operator">*</span><span class="hljs-operator">*</span>’ <span class="hljs-number">0.001</span> ‘<span class="hljs-operator">*</span><span class="hljs-operator">*</span>’ <span class="hljs-number">0.01</span> ‘<span class="hljs-operator">*</span>’ <span class="hljs-number">0.05</span> ‘.’ <span class="hljs-number">0.1</span> ‘ ’ <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+<p>这个结果是正确的。我们可以发现<span class="math inline">\(A\)</span>和<span class="math inline">\(B\)</span>都对结果有不可忽视的影响。</p>
+<h2 id="第二道题">第二道题</h2>
+<p>三位操作工分别在四台不同的机器上操作了3天，其产量如下表所示：</p>
+<p><img src="https://suzumiyaakizuki.github.io/post-images/1653320084039.png" srcset="/img/loading.gif" lazyload /></p>
+<p>于是我想当然哈，以为三次实验，加一下就好了，于是列了这么个表：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs R">   A B  Y<br><span class="hljs-number">1</span>  a x <span class="hljs-number">47</span><br><span class="hljs-number">2</span>  b x <span class="hljs-number">51</span><br><span class="hljs-number">3</span>  <span class="hljs-built_in">c</span> x <span class="hljs-number">48</span><br><span class="hljs-number">4</span>  d x <span class="hljs-number">60</span><br><span class="hljs-number">5</span>  a y <span class="hljs-number">54</span><br><span class="hljs-number">6</span>  b y <span class="hljs-number">45</span><br><span class="hljs-number">7</span>  <span class="hljs-built_in">c</span> y <span class="hljs-number">51</span><br><span class="hljs-number">8</span>  d y <span class="hljs-number">48</span><br><span class="hljs-number">9</span>  a z <span class="hljs-number">55</span><br><span class="hljs-number">10</span> b z <span class="hljs-number">63</span><br><span class="hljs-number">11</span> <span class="hljs-built_in">c</span> z <span class="hljs-number">54</span><br><span class="hljs-number">12</span> d z <span class="hljs-number">51</span><br></code></pre></td></tr></table></figure>
+<p>建立模型：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs R">mod <span class="hljs-operator">&lt;-</span> aov<span class="hljs-punctuation">(</span>Y<span class="hljs-operator">~</span>A<span class="hljs-operator">+</span>B<span class="hljs-operator">+</span>A<span class="hljs-operator">:</span>B<span class="hljs-punctuation">,</span>X<span class="hljs-punctuation">)</span><br>summary<span class="hljs-punctuation">(</span>mod<span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+<p>输出结果：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs R">            Df Sum Sq Mean Sq<br>A            <span class="hljs-number">3</span>   <span class="hljs-number">8.25</span>    <span class="hljs-number">2.75</span><br>B            <span class="hljs-number">2</span>  <span class="hljs-number">81.50</span>   <span class="hljs-number">40.75</span><br>A<span class="hljs-operator">:</span>B          <span class="hljs-number">6</span> <span class="hljs-number">220.50</span>   <span class="hljs-number">36.75</span><br></code></pre></td></tr></table></figure>
+<p>根据<span class="math inline">\(F\)</span>值，我们可以看出....欸我<span class="math inline">\(F\)</span>值呢？咋没了？</p>
+<p>这是因为，在”加和“（或者求平均值）的时候，就顺带消除了<span class="math inline">\(A\times B\)</span>的影响。这是因为<span class="math inline">\(A\times B\)</span>的离差平方和为： <span class="math display">\[
+S_{A\times B}=\sum_{i=1}^p\sum_{j=1}^q\sum_{k=1}^r (\bar{x}_{ij\cdot} -\bar{x}_{i\cdot \cdot } - \bar{x}_{\cdot j \cdot } +\bar{x})^2
+\]</span> 对于多次重复实验，应该把它们分拆开，每次都单独算。列表如下：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs R">   A B  Y<br><span class="hljs-number">1</span>  a x <span class="hljs-number">15</span><br><span class="hljs-number">2</span>  b x <span class="hljs-number">17</span><br><span class="hljs-number">3</span>  <span class="hljs-built_in">c</span> x <span class="hljs-number">15</span><br><span class="hljs-number">4</span>  d x <span class="hljs-number">18</span><br><span class="hljs-number">5</span>  a y <span class="hljs-number">19</span><br><span class="hljs-number">6</span>  b y <span class="hljs-number">15</span><br><span class="hljs-number">7</span>  <span class="hljs-built_in">c</span> y <span class="hljs-number">18</span><br><span class="hljs-number">8</span>  d y <span class="hljs-number">15</span><br><span class="hljs-number">9</span>  a z <span class="hljs-number">16</span><br><span class="hljs-number">10</span> b z <span class="hljs-number">19</span><br><span class="hljs-number">11</span> <span class="hljs-built_in">c</span> z <span class="hljs-number">18</span><br><span class="hljs-number">12</span> d z <span class="hljs-number">17</span><br><span class="hljs-number">13</span> a x <span class="hljs-number">15</span><br><span class="hljs-number">14</span> b x <span class="hljs-number">17</span><br><span class="hljs-number">15</span> <span class="hljs-built_in">c</span> x <span class="hljs-number">17</span><br><span class="hljs-number">16</span> d x <span class="hljs-number">20</span><br><span class="hljs-number">17</span> a y <span class="hljs-number">19</span><br><span class="hljs-number">18</span> b y <span class="hljs-number">15</span><br><span class="hljs-number">19</span> <span class="hljs-built_in">c</span> y <span class="hljs-number">17</span><br><span class="hljs-number">20</span> d y <span class="hljs-number">16</span><br><span class="hljs-number">21</span> a z <span class="hljs-number">18</span><br><span class="hljs-number">22</span> b z <span class="hljs-number">22</span><br><span class="hljs-number">23</span> <span class="hljs-built_in">c</span> z <span class="hljs-number">18</span><br><span class="hljs-number">24</span> d z <span class="hljs-number">17</span><br><span class="hljs-number">25</span> a x <span class="hljs-number">17</span><br><span class="hljs-number">26</span> b x <span class="hljs-number">17</span><br><span class="hljs-number">27</span> <span class="hljs-built_in">c</span> x <span class="hljs-number">16</span><br><span class="hljs-number">28</span> d x <span class="hljs-number">22</span><br><span class="hljs-number">29</span> a y <span class="hljs-number">16</span><br><span class="hljs-number">30</span> b y <span class="hljs-number">15</span><br><span class="hljs-number">31</span> <span class="hljs-built_in">c</span> y <span class="hljs-number">16</span><br><span class="hljs-number">32</span> d y <span class="hljs-number">17</span><br><span class="hljs-number">33</span> a z <span class="hljs-number">21</span><br><span class="hljs-number">34</span> b z <span class="hljs-number">22</span><br><span class="hljs-number">35</span> <span class="hljs-built_in">c</span> z <span class="hljs-number">18</span><br><span class="hljs-number">36</span> d z <span class="hljs-number">17</span><br></code></pre></td></tr></table></figure>
+<p>建立模型：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs R">mod <span class="hljs-operator">&lt;-</span> aov<span class="hljs-punctuation">(</span>Y<span class="hljs-operator">~</span>A<span class="hljs-operator">*</span>B<span class="hljs-punctuation">,</span>X<span class="hljs-punctuation">)</span><br>summary<span class="hljs-punctuation">(</span>mod<span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
+<p>输出结果：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs R">            Df Sum Sq Mean Sq <span class="hljs-built_in">F</span> value   Pr<span class="hljs-punctuation">(</span><span class="hljs-operator">&gt;</span><span class="hljs-built_in">F</span><span class="hljs-punctuation">)</span>    <br>A            <span class="hljs-number">3</span>   <span class="hljs-number">2.75</span>   <span class="hljs-number">0.917</span>   <span class="hljs-number">0.532</span> <span class="hljs-number">0.664528</span>    <br>B            <span class="hljs-number">2</span>  <span class="hljs-number">27.17</span>  <span class="hljs-number">13.583</span>   <span class="hljs-number">7.887</span> <span class="hljs-number">0.002330</span> <span class="hljs-operator">*</span><span class="hljs-operator">*</span> <br>A<span class="hljs-operator">:</span>B          <span class="hljs-number">6</span>  <span class="hljs-number">73.50</span>  <span class="hljs-number">12.250</span>   <span class="hljs-number">7.113</span> <span class="hljs-number">0.000192</span> <span class="hljs-operator">*</span><span class="hljs-operator">*</span><span class="hljs-operator">*</span><br>Residuals   <span class="hljs-number">24</span>  <span class="hljs-number">41.33</span>   <span class="hljs-number">1.722</span>                     <br><span class="hljs-operator">-</span><span class="hljs-operator">-</span><span class="hljs-operator">-</span><br>Signif. codes<span class="hljs-operator">:</span>  <span class="hljs-number">0</span> ‘<span class="hljs-operator">*</span><span class="hljs-operator">*</span><span class="hljs-operator">*</span>’ <span class="hljs-number">0.001</span> ‘<span class="hljs-operator">*</span><span class="hljs-operator">*</span>’ <span class="hljs-number">0.01</span> ‘<span class="hljs-operator">*</span>’ <span class="hljs-number">0.05</span> ‘.’ <span class="hljs-number">0.1</span> ‘ ’ <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+<p>我们可以看到，效率主要和工人的水平以及工人和机器的交互有关。</p>
+<p>哈哈，我是铸币。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/">#数理统计</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>关于用R语言进行方差分析的乐子二则</div>
+      <div>https://suzumiyaakizuki.github.io/2022/05/23/关于用R语言进行方差分析的乐子二则/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>SuzumiyaAkizuki</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年5月23日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/05/27/%E6%8A%BD%E8%B1%A1%E4%BB%A3%E6%95%B0%E5%AE%9A%E4%B9%89%E6%95%B4%E7%90%86%EF%BC%9A%E7%AC%AC%E4%BA%8C%E5%BC%B9/" title="抽象代数定义整理：第二弹">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">抽象代数定义整理：第二弹</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/05/21/%E5%85%B3%E4%BA%8E%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A2%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/" title="关于拉普拉斯变换的那些事">
+                        <span class="hidden-mobile">关于拉普拉斯变换的那些事</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.7.2/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"48fb14f9689ae0d11307","clientSecret":"091ab25a88e87bfd9d9d40d97d1d0d932e694059","repo":"SuzumiyaAkizuki.github.io","owner":"SuzumiyaAkizuki","admin":["SuzumiyaAkizuki"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '3a735f8a3f8a7e378ac5286e53f8914c'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       Powered by: <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

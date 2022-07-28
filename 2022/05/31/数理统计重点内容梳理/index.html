@@ -1,0 +1,1262 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <link rel="icon" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="SuzumiyaAkizuki">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="周日就要考了，救命...... 另外，本文只是考试内容，有很多很好玩的内容，如方差分析，逐次回归，正交试验等没有涉及。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数理统计重点内容梳理">
+<meta property="og:url" content="https://suzumiyaakizuki.github.io/2022/05/31/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E9%87%8D%E7%82%B9%E5%86%85%E5%AE%B9%E6%A2%B3%E7%90%86/index.html">
+<meta property="og:site_name" content="凉宫秋月的文艺部">
+<meta property="og:description" content="周日就要考了，救命...... 另外，本文只是考试内容，有很多很好玩的内容，如方差分析，逐次回归，正交试验等没有涉及。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/sltj.jpg">
+<meta property="article:published_time" content="2022-05-31T10:09:57.000Z">
+<meta property="article:modified_time" content="2022-07-03T14:45:49.893Z">
+<meta property="article:author" content="SuzumiyaAkizuki">
+<meta property="article:tag" content="数理统计">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/sltj.jpg">
+  
+  
+  
+  <title>数理统计重点内容梳理 - 凉宫秋月的文艺部</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"suzumiyaakizuki.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":"G-J01HK5TZ0Y","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"QGqf9VPGTa96KerO0JvDW3Ld-gzGzoHsz","app_key":"RhwwUaYq4lMo1tCJwcQTWdRp","server_url":"https://qgqf9vpg.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.google-analytics.com/analytics.js', function() {
+          window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
+          ga.l = +new Date;
+          ga('create', 'G-J01HK5TZ0Y', 'auto');
+          ga('send', 'pageview');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>凉宫秋月的文艺部</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友情链接
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/sltj.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="数理统计重点内容梳理"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        SuzumiyaAkizuki
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-05-31 18:09" pubdate>
+          2022年5月31日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          14k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          28 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">数理统计重点内容梳理</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>周日就要考了，救命...... 另外，本文只是考试内容，有很多很好玩的内容，如方差分析，逐次回归，正交试验等没有涉及。</p>
+<span id="more"></span>
+<p>@[toc]</p>
+<h2 id="估计">估计</h2>
+<h3 id="umvue一致最小方差无偏估计">UMVUE一致最小方差无偏估计</h3>
+<p><strong>定义（一致最小方差无偏估计）</strong> ：设<span class="math inline">\(U_q\)</span>表示参数<span class="math inline">\(q(\theta)\)</span>所有的方差有限的估计组成的集合，如果存在无偏估计<span class="math inline">\(T*(\mathbf{x})\)</span>，使得： <span class="math display">\[
+Var_\theta(T^*(x))\leq Var_\theta(T(x))
+\]</span> 对任何<span class="math inline">\(\theta\)</span>,任何<span class="math inline">\(T(x)\in U_q\)</span>成立，那么<span class="math inline">\(T^*(x)\)</span>就是一致最小方差无偏估计。</p>
+<p>一般来说，我们可以用完全充分统计量的方法来寻找一致最小方差无偏估计。首先看几个概念：</p>
+<p><strong>定义（统计量）</strong> :<span class="math inline">\(\{x_1,\cdots,x_n\}\)</span>是来自总体<span class="math inline">\(X\)</span>的样本，那么仅和<span class="math inline">\(\{x_1,\cdots,x_n\}\)</span>有关的函数<span class="math inline">\(T(x_1,\cdots,x_n)\)</span>就是一个 <strong>统计量</strong></p>
+<p><strong>定义（充分统计量）</strong> :设总体分布族为<span class="math inline">\(\{p_\theta:\theta\in\Theta\}\)</span>,<span class="math inline">\(\{x_1,\cdots,x_n\}\)</span>是来自总体<span class="math inline">\(X\)</span>的样本，<span class="math inline">\(T\)</span>是统计量。如果给定<span class="math inline">\(T=t\)</span>，样本的条件分布函数<span class="math inline">\(F_\theta(\{x\}|t)\)</span>和参数<span class="math inline">\(\theta\)</span>无关，那么称<span class="math inline">\(T\)</span>是充分统计量。</p>
+<p><strong>定理（因子分解定理）</strong> ：对于总体分布族<span class="math inline">\(\{p_\theta:\theta\in\Theta\}\)</span>，统计量<span class="math inline">\(T\)</span>充分，等价于：存在一个定义在<span class="math inline">\(I\times\Theta\)</span><sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="$I$是$T(x)$的值域，$\Theta$是$\theta$的值域">[2]</span></a></sup>上的实函数<span class="math inline">\(g(t,\theta)\)</span>，和定义在样本空间上的不依赖于参数<span class="math inline">\(\theta\)</span>的实函数<span class="math inline">\(h(x)\)</span>，使得对于样本的联合分布有： <span class="math display">\[
+p(x;\theta)=g(T(x),\theta)\cdot h(x)
+\]</span> 对样本空间上的每一个<span class="math inline">\(x\)</span>都成立。</p>
+<blockquote>
+<p>【例】<span class="math inline">\(\{x\}\)</span>是来自泊松总体的<span class="math inline">\(n\)</span>个样本，求充分统计量。</p>
+<p>【解】联合分布： <span class="math display">\[
+p(\{x\};\lambda)=\frac{e^{-n\lambda} } {x_1!x_2!\cdots x_n!}\lambda^{\sum_{i=1}^nx_i}
+\]</span> 取 <span class="math display">\[
+T=\sum x_i,g(T,\lambda)=e^{-n\lambda}\lambda^T,h(x)=\frac 1{x_1!x_2!\cdots x_n!}
+\]</span> 有 <span class="math display">\[
+p(\{x\};\lambda)=g(T,\lambda)h(x)
+\]</span> 则<span class="math inline">\(T=\sum x_i\)</span>是充分统计量。</p>
+</blockquote>
+<p><strong>定义*（完全统计量）</strong> ：对于总体<span class="math inline">\(X\)</span>的分布族<span class="math inline">\(\{p_\theta:\theta\in\Theta\}\)</span>，<span class="math inline">\(g(X)\)</span>是随机变量，如果有：“对一切<span class="math inline">\(\theta\)</span>，<span class="math inline">\(E_\theta[g(x)]=0 \to P_\theta[g(x)=0]=1\)</span>”，则称这个分布族是完全分布族。如果统计量<span class="math inline">\(T\)</span>的分布族是完全的，那么<span class="math inline">\(T\)</span>就是完全统计量。</p>
+<p><strong>定理（充分性定理）</strong> ：设<span class="math inline">\(\{x\}\)</span>是来自总体分布族<span class="math inline">\(\{p_\theta:\theta\in\Theta\}\)</span>的<span class="math inline">\(n\)</span>个简单样本，如果联合密度函数（联合分布列）可以分解为： <span class="math display">\[
+p(\{x\},\theta)=c(\theta)h(\{x\})\exp\left\{ \sum_{k=1}^mw_k(\theta)T_k(\{x\}) \right\}
+\]</span> 其中：</p>
+<ul>
+<li><span class="math inline">\(h(\{x\})\)</span>仅是<span class="math inline">\(x_1,\cdots,x_n\)</span>的函数</li>
+<li><span class="math inline">\(w=[w_1(\theta),\cdots,w_k(\theta)]\)</span>是定义在<span class="math inline">\(\Theta^m\)</span>空间上的取值为<span class="math inline">\(A\subset{\mathbb R}^m\)</span>的向量函数</li>
+<li><span class="math inline">\(c(\theta)\)</span>仅是<span class="math inline">\(\theta\)</span>的函数</li>
+</ul>
+<p>如果<span class="math inline">\(A\)</span>包含内点，那么<span class="math inline">\(T_1,\cdots,T_m\)</span>都是完全充分的。</p>
+<blockquote>
+<p>【例】设<span class="math inline">\(\{x\}\)</span>是来自二项分布<span class="math inline">\(B(1,\theta)\)</span><sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="$B(n,p)$表示重复$n$次试验，每次试验成功的概率为$p$，成功的试验数目。这里实际上退化成了两点分布。">[3]</span></a></sup>总体的<span class="math inline">\(n\)</span>个简单样本，求<span class="math inline">\(\theta\)</span>的完全充分统计量。</p>
+<p>【解】联合分布列： <span class="math display">\[
+\begin{aligned}
+p(\{x\};\theta)&amp;=\prod_{i=1}^n \theta^{x_i}(1-\theta)^{1-x_i}\\\\
+&amp;=(1-\theta)^n\exp\left\{ \ln\frac{\theta} {1-\theta}\sum_{i=1}^n x_i \right\}
+\end{aligned}
+\]</span> 取：</p>
+<ul>
+<li><span class="math inline">\(w=\ln\frac{\theta} {1-\theta}\)</span>，<span class="math inline">\(m=1\)</span></li>
+<li><span class="math inline">\(c(\theta)=(1-\theta)^n\)</span></li>
+<li><span class="math inline">\(h(\{x\})=1\)</span></li>
+<li><span class="math inline">\(T=\sum x_i\)</span></li>
+</ul>
+<p>则<span class="math inline">\(T\)</span>是完全充分统计量。</p>
+</blockquote>
+<p><strong>定理（Lehmann-Scheffe定理）</strong>： 设<span class="math inline">\(S(x)\)</span>是完全充分统计量，<span class="math inline">\(\varphi(x)\)</span>是<span class="math inline">\(q(\theta)\)</span>的方差有限的无偏估计，则 <span class="math display">\[
+T(x)=E_\theta[\varphi(x)|S(x)]
+\]</span> 是<span class="math inline">\(q(\theta)\)</span>的一致最小方差无偏估计。</p>
+<p>Lehmann-Scheffe定理实际上提供了两种根据完全充分统计量<span class="math inline">\(S(x)\)</span>寻求<span class="math inline">\(q(\theta)\)</span>的UMVUE的路径：</p>
+<ol type="1">
+<li><p>如果能获得<span class="math inline">\(q(\theta)\)</span>的无偏估计<span class="math inline">\(\varphi(x)\)</span>，那么直接按照公式计算即可。</p>
+<blockquote>
+<p>【例】设<span class="math inline">\(\{x\}\)</span>是来自泊松总体的<span class="math inline">\(n\)</span>个简单样本，求<span class="math inline">\(q(\lambda)=e^{-\lambda}\)</span>的UMVUE。</p>
+<p>【解】泊松分布列为： <span class="math display">\[
+p(x;\lambda)=\frac{\lambda^x} {x!}e^{-\lambda}=e^{-\lambda}\frac 1{x!}\exp(\ln (\lambda) x)\ \ x=0,1,2,\cdots
+\]</span> 则联合分布列的分解： <span class="math display">\[
+p(\{x\};\theta)=e^{-n\lambda}\prod_{i=1}^n\frac{1} {x_i!}\exp(\ln \lambda \sum_{i=1}^n x_i)
+\]</span> 取：</p>
+<ul>
+<li><span class="math inline">\(S(x)=\sum x_i\)</span></li>
+<li><span class="math inline">\(w(\lambda)=\ln \lambda\)</span>,<span class="math inline">\(m=1\)</span></li>
+<li><span class="math inline">\(c(\lambda)=e^{-n\lambda}\)</span></li>
+<li><span class="math inline">\(h=\prod \frac{1} {x_i!}\)</span></li>
+</ul>
+<p>则<span class="math inline">\(S\)</span>是完全充分统计量。</p>
+<p>接下来寻找<span class="math inline">\(q(\lambda)\)</span>的无偏估计。取 <span class="math display">\[
+\varphi(x)=I_{x_1=0}(x_1,\cdots,x_n)
+\]</span> 其中<span class="math inline">\(I\)</span>是指示函数<sup id="fnref:4" class="footnote-ref"><a href="#fn:4" rel="footnote"><span class="hint--top hint--rounded" aria-label="指示函数$I_a()$：当条件$a$为真时为$1$，反之为$0$.">[4]</span></a></sup>.</p>
+<p>则： <span class="math display">\[
+E_\lambda[\varphi(x)]=P[x_1=0]=e^{-n\lambda}
+\]</span> 故<span class="math inline">\(\varphi\)</span>是<span class="math inline">\(q(\lambda)\)</span>的无偏估计。则有： <span class="math display">\[
+T=E[\varphi|S(x)=s]
+\]</span> 则有： <span class="math display">\[
+T=\frac{P[x_1=0]P[\sum_{k=2}^nx_k=s]} {P[\sum_{k=1}^nx_k=s]}
+\]</span> 由于泊松分布的和是泊松分布，<span class="math inline">\(\lambda\)</span>参数求和，则： <span class="math display">\[
+T=\left(\frac{n-1} {n}\right)^{\sum x_i}
+\]</span></p>
+</blockquote></li>
+<li><p>由于<span class="math inline">\(T(x)\)</span>一定是<span class="math inline">\(S(x)\)</span>的函数，因此如果能获取<span class="math inline">\(S(x)\)</span>的函数<span class="math inline">\(h(S(x))\)</span>，并将其无偏化，则可以获得UMVUE。</p>
+<blockquote>
+<p>【例】<span class="math inline">\(\{x\}\)</span>是来自总体<span class="math inline">\(N(\mu,\sigma^2)\)</span>的<span class="math inline">\(n\)</span>个简单样本，其中<span class="math inline">\(\mu\)</span>是已知量，求<span class="math inline">\(\sigma^2\)</span>的UMVUE。</p>
+<p>【解】样本的联合密度函数为： <span class="math display">\[
+p(\{x\};\sigma^2)=(2\pi\sigma^2)^{-\frac{n} {2} }\exp\left\{-\frac{1} {2\sigma^2}\sum_{i=1}^{n}(x_i-\mu)^2 \right\}
+\]</span> 取：</p>
+<ul>
+<li><span class="math inline">\(c(\sigma^2)=(2\pi\sigma^2)^{-\frac n2}\)</span></li>
+<li><span class="math inline">\(h(\{x\})=1\)</span></li>
+<li><span class="math inline">\(w(\sigma^2)=-\frac{1} {2\sigma^2},m=1\)</span></li>
+<li><span class="math inline">\(S(x)=\sum(x_i-\mu)^2\)</span></li>
+</ul>
+<p>则<span class="math inline">\(S(x)\)</span>是完全充分统计量。由于 <span class="math display">\[
+E[S(x)]=E\left[\sum(x_i-\mu)^2\right]=n\sigma^2
+\]</span> 则： <span class="math display">\[
+E\left[\frac{1} {n}S(x)\right]=\sigma^2
+\]</span> 于是<span class="math inline">\(S/n\)</span>既是待估计量的无偏估计，也是完全充分统计量<span class="math inline">\(S\)</span>的函数，因此 <span class="math display">\[
+\frac Sn=\frac 1n \sum_{i=1}^n(x_i-\mu)^2
+\]</span> 是待估计量的UMVUE。</p>
+</blockquote></li>
+</ol>
+<h3 id="有效估计">有效估计</h3>
+<h3 id="矩估计">矩估计</h3>
+<p>矩估计法的思想是基于替换原理，用样本矩替换相应的总体矩，进而求出某些待估计参数的过程。</p>
+<p>其中的样本矩的意思是根据<span class="math inline">\(n\)</span>次抽样算出来的矩，比如说抽样<span class="math inline">\(n\)</span>次的样本是<span class="math inline">\(\{x_1,x_2,\cdots,x_n\}\)</span>，那么<span class="math inline">\(k\)</span>阶样本原点矩就是 <span class="math display">\[
+A_k=\frac 1n\sum_{i=1}^n x_i^k
+\]</span> 而总体矩的意思是将待估计参数代入分布的理论形式中，通过理论分析计算期望而得出的矩。假如待估计参数是<span class="math inline">\(\theta\)</span>,那么<span class="math inline">\(k\)</span>阶总体原点矩是 <span class="math display">\[
+\mu_k=E_\theta[X^k]
+\]</span> 求矩估计的一般步骤是：将待估计的参数<span class="math inline">\(q(\theta)\)</span>表示成各阶总体矩<span class="math inline">\(\mu_k\)</span>的函数,然后用样本矩替换总体矩，就可以获得矩估计。</p>
+<blockquote>
+<p>【例】总体<span class="math inline">\(X\)</span>服从<span class="math inline">\([a,b]\)</span>上的均匀分布，也就是说，其概率密度函数<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="$p(x;a,b)$的含义是：该函数以$x$为自变量，有两个参数$a$和$b$">[1]</span></a></sup>为： <span class="math display">\[
+p(x;a,b)=\begin{cases}
+\frac{1} {b-a} &amp;x\in[a,b]\\\\
+0 &amp;\text{others}
+\end{cases}
+\]</span> <span class="math inline">\(\{x_1,x_2,\cdots,x_n\}\)</span>是总体<span class="math inline">\(X\)</span>的简单抽样样本。求<span class="math inline">\(a,b\)</span>的矩估计。</p>
+<p>【解】设<span class="math inline">\(\mu_1=E[x],v_2=D[x]\)</span>,有： <span class="math display">\[
+\begin{cases}
+\mu_1=\frac{1} {2}(a+b)\\\\[2ex]
+v_2=\frac{1} {12}(b-a)^2\\\\[2ex]
+\end{cases}
+\]</span> 解方程，可得： <span class="math display">\[
+a=\mu_1-\sqrt{3v_2}\\\\
+b=\mu_1+\sqrt{3v_2}
+\]</span> 用样本均值替换总体均值，用样本方差替换二阶中心矩，有： <span class="math display">\[
+\mu_1 \to \bar{x}\\\\
+v_2 \to \frac{1} {n}\sum_{i=1}^n(x_i-\bar{x})^2
+\]</span> 则可得<span class="math inline">\(a,b\)</span>的矩估计： <span class="math display">\[
+a=\bar{x}-\sqrt{\frac 3n\sum_{i=1}^n(x_i-\bar{x})^2}\\\\
+b=\bar{x}+\sqrt{\frac 3n\sum_{i=1}^n(x_i-\bar{x})^2}
+\]</span></p>
+</blockquote>
+<h3 id="极大似然估计">极大似然估计</h3>
+<p>极大似然估计的思想是：如果在一次试验中产生了一个结果，那么一般认为试验条件对这个结果的发生有利，也就是这个结果发生的概率最大。</p>
+<p>一般步骤是：先求出一个似然函数<span class="math inline">\(L(\theta;x_1,x_2,\cdots,x_n)\)</span>，它以待估计量<span class="math inline">\(\theta\)</span>为自变量，以试验结果为参数，它的含义是当前试验结果出现的概率。然后通过将<span class="math inline">\(L\)</span>(因为概率往往是乘积形式，有时我们也用<span class="math inline">\(\ln L\)</span>)对<span class="math inline">\(\theta\)</span>求偏导的方法，得出<span class="math inline">\(L\)</span>取得上界时<span class="math inline">\(\theta\)</span>的值，并将其作为估计结果。</p>
+<blockquote>
+<p>【例】总体<span class="math inline">\(X\sim N(\mu,\sigma^2)\)</span>.其中<span class="math inline">\(\mu,\sigma^2\)</span>的参数空间为<span class="math inline">\(\mu\in{\mathbb R},\sigma^2&gt;0\)</span>，<span class="math inline">\(\{x_1,\cdots,x_n\}\)</span>是简单样本，求<span class="math inline">\(\mu,\sigma^2\)</span>的极大似然估计。</p>
+<p>【解】总体的密度函数为： <span class="math display">\[
+p(x;\mu,\sigma^2)=\frac{1} {\sqrt{2\pi\sigma^2} }\exp(\frac{-(x-\mu)^2} {2\sigma^2})
+\]</span> 则有“似然函数”： <span class="math display">\[
+\begin{aligned}
+L(\mu,\sigma^2;x_1,\cdots,x_n)=\prod_{i=1}^np(x_1;\mu,\sigma^2)
+\end{aligned}
+\]</span> 则 <span class="math display">\[
+\ln L=-\frac n2\ln(2\pi)-\frac n2 \ln(\sigma^2)-\frac 1{2\sigma^2}\sum_{i=1}^n(x_i-\mu)^2
+\]</span> 分别对<span class="math inline">\(\mu,\sigma^2\)</span>求导，得： <span class="math display">\[
+\begin{cases}
+\frac{\partial \ln L} {\partial \mu}=\frac{1} {\sigma^2}\sum_{i=1}^n(x_i-\mu)=0\\\\
+\frac{\partial \ln L} {\partial \sigma^2}=-\frac n{2\sigma^2}+\frac 1{2(\sigma^2)^2}\sum_{i=1}^n(x_i-\mu)=0
+\end{cases}
+\]</span> 解得： <span class="math display">\[
+\mu=\bar{x}\\\\
+\sigma^2=\frac 1n \sum(x_i-\bar{x})^2
+\]</span></p>
+</blockquote>
+<h3 id="区间估计定义">区间估计（定义）</h3>
+<p><strong>定义（区间估计）</strong> ：对于总体分布族<span class="math inline">\(\{p_\theta:\theta\in\Theta\}\)</span>，如果存在两个统计量<span class="math inline">\(T_1(x),T_2(x)\)</span>，对于给定的<span class="math inline">\(\alpha\)</span>，有： <span class="math display">\[
+P\left\{\theta\in [T_1(x),T_2(x)]\right\}\geq 1-\alpha
+\]</span> 对任意<span class="math inline">\(\theta\)</span>都成立，称<span class="math inline">\([T_1,T_2]\)</span>是参数<span class="math inline">\(\theta\)</span>置信度为<span class="math inline">\(1-\alpha\)</span>的区间估计。</p>
+<p>区间估计的含义是，假设做<span class="math inline">\(m\)</span>组重复试验，每组抽取<span class="math inline">\(n\)</span>个样本，这样就可以得到<span class="math inline">\(m\)</span>个区间<span class="math inline">\([T_1,T_2]\)</span>。在这<span class="math inline">\(m\)</span>个区间中，大约有<span class="math inline">\(100(1-\alpha)\%\)</span>包含<span class="math inline">\(\theta\)</span>的真值。我们不能说<span class="math inline">\(\theta\)</span>落入区间<span class="math inline">\([T_1,T_2]\)</span>的概率是<span class="math inline">\(1-\alpha\)</span>，这是因为<span class="math inline">\(\theta\)</span>的真值是一个客观存在的不变量。</p>
+<h3 id="minimax估计">Minimax估计</h3>
+<p><strong>定义（Minimax估计）</strong> ：对于总体分布族<span class="math inline">\(\{p_\theta:\theta\in\Theta\}\)</span>，<span class="math inline">\(G_q\)</span>是由待估参数<span class="math inline">\(q(\theta)\)</span>的估计量（决策函数）<sup id="fnref:5" class="footnote-ref"><a href="#fn:5" rel="footnote"><span class="hint--top hint--rounded" aria-label="决策函数的自变量是样本$\{x\}$，因变量是对待估计量的估计">[5]</span></a></sup>组成的集合，如果存在<span class="math inline">\(T^*\in G_q\)</span>，有： <span class="math display">\[
+\sup_{\theta\in\Theta}R(\theta,T^*)\leq\sup_{\theta\in\Theta}R(\theta,T)
+\]</span> 对任意<span class="math inline">\(T\in G_q\)</span>成立，则称<span class="math inline">\(T^*\)</span>是Minimax估计。其中<span class="math inline">\(R(\theta,T)\)</span>是风险函数，定义如下： <span class="math display">\[
+R(\theta,T)=E_\theta[L(\theta,T(x))]
+\]</span> 其中<span class="math inline">\(L(\theta,T)\)</span>是损失函数，意思是当待估计量是<span class="math inline">\(\theta\)</span>，然后你估计它为<span class="math inline">\(T(x)\)</span>时产生的损失。</p>
+<blockquote>
+<p>【例】总体服从两点分布<span class="math inline">\(B(1,p)\)</span>，<span class="math inline">\(p \in \{\frac 14,\frac12\}\)</span>，损失函数如下表所示，求<span class="math inline">\(p\)</span>的Minimax估计。</p>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(p\)</span></th>
+<th><span class="math inline">\(a_1=1/4\)</span></th>
+<th><span class="math inline">\(a_2=1/2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(p_1=1/4\)</span></td>
+<td>1</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(p_2=1/2\)</span></td>
+<td>3</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>【解】仅仅取1个观察值，那么总共有4种决策函数：</p>
+<ol type="1">
+<li><p><code>T1=1/4</code></p></li>
+<li><p><code>T2=(x==0)?1/4:1/2</code></p></li>
+<li><p><code>T3=(x==0)?1/2:1/4</code></p></li>
+<li><p><code>T4=1/2</code></p>
+<p>响应的风险表如下：</p>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(T_i\)</span></th>
+<th><span class="math inline">\(R(p_1,T_i)\)</span></th>
+<th><span class="math inline">\(R(p_2,T_i)\)</span></th>
+<th><span class="math inline">\(\max R\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>7/4</td>
+<td>5/2</td>
+<td>5/2</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>13/4</td>
+<td>5/2</td>
+<td>13/4</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>4</td>
+<td>2</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>例如，我们求<span class="math inline">\(R(p_2,T_2)\)</span>: <span class="math display">\[
+\begin{aligned}
+R(p_2,T_2)&amp;=E_{p_2}[L(p_2,T_2)]\\\\
+&amp;=P_{p_2}\{x=0\}L(p_2,1/4)+P_{p_2}\{x=1\}L(p_2,1/2)\\\\
+&amp;=\frac 12\times 3+\frac 12 \times 2\\\\
+&amp;=\frac 52
+\end{aligned}
+\]</span> 在第四列中选取最小的，所以应该选<span class="math inline">\(T_2\)</span>。</p></li>
+</ol>
+</blockquote>
+<h2 id="假设检验">假设检验</h2>
+<h3 id="结合实际问题的假设检验">结合实际问题的假设检验</h3>
+<p>对于正态总体而言，有：</p>
+<ol type="1">
+<li><p>单个方差已知时总体均值的检验 <span class="math display">\[
+H_0:\mu=\mu_0\ \ H_1:\mu\neq\mu_0
+\]</span> 检验统计量为： <span class="math display">\[
+z=\frac{\bar{x}-\mu_0} {\sigma/\sqrt{n} }\sim N(0,1)
+\]</span> 这种检验方法叫做“<span class="math inline">\(z\)</span>检验”</p>
+<p>拒绝域为： <span class="math display">\[
+W=\{|z|\geq z_{1-\frac\alpha 2}\}
+\]</span></p></li>
+<li><p>单个方差未知时总体均值的检验 <span class="math display">\[
+H_0:\mu=\mu_0\ \ H_1:\mu\neq\mu_0
+\]</span> 检验统计量： <span class="math display">\[
+t=\frac{\bar{x}-\mu_0} {S/\sqrt{n} }\sim t(n-1)
+\]</span> 这种检验方式叫做<span class="math inline">\(t\)</span>检验。</p>
+<p>拒绝域： <span class="math display">\[
+W=\left\{\frac{\bar{x}-\mu_0} {S/\sqrt{n} }\geq t_{1-\frac \alpha2}(n-1)\right\}
+\]</span></p></li>
+<li><p>单个均值未知时方差的检验 <span class="math display">\[
+H_0:\sigma^2=\sigma_0^2
+\]</span> 检验统计量： <span class="math display">\[
+\chi^2=\frac{(n-1)S^2} {\sigma_0^2} \sim \chi^2(n-1)
+\]</span> 拒绝域： <span class="math display">\[
+W=\{\chi^2\leq\chi^2_{\frac \alpha2}(n-1)\}\cup \{\chi^2\geq\chi_{1-\frac \alpha2}^2(n-1)\}
+\]</span></p></li>
+<li><p>单个均值已知时方差的检验 <span class="math display">\[
+H_0:\sigma^2=\sigma_0^2
+\]</span> 检验统计量： <span class="math display">\[
+\chi^2=\frac 1{\sigma_0^2}\sum_{i=1}^n(x_i-\mu)^2\sim\chi^2(n)
+\]</span> 拒绝域: <span class="math display">\[
+W=\{\chi^2\leq\chi^2_{\frac \alpha2}(n)\}\cup \{\chi^2\geq\chi_{1-\frac \alpha2}^2(n)\}
+\]</span></p></li>
+<li><p>两个总体均值相等的检验</p>
+<ol type="1">
+<li><p>两个方差<span class="math inline">\(\sigma_1,\sigma_2\)</span>已知</p>
+<p>检验统计量： <span class="math display">\[
+z=\frac{\bar{x}-\bar{y} } {\sqrt{\frac{\sigma_1^2} {n_1}+\frac{\sigma^2_2} {n_2} }}
+\]</span></p>
+<p>拒绝域： <span class="math display">\[
+W=\{|z|\geq z_{1-\frac\alpha 2}\}
+\]</span></p></li>
+<li><p>两个方差未知但相等</p>
+<p>检验统计量： <span class="math display">\[
+S^2_w=\frac{(n_1-1)S^2_1+(n_2-1)S_2^2} {n_1+n_2-2}\\\\
+t=\frac{\bar{x}-\bar{y} } {S_w\sqrt{\frac 1{n_1}+\frac1{n_2} }}\sim t(n_1+n_2-2)
+\]</span> 拒绝域 <span class="math display">\[
+W=\{|t|\geq t_{1-\frac \alpha2}(n_1+n_2-2)\}
+\]</span></p></li>
+<li><p>方差情况未知但样本数相等</p>
+<p>检验统计量 <span class="math display">\[
+z_i=x_i-y_i\\\\
+t=\frac{\bar{z} } {S_z/\sqrt{n} }\sim t(n-1)
+\]</span> 拒绝域 <span class="math display">\[
+W=\{|t|\geq t_{1-\frac \alpha2}(n-1)\}
+\]</span></p></li>
+</ol></li>
+</ol>
+<h3 id="umpt一致最优势检验">UMPT一致最优势检验</h3>
+<p>首先我们明确几个概念</p>
+<p><strong>定义（检验函数）</strong> 检验函数<span class="math inline">\(\varphi(x)\)</span>一般定义如下： <span class="math display">\[
+\varphi(x)=I_{x\in W}(x)
+\]</span> 也就是拒绝域上的示性函数，即： <span class="math display">\[
+\varphi(x)=\begin{cases}
+1, &amp;x\in W\\\\
+0, &amp;\text{others}
+\end{cases}
+\]</span> 当检验函数为1时，选择拒绝<span class="math inline">\(H_0\)</span>。这样的检验函数叫非随机化检验函数。如果得到样本<span class="math inline">\(x\)</span>后，以概率<span class="math inline">\(\varphi(x)\)</span>，这就是随机化检验函数。</p>
+<p><strong>定义（检验的势函数）</strong> 样本观测值落入拒绝域的概率称为势函数<span class="math inline">\(g(\theta)\)</span>.</p>
+<p><strong>定义（检验的水平）</strong> 对于给定的<span class="math inline">\(\alpha\in[0,1]\)</span>,如果检验<span class="math inline">\(\varphi(x)\)</span>对所有<span class="math inline">\(\theta\in\Theta_0\)</span>满足<span class="math inline">\(E_{\theta}[\varphi(x)]\leq\alpha\)</span>，称<span class="math inline">\(\varphi(x)\)</span>的水平是<span class="math inline">\(\alpha\)</span></p>
+<p>一个自然的比较检验的优劣的方式是：在相同的检验水平<span class="math inline">\(\alpha\)</span>下，如果 <span class="math display">\[
+E_{\theta_1}[\varphi_1(x)]\geq E_{\theta_1}[\varphi_2(x)]
+\]</span> 那么就说<span class="math inline">\(\varphi_1\)</span>比较好。</p>
+<p><strong>定理（N-P引理）</strong> 对于假设检验问题： <span class="math display">\[
+H_0:\theta= \theta_0\ \ \ H_1:\theta=\theta_1
+\]</span> 以及给定检验水平<span class="math inline">\(\alpha\)</span>,有：</p>
+<ol type="1">
+<li><p>存在非负常数<span class="math inline">\(k\)</span>，检验 <span class="math display">\[
+\varphi(x)=\begin{cases}
+0, &amp;L(x)\geq k\\\\
+1, &amp;L(x)&lt; k\\\\
+\end{cases}
+\]</span> 满足 <span class="math display">\[
+E_{\theta_0}[\varphi(x)]=\alpha
+\]</span> 而且检验函数<span class="math inline">\(\varphi(x)\)</span>是水平为<span class="math inline">\(\alpha\)</span>的最优势检验。其中<span class="math inline">\(L(x)\)</span>是似然比统计量： <span class="math display">\[
+L(x)=\frac{p(x;\theta_1)} {p(x;\theta_0)}
+\]</span></p></li>
+<li><p>如果检验函数<span class="math inline">\(\varphi(x)\)</span>是水平为<span class="math inline">\(\alpha\)</span>的最优势检验，那么一定存在非负常数<span class="math inline">\(k\)</span>，使得<span class="math inline">\(\varphi(x)\)</span>满足（1）的第一个式子，如果有<span class="math inline">\(E_{\theta_1}[\varphi(x)]\leq 1\)</span>，那么第二个式子也满足。</p></li>
+</ol>
+<blockquote>
+<p>【例】<span class="math inline">\(\{x\}\)</span>是来自正态总体<span class="math inline">\(N(\mu,\sigma^2)\)</span>的<span class="math inline">\(n\)</span>维简单随机样本，<span class="math inline">\(\mu\geq 0,\sigma\)</span>已知。对于假设： <span class="math display">\[
+H_0:\mu=0\ \ H_1:\mu=\mu_1&gt;0
+\]</span> 求水平为<span class="math inline">\(\alpha\)</span>的最优势检验。</p>
+<p>【解】检验函数具有如下形式： <span class="math display">\[
+\varphi(x)=\begin{cases}
+0, &amp;L(x)\geq k\\\\
+1, &amp;L(x)&lt; k\\\\
+\end{cases}
+\]</span> 其中<span class="math inline">\(L(x)\)</span>满足： <span class="math display">\[
+\begin{aligned}
+L(x)&amp;=\frac{p(x;\mu_1)} {p(x;0)}\\\\
+&amp;=\exp\left\{\frac{n\mu_1\bar{x} } {\sigma^2}-\frac{n\mu_1^2} {2\sigma^2}\right\}
+\end{aligned}
+\]</span> <span class="math inline">\(k\)</span>由 <span class="math display">\[
+E_{\mu=0}[\varphi(x)]=P_{\mu=0}\{L(x)\geq k\}=\alpha
+\]</span> 确定。</p>
+<p>由于<span class="math inline">\(L(x)\)</span>随<span class="math inline">\(\bar{x}\)</span>单增，因此 <span class="math display">\[
+\{x|L(x)\geq k\}=\{x|\bar{x}\geq c\}
+\]</span> 对于给定的<span class="math inline">\(\alpha\)</span>，有： <span class="math display">\[
+P_{\mu=0}\{L(x)\geq k\}=P_{\mu=0}\{\bar{x}\geq c\}=1-\Phi\left(\frac{c} {\sigma/\sqrt{n} }\right)=\alpha
+\]</span> 得<span class="math inline">\(c=\sigma z_{1-\alpha}/\sqrt{n}\)</span></p>
+<p>则检验函数： <span class="math display">\[
+\varphi(x)=\begin{cases}
+0, &amp;\bar(x)\geq c\\\\
+1, &amp;\bar(x)&lt; c\\\\
+\end{cases}
+\]</span></p>
+</blockquote>
+<p><strong>定义（一致最优势检验）</strong> 如果检验问题是： <span class="math display">\[
+H_0:\theta\in \Theta_0\ \ \ H_1:\theta\in\Theta_1
+\]</span> 对于<span class="math inline">\(\Theta_0\)</span>中的每个<span class="math inline">\(\theta\)</span>，<span class="math inline">\(\varphi\)</span>都是最优势检验，那么<span class="math inline">\(\varphi\)</span>称为一致最优势检验。</p>
+<p><strong>定理（UMPT的确定） </strong> 对于单参数的密度函数（分布列）<span class="math inline">\(p(x;\theta)\)</span>，如果可以表示为： <span class="math display">\[
+p(x;\theta)=d(\theta)h(x)\exp\{c(\theta)T(x)\}
+\]</span> 其中<span class="math inline">\(c(\theta)\)</span>严格单增，那么对于检验问题： <span class="math display">\[
+H_0:\theta\leq \theta_0\ \ H_1:\theta&gt;\theta_0
+\]</span></p>
+<ol type="1">
+<li><p>水平为<span class="math inline">\(\alpha\)</span>的UMPT存在，为： <span class="math display">\[
+\varphi(x)=\begin{cases}
+1, &amp;T(x)&gt; c\\\\
+r, &amp;T(x)=c\\\\
+0, &amp;T(x)&lt; c\\\\
+\end{cases}
+\]</span> 常数<span class="math inline">\(c,r\)</span>由<span class="math inline">\(E_{\theta_0}[\varphi(x)]=\alpha\)</span>确定。</p></li>
+<li><p>势函数<span class="math inline">\(g(\theta)=E_{\theta}[\varphi(x)]\)</span>单增。</p></li>
+</ol>
+<p>注解：</p>
+<ol type="1">
+<li><p>如果<span class="math inline">\(c(\theta)\)</span>单减，结论仍然成立，只需将检验函数中的不等号调换。</p></li>
+<li><p>对于检验问题： <span class="math display">\[
+H_0:\theta=\theta_0\ \ H_1:\theta&gt;\theta_0
+\]</span> 结论完全照原样成立。</p></li>
+<li><p>对于检验问题 <span class="math display">\[
+H_0:\theta\geq \theta_0\ \ H_1:\theta&lt;\theta_0
+\]</span> 只需取<span class="math inline">\(\theta&#39;=-\theta\)</span>即可。</p></li>
+</ol>
+<blockquote>
+<p>【例】<span class="math inline">\(\{x\}\)</span>是来自正态总体<span class="math inline">\(N(\mu,\sigma^2)\)</span>的<span class="math inline">\(n\)</span>维简单随机样本，<span class="math inline">\(\mu\)</span>已知，<span class="math inline">\(\sigma^2\)</span>未知，求检验： <span class="math display">\[
+H_0:\sigma^2\leq \sigma_0^2\ \ H_1:\sigma^2&gt;\sigma_0^2
+\]</span> 的UMPT。</p>
+<p>【解】对于联合密度函数，有： <span class="math display">\[
+p(x;\theta)=\left(\frac{1} {\sqrt{2\pi\sigma^2} }\right)^n\exp\left\{-\frac{1} {2\sigma^2}\sum_{i=1}^n(x_i-\mu)^2\right\}
+\]</span> 其中：</p>
+<ol type="1">
+<li><span class="math inline">\(d(\sigma^2)=\left(\frac{1} {\sqrt{2\pi\sigma^2} }\right)^n\)</span></li>
+<li><span class="math inline">\(h(x)=1\)</span></li>
+<li><span class="math inline">\(c(\sigma^2)=-\frac{1} {2\sigma^2}\)</span></li>
+<li><span class="math inline">\(T(x)=\sum_{i=1}^n(x_i-\mu)^2\)</span></li>
+</ol>
+<p>则UMPT存在，为： <span class="math display">\[
+\varphi(x)=\begin{cases}
+1, &amp;T(x)\geq c\\\\
+0, &amp;T(x)&lt; c\\\\
+\end{cases}
+\]</span> 由 <span class="math display">\[
+E_{\sigma^2}[\varphi(x)]=P_{\sigma_0^2}\left\{\frac{1} {\sigma_0^2}\sum_{i=1}^n(x_i-\mu)^2\geq\frac{c} {\sigma_0^2} \right\}=\alpha
+\]</span> 其中 <span class="math display">\[
+\frac{1} {\sigma_0^2}\sum_{i=1}^n(x_i-\mu)^2\sim \chi^2(n)
+\]</span> 故 <span class="math display">\[
+c=\sigma_0^2\chi^2_{1-\alpha}(n)
+\]</span> 综上所述，UMPT为： <span class="math display">\[
+\varphi(x)=\begin{cases}
+1, &amp;\sum_{i=1}^n(x_i-\mu)^2\geq \sigma_0^2\chi^2_{1-\alpha}(n)\\\\
+0, &amp;\sum_{i=1}^n(x_i-\mu)^2&lt; \sigma_0^2\chi^2_{1-\alpha}(n)\\\\
+\end{cases}
+\]</span></p>
+</blockquote>
+<h2 id="分布">分布</h2>
+<p>由正态分布导出的三大分布：</p>
+<h3 id="chi2分布"><span class="math inline">\(\chi^2\)</span>分布</h3>
+<p>设<span class="math inline">\(X_1\cdots X_n\)</span>是服从<span class="math inline">\(N(0,1)\)</span>的随机变量，而且互相独立，则 <span class="math display">\[
+\sum_{i=1}^nX_i^2 \sim \chi^2(n)
+\]</span> 叫做：服从自由度为<span class="math inline">\(n\)</span>的<span class="math inline">\(\chi^2\)</span>分布。</p>
+<h3 id="t分布"><span class="math inline">\(t\)</span>分布</h3>
+<p>设<span class="math inline">\(X\sim N(0,1),Y\sim\chi^2(n)\)</span>，而且相互独立，则 <span class="math display">\[
+\frac{X} {\sqrt{Y/n} }\sim t(n)
+\]</span> 叫做：服从自由度为<span class="math inline">\(n\)</span>的<span class="math inline">\(t\)</span>分布，也叫学生分布。</p>
+<h3 id="f分布"><span class="math inline">\(F\)</span>分布</h3>
+<p>设<span class="math inline">\(X\sim \chi^2(n_1),Y\sim\chi^2(n_2)\)</span>，而且相互独立，则 <span class="math display">\[
+\frac{X/n_1} {Y/n_2}\sim F(n_1,n_2)
+\]</span></p>
+<h3 id="分位数">分位数</h3>
+<p>对于随机变量<span class="math inline">\(X\)</span>的分布函数<span class="math inline">\(F(x)\)</span>，给定实数<span class="math inline">\(p\in[0,1]\)</span>，若： <span class="math display">\[
+p\{X\leq x_p\}=F(x_p)=p
+\]</span> 称<span class="math inline">\(x_p\)</span>是此概率分布的<span class="math inline">\(p\)</span>分位数。</p>
+<h2 id="线性回归">线性回归</h2>
+<p>证明：<span class="math inline">\(e=Y-\hat{Y}\)</span>和<span class="math inline">\(\hat{\beta}=(X&#39;X)^{-1}X&#39;Y\)</span>不相关。</p>
+<p>证明：<span class="math inline">\(e=[I_n-X(X&#39;X)^{-1}X&#39;]Y\)</span></p>
+<p>由 <span class="math display">\[
+Cov(Ax,By)=ACov(x,y)B&#39;
+\]</span> 得： <span class="math display">\[
+\begin{aligned}
+Cov(e,\hat{\beta})&amp;=Cov([I_n-X(X&#39;X)^{-1}X&#39;]Y,(X&#39;X)^{-1}X&#39;Y)\\\\
+&amp;=[I_n-X(X&#39;X)^{-1}X&#39;]D[Y][(X&#39;X)^{-1}X&#39;]&#39;\\\\
+&amp;=\sigma^2[I_n-X(X&#39;X)^{-1}X&#39;][(X&#39;X)^{-1}X&#39;]&#39;\\\\
+&amp;=\sigma^2[(X&#39;X)^{-1}X]-[X(X&#39;X)^{-1}(X&#39;(X&#39;X)^{-1}X)]\\\\
+&amp;=\sigma^2[(X&#39;X)^{-1}X-X(X&#39;X)^{-1}]\\\\
+&amp;=0
+\end{aligned}
+\]</span></p>
+<h2 id="主成分分析">主成分分析</h2>
+<p>设总体<span class="math inline">\(\boldsymbol{x}=(x_1,x_2,\cdots,x_p)&#39;\)</span>是<span class="math inline">\(p\)</span>元总体，<span class="math inline">\(E[\boldsymbol{x}]=\boldsymbol{\mu},Var(\boldsymbol{x})=\boldsymbol{\Sigma}=(\sigma_{ij})\)</span>。我们的目标是把这<span class="math inline">\(p\)</span>个指标综合成少数几个指标，也就是所谓的主成分。要求这几个指标能尽量多地反应原来<span class="math inline">\(p\)</span>个指标所提供的信息，而且彼此不相关。</p>
+<p>首先考虑把这<span class="math inline">\(p\)</span>个指标全综合到一个数值<span class="math inline">\(y_1\)</span>里，有： <span class="math display">\[
+y_1=u_1x_1+\cdots+u_px_p=\boldsymbol{u&#39;x}
+\]</span> 因为方差越大，信息量越大，所以我们的目的是：在<span class="math inline">\(\boldsymbol{u&#39;u}=1\)</span>的条件下，让<span class="math inline">\(Var(y)=\boldsymbol{u&#39;\Sigma u}\)</span>最大。</p>
+<p>有如下定理：</p>
+<p><strong>定理</strong> ：设<span class="math inline">\(\boldsymbol{\Sigma}\)</span>的特征值从大到小依次是<span class="math inline">\(\lambda_1,\lambda_2,\cdots,\lambda_p\geq0\)</span>,<span class="math inline">\(\lambda_i\)</span>对应的单位特征向量为<span class="math inline">\(\boldsymbol{a_i}\)</span>，则：</p>
+<ol type="1">
+<li>在<span class="math inline">\(\boldsymbol{u&#39;u}=1\)</span>的条件下，<span class="math inline">\(\boldsymbol{u&#39;\Sigma u}\)</span>在<span class="math inline">\(\boldsymbol{u=a_1}\)</span>时取得最大值<span class="math inline">\(\lambda_1\)</span></li>
+<li>在<span class="math inline">\(\boldsymbol{u&#39;u}=1,\boldsymbol{u&#39;a_i}=0\)</span>的条件下（<span class="math inline">\(i=1,2,3,\cdots,k-1\)</span>），<span class="math inline">\(\boldsymbol{u&#39;\Sigma u}\)</span>在<span class="math inline">\(u=a_k\)</span>处取得最大值<span class="math inline">\(\lambda_k\)</span></li>
+</ol>
+<p>于是，我们称<span class="math inline">\(y_1=\boldsymbol{u&#39;a_1}\)</span>为第一主成分，如果信息量仍然不够，应该选择第二主成分。由于要保证主成分之间的独立性，则条件应该加上<span class="math inline">\(Cov(y_1,y_2)=\boldsymbol{a&#39;_1\Sigma u}=\lambda\boldsymbol{u&#39;a_1}=0\)</span>,于是遵循（2）的规则继续取就行了。如此这样不断地取，直到累计方差贡献率 <span class="math display">\[
+\frac{\lambda_1+\cdots+\lambda_k} {\lambda_1+\lambda_2+\cdots+\lambda_p}
+\]</span> 达到预设值（往往为百分之七十五），就结束分析。</p>
+<hr />
+<section class="footnotes">
+<div class="footnote-list">
+<ol>
+<li>
+<span id="fn:1" class="footnote-text"><span><span class="math inline">(p(x;a,b))</span>的含义是：该函数以<span class="math inline">(x)</span>为自变量，有两个参数<span class="math inline">(a)</span>和<span class="math inline">(b)</span> <a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩︎</a></span></span>
+</li>
+<li>
+<span id="fn:2" class="footnote-text"><span><span class="math inline">(I)</span>是<span class="math inline">(T(x))</span>的值域，<span class="math inline">()</span>是<span class="math inline">()</span>的值域 <a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩︎</a></span></span>
+</li>
+<li>
+<span id="fn:3" class="footnote-text"><span><span class="math inline">(B(n,p))</span>表示重复<span class="math inline">(n)</span>次试验，每次试验成功的概率为<span class="math inline">(p)</span>，成功的试验数目。这里实际上退化成了两点分布。 <a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩︎</a></span></span>
+</li>
+<li>
+<span id="fn:4" class="footnote-text"><span>指示函数<span class="math inline">(I_a())</span>：当条件<span class="math inline">(a)</span>为真时为<span class="math inline">(1)</span>，反之为<span class="math inline">(0)</span>. <a href="#fnref:4" rev="footnote" class="footnote-backref"> ↩︎</a></span></span>
+</li>
+<li>
+<span id="fn:5" class="footnote-text"><span>决策函数的自变量是样本<span class="math inline">({x})</span>，因变量是对待估计量的估计 <a href="#fnref:5" rev="footnote" class="footnote-backref"> ↩︎</a></span></span>
+</li>
+</ol>
+</div>
+</section>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/">#数理统计</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>数理统计重点内容梳理</div>
+      <div>https://suzumiyaakizuki.github.io/2022/05/31/数理统计重点内容梳理/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>SuzumiyaAkizuki</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年5月31日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/06/07/%E6%A8%A1%E7%94%B5%E6%8A%A5%E5%91%8A1/" title="电子电路实验报告1：共射放大器和射极跟随器">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">电子电路实验报告1：共射放大器和射极跟随器</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/05/27/%E6%8A%BD%E8%B1%A1%E4%BB%A3%E6%95%B0%E5%AE%9A%E4%B9%89%E6%95%B4%E7%90%86%EF%BC%9A%E7%AC%AC%E4%BA%8C%E5%BC%B9/" title="抽象代数定义整理：第二弹">
+                        <span class="hidden-mobile">抽象代数定义整理：第二弹</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.7.2/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"48fb14f9689ae0d11307","clientSecret":"091ab25a88e87bfd9d9d40d97d1d0d932e694059","repo":"SuzumiyaAkizuki.github.io","owner":"SuzumiyaAkizuki","admin":["SuzumiyaAkizuki"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: 'd73cef05c7349df976c60b14b113df1d'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       Powered by: <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,1185 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <link rel="icon" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="SuzumiyaAkizuki">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="这是模电的实验报告，我模电的实验部分得了29分，满分30分，应该还算不低，于是把报告发出来，供大家参考。 这是第一个实验，共射放大器和射极跟随器。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="电子电路实验报告1：共射放大器和射极跟随器">
+<meta property="og:url" content="https://suzumiyaakizuki.github.io/2022/06/07/%E6%A8%A1%E7%94%B5%E6%8A%A5%E5%91%8A1/index.html">
+<meta property="og:site_name" content="凉宫秋月的文艺部">
+<meta property="og:description" content="这是模电的实验报告，我模电的实验部分得了29分，满分30分，应该还算不低，于是把报告发出来，供大家参考。 这是第一个实验，共射放大器和射极跟随器。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220605151417177.png">
+<meta property="article:published_time" content="2022-06-07T07:41:25.000Z">
+<meta property="article:modified_time" content="2022-07-09T08:45:16.996Z">
+<meta property="article:author" content="SuzumiyaAkizuki">
+<meta property="article:tag" content="实验报告">
+<meta property="article:tag" content="电子电路">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220605151417177.png">
+  
+  
+  
+  <title>电子电路实验报告1：共射放大器和射极跟随器 - 凉宫秋月的文艺部</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"suzumiyaakizuki.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":"G-J01HK5TZ0Y","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"QGqf9VPGTa96KerO0JvDW3Ld-gzGzoHsz","app_key":"RhwwUaYq4lMo1tCJwcQTWdRp","server_url":"https://qgqf9vpg.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.google-analytics.com/analytics.js', function() {
+          window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
+          ga.l = +new Date;
+          ga('create', 'G-J01HK5TZ0Y', 'auto');
+          ga('send', 'pageview');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>凉宫秋月的文艺部</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友情链接
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220605151417177.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="电子电路实验报告1：共射放大器和射极跟随器"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        SuzumiyaAkizuki
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-06-07 15:41" pubdate>
+          2022年6月7日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          9 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">电子电路实验报告1：共射放大器和射极跟随器</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>这是模电的实验报告，我模电的实验部分得了29分，满分30分，应该还算不低，于是把报告发出来，供大家参考。</p>
+<p>这是第一个实验，共射放大器和射极跟随器。</p>
+<span id="more"></span>
+<h2 id="共射放大器的分析和设计">共射放大器的分析和设计</h2>
+<h3 id="实验目的">实验目的</h3>
+<ol type="1">
+<li><p>进一步了解 Multisim 的各项功能，熟练掌握其使用方法，为后续课程打好基础。</p></li>
+<li><p>通过使用 Multisim 来仿真电路，测试如图 1 所示的单管共射放大电路的静态工作点、电压放大倍数、输入电阻和输出电阻，并观察静态工作点的变化对输出波形的影响。</p></li>
+<li><p>加深对放大电路工作原理的理解和参数变化对输出波形的影响。</p></li>
+<li><p>观察失真现象，了解其产生的原因。</p></li>
+</ol>
+<h3 id="实验原理图">实验原理图</h3>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220530203406386.png" srcset="/img/loading.gif" lazyload alt="image-20220530203406386" /><figcaption aria-hidden="true">image-20220530203406386</figcaption>
+</figure>
+<h3 id="实验内容及仿真数据">实验内容及仿真数据</h3>
+<h4 id="进行直流工作点分析判断工作状态">进行直流工作点分析，判断工作状态</h4>
+<p>用“分析”-“Analyses and simulation”工具中的“直流工作点”分析，得结果如下：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Variable</th>
+<th style="text-align: center;">Operating point value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">V(4)-V(5)</td>
+<td style="text-align: center;">6.76596</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">V(3)-V(5)</td>
+<td style="text-align: center;">0.618865</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">I(Q1[IB])</td>
+<td style="text-align: center;">6.21E-06</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">I(Q1[IC])</td>
+<td style="text-align: center;">0.000967</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">I(Q1[IE])</td>
+<td style="text-align: center;">-0.00097</td>
+</tr>
+</tbody>
+</table>
+<p>则有： <span class="math display">\[
+V_{be}=V(3)-V(5)=0.618865 \text{V}\\
+V_{ce}=V(4)-V(5)=6.76596\text{V}\\
+I_b=6.21\mu\text{A}\\
+I_c=967\mu\text{A}\\
+I_e=-970\mu\text{A}
+\]</span> 可知：管子工作在放大区。</p>
+<h4 id="测量输入电阻">测量输入电阻</h4>
+<p>使用万用表器件，测量电路以及测量结果如下：</p>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220530205610684.png" srcset="/img/loading.gif" lazyload alt="image-20220530205610684" /><figcaption aria-hidden="true">image-20220530205610684</figcaption>
+</figure>
+<p>有结果：</p>
+<table>
+<thead>
+<tr class="header">
+<th>项目</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(U_i\)</span></td>
+<td>3.794mV</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(I_i\)</span></td>
+<td>1.209μA</td>
+</tr>
+</tbody>
+</table>
+<p>计算： <span class="math display">\[
+\begin{aligned}
+R_i&amp;=\frac{U_i}{I_i}\\
+&amp;=\frac{3.794\times10^{-3}}{1.209\times 10^{-6}}\\[1.5ex]
+&amp;=3138.13\ \Omega
+\end{aligned}
+\]</span> 故输入电阻为<span class="math inline">\(3138.13\Omega\)</span>，此时的频率为<span class="math inline">\(1\text{kHz}\)</span></p>
+<h4 id="测量输出电阻">测量输出电阻</h4>
+<p>为测量输出电阻，将信号源置<span class="math inline">\(0\)</span>，将负载电阻从电路中取出，换成信号源，用电流表测量输出支路电流。</p>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220530212159779.png" srcset="/img/loading.gif" lazyload alt="image-20220530212159779" /><figcaption aria-hidden="true">image-20220530212159779</figcaption>
+</figure>
+<p>则有： <span class="math display">\[
+\begin{aligned}
+R_o&amp;=\frac{U_o}{I_o}\\
+&amp;=\frac{10\times10^{-3}}{3.922\times10^{-6}}\\[1.5ex]
+&amp;=2549.71\Omega
+\end{aligned}
+\]</span> 所以输出电阻为<span class="math inline">\(2549.71\Omega\)</span></p>
+<h4 id="用测量仪表测定幅频相频曲线">用测量仪表测定幅频、相频曲线</h4>
+<p>如图所示，将波特分析仪连入电路：</p>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220530214705599.png" srcset="/img/loading.gif" lazyload alt="image-20220530214705599" /><figcaption aria-hidden="true">image-20220530214705599</figcaption>
+</figure>
+<p>选择“幅值”模式，调整范围：</p>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220530214736718.png" srcset="/img/loading.gif" lazyload alt="image-20220530214736718" /><figcaption aria-hidden="true">image-20220530214736718</figcaption>
+</figure>
+<p>选择“相位”模式：</p>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220530221124547.png" srcset="/img/loading.gif" lazyload alt="image-20220530221124547" /><figcaption aria-hidden="true">image-20220530221124547</figcaption>
+</figure>
+<h4 id="用交流分析测幅频相频曲线">用交流分析测幅频、相频曲线</h4>
+<p>用“分析”-“Analyses and simulation”工具中的“交流分析”，如图设置参数：</p>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220530221813255.png" srcset="/img/loading.gif" lazyload alt="image-20220530221813255" /><figcaption aria-hidden="true">image-20220530221813255</figcaption>
+</figure>
+<p>将输出设置为<span class="math inline">\(V(6)\)</span>，开始分析：</p>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220530221847557.png" srcset="/img/loading.gif" lazyload alt="image-20220530221847557" /><figcaption aria-hidden="true">image-20220530221847557</figcaption>
+</figure>
+<h4 id="分别在5-个频点利用示波器测出输入和输出的关系并仔细观察放大倍数和相位差">分别在5 个频点利用示波器测出输入和输出的关系，并仔细观察放大倍数和相位差</h4>
+<p>电路连接方式如图：</p>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220530222634242.png" srcset="/img/loading.gif" lazyload alt="image-20220530222634242" /><figcaption aria-hidden="true">image-20220530222634242</figcaption>
+</figure>
+<ol type="1">
+<li>30Hz</li>
+</ol>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220530231206151.png" srcset="/img/loading.gif" lazyload alt="image-20220530231206151" /><figcaption aria-hidden="true">image-20220530231206151</figcaption>
+</figure>
+<p>图中<span class="math inline">\(T_1\)</span>，<span class="math inline">\(T_2\)</span>分别对应输入、输出通道的最大值。由<span class="math inline">\(\Delta \varphi=2\pi f(T_2-T_1)\)</span>可知： <span class="math display">\[
+   \max V_i=6.620\text{mV} \\
+   \max V_o=65.526\text{mV} \\
+   \Delta \varphi=51.132\degree
+   \]</span></p>
+<ol start="2" type="1">
+<li><p>1kHz</p>
+<p><img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220530232304194.png" srcset="/img/loading.gif" lazyload alt="image-20220530232304194" /> <span class="math display">\[
+\max V_i=5.334\text{mV} \\
+\max V_o=238.006\text{mV} \\
+\Delta \varphi=168.75\degree
+\]</span></p></li>
+<li><p>100kHz</p>
+<p><img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220530232540514.png" srcset="/img/loading.gif" lazyload alt="image-20220530232540514" /> <span class="math display">\[
+\max V_i=5.282\text{mV} \\
+\max V_o=236.081\text{mV} \\
+\Delta \varphi=181.548\degree
+\]</span></p></li>
+<li><p>4MHz</p>
+<p><img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220530233003943.png" srcset="/img/loading.gif" lazyload alt="image-20220530233003943" /> <span class="math display">\[
+\max V_i=1.582\text{mV} \\
+\max V_o=73.091\text{mV} \\
+\Delta \varphi=180\degree
+\]</span></p></li>
+<li><p>100MHz</p>
+<p><img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220530233500579.png" srcset="/img/loading.gif" lazyload alt="image-20220530233500579" /> <span class="math display">\[
+\max V_i=193.301\mu\text{V} \\
+\max V_o=2.919\text{mV} \\
+\Delta \varphi=258.228\degree
+\]</span></p></li>
+</ol>
+<p>汇总，得：</p>
+<table>
+<thead>
+<tr class="header">
+<th>f/Hz</th>
+<th>max <span class="math inline">\(V_i\)</span>/mV</th>
+<th>max<span class="math inline">\(V_o\)</span>/mV</th>
+<th><span class="math inline">\(\Delta \varphi/\degree\)</span></th>
+<th><span class="math inline">\(A\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>30</td>
+<td>6.620</td>
+<td>65.526</td>
+<td>51.132</td>
+<td>9.90</td>
+</tr>
+<tr class="even">
+<td>1k</td>
+<td>5.334</td>
+<td>238.006</td>
+<td>168.75</td>
+<td>44.62</td>
+</tr>
+<tr class="odd">
+<td>100k</td>
+<td>5.282</td>
+<td>236.081</td>
+<td>181.548</td>
+<td>44.70</td>
+</tr>
+<tr class="even">
+<td>4M</td>
+<td>1.582</td>
+<td>73.091</td>
+<td>180</td>
+<td>46.20</td>
+</tr>
+<tr class="odd">
+<td>100M</td>
+<td>0.193</td>
+<td>2.919</td>
+<td>258.228</td>
+<td>15.12</td>
+</tr>
+</tbody>
+</table>
+<h3 id="最大不失真输出电压的优化">最大不失真输出电压的优化</h3>
+<h4 id="原电路最大不失真输出电压">原电路最大不失真输出电压</h4>
+<p>原电路如图所示：</p>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220605152356360.png" srcset="/img/loading.gif" lazyload alt="image-20220605152356360" /><figcaption aria-hidden="true">image-20220605152356360</figcaption>
+</figure>
+<p>设置信号源电压为变量<span class="math inline">\(v_i\)</span>，用参数扫描功能，从<span class="math inline">\(5\text{mV}\)</span>到<span class="math inline">\(15\text{mv}\)</span>扫描，用瞬态分析，分析时间设置为一个周期，即<span class="math inline">\(0.001\text{ms}\)</span>，得图形：</p>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220605152905709.png" srcset="/img/loading.gif" lazyload alt="image-20220605152905709" /><figcaption aria-hidden="true">image-20220605152905709</figcaption>
+</figure>
+<p>可见在约<span class="math inline">\(10\text{mV}\)</span>时出现饱和失真。将信号源设置为<span class="math inline">\(10\text{mV}\)</span>，用示波器分析</p>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220605153150707.png" srcset="/img/loading.gif" lazyload alt="image-20220605153150707" /><figcaption aria-hidden="true">image-20220605153150707</figcaption>
+</figure>
+<p>可得最大不失真电压为<span class="math inline">\(4.5\text{mV}\)</span>左右。</p>
+<h4 id="调整电阻后的最大不失真输出电压">调整电阻后的最大不失真输出电压</h4>
+<p>调整<span class="math inline">\(R_1\)</span>,<span class="math inline">\(R_2\)</span>的比值，加入射级电阻，电路及参数扫描结果如下：</p>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220605151534469.png" srcset="/img/loading.gif" lazyload alt="image-20220605151534469" /><figcaption aria-hidden="true">image-20220605151534469</figcaption>
+</figure>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220605151417177.png" srcset="/img/loading.gif" lazyload alt="image-20220605151417177" /><figcaption aria-hidden="true">image-20220605151417177</figcaption>
+</figure>
+<p>将信号源设置为<span class="math inline">\(211\text{mV}\)</span>，用示波器分析：</p>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220605153340470.png" srcset="/img/loading.gif" lazyload alt="image-20220605153340470" /><figcaption aria-hidden="true">image-20220605153340470</figcaption>
+</figure>
+<p>此时输出电压约为<span class="math inline">\(2.2\text{V}\)</span>，比之前的电路提升了487.8倍。</p>
+<h4 id="添加有源负载后的最大不失真电压">添加有源负载后的最大不失真电压</h4>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220702230017279.png" srcset="/img/loading.gif" lazyload alt="image-20220702230017279" /><figcaption aria-hidden="true">image-20220702230017279</figcaption>
+</figure>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220702230157561.png" srcset="/img/loading.gif" lazyload alt="image-20220702230157561" /><figcaption aria-hidden="true">image-20220702230157561</figcaption>
+</figure>
+<p>最大不失真输出电压进一步提高到了<span class="math inline">\(3.13V\)</span>左右。</p>
+<h2 id="射极跟随器分析与设计">射极跟随器分析与设计</h2>
+<h3 id="实验目的-1">实验目的</h3>
+<ol type="1">
+<li>使用Multisim搭建仿真电路图，测定电路的静态工作点、电压放大倍数、输入电阻、输出电阻、观察静态工作点的变化对输入、输出特性的影响。</li>
+<li>设计有源负载射随器</li>
+<li>了解失真现象</li>
+</ol>
+<h3 id="原始电路图">原始电路图</h3>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220606233327519.png" srcset="/img/loading.gif" lazyload alt="image-20220606233327519" /><figcaption aria-hidden="true">image-20220606233327519</figcaption>
+</figure>
+<h3 id="射随器仿真实验">射随器仿真实验</h3>
+<h4 id="进行直流工作点分析判断工作状态-1">进行直流工作点分析，判断工作状态</h4>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220606202123233.png" srcset="/img/loading.gif" lazyload alt="image-20220606202123233" /><figcaption aria-hidden="true">image-20220606202123233</figcaption>
+</figure>
+<p>结果如下：</p>
+<table>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Operating point value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>I(Q1[IC])</td>
+<td>0.001601</td>
+</tr>
+<tr class="even">
+<td>V(3)-V(1)</td>
+<td>0.63146175</td>
+</tr>
+<tr class="odd">
+<td>V(vcc)-V(1)</td>
+<td>7.89915</td>
+</tr>
+</tbody>
+</table>
+<p>则有： <span class="math display">\[
+V_{be}=0.631\text{V}\\
+V_{ce}=7.899\text{V}\\
+I_c=1.6\text{mA}
+\]</span> 由此可见，管子工作在放大区。</p>
+<h4 id="测量输入电阻-1">测量输入电阻</h4>
+<p>电路及仿真结果如图：</p>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220606204235062.png" srcset="/img/loading.gif" lazyload alt="image-20220606204235062" /><figcaption aria-hidden="true">image-20220606204235062</figcaption>
+</figure>
+<p>则有： <span class="math display">\[
+I_i=\frac{u_1}{R_4}=2.5\times10^{-8}\text{A}\\
+U_i=9.255\text{mV}\\
+R_i=356.44\text{k}\Omega
+\]</span></p>
+<h4 id="测量输出电阻-1">测量输出电阻</h4>
+<p>电路及相关测量结果如下：</p>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220606210346703.png" srcset="/img/loading.gif" lazyload alt="image-20220606210346703" /><figcaption aria-hidden="true">image-20220606210346703</figcaption>
+</figure>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220606210415737.png" srcset="/img/loading.gif" lazyload alt="image-20220606210415737" /><figcaption aria-hidden="true">image-20220606210415737</figcaption>
+</figure>
+<p>设开关闭合时电压为<span class="math inline">\(V_1\)</span>，开关打开时电压为<span class="math inline">\(V_2\)</span>，有： <span class="math display">\[
+R_0=\frac{V_2-V_1}{V_1}R_l=17.7\Omega
+\]</span></p>
+<h4 id="用测量仪表测定幅频相频曲线-1">用测量仪表测定幅频、相频曲线</h4>
+<p>电路图如下：</p>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220606213854747.png" srcset="/img/loading.gif" lazyload alt="image-20220606213854747" /><figcaption aria-hidden="true">image-20220606213854747</figcaption>
+</figure>
+<p>测量结果如下：</p>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220606214506998.png" srcset="/img/loading.gif" lazyload alt="image-20220606214506998" /><figcaption aria-hidden="true">image-20220606214506998</figcaption>
+</figure>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220606214610105.png" srcset="/img/loading.gif" lazyload alt="image-20220606214610105" /><figcaption aria-hidden="true">image-20220606214610105</figcaption>
+</figure>
+<h4 id="用交流分析测幅频相频曲线-1">用交流分析测幅频、相频曲线</h4>
+<p>结果如图：</p>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220606215412272.png" srcset="/img/loading.gif" lazyload alt="image-20220606215412272" /><figcaption aria-hidden="true">image-20220606215412272</figcaption>
+</figure>
+<h4 id="最大不失真输出电压">最大不失真输出电压</h4>
+<p>由参数扫描得，射随器最大不失真输出电压为<span class="math inline">\(7.158\text{V}\)</span></p>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220606231952324.png" srcset="/img/loading.gif" lazyload alt="image-20220606231952324" /><figcaption aria-hidden="true">image-20220606231952324</figcaption>
+</figure>
+<h3 id="有源负载射随器仿真实验">有源负载射随器仿真实验</h3>
+<h4 id="直流工作点分析">直流工作点分析</h4>
+<p>电路图和直流工作点分析结果如下，其中绿色部分为镜像电流源负载</p>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220606221933500.png" srcset="/img/loading.gif" lazyload alt="image-20220606221933500" /><figcaption aria-hidden="true">image-20220606221933500</figcaption>
+</figure>
+<table>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Operating point value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>I(Q1[IC])</td>
+<td>0.00160115</td>
+</tr>
+<tr class="even">
+<td>V(3)-V(1)</td>
+<td>0.63146373</td>
+</tr>
+<tr class="odd">
+<td>V(vcc)-V(1)</td>
+<td>7.89959</td>
+</tr>
+</tbody>
+</table>
+<p>工作点和上个实验中射随器工作点基本一致。</p>
+<h4 id="测量输入电阻-2">测量输入电阻</h4>
+<p>电路图和相关测量结果如下：</p>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220606230225977.png" srcset="/img/loading.gif" lazyload alt="image-20220606230225977" /><figcaption aria-hidden="true">image-20220606230225977</figcaption>
+</figure>
+<p>有： <span class="math display">\[
+R_i=\frac{V_S}{V_i-V_s}R_6=429.42\text{kV}
+\]</span></p>
+<h4 id="测量输出电阻-2">测量输出电阻</h4>
+<p>电路图和相关测量结果如下：<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220606225533334.png" srcset="/img/loading.gif" lazyload alt="image-20220606225533334" /></p>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220606225549913.png" srcset="/img/loading.gif" lazyload alt="image-20220606225549913" /><figcaption aria-hidden="true">image-20220606225549913</figcaption>
+</figure>
+<p>设开关闭合时电压为<span class="math inline">\(V_1\)</span>，开关打开时电压为<span class="math inline">\(V_2\)</span>，有： <span class="math display">\[
+R_0=\frac{V_2-V_1}{V_1}R_l=17.7\Omega
+\]</span></p>
+<h4 id="用测量仪表测定幅频相频曲线-2">用测量仪表测定幅频、相频曲线</h4>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220606230655603.png" srcset="/img/loading.gif" lazyload alt="image-20220606230655603" /><figcaption aria-hidden="true">image-20220606230655603</figcaption>
+</figure>
+<p>测量结果如下：</p>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220606230740927.png" srcset="/img/loading.gif" lazyload alt="image-20220606230740927" /><figcaption aria-hidden="true">image-20220606230740927</figcaption>
+</figure>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220606230803991.png" srcset="/img/loading.gif" lazyload alt="image-20220606230803991" /><figcaption aria-hidden="true">image-20220606230803991</figcaption>
+</figure>
+<h4 id="用交流分析测幅频相频曲线-2">用交流分析测幅频、相频曲线</h4>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220606231140129.png" srcset="/img/loading.gif" lazyload alt="image-20220606231140129" /><figcaption aria-hidden="true">image-20220606231140129</figcaption>
+</figure>
+<h4 id="最大不失真输出电压-1">最大不失真输出电压</h4>
+<p>由参数扫描得，有源负载射随器最大不失真输出电压为<span class="math inline">\(7.920\text{V}\)</span></p>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220606231847858.png" srcset="/img/loading.gif" lazyload alt="image-20220606231847858" /><figcaption aria-hidden="true">image-20220606231847858</figcaption>
+</figure>
+<p>修改电路，再进行参数扫描</p>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220606232942274.png" srcset="/img/loading.gif" lazyload alt="image-20220606232942274" /><figcaption aria-hidden="true">image-20220606232942274</figcaption>
+</figure>
+<p>得最大不失真输出电压为<span class="math inline">\(9.621\text{V}\)</span>,比最初提升了<span class="math inline">\(34.41\%\)</span></p>
+<figure>
+<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220606232756093.png" srcset="/img/loading.gif" lazyload alt="image-20220606232756093" /><figcaption aria-hidden="true">image-20220606232756093</figcaption>
+</figure>
+<h2 id="感想和体会">感想和体会</h2>
+<p>这部分大家就自己写哈。</p>
+<hr />
+<p>本次实验涉及到的各个文件的下载地址：</p>
+<p><a target="_blank" rel="noopener" href="https://docsdown.oss-cn-beijing.aliyuncs.com/%E5%85%B1%E5%B0%84%E6%94%BE%E5%A4%A7%E5%99%A8%E5%92%8C%E5%B0%84%E6%9E%81%E8%B7%9F%E9%9A%8F%E5%99%A8.zip">共射放大器和射极跟随器实验下载</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">#实验报告</a>
+      
+        <a href="/tags/%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF/">#电子电路</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>电子电路实验报告1：共射放大器和射极跟随器</div>
+      <div>https://suzumiyaakizuki.github.io/2022/06/07/模电报告1/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>SuzumiyaAkizuki</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年6月7日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/06/07/%E6%A8%A1%E7%94%B5%E6%8A%A5%E5%91%8A2/" title="电子电路实验报告2：差分放大电路仿真与分析">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">电子电路实验报告2：差分放大电路仿真与分析</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/05/31/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E9%87%8D%E7%82%B9%E5%86%85%E5%AE%B9%E6%A2%B3%E7%90%86/" title="数理统计重点内容梳理">
+                        <span class="hidden-mobile">数理统计重点内容梳理</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.7.2/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"48fb14f9689ae0d11307","clientSecret":"091ab25a88e87bfd9d9d40d97d1d0d932e694059","repo":"SuzumiyaAkizuki.github.io","owner":"SuzumiyaAkizuki","admin":["SuzumiyaAkizuki"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '9cf4452520f7c821195378046ae7ea1b'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       Powered by: <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

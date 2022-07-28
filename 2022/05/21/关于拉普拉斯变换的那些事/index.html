@@ -1,0 +1,1178 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <link rel="icon" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="SuzumiyaAkizuki">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="拉普拉斯变换在许多工程技术和科学研究领域中有着广泛的应用，特别是在力学系统、电学系统、自动控制系统、可靠性系统以及随机服务系统等系统科学中都起着重要作用。本文大概写了一下常用的拉普拉斯变换技巧，非常的详细，我感觉任何人都能看懂。 本文约5200字，阅读时间22分钟。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于拉普拉斯变换的那些事">
+<meta property="og:url" content="https://suzumiyaakizuki.github.io/2022/05/21/%E5%85%B3%E4%BA%8E%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A2%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/index.html">
+<meta property="og:site_name" content="凉宫秋月的文艺部">
+<meta property="og:description" content="拉普拉斯变换在许多工程技术和科学研究领域中有着广泛的应用，特别是在力学系统、电学系统、自动控制系统、可靠性系统以及随机服务系统等系统科学中都起着重要作用。本文大概写了一下常用的拉普拉斯变换技巧，非常的详细，我感觉任何人都能看懂。 本文约5200字，阅读时间22分钟。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/Laplace.jpg">
+<meta property="article:published_time" content="2022-05-21T09:51:42.000Z">
+<meta property="article:modified_time" content="2022-07-03T14:45:47.897Z">
+<meta property="article:author" content="SuzumiyaAkizuki">
+<meta property="article:tag" content="信号与系统">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/Laplace.jpg">
+  
+  
+  
+  <title>关于拉普拉斯变换的那些事 - 凉宫秋月的文艺部</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"suzumiyaakizuki.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":"G-J01HK5TZ0Y","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"QGqf9VPGTa96KerO0JvDW3Ld-gzGzoHsz","app_key":"RhwwUaYq4lMo1tCJwcQTWdRp","server_url":"https://qgqf9vpg.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.google-analytics.com/analytics.js', function() {
+          window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
+          ga.l = +new Date;
+          ga('create', 'G-J01HK5TZ0Y', 'auto');
+          ga('send', 'pageview');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>凉宫秋月的文艺部</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友情链接
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/Laplace.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="关于拉普拉斯变换的那些事"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        SuzumiyaAkizuki
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-05-21 17:51" pubdate>
+          2022年5月21日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          14k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          28 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">关于拉普拉斯变换的那些事</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>拉普拉斯变换在许多工程技术和科学研究领域中有着广泛的应用，特别是在力学系统、电学系统、自动控制系统、可靠性系统以及随机服务系统等系统科学中都起着重要作用。本文大概写了一下常用的拉普拉斯变换技巧，非常的详细，我感觉任何人都能看懂。 本文约5200字，阅读时间22分钟。</p>
+<span id="more"></span>
+<h2 id="拉普拉斯变换概述">拉普拉斯变换概述</h2>
+<p>说到拉普拉斯变换，就不得不提到奥列弗·赫维赛德。不得不说这位更是重量级，尽管大家可能不认识他，但是大家一定知道<code>Heaviside()</code>函数（在Mathematica中是<code>HeavisideTheta[]</code>函数）,这就是所谓的单位阶跃函数，我们一般简写为<span class="math inline">\(u(t)\)</span>或者<span class="math inline">\(\varepsilon(t)\)</span>。而且他在电子信息领域还有很多重要的贡献，比如说归纳整理了麦克斯韦方程组。而这里我们要说的是，他提出了运算微积分的思想，把常微分方程转换成了代数方程。具体地，他提出了微分算子<span class="math inline">\(p\)</span>: <span class="math display">\[
+p^n \leftrightarrow\frac{ {\mathbf d}^n()} { {\mathbf d}t^n}
+\]</span> 积分算子： <span class="math display">\[
+\frac{1} {p}\leftrightarrow \int_{-\infty}^t(){\mathbf d}\tau
+\]</span> 于是就能把常微分方程化成代数方程了。这种想法在当时并不被学界认可，但是我们现在发现这就是拉普拉斯变换的前身。</p>
+<p>......扯远了，那么什么是拉普拉斯变换呢？我们都知道傅里叶变换很好用，但是要用它就必须得满足狄利特雷条件，其中有一条就是<span class="math inline">\(f(t)\)</span>绝对可积，这可不是什么简单的条件，于是就导致很多常见的函数没有傅里叶变换。那么为了推广傅里叶变换，给<span class="math inline">\(f(t)\)</span>乘上一个很强的衰减系数<span class="math inline">\(e^{-\sigma t}\)</span>,这时很多函数就变得绝对可积了。</p>
+<p>容易发现，<span class="math inline">\(e^{-\sigma t}\)</span>往往在<span class="math inline">\(t&gt;0\)</span>的时候才表现出”衰减“的性质，于是我们往往讨论单边拉普拉斯变换，即： <span class="math display">\[
+{\mathscr L}[f(t)]=F(s)=\int_{0-}^{\infty}f(t)e^{-(\sigma +j\omega)t} {\mathbf d}t
+\]</span> 其中<span class="math inline">\(s={\sigma + j\omega}\)</span>.</p>
+<p>拉普拉斯变换需要讨论收敛域的问题。我们把让上述无穷积分收敛的<span class="math inline">\(s\)</span>所在的区域称为收敛域。收敛域的边界是平行于虚轴的直线。对于右边信号而言，收敛域往往是<span class="math inline">\(Re[s]&gt;\alpha\)</span>的形式，也就是右半边平面。在讨论右边信号和单边拉普拉斯变换时，往往省去对收敛域的讨论。但对于双边拉普拉斯变换来说，一定要讨论收敛域。因为此时对于同一个<span class="math inline">\(F(s)\)</span>，不同的收敛域会导致反变换的结果不同。</p>
+<h2 id="拉普拉斯变换性质">拉普拉斯变换性质</h2>
+<p>设<span class="math inline">\({\mathscr L}[f(t)]=F(s)\)</span>，则</p>
+<p>拉普拉斯变换常用的性质有：</p>
+<h3 id="时域性质">时域性质</h3>
+<ol type="1">
+<li><p>时移性质： <span class="math display">\[
+{\mathscr  L}[f(t-t_0)u(t-t_0)]=F(s)e^{-st_0}
+\]</span> 需要注意到：<span class="math inline">\(f(t-t_0)u(t-t_0)\)</span>、<span class="math inline">\(f(t-t_0)u(t)\)</span>、<span class="math inline">\(f(t-t_0)\)</span>是互不相同的。</p></li>
+<li><p>压扩(相似)性质： <span class="math display">\[
+{\mathscr  L}[f(at)]=\frac{1} {a}F(\frac{s} {a})
+\]</span></p></li>
+<li><p>线性性质</p></li>
+<li><p>时域微分性质： <span class="math display">\[
+\begin{aligned}
+{\mathscr L}[\frac{ {\mathbf d}^n f(t)} { {\mathbf d}t}]&amp;=s^nF(s)-s^{n-1}f(0_-)-s^{n-2}f&#39;(0_-)-\cdots-f^{(n-1)}(0_-)\\\\
+&amp;=s^nF(s)-\sum_{k=0}^{n-1}s^{n-1-k}f^{(k)}(0_-)
+\end{aligned}
+\]</span></p>
+<p>如果<span class="math inline">\(f(t)\)</span>为因果信号，即<span class="math inline">\(f(t)=f(t)u(t)\)</span>，那么： <span class="math display">\[
+{\mathscr  L}[\frac{ {\mathbf d}^n f(t)} { {\mathbf d}t}]=s^nF(s)
+\]</span> 我们看出这个形式和前面所说的”微分算子“有异曲同工之妙。这也是用拉普拉斯变换解微分方程的基础。</p></li>
+<li><p>时域积分性质： <span class="math display">\[
+{\mathscr  L}[\int_{-\infty}^tf(\tau){\mathbf d}\tau]=\frac{F(s)} {s}+\frac{f^{(-1)}(0_-)} {s}
+\]</span></p></li>
+</ol>
+<h3 id="频域性质">频域性质</h3>
+<ol type="1">
+<li><p>频移性质： <span class="math display">\[
+{\mathscr  L}[e^{s_0t}f(t)]=F(s-s_0)
+\]</span> 请注意和时移性质之间的区别。时间变成<span class="math inline">\(t-t_0\)</span>，乘的指数因子也是<span class="math inline">\(e^{-st_0}\)</span>，但是频域变成<span class="math inline">\(s-s_0\)</span>后，乘的指数因子却是<span class="math inline">\(e^{s_0t}\)</span>，符号不同。</p></li>
+<li><p>频域微分性质： <span class="math display">\[
+{\mathscr  L}[-tf(t)]=\frac{ {\mathbf d}F(s)} { {\mathbf d}s}
+\]</span> 同样，注意符号。一般的，有： <span class="math display">\[
+{\mathscr  L}[(-t)^nf(t)]=\frac{ {\mathbf d}^nF} { {\mathbf d}s^n}
+\]</span></p></li>
+<li><p>频域积分性质： <span class="math display">\[
+{\mathscr  L}[\frac{f(t)} {t}]=\int_s^\infty F(\lambda){\mathbf d}\lambda
+\]</span></p></li>
+</ol>
+<h3 id="其它定理">其它定理</h3>
+<p>对于卷积运算，有卷积性质：</p>
+<ol type="1">
+<li>时域卷积</li>
+</ol>
+<p><span class="math display">\[
+{\mathscr  L}[f_1(t)\bigotimes f_2(t)]=F_1(s)F_2(s)
+\]</span></p>
+<ol start="2" type="1">
+<li>频域卷积 <span class="math display">\[
+{\mathscr  L}[f_1(t)f_2(t)]=\frac{1} {2\pi j}F_1(s)\bigotimes F_2(s)
+\]</span> 频域卷积很少用到。</li>
+</ol>
+<p>此外，还有终、初值定理：</p>
+<ol type="1">
+<li><p>初值定理 <span class="math display">\[
+f(0_+)=\lim_{s\to \infty}sF(s)
+\]</span></p></li>
+<li><p>终值定理 <span class="math display">\[
+\lim_{t\to \infty}f(t)=\lim_{s\to 0}sF(s)
+\]</span></p></li>
+</ol>
+<h2 id="常用拉普拉斯变换表">常用拉普拉斯变换表</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">原函数</th>
+<th style="text-align: center;">像函数</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(1\)</span>或<span class="math inline">\(u(t)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{1} {s}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>就一个？没错。因为其它的常用的基本上都能用性质推导出来。</p>
+<ol type="1">
+<li><p><span class="math inline">\(t^n\)</span></p>
+<p>由频域微分性质<span class="math inline">\({\mathscr L}[(-t)^nf(t)]=\frac{ {\mathbf d}^nF} { {\mathbf d}s^n}\)</span>，将<span class="math inline">\(f(t)=u(t),F=s^{-1}\)</span>代入，可得： <span class="math display">\[
+{\mathscr  L}[t^n]=\frac{n!} {s^{n+1} }
+\]</span></p></li>
+<li><p><span class="math inline">\(e^{at}\)</span></p>
+<p>由频移性质<span class="math inline">\({\mathscr L}[e^{s_0t}f(t)]=F(s-s_0)\)</span>可得： <span class="math display">\[
+{\mathscr  L}[e^{at}]=\frac{1} {s-a}
+\]</span></p></li>
+<li><p><span class="math inline">\(t^ne^{at}\)</span></p>
+<p>对<span class="math inline">\(t^n\)</span>的拉普拉斯变换应用频移性质，有： <span class="math display">\[
+{\mathscr  L}[t^n e^{at}]=\frac{n!} {(s-a)^{n+1} }
+\]</span></p></li>
+<li><p><span class="math inline">\(\cos (\omega t)\)</span></p>
+<p>由 <span class="math display">\[
+\cos(\omega t)=\frac{1} {2}(e^{-j\omega t}+e^{j\omega t})
+\]</span> 运用<span class="math inline">\(e^{at}\)</span>的拉普拉斯变换，可得 <span class="math display">\[
+{\mathscr  L}[\cos (\omega t)]=\frac{s} {s^2+\omega ^2}
+\]</span></p></li>
+<li><p><span class="math inline">\(\sin (\omega t)\)</span></p>
+<p>由 <span class="math display">\[
+\sin(\omega t)=\frac{1} {2j}(e^{j\omega t}-e^{-j\omega t})
+\]</span> 得 <span class="math display">\[
+{\mathscr  L}[\sin(\omega t)]=\frac{\omega} {s^2+\omega ^2}
+\]</span></p></li>
+</ol>
+<p>虽说如此，表格还是需要的。现归纳如下：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">原函数</th>
+<th style="text-align: center;">像函数</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(u(t)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac 1s\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(t\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{1} {s^2}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(t^n\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{n!} {s^{n+1} }\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(e^{at}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{1} {s-a}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(te^{at}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{1} {(s-a)^2}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(t^ne^{at}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{n!} {(s-a)^{n+1} }\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\sin (\omega t)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{\omega} {s^2+\omega^2}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\cos (\omega t)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{s} {s^2+\omega^2}\)</span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="多项式分式的拉普拉斯逆变换">多项式分式的拉普拉斯逆变换</h2>
+<p>一个有理真分式形式的拉普拉斯变换式可以写成： <span class="math display">\[
+F(s)=\frac{N(s)} {D(s)}
+\]</span> 其中<span class="math inline">\(N\)</span>和<span class="math inline">\(D\)</span>都是多项式，<span class="math inline">\(D\)</span>的次数更高。接下来讲解如何计算这样的式子的拉普拉斯反变换。</p>
+<p>基于代数方程的理论，上面的式子可以写成： <span class="math display">\[
+F(s)=\frac{K_1} {(s-p_1)}+\frac{K_1} {(s-p_1)}+\cdots+\frac{K_n} {(s-p_n)}
+\]</span> 即分解成很多小分式的和，其中<span class="math inline">\(p\)</span>为<span class="math inline">\(D\)</span>的根。多项式的根可能有单根、多重根，共轭复数根三种情况，我们来分别讨论。</p>
+<h3 id="单根">单根</h3>
+<p>单根对应的小分式为： <span class="math display">\[
+\frac{K_i} {s-p_i}
+\]</span> 在计算时，只需要给<span class="math inline">\(F(s)\)</span>两边同时乘以<span class="math inline">\((s-p_i)\)</span>，这样就能把这个极点消掉了，然后将<span class="math inline">\(s=p_i\)</span>代入<span class="math inline">\((s-p_i)F(s)\)</span>中（温馨提示：不要看到<span class="math inline">\((s-p_i)\)</span>乘以什么什么的形式就以为是0哦！），就能算出<span class="math inline">\(K_i\)</span>了。</p>
+<p>这个小分式对应的原函数是<span class="math inline">\(K_ie^{p_it}\)</span>.</p>
+<p>举例如下：</p>
+<blockquote>
+<p>【例】计算下式的拉普拉斯反变换 <span class="math display">\[
+\frac{2s^2+3s+3} {s^3+6s^2+11s+6}
+\]</span> 【解】首先计算极点。打开计算器，按顺序输入：<kbd>设置</kbd> <kbd>8</kbd> <kbd>2</kbd> <kbd>3</kbd>，进入求解三次多项式方程的页面。输入<kbd>1</kbd> <kbd>=</kbd> <kbd>6</kbd> <kbd>=</kbd> <kbd>1</kbd> <kbd>1</kbd> <kbd>=</kbd> <kbd>6</kbd>，将分母的多项式输入计算器。按<kbd>=</kbd>，即可得到三个根为： <span class="math display">\[
+-3,-1,-2
+\]</span> 于是<span class="math inline">\(F(s)\)</span>可以写为： <span class="math display">\[
+\begin{aligned}
+F(s)&amp;=\frac{2s^2+3s+3} {(s+1)(s+2)(s+3)}\\
+&amp;=\frac{K_1} {s+1}+\frac{K_2} {s+2}+\frac{K_3} {s+3}
+\end{aligned}
+\]</span> 我们看到都是单根，于是继续进行求解。</p>
+<p>按计算器<kbd>设置</kbd> <kbd>1</kbd>返回计算模式。依次在键盘上输入<kbd>-</kbd> <kbd>1</kbd> <kbd>STO</kbd> <kbd>(-)[即A]</kbd>，屏幕上显示</p>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs subunit"><span class="hljs-string">-1</span> -&gt; A<br>      <span class="hljs-string">-1</span><br></code></pre></td></tr></table></figure>
+<p>意思是给变量A赋值为-1.</p>
+<p>按<kbd>AC</kbd>，在计算器上输入<span class="math inline">\((s+1)F(s)\)</span>，即： <span class="math display">\[
+\frac{2A^2+3A+3} {(A+2)(A+3)}
+\]</span> 按<kbd>=</kbd>,屏幕上的结果即为<span class="math inline">\(K_1=1\)</span></p>
+<p>如法炮制，可以计算出<span class="math inline">\(K_2=-5,K_3=6\)</span></p>
+<p>则原函数为 <span class="math display">\[
+f(t)=(e^{-t}+5e^{-2t}+6e^{-3t})u(t)
+\]</span></p>
+</blockquote>
+<h3 id="共轭复根">共轭复根</h3>
+<p>共轭复根对应的小分式为： <span class="math display">\[
+\frac{K_1} {s-(a+bj)}+\frac{K_2} {s-(a-bj)}
+\]</span> 其中<span class="math inline">\(K_1\)</span>和<span class="math inline">\(K_2\)</span>是一对共轭复数。因为共轭复根归根结底也是单根，所以可以继续使用上面的解法来求解<span class="math inline">\(K_1,K_2\)</span>，但是只用求解其中的一个就行，因为它们共轭。假设<span class="math inline">\((a+bj)\)</span>对应的系数<span class="math inline">\(K_1=r\angle \theta=re^{i\theta}\)</span>,这对共轭复根对应的原函数为： <span class="math display">\[
+\begin{aligned}
+f(t)&amp;=re^{j\theta}e^{(a+bj)t}+re^{-j\theta}e^{(a-bj)t}\\
+&amp;=re^{at}(e^{j(bt+\theta)}+e^{-j(bt+\theta)})\\
+&amp;=2re^{at}\cos(bt+\theta)
+\end{aligned}
+\]</span></p>
+<blockquote>
+<p>【例】求解下式的拉普拉斯反变换： <span class="math display">\[
+\frac{2s+4} {s^2+2s+2}
+\]</span> 【解】按照上题的办法用计算器求解极点，得极点： <span class="math display">\[
+-1+j,-1-j
+\]</span> 于是原式可以写为： <span class="math display">\[
+\begin{aligned}
+F(s)&amp;=\frac{2s+4} {[s-(-1+j)][s-(-1-j)]}\\
+&amp;=\frac{K_1} {s-(-1+j)}+\frac{K_2} {s-(-1-j)}
+\end{aligned}
+\]</span> 下面求<span class="math inline">\(K_1\)</span>.按<kbd>设置</kbd> <kbd>2</kbd>进入复数计算模式，按<kbd>-</kbd> <kbd>1</kbd> <kbd>+</kbd> <kbd>ENG</kbd> 输入<span class="math inline">\(-1+j\)</span>，按<kbd>STO</kbd> <kbd>(-)</kbd>存入变量A中。输入 <span class="math display">\[
+\frac{2A+4} {A-(-1-j)}
+\]</span> 按<kbd>=</kbd>,屏幕上显示计算结果为<span class="math inline">\(K_1=1-j\)</span>.</p>
+<p>按<kbd>shift</kbd> <kbd>设置</kbd> <kbd>↓</kbd> <kbd>2</kbd> <kbd>2</kbd>将复数显示切换为模长-幅角形式，屏幕上显示：<span class="math inline">\(\sqrt{2}\angle -45\)</span> ,这里的单位是度。按<kbd>shift</kbd> <kbd>设置</kbd> <kbd>2</kbd> <kbd>2</kbd>把角度单位改为弧度，屏幕上显示<span class="math inline">\(\sqrt{2}\angle -\frac{1} {4}\pi\)</span>.</p>
+<p>那么对应的原函数为 <span class="math display">\[
+f(t)=2\sqrt{2}e^{-t}\cos(t-\frac{\pi} {4})u(t)
+\]</span></p>
+</blockquote>
+<h3 id="多重根">多重根</h3>
+<p><span class="math inline">\(k\)</span>重根对应的小分式如下： <span class="math display">\[
+G(s)=\frac{K_1} {(s-p)^k}+\frac{K_2} {(s-p)^{k-1} }+\cdots+\frac{K_k} {s-p}
+\]</span> 给两边同时乘以<span class="math inline">\((s-p)^k\)</span>，有： <span class="math display">\[
+(s-p)^kG(s)=K_1+K_2(s-p)+\cdots +K_k(s-p)^{k-1}
+\]</span> 于是我们知道： <span class="math display">\[
+K_m=\frac{1} {(m-1)!}\frac{d^{m-1} } {ds^{m-1} }[(s-p)^kG(s)]_{s=p}
+\]</span> 这项对应的原函数为： <span class="math display">\[
+e^{pt}\left[\frac{K_1} {(k-1)!}t^{k-1}+\frac{K_2} {(k-2)!}t^{k-2}+\cdots+K_k\right]
+\]</span></p>
+<blockquote>
+<p>【例】求解下式的拉普拉斯反变换： <span class="math display">\[
+\frac{s^2} {(s+2)(s+1)^2}
+\]</span> 【解】因为题目已经帮我们因式分解好了，于是我们直接拆开： <span class="math display">\[
+F(s)=\frac{K_0} {s+2}+\frac{K_1} {(s+1)^2}+\frac{K_2} {s+1}
+\]</span> <span class="math inline">\(K_0\)</span>很容易计算，为<span class="math inline">\(4\)</span>。</p>
+<p>对等式两端同时乘以<span class="math inline">\((s+1)^2\)</span>，有： <span class="math display">\[
+\frac{s^2} {s+2}=K_0\frac{(s+1)^2} {s+2}+K_1+(s+1)K_2
+\]</span> 将<span class="math inline">\(s=-1\)</span>代入得<span class="math inline">\(K_1=1\)</span></p>
+<p>在计算器中输入： <span class="math display">\[
+\left. \frac{ {\mathbf d} } { {\mathbf d}x}\left(\frac{x^2} {x+2}\right) \right |_{x=-1}
+\]</span> 按等号，得<span class="math inline">\(K_2=-3\)</span>.</p>
+<p>于是原函数为 <span class="math display">\[
+f(t)=(4e^{-2t}-3e^{-t}+te^{-t})u(t)
+\]</span></p>
+</blockquote>
+<h2 id="运算电路">运算电路</h2>
+<p>运算电路说的就是在RLC电路中，通过把元件的时域<span class="math inline">\(u-i\)</span>微分方程通过拉普拉斯变换转换成代数方程然后求解的过程，其操作过程和相量法是相似的。具体来说：</p>
+<h3 id="电阻">电阻</h3>
+<p>形式不变，仍为<span class="math inline">\(R\)</span></p>
+<h3 id="电容">电容</h3>
+<p>如果电容的值为<span class="math inline">\(C\)</span>，初值条件为<span class="math inline">\(u_c(0_-)\)</span>，那么在运算电路中，电容模型变为<span class="math inline">\(\frac{1} {sC}\)</span>，并且串联一个和初值电压方向相同，值为<span class="math inline">\(\frac{1} {s}u_c(0_-)\)</span>的电压源。</p>
+<h3 id="电感">电感</h3>
+<p>如果电感的值为<span class="math inline">\(L\)</span>，初值条件为<span class="math inline">\(i_L(0_-)\)</span>，那么在运算电路中，电感模型变为<span class="math inline">\(Ls\)</span>，并且并联一个和初值电流方向相同的，值为<span class="math inline">\(\frac{1} {s}i_L(0_-)\)</span>的电流源。</p>
+<h2 id="系统函数与响应的分解">系统函数与响应的分解</h2>
+<p>在拉普拉斯变换下，系统函数有两种定义。</p>
+<ol type="1">
+<li><p>基于单位冲激响应的定义： <span class="math display">\[
+H(s)={\mathscr L}[h(t)]=\int_{0-}^{\infty}h(t)e^{-st} {\mathbf d}t
+\]</span></p></li>
+<li><p>基于一般激励的零状态响应的拉普拉斯变换<span class="math inline">\(R(s)\)</span>和激励的拉普拉斯变换<span class="math inline">\(E(s)\)</span>的比值的定义： <span class="math display">\[
+H(s)=\frac{R(s)} {E(s)}
+\]</span></p></li>
+</ol>
+<p>在之前的学习中，我们学过响应可以分为自由响应、强迫响应、暂态响应、稳态响应等部分，我们可以以拉普拉斯变换的视角来重新看待这些概念。</p>
+<p>假设系统函数和输入激励只含一阶零极点，即： <span class="math display">\[
+H(s)=\frac{N(s)} {D(s)}=k_h\frac{\prod_{j=1}^m (s-z_j)} {\prod _{i=1}^n (s-p_i)}
+\]</span></p>
+<p><span class="math display">\[
+E(s)=k_e\frac{\prod_{l=1}^u(s-z_l)} {\prod _{k=1}^v(s-p_k)}
+\]</span></p>
+<p>于是系统响应的拉普拉斯变换<span class="math inline">\(R=E\times H\)</span>为： <span class="math display">\[
+R(s)=k_hk_e\frac{\prod_{j=1}^m (s-z_j)} {\prod _{i=1}^n (s-p_i)}\frac{\prod_{l=1}^u(s-z_l)} {\prod _{k=1}^v(s-p_k)}
+\]</span> 拉普拉斯逆变换，得系统的响应<span class="math inline">\(r(t)={\mathscr L}^{-1}[R(s)]\)</span>为： <span class="math display">\[
+r(t)=\left(\sum_{i=1}^nA_ie^{p_it}+\sum_{k=1}^vA_ke^{p_kt}\right)u(t)
+\]</span></p>
+<h3 id="自由响应和强迫响应">自由响应和强迫响应</h3>
+<p>我们可以看到，左边的求和式<span class="math inline">\(\sum_{i=1}^nA_ie^{p_it}\)</span>来自于<span class="math inline">\(H(s)\)</span>，是系统本身（的极点）决定的，对应于微分方程的齐次解。我们知道 <strong>齐次解和激励无关，所以称之为自由响应。</strong> 而<span class="math inline">\(\sum_{k=1}^vA_ke^{p_kt}\)</span>项来自于<span class="math inline">\(R(s)\)</span>，也就是微分方程的特解。我们知道 <strong>特解取决于外加激励，所以称之为强迫响应。</strong></p>
+<h3 id="暂态响应和稳态响应">暂态响应和稳态响应</h3>
+<p>我们将<span class="math inline">\(R(s)\)</span>的极点分成位于“左半平面”和“虚轴以及右半平面”的两类。位于左半平面的极点带来的响应会乘以一个<span class="math inline">\(e^{-at}\)</span>的系数（其中<span class="math inline">\(a&gt;0\)</span>)，因此如果时间比较长，便会近似等于<span class="math inline">\(0\)</span>。 <strong>这种左半平面的极点对应的响应是暂时的，因此称作暂态响应。</strong> 相反，位于虚轴或右半平面的极点带来的响应往往要不是<span class="math inline">\(\cos\)</span>震荡形式，要不会乘以一个<span class="math inline">\(e^{at}\)</span>的系数（其中<span class="math inline">\(a&gt;0\)</span>),这种响应 <strong>不会随着时间推移而消失，所以称为稳态响应。</strong></p>
+<h2 id="系统框图">系统框图</h2>
+<p>在之前的推文中其实我介绍了一种绘制系统框图的技术。现在我们来介绍一种基于拉普拉斯变换的，更简单的技术。</p>
+<p>对于微分方程系统（<span class="math inline">\(n&gt;m\)</span>） <span class="math display">\[
+C_0r^{(n)}(t)+C_1r^{(n-1)}(t)+\cdots+C_nr(t)=E_0e^{(m)}(t)+E_1e^{(m-1)}(t)+\cdots+E_me(t)
+\]</span> 有系统函数 <span class="math display">\[
+H(s)=\frac{\sum_{j=0}^mE_js^{m-j} } {\sum_{i=0}^nC_is^{n-i} }
+\]</span> 因为我们系统框图里面一般都用积分器，所以我们也把系统函数进行一个变形（上下同除以<span class="math inline">\(s^n\)</span>）也就是把微分方程变成积分方程（方程两边进行<span class="math inline">\(n\)</span>次积分）： <span class="math display">\[
+H(s)=\frac{\sum_{j=0}^mE_js^{-n+m-j} } {\sum_{i=0}^nC_is^{-i} }
+\]</span> 这样的系统可以拆分成两个系统的级联,设置中间变量<span class="math inline">\(W(s)\)</span>： <span class="math display">\[
+H_1(s)=\frac{W(s)} {E(s)}=\frac 1 {\sum_{i=0}^nC_is^{-i} }\\
+H_2(s)=\frac{R(s)} {W(s)}=\sum_{j=0}^mE_js^{-n+m-j}
+\]</span> 经过变形， 有： <span class="math display">\[
+C_0W(s)=E(s)-W(s)\sum_{i=1}^nC_is^{-i}\\
+R(s)=W(s)H_2(s)
+\]</span> 于是框图如下所示：</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/1653882298205.png" srcset="/img/loading.gif" lazyload /></p>
+<h2 id="系统幅相频特性和波特图">系统幅相频特性和波特图</h2>
+<p>系统幅相频特性就是系统的响应随着输入信号频率的变化而变化的性质，而我们常用波特图来进行描述。波特图是一种比较特殊的绘图方式，其纵轴为<span class="math inline">\(20\lg H/\text{dB}\)</span>，横轴为<span class="math inline">\(\omega\)</span>，且横轴是对数坐标。（由于纵轴的<span class="math inline">\(\text{dB}\)</span>已经隐含了对数坐标的事实，所以其实是双对数图）</p>
+<p>一般来说，线性时不变系统的传递函数可以写作： <span class="math display">\[
+H(s)=H_0\frac{\prod_{j=1}^m (s-z_j)} {\prod _{i=1}^n (s-p_i)}
+\]</span> 其中<span class="math inline">\(\{z_1,z_2,\cdots,z_m\}\)</span>叫做系统的零点，<span class="math inline">\(\{p_1,p_2,\cdots,p_n\}\)</span>叫做系统的极点。如果一个系统稳定，那么其极点一定在左半平面，而且极点个数一定大于等于零点个数。</p>
+<p>用<span class="math inline">\(j\omega\)</span>代替上面的<span class="math inline">\(s\)</span>，有： <span class="math display">\[
+H(j\omega)=H_0\frac{(j\omega-z_1)(j\omega-z_2)\cdots(j\omega-z_m)} {(j\omega-p_1)(j\omega-p_2)\cdots(j\omega-p_n)}
+\]</span> 取对数，因为对数可以把乘除式化为加减式，有幅频特性表达式： <span class="math display">\[
+\begin{aligned}
+20\lg H(\omega)&amp;=20\lg H_0\\
+&amp;+\left(20\lg \sqrt{\omega^2+z_1^2}+20\lg \sqrt{\omega^2+z_2^2}+\cdots+20\lg \sqrt{\omega^2+z_m^2}\right)\\
+&amp;-\left(20\lg \sqrt{\omega^2+p_1^2}+20\lg \sqrt{\omega^2+p_2^2}+\cdots+20\lg \sqrt{\omega^2+p_n^2}\right)
+\end{aligned}
+\]</span> 由于复数作积是相角相加，复数作商是相角相减，有相频表达式： <span class="math display">\[
+\varphi(\omega)=\tan^{-1}\left(-\frac\omega {z_1}\right )+\tan^{-1}\left(-\frac\omega {z_2}\right )+\cdots-\tan^{-1}\left(-\frac\omega {p_1}\right )-\cdots
+\]</span> 为表达方便，记： <span class="math display">\[
+\omega_z=-z,\omega_p=-p
+\]</span></p>
+<h3 id="幅频波特图">幅频波特图</h3>
+<h4 id="常数因子">常数因子</h4>
+<p>即<span class="math inline">\(H&#39;(\omega)=K\)</span>项，有：</p>
+<p><span class="math inline">\(20\lg H&#39;(\omega)=20\lg K\)</span>是常数</p>
+<p><span class="math inline">\(\varphi(\omega)=0\)</span>恒为0</p>
+<p>对应的图像如下：</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/1653825965018.png" srcset="/img/loading.gif" lazyload /></p>
+<h4 id="jomega因子零零点因子"><span class="math inline">\(j\omega\)</span>因子（零零点因子）</h4>
+<p>即<span class="math inline">\(H&#39;(\omega)=j\omega\)</span>，有：</p>
+<p><span class="math inline">\(20\lg H&#39;(\omega)=20\lg \omega\)</span></p>
+<p><span class="math inline">\(\varphi(\omega)=90\degree\)</span></p>
+<p>对应的图像如下：</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/1653825989648.png" srcset="/img/loading.gif" lazyload /></p>
+<h4 id="一般一阶零点因子">一般一阶零点因子</h4>
+<p>即<span class="math inline">\(A(j\omega)=j\omega+\omega_z\)</span></p>
+<p>可以变形为：<span class="math inline">\(A(j\omega)=\omega_z(1+\frac{j\omega} {\omega_z})\)</span></p>
+<p>其中<span class="math inline">\(\omega_z\)</span>可以划归进常数因子，我们只需考虑<span class="math inline">\(A&#39;(\omega)=(1+j\frac{\omega} {z_i})\)</span>.有：</p>
+<p><span class="math inline">\(20\lg A&#39;(\omega)=20\lg \sqrt{1+(\frac\omega{\omega_z})^2}\)</span></p>
+<p><span class="math inline">\(\varphi&#39;(\omega)=\tan^{-1}\left(\frac{\omega} {\omega_z}\right)\)</span></p>
+<p>我们观察幅频特性，它并不是一个非常容易画的函数。但是我们感性认识一下，发现它应该近似于一个线性函数。我们取零点为<span class="math inline">\(-10^1\)</span>，即<span class="math inline">\(\omega_z=10^1\)</span>，用mathematica 12绘制图像：</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mathematica"><span class="hljs-built_in">Plot</span><span class="hljs-punctuation">[</span><span class="hljs-number">20</span><span class="hljs-operator">*</span><span class="hljs-built_in">Log10</span><span class="hljs-punctuation">[</span><span class="hljs-built_in">Sqrt</span><span class="hljs-punctuation">[</span><span class="hljs-number">1</span> <span class="hljs-operator">+</span> <span class="hljs-punctuation">(</span><span class="hljs-punctuation">(</span><span class="hljs-number">10</span><span class="hljs-operator">^</span><span class="hljs-variable">x</span><span class="hljs-punctuation">)</span><span class="hljs-operator">/</span><span class="hljs-number">10</span><span class="hljs-punctuation">)</span><span class="hljs-operator">^</span><span class="hljs-number">2</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">]</span><span class="hljs-operator">,</span> <span class="hljs-punctuation">&#123;</span><span class="hljs-variable">x</span><span class="hljs-operator">,</span> <span class="hljs-built_in">Log10</span><span class="hljs-punctuation">[</span><span class="hljs-number">0.1</span><span class="hljs-punctuation">]</span><span class="hljs-operator">,</span> <br>  <span class="hljs-built_in">Log10</span><span class="hljs-punctuation">[</span><span class="hljs-number">100000</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">]</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/1653826010267.png" srcset="/img/loading.gif" lazyload /></p>
+<p>我们发现它近似于一个与<span class="math inline">\(x\)</span>轴交于<span class="math inline">\(1\)</span>点，增长速度为<span class="math inline">\(20\text{dB}/\)</span>十倍频的直线。</p>
+<p>如法炮制，绘制相频曲线：</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mathematica"><span class="hljs-built_in">Plot</span><span class="hljs-punctuation">[</span><span class="hljs-built_in">ArcTan</span><span class="hljs-punctuation">[</span><span class="hljs-punctuation">(</span><span class="hljs-number">10</span><span class="hljs-operator">^</span><span class="hljs-variable">x</span><span class="hljs-punctuation">)</span><span class="hljs-operator">/</span><span class="hljs-number">10</span><span class="hljs-punctuation">]</span><span class="hljs-operator">,</span> <span class="hljs-punctuation">&#123;</span><span class="hljs-variable">x</span><span class="hljs-operator">,</span> <span class="hljs-built_in">Log10</span><span class="hljs-punctuation">[</span><span class="hljs-number">0.1</span><span class="hljs-punctuation">]</span><span class="hljs-operator">,</span> <span class="hljs-built_in">Log10</span><span class="hljs-punctuation">[</span><span class="hljs-number">100000</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">]</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/1653826030142.png" srcset="/img/loading.gif" lazyload /></p>
+<p>以上两个图的横轴是<span class="math inline">\(10^x \omega_{zi}\)</span>上面的那个指数，所以你看着是<span class="math inline">\(0\)</span>的地方，其实对应的是<span class="math inline">\(1\omega_z\)</span></p>
+<p>于是，我们可以得到近似画法：</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/1653826050805.png" srcset="/img/loading.gif" lazyload /></p>
+<h4 id="极点因子">极点因子</h4>
+<p>即： <span class="math display">\[
+A(\omega)=\frac{1} {j\omega+\omega_p}
+\]</span></p>
+<p>可以变形为： <span class="math display">\[
+A(j\omega)=\frac{1} {w_p(j\frac{\omega} {\omega_p}+1)}
+\]</span> 同理，<span class="math inline">\(\omega_p^{-1}\)</span>也可以划归为常数因子，则： <span class="math display">\[
+A&#39;(\omega)=\frac 1 {j\frac \omega {\omega_p}+1}
+\]</span> 有：</p>
+<p><span class="math inline">\(20\lg A&#39;(\omega)=-20\lg \sqrt{1+(\frac{\omega} {\omega_p})^2}\)</span></p>
+<p><span class="math inline">\(\varphi&#39;(\omega)=-\tan^{-1}(\frac{\omega} {\omega_p})\)</span></p>
+<p>这个其实就是前面一阶零点的相反数，也就不需要再拿软件画图看性质了。这里的<span class="math inline">\(\omega_p=-p_i\)</span>.简化图如下： <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/1653826066834.png" srcset="/img/loading.gif" lazyload /></p>
+<h4 id="作图的一般流程">作图的一般流程</h4>
+<ol type="1">
+<li><p>首先求出各零、极点，将网络函数写成 <span class="math display">\[
+H(j\omega)=H_0\frac{(j\omega-z_1)(j\omega-z_2)\cdots(j\omega-z_m)} {(j\omega-p_1)(j\omega-p_2)\cdots(j\omega-p_n)}
+\]</span> 的形式。</p></li>
+<li><p>提取各零、极点因子的常数项，把零点和极点转换成<span class="math inline">\(\omega_z,\omega_p\)</span>,把它们都变成<span class="math inline">\((1+j\frac{\omega} {\omega_z})\)</span>、<span class="math inline">\(\frac{1} {1+j\frac{\omega} {\omega_p} }\)</span>的形式。这时，有： <span class="math display">\[
+H(j\omega)=H(0)\frac{(1+j\frac{\omega} {\omega_{z1} })(1+j\frac{\omega} {\omega_{z2} })\cdots(1+j\frac{\omega} {\omega_{zm} })} {(1+j\frac{\omega} {\omega_{p1} })(1+j\frac{\omega} {\omega_{p2} })\cdots(1+j\frac{\omega} {\omega_{pn} })}
+\]</span> 其中： <span class="math display">\[
+H(0)=H_0\frac{\prod _{i=1}^m \omega_{zi} } {\prod_{i=1}^n \omega_{p_i} }
+\]</span></p></li>
+<li><p>根据叠加原理，结合上面各个因子的图像画出波特图。</p></li>
+</ol>
+<h2 id="系统稳定性的判断">系统稳定性的判断</h2>
+<p>在<strong>6.2 暂态响应和稳态响应</strong>中，我们讨论过系统零极点的位置对系统的响应的影响。即：<span class="math inline">\(H(s)\)</span>的极点如果全部位于左半平面，则系统稳定。当虚轴存在一阶零点时，称为边界稳定或者震荡稳定；当右半平面有极点，或者虚轴上有高阶极点时，称系统不稳定。</p>
+<ol type="1">
+<li><p>首先基于<span class="math inline">\(H(s)=N/D\)</span>的阶次进行分析。其中<span class="math inline">\(N\)</span>是<span class="math inline">\(m\)</span>阶多项式，<span class="math inline">\(D\)</span>是<span class="math inline">\(n\)</span>阶多项式。</p>
+<p>如果<span class="math inline">\(m&gt;n\)</span>，系统一定存在一个无穷远点处的极点。基于这个事实，有以下系统稳定的必要条件：</p>
+<ol type="1">
+<li><span class="math inline">\(m\leq n\)</span>是系统稳定的必要条件</li>
+<li><span class="math inline">\(m&gt;n+1\)</span>时，系统一定不稳定</li>
+</ol>
+<p>因此，我们在前面几乎只讨论<span class="math inline">\(m\leq n\)</span>的系统。</p></li>
+<li><p>基于分母多项式的根的分布判别</p>
+<ol type="1">
+<li><p>必要条件</p>
+<ol type="1">
+<li><span class="math inline">\(D(s)\)</span>的所有系数都同号</li>
+<li><span class="math inline">\(D(s)\)</span>不缺项，或者缺全部的奇次或偶次项</li>
+</ol>
+<p>上面两个条件是必要条件，只要任一条件不被满足，系统就不是稳定的。但是即使全部满足，系统也不一定稳定。例如： <span class="math display">\[
+D(s)=2s^3+s^2+3s+9
+\]</span></p></li>
+<li><p>劳斯判据</p>
+<p>劳斯判据就是列劳斯表，然后看第一列是不是全同号。劳斯表是这样列的：</p>
+<p>前两行，第一行从前往后是<span class="math inline">\(a_n,a_{n-2},a_{n-4},\cdots\)</span>，直到下标小于<span class="math inline">\(0\)</span>；第二行，是<span class="math inline">\(a_{n-1},a_{n-3},\cdots\)</span>，直到下标小于<span class="math inline">\(0\)</span>。设劳斯表第<span class="math inline">\(i\)</span>行第<span class="math inline">\(j\)</span>列的元素是<span class="math inline">\(m_{ij}\)</span>，在第三行之后，有： <span class="math display">\[
+m_{ij}=-\frac{1} {m_{i-1,i} }\begin{vmatrix}
+m_{i-2,1} &amp; m_{i-2,j+1}\\
+m_{i-1,1} &amp; m_{i-1,j+1}\\
+\end{vmatrix}
+\]</span> 如果出现<span class="math inline">\(0\)</span>，那就把它替换成一个<span class="math inline">\(\varepsilon&gt;0\)</span>极小量，然后继续算。 我写了个代码来进行这个过程：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cstdio&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cstring&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cmath&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;set&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;queue&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;algorithm&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> LL long long</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAXN 100+10</span><br><br><span class="hljs-type">const</span> <span class="hljs-type">double</span> eps = <span class="hljs-number">1e-8</span>;<br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">hls</span><span class="hljs-params">(<span class="hljs-type">double</span> aa, <span class="hljs-type">double</span> ab, <span class="hljs-type">double</span> ba, <span class="hljs-type">double</span> bb)</span> </span>&#123;<br>  <span class="hljs-comment">/*</span><br><span class="hljs-comment">  aa ab</span><br><span class="hljs-comment">  ba bb</span><br><span class="hljs-comment">  */</span><br>  <span class="hljs-keyword">return</span> aa * bb - ab * ba;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">sgn</span><span class="hljs-params">(<span class="hljs-type">double</span> x)</span> </span>&#123;<br>  <span class="hljs-keyword">return</span> x &gt; <span class="hljs-number">0.0</span> ? <span class="hljs-number">1.0</span> : <span class="hljs-number">-1.0</span>;<br>&#125;<br><br><span class="hljs-type">double</span> epsilon = <span class="hljs-number">0.01</span>;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>  <span class="hljs-type">int</span> n;<br>  <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;输入多项式的次数：&quot;</span>);<br>  <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;n);<br>  <span class="hljs-type">double</span> a[MAXN], lis[MAXN][MAXN];<br>  <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;从低到高输入系数：&quot;</span>);<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt;= n; ++i)<br>      <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%lf&quot;</span>, &amp;a[i]);<br>  <span class="hljs-type">int</span> lincnt;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n + <span class="hljs-number">1</span>; ++i) &#123;<br>      <span class="hljs-keyword">if</span> (i == <span class="hljs-number">1</span>) &#123;<br>          <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; (n - (<span class="hljs-number">2</span> * (j - <span class="hljs-number">1</span>)) &gt;= <span class="hljs-number">0</span>); ++j) &#123;<br>              lis[i][j] = a[n - (<span class="hljs-number">2</span> * (j - <span class="hljs-number">1</span>))];<br>              lincnt = j;<br>          &#125;<br>      &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (i == <span class="hljs-number">2</span>) &#123;<br>          <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= lincnt; ++j) &#123;<br>              <span class="hljs-keyword">if</span> (n - (<span class="hljs-number">2</span> * j - <span class="hljs-number">1</span>) &gt;= <span class="hljs-number">0</span>) lis[i][j] = a[n - (<span class="hljs-number">2</span> * j - <span class="hljs-number">1</span>)];<br>              <span class="hljs-keyword">else</span> lis[i][j] = <span class="hljs-number">0</span>;<br>          &#125;<br>      &#125; <span class="hljs-keyword">else</span> &#123;<br>          <span class="hljs-type">int</span> flag = <span class="hljs-number">1</span>, j = <span class="hljs-number">1</span>;<br>          <span class="hljs-keyword">for</span> (j = <span class="hljs-number">1</span>; j &lt;= lincnt; ++j) &#123;<br>              lis[i][j] = <span class="hljs-built_in">hls</span>(lis[i - <span class="hljs-number">2</span>][<span class="hljs-number">1</span>], lis[i - <span class="hljs-number">2</span>][j + <span class="hljs-number">1</span>], lis[i - <span class="hljs-number">1</span>][<span class="hljs-number">1</span>], lis[i - <span class="hljs-number">1</span>][j + <span class="hljs-number">1</span>]) / (-lis[i - <span class="hljs-number">1</span>][<span class="hljs-number">1</span>]);<br>              <span class="hljs-keyword">if</span> (<span class="hljs-built_in">fabs</span>(lis[i][j]) &lt; eps) &#123;<br>                  <span class="hljs-keyword">if</span> (j == <span class="hljs-number">1</span>)<br>                      lis[i][j] = epsilon;<br>              &#125; <span class="hljs-keyword">else</span> &#123;<br>                  flag = <span class="hljs-number">0</span>;<br>              &#125;<br>          &#125;<br><br>          <span class="hljs-keyword">if</span> (flag == <span class="hljs-number">1</span>) &#123;<br>              <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;第 %d 行全为0，系统不稳定，判定结束。\n&quot;</span>, i);<br>              <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>          &#125;<br><br>      &#125;<br>  &#125;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n + <span class="hljs-number">1</span>; ++i) &#123;<br>      <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\&quot;%d\&quot;&quot;</span>, i);<br>      <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= lincnt; ++j) &#123;<br>          <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%+8.2f&quot;</span>, lis[i][j]);<br>      &#125;<br>      <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>  &#125;<br>  <span class="hljs-type">int</span> f = <span class="hljs-built_in">sgn</span>(lis[<span class="hljs-number">1</span>][<span class="hljs-number">1</span>]);<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">2</span>; i &lt;= n + <span class="hljs-number">1</span>; ++i) &#123;<br>      <span class="hljs-keyword">if</span> (<span class="hljs-built_in">sgn</span>(lis[i][<span class="hljs-number">1</span>]) != f) &#123;<br>          <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;第 %d 行出现异号，不稳定.\n&quot;</span>, i);<br>          <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>      &#125;<br>  &#125;<br>  <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;稳定。\n&quot;</span>);<br>  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>例如，对于<span class="math inline">\(s^4+2s^3+8s^2+3s+4\)</span>，输入</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-number">4</span><br><span class="hljs-symbol">4 </span><span class="hljs-number">3</span> <span class="hljs-number">8</span> <span class="hljs-number">2</span> <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs subunit">&quot;1&quot;   <span class="hljs-string">+1</span>.00   <span class="hljs-string">+8</span>.00   <span class="hljs-string">+4</span>.00<br>&quot;2&quot;   <span class="hljs-string">+2</span>.00   <span class="hljs-string">+3</span>.00   <span class="hljs-string">+0</span>.00<br>&quot;3&quot;   <span class="hljs-string">+6</span>.50   <span class="hljs-string">+4</span>.00   <span class="hljs-string">-0</span>.00<br>&quot;4&quot;   <span class="hljs-string">+1</span>.77   <span class="hljs-string">+0</span>.00   <span class="hljs-string">-0</span>.00<br>&quot;5&quot;   <span class="hljs-string">+4</span>.00   <span class="hljs-string">-0</span>.00   <span class="hljs-string">-0</span>.00<br>稳定。<br></code></pre></td></tr></table></figure>
+<p>对于<span class="math inline">\(2s^4+2s^3+4s^2+4s+5\)</span>，输入</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-number">4</span><br><span class="hljs-symbol">5 </span><span class="hljs-number">4</span> <span class="hljs-number">4</span> <span class="hljs-number">2</span> <span class="hljs-number">2</span><br></code></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs subunit">&quot;1&quot;   <span class="hljs-string">+2</span>.00   <span class="hljs-string">+4</span>.00   <span class="hljs-string">+5</span>.00<br>&quot;2&quot;   <span class="hljs-string">+2</span>.00   <span class="hljs-string">+4</span>.00   <span class="hljs-string">+0</span>.00<br>&quot;3&quot;   <span class="hljs-string">+0</span>.01   <span class="hljs-string">+5</span>.00   <span class="hljs-string">-0</span>.00<br>&quot;4&quot; <span class="hljs-string">-996</span>.00   <span class="hljs-string">+0</span>.00   <span class="hljs-string">-0</span>.00<br>&quot;5&quot;   <span class="hljs-string">+5</span>.00   <span class="hljs-string">-0</span>.00   <span class="hljs-string">+0</span>.00<br>第 4 行出现异号，不稳定.<br></code></pre></td></tr></table></figure></li>
+</ol></li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">#信号与系统</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>关于拉普拉斯变换的那些事</div>
+      <div>https://suzumiyaakizuki.github.io/2022/05/21/关于拉普拉斯变换的那些事/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>SuzumiyaAkizuki</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年5月21日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/05/23/%E5%85%B3%E4%BA%8E%E7%94%A8R%E8%AF%AD%E8%A8%80%E8%BF%9B%E8%A1%8C%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E7%9A%84%E4%B9%90%E5%AD%90%E4%BA%8C%E5%88%99/" title="关于用R语言进行方差分析的乐子二则">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">关于用R语言进行方差分析的乐子二则</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/05/20/%E6%8A%BD%E8%B1%A1%E4%BB%A3%E6%95%B0%E5%AE%9A%E4%B9%89%E6%95%B4%E7%90%86%EF%BC%9A%E7%AC%AC%E4%B8%80%E5%BC%B9/" title="抽象代数定义整理：第一弹">
+                        <span class="hidden-mobile">抽象代数定义整理：第一弹</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.7.2/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"48fb14f9689ae0d11307","clientSecret":"091ab25a88e87bfd9d9d40d97d1d0d932e694059","repo":"SuzumiyaAkizuki.github.io","owner":"SuzumiyaAkizuki","admin":["SuzumiyaAkizuki"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: 'be754eb351e0c4200399bec148ffa90f'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       Powered by: <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
