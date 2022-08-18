@@ -1,0 +1,939 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <link rel="icon" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="SuzumiyaAkizuki">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="这部分写的有点混乱，主要原因是我自己也没搞得太明白。还是希望大家多多在评论里交流。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于分离变量法和物质极化的那些事">
+<meta property="og:url" content="https://suzumiyaakizuki.github.io/2022/07/01/%E5%87%89%E5%AE%AB%E7%A7%8B%E6%9C%88/index.html">
+<meta property="og:site_name" content="凉宫秋月的文艺部">
+<meta property="og:description" content="这部分写的有点混乱，主要原因是我自己也没搞得太明白。还是希望大家多多在评论里交流。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/illust_67687967_20190605_163831.jpg">
+<meta property="article:published_time" content="2022-07-01T09:27:30.000Z">
+<meta property="article:modified_time" content="2022-07-03T14:45:49.148Z">
+<meta property="article:author" content="SuzumiyaAkizuki">
+<meta property="article:tag" content="电磁场">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/illust_67687967_20190605_163831.jpg">
+  
+  
+  
+  <title>关于分离变量法和物质极化的那些事 - 凉宫秋月的文艺部</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"suzumiyaakizuki.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":"G-J01HK5TZ0Y","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"QGqf9VPGTa96KerO0JvDW3Ld-gzGzoHsz","app_key":"RhwwUaYq4lMo1tCJwcQTWdRp","server_url":"https://qgqf9vpg.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.google-analytics.com/analytics.js', function() {
+          window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
+          ga.l = +new Date;
+          ga('create', 'G-J01HK5TZ0Y', 'auto');
+          ga('send', 'pageview');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>凉宫秋月的文艺部</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友情链接
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/img/illust_67687967_20190605_163831.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="关于分离变量法和物质极化的那些事"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        SuzumiyaAkizuki
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-07-01 17:27" pubdate>
+          2022年7月1日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          10 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">关于分离变量法和物质极化的那些事</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>这部分写的有点混乱，主要原因是我自己也没搞得太明白。还是希望大家多多在评论里交流。</p>
+<span id="more"></span>
+<p>[toc]</p>
+<h2 id="静电位拉普拉斯方程的变量可分离解">静电位拉普拉斯方程的变量可分离解</h2>
+<p>拉普拉斯方程： <span class="math display">\[
+\nabla^2\Phi=0
+\]</span></p>
+<h3 id="直角坐标系中">直角坐标系中</h3>
+<p>平凡解： <span class="math display">\[
+\Phi(\vec { r } )=X(x) Y(y) Z(z)=(A x+B)(C y+D)(E z+F)
+\]</span> 一般解： <span class="math display">\[
+\Phi(x, y, z)=\left\{\begin{array}{l}
+\sin \\
+\cos \\
+== \\
+e^{\pm} \\
+\sinh \\
+\cosh
+\end{array}\right\} K_{x} x\left\{\begin{array}{l}
+\sin \\
+\cos \\
+== \\
+e^{\pm} \\
+\sinh \\
+\cosh
+\end{array}\right\} K_{y} y\left\{\begin{array}{l}
+\sin \\
+\cos \\
+== \\
+e^{\pm} \\
+\sinh \\
+\cosh
+\end{array}\right\} K_{z} z
+\]</span> 满足： <span class="math display">\[
+\pm K_x^2\pm K_y^2\pm K_z^2=0
+\]</span> 选试探解时，必须从分割线两边选取，不能只取一边。</p>
+<h3 id="柱坐标系中">柱坐标系中</h3>
+<p>平凡解： <span class="math display">\[
+\Phi(\vec { r } )=\left(A+B \ln r_ { c } \right)(C+D \varphi)(F+G z)
+\]</span> 其中第一项的物理意义是：<span class="math inline">\(z\)</span>方向上无限长均匀带电直线线电荷周围的电场。</p>
+<p>一般解： <span class="math display">\[
+\Phi(\vec { r } )=\left(A r_ { C } ^ { n } +B r_ { C } ^ { -n } \right)(C \sin n \varphi+D \cos n \varphi)
+\]</span> 其物理意义如下：</p>
+<ol type="1">
+<li><span class="math inline">\(n=1,B=C=0\)</span>：<span class="math inline">\(x\)</span>方向匀强电场</li>
+<li><span class="math inline">\(n=1,B=D=0\)</span>：<span class="math inline">\(y\)</span>方向匀强电场</li>
+<li><span class="math inline">\(n=1,A=C=0\)</span>​：沿着<span class="math inline">\(x\)</span>轴放置的二维电偶极子</li>
+<li><span class="math inline">\(n=1,A=D=0\)</span>：沿着<span class="math inline">\(y\)</span>轴放置的二维电偶极子</li>
+<li>对于整数<span class="math inline">\(n\)</span>，系统是一个<span class="math inline">\(2n\)</span>偶极子。当<span class="math inline">\(A\neq 0\)</span>时， 有放置在无穷远处多极子形式；当<span class="math inline">\(B\neq0\)</span>时，有放置在原点的多极子形式</li>
+</ol>
+<p>需要注意的是：上述系统的总电荷量都是0，只有平凡解中式<span class="math inline">\(\left(A+B \ln r_ { c } \right)\)</span>对应的系统总电荷量不为零。因此，系统有没有净电荷，可以作为判断要不要取<span class="math inline">\(\left(A+B \ln r_ { c } \right)\)</span>的依据。</p>
+<h3 id="球坐标系中">球坐标系中</h3>
+<p>平凡解： <span class="math display">\[
+\Phi(\vec { r } )=\left(A+\frac { B }  { r_ { s }  } \right)\left[C+D \ln \left(\tan \frac { \theta }  { 2 } \right)\right](F+G \varphi)
+\]</span> 其物理意义为：</p>
+<ol type="1">
+<li>第一项表示了位于原点的点电荷</li>
+<li>第二项是在一个空间两圆锥面之间夹着的区域的电荷分布</li>
+<li>第三项是空间角域的电荷分布</li>
+</ol>
+<p>一般解： <span class="math display">\[
+\Phi(\vec { r } ) =\left[A r_ { S } ^ { n } +\frac { B }  { r_ { S } ^ { n+1 }  } \right] P_ { n } ^ { m } (\cos \theta)(C \sin m \varphi+D \cos m \varphi)\ \ (m\leq n)
+\]</span> 如果系统的总电荷量为0，它的电位中就不可能有$ { r_s } <span class="math inline">\(出现，因此只会有一般解中\)</span>n<span class="math inline">\(的形式出现。如果一个系统中总电荷量不是0，那么就可以有\)</span> { r_s } $出现。</p>
+<h2 id="边界条件的选取规则">边界条件的选取规则</h2>
+<h3 id="边界电位已知的系统">边界电位已知的系统</h3>
+<p>直接写出边界上<span class="math inline">\(\Phi\)</span>等于已知的电位即可。</p>
+<h3 id="带有自然边界条件的系统">带有自然边界条件的系统</h3>
+<p>对于一个<strong>分布在有限区域的源</strong>（例如：给出某边界的电压表达式，在某表面上有电荷等），观察点离他越远，他对观察点的 <strong>场</strong> 的影响就越小。如果源在某个方向是无限的，那么在无限远处电位是常数，只有电场趋于零。如果源确实是有限的（例如：球面），那么可以认为电位在无穷远点是0，此时电场当然也是零。因此，有： <span class="math display">\[
+r\to \infty,E\to 0
+\]</span> 对于在某个方向无限的情况，特别地，如果在系统中给出了“地”，或者和地相连的零电位面，而且当前<span class="math inline">\(r\to \infty\)</span>的这个方向附近存在零电位面，那么这个条件很可能也可以被进一步加强为： <span class="math display">\[
+r\to \infty,\Phi\to 0
+\]</span> 在系统的原点处，往往有极值定理。这说明：在<span class="math inline">\(r=0\)</span>处，电位应该有限，即： <span class="math display">\[
+r\to 0,\Phi=0
+\]</span></p>
+<h3 id="导数边界条件">导数边界条件</h3>
+<p>在载流导体和空气的边界，电容器的边缘处，往往有： <span class="math display">\[
+\frac { \partial \Phi }  { \partial n } =0
+\]</span> 在有面自由电荷分布的边界上，有： <span class="math display">\[
+\varepsilon_0\frac { \partial \Phi_2 }  { \partial n } -\varepsilon_0\frac { \partial \Phi_1 }  { \partial n } =\eta
+\]</span> 如果上面的情况是在两个电介质的交界处，有： <span class="math display">\[
+\varepsilon_0\frac { \partial \Phi_2 }  { \partial n } -\varepsilon_0\frac { \partial \Phi_1 }  { \partial n } =\eta_f+\eta_p
+\]</span> 或 <span class="math display">\[
+\varepsilon_1\frac { \partial \Phi_2 }  { \partial n } -\varepsilon_2\frac { \partial \Phi_1 }  { \partial n } =\eta_f
+\]</span></p>
+<p>在两个电导率不同的材料的交界面上，有： <span class="math display">\[
+\sigma_1\frac { \partial \Phi_1 }  { \partial n } =\sigma_1\frac { \partial \Phi_1 }  { \partial n } 
+\]</span></p>
+<h3 id="带有趋势性边界条件的静电系统">带有趋势性边界条件的静电系统</h3>
+<p>近区：点电荷、电偶极子等，如果放在原点，那么<span class="math inline">\(r_s\to 0\)</span>时，电位趋向于点电荷和电偶极子的电荷。</p>
+<p>远区：如果在一个看起来就很“大”的系统，例如：遍布于全空间的匀强电场中放入一个导体球，那么当<span class="math inline">\(r_s\to \infty\)</span>时，场分布应该和那么很“大”的系统一样。</p>
+<h2 id="试探解的选取规则">试探解的选取规则</h2>
+<h3 id="直角坐标系中-1">直角坐标系中</h3>
+<p>首先确定：电位和哪些坐标量有关，和哪些坐标量无关。</p>
+<p>然后，检查电位是否在某个方向线性变化。这里一般是看边界条件。如果确实线性变化，选平凡解。</p>
+<p>然后，看系统在某坐标量上的零点个数。如果有超过1个零点，那么这个坐标量应该考虑三角函数形式。否则，可以考虑指数函数形式。需要特别注意的是：<span class="math inline">\(\cosh\)</span>函数是没有零点的。</p>
+<p>然后，看对称性。三角函数中，<span class="math inline">\(\sin\)</span>是奇函数，<span class="math inline">\(\cos\)</span>是偶函数。在指数形式函数中，<span class="math inline">\(\sinh\)</span>是奇函数，<span class="math inline">\(\cosh\)</span>是偶函数。</p>
+<h3 id="柱坐标系中-1">柱坐标系中</h3>
+<p>在柱坐标系中确定<span class="math inline">\(n\)</span>的值时，应结合边界条件，看看边界条件中给出的是（例如）： <span class="math display">\[
+r_c=b,\Phi_1=\Phi_2=V_0\sin 2\varphi
+\]</span> 这时候<span class="math inline">\(n\)</span>就是2。如果边界条件是（例如）： <span class="math display">\[
+r_ { C } =R, \Phi_ { 1 } (\vec { r } )=\Phi_ { 2 } (\vec { r } )=V_ { 0 }  \cos \varphi
+\]</span> 这时候<span class="math inline">\(n\)</span>显然是<span class="math inline">\(1\)</span>，同时也可以确定<span class="math inline">\(C,D\)</span>的存在性。</p>
+<p>如果系统中存在净电荷量，或者只和<span class="math inline">\(r_c\)</span>有关，那么可以考虑平凡解的<span class="math inline">\((A+B\ln r_c)\)</span>项。</p>
+<h3 id="球坐标系中-1">球坐标系中</h3>
+<p>首先也要确定<span class="math inline">\(n,m\)</span>的取值。如果系统和<span class="math inline">\(\phi\)</span>无关，那么这时候<span class="math inline">\(m\)</span>显然是0，这种情况很简单。如果不能确定，应看边界条件中有没有和勒让德函数形式契合的。如果有，那么<span class="math inline">\(n,m\)</span>的取值也随之确定。</p>
+<p>如果系统和<span class="math inline">\(\theta,\varphi\)</span>看起来都没有关系，可以选取平凡解<span class="math inline">\((A+B/r_s)\)</span>。如果系统很契合“两个圆锥面”的物理情景，可选择平凡解的第二项。</p>
+<h2 id="有物质存在时的场定律">有物质存在时的场定律</h2>
+<h3 id="极化">极化</h3>
+<h4 id="极化强度矢量">极化强度矢量</h4>
+<p>定义式: <span class="math display">\[
+P=\lim_ { \Delta V\to 0 } \frac { \sum_ { i=1 } ^n p_i }  { \Delta V } 
+\]</span> 其中ΔV是空间中的小体积元，pi是ΔV中一个电偶极子的电偶极矩。还有一个计算式： <span class="math display">\[
+P=\chi_e\varepsilon_0E
+\]</span> 其中<span class="math inline">\(\chi_e\)</span>是极化率。这个式子只有在非永久极化时才能使用。</p>
+<h4 id="极化与高斯定律">极化与高斯定律</h4>
+<p>有极化电荷密度： <span class="math display">\[
+\rho_P=-\nabla\cdot P
+\]</span> 由这个式子，可导出边界条件： <span class="math display">\[
+\eta_P=-i_n\cdot(P_1-P_2)
+\]</span> 宏观极化模型下的高斯定律： <span class="math display">\[
+\nabla\cdot(\varepsilon_0E+P)=\rho_f
+\]</span> 如果令电位移矢量<span class="math inline">\(D\)</span> <span class="math display">\[
+D=\varepsilon_0E+P=\varepsilon_0E+\chi_e\varepsilon_0E=(1+\chi_e)\varepsilon_0E=\varepsilon_r\varepsilon_0E
+\]</span> 有： <span class="math display">\[
+\nabla\cdot D=\rho_f
+\]</span> 写成积分形式： <span class="math display">\[
+\oint_sD \mathrm { d } a=\iiint_v\rho_f \mathrm { d } V
+\]</span> 还可以导出以下两个边界条件： <span class="math display">\[
+i_n\cdot\varepsilon_0(E_1-E_2)=\eta_f+\eta_p\\
+i_n\cdot(D_1-D_2)=\eta_f
+\]</span></p>
+<h4 id="极化与安培环路定律">极化与安培环路定律</h4>
+<p>极化电流： <span class="math display">\[
+J_p=\frac { \partial P }  { \partial t } 
+\]</span> 修正的安培环路定律： <span class="math display">\[
+\nabla\times H=J_f+\frac { \mathbf { d } D }  { \mathbf { d } t } 
+\]</span> 积分形式： <span class="math display">\[
+\oint_cH\mathbf { d } s=\iint_sJ\mathbf { d } a+\frac { \mathbf { d }  }  { \mathbf { d } t } \iint_sD\mathbf { d } a
+\]</span></p>
+<h4 id="求解问题思路">求解问题思路</h4>
+<ol type="1">
+<li><p>永久极化问题</p>
+<p>在永久极化的情况下，<span class="math inline">\(P=\chi_e\varepsilon_0E\)</span>不能用，这时候<span class="math inline">\(P\)</span>一般会直接告诉你。我们一般用 <span class="math display">\[
+\rho_P=-\nabla\cdot P
+\]</span> 求出极化电荷分布，然后把极化电荷当成电荷，用已知电荷求场的思路解决问题。</p></li>
+<li><p>非永久极化问题</p>
+<p>这时候一般用分离变量法求出场分布，然后再用<span class="math inline">\(D=\varepsilon E\)</span>求出电位移矢量，然后进一步求解极化电荷等等。</p></li>
+</ol>
+<h3 id="磁化">磁化</h3>
+<p>这里只介绍磁荷模型，因为它可以导出电磁对偶关系。</p>
+<h4 id="磁化强度矢量">磁化强度矢量</h4>
+<p><span class="math display">\[
+M=\lim_ { \Delta V\to0 } \frac { \sum_ { i=1 } ^N m_i }  { \Delta V } 
+\]</span></p>
+<p>由电磁对偶关系（这里是<span class="math inline">\(\mu_0M\)</span>和<span class="math inline">\(P\)</span>对偶），就能直接得出：</p>
+<p>磁荷密度： <span class="math display">\[
+\rho_M=-\nabla\cdot\mu_0M
+\]</span> 磁流密度： <span class="math display">\[
+J_M=\frac {   { \bf d }   }   {   {  \bf d  }  t  }  (\mu_0M)
+\]</span> 定义磁感应强度<span class="math inline">\(B\)</span>: <span class="math display">\[
+B=\mu_0(1+\chi_m)H=\mu H
+\]</span></p>
+<h4 id="磁化与电磁感应定律">磁化与电磁感应定律</h4>
+<p><span class="math display">\[
+\nabla \times E=-\frac { \partial B }  { \partial t } 
+\]</span></p>
+<p>积分形式： <span class="math display">\[
+\oint_cE  {  \bf d  }  s=-\frac {  { \bf d }  }  {  { \bf d } t } \iint_sB { \bf d } a
+\]</span></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%94%B5%E7%A3%81%E5%9C%BA/">#电磁场</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>关于分离变量法和物质极化的那些事</div>
+      <div>https://suzumiyaakizuki.github.io/2022/07/01/凉宫秋月/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>SuzumiyaAkizuki</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年7月1日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/07/02/%E6%9A%91%E5%81%87%E8%AE%A1%E5%88%92/" title="暑假计划">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">暑假计划</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/06/27/%E5%91%A8%E8%AE%B0%EF%BC%8820220627-20220703%EF%BC%89/" title="周记（20220627-20220703）">
+                        <span class="hidden-mobile">周记（20220627-20220703）</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.7.2/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"48fb14f9689ae0d11307","clientSecret":"091ab25a88e87bfd9d9d40d97d1d0d932e694059","repo":"SuzumiyaAkizuki.github.io","owner":"SuzumiyaAkizuki","admin":["SuzumiyaAkizuki"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '22cc3dc102350e0ed7d14848ac92f61e'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       Powered by: <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

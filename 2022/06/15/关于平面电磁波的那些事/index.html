@@ -1,0 +1,1235 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <link rel="icon" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="SuzumiyaAkizuki">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="主要是课本和PPT的总结，加了一点点我学习时的疑问和感悟。电磁场是真™的难，能学懂的都是神人，反正我是学不懂，哈人。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于平面电磁波的那些事">
+<meta property="og:url" content="https://suzumiyaakizuki.github.io/2022/06/15/%E5%85%B3%E4%BA%8E%E5%B9%B3%E9%9D%A2%E7%94%B5%E7%A3%81%E6%B3%A2%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/index.html">
+<meta property="og:site_name" content="凉宫秋月的文艺部">
+<meta property="og:description" content="主要是课本和PPT的总结，加了一点点我学习时的疑问和感悟。电磁场是真™的难，能学懂的都是神人，反正我是学不懂，哈人。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/guan-yu-ping-mian-dian-ci-bo-de-na-xie-shi.jpg">
+<meta property="article:published_time" content="2022-06-15T05:12:06.000Z">
+<meta property="article:modified_time" content="2022-07-03T14:45:48.618Z">
+<meta property="article:author" content="SuzumiyaAkizuki">
+<meta property="article:tag" content="电磁场">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/guan-yu-ping-mian-dian-ci-bo-de-na-xie-shi.jpg">
+  
+  
+  
+  <title>关于平面电磁波的那些事 - 凉宫秋月的文艺部</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"suzumiyaakizuki.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":"G-J01HK5TZ0Y","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"QGqf9VPGTa96KerO0JvDW3Ld-gzGzoHsz","app_key":"RhwwUaYq4lMo1tCJwcQTWdRp","server_url":"https://qgqf9vpg.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.google-analytics.com/analytics.js', function() {
+          window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
+          ga.l = +new Date;
+          ga('create', 'G-J01HK5TZ0Y', 'auto');
+          ga('send', 'pageview');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>凉宫秋月的文艺部</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友情链接
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/guan-yu-ping-mian-dian-ci-bo-de-na-xie-shi.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="关于平面电磁波的那些事"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        SuzumiyaAkizuki
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-06-15 13:12" pubdate>
+          2022年6月15日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          17k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          34 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">关于平面电磁波的那些事</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>主要是课本和PPT的总结，加了一点点我学习时的疑问和感悟。电磁场是真™的难，能学懂的都是神人，反正我是学不懂，哈人。</p>
+<span id="more"></span>
+<p>@[toc]</p>
+<hr />
+<h2 id="平面电磁波相关概念">平面电磁波相关概念</h2>
+<ul>
+<li>等相面：同一时刻，空间振动相位相同的点连成的面</li>
+<li>等幅面：同一时刻，空间振动幅度相同的点连成的面</li>
+<li>平面波：等相面是平面的波</li>
+<li>均匀平面波：也叫UPW，指等相面和等幅面重合的平面波。即：在均匀平面波的等相面上，波有相同的振幅</li>
+<li>球面波：等相面是球面的波</li>
+<li>柱面波：等相面是柱面的波</li>
+<li>TEM波：电场强度和磁场强度矢量在传播方向上的分量为0的电磁波。均匀平面波一定是TEM波，反之不然。例：均匀球面波也是TEM波。</li>
+</ul>
+<h2 id="自由空间平面电磁波的时域解">自由空间平面电磁波的时域解</h2>
+<p>由麦克斯韦方程组的推导，设源量为0，各量不随<span class="math inline">\(x,y\)</span>变化而变化（即等相位面是<span class="math inline">\(xoy\)</span>平面）。</p>
+<p>由于 <span class="math display">\[
+\begin{aligned}
+\nabla\cdot \varepsilon_0E=0\\\\
+\nabla\cdot \mu_0H=0
+\end{aligned}
+\]</span> 因此<span class="math inline">\(E,H\)</span>的<span class="math inline">\(z\)</span>分量和<span class="math inline">\(z\)</span>无关。</p>
+<p>由于 <span class="math display">\[
+\nabla \times H=\varepsilon \frac{\partial E} {\partial t}
+\]</span> 考虑<span class="math inline">\(i_z\)</span>分量，有： <span class="math display">\[
+\frac{\partial H_y} {\partial x}-\frac{\partial H_z} {\partial y}=\varepsilon _0\frac{\partial E_z} {\partial t}=0
+\]</span> 则<span class="math inline">\(E\)</span>的<span class="math inline">\(z\)</span>分量和时间无关(同理，<span class="math inline">\(H\)</span>也是)。因此<span class="math inline">\(E_z,H_z\)</span>是和时间，空间都没有关系的常数。在讨论时变场时不考虑常量，因此。 <span class="math display">\[
+\begin{aligned}
+E(z,t)=i_xE_x(z,t)+i_yE_y(z,t)\\\\
+H(z,t)=i_xH_x(z,t)+i_yH_y(z,t)\\\\
+\end{aligned}
+\]</span> 代入麦克斯韦方程 <span class="math display">\[
+\begin{aligned}
+\nabla \times E=-\mu_0\frac{\partial H} {\partial t}\\\\
+\nabla \times H=\varepsilon \frac{\partial E} {\partial t}\\\\
+\end{aligned}
+\]</span> 有 <span class="math display">\[
+\begin{cases}
+\frac{\partial E_y} {\partial z}=\mu_0\frac{\partial H_x} {\partial t}\\\\[2ex]
+\frac{\partial H_x} {\partial z}=\varepsilon_0\frac{\partial E_y} {\partial t}\\\\
+\end{cases}
+\]</span> 和 <span class="math display">\[
+\begin{cases}
+\frac{\partial E_x} {\partial z}=-\mu_0\frac{\partial H_y} {\partial t}\\\\[2ex]
+\frac{\partial H_y} {\partial z}=-\varepsilon_0\frac{\partial E_x} {\partial t}\\\\
+\end{cases}
+\]</span></p>
+<p>一维波动方程（以第二组为例）： <span class="math display">\[
+\begin{aligned}
+\frac{\partial E_x} {\partial z^2}=\mu_0\varepsilon_0\frac{\partial^2 E_x} {\partial t^2}\\\\
+\frac{\partial^2 H_y} {\partial z^2}=\mu_0\varepsilon_0\frac{\partial^2H_y} {\partial t^2}
+\end{aligned}
+\]</span> 写成统一的形式： <span class="math display">\[
+\frac{\partial^2 u} {\partial z^2}=\frac{1} {v^2}\frac{\partial ^u} {\partial t^2}
+\]</span> 它的解实际上是宗量为<span class="math inline">\((z\pm vt)\)</span>的任意二阶可微分函数，即： <span class="math display">\[
+u=f(z\pm vt)
+\]</span> 那么结合麦克斯韦方程组，在电磁场中，它的解为： <span class="math display">\[
+\begin{aligned}
+E_x=f_1(z-vt)+f_2(z+vt)=E_x^+ + E_x^-\\\\
+H_y=\sqrt{\frac{\varepsilon_0} {\mu_0} }[f_1(z-vt)-f_2(z+vt)]=H_y^+ + H_y^-
+\end{aligned}
+\]</span> 同理，对1，有： <span class="math display">\[
+\begin{aligned}
+E_y=E_y^+ + E_y^-\\\\
+H_x=H_x^+ + H_x^-
+\end{aligned}
+\]</span> 那么所有沿着<span class="math inline">\(z\)</span>传播的平面波都可以写成上面四个解的线性组合。对于<span class="math inline">\(E\)</span>，有： <span class="math display">\[
+E=i_x(A_1E_x^+ + B_1E_x^-)+i_y(A_2E_y^+ + B_2E_y^-)
+\]</span> 于是，均匀平面波有这些传播特性：</p>
+<ol type="1">
+<li><p>电场方向和磁场方向总和波的传播方向，也就是波印庭矢量的方向垂直，即： <span class="math display">\[
+S=E\times H
+\]</span></p></li>
+<li><p>自由空间中，相速度等于光速，有： <span class="math display">\[
+v=c=(\mu_0\varepsilon_0)^{-1/2}
+\]</span></p></li>
+<li><p>空间中任意一点，电场和磁场的波形和相位都相同，而且他们的数值之比是常数，这个比叫空间波阻抗，有： <span class="math display">\[
+\eta_0=\frac{|E|} {|H|}=\sqrt{\frac{\mu_0} {\varepsilon_0} }=120\pi
+\]</span></p></li>
+<li><p>空间中任意一点，电场和磁场正交</p></li>
+<li><p>空间中任意一点，电场和磁场的能量密度相等。</p></li>
+</ol>
+<p>## 正弦时变场和复数场定律</p>
+<p>对于一个瞬时正弦时变场： <span class="math display">\[
+A(r,t)=i_xA_x(r)\cos\left[\omega t+\theta_x(r)\right]+i_yA_y(r)\cos\left[\omega t+\theta_y(r)\right]+i_zA_z(r)\cos\left[\omega t+\theta_z(r)\right]
+\]</span> 可以借鉴“相量法”的思想，把它写成复矢量形式： <span class="math display">\[
+A(r,t)=\Re[\tilde{A}(r)e^{j\omega t}]
+\]</span> 其中<span class="math inline">\(\tilde{A}(r)\)</span>就是我们所说的正弦量的复表示。有： <span class="math display">\[
+\tilde{A}(r)=i_xA_x(r)\angle\theta_x(r)+i_yA_y(r)\angle\theta_y(r)+i_zA_z(r)\angle\theta_z(r)
+\]</span> 在麦克斯韦方程组中，把对时间求导的<span class="math inline">\(\frac{\partial } {\partial t}\)</span>换成<span class="math inline">\(j\omega\)</span>，把各量换成复矢量表示，就得到了复数场定律。</p>
+<p><strong>简单媒质</strong>中复数场定律如下： <span class="math display">\[
+\begin{aligned}
+\nabla \times \tilde{E}(\vec{r})&amp;=-j \omega \mu \widetilde{H}(\vec{r}) \\\\
+\nabla \times \widetilde{H}(\vec{r})&amp;=\tilde{J}_{f}(\vec{r})+j \omega \varepsilon \widetilde{E}(\vec{r}) \\\\
+\nabla \cdot \varepsilon \tilde{E}(\vec{r})&amp;=\dot{\rho}_{f}(\vec{r}) \\\\
+\nabla \cdot \mu \widetilde{H}(\vec{r})&amp;=0 \\\\
+\nabla \cdot \tilde{J}_{f}(\vec{r})&amp;=-j \omega \dot{\rho}_{f}(\vec{r})
+\end{aligned}
+\]</span></p>
+<h2 id="正弦均匀平面波">正弦均匀平面波</h2>
+<p>由复数场定律可导出<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>齐次亥姆霍兹方程： <span class="math display">\[
+\begin{aligned}
+\Delta\tilde{E}(r)+\beta^2\tilde{E}(r)=0\\\\
+\Delta\tilde{H}(r)+\beta^2\tilde{H}(r)=0
+\end{aligned}
+\]</span> 其中 <span class="math display">\[
+\beta=\omega\sqrt{\mu\varepsilon}=\frac{2\pi} {\lambda}
+\]</span> 我们知道沿<span class="math inline">\(z\)</span>传播的均匀平面波有两组独立的解<span class="math inline">\(\dot{E}_x-\dot{H}_y\)</span>和<span class="math inline">\(\dot{E}_y-\dot{H}_x\)</span>，只需讨论第一组，有解： <span class="math display">\[
+\dot{E}_x(z)=\dot{E}_{m_1}e^{j\beta z}+\dot{E}_{m_2}e^{ -j\beta z}
+\]</span> 结合 <span class="math display">\[
+\nabla\times\tilde{E}(r)=-j\omega\tilde{H}(r)
+\]</span> 可以求出<span class="math inline">\(\dot{H}_y\)</span>.</p>
+<p>写出对应的时域表达式，有： <span class="math display">\[
+\begin{aligned}
+E_x(z,t)&amp;=\Re[\dot{E}_x(z)e^{j\omega t}]\\\\
+&amp;=|\dot{E}_{m1}|\cos(\omega t+\beta z+\alpha_1)+|\dot{E}_{m2}|\cos(\omega t-\beta z+\alpha_2)\\\\
+&amp;=|\dot{E}_{m1}|\cos\left[\beta(z+vt)+\alpha_1\right]+|\dot{E}_{m2}|\cos\left[\beta(z-vt)+\alpha_2\right]
+\end{aligned}
+\]</span> 其中<span class="math inline">\(\alpha\)</span>是<span class="math inline">\(\dot{E}_m\)</span>的幅角。于是，各项的物理意义便很明显了：复振幅<span class="math inline">\(\dot{E}_m\)</span>反映了电场在<span class="math inline">\(z=0\)</span>点的初始振幅和相位，而<span class="math inline">\(e^{\pm j\beta z}\)</span>反映了相位随空间位置的变化和波的传播情况。其中<span class="math inline">\(\beta\)</span>称为空间相位常数。</p>
+<h3 id="复数场极化方向的判断">复数场极化方向的判断</h3>
+<p>电场的极化方向也就是说电场矢量尖端在和电磁场传播方向垂直的平面上划出的轨迹形状。有圆、椭圆、线极化三种。在判断复数场的极化方向时，有以下的操作步骤。</p>
+<p>对于复数场 <span class="math display">\[
+\begin{aligned}
+\tilde{E}(r)&amp;=\dot{E}_me^{-j\beta z}\\\\
+&amp;=[E_R(z)+j\cdot E_I(z)]e^{-j\beta z}
+\end{aligned}
+\]</span></p>
+<ol type="1">
+<li><p>线极化：以下三条件<strong>任意</strong>满足一项 <span class="math display">\[
+E_R(z)=0,\ E_I(z)=0, E_R(z)//E_I(z)
+\]</span></p></li>
+<li><p>圆极化：<strong>同时</strong>满足以下条件 <span class="math display">\[
+E_R(z)\cdot E_I(z)=0 ,\ |E_R(z)|=|E_I(z)|
+\]</span></p></li>
+<li><p>椭圆极化：其余情况。</p></li>
+</ol>
+<p>判断左旋还是右旋的方法是：在右手系（即右手从<span class="math inline">\(x\)</span>轴握向<span class="math inline">\(y\)</span>轴，大拇指指向<span class="math inline">\(z+\)</span>方向）中，画出电磁场传播方向（也就是波因亭矢量的方向）、<span class="math inline">\(E_R\)</span>、<span class="math inline">\(E_I\)</span>，然后用右手从<span class="math inline">\(E_I\)</span>向<span class="math inline">\(E_R\)</span>握，如果大拇指指向<span class="math inline">\(S\)</span>，那么就是右旋，否则是左旋。</p>
+<h3 id="空间任意方向电磁场的表达">空间任意方向电磁场的表达</h3>
+<p>前面我们讨论的都是沿着<span class="math inline">\(z\)</span>轴的电磁场。如果指向<span class="math inline">\(i_xa+i_yb+i_zc\)</span>的电磁场，我们就要改变<span class="math inline">\(e\)</span>的指数。有： <span class="math display">\[
+\tilde{E}(r)=\dot{E}_me^{-j(ax+by+cz)}
+\]</span> 这时，<span class="math inline">\(\beta=\sqrt{a^2+b^2+c^2}\)</span>.</p>
+<p>通过例题来感受一下。</p>
+<blockquote>
+<p>【例】已知均匀平面波的电场为 <span class="math display">\[
+E(\boldsymbol{r},t)=10(i_x+2i_y+E_zi_z)\cos(\omega t+3x-y-z)
+\]</span> 求：传播方向（用单位矢量表示），波长，角频率，极化状态，磁场（用复矢量表示）</p>
+<p>【解】 <span class="math display">\[
+\begin{aligned}
+\tilde{E}(\boldsymbol{r})&amp;=\dot{E}_0e^{-j\boldsymbol{\beta \cdot r} }\\\\
+&amp;=10(i_x+2i_y+E_zi_z)e^{-j(-3x+y+z)}\\\\
+\end{aligned}
+\]</span> 波的传播方向： <span class="math display">\[
+\boldsymbol{i}_\beta=\frac{\boldsymbol{\beta} } {|\boldsymbol{\beta}|}=\frac{-3i_x+i_y+i_z} {\sqrt{3^2+1+1} }=\left(\frac{-3} {\sqrt{11} },\frac 1{\sqrt{11} },\frac 1{\sqrt{11} }\right)
+\]</span> 波长： <span class="math display">\[
+\lambda=\frac{2\pi} {\beta}=\frac{2\pi} {\sqrt{11} }=1.89\text{(m)}
+\]</span> 角频率： <span class="math display">\[
+\omega=\beta c=3\sqrt{11}\times 10^8 \text{(rad/s)}
+\]</span> 由于电场方向和电磁场传播方向应该正交，即： <span class="math display">\[
+\boldsymbol{\beta}\cdot \dot{E}_0=0
+\]</span> 则解得<span class="math inline">\(E_z=1\)</span></p>
+<p>由于满足 <span class="math display">\[
+\Im[E_0]=0
+\]</span> 因此是线极化波。</p>
+<p>由 <span class="math display">\[
+H=\frac 1{\eta_0}i_\beta\times\tilde{E}(r,t)
+\]</span> 可求得<span class="math inline">\(H\)</span>.</p>
+</blockquote>
+<h2 id="复数形式场的功率讨论">复数形式场的功率讨论</h2>
+<h3 id="复矢量乘积的意义">复矢量乘积的意义</h3>
+<p>容易证明：两个复矢量的共轭叉（点）积的实部的一半等于相应的正弦时变量叉（点）积的时间平均值。</p>
+<p>即： <span class="math display">\[
+\langle\vec{A}(t) \times \vec{B}(t)\rangle=\frac{1} {2} \operatorname{Re}\left(\tilde{A} \times \tilde{B}^{*}\right)
+\]</span></p>
+<p><span class="math display">\[
+\langle\vec{A}(t) \cdot \vec{B}(t)\rangle=\frac{1} {2} \operatorname{Re}\left(\tilde{A} \cdot \tilde{B}^{*}\right)
+\]</span></p>
+<p>证明提示：</p>
+<p>用公式 <span class="math display">\[
+\vec{A}(t)=\frac{1} {2}\left[\tilde{A} e^{j \omega t}+\tilde{A}^{*} e^{-j \omega t}\right]
+\]</span> 把时变量运算式中的时变量和复矢量关联起来。</p>
+<h3 id="复数坡印廷矢量">复数坡印廷矢量</h3>
+<p>在前面，我们学过时域坡印廷矢量： <span class="math display">\[
+\boldsymbol{S}(\boldsymbol{r},t)=\boldsymbol{E}(\boldsymbol{r},t)\times\boldsymbol{H}(\boldsymbol{r},t)
+\]</span> 将电场，磁场的时域表达式用复数形式来表示，即： <span class="math display">\[
+\begin{aligned}
+\boldsymbol{E}(\boldsymbol{r},t)=\frac 12[\tilde{E}(r)e^{j\omega t}+\tilde{E}^*(r)e^{-j\omega t}]\\\\
+\boldsymbol{H}(\boldsymbol{r},t)=\frac 12[\tilde{H}(r)e^{j\omega t}+\tilde{H}^*(r)e^{-j\omega t}]
+\end{aligned}
+\]</span> 代入： <span class="math display">\[
+\boldsymbol{S}(\boldsymbol{r},t)=\frac 12\Re[\tilde{E}(r)\times \tilde{H}^*(r)]+\frac 12\Re[\tilde{E}(r)\times \tilde{H}^*(r)2^{j2\omega t}]
+\]</span> 定义复数坡印廷矢量： <span class="math display">\[
+\tilde{S}(r)=\frac 12 \tilde{E}(r)\times\tilde{H}^*(r)
+\]</span> 则有： <span class="math display">\[
+\frac 12\Re[\tilde{E}(r)\times \tilde{H}^*(r)]=\langle S(r,t)\rangle=\Re[\tilde{S}(r)]
+\]</span> 于是，我们可以说：复数坡印廷矢量的实部表示有功功率流密度，虚部可以解释为无功功率流密度。（这里可以类比电路分析中的复功率<span class="math inline">\(\dot{P}=\dot{V}_m\dot{I}_m/2=P+jQ\)</span>）</p>
+<h3 id="复数坡印廷定理">复数坡印廷定理</h3>
+<p>复数坡印廷定理的微分形式表达式如下： <span class="math display">\[
+-\nabla \cdot \tilde{S}(\vec{r})-\frac{1} {2}\left[\tilde{E}(\vec{r}) \cdot \tilde{J}_{S}^{*}(\vec{r})\right]=\frac{1} {2}\left[\tilde{E}(\vec{r}) \cdot \tilde{J}_{d}^{*}(\vec{r})\right]+j 2 \omega\left[\frac{\mu} {4}|\widetilde{H}(\vec{r})|^{2}-\frac{\varepsilon} {4}|\tilde{E}(\vec{r})|^{2}\right]
+\]</span> 为了理解其中各项物理意义，解释如下：</p>
+<ul>
+<li><p>等号左边第二项 <span class="math display">\[
+\Re\left[-\frac 12\tilde{E}(\vec{r}) \cdot \tilde{J}_{S}^{*}(\vec{r})\right]=\langle J_s(r,t)\times E(r,t)\rangle=\langle p_s(r,t)\rangle
+\]</span> 这一项表示电源提供的有功功率</p></li>
+<li><p>等号右边第一项 <span class="math display">\[
+\Re\left[\frac 12\tilde{E}(\vec{r}) \cdot \tilde{J}_{d}^{*}(\vec{r})\right]=\langle p_d(r,t)\rangle
+\]</span> 这一项表示电阻消耗的功率（即焦耳热功率）。注意：因为 <span class="math display">\[
+\frac 12\tilde{E}(\vec{r}) \cdot \tilde{J}_{d}^{*}(\vec{r})=\frac 12\sigma |\tilde{E}(r)|^2
+\]</span> 所以这一项实际上是纯实数。</p></li>
+<li><p>等号右边第二项 <span class="math display">\[
+\frac{\mu} {4}|\widetilde{H}(\vec{r})|^{2}=\langle\frac 12 \mu H(r,t)\cdot H(r,t)\rangle=\langle w_m(r,t)\rangle
+\]</span> 这一项可以理解为电感能量，也是纯实数（乘以前面的系数就是纯虚数了）</p></li>
+<li><p>等号右边第三项 <span class="math display">\[
+\frac{\varepsilon} {4}|\tilde{E}(\vec{r})|^{2}=\langle\frac 12 \varepsilon E(r,t)\cdot E(r,t)\rangle=\langle w_e(r,t)\rangle
+\]</span> 这一项可以理解为电容的能量。</p></li>
+</ul>
+<p>我们把上面那个式子的实部和虚部拆开，有：</p>
+<ul>
+<li><p>实部： <span class="math display">\[
+\langle-\nabla \cdot \vec{S}(\vec{r}, t)\rangle+\left\langle p_{s}(\vec{r}, t)\right\rangle=\left\langle p_{d}(\vec{r}, t)\right\rangle
+\]</span> 电磁场向某点提供的电磁功率密度的时间平均值（有功电磁功率密度）与电源向该点提供的电磁功率密度的时间平均值（有功电磁功率密度）之和，等于该点焦耳热损耗功率密度的时间平均值。</p></li>
+<li><p>虚部 <span class="math display">\[
+-\operatorname{Im}[\nabla \cdot \tilde{S}(\vec{r})]+q_{S}(\vec{r})=2 \omega\left[\left\langle w_{m}(\vec{r}, t)\right\rangle-\left\langle w_{e}(\vec{r}, t)\right\rangle\right]
+\]</span> 电磁场和电源向某点提供的无功电磁功率密度等于该点的磁能功率密度时间平均值和电能功率密度时间平均值之差的<span class="math inline">\(2𝜔\)</span>倍</p></li>
+</ul>
+<h2 id="平面波在有耗媒质中的传播">平面波在有耗媒质中的传播</h2>
+<p>有耗媒质的根本特征是其电导率<span class="math inline">\(\sigma\)</span>不为零，进而，其中的传导电流<span class="math inline">\(J_d\)</span>不为零。因此，电磁波在其中传播时会产生损耗。特别的，如果电导率很高，以至于成为导体（例如金属），那么电磁波在其中几乎不能传播，只能在表面传播，这叫做“趋肤效应”。电磁波不能在理想导体中传播。</p>
+<p>考虑复数形式的修正安培环路定律： <span class="math display">\[
+\nabla \times \tilde{H}(r)=\tilde{J}+j\omega \varepsilon\tilde{E}(r)
+\]</span> 将 <span class="math display">\[
+\tilde{J}=\sigma\tilde{E}(r)
+\]</span> 代入，有： <span class="math display">\[
+\nabla \times \tilde{H}(r)=\sigma\tilde{E}(r)+j\omega \varepsilon\tilde{E}(r)=j\omega\left(\frac{\sigma} {j\omega}+\varepsilon\right)\tilde{E}(r)
+\]</span> 定义复介电常数： <span class="math display">\[
+\dot{\varepsilon}=\left(\frac{\sigma} {j\omega}+\varepsilon\right)
+\]</span> 用复介电常数替换复麦克斯韦方程组中<strong>所有</strong>的介电常数，就能得到有耗媒质中的场定律。</p>
+<p>需要注意的是，这时候波阻抗也变成了复数，即： <span class="math display">\[
+\dot{\eta}=\frac{\mu} {\dot{\varepsilon} }
+\]</span> 仿照前面的过程<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>，导出复亥姆霍兹方程。仿照传播常数(波数)<span class="math inline">\(\beta\)</span>，定义复传播常数 <span class="math display">\[
+\dot{k}=\omega\sqrt{\dot{\varepsilon}\mu}=\beta-j\alpha
+\]</span> 那么，在有耗媒质中传播的电磁波的电场和磁场的复表示如下： <span class="math display">\[
+\begin{aligned}
+&amp;\widetilde{E}(r)=\hat{\imath}_{x} \dot{E}_{x 0} e^{-\alpha z} e^{-j \beta z}=\hat{\imath}_{x}\left|\dot{E}_{x 0}\right| e^{j \varphi_{x 0} } e^{-\alpha z} e^{-j \beta z} \\\\
+&amp;\widetilde{H}(r)=\hat{\imath}_{y} \frac{\dot{E}_{x 0} } {\dot{\eta} } e^{-\alpha z} \cdot e^{-j \beta z}=\hat{\imath}_{y}\left|\frac{\dot{E}_{x 0} } {\dot{\eta} }\right| e^{j\left(\varphi_{x 0}-\varphi_{\eta}\right)} e^{-\alpha z} e^{-j \beta z}
+\end{aligned}
+\]</span> 这里之所以要特意把<span class="math inline">\(\dot{E}_{x0}\)</span>以及<span class="math inline">\(\dot{E}_{x0}/\dot{\eta}\)</span>拆开成模长-幅角模式来写，是为了体现平面波在有耗媒质中的传播特点。</p>
+<p>在有耗无源简单媒质中传播的均匀平面波是一个沿传播方向衰减的均匀平面波，衰减因子用<span class="math inline">\(\alpha\)</span>表示。电磁波频率越高，衰减因子越大，最终会趋向于 <span class="math display">\[
+\max \alpha=\frac {\sigma} {2}\sqrt{\frac{\mu} {\varepsilon} }
+\]</span> <strong>且磁场与电场不再同相</strong>。这是因为波阻抗不再是实数。</p>
+<h3 id="导体的趋肤效应">导体的趋肤效应</h3>
+<p>导体的电导率<span class="math inline">\(\sigma\)</span>越大，衰减因子也就越大。透入深度表示幅度衰减为<span class="math inline">\(e^{-1}\)</span>的深度，对良导体，其值为： <span class="math display">\[
+\delta=\sqrt{\frac 2{\omega\sigma\mu} }
+\]</span></p>
+<h2 id="平面波的反射和折射">平面波的反射和折射</h2>
+<h3 id="相关概念">相关概念</h3>
+<ul>
+<li><p>入射线：入射波波矢量<span class="math inline">\(\boldsymbol{\beta}_i\)</span>所在的直线</p></li>
+<li><p>入射面：同时包含入射线和界面法线的平面</p></li>
+<li><p>入射角：入射线和法线的夹角</p></li>
+<li><p>反射线：反射波波矢量<span class="math inline">\(\boldsymbol{\beta}_r\)</span>所在的直线</p></li>
+<li><p>反射面：同时包含反射线和界面法线的平面</p></li>
+<li><p>反射角：反射线和法线的夹角</p></li>
+<li><p>折射线：折射波波矢量<span class="math inline">\(\boldsymbol{\beta}_\tau\)</span>所在的直线</p></li>
+<li><p>折射角：折射线和界面法线的夹角</p></li>
+<li><p>垂直极化：线极化波的电场和入射面垂直</p></li>
+<li><p>平行极化<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>：线极化波的电场和入射面平行</p></li>
+<li><p>媒质的折射指数（折射率）： <span class="math display">\[
+n=\sqrt{\mu_r\varepsilon_r}
+\]</span> 其中<span class="math inline">\(\mu_r,\varepsilon_r\)</span>是相对磁导率和相对介电常数<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>。</p></li>
+<li><p>媒质的波数： <span class="math display">\[
+\beta=\omega\sqrt{\mu_1\varepsilon_1}=\beta_0n_1
+\]</span></p></li>
+<li><p>媒质的波阻抗： <span class="math display">\[
+\eta_1=\sqrt{\frac{\mu_1} {\varepsilon_1} }=\eta_0\sqrt{\frac{\mu_{r1} } {\varepsilon_{r1} }}
+\]</span></p></li>
+<li><p>Snell定律</p>
+<ul>
+<li>反射线和折射线都在入射面内</li>
+<li>反射角等于入射角</li>
+<li>折射角和入射角的正弦之比等于折射率之比，也等于波数之比和波的传播速度之比。</li>
+</ul></li>
+<li><p>光密（疏）介质：一个媒质的折射指数（折射率）越大，光（电磁波）在其中传播的速度越慢，波数<span class="math inline">\(\beta\)</span>越大，它就越可以被称为光密介质。真空是最疏的介质。</p></li>
+</ul>
+<h3 id="自由空间和理想导体界面的反射">自由空间和理想导体界面的反射</h3>
+<h4 id="正入射">正入射</h4>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/5711CB1D86975C4E56B6223EE37219FC.png" srcset="/img/loading.gif" lazyload alt="img" /><figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p>如图所示，入射波为 <span class="math display">\[
+\begin{aligned}
+\tilde{E}(r)=i_x\dot{E}_{i0}e^{-j\beta_0z}\\\\
+\tilde{H}(r)=i_y\frac{\dot{E}_{i0} } {\eta_0}e^{-j\beta_0z}
+\end{aligned}
+\]</span> 那么反射波的形式为： <span class="math display">\[
+\begin{aligned}
+\tilde{E}_r(r)=i_x\dot{E}_{r0}e^{j\beta_0z}\\\\
+\tilde{H}_r(r)=i_y\frac{\dot{E}_{r0} } {\eta_0}e^{j\beta_0z}
+\end{aligned}
+\]</span> 下面求<span class="math inline">\(\dot{E}_{r0}\)</span>。由边界条件： <span class="math display">\[
+i_n\times(\tilde{E}_1-\tilde{E}_2)=0
+\]</span> 其中： <span class="math display">\[
+\begin{aligned}
+\tilde{E}_1&amp;=\tilde{E}_i+\tilde{E}_r\\\\
+\tilde{E}_2&amp;=0\\\\
+i_n&amp;=-i_z
+\end{aligned}
+\]</span> 代入，得： <span class="math display">\[
+\dot{E_{r0} }=-\dot{E}_{i0}
+\]</span> 则有： <span class="math display">\[
+\begin{aligned}
+\tilde{E}_r(r)=-i_x\dot{E}_{i0}e^{j\beta_0z}\\\\
+\tilde{H}_r(r)=-i_y\frac{\dot{E}_{i0} } {\eta_0}e^{j\beta_0z}
+\end{aligned}
+\]</span> 合成波表达式为<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>： <span class="math display">\[
+\begin{aligned}
+\tilde{E}(r)=-2j\cdot i_x \dot{E}_{i0}\sin \beta_0z\\\\
+\tilde{H}(r)=2\cdot i_y\frac{\dot{E}_{i0} } {\eta_0}\cos \beta_0z
+\end{aligned}
+\]</span> 为了研究合成波的性质，我们把它转换到时域： <span class="math display">\[
+\begin{aligned}
+E(r,t)=i_x\cdot2|\dot{E}_{i0}|(\sin\beta_0z)\sin(\omega t+\varphi)\\\\
+H(r,t)=i_y\cdot\frac{2} {\eta_0}|\dot{E}_{i0}|(\cos\beta_0z)\cos(\omega t+\varphi)
+\end{aligned}
+\]</span> 我们可以看到，这表达了一列驻波。在驻波中电场和磁场有所谓“三个90度”关系，即：</p>
+<ul>
+<li>电场和磁场在空间分布上的相位差为90度。这说明：电场最强的 <strong>地方</strong> 磁场最弱。</li>
+<li>电场和磁场在时间分布上的相位差为90度。这说明：电场最强的 <strong>时刻</strong> 磁场最弱。</li>
+<li>电场和磁场在空间方向上相差90度。</li>
+</ul>
+<p>在驻波中，没有能量指向性的传播，只有能量形式的转换。</p>
+<h4 id="斜入射">斜入射</h4>
+<p>首先以垂直极化为例分析问题：</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/QQ%E5%9B%BE%E7%89%8720220617223348.png" srcset="/img/loading.gif" lazyload /></p>
+<p><strong>特别注意：不要看着这张图上面画了线，就以为电磁波“只在那条线上存在”，我们这里讨论的是平面波，入射波、反射波都在<span class="math inline">\(z&lt;0\)</span>整个空间上存在，所以可以直接合成，不需要也不应该考虑位置。</strong></p>
+<p>入射方向： <span class="math display">\[
+\vec{\beta}_{i}=\beta_{0}\left(i_{x} \sin \theta_{i}+i_{z} \cos \theta_{i}\right)
+\]</span> 反射方向： <span class="math display">\[
+\vec{\beta}_{r}=\beta_{0}\left(i_{x} \sin \theta_{r}-i_{z} \cos \theta_{r}\right)
+\]</span> 那么，分别有入射场和反射场： <span class="math display">\[
+\begin{aligned}
+\tilde{E}_{i} &amp;=i_{y} \dot{E}_{i 0} e^{-j \vec{\beta}_{i} \cdot \vec{r} }=i_{y} \dot{E}_{i 0} e^{-j \beta_{0}\left(x \sin \theta_{i}+z \cos \theta_{i}\right)} \\\\
+\tilde{E}_{r} &amp;=i_{y} \dot{E}_{r 0} e^{-j \beta_{0}\left(x \sin \theta_{r}-z \cos \theta_{r}\right)}
+\end{aligned}
+\]</span> 由边界条件计算，得： <span class="math display">\[
+\dot{E}_{r0}=-\dot{E}_{i0}
+\]</span> 那么空间中的合成电场为：</p>
+$$
+<span class="math display">\[\begin{aligned}
+
+\tilde{E}&amp;=\tilde{E}_{i}+\tilde{E}_{r}=i_{y}\left[\dot{E}_{i 0} e^{-j \beta_{0}(x \sin \theta+z \cos \theta)}-\dot{E}_{i 0} e^{-j \beta_{0}(x \sin \theta-z \cos \theta)}\right]\\\\
+&amp;=i_{y} \dot{E}_{i 0}\left(e^{-j \beta_{0} z \cos \theta}-e^{j \beta_{0} z \cos \theta}\right) e^{-j \beta_{0} x \sin \theta}\\\\
+&amp;=-i_{y} \dot{E}_{i 0} j 2 \sin \left(\beta_{0} z \cos \theta\right) e^{-j \beta_{0} x \sin \theta} 
+
+\end{aligned}\]</span>
+<p>$$</p>
+<p>记 <span class="math inline">\(\beta_0\cos \theta=\beta_z,\beta_0\sin\theta=\beta_x\)</span> ，有：</p>
+<p><span class="math display">\[
+\tilde{E}=-i_{y} 2 j \dot{E}_{i 0} \sin \beta_{z} z \cdot e^{-j \beta_{x} x}
+\]</span></p>
+<p>再由麦克斯韦方程组可求得磁场。</p>
+<p>观察<span class="math inline">\(\tilde{E}\)</span>的表达式，我们发现有以下特点：</p>
+<ol type="1">
+<li>在<span class="math inline">\(x\)</span>是常数的平面上，<span class="math inline">\(e^{-j\beta_xx}\)</span>是常数，所以<span class="math inline">\(x=C\)</span>是波的等相面。在<span class="math inline">\(x=C\)</span>的平面上，场量按三角函数形式分布，波显示出驻波性质。</li>
+<li>在<span class="math inline">\(z\)</span>是常数的平面上，<span class="math inline">\(\sin \beta_zz\)</span>是常数，波的表达式表现出一般平面波的形式，是行波。而且在等相面上振幅不是常数，是非均匀平面波。</li>
+<li>于是，我们可以发现：合成波只在<span class="math inline">\(x\)</span>方向有能量传输，而在<span class="math inline">\(z\)</span>方向没有。</li>
+</ol>
+<p>正入射时，入射波和反射波的合成波形成了一种特殊的传播方式，我们称之为驻波。 <strong>斜入射时，入射波和反射波的合成波也形成了一种特殊的传播方式，我们称之为导行波。</strong> 这里的电场指向<span class="math inline">\(y\)</span>，和传播方向垂直，我们称之为横电波（TE波）。</p>
+<p>导行波的等相面是 <span class="math display">\[
+\omega t-\beta_x x=C
+\]</span> 因此，其相速度为 <span class="math display">\[
+v_p=\frac c {\sin\theta}
+\]</span> 神奇！相速度超过了光速！但是我们都知道光速是无论如何不能超过的，这是怎么回事呢？我们要先理解相速度和群速度。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/v2-192809449ccca511cddfb1735ed54b8d_720w.gif" srcset="/img/loading.gif" lazyload alt="这个图片只用来说明相速度和群速度的概念" /><figcaption aria-hidden="true">这个图片只用来说明相速度和群速度的概念</figcaption>
+</figure>
+<ul>
+<li>相速度是等相位面传播的速度，也就是图中红色方块的速度。</li>
+<li>群速度的波包移动的速度，是能量传递的速度，也就是绿色圆点移动的速度。</li>
+</ul>
+<p>我们可以看出，只有群速度是真正的速度。譬如说，我拿着一个激光笔扫过夜空，那么激光笔在云层上反射的光点可能会具有非常非常非常高的速度，那么难道说真的有物体在以这个速度移动吗？不是这样的。相速度只是一种“看起来”的速度，是一个虚假的速度。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/0F8C440DC9578247F927A8C922F4A842.png" srcset="/img/loading.gif" lazyload alt="img" /><figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p>如图，在这个情景中，黑色的实线和虚线是等相位面，蓝色是相速度，绿色是群速度，红色是光速。这么一说大家应该可以理解了。在一个周期里，导行波过<span class="math inline">\(A\)</span>点的等相位面的相位传到了<span class="math inline">\(C\)</span>点，从<span class="math inline">\(X\)</span>方向看，就像是相位从<span class="math inline">\(B\)</span>移动到了<span class="math inline">\(C\)</span>，而此时能量只是从A移动到了<span class="math inline">\(C’\)</span>。</p>
+<p>在平行极化时，合成波的磁场是横向的，电场是<span class="math inline">\(xOz\)</span>面内的椭圆极化波。合成波依然在<span class="math inline">\(x\)</span>方向表现行波，在<span class="math inline">\(z\)</span>方向表现为驻波。这种波叫横磁波（TM波）。</p>
+<h3 id="在两种理想介质分界面处的反射和折射">在两种理想介质分界面处的反射和折射</h3>
+<p>这里讨论的是两种均匀、线性、各向同性、无耗理想介质分界面处的反射和折射。</p>
+<h4 id="两种无耗介质交界面的垂直入射">两种无耗介质交界面的垂直入射</h4>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/12414515.png" srcset="/img/loading.gif" lazyload /></p>
+<p>入射波为 <span class="math display">\[
+\begin{aligned}
+\tilde{E}(r)=i_x\dot{E}_{i0}e^{-j\beta_0z}\\\\
+\tilde{H}(r)=i_y\frac{\dot{E}_{i0} } {\eta_0}e^{-j\beta_0z}
+\end{aligned}
+\]</span> 不难写出反射波，折射波的表达式：只需要把入射波中的<span class="math inline">\(E_{i0}\)</span>换成<span class="math inline">\(E_{r0},E_{\tau 0}\)</span>，再注意一下方向就行了，十分的简单。我们的问题现在是：<span class="math inline">\(E_{i0}\)</span>和<span class="math inline">\(E_{r0},E_{\tau 0}\)</span>的关系是？</p>
+<p>由边界条件： <span class="math display">\[
+\begin{aligned}
+i_{n} \times\left.\left(\tilde{E}_{1}-\tilde{E}_{2}\right)\right|_{z=0}=0 \quad \\\\
+i_{n} \times\left.\left(\widetilde{H}_{1}-\widetilde{H}_{2}\right)\right|_{z=0}=\tilde{k}_{f}=0
+\end{aligned}
+\]</span> 得： <span class="math display">\[
+\left\{\begin{array} {l}
+\dot{E}_{i 0}+\dot{E}_{r 0}=\dot{E}_{\tau 0} \\\\
+\dot{H}_{i 0}-\dot{H}_{r 0}=\dot{H}_{\tau 0} \Rightarrow \frac{\dot{E}_{i 0} } {\eta_{1} }-\frac{\dot{E}_{r 0} } {\eta_{1} }=\frac{\dot{E}_{\tau 0} } {\eta_{2} }
+\end{array}\right.
+\]</span></p>
+<p>于是有反射系数： <span class="math display">\[
+\Gamma=\frac{\dot{E}_{r 0} } {\dot{E}_{i 0} }=\frac{\eta_{2}-\eta_{1} } {\eta_{2}+\eta_{1} }
+\]</span> 透射系数： <span class="math display">\[
+T=\frac{\dot{E}_{\tau 0} } {\dot{E}_{i 0} }=\frac{2 \eta_{2} } {\eta_{2}+\eta_{1} }
+\]</span></p>
+<h4 id="三层介质垂直入射无反射条件">三层介质垂直入射无反射条件</h4>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220617234904444.png" srcset="/img/loading.gif" lazyload /></p>
+<p>一般来说应用场景是：I是空气（真空），III是玻璃，II是增透膜，要求你调整增透膜的<span class="math inline">\(\eta_2\)</span>和厚度。有以下两种情况都能达到目的：</p>
+<ol type="1">
+<li><span class="math inline">\(\eta_1=\eta_3,d=n\lambda_2/2\)</span></li>
+<li><span class="math inline">\(\eta_2=\sqrt{\eta_1\eta_3},d=(2n+1)\lambda_2/4\)</span></li>
+</ol>
+<p>请注意，这里的波长是在介质2中的波长。电磁场在不同介质中，频率是不会变 ，而波长会变。</p>
+<h4 id="斜入射-1">斜入射</h4>
+<p>还是以垂直极化为例：</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220617235606731.png" srcset="/img/loading.gif" lazyload /></p>
+<p>同样，由边界条件计算反射、透射系数，有：</p>
+<p>反射系数： <span class="math display">\[
+\Gamma_{\perp}=\frac{\dot{E}_{r 0} } {\dot{E}_{i 0} }=\frac{\eta_{2} \cos \theta_{1}-\eta_{1} \cos \theta_{2} } {\eta_{2} \cos \theta_{1}+\eta_{1} \cos \theta_{2} }
+\]</span></p>
+<p>透射系数： <span class="math display">\[
+T_{\perp}=\frac{\dot{E}_{\tau 0} } {\dot{E}_{i 0} }=\frac{2 \eta_{2} \cos \theta_{1} } {\eta_{2} \cos \theta_{1}+\eta_{1} \cos \theta_{2} }
+\]</span></p>
+<p>有时候会出现一些神奇的现象：</p>
+<ul>
+<li><p>全反射</p>
+<p>全反射无论是磁介质（<span class="math inline">\(\mu_r\neq 1\)</span>）还是电介质（<span class="math inline">\(\varepsilon_r\neq 1\)</span>）都可以产生。当从光密介质射入光疏介质时，当入射角达到一个临界值<span class="math inline">\(\theta_c\)</span>时，反射线和介质表面重合（反射角是<span class="math inline">\(\pi/2\)</span>），这时称为出现全反射现象，<span class="math inline">\(\theta_c\)</span>是全反射临界角。有： <span class="math display">\[
+\sin \theta_c=\frac{n_2} {n_1}
+\]</span></p></li>
+<li><p>全折射 当入射波垂直极化时，在电介质交界面，不会出现全折射现象，只有磁介质交界面才会出现。无论从疏到密，还是从密到疏，都能发生全折射现象。全折射的临界角<span class="math inline">\(\theta_{P_\perp}\)</span>称为布茹斯特角。有： <span class="math display">\[
+\theta_{P_\perp}=\sqrt{\frac{\mu_2} {\mu_1+\mu_2} }
+\]</span></p></li>
+</ul>
+<p>我写了一个代码来计算反射系数和折射系数：</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs mathematica"><span class="hljs-variable">er1</span><span class="hljs-operator">=</span><span class="hljs-built_in">Input</span><span class="hljs-punctuation">[</span><span class="hljs-string">&quot;介质1的相对介电常数&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-operator">;</span><br><span class="hljs-variable">mur1</span><span class="hljs-operator">=</span><span class="hljs-built_in">Input</span><span class="hljs-punctuation">[</span><span class="hljs-string">&quot;介质1的相对磁导率&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-operator">;</span><br><span class="hljs-variable">er2</span><span class="hljs-operator">=</span><span class="hljs-built_in">Input</span><span class="hljs-punctuation">[</span><span class="hljs-string">&quot;介质2的相对介电常数&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-operator">;</span><br><span class="hljs-variable">mur2</span><span class="hljs-operator">=</span><span class="hljs-built_in">Input</span><span class="hljs-punctuation">[</span><span class="hljs-string">&quot;介质2的相对磁导率&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-operator">;</span><br><span class="hljs-variable">eta0</span><span class="hljs-operator">=</span><span class="hljs-number">120</span><span class="hljs-operator">*</span><span class="hljs-built_in">Pi</span><span class="hljs-operator">;</span><br><span class="hljs-variable">eta1</span><span class="hljs-operator">=</span><span class="hljs-variable">eta0</span><span class="hljs-operator">*</span><span class="hljs-built_in">Sqrt</span><span class="hljs-punctuation">[</span><span class="hljs-variable">mur1</span><span class="hljs-operator">/</span><span class="hljs-variable">er1</span><span class="hljs-punctuation">]</span><span class="hljs-operator">;</span><span class="hljs-variable">eta2</span><span class="hljs-operator">=</span><span class="hljs-variable">eta0</span><span class="hljs-operator">*</span><span class="hljs-built_in">Sqrt</span><span class="hljs-punctuation">[</span><span class="hljs-variable">mur2</span><span class="hljs-operator">/</span><span class="hljs-variable">er2</span><span class="hljs-punctuation">]</span><span class="hljs-operator">;</span><br><span class="hljs-variable">n1</span><span class="hljs-operator">=</span><span class="hljs-built_in">Sqrt</span><span class="hljs-punctuation">[</span><span class="hljs-variable">mur1</span><span class="hljs-operator">*</span><span class="hljs-variable">er1</span><span class="hljs-punctuation">]</span><span class="hljs-operator">;</span><span class="hljs-variable">n2</span><span class="hljs-operator">=</span><span class="hljs-built_in">Sqrt</span><span class="hljs-punctuation">[</span><span class="hljs-variable">mur2</span><span class="hljs-operator">*</span><span class="hljs-variable">er2</span><span class="hljs-punctuation">]</span><span class="hljs-operator">;</span><br><span class="hljs-variable">Rfl</span><span class="hljs-punctuation">[</span><span class="hljs-variable">theta</span><span class="hljs-punctuation">]</span><span class="hljs-operator">:=</span><span class="hljs-built_in">ArcSin</span><span class="hljs-punctuation">[</span><span class="hljs-built_in">Sin</span><span class="hljs-punctuation">[</span><span class="hljs-variable">theta</span><span class="hljs-punctuation">]</span><span class="hljs-operator">*</span><span class="hljs-variable">n1</span><span class="hljs-operator">/</span><span class="hljs-variable">n2</span><span class="hljs-punctuation">]</span><span class="hljs-operator">;</span><br><span class="hljs-variable">Gammaa</span><span class="hljs-punctuation">[</span><span class="hljs-variable">theta</span><span class="hljs-punctuation">]</span><span class="hljs-operator">:=</span><span class="hljs-punctuation">(</span><span class="hljs-variable">eta2</span><span class="hljs-operator">*</span><span class="hljs-built_in">Cos</span><span class="hljs-punctuation">[</span><span class="hljs-variable">theta</span><span class="hljs-punctuation">]</span><span class="hljs-operator">-</span><span class="hljs-variable">eta1</span><span class="hljs-operator">*</span><span class="hljs-built_in">Cos</span><span class="hljs-punctuation">[</span><span class="hljs-variable">Rfl</span><span class="hljs-punctuation">[</span><span class="hljs-variable">theta</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">)</span><span class="hljs-operator">/</span><span class="hljs-punctuation">(</span><span class="hljs-variable">eta2</span><span class="hljs-operator">*</span><span class="hljs-built_in">Cos</span><span class="hljs-punctuation">[</span><span class="hljs-variable">theta</span><span class="hljs-punctuation">]</span><span class="hljs-operator">+</span><span class="hljs-variable">eta1</span><span class="hljs-operator">*</span><span class="hljs-built_in">Cos</span><span class="hljs-punctuation">[</span><span class="hljs-variable">Rfl</span><span class="hljs-punctuation">[</span><span class="hljs-variable">theta</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">)</span><span class="hljs-operator">;</span><br><span class="hljs-variable">Tt</span><span class="hljs-punctuation">[</span><span class="hljs-variable">theta</span><span class="hljs-punctuation">]</span><span class="hljs-operator">:=</span> <span class="hljs-punctuation">(</span><span class="hljs-number">2</span><span class="hljs-operator">*</span><span class="hljs-variable">eta2</span><span class="hljs-operator">*</span><span class="hljs-built_in">Cos</span><span class="hljs-punctuation">[</span><span class="hljs-variable">theta</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">)</span><span class="hljs-operator">/</span><span class="hljs-punctuation">(</span><span class="hljs-variable">eta2</span><span class="hljs-operator">*</span><span class="hljs-built_in">Cos</span><span class="hljs-punctuation">[</span><span class="hljs-variable">theta</span><span class="hljs-punctuation">]</span><span class="hljs-operator">+</span><span class="hljs-variable">eta1</span><span class="hljs-operator">*</span><span class="hljs-built_in">Cos</span><span class="hljs-punctuation">[</span><span class="hljs-variable">Rfl</span><span class="hljs-punctuation">[</span><span class="hljs-variable">theta</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">)</span><span class="hljs-operator">;</span><br><span class="hljs-built_in">Plot</span><span class="hljs-punctuation">[</span><span class="hljs-punctuation">&#123;</span><span class="hljs-built_in">Abs</span><span class="hljs-punctuation">[</span><span class="hljs-variable">Gammaa</span><span class="hljs-punctuation">[</span><span class="hljs-variable">theta</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">]</span><span class="hljs-operator">,</span><span class="hljs-built_in">Abs</span><span class="hljs-punctuation">[</span><span class="hljs-variable">Tt</span><span class="hljs-punctuation">[</span><span class="hljs-variable">theta</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">&#125;</span><span class="hljs-operator">,</span><span class="hljs-punctuation">&#123;</span><span class="hljs-variable">theta</span><span class="hljs-operator">,</span><span class="hljs-number">0</span><span class="hljs-operator">,</span><span class="hljs-built_in">Pi</span><span class="hljs-operator">/</span><span class="hljs-number">2</span><span class="hljs-punctuation">&#125;</span><span class="hljs-operator">,</span><span class="hljs-built_in">PlotLegends</span><span class="hljs-operator">-&gt;</span><span class="hljs-string">&quot;Expressions&quot;</span><span class="hljs-punctuation">]</span><br></code></pre></td></tr></table></figure>
+<p>例如，输入</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-symbol">3 </span><span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+<p>会给出图像</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220618114117442.png" srcset="/img/loading.gif" lazyload alt="全反射现象示意图" /><figcaption aria-hidden="true">全反射现象示意图</figcaption>
+</figure>
+<p>全反射现象十分明显。</p>
+<p>再例如输入</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-symbol">1 </span><span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">3</span><br></code></pre></td></tr></table></figure>
+<p>会给出图像</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220618114215103.png" srcset="/img/loading.gif" lazyload alt="全折射现象示意图" /><figcaption aria-hidden="true">全折射现象示意图</figcaption>
+</figure>
+<p>从疏介质射入密介质，这里发生了全折射。</p>
+<hr />
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>由于<span class="math inline">\(\nabla\times\tilde{E}(r)=-j\omega\mu\tilde{H}(r)\)</span>，两边取旋度，有<span class="math inline">\(\nabla\times\nabla\times\tilde{E}(r)=-j\omega\mu\nabla \times \tilde{H}(r)\)</span>，代入<span class="math inline">\(\nabla \times \tilde{H}(r)=j\omega\varepsilon\tilde{E}(r)\)</span>，并结合矢量公式<span class="math inline">\(\nabla\times\nabla\times A=\nabla[\nabla \cdot A]-\Delta A\)</span>即可推出。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>由于<span class="math inline">\(\nabla\times\tilde{E}(r)=-j\omega\mu\tilde{H}(r)\)</span>，两边取旋度，有<span class="math inline">\(\nabla\times\nabla\times\tilde{E}(r)=-j\omega\mu\nabla \times \tilde{H}(r)\)</span>，代入<span class="math inline">\(\nabla \times \tilde{H}(r)=j\omega\varepsilon\tilde{E}(r)\)</span>，并结合矢量公式<span class="math inline">\(\nabla\times\nabla\times A=\nabla[\nabla \cdot A]-\Delta A\)</span>即可推出。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>椭圆极化波和圆极化波可以分解成两个垂直的线极化波，进而，可以分解成垂直极化和平行极化波。<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p>相对磁导率（介电常数）意思是媒质中的磁导率（介电常数）和真空中的比值。<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5" role="doc-endnote"><p><span class="math inline">\(\sin x=\frac{1} {2j}(e^{jx}-e^{-jx})\)</span>,<span class="math inline">\(\cos x=\frac{1} {2}(e^{jx}+e^{-jx})\)</span><a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%94%B5%E7%A3%81%E5%9C%BA/">#电磁场</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>关于平面电磁波的那些事</div>
+      <div>https://suzumiyaakizuki.github.io/2022/06/15/关于平面电磁波的那些事/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>SuzumiyaAkizuki</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年6月15日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/06/16/%E4%BF%A1%E5%8F%B7%E5%A4%A7%E4%BD%9C%E4%B8%9A/" title="信号与系统课程设计：频分复用系统设计">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">信号与系统课程设计：频分复用系统设计</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/06/14/%E6%A8%A1%E7%94%B5%E6%8A%A5%E5%91%8A4/" title="电子电路实验报告4：集成运放实验2">
+                        <span class="hidden-mobile">电子电路实验报告4：集成运放实验2</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.7.2/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"48fb14f9689ae0d11307","clientSecret":"091ab25a88e87bfd9d9d40d97d1d0d932e694059","repo":"SuzumiyaAkizuki.github.io","owner":"SuzumiyaAkizuki","admin":["SuzumiyaAkizuki"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '6df0fee5e2274722c72ba1f8b4ac13f8'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       Powered by: <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

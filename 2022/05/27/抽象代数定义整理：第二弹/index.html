@@ -1,0 +1,971 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <link rel="icon" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="SuzumiyaAkizuki">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="环为什么叫做环？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="抽象代数定义整理：第二弹">
+<meta property="og:url" content="https://suzumiyaakizuki.github.io/2022/05/27/%E6%8A%BD%E8%B1%A1%E4%BB%A3%E6%95%B0%E5%AE%9A%E4%B9%89%E6%95%B4%E7%90%86%EF%BC%9A%E7%AC%AC%E4%BA%8C%E5%BC%B9/index.html">
+<meta property="og:site_name" content="凉宫秋月的文艺部">
+<meta property="og:description" content="环为什么叫做环？">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/illust_72016632_20190904_201200.png">
+<meta property="article:published_time" content="2022-05-27T15:39:40.000Z">
+<meta property="article:modified_time" content="2022-07-03T14:44:23.895Z">
+<meta property="article:author" content="SuzumiyaAkizuki">
+<meta property="article:tag" content="抽象代数">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/illust_72016632_20190904_201200.png">
+  
+  
+  
+  <title>抽象代数定义整理：第二弹 - 凉宫秋月的文艺部</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"suzumiyaakizuki.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":"G-J01HK5TZ0Y","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"QGqf9VPGTa96KerO0JvDW3Ld-gzGzoHsz","app_key":"RhwwUaYq4lMo1tCJwcQTWdRp","server_url":"https://qgqf9vpg.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.google-analytics.com/analytics.js', function() {
+          window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
+          ga.l = +new Date;
+          ga('create', 'G-J01HK5TZ0Y', 'auto');
+          ga('send', 'pageview');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>凉宫秋月的文艺部</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友情链接
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/illust_72016632_20190904_201200.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="抽象代数定义整理：第二弹"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        SuzumiyaAkizuki
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-05-27 23:39" pubdate>
+          2022年5月27日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          13 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">抽象代数定义整理：第二弹</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>环为什么叫做环？</p>
+<span id="more"></span>
+<hr />
+<h2 id="第三章-环与域">第三章 环与域</h2>
+<p><strong>定义1（加群）</strong> .一个交换群叫做加群，当这个群的代数运算叫做”加法“，并用符号<span class="math inline">\(+\)</span>表示。</p>
+<p><strong>定义2（环）</strong> .一个集合<span class="math inline">\(R\)</span>叫做一个环，当：</p>
+<ol type="1">
+<li><span class="math inline">\(R\)</span>是一个加群，即<span class="math inline">\(R\)</span>对一个叫加法的代数运算作成一个交换群</li>
+<li><span class="math inline">\(R\)</span>对另一个叫做乘法的代数运算封闭</li>
+<li>这个乘法适合结合律</li>
+<li>这里的加法和乘法适合左右分配律</li>
+</ol>
+<blockquote>
+<p>例如：全体整数作成的集合对普通加法和乘法构成一个环。需要注意的是，环的定义中的乘法并不总满足交换律。</p>
+</blockquote>
+<p><strong>定义3（交换环）</strong> .一个环<span class="math inline">\(R\)</span>被称作交换环，当： <span class="math display">\[
+\forall a,b\in R,ab=ba
+\]</span> <strong>定义4（环的单位元）</strong> 如果一个环<span class="math inline">\(R\)</span>中存在一个元素<span class="math inline">\(e\)</span>,使得 <span class="math display">\[
+\forall a\in R,ea=ae=a
+\]</span> 那么这个<span class="math inline">\(e\)</span>叫做环<span class="math inline">\(R\)</span>的单位元。环并不总有单位元。</p>
+<blockquote>
+<p>例如：全体偶数对普通加法和普通乘法作成环，但是没有单位元。</p>
+</blockquote>
+<p><strong>定义5（零因子）</strong> .如果在一个环里，<span class="math inline">\(a\neq0,b\neq0\)</span>但是<span class="math inline">\(ab=0\)</span>，那么<span class="math inline">\(a\)</span>是环中的一个左零因子，<span class="math inline">\(b\)</span>是环中的一个右零因子。</p>
+<blockquote>
+<p>例如：对于所有形如<span class="math inline">\(\begin{pmatrix}x&amp;0\\y&amp;0\\\end{pmatrix}\)</span>的矩阵，对普通矩阵加法和普通矩阵乘法构成的环而言，有： <span class="math display">\[
+\begin{pmatrix}
+1 &amp; 0\\
+0 &amp;0\\
+\end{pmatrix}
+\begin{pmatrix}
+0 &amp; 0\\
+1 &amp; 0\\
+\end{pmatrix}=
+\begin{pmatrix}
+0 &amp; 0\\
+0 &amp;0\\
+\end{pmatrix}
+\]</span> 于是<span class="math inline">\(\begin{pmatrix}1 &amp; 0\\0 &amp;0\\\end{pmatrix}\)</span>是一个左零因子，<span class="math inline">\(\begin{pmatrix}0 &amp; 0\\1 &amp; 0\\\end{pmatrix}\)</span>是一个右零因子。</p>
+</blockquote>
+<blockquote>
+<p>在一个没有零因子的环中两个消去律都成立，并且如果有任意一个消去律成立，就没有零因子。</p>
+</blockquote>
+<p><strong>定义6（整环）</strong> 符合以下性质的环<span class="math inline">\(R\)</span>叫做整环：</p>
+<ol type="1">
+<li>乘法适合交换律</li>
+<li><span class="math inline">\(R\)</span>有单位元<span class="math inline">\(1\)</span></li>
+<li><span class="math inline">\(R\)</span>没有零因子</li>
+</ol>
+<p><strong>定义7（除环）</strong> 符合以下性质的环<span class="math inline">\(R\)</span>叫做除环：</p>
+<ol type="1">
+<li><span class="math inline">\(R\)</span>至少包含一个不为<span class="math inline">\(0\)</span>的元</li>
+<li><span class="math inline">\(R\)</span>有单位元</li>
+<li><span class="math inline">\(R\)</span>的每一个不为<span class="math inline">\(0\)</span>的元有一个逆元</li>
+</ol>
+<blockquote>
+<p>显然，除环没有零因子，而且除环中的元素（除了0）对于乘法来说构成群。在一个除环中，只要<span class="math inline">\(a\neq 0\)</span>,我们就能拿<span class="math inline">\(a\)</span>去除任意一个元<span class="math inline">\(b\)</span>，这就是除环名字的来历。</p>
+</blockquote>
+<p><strong>定义8（域）</strong> 一个交换除环叫做一个域。</p>
+<p><strong>定义9（环的特征）</strong> 一个无零因子环<span class="math inline">\(R\)</span>的非零元的相同的（对于加法来说）的阶叫做环的特征。</p>
+<blockquote>
+<p>环的特征如果有限，那么它一定是个素数。</p>
+</blockquote>
+<p><strong>定义10（子环）</strong> 一个环<span class="math inline">\(R\)</span>的子集<span class="math inline">\(S\)</span>如果对<span class="math inline">\(R\)</span>的代数运算也作成一个环，那么它叫做<span class="math inline">\(R\)</span>的子环。</p>
+<p><strong>定义11（多项式）</strong> 假设<span class="math inline">\(R_0\)</span>是一个有单位元的交换环，<span class="math inline">\(R\)</span>是<span class="math inline">\(R_0\)</span>的子环，且包含<span class="math inline">\(R_0\)</span>的单位元。我们在<span class="math inline">\(R_0\)</span>中取出一个元<span class="math inline">\(x\)</span>。一个可以写成 <span class="math display">\[
+a_0+a_1x+\cdots+a_nx^n
+\]</span> 的<span class="math inline">\(R_0\)</span>的元叫做<span class="math inline">\(R\)</span>上的<span class="math inline">\(x\)</span>的多项式。</p>
+<p><strong>定义12（多项式环）</strong> 我们把所有<span class="math inline">\(R\)</span>上<span class="math inline">\(x\)</span>的多项式放在一个集合中，叫做<span class="math inline">\(R[x]\)</span>，那么<span class="math inline">\(R[x]\)</span>叫做<span class="math inline">\(R\)</span>上<span class="math inline">\(x\)</span>的多项式环。</p>
+<p><strong>定义13（未定元，次数）</strong> <span class="math inline">\(R_0\)</span>的一个元<span class="math inline">\(x\)</span>叫做<span class="math inline">\(R\)</span>上的一个未定元，如果<span class="math inline">\(R\)</span>中不存在不全为零的<span class="math inline">\(a_0,a_1,a_2,\cdots,a_n\)</span>，使得 <span class="math display">\[
+a_0+a_1x+\cdots+a_nx^n=0
+\]</span> <span class="math inline">\(R\)</span>上的一个未定元<span class="math inline">\(x\)</span>的一元多项式只能用一种方法写成 <span class="math display">\[
+a_0+a_1x+\cdots+a_nx^n ,a_n\neq0
+\]</span> 的形式。其中<span class="math inline">\(n\)</span>叫做多项式的次数。</p>
+<p><strong>定义14（无关未定元）</strong> <span class="math inline">\(R_0\)</span>上的<span class="math inline">\(n\)</span>个元<span class="math inline">\(x_1,x_2,\cdots,x_n\)</span>叫做<span class="math inline">\(R\)</span>上的无关未定元，假如任何一个<span class="math inline">\(R\)</span>上<span class="math inline">\(x_1,x_2,\cdots,x_n\)</span>的多项式都不为零，除非系数全为零。</p>
+<p><strong>定义15（理想）</strong> 环<span class="math inline">\(R\)</span>的一个子环<span class="math inline">\({\mathfrak A}\)</span>叫做一个 <strong>理想子环，简称理想</strong> ，当：</p>
+<ol type="1">
+<li><span class="math inline">\(a,b\in{\mathfrak A}\to a-b\in {\mathfrak A}\)</span></li>
+<li><span class="math inline">\(a\in{\mathfrak A},r\in R\to ra,ar\in{\mathfrak A}\)</span></li>
+</ol>
+<blockquote>
+<p>一个环有两个平凡的理想，分别的只含零元的零理想、R自己（单位理想）</p>
+</blockquote>
+<p><strong>定义16（主理想）</strong> 给定一个环<span class="math inline">\(R\)</span>，取其中的一个元素<span class="math inline">\(a\)</span>，利用<span class="math inline">\(a\)</span>作成一个集合<span class="math inline">\({\mathfrak A}\)</span>,其中包含所有形如： <span class="math display">\[
+(x_1ay_1+\cdots+x_may_m)+sa+st+na
+\]</span> （其中<span class="math inline">\(x,y,s,t\in R\)</span>，<span class="math inline">\(n\)</span>是整数）形式的元。那么<span class="math inline">\({\mathfrak A}\)</span>是含有<span class="math inline">\(a\)</span>的最小理想，叫做由<span class="math inline">\(a\)</span>生成的 <strong>主理想</strong> ，用<span class="math inline">\((a)\)</span>表示。</p>
+<p>特别地：</p>
+<ul>
+<li>如果<span class="math inline">\(R\)</span>是交换环，<span class="math inline">\((a)\)</span>的元都可以写成<span class="math inline">\(ra+na\)</span>的形式。其中<span class="math inline">\(r\in R,n\)</span>是整数</li>
+<li>如果<span class="math inline">\(R\)</span>有单位元，<span class="math inline">\((a)\)</span>的元都可以写成<span class="math inline">\(\sum x_iay_i\)</span>的形式。</li>
+<li>如果<span class="math inline">\(R\)</span>既是交换环由于单位元，那么<span class="math inline">\((a)\)</span>都可以写成<span class="math inline">\(ra\)</span>的形式。</li>
+</ul>
+<p><strong>定义17（生成理想）</strong> <span class="math inline">\({\mathfrak A}\)</span>叫做由<span class="math inline">\(a_1,a_2,\cdots,a_n\)</span> <strong>生成的理想</strong> ，用<span class="math inline">\((a_1,a_2,\cdots,a_n)\)</span>来表示。<span class="math inline">\({\mathfrak A}\)</span>包含所有可以写成 <span class="math display">\[
+s_1+s_2+\cdots+s_n(s_1\in(a_i))
+\]</span> 的元。</p>
+<p><strong>定义18（剩余类环）</strong> 给定一个环<span class="math inline">\(R\)</span>，<span class="math inline">\({\mathfrak A}\)</span>是它的一个理想。就加法来看，<span class="math inline">\({\mathfrak A}\)</span>是<span class="math inline">\(R\)</span>的不变子群，这样<span class="math inline">\({\mathfrak A}\)</span>的陪集 <span class="math display">\[
+[a],[b],\cdots
+\]</span> 作成<span class="math inline">\(R\)</span>的一个分类，我们把这些类叫做模<span class="math inline">\({\mathfrak A}\)</span>的剩余类，<span class="math inline">\(\bar{R}\)</span>是所有模<span class="math inline">\({\mathfrak A}\)</span>的剩余类组成的集合，它也是一个环，我们称其为 <strong>剩余类环</strong> ，记作： <span class="math display">\[
+R/{\mathfrak A}
+\]</span></p>
+<blockquote>
+<p>事实上，<span class="math inline">\(R\)</span>和<span class="math inline">\(\bar{R}\)</span>同态。</p>
+</blockquote>
+<p><strong>定义19（最大理想）</strong> 一个环<span class="math inline">\(R\)</span>的一个不等于<span class="math inline">\(R\)</span>的理想<span class="math inline">\({\mathfrak A}\)</span>叫做 <strong>最大理想</strong> ，当除了<span class="math inline">\(R\)</span>和<span class="math inline">\({\mathfrak A}\)</span>以外，没有包含<span class="math inline">\({\mathfrak A}\)</span>的理想。</p>
+<p>最大理想有时候也叫做极大理想。如果<span class="math inline">\(R\)</span>是有单位元的交换环，<span class="math inline">\({\mathfrak A}\)</span>是<span class="math inline">\(R\)</span>的理想，那么<span class="math inline">\(R/{\mathfrak A}\)</span>是一个域等价于<span class="math inline">\({\mathfrak A}\)</span>是最大理想。</p>
+<p><strong>定义20（商域）</strong> 一个域<span class="math inline">\(Q\)</span>叫做一个环<span class="math inline">\(R\)</span>的 <strong>商域</strong> ，假如<span class="math inline">\(Q\)</span>包含<span class="math inline">\(R\)</span>，并且<span class="math inline">\(Q\)</span>恰好由 <span class="math display">\[
+\frac{a}{b}\ \ (a,b\in R,b\neq 0)
+\]</span> 组成。</p>
+<h2 id="第四章-整环里的因子分解">第四章 整环里的因子分解</h2>
+<p><strong>定理1（整数环上唯一分解定理）</strong> 一个整数可以唯一地写成若干个素数的乘积。</p>
+<p><strong>定义21（整除,因子）</strong> 我们说整环<span class="math inline">\(I\)</span>的一个元<span class="math inline">\(a\)</span>可以被整环<span class="math inline">\(I\)</span>中的另一个元<span class="math inline">\(b\)</span> <strong>整除</strong> ，当能在<span class="math inline">\(I\)</span>中找出一个元<span class="math inline">\(c\)</span>，使得 <span class="math display">\[
+a=bc
+\]</span> 如果<span class="math inline">\(a\)</span>能被<span class="math inline">\(b\)</span>整除，记作<span class="math inline">\(b|a\)</span>，我们说<span class="math inline">\(b\)</span>是<span class="math inline">\(a\)</span>的 <strong>因子</strong>。</p>
+<p><strong>定义22（单位，相伴元）</strong> 整环<span class="math inline">\(I\)</span>的一个元<span class="math inline">\(\varepsilon\)</span>叫做<span class="math inline">\(I\)</span>的一个 <strong>单位</strong> ，当<span class="math inline">\(\varepsilon\)</span>是有逆元的元。<span class="math inline">\(b\)</span>叫做<span class="math inline">\(a\)</span>的 <strong>相伴元</strong> ，假如 <span class="math display">\[
+b=\varepsilon a
+\]</span></p>
+<blockquote>
+<p>例如，整数环中有两个单位，分别是<span class="math inline">\(1\)</span>和<span class="math inline">\(-1\)</span>；整复数环中有四个单位，分别是<span class="math inline">\(\pm 1\)</span>,<span class="math inline">\(\pm i\)</span>。显然，单位的乘积、单位的逆元也是单位。</p>
+</blockquote>
+<p><strong>定义23（平凡因子、真因子）</strong> 单位和<span class="math inline">\(a\)</span>的相伴元叫做<span class="math inline">\(a\)</span>的 <strong>平凡因子</strong> ，<span class="math inline">\(a\)</span>的其它因子叫做<span class="math inline">\(a\)</span>的 <strong>真因子</strong> 。</p>
+<p><strong>定义24（素元）</strong> 一个整环<span class="math inline">\(I\)</span>的一个既不是零元、也不是单位、还没有真因子的元<span class="math inline">\(p\)</span>叫做 <strong>素元</strong> 。</p>
+<blockquote>
+<p>这样的话，单位元和素元的积也是素元。</p>
+</blockquote>
+<p><strong>定义25（唯一分解）</strong> 我们说一个整环<span class="math inline">\(I\)</span>的一个元<span class="math inline">\(a\)</span>在<span class="math inline">\(I\)</span>里有 <strong>唯一分解</strong> ，假如：</p>
+<ol type="1">
+<li><span class="math inline">\(a=p_1p_2\cdots p_r\)</span>，其中<span class="math inline">\(p_i\)</span>是素元</li>
+<li>若同时<span class="math inline">\(a=q_1q_2\cdots q_s\)</span>，其中<span class="math inline">\(q\)</span>是素元，那么<span class="math inline">\(r=s\)</span>，并且我们可以把<span class="math inline">\(q_i\)</span>的次序调换一下，使得<span class="math inline">\(\forall i,q_i=p_i\varepsilon\)</span></li>
+</ol>
+<blockquote>
+<p>一个整环的泠鸢和单位显然是没有唯一分解的，但是其实不是零元也不是单位的元也不一定有唯一分解，例如在环<span class="math inline">\(I=\{a+\sqrt{3}bi|a,b\in {\mathbb Z}\}\)</span>中的元<span class="math inline">\(4\)</span>，有： <span class="math display">\[
+4=2\times2=(1+\sqrt{3}i)\times(1-\sqrt{3}i)
+\]</span></p>
+</blockquote>
+<p><strong>定义26（唯一分解环）</strong> 如果一个整环<span class="math inline">\(I\)</span>的每一个不是零元也不是单位的元都能唯一分解，那么<span class="math inline">\(I\)</span>叫做 <strong>唯一分解环</strong> 。</p>
+<p><strong>定义27（公因子，最大公因子）</strong> 如果一个元<span class="math inline">\(c\)</span>能同时整除<span class="math inline">\(a_1,a_2,\cdots,a_n\)</span>，这个元<span class="math inline">\(c\)</span>叫做<span class="math inline">\(a_1,a_2,\cdots,a_n\)</span>的 <strong>公因子</strong> 。如果公因子<span class="math inline">\(d\)</span>能被每个公因子整除，那么这个<span class="math inline">\(d\)</span>叫做 <strong>最大公因子</strong> 。</p>
+<p><strong>定义28（互素）</strong> 一列数的最大公因子是单位，那称这一列数 <strong>互素</strong> 。</p>
+<p><strong>定义29（主理想环）</strong> 如果整环<span class="math inline">\(I\)</span>的每个理想都是主理想，那么称<span class="math inline">\(I\)</span>是 <strong>主理想环</strong> 。</p>
+<blockquote>
+<p>主理想环有个很重要的性质：在主理想环中构造一个序列<span class="math inline">\(a_1,a_2,\cdots,a_n\)</span>，其中后项一定是前项的真因子，那么这个序列长度有限。而且一个主理想环一定是唯一分解环。</p>
+</blockquote>
+<p><strong>定义30（欧氏环）</strong> 一个满足下列性质的整环<span class="math inline">\(I\)</span>叫做 <strong>欧氏环</strong> ：</p>
+<ol type="1">
+<li><p>有一个从<span class="math inline">\(I\)</span>的非零元所组成的集合到自然数集合的映射<span class="math inline">\(\phi\)</span>存在</p></li>
+<li><p>对于<span class="math inline">\(I\)</span>中一个非零元<span class="math inline">\(a\)</span>，<span class="math inline">\(I\)</span>中任何元<span class="math inline">\(b\)</span>都可写成 <span class="math display">\[
+b=qa+r\ \ (q,r\in I)
+\]</span> 的形式，且有：<span class="math inline">\(r=0\)</span>或<span class="math inline">\(\phi(r)&lt;\phi(a)\)</span></p></li>
+</ol>
+<blockquote>
+<p>所有欧氏环都是主理想环，于是也是唯一分解环。而且一个域<span class="math inline">\(F\)</span>上的一元多项式环<span class="math inline">\(F[x]\)</span>是一个欧氏环。</p>
+</blockquote>
+<p><strong>定义31（本原多项式）</strong> <span class="math inline">\(I[x]\)</span>的一个元<span class="math inline">\(f(x)\)</span>叫做本原多项式，假如<span class="math inline">\(f(x)\)</span>系数的最大公因子是单位。</p>
+<p>如果有<span class="math inline">\(f(x)=g(x)h(x)\)</span>，那么<span class="math inline">\(f(x)\)</span>是本原多项式，当且仅当<span class="math inline">\(g(x),h(x)\)</span>是本原多项式。</p>
+<p><strong>定义32（多项式的根）</strong> <span class="math inline">\(I\)</span>的元<span class="math inline">\(a\)</span>叫做<span class="math inline">\(I[x]\)</span>的多项式<span class="math inline">\(f(x)\)</span>的一个 <strong>根</strong> ，当且仅当<span class="math inline">\(f(a)=0\)</span></p>
+<p><strong>定义33（多项式的重根）</strong> <span class="math inline">\(I\)</span>的元<span class="math inline">\(a\)</span>叫做<span class="math inline">\(I[x]\)</span>的多项式<span class="math inline">\(f(x)\)</span>的一个 <strong><span class="math inline">\(k\)</span>重根</strong> ，假如<span class="math inline">\(f(x)\)</span>能被<span class="math inline">\((x-a)^k\)</span>整除，其中<span class="math inline">\(k\)</span>大于1.</p>
+<p><strong>定义34（多项式的导数）</strong> 对于多项式 <span class="math display">\[
+f(x)=\sum_{i=0}^na_ix^i
+\]</span> 其导数为 <span class="math display">\[
+f&#39;(x)=\sum_{i=1}^{n}ia_ix^{i-1}
+\]</span></p>
+<h2 id="第五章扩域">第五章：扩域</h2>
+<p><strong>定义35（扩域）</strong> 一个域<span class="math inline">\(E\)</span>叫做一个域<span class="math inline">\(F\)</span>的 <strong>扩域</strong> ，当<span class="math inline">\(F\)</span>是<span class="math inline">\(E\)</span>的子域</p>
+<p>例如：实数域是有理数域的扩域，复数域是实数域的扩域。</p>
+<blockquote>
+<p>事实上，令<span class="math inline">\(E\)</span>是一个域，如果<span class="math inline">\(E\)</span>的特征是无穷大，那么它含有一个和有理数域同构的子域；如果<span class="math inline">\(E\)</span>的特征是素数<span class="math inline">\(p\)</span>，那么它含一个和<span class="math inline">\(R/(p)\)</span>同构的子域，其中<span class="math inline">\(R\)</span>是整数环，<span class="math inline">\((p)\)</span>是由<span class="math inline">\(p\)</span>生成的主理想。</p>
+</blockquote>
+<p><strong>定义36（素域）</strong> 一个域叫做一个 <strong>素域</strong> ，假如它不含任何真子域。</p>
+<p><strong>定义37（单扩域）</strong> 添加一个元素<span class="math inline">\(\alpha\)</span>于域<span class="math inline">\(F\)</span>中所得的扩域<span class="math inline">\(F(\alpha)\)</span>叫做<span class="math inline">\(F\)</span>的一个单扩域</p>
+<p><strong>定义38（代数元）</strong> 如果对于域<span class="math inline">\(F\)</span>中的一个元素<span class="math inline">\(\alpha\)</span>，<span class="math inline">\(F\)</span>中存在不全为零的元<span class="math inline">\(a_1,\cdots,a_n\)</span>，使得： <span class="math display">\[
+a_0+a_1\alpha+a_2\alpha+\cdots+a_n\alpha^n=0
+\]</span> 那么<span class="math inline">\(\alpha\)</span>叫做 <strong>代数元</strong> 。如果这样的<span class="math inline">\(a_1,\cdots,a_n\)</span>不存在，<span class="math inline">\(\alpha\)</span>就叫做 <strong>超越元</strong> 。</p>
+<blockquote>
+<p>代数数就是整数环上的代数元。</p>
+</blockquote>
+<p><strong>定义39（极小多项式）</strong> <span class="math inline">\(F[x]\)</span>中满足<span class="math inline">\(p(\alpha)=0\)</span>的次数最低的多项式 <span class="math display">\[
+p(x)=x^n+a_{n-1}x^{n-1}+\cdots+a_0
+\]</span> 叫做<span class="math inline">\(\alpha\)</span>在<span class="math inline">\(F\)</span>上的 <strong>极小多项式</strong> ，<span class="math inline">\(n\)</span>叫做<span class="math inline">\(\alpha\)</span>在<span class="math inline">\(F\)</span>上的 <strong>次数</strong></p>
+<p><strong>定义40（代数扩域）</strong> 如果域<span class="math inline">\(F\)</span>的一个扩域<span class="math inline">\(E\)</span>的每一个元都是<span class="math inline">\(F\)</span>的代数元，那么<span class="math inline">\(E\)</span>叫做<span class="math inline">\(F\)</span>的 <strong>代数扩域（扩张）</strong> 。</p>
+<blockquote>
+<p>假如<span class="math inline">\(K\)</span>是<span class="math inline">\(F\)</span>的扩域，那么<span class="math inline">\(K\)</span>可以视作是<span class="math inline">\(F\)</span>上的一个向量空间（对于<span class="math inline">\(K\)</span>的加法和<span class="math inline">\(F\times K\to K\)</span>的乘法）。也就是说，对于任意<span class="math inline">\(K\)</span>上的元素<span class="math inline">\(\alpha\)</span> ，存在一组来自于<span class="math inline">\(K\)</span>的基，使<span class="math inline">\(\alpha\)</span>可以被那些基线性表出，而表示的基的各项系数都在<span class="math inline">\(F\)</span>内。</p>
+<p>例如：复数域是实数域的扩域，而复数域的“基”就是<span class="math inline">\(1\)</span>和<span class="math inline">\(i\)</span></p>
+</blockquote>
+<p><strong>定义41（有限扩域，扩域的次数）</strong> 如果域<span class="math inline">\(F\)</span>的一个扩域<span class="math inline">\(E\)</span>作为<span class="math inline">\(F\)</span>上的向量空间的维数为<span class="math inline">\(n\)</span>，那么<span class="math inline">\(n\)</span>称作扩域<span class="math inline">\(E\)</span>在<span class="math inline">\(F\)</span>上的 <strong>次数</strong> ，记作<span class="math inline">\((E:F)=n\)</span>.此时<span class="math inline">\(E\)</span>叫做<span class="math inline">\(F\)</span>的一个 <strong>有限扩域</strong> 。</p>
+<blockquote>
+<p>若有 <span class="math display">\[
+F\subset I\subset E
+\]</span> 则有 <span class="math display">\[
+(E:F)=(E:I)(I:F)
+\]</span></p>
+</blockquote>
+<p><strong>定义42（多项式的分裂域/根域）</strong> 域<span class="math inline">\(F\)</span>的一个扩域<span class="math inline">\(E\)</span>叫做<span class="math inline">\(F[x]\)</span>的<span class="math inline">\(n\)</span>次多项式<span class="math inline">\(f(x)\)</span>在<span class="math inline">\(F\)</span>上的一个 <strong>分裂域（也叫根域）</strong> ，如果：</p>
+<ol type="1">
+<li><p>在<span class="math inline">\(E[x]\)</span>中，<span class="math inline">\(f(x)\)</span>可以分解为一次因子的积 <span class="math display">\[
+f(x)=a_n(x-\alpha_1)(x-\alpha_2)\cdots(x-\alpha_n)
+\]</span></p></li>
+<li><p>在一个比<span class="math inline">\(E\)</span>小的域中，<span class="math inline">\(f(x)\)</span>不能被这样分解。</p></li>
+</ol>
+<blockquote>
+<p>有： <span class="math display">\[
+E=F(\alpha_1,\alpha_2\cdots,\alpha_n)
+\]</span></p>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%8A%BD%E8%B1%A1%E4%BB%A3%E6%95%B0/">#抽象代数</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>抽象代数定义整理：第二弹</div>
+      <div>https://suzumiyaakizuki.github.io/2022/05/27/抽象代数定义整理：第二弹/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>SuzumiyaAkizuki</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年5月27日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/05/31/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E9%87%8D%E7%82%B9%E5%86%85%E5%AE%B9%E6%A2%B3%E7%90%86/" title="数理统计重点内容梳理">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">数理统计重点内容梳理</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/05/23/%E5%85%B3%E4%BA%8E%E7%94%A8R%E8%AF%AD%E8%A8%80%E8%BF%9B%E8%A1%8C%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E7%9A%84%E4%B9%90%E5%AD%90%E4%BA%8C%E5%88%99/" title="关于用R语言进行方差分析的乐子二则">
+                        <span class="hidden-mobile">关于用R语言进行方差分析的乐子二则</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.7.2/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"48fb14f9689ae0d11307","clientSecret":"091ab25a88e87bfd9d9d40d97d1d0d932e694059","repo":"SuzumiyaAkizuki.github.io","owner":"SuzumiyaAkizuki","admin":["SuzumiyaAkizuki"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '6a5047de398d62da591ca25407915141'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       Powered by: <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

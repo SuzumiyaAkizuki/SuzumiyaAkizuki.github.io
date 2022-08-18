@@ -1,0 +1,906 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <link rel="icon" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="SuzumiyaAkizuki">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="抽象代数课程概念繁杂，而且很多概念都使用了非常非常基础的字眼（例如“群”group，不觉得这是一个在日常生活中很基础的字吗？）因此，如果对基础概念不了如指掌，做题的时候很可能连题目也看不懂。本文整理一下抽象代数里面的概念，附带很有限的批注和定理，以供速查使用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="抽象代数定义整理：第一弹">
+<meta property="og:url" content="https://suzumiyaakizuki.github.io/2022/05/20/%E6%8A%BD%E8%B1%A1%E4%BB%A3%E6%95%B0%E5%AE%9A%E4%B9%89%E6%95%B4%E7%90%86%EF%BC%9A%E7%AC%AC%E4%B8%80%E5%BC%B9/index.html">
+<meta property="og:site_name" content="凉宫秋月的文艺部">
+<meta property="og:description" content="抽象代数课程概念繁杂，而且很多概念都使用了非常非常基础的字眼（例如“群”group，不觉得这是一个在日常生活中很基础的字吗？）因此，如果对基础概念不了如指掌，做题的时候很可能连题目也看不懂。本文整理一下抽象代数里面的概念，附带很有限的批注和定理，以供速查使用。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/illust_67687967_20190605_163831.jpg">
+<meta property="article:published_time" content="2022-05-20T11:23:09.000Z">
+<meta property="article:modified_time" content="2022-07-03T14:44:34.780Z">
+<meta property="article:author" content="SuzumiyaAkizuki">
+<meta property="article:tag" content="数学">
+<meta property="article:tag" content="抽象代数">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/illust_67687967_20190605_163831.jpg">
+  
+  
+  
+  <title>抽象代数定义整理：第一弹 - 凉宫秋月的文艺部</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"suzumiyaakizuki.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":"G-J01HK5TZ0Y","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"QGqf9VPGTa96KerO0JvDW3Ld-gzGzoHsz","app_key":"RhwwUaYq4lMo1tCJwcQTWdRp","server_url":"https://qgqf9vpg.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.google-analytics.com/analytics.js', function() {
+          window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
+          ga.l = +new Date;
+          ga('create', 'G-J01HK5TZ0Y', 'auto');
+          ga('send', 'pageview');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>凉宫秋月的文艺部</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友情链接
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/img/illust_67687967_20190605_163831.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="抽象代数定义整理：第一弹"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        SuzumiyaAkizuki
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-05-20 19:23" pubdate>
+          2022年5月20日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          12 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">抽象代数定义整理：第一弹</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>抽象代数课程概念繁杂，而且很多概念都使用了非常非常基础的字眼（例如“群”group，不觉得这是一个在日常生活中很基础的字吗？）因此，如果对基础概念不了如指掌，做题的时候很可能连题目也看不懂。本文整理一下抽象代数里面的概念，附带很有限的批注和定理，以供速查使用。</p>
+<span id="more"></span>
+<h2 id="基本概念">基本概念</h2>
+<p><strong>定义 1(代数运算)</strong> . 一个<span class="math inline">\(A\times B\)</span>到<span class="math inline">\(D\)</span>的映射叫做一个<span class="math inline">\(A\times B\)</span>到<span class="math inline">\(D\)</span> 的代数运算。其中<span class="math inline">\(A^n\)</span>到<span class="math inline">\(A\)</span>的代数运算叫做<span class="math inline">\(A\)</span>上的<span class="math inline">\(n\)</span>元 运算。</p>
+<p>例：定义<span class="math inline">\(A=\mathbb{Z},B=\{x|x\in \mathbb{Z}\ \&amp;\ x\neq 0\},D=\mathbb{Q}\)</span>,则除法： <span class="math display">\[
+(a,b)\to\frac ab = a/b
+\]</span> 是一个<span class="math inline">\(A\times B\)</span>到<span class="math inline">\(D\)</span>的代数运算。但是除法并不是<span class="math inline">\(\mathbb{Q}\)</span>上的二元运算。</p>
+<p><strong>定义 2 (结合律)</strong>. 我们说一个<span class="math inline">\(A\)</span>上的代数运算<span class="math inline">\(\circ\)</span>适合结合律， 假如对于<span class="math inline">\(A\)</span>中的任意三个元<span class="math inline">\(a,b,c\)</span>，都有 <span class="math display">\[
+(a\circ b)\circ c=a\circ (b\circ c)
+\]</span> 其中<span class="math inline">\(a,b,c\)</span>不一定不相同。</p>
+<p><strong>定义 3 (连算)</strong>. 假如对于<span class="math inline">\(A\)</span>的不少于<span class="math inline">\(2\)</span>个固定的元<span class="math inline">\(a_1,a_2,\cdots,a_n\)</span>，对于下列的符号 <span class="math display">\[
+a_1\circ a_2 \circ \cdots a_n
+\]</span> 的任意一种加括号的方式<span class="math inline">\(\pi_i(a_1\circ a_2 \circ \cdots a_n)\)</span>都相等， 那么我们就把这些所有的<span class="math inline">\(\pi_i\)</span>用 <span class="math display">\[
+a_1\circ a_2 \circ \cdots a_n
+\]</span> 来表示， 叫做连算。</p>
+<p>事实上，如果<span class="math inline">\(\circ\)</span>适合结合律，那么连算就存在。</p>
+<p><strong>定义 4 (交换律)</strong>. 我们说一个<span class="math inline">\(A\times A\)</span>到<span class="math inline">\(D\)</span>的代数运算<span class="math inline">\(\circ\)</span>适合交换律， 假如对于<span class="math inline">\(A\)</span>上的任意两个元<span class="math inline">\(a,b\)</span>，有： <span class="math display">\[
+a\circ b=b\circ a
+\]</span></p>
+<p>事实上，如果<span class="math inline">\(\circ\)</span>同时适合交换律和结合律，那么连算式中 的元顺序就可以任意交换。</p>
+<p><strong>定义 5 (分配律)</strong>. 对于<span class="math inline">\(A\)</span>和<span class="math inline">\(B\)</span></p>
+<p><span class="math inline">\(\bigotimes\)</span>是一个<span class="math inline">\(B\times A\)</span>到<span class="math inline">\(A\)</span>的代数运算。</p>
+<p><span class="math inline">\(\bigoplus\)</span>是一个<span class="math inline">\(A\)</span>的代数运算。</p>
+<p>假如对于<span class="math inline">\(B\)</span>的任意<span class="math inline">\(b\)</span>，<span class="math inline">\(A\)</span>的任意<span class="math inline">\(a_1,a_2\)</span>来说：</p>
+<ol type="1">
+<li><p>有左分配律：假如 <span class="math display">\[
+b\bigotimes(a_1\bigoplus a_2)=(b\bigotimes a_1)\bigoplus(b\bigotimes a_2)
+\]</span></p></li>
+<li><p>有右分配律：假如 <span class="math display">\[
+(a_1\bigoplus a_2)\bigotimes b=(a_1 \bigotimes b)\bigoplus(a_2 \bigotimes b )
+\]</span></p></li>
+</ol>
+<p><strong>定义 6 (满射)</strong>. 若是在一个集合<span class="math inline">\(A\)</span>到<span class="math inline">\(\bar{A}\)</span>的映射<span class="math inline">\(\phi\)</span>下，<span class="math inline">\(\bar{A}\)</span>的 每一个元都至少是<span class="math inline">\(A\)</span>中某一个元的象，那么<span class="math inline">\(\phi\)</span>叫做一个<span class="math inline">\(A\)</span>到<span class="math inline">\(\bar{A}\)</span>的 满射。</p>
+<p>例如，<span class="math inline">\(f(x)=\sin(x)\)</span>就不是一个<span class="math inline">\({\mathbb R}\to {\mathbb R}\)</span>的满射，因为不存在<span class="math inline">\(x\in \mathbb{R},f(x)=2\)</span> 但是，<span class="math inline">\(f(x)=\ln(x)\)</span>就是一个<span class="math inline">\({\mathbb R}\to {\mathbb R}\)</span>的满射。</p>
+<p><strong>定义 7 (单射)</strong>. 一个集合<span class="math inline">\(A\)</span>到<span class="math inline">\(\bar{A}\)</span>的映射<span class="math inline">\(\phi\)</span>，假如 <span class="math display">\[
+a\neq b\to \bar{a}\neq \bar{b}
+\]</span> 那么<span class="math inline">\(\phi\)</span>是一个单射。</p>
+<p>例如，<span class="math inline">\(f(x)=x^2\)</span>就不是一个<span class="math inline">\({\mathbb R}\to {\mathbb R}\)</span>的单射，因为<span class="math inline">\(1\neq -1\)</span>但是<span class="math inline">\(f(1)=f(-1)\)</span>. 但是，<span class="math inline">\(f(x)=e^x\)</span>就是一个<span class="math inline">\({\mathbb R}\to {\mathbb R}\)</span>的单射。</p>
+<p><strong>定义 8(一一映射)</strong> . 如果集合<span class="math inline">\(A\)</span>到<span class="math inline">\(\bar{A}\)</span>的映射<span class="math inline">\(\phi\)</span>既是满射又是单射，那么它就是一一映射。 一一映射的逆是一个<span class="math inline">\(\bar{A}\to A\)</span>的一一映射，用<span class="math inline">\(\phi^{-1}\)</span>表示。</p>
+<p>例如，<span class="math inline">\(f(x)=x^3\)</span>就是一个<span class="math inline">\({\mathbb R}\to {\mathbb R}\)</span>的一一映射。</p>
+<p><strong>定义 9 (变换)</strong>. 一个<span class="math inline">\(A\to A\)</span>的映射叫做变换。</p>
+<p><strong>定义 10 (同态映射)</strong>. 一个集合<span class="math inline">\(A\)</span>到<span class="math inline">\(\bar{A}\)</span>的映射<span class="math inline">\(\phi\)</span>叫做对于代数运算 <span class="math inline">\(\circ\)</span>和<span class="math inline">\(\bar{\circ}\)</span>的同态映射，假如在<span class="math inline">\(\phi\)</span>之下， 对于<span class="math inline">\(\forall a,b \in A\)</span>，只要 <span class="math display">\[
+a\to \bar{a},b\to \bar{b}
+\]</span> 就有。 <span class="math display">\[
+a\circ b\to \bar{a}\bar{\circ}\bar{b}
+\]</span> 如果<span class="math inline">\(\phi\)</span>还是个满射，那么就叫做同态满射。</p>
+<p><strong>定义 11 (同构映射)</strong>. 如果一个同态满射还是一一映射，那么它就是同构映射。 如果<span class="math inline">\(A\)</span>和<span class="math inline">\(\bar{A}\)</span>同构，记作： <span class="math display">\[
+A\cong \bar{A}
+\]</span></p>
+<p>事实上，如果对于<span class="math inline">\(\circ\)</span>和<span class="math inline">\(\bar{\circ}\)</span>来说，<span class="math inline">\(A\)</span>和<span class="math inline">\(\bar{A}\)</span>同构， 那么我们可以说，<span class="math inline">\(A\)</span>和<span class="math inline">\(\bar{A}\)</span>这两个集合对于这两个运算来说除了名字 以外没有区别。</p>
+<p><strong>定义 12 (自同构)</strong>. 对于<span class="math inline">\(\circ\)</span>和<span class="math inline">\(\circ\)</span>来说的一个<span class="math inline">\(A\to A\)</span>的同构映射称为一个对于<span class="math inline">\(\circ\)</span>来说的<span class="math inline">\(A\)</span>的自同构。</p>
+<p><strong>定义 13 (关系)</strong>. 一个<span class="math inline">\(A\times A\)</span>到<span class="math inline">\(\{T,F\}\)</span>的映射<span class="math inline">\(R\)</span>称作<span class="math inline">\(A\)</span>的元 之间的一个关系。如果<span class="math inline">\(R(a,b)=T\)</span>，那么称<span class="math inline">\(A\)</span>和<span class="math inline">\(B\)</span>符合 这个关系，记作：<span class="math inline">\(aRb\)</span></p>
+<p><strong>定义 14 (等价关系)</strong>. 如果关系<span class="math inline">\(\sim\)</span>满足以下三点：</p>
+<ol type="1">
+<li><p><span class="math inline">\(\forall a\in A,a\sim a\)</span></p></li>
+<li><p><span class="math inline">\(\forall a,b\in A,a\sim b\to b\sim a\)</span></p></li>
+<li><p><span class="math inline">\(\forall a,b,c\in A,a\sim b\wedge b\sim c\to a\sim c\)</span></p></li>
+</ol>
+<p>那么称这个关系为等价关系。</p>
+<p>常见的等价关系有：等于、同余、矩阵相似、矩阵合同等。</p>
+<p><strong>定义 15(分类)</strong> . 如果把集合<span class="math inline">\(A\)</span>分成若干个称作类的子集，使得A的每个元属于且仅属于一个 类，那么这些类的全体叫做集合<span class="math inline">\(A\)</span>的一个分类。</p>
+<p>集合的一个分类决定了集合的元之间的一个等价关系。 集合的元之间的一个等价关系决定了集合的一个分类。</p>
+<p><strong>定义 16 (代表和代表团)</strong>. 假如有一个集合的一个分类，那么一个类里面的任意一个元 叫做这个类的一个代表，由每个类的一个代表组成的集合叫做这个集合 的代表团。</p>
+<h2 id="群论">群论</h2>
+<p><strong>定义 17 (群的第一定义)</strong>. 一个不空集合<span class="math inline">\(G\)</span>和一个叫做乘法的代数运算组成的结构叫做一个群，如果：</p>
+<ol type="1">
+<li><p>*<span class="math inline">\(\forall a,b\in G,ab\in G\)</span></p></li>
+<li><p><span class="math inline">\(\forall a,b,c\in G,a(bc)=(ab)c\)</span></p></li>
+<li><p><span class="math inline">\(\forall a,b \in G,\exists x,y\in G\ {\mathbf s.t.} ax=b\wedge ya=b\)</span></p></li>
+</ol>
+<p><strong>定义 18 (群的第二定义)</strong>. 一个不空集合<span class="math inline">\(G\)</span>和一个叫做乘法的代数运算组成的结构叫做一个群，如果：</p>
+<ol type="1">
+<li><p><span class="math inline">\(\forall a,b\in G,ab\in G\)</span></p></li>
+<li><p><span class="math inline">\(\forall a,b,c\in G,a(bc)=(ab)c\)</span></p></li>
+<li><p><span class="math inline">\(\exists e\in G ,\forall a\in G,ea=a\)</span>,这个<span class="math inline">\(e\)</span>叫做左单位元</p></li>
+<li><p><span class="math inline">\(\forall a\in G, \exists a^{-1}\in G,a^{-1}a=e\)</span></p></li>
+</ol>
+<p><strong>定义 19 (群的阶)</strong>. 一个元素有限的群叫做有限群，一个元素无限的群叫做无限群。 有限群元的个数叫做群的阶。</p>
+<p><strong>定义 20 (交换群)</strong>. 如果<span class="math inline">\(\forall a,b\in G,ab=ba\)</span>，那么群<span class="math inline">\((G,\cdot)\)</span>称为交换群，也叫阿贝尔群。</p>
+<p><strong>定义 21 (单位元)</strong>. 一个群<span class="math inline">\(G\)</span>的<strong>唯一</strong>能使 <span class="math display">\[
+ea=ae=e
+\]</span> 的元叫做群<span class="math inline">\(G\)</span>的单位元。</p>
+<p><strong>定义 22 (逆元)</strong>. 对于群<span class="math inline">\(G\)</span>的每一个元<span class="math inline">\(a\)</span>，<span class="math inline">\(G\)</span>中存在<strong>唯一</strong>的一个元<span class="math inline">\(a^{-1}\)</span>， 使得 <span class="math display">\[
+a^{-1}a=aa^{-1}=e
+\]</span> 这个<span class="math inline">\(a^{-1}\)</span>叫做群<span class="math inline">\(G\)</span>中元素<span class="math inline">\(a\)</span>的逆元。</p>
+<p><strong>定义 23 (群中元素的阶）</strong>. 对于群<span class="math inline">\(G\)</span>中的一个元素<span class="math inline">\(a\)</span>,能够使得 <span class="math display">\[a^m=e\]</span> 的最小的正整数<span class="math inline">\(m\)</span>称作<span class="math inline">\(G\)</span>中元素<span class="math inline">\(a\)</span>的阶。如果 不存在这样的<span class="math inline">\(m\)</span>，那么称元素<span class="math inline">\(a\)</span>的阶为无穷大。</p>
+<p>例如：</p>
+<ol type="1">
+<li><p>对于群<span class="math inline">\((\mathbb{R}+,\times)\)</span>,<span class="math inline">\(1\)</span>的阶为<span class="math inline">\(1\)</span>，其余每个元素的阶为<span class="math inline">\(\infty\)</span>.</p></li>
+<li><p>对于群<span class="math inline">\((\{x|x^3=1,x\in \mathbb{C}\},\times)\)</span>,<span class="math inline">\(1\)</span>的阶为<span class="math inline">\(1\)</span>，其余元素的阶为<span class="math inline">\(3\)</span>.</p></li>
+</ol>
+<p><strong>定理 1 (消去律)</strong>. 一个群的乘法适合消去律： <span class="math display">\[
+\begin{cases}
+            ax=ax&#39; \to x=x&#39;\\
+            ya=y&#39;a \to y=y&#39;\\
+        \end{cases}
+\]</span></p>
+<p><strong>定义 24 (有限群的另一定义)</strong>. 一个乘法和一个有限集合构成一个群，假如"封闭性"、"结合律"和"消去律"能被满足。</p>
+<p><strong>定义 25 (变换群)</strong>. 首先我们用一种特殊的记法来表示变换： <span class="math display">\[
+\tau : a\to a&#39;=a^\tau
+\]</span> 我们把一个集合的所有变换放到一个集合里： <span class="math display">\[
+S=\{\tau,\lambda,\mu,\cdots\}
+\]</span> 看这个集合中的两个元<span class="math inline">\(\tau,\lambda\)</span>： <span class="math display">\[
+t:a\to a^\tau,\lambda:a\to a^\lambda
+\]</span> 于是给了一个元<span class="math inline">\(a\)</span>，我们可以得出一个唯一的元<span class="math inline">\((a^\tau)^\lambda\)</span>. 我们规定变换的乘积： <span class="math display">\[
+\tau\lambda : a\to (a^\tau)^\lambda=a^{\tau\lambda}
+\]</span> 那么一个集合<span class="math inline">\(A\)</span>的若干个一一变换对于上述规定的乘法作成的群叫做<span class="math inline">\(A\)</span>的一个变换群。</p>
+<p>事实上，任何一个群都和一个变换群同构，任意一个抽象的群都能在变换群中找到一个具体的例子。</p>
+<p><strong>定义 26 (置换)</strong>. 一个有限集合的一个一一变换叫做一个置换。</p>
+<p><strong>定义 27(对称群)</strong> . 一个包含<span class="math inline">\(n\)</span>个元的集合的全体置换作成的群叫做<span class="math inline">\(n\)</span>次对称群，记作：<span class="math inline">\(S_n\)</span>.</p>
+<p><strong>定义 28 (<span class="math inline">\(k\)</span>-循环置换)</strong>. <span class="math inline">\(S_n\)</span>中的一个把<span class="math inline">\(a_{i_1}\)</span>变到<span class="math inline">\(a_{i_2}\)</span>,把<span class="math inline">\(a_{i_2}\)</span>变到<span class="math inline">\(a_{i_3}\)</span>,<span class="math inline">\(\cdots\)</span> ,把<span class="math inline">\(a_{i_k}\)</span>变到<span class="math inline">\(a_{i_1}\)</span>，而使其它元不变的置换，叫做<span class="math inline">\(k\)</span>-循环置换。这样的 循环置换可以用以下<span class="math inline">\(k\)</span>个符号同时表示： <span class="math display">\[
+(i_1i_2\cdots i_k),(i_2i_3\cdots i_ki_1),\cdots (i_ki_1\cdots i_{k-1})
+\]</span></p>
+<p>事实上，每个<span class="math inline">\(n\)</span>元置换<span class="math inline">\(\pi\)</span>都能写成若干个没有重复数字的循环置换的乘积。 事实上，每个有限群都和一个置换群同构。</p>
+<p><strong>定义 29 (循环群)</strong>. 如果一个群<span class="math inline">\(G\)</span>的每一个元都是其中某一个固定元<span class="math inline">\(a\)</span>的乘方，那么 我们把<span class="math inline">\(G\)</span>叫做循环群，并用符号<span class="math inline">\(G=(a)\)</span>来表示，其中<span class="math inline">\(a\)</span>叫做<span class="math inline">\(G\)</span>的生成元。</p>
+<p>其实<span class="math inline">\(G\)</span>的构造完全由<span class="math inline">\(a\)</span>的阶数<span class="math inline">\(n\)</span>决定。如果有限，那么<span class="math inline">\(G\)</span>同构于整数加群，否则 同构于模<span class="math inline">\(n\)</span>剩余类加群。</p>
+<p><strong>定义 30 (子群)</strong>. 一个群<span class="math inline">\(G\)</span>的一个子集<span class="math inline">\(H\)</span>叫做<span class="math inline">\(G\)</span>的一个子群，假如 <span class="math inline">\(H\)</span>对于<span class="math inline">\(G\)</span>的乘法来说也构成一个群。</p>
+<p><strong>定义 31 (陪集)</strong>. 对于一个群<span class="math inline">\(G\)</span>和它的一个子群<span class="math inline">\(H\)</span>,我们规定一个关系<span class="math inline">\(\sim\)</span>: <span class="math display">\[
+a\sim b \leftrightarrow ab^{-1}\in H
+\]</span> 那么由上述等价关系<span class="math inline">\(\sim\)</span>所决定的类叫做子群<span class="math inline">\(H\)</span>的右陪集，记作： <span class="math inline">\(Ha\)</span>，它刚好包含所有能写成 <span class="math inline">\(ha (h\in H)\)</span> 的<span class="math inline">\(G\)</span>的元。</p>
+<p>如果把等价关系的定义换成： <span class="math display">\[
+a\sim b \leftrightarrow b^{-1}a\in H
+\]</span> 包含元<span class="math inline">\(a\)</span>的陪集叫做左陪集，用<span class="math inline">\(aH\)</span>表示。</p>
+<p><strong>定义 32 (指数)</strong>. 一个群<span class="math inline">\(G\)</span>的一个子群<span class="math inline">\(H\)</span>的右陪集或左陪集（事实上，这俩一定相等）的个数 叫做<span class="math inline">\(H\)</span>在<span class="math inline">\(G\)</span>里的指数。</p>
+<p><strong>定义 33 (不变子群)</strong>. 一个群<span class="math inline">\(G\)</span>的一个子群<span class="math inline">\(N\)</span>叫做<span class="math inline">\(G\)</span>的不变子群，有：<span class="math inline">\(\forall a\in G,Na=aN\)</span></p>
+<p>一个群<span class="math inline">\(G\)</span>的一个子群<span class="math inline">\(N\)</span>是不变子群的充分必要条件是：<span class="math inline">\(\forall a\in G,n\in N \to ana^{-1}\in N\)</span></p>
+<p><strong>定义 34 (中心)</strong>. 如果<span class="math inline">\(N\)</span>包含<span class="math inline">\(G\)</span>中所有有以下性质的元<span class="math inline">\(n\)</span>: <span class="math display">\[
+\forall a\in G,na=an
+\]</span> 那么<span class="math inline">\(N\)</span>是<span class="math inline">\(G\)</span>的一个不变子群。这个不变子群叫做中心。</p>
+<p>简言之：中心和<span class="math inline">\(G\)</span>的每个元素可交换。</p>
+<p><strong>定义 35 (商群)</strong>. 一个群<span class="math inline">\(G\)</span>的一个不变子群<span class="math inline">\(N\)</span>的陪集作成的集合<span class="math inline">\(S\)</span>对于集合乘法构成一个群， 这个群叫做商群，记作<span class="math inline">\(G/N\)</span>.这里的"乘法"，指的是： <span class="math inline">\((xN)(yN)=(xy)N\)</span></p>
+<p>一个群<span class="math inline">\(G\)</span>和它的每一个商群同态。</p>
+<p><strong>定义 36 (核)</strong>. 如果<span class="math inline">\(\phi\)</span>是群<span class="math inline">\(G\)</span>到<span class="math inline">\(\bar{G}\)</span>的同态满射，那么<span class="math inline">\(\bar{G}\)</span> 的单位元<span class="math inline">\(\bar{e}\)</span>在<span class="math inline">\(\phi\)</span>下的所有逆象称为同态满射<span class="math inline">\(\phi\)</span>的核。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%95%B0%E5%AD%A6/">#数学</a>
+      
+        <a href="/tags/%E6%8A%BD%E8%B1%A1%E4%BB%A3%E6%95%B0/">#抽象代数</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>抽象代数定义整理：第一弹</div>
+      <div>https://suzumiyaakizuki.github.io/2022/05/20/抽象代数定义整理：第一弹/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>SuzumiyaAkizuki</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年5月20日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/05/21/%E5%85%B3%E4%BA%8E%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A2%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/" title="关于拉普拉斯变换的那些事">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">关于拉普拉斯变换的那些事</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/05/18/%E5%85%B3%E4%BA%8E%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E5%92%8C%E7%B3%BB%E7%BB%9F%E6%A1%86%E5%9B%BE%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/" title="关于微分方程和系统框图的那些事">
+                        <span class="hidden-mobile">关于微分方程和系统框图的那些事</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.7.2/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"48fb14f9689ae0d11307","clientSecret":"091ab25a88e87bfd9d9d40d97d1d0d932e694059","repo":"SuzumiyaAkizuki.github.io","owner":"SuzumiyaAkizuki","admin":["SuzumiyaAkizuki"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '822a2b8b84f18f6c3bec3024a62171dd'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       Powered by: <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,1379 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <link rel="icon" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="SuzumiyaAkizuki">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="所谓的变换，也就是信号的正交分解。如果两个函数的内积为\(0\)，我们称为这两个函数正交。那么对于任意信号\(f(t)\)，都可以写成一组正交函数系的和的形式（可以对比正交向量理解），这就是信号的正交分解。通过正交分解，可以对信号的特性有进一步的认识，也可以简化信号的分析和计算。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于傅里叶变换的那些事">
+<meta property="og:url" content="https://suzumiyaakizuki.github.io/2022/06/27/%E5%85%B3%E4%BA%8E%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/index.html">
+<meta property="og:site_name" content="凉宫秋月的文艺部">
+<meta property="og:description" content="所谓的变换，也就是信号的正交分解。如果两个函数的内积为\(0\)，我们称为这两个函数正交。那么对于任意信号\(f(t)\)，都可以写成一组正交函数系的和的形式（可以对比正交向量理解），这就是信号的正交分解。通过正交分解，可以对信号的特性有进一步的认识，也可以简化信号的分析和计算。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/fly.jpg">
+<meta property="article:published_time" content="2022-06-27T04:03:52.000Z">
+<meta property="article:modified_time" content="2022-07-03T14:45:11.894Z">
+<meta property="article:author" content="SuzumiyaAkizuki">
+<meta property="article:tag" content="信号与系统">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/fly.jpg">
+  
+  
+  
+  <title>关于傅里叶变换的那些事 - 凉宫秋月的文艺部</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"suzumiyaakizuki.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":"G-J01HK5TZ0Y","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"QGqf9VPGTa96KerO0JvDW3Ld-gzGzoHsz","app_key":"RhwwUaYq4lMo1tCJwcQTWdRp","server_url":"https://qgqf9vpg.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.google-analytics.com/analytics.js', function() {
+          window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
+          ga.l = +new Date;
+          ga('create', 'G-J01HK5TZ0Y', 'auto');
+          ga('send', 'pageview');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>凉宫秋月的文艺部</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友情链接
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/fly.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="关于傅里叶变换的那些事"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        SuzumiyaAkizuki
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-06-27 12:03" pubdate>
+          2022年6月27日 中午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          14k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          29 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">关于傅里叶变换的那些事</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>所谓的变换，也就是信号的正交分解。如果两个函数的内积为<span class="math inline">\(0\)</span>，我们称为这两个函数正交。那么对于任意信号<span class="math inline">\(f(t)\)</span>，都可以写成一组正交函数系的和的形式（可以对比正交向量理解），这就是信号的正交分解。通过正交分解，可以对信号的特性有进一步的认识，也可以简化信号的分析和计算。</p>
+<span id="more"></span>
+<h2 id="傅里叶级数">傅里叶级数</h2>
+<p>傅里叶级数是 <strong>周期信号</strong> 基于正交函数系<span class="math inline">\(\{e^{j\omega t}\}\)</span>的正交分解。</p>
+<h3 id="三角函数形式的傅里叶级数">三角函数形式的傅里叶级数</h3>
+<p>三角函数形式的傅里叶级数就是我们最熟悉的傅里叶级数。对于满足以下条件的函数<span class="math inline">\(f(t)\)</span>:</p>
+<ul>
+<li>周期函数，周期为<span class="math inline">\(T_1\)</span>，角频率为<span class="math inline">\(\omega_1=2\pi/T_1\)</span></li>
+<li>间断点个数有限（可数）</li>
+<li>极大极小值个数有限（可数）</li>
+<li>绝对可积</li>
+</ul>
+<p>有： <span class="math display">\[
+f(t)=a_{0}+\sum_{n=1}^{\infty}\left(a_{n} \cos n \omega_{1} t+b_{n} \sin n \omega_{1} t\right)
+\]</span> 其中<span class="math inline">\(a_0\)</span>叫直流分量，<span class="math inline">\(a_n\)</span>叫<span class="math inline">\(n\)</span>次谐波余弦分量，<span class="math inline">\(b_n\)</span>叫<span class="math inline">\(n\)</span>次谐波正弦分量。有计算公式： <span class="math display">\[
+a_0=\frac{1} {T_{1} } \int_{-\frac{T_{1} } {2} }^{\frac{T_{1} } {2} } f(t) \mathrm{d} t
+\]</span></p>
+<p><span class="math display">\[
+a_n=\frac{2} {T_{1} } \int_{-\frac{T_{1} } {2} }^{\frac{T_{1} } {2} } f(t) \cos n \omega_{1} t \mathrm{~d} t
+\]</span></p>
+<p><span class="math display">\[
+b_n=\frac{2} {T_{1} } \int_{-\frac{T_{1} } {2} }^{\frac{T_{1} } {2} } f(t) \sin n \omega_{1} t \mathrm{~d} t
+\]</span></p>
+<p>当然，也可通过和差化积公式，转换成只有正弦或余弦分量的形式，此处不再赘述。</p>
+<p>有： <span class="math display">\[
+a_n=a_{-n},-b_n=b_{-n}
+\]</span></p>
+<h3 id="指数形式傅里叶级数">指数形式傅里叶级数</h3>
+<p>因为： <span class="math display">\[
+\sin x=\frac{1} {2j}(e^{jx}-e^{-jx})
+\]</span></p>
+<p><span class="math display">\[
+\cos x=\frac 12 (e^{jx}+e^{-jx})
+\]</span></p>
+<p>代入三角函数形式傅里叶级数中，就能得到指数形式傅里叶级数。这里给出部分关键步骤供参考。 <span class="math display">\[
+\begin{aligned}
+f(t)&amp;=a_{0}+\sum_{n=1}^{\infty}\left(a_{n} \cos n \omega_{1} t+b_{n} \sin n \omega_{1} t\right)\\\\
+&amp;=a_{0}+\sum_{n=1}^{\infty}\left(\frac{a_{n}-j b_{n} } {2} e^{j n \omega_{1} t}+\frac{a_{n}+j b_{n} } {2} e^{-j n \omega_{1} t}\right)\\\\
+&amp;=a_{0}+\sum_{n=1}^{\infty} \frac{a_{n}-j b_{n} } {2} e^{j n \omega_{1} t}+\sum_{n=-\infty}^{-1} \frac{a_{n}-j b_{n} } {2} e^{j n \omega_{1} t} &amp; a_n=a_{-n},-b_n=b_{-n}\\\\
+&amp;=\sum_{n=-\infty}^{\infty} F\left(n \omega_{1}\right) e^{j n \omega_{1} t}
+\end{aligned}
+\]</span> 其中 <span class="math display">\[
+F\left(n \omega_{1}\right)=\begin{cases}a_{0}, &amp; n=0 \\\\ \frac{a_{n}-j b_{n} } {2}, &amp; n \neq 0\end{cases}
+\]</span> 即 <span class="math display">\[
+F(n\omega_1)=\frac{1} {T_{1} } \int_{-\frac{T_{1} } {2} }^{\frac{T_{1} } {2} } f(t) e^{-j n \omega_{1} t} \mathrm{d} t
+\]</span> 可以看出，<span class="math inline">\(F\left(n \omega_{1}\right)\)</span>一般而言是一个复数。它的模长和幅角满足： <span class="math display">\[
+|F\left(n \omega_{1}\right)|=\frac 12 \sqrt{a_n^2+b_n^2}
+\]</span></p>
+<p><span class="math display">\[
+\tan \varphi_n=-\frac{b_n} {a_n}
+\]</span></p>
+<h3 id="函数的对称性和傅里叶级数">函数的对称性和傅里叶级数</h3>
+<p>因为<span class="math inline">\(\cos\)</span>是偶函数，<span class="math inline">\(\sin\)</span>是奇函数，所以函数本身的奇偶对称性和傅里叶系数的奇偶对称性有关系。</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">信号</th>
+<th style="text-align: center;"><span class="math inline">\(a_n\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(b_n\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(F(n\omega_1)\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\varphi_n\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">奇函数</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">不为0</td>
+<td style="text-align: center;">纯虚数</td>
+<td style="text-align: center;"><span class="math inline">\(\pm \pi/2\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">偶函数</td>
+<td style="text-align: center;">不为0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">实数</td>
+<td style="text-align: center;"><span class="math inline">\(\pm \pi\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">奇谐函数<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="在一个周期里的两个半周期里呈现奇对称的函数，即$f(t)=-f(t\pm \frac T2)$​">[1]</span></a></sup></td>
+<td style="text-align: center;">只含奇次谐波</td>
+<td style="text-align: center;">只含奇次谐波</td>
+<td style="text-align: center;">同前</td>
+<td style="text-align: center;">同前</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">偶谐函数</td>
+<td style="text-align: center;">只含直流分量和偶次谐波</td>
+<td style="text-align: center;">同前</td>
+<td style="text-align: center;">同前</td>
+<td style="text-align: center;">同前</td>
+</tr>
+</tbody>
+</table>
+<p>我们需要注意到：一个“偶谐函数”，和一个周期为<span class="math inline">\(T_1/2\)</span>的函数，实质上是一回事。</p>
+<h3 id="从傅里叶级数看傅里叶变换">从傅里叶级数看傅里叶变换</h3>
+<p>傅里叶级数只能描述周期函数。但是我如果非得描述非周期函数，又会怎么样呢？我们来考虑一下怎么把非周期函数强行变成周期函数，其实只需要让周期<span class="math inline">\(T\)</span>趋向于无穷大就好了。</p>
+<p>对于 <span class="math display">\[
+F(n\omega_1)=\frac{1} {T_{1} } \int_{-\frac{T_{1} } {2} }^{\frac{T_{1} } {2} } f(t) e^{-j n \omega_{1} t} \mathrm{d} t
+\]</span> 让<span class="math inline">\(T\)</span>趋向于无穷大，则<span class="math inline">\(\omega\)</span>趋向于无穷小。因为函数满足绝对可积条件，所以右边是一个有限值比无穷大，趋向于0。而左边因为<span class="math inline">\(\omega\)</span>趋向于无穷小，取值点趋向于连续。有没有发现，这个过程有一点点像随机变量从连续型变成离散型时，分布列的变化情况（一方面，取值趋向于无穷小；另一方面，自变量趋向于连续）。于是，类似于“概率论”的知识，我们也可以定义“频谱密度函数”，让<span class="math inline">\(n\omega_1\to\omega\)</span>，有 <span class="math display">\[
+F(\omega)=\int_{-\infty}^\infty f(t)e^{-j\omega t}\mathrm{d}t
+\]</span> 这就是我们常说的傅里叶变换。</p>
+<h2 id="傅里叶变换">傅里叶变换</h2>
+<h3 id="傅里叶变换的定义式">傅里叶变换的定义式</h3>
+<p><span class="math display">\[
+F(\omega)=\int_{-\infty}^\infty f(t)e^{-j\omega t}\mathrm{d}t
+\]</span></p>
+<h3 id="基本信号及其傅里叶变换">基本信号及其傅里叶变换</h3>
+<ol type="1">
+<li><p>矩形脉冲信号（门信号）</p>
+<p>即： <span class="math display">\[
+G_N(t)=\begin{cases}
+1 &amp; |t|&lt;N\\\\
+0 &amp; |t|&gt;N
+\end{cases}
+\]</span> 有： <span class="math display">\[
+\mathscr{F}[G_N(t)]=2N\mathrm{Sa}(\omega N)
+\]</span></p></li>
+<li><p>单边指数信号 <span class="math display">\[
+f_1(t)=\begin{cases}
+e^{-at} &amp; t\geq 0\\\\
+0 &amp; \text{others}
+\end{cases}
+\]</span> 则 <span class="math display">\[
+\mathscr{F}[f_1(t)]=\frac {1} {a+j\omega}
+\]</span> 类似地， <span class="math display">\[
+f_2(t)=\begin{cases}
+0 &amp; t\geq 0\\\\
+e^{bt} &amp; t&lt;0
+\end{cases}
+\]</span> 则 <span class="math display">\[
+\mathscr{F}[f_2(t)]=\frac 1{b-j\omega}
+\]</span></p></li>
+<li><p>“偶”双边指数信号</p>
+<p>把前面两个单边指数信号加起来就行了。 <span class="math display">\[
+f(t)=e^{-a|t|}
+\]</span> 则 <span class="math display">\[
+\mathscr{F}\left[e^{-a|t|}\right]=\frac{2a} {a^2+\omega^2}
+\]</span></p></li>
+<li><p>符号函数 <span class="math display">\[
+\text{sgn}(t)=\begin{cases}
+1 &amp; t&gt;0\\\\
+0 &amp; t=0\\\\
+-1 &amp; t&lt;0
+\end{cases}
+\]</span> 为求符号函数的傅里叶变换，先求“奇双边指数函数”的傅里叶变换，然后让指数系数趋向于0即可。</p>
+<p>奇双边指数函数，即 <span class="math display">\[
+f(t)=\begin{cases}
+e^{-at} &amp;t&gt;0\\\\
+-e^{-at} &amp; t&lt;0
+\end{cases}
+\]</span></p>
+<p><span class="math display">\[
+\mathscr{F}[f(t)]=\frac{-2j\omega} {a^2+\omega^2}
+\]</span></p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220627114355617.png" srcset="/img/loading.gif" lazyload alt="image-20220627114355617" /><figcaption aria-hidden="true">image-20220627114355617</figcaption>
+</figure>
+<p>当<span class="math inline">\(a\to0\)</span>时，这个函数就趋向于<span class="math inline">\(\text{sgn}(t)\)</span>。如图是<span class="math inline">\(a=0.01\)</span>的图像：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220627114553417.png" srcset="/img/loading.gif" lazyload alt="image-20220627114553417" /><figcaption aria-hidden="true">image-20220627114553417</figcaption>
+</figure>
+<p>则有： <span class="math display">\[
+\mathscr{F}[\text{sgn}(t)]=\frac 2{j\omega}
+\]</span></p></li>
+<li><p>冲激信号 <span class="math display">\[
+\mathscr{F}[\delta(t)]=1
+\]</span></p></li>
+<li><p>阶跃信号 <span class="math display">\[
+\mathscr{F}[u(t)]=\pi \delta(\omega)+\frac 1{j\omega}
+\]</span> 这个结果可以通过符号函数平移得到。</p></li>
+</ol>
+<h3 id="傅里叶变换的性质">傅里叶变换的性质</h3>
+<p>如果有： <span class="math display">\[
+\mathscr F[f(t)]=F(\omega)
+\]</span> 则有：</p>
+<h4 id="基于定义的性质">基于定义的性质</h4>
+<ol type="1">
+<li><p>对称性 <span class="math display">\[
+\mathscr F[F(t)]=2\pi f(-\omega)
+\]</span></p></li>
+<li><p>奇虚偶实性</p>
+<ul>
+<li><span class="math inline">\(|F(\omega)|\)</span>是偶函数</li>
+<li><span class="math inline">\(\varphi(\omega)\)</span>是奇函数</li>
+<li>如果<span class="math inline">\(f(t)\)</span>是实偶函数，则<span class="math inline">\(F(\omega)\)</span>是实偶函数</li>
+<li>如果<span class="math inline">\(f(t)\)</span>是实奇函数，则<span class="math inline">\(F(\omega)\)</span>是虚奇函数</li>
+</ul></li>
+</ol>
+<h4 id="基于时间运算的性质">基于时间运算的性质</h4>
+<ol type="1">
+<li><p>反褶性质 <span class="math display">\[
+\mathscr F[f(-t)]=F(-\omega)=F^*(\omega)
+\]</span></p></li>
+<li><p>时移性质 <span class="math display">\[
+\mathscr F[f(t-t_0)]=F(\omega)e^{-j\omega t_0}
+\]</span> 可以说：时移不改变幅频特性，而改变相频特性。</p></li>
+<li><p>压扩性质 <span class="math display">\[
+\mathscr F[f(at)]=\frac 1{|a|}F\left(\frac \omega a\right)
+\]</span> 对于频域带限信号，时域的压缩和扩展，会导致频谱范围的增大和减小，频率分量的减少和增加。</p></li>
+<li><p>时域综合性质 <span class="math display">\[
+\mathscr F[f(at+b)]=\frac 1{|a|}F\left(\frac \omega a\right)e^{j\omega\frac ba}
+\]</span></p></li>
+<li><p>线性</p></li>
+<li><p>时域微分性质 <span class="math display">\[
+\mathscr F[f&#39;(t)]=j\omega F(\omega)
+\]</span> 进一步： <span class="math display">\[
+\mathscr F[f^{(n)}(t)]=(j\omega)^nF(\omega)
+\]</span> 因为函数加上任意常数后，微分都相同。在运用这个性质时，要把信号的直流分量提取出来单独处理。例如：尝试利用时域微分性质和线性性质分别由<span class="math inline">\(\text{sgn}(t)\)</span>函数的傅里叶变换计算<span class="math inline">\(u(t)\)</span>的傅里叶变换，并比较结果。</p></li>
+<li><p>时域积分性质 <span class="math display">\[
+\mathscr F\left[\int_{-\infty}^t f(\tau)\mathrm d\tau\right]=\frac {F(\omega)} {j\omega}+\pi F(0)\delta(\omega)
+\]</span></p></li>
+</ol>
+<h4 id="基于频域运算的性质">基于频域运算的性质</h4>
+<ol type="1">
+<li><p>频移性质 <span class="math display">\[
+\mathscr F[f(t)e^{j\omega_0 t}]=F(\omega-\omega_0)
+\]</span></p></li>
+<li><p>频域微分-时域线性加权性质 <span class="math display">\[
+\mathscr F[t^nf(t)]=j^n \frac{\mathrm d^nF(\omega)} {\mathrm d \omega^n}
+\]</span></p></li>
+</ol>
+<h4 id="卷积性质">卷积性质</h4>
+<ol type="1">
+<li><p>时域卷积 <span class="math display">\[
+\mathscr F[f_1(t)\bigotimes f_2(t)]=F_1(\omega)F_2(\omega)
+\]</span></p></li>
+<li><p>频域卷积 <span class="math display">\[
+\mathscr F[f_1(t)f_2(t)]=\frac 1{2\pi}F_1(\omega)\bigotimes F_2(\omega)
+\]</span></p></li>
+</ol>
+<h3 id="由变换的性质计算常用信号的傅里叶变换">由变换的性质计算常用信号的傅里叶变换</h3>
+<ol type="1">
+<li><p>直流信号<span class="math inline">\(E\)</span></p>
+<p>由 <span class="math display">\[
+\mathscr F[\delta(t)]=1
+\]</span> 因对称性，有： <span class="math display">\[
+\mathscr F[1]=2\pi \delta(\omega)
+\]</span> 因线性，有： <span class="math display">\[
+\mathscr F[E]=2\pi E\delta(\omega)
+\]</span></p></li>
+<li><p><span class="math inline">\(f(t)=1/t\)</span></p>
+<p>由 <span class="math display">\[
+\mathscr F[\text{sgn} (t)]=\frac 2{j\omega}
+\]</span> 因对称性，有： <span class="math display">\[
+\mathscr F\left[\frac 2{jt}\right]=2\pi\text{sgn}(-\omega)
+\]</span> 因线性，有： <span class="math display">\[
+\mathscr F\left[\frac 1 t\right]=-j\pi\text{sgn}(\omega)
+\]</span></p></li>
+<li><p>正余弦信号</p>
+<p>由 <span class="math display">\[
+\mathscr F[1]=2\pi\delta(\omega)
+\]</span> 因频移性质，有： <span class="math display">\[
+\mathscr F[e^{j\omega_0t}]=2\pi\delta(\omega-\omega_0)\\\\
+\mathscr F[e^{-j\omega_0t}]=2\pi\delta(\omega+\omega_0)\\\\
+\]</span> 因三角函数分解公式： <span class="math display">\[
+\sin \omega_0t=\frac{1} {2j}(e^{j\omega_0t}-e^{-j\omega_0t})\\\\
+\cos \omega_0t=\frac 12 (e^{j\omega_0t}+e^{-j\omega_0t})
+\]</span> 有： <span class="math display">\[
+\mathscr F[\sin(\omega_0 t)]=-j\pi [\delta(\omega-\omega_0)-\delta(\omega+\omega_0)]\\\\
+\mathscr F [\cos(\omega_0 t)]=\pi[\delta(\omega-\omega_0)+\delta(\omega+\omega_0)]
+\]</span></p></li>
+<li><p>三角脉冲信号</p>
+<p>定义三角脉冲信号<span class="math inline">\(T_\tau(t)\)</span>为形如下面的信号，计算傅里叶变换。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/2BED7AAC8763AB14671045D511389210.png" srcset="/img/loading.gif" lazyload alt="img" /><figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p>由 <span class="math display">\[
+\mathscr F[G_N(t)]=2N\text{Sa}(N\omega)
+\]</span> 则三角脉冲信号<span class="math inline">\(T_\tau(t)\)</span>是门信号的卷积，具体地： <span class="math display">\[
+T_\tau(t)=\sqrt{\frac 1\tau}G_{\frac \tau2}(t)\bigotimes\sqrt{\frac 1\tau}G_{\frac \tau2}(t)
+\]</span> 由于 <span class="math display">\[
+\mathscr F\left[\sqrt{\frac 1\tau}G_{\frac \tau2}(t)\right]=\sqrt{\tau}\text{Sa}\left(\frac \tau2\omega\right)
+\]</span> 和卷积性质，有： <span class="math display">\[
+\mathscr F[T_\tau(t)]=\tau\text{Sa}^2\left(\frac \tau2 \omega\right)
+\]</span></p></li>
+</ol>
+<p>现将常用信号的傅里叶变换归纳如下：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(f(t)\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(F(\omega)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\delta(t)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\delta (t-t_0)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(e^{-j\omega t_0}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2\pi\delta(\omega)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(e^{j\omega_0t}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2\pi\delta(\omega-\omega_0)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(u(t)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\pi\delta(\omega)-\frac 1{j\omega}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(sgn(t)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac 2{j\omega}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\cos(\omega_0t)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\pi[\delta(\omega-\omega_0)+\delta(\omega+\omega_0)]\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\sin(\omega_0t)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(-j\pi [\delta(\omega-\omega_0)-\delta(\omega+\omega_0)]\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(e^{-a\|t\|}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{2a} {a^2+\omega^2}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(G_N(t)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2NSa(N\omega)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(T_\tau(t)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\tau\text{Sa}^2\left(\frac \tau2 \omega\right)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(e^{-at}u(t)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{1} {j\omega+a}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(1/t\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(-j\pi\text{sgn}(\omega)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>这里提出一个趣味问题：</p>
+<blockquote>
+<p>【例】：是否存在一个时域、频域都有限的信号？</p>
+<p>【解】：不存在。如果时域有限，则信号可以表示为： <span class="math display">\[
+f(t)=f(t)G_N(t-t_0)
+\]</span> 而<span class="math inline">\(G_N(t)\)</span>的傅里叶变换的频带是无限的。卷积之后，频带也是无限长的。频域有限情况同理可知。</p>
+</blockquote>
+<h3 id="周期信号的傅里叶变换">周期信号的傅里叶变换</h3>
+<p>在之前，我们研究的是周期信号的傅里叶级数，和非周期信号的傅里叶变换。现在为了把它们都纳入傅里叶分析的框架中，我们要讨论周期信号的傅里叶变换。</p>
+<p>我们都知道，周期信号的傅里叶系数<span class="math inline">\(F(n\omega)\)</span>叫“频谱函数”，而非周期信号的傅里叶变换<span class="math inline">\(F(\omega)\)</span>叫“频谱密度函数”。那么如果我们非要用频谱密度函数来表示频谱函数，那么结果应该是出现在其角频率各次谐波处的冲激函数。（请联想概率论中，如果我们非要用“概率密度函数”来表示离散分布的“分布函数”，那么会出现什么现象？）</p>
+<p>周期函数的傅里叶系数和它一个周期内函数的傅里叶变换的关系为：</p>
+<p><span class="math display">\[
+F(n\omega_1)=\left.\frac 1{T_1}F_1(\omega)\right|_{\omega=n\omega_1}
+\]</span></p>
+<p>对于周期函数的傅里叶级数</p>
+<p><span class="math display">\[
+f(t)=\sum_{n=-\infty}^{\infty} F\left(n \omega_{1}\right) e^{j n \omega_{1} t}
+\]</span></p>
+<p>作傅里叶变换：</p>
+<p><span class="math display">\[
+\mathscr F\left[\sum_{n=-\infty}^{\infty} F\left(n \omega_{1}\right) e^{j n \omega_{1} t}\right]=\sum_{n=-\infty}^{\infty}F(n\omega_1)\mathscr F[e^{jn\omega_1 t}]
+\]</span></p>
+<p>由于频移性质：</p>
+<p><span class="math display">\[
+\mathscr F [e^{jn\omega_1 t}]=2\pi\delta(\omega-n\omega_1)
+\]</span></p>
+<p>故：</p>
+<p><span class="math display">\[
+\mathscr F[f(t)]=\mathscr F\left[\sum_{n=-\infty}^{\infty} F\left(n \omega_{1}\right) e^{j n \omega_{1} t}\right]=2\pi\sum_{n=-\infty}^{\infty}F(n\omega_1)\delta(\omega-n\omega_1)
+\]</span></p>
+<p>这就是一般周期信号的傅里叶变换。</p>
+<h4 id="典型周期信号的傅里叶变换">典型周期信号的傅里叶变换</h4>
+<ol type="1">
+<li><p>正余弦信号</p>
+<p>正余弦信号的傅里叶变换我们之前已经求过了。现在我们可以从一个新的视角来考虑这个问题。对于余弦信号而言，有：</p>
+<p><span class="math display">\[
+\cos(\omega_1 t)=\frac 12(e^{j\omega_1 t}+e^{-j\omega_1t})
+\]</span></p>
+<p>则其傅里叶级数的系数为：</p>
+<p><span class="math display">\[
+F(n\omega_1)|_{n=\pm 1}=\frac 12
+\]</span></p>
+<p>则其傅里叶变换为：</p>
+<p><span class="math display">\[
+\mathscr F[\cos(\omega_1 t)]=\pi[\delta(\omega-\omega_1)+\delta(\omega+\omega_1)]
+\]</span></p></li>
+<li><p>周期冲激信号</p>
+<p>周期冲激信号经常被用来采样，所以也算是一个常用的信号。我们来看一下它的傅里叶变换。</p>
+<p>周期冲激信号的定义是：</p>
+<p><span class="math display">\[
+\delta_{T_1}(t)=\sum_{n=-\infty}^{\infty}\delta(t-nT_1)
+\]</span></p>
+<p>其傅里叶系数为：</p>
+<p><span class="math display">\[
+F(n\omega_1)=\left.\frac 1{T_1}F_1(\omega)\right|_{\omega=n\omega_1}=\frac1{T_1}
+\]</span></p>
+<p>则其傅里叶变换为：</p>
+<p><span class="math display">\[
+\mathscr F[\delta_{T_1}(t)]=\frac {2\pi} {T_1}\sum_{n=-\infty}^\infty \delta(\omega-n\omega_1)=\omega_1\sum_{n=-\infty}^\infty \delta(\omega-n\omega_1)
+\]</span></p>
+<p>可以看出：周期冲激信号的傅里叶变换也是周期冲激信号。</p></li>
+<li><p>周期矩形脉冲信号</p>
+<p>周期矩形脉冲信号有两个参数：周期<span class="math inline">\(T_1\)</span>，脉宽<span class="math inline">\(\tau\)</span>，即：<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/AFA6FB4DBB59084944CDA2465162854F.png" srcset="/img/loading.gif" lazyload alt="img" /></p>
+<p>记作：<span class="math inline">\(G_{T_1,\tau}(t)\)</span>，图中<span class="math inline">\(E=1\)</span>.</p>
+<p>在一个周期中，其傅里叶变换为：</p>
+<p><span class="math display">\[
+\mathscr F[G_{0,\tau}(t)]=\tau\text{Sa}\left(\frac{\omega\tau} {2}\right)
+\]</span></p>
+<p>则周期矩形脉冲的傅里叶系数为</p>
+<p><span class="math display">\[
+F(n\omega_1)=\frac{\tau} {T_1}\text{Sa}\left(\frac{n\omega_1\tau} {2}\right)
+\]</span></p>
+<p>故周期矩形脉冲的傅里叶变换为</p>
+<p><span class="math display">\[
+\tau\omega_1\sum_{n=-\infty}^{\infty}\text{Sa}\left(\frac{n\omega_1\tau} {2}\right)\delta(\omega-n\omega_1)
+\]</span></p></li>
+</ol>
+<h3 id="抽样">抽样</h3>
+<p>一个基本的抽样过程等效于以下的模型：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/BEE55B4CEAA391E54CF074AFBC5F30B1.png" srcset="/img/loading.gif" lazyload alt="img" /><figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p>这里的"<span class="math inline">\(\bigotimes\)</span>"是乘法的意思。即有：</p>
+<p><span class="math display">\[
+f_s(t)=f(t)p(t)
+\]</span></p>
+<p>这里的<span class="math inline">\(p(t)\)</span>就是脉冲信号，比如说周期冲激信号，周期矩形脉冲信号等等。</p>
+<p>利用傅里叶变换的卷积定理，有（这里要熟练掌握冲激函数的卷积性质）：</p>
+<p><span class="math display">\[
+\mathscr F[f_s(t)]=\frac 1{T_s}\sum_{n=-\infty}^{\infty}P_0(n\omega_s)F(\omega-n\omega_s)
+\]</span></p>
+<p>也就是说，抽样信号的频谱是连续信号频谱以<span class="math inline">\(\omega_s\)</span>为周期的周期延拓，并收到脉冲信号频谱<span class="math inline">\(P_0(n\omega_s)\)</span>和脉冲信号周期<span class="math inline">\(T_s\)</span>的加权。</p>
+<p>于是，我们发现，如果要求不发生频域混叠，那么原始连续信号必须在频域是带限信号。但是这实际上是不可能存在的。但是信号的主要频域往往确实是有限的，其它部分的分量可以忽略不计，为此我们可以定义<span class="math inline">\(-3\text{dB}\)</span>带宽，零点带宽等带宽（记作<span class="math inline">\(\omega_m\)</span>），把信号近似为一个频域带限信号。</p>
+<p>那么，一个带限信号<span class="math inline">\(f(t)\)</span>,如果其频谱存在在频域区间<span class="math inline">\([-\omega_m,\omega_m]\)</span>，则可用抽样值唯一表示<span class="math inline">\(f(t)\)</span>,抽样值的间隔不能大于<span class="math inline">\(T_s=\frac{1} {2f_m}\)</span>,其中<span class="math inline">\(f_m=\frac{\omega_m} {2\pi}\)</span>，否则会发生频域混叠，这就是奈奎斯特采样定理。我们把<span class="math inline">\(f_s=2f_m\)</span>称作“奈奎斯特频率”，这是不发生频域混叠的最小抽样频率。</p>
+<p>为了从抽样信号中恢复出原始信号，对理想冲激抽样，我们用一个截止频率为<span class="math inline">\(\omega_c\)</span>，幅度增益为<span class="math inline">\(T_s\)</span>的零延时低通滤波器即可，其中<span class="math inline">\(\omega_c\)</span>满足<span class="math inline">\(\omega_c\in[\omega_m,\omega_s-\omega_m]\)</span>.对于理想矩形脉冲抽样，滤波器的幅度增益应为<span class="math inline">\(T_s/(E\tau)\)</span></p>
+<h2 id="连续系统实频域分析">连续系统实频域分析</h2>
+<p>所谓的连续系统实频域分析，也就是利用傅里叶变换来分析连续系统。在本节，将首先介绍系统传递函数的概念，再介绍一类比较理想的系统：无失真系统，然后分析一类具体的系统：低通滤波器。</p>
+<h3 id="系统频率响应">系统频率响应</h3>
+<p>定义系统单位冲激响应<span class="math inline">\(h(t)\)</span>的傅里叶变换为系统频率响应。即：</p>
+<p><span class="math display">\[
+H(\omega)=\int_{-\infty}^\infty h(t)e^{-j\omega t}\mathrm d t
+\]</span></p>
+<p>如果系统的激励为<span class="math inline">\(e(t)\)</span>,激励的傅里叶变换为<span class="math inline">\(E(\omega)\)</span>，那么对系统的响应的傅里叶变换，有：</p>
+<p><span class="math display">\[
+R(\omega)=E(\omega)\cdot H(\omega)
+\]</span></p>
+<p>如果系统输入的是复指数信号<span class="math inline">\(e^{j\omega_0 t}\)</span>，那么有：</p>
+<p><span class="math display">\[
+R=2\pi\delta(\omega-\omega_0)H(\omega)
+\]</span></p>
+<p>则有：</p>
+<p><span class="math display">\[
+r(t)=\frac 1{2\pi}\int_{-\infty}^{\infty}2\pi\delta(\omega-\omega_0)H(\omega)e^{j\omega t}\mathrm d t=e^{j\omega_0t}H(\omega_0)
+\]</span></p>
+<p>这说明：系统对不同频率的正弦信号的幅度和相位加权不相同；不同的系统对相同频率的正弦信号的幅度和相位的加权也不相同。</p>
+<p>对于频率响应<span class="math inline">\(H(\omega)\)</span>，称<span class="math inline">\(|H(\omega)|\)</span>为系统的幅频响应，而<span class="math inline">\(\varphi(\omega)\)</span>为系统的相频响应。</p>
+<p>如果系统用微分方程</p>
+<p><span class="math display">\[
+C_0r^{(n)}(t)+C_1r^{(n-1)}(t)+\cdots+C_nr(t)=E_0e^{(m)}(t)+E_1e^{(m-1)}(t)+\cdots+E_me(t)
+\]</span></p>
+<p>可以直接写出其频率响应：</p>
+<p><span class="math display">\[
+H(\omega)=\frac{\sum_{i=0}^nC_i(j\omega)^{n-i} } {\sum_{j=1}^m E_{j}(j\omega)^{m-j} }
+\]</span></p>
+<p>在已知频率响应和激励，求系统响应时，一般有两种思路。其一是系统激励以傅里叶级数形式给出，这时只需要针对每个谐波分量计算对应的幅频响应和相频响应，然后把响应作用于激励即可。另一种思路是先求出激励的傅里叶变换，然后用图像和系统频率响应相乘，得到响应的傅里叶变换，最后得到结果。</p>
+<h3 id="无失真系统">无失真系统</h3>
+<p>输出响应能再现系统的输入，只有出现时刻和幅度不同，即没有改变输入波形的形状，这种系统叫做无失真系统。那么把冲激信号输入系统，就可以得到无失真系统的频响：</p>
+<p><span class="math display">\[
+H(\omega)=ke^{-j\omega t_0}
+\]</span></p>
+<p>则其幅频，相频特性如下：</p>
+<p><span class="math display">\[
+|H(\omega)|=k\\\\
+\varphi(\omega)=-\omega t_0
+\]</span></p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/33FCDB8A45A057AE5F76B35B9A69EBCE.png" srcset="/img/loading.gif" lazyload alt="img" /><figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p>相频特性是一条直线的含义是：相频特性表示了系统的延时，对信号的所有频率分量，应该有相同的延时，即相位附加值相同。例如输入<span class="math inline">\(E_1\sin(\omega_1t)\)</span>，那么理应得到输出<span class="math inline">\(E_1\sin\left[\omega(t+\varphi(\omega))\right]=E_1\sin\left[\omega(t+\frac{\varphi(\omega)} {\omega})\right]\)</span>，于是，为了对不同的频率分量得到相同的附加相移，就需要：</p>
+<p><span class="math display">\[
+\forall \omega_1,\omega_2,\frac{\varphi(\omega_1)} {\omega_1}=\frac{\varphi(\omega_2)} {\omega_2}
+\]</span></p>
+<h3 id="低通滤波器">低通滤波器</h3>
+<p>理想滤波器是在特定频段范围内的无失真传输系统。这里之所以只讨论低通滤波器，是其它滤波器可以由低通滤波器转换而来。具体如何转换，我们后面再说。</p>
+<p>理想低通滤波器的频响特性如下：</p>
+<p><span class="math display">\[
+H(\omega)= \begin{cases}e^{-j \omega t_{0} } &amp; |\omega|&lt;\omega_{c} \\\\ 0 &amp; |\omega| \geq \omega_{c}\end{cases}
+\]</span></p>
+<p>注意，切不可以以为理想低通滤波器的频响函数是频域门函数，因为还要考虑附加相移（时域延迟）。有：</p>
+<p><span class="math display">\[
+|{H}(\omega)|= \begin{cases}1 &amp; |\omega|&lt;\omega_{c} \\\\ 0 &amp; |\omega| \geq \omega_{c}\end{cases}
+\]</span></p>
+<p><span class="math display">\[
+\varphi(\omega)= \begin{cases}-\omega t_{0} &amp; |\omega|&lt;\omega_{c} \\\\ 0 &amp; |\omega| \geq \omega_{c}\end{cases}
+\]</span></p>
+<p>对频响函数作傅里叶逆变换，可得单位冲激响应：</p>
+<p><span class="math display">\[
+h(t)
+=\frac{\omega_{c} } {\pi} \cdot \text{Sa}\left[\omega_{c}\left(t-t_{0}\right)\right]
+\]</span></p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/DF189DDD56F929706856BF8B26DA1D67.png" srcset="/img/loading.gif" lazyload alt="img" /><figcaption aria-hidden="true">img</figcaption>
+</figure>
+<h4 id="其它滤波器">其它滤波器</h4>
+<ul>
+<li><p>高通滤波器</p>
+<p>无失真全通系统-低通滤波器=高通滤波器。因而，有：</p>
+<p><span class="math display">\[
+H_{h}(\omega)=e^{-\mathrm{j} \omega t_{0} }\left[1-u\left(\omega+\omega_{c}\right)+u\left(\omega-\omega_{c}\right)\right]
+\]</span></p>
+<p><span class="math display">\[
+h_{h}(t)=\delta\left(t-t_{0}\right)-h_{l}(t)=\delta\left(t-t_{0}\right)-\frac{\omega_{c} } {\pi} \cdot \mathrm{Sa}\left[\omega_{c}\left(t-t_{0}\right)\right]
+\]</span></p></li>
+<li><p>带通滤波器</p>
+<p>带通滤波器可以由理想低通滤波器频响向两侧搬移，再对相频特性进行修正得到。</p>
+<p><span class="math display">\[
+H_{b}(\omega)=e^{-\mathrm{j} \omega_{0} }\left[\left(u\left(\omega+\omega_{h}\right)-u\left(\omega+\omega_{l}\right)\right)+\left(u\left(\omega-\omega_{l}\right)-u\left(\omega-\omega_{h}\right)\right)\right]
+\]</span></p>
+<p><span class="math display">\[
+h_{b}(t)=\frac{2 \omega_{c} } {\pi} \cdot \operatorname{Sa}\left[\omega_{c}\left(t-t_{0}\right)\right] \cos \left[\omega_{0}\left(t-t_{0}\right)\right]
+\]</span></p>
+<p>其中</p>
+<p><span class="math display">\[
+\omega_{c}=\frac{\omega_{h}-\omega_{l} } {2}, \omega_{0}=\frac{\omega_{h}+\omega_{l} } {2}
+\]</span></p></li>
+</ul>
+<h3 id="系统的因果性">系统的因果性</h3>
+<p>我们都知道，<span class="math inline">\(LTI\)</span>系统因果的充要条件是：</p>
+<p><span class="math display">\[
+h(t)=h(t)u(t)
+\]</span></p>
+<p>现在我们从频域考虑这个问题。</p>
+<h4 id="佩里维纳准则">佩里维纳准则</h4>
+<p>一个幅频响应绝对可积的系统物理可实现的必要条件是：</p>
+<p><span class="math display">\[
+\int_{-\infty}^{\infty}\frac{|\ \ln|H(\omega)|\ |} {1+\omega^2}\mathrm d\omega&lt;\infty
+\]</span></p>
+<p>从直观角度考虑，佩里维纳准则要求系统的幅频响应不能衰减得太快。特别的，如果幅频响应在某个连续频带上为<span class="math inline">\(0\)</span>，那么系统就不可实现。</p>
+<h4 id="希尔伯特变换">希尔伯特变换</h4>
+<p>接下来从时域入手，讨论判断系统因果性的充要条件。</p>
+<p>从用卷积性质计算<span class="math inline">\(h(t)u(t)\)</span>的傅里叶变换入手，设<span class="math inline">\(H(\omega)=R(\omega)+jX(\omega)\)</span>，那么<span class="math inline">\(R,X\)</span>构成一希尔伯特变换对。所谓的希尔伯特变换是指：</p>
+<p><span class="math display">\[
+\hat{x}(t)=\mathscr H[x(t)]=x(t)\bigotimes\frac1{\pi t}
+\]</span></p>
+<p>把卷积展开，有：</p>
+<p><span class="math display">\[
+\begin{aligned}
+\hat{x}(t) &amp;=\frac{1} {\pi} \int_{-\infty}^{\infty} x(\tau) \frac{1} {t-\tau} d \tau \\\\
+&amp;=-\frac{1} {\pi} \int_{-\infty}^{\infty} x(t+\tau) \frac{1} {\tau} d \tau \\\\
+&amp;=\frac{1} {\pi} \int_{-\infty}^{\infty} x(t-\tau) \frac{1} {\tau} d \tau
+\end{aligned}
+\]</span></p>
+<p>对一个系统作希尔伯特变换，实质上是将其经过一个<span class="math inline">\(\pi/2\)</span>相移器（注意：这里不是时移）。</p>
+<p>希尔伯特变换将在《随机过程理论》中再次详细说明，这里只提两个重要性质：</p>
+<ul>
+<li><p><span class="math display">\[
+\mathscr F[\hat{x}(t)]=-j\mathscr F[x(t)]sgn(\omega)
+\]</span></p></li>
+<li><p><span class="math display">\[
+\mathscr H[\hat{x}(t)]=-x(t)
+\]</span></p></li>
+</ul>
+<p>则系统因果的充要条件是：频响函数<span class="math inline">\(H(\omega)\)</span>的实部和虚部是一对希尔伯特变换对。</p>
+<h3 id="相关定理以及能量和功率">相关定理，以及能量和功率</h3>
+<p>为了动态地描述两个信号的相关关系，避免基于内积定义的相关系数所带来的种种漏洞.</p>
+<p>对于能量信号，我们定义相关函数：</p>
+<p><span class="math display">\[
+R_{12}(\tau)=\int_{-\infty}^{\infty}f_1(t)f^*_2(t-\tau)\mathrm dt
+\]</span></p>
+<p>定义自相关函数：</p>
+<p><span class="math display">\[
+R(\tau)=\int_{-\infty}^{\infty} f(t) f^{*}(t-\tau) d t
+\]</span></p>
+<p>如果信号是功率信号，上面的积分可能不收敛。定义功率信号的相关函数：</p>
+<p><span class="math display">\[
+R_{12}(\tau)=\lim _{T \rightarrow \infty} \frac{1} {T} \int_{-\frac{T} {2} }^{\frac{T} {2} } f_{1}(t) f_{2}^{*}(t-\tau) \mathrm{d} t
+\]</span></p>
+<p>自相关函数：</p>
+<p><span class="math display">\[
+R(\tau)=\lim _{T \rightarrow \infty} \frac{1} {T} \int_{-\frac{T} {2} }^{\frac{T} {2} } f(t) f^{*}(t-\tau) d t
+\]</span></p>
+<p>在下学期学的《随机过程理论》中，我们将从期望的角度重新认识相关函数。</p>
+<p>有“相关定理”：</p>
+<p><span class="math display">\[
+\mathscr{F}\left[R_{12}(\tau)\right]=F_{1}(\omega) F_{2}^{*}(\omega)
+\]</span></p>
+<p>进一步，对自相关函数：</p>
+<p><span class="math display">\[
+\mathscr{F}[R(\tau)]=|F(\omega)|^{2}
+\]</span></p>
+<p>联想到帕塞瓦尔定理：</p>
+<p><span class="math display">\[
+\int_{-\infty}^{\infty}|f(t)|^2\mathrm d t=\int_{-\infty}^{\infty}|F(2\pi f)|^2\mathrm d f
+\]</span></p>
+<p>我们可以令<span class="math inline">\(\varepsilon(\omega)=|F(\omega)|^2\)</span>为“能量密度函数”，也叫“能量谱函数”，它反映了能量在频域上的分布。则能量谱函数和能量信号自相关函数是一对傅里叶变换对。</p>
+<p>对于功率信号，定义功率谱函数：</p>
+<p><span class="math display">\[
+p(\omega)=\lim_{T\to \infty}\frac{|F_T(\omega)|^2} {T}
+\]</span></p>
+<p>则功率信号的功率谱函数和自相关函数也是一对傅里叶变换对，这叫做“维纳辛钦定理”。</p>
+<section class="footnotes">
+<div class="footnote-list">
+<ol>
+<li>
+<span id="fn:1" class="footnote-text"><span>在一个周期里的两个半周期里呈现奇对称的函数，即<span class="math inline">(f(t)=-f(tT2))</span>​ <a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩︎</a></span></span>
+</li>
+</ol>
+</div>
+</section>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">#信号与系统</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>关于傅里叶变换的那些事</div>
+      <div>https://suzumiyaakizuki.github.io/2022/06/27/关于傅里叶变换的那些事/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>SuzumiyaAkizuki</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年6月27日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/06/27/%E5%91%A8%E8%AE%B0%EF%BC%8820220627-20220703%EF%BC%89/" title="周记（20220627-20220703）">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">周记（20220627-20220703）</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/06/22/%E4%BF%A1%E5%8F%B7%E6%8A%A5%E5%91%8A3/" title="信号与系统实验3：离散时间系统特性分析">
+                        <span class="hidden-mobile">信号与系统实验3：离散时间系统特性分析</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.7.2/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"48fb14f9689ae0d11307","clientSecret":"091ab25a88e87bfd9d9d40d97d1d0d932e694059","repo":"SuzumiyaAkizuki.github.io","owner":"SuzumiyaAkizuki","admin":["SuzumiyaAkizuki"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '887b51b86674b07eaa5a165693785368'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       Powered by: <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

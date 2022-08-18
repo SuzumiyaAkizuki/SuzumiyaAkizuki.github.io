@@ -1,0 +1,1331 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <link rel="icon" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="SuzumiyaAkizuki">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="离散系统和Z变换，与连续系统和Laplace变换很像，但也有些不同，可以对比学习。 本文合计5598字。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于离散系统和Z变换的那些事">
+<meta property="og:url" content="https://suzumiyaakizuki.github.io/2022/07/03/%E5%85%B3%E4%BA%8E%E7%A6%BB%E6%95%A3%E7%B3%BB%E7%BB%9F%E5%92%8CZ%E5%8F%98%E6%8D%A2%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/index.html">
+<meta property="og:site_name" content="凉宫秋月的文艺部">
+<meta property="og:description" content="离散系统和Z变换，与连续系统和Laplace变换很像，但也有些不同，可以对比学习。 本文合计5598字。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/z.png">
+<meta property="article:published_time" content="2022-07-03T07:43:32.000Z">
+<meta property="article:modified_time" content="2022-07-04T14:40:27.132Z">
+<meta property="article:author" content="SuzumiyaAkizuki">
+<meta property="article:tag" content="信号与系统">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/z.png">
+  
+  
+  
+  <title>关于离散系统和Z变换的那些事 - 凉宫秋月的文艺部</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"suzumiyaakizuki.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":"G-J01HK5TZ0Y","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"QGqf9VPGTa96KerO0JvDW3Ld-gzGzoHsz","app_key":"RhwwUaYq4lMo1tCJwcQTWdRp","server_url":"https://qgqf9vpg.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.google-analytics.com/analytics.js', function() {
+          window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
+          ga.l = +new Date;
+          ga('create', 'G-J01HK5TZ0Y', 'auto');
+          ga('send', 'pageview');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>凉宫秋月的文艺部</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友情链接
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/z.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="关于离散系统和Z变换的那些事"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        SuzumiyaAkizuki
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-07-03 15:43" pubdate>
+          2022年7月3日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          12k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          24 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">关于离散系统和Z变换的那些事</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>离散系统和Z变换，与连续系统和Laplace变换很像，但也有些不同，可以对比学习。 本文合计5598字。</p>
+<span id="more"></span>
+<p>@[toc]</p>
+<hr />
+<h2 id="离散时间信号与系统">离散时间信号与系统</h2>
+<h3 id="常用基本序列">常用基本序列</h3>
+<ol type="1">
+<li><p>单位样值序列（对应冲激函数） <span class="math display">\[
+\delta(n)=\begin{cases}
+1 &amp; n=0\\\\
+0 &amp; \text{others}
+\end{cases}
+\]</span> 于是，仿照把任意信号分解成冲激函数和的形式，我们可以把任意序列分解成单位样值序列的和的形式，并且这个操作比在连续函数里更直观，即： <span class="math display">\[
+x(n)=\sum_{m=-\infty}^{\infty} x(m)\delta(n-m) 
+\]</span></p></li>
+<li><p>单位阶跃序列（对应单位阶跃函数） <span class="math display">\[
+u(n)=\begin{cases}
+1 &amp; n\geq 0\\\\
+0 &amp; n&lt;0
+\end{cases}
+\]</span> 类似于单位冲激函数和单位阶跃函数的关系，有： <span class="math display">\[
+u(n)=\sum_{m=-\infty}^{n}\delta(m)
+\]</span> 和单位阶跃函数不同，<span class="math inline">\(u(0)\)</span>有明确定义，为<span class="math inline">\(1\)</span>.</p></li>
+<li><p>矩形序列</p>
+<p>矩形序列<span class="math inline">\(G_N(n)\)</span>指的是从0开始（含0），含<span class="math inline">\(N-1\)</span>个<span class="math inline">\(1\)</span>的序列，即： <span class="math display">\[
+G_N(n)=\begin{cases}
+1 &amp; n\in[0,n)\\\\
+0 &amp; \text{others}
+\end{cases}
+\]</span> 矩形序列是两个单位阶跃序列的组合。有： <span class="math display">\[
+G_N(n)=u(n)-u(n-N)
+\]</span></p></li>
+<li><p>（单边）指数序列 <span class="math display">\[
+x(n)=a^nu(u)
+\]</span> 当<span class="math inline">\(|a|&lt;1\)</span>时收敛，<span class="math inline">\(|a|&gt;1\)</span>和<span class="math inline">\(a=-1\)</span>时发散。</p>
+<p>当<span class="math inline">\(a&lt;0\)</span>时会在<span class="math inline">\(x\)</span>轴两侧摆动。</p></li>
+<li><p>正弦序列</p>
+<p>正弦序列是由正弦函数采样的序列，有： <span class="math display">\[
+x(n)=A\sin(\omega t+\varphi)|_{t=nT_s}=A\sin(\omega nT_s+\varphi)
+\]</span> 其中<span class="math inline">\(T_s\)</span>是采样周期。定义数字角频率： <span class="math display">\[
+\Omega=\omega T_s
+\]</span> 与正弦函数不同，正弦序列不一定是周期序列。当且仅当 <span class="math display">\[
+\frac{2\pi} {\Omega}
+\]</span> 是有理数时，正弦序列才是周期序列。</p></li>
+</ol>
+<h3 id="离散序列基本运算">离散序列基本运算</h3>
+<p>一般的运算和连续信号（函数）没有多少区别。需要注意的是压扩运算。压扩运算需要去除某些点，或者补充某些0点。</p>
+<h3 id="离散时间系统">离散时间系统</h3>
+<p>离散时间系统的描述和连续时间系统差别不大。不同于连续时间系统中常用积分器，离散时间系统中常用延时器，其符号为一个方框中写了一个“D”，作用是输入<span class="math inline">\(x(n)\)</span>，输出<span class="math inline">\(x(n-1)\)</span>。</p>
+<p>记忆与无记忆、线性与非线性、时变与时不变、稳定与不稳定的含义和连续时间系统没有区别。</p>
+<h3 id="差分方程时域求解方法">差分方程时域求解方法</h3>
+<p>离散时间系统的数学表达式常用差分方程来表示，一般差分方程的形式为： <span class="math display">\[
+a_0y(n)+a_1y(n-1)+\cdots+a_Ny(n-N)=b_0x(n)+b_1x(n-1)+\cdots+b_My(n-M)
+\]</span> 求解的过程和微分方程类似：首先将方程右边置0求得齐次解；然后根据激励信号的特点选取含待定系数的特解，代入方程求得特解；再将齐次解和特解相加得完全解；最后代入 <strong>初始条件</strong> 求待定系数。</p>
+<ol type="1">
+<li><p>求齐次解</p>
+<p>将方程右边置0，得： <span class="math display">\[
+\sum_{k=0}^Na_ky(n-k)=0
+\]</span> 特征方程为： <span class="math display">\[
+\sum_{k=0}^Na_k\lambda^{N-k}=0
+\]</span> 这是一个关于<span class="math inline">\(\lambda\)</span>的多项式方程。求解特征方程得到特征根<span class="math inline">\(\lambda_1\cdots\lambda_N\)</span>。</p>
+<p>如果<span class="math inline">\(\lambda_i\)</span>是单根或者共轭复根，那么齐次解中含有一项： <span class="math display">\[
+C_i\lambda_i^n
+\]</span> 如果<span class="math inline">\(\lambda_j\)</span>是<span class="math inline">\(r\)</span>重根，那么齐次解中含有项： <span class="math display">\[
+C_1n^{r-1}\lambda_j^n+C_2n^{r-2}\lambda_j^n+\cdots+C_{r-1}n\lambda_j^n+C_r\lambda_j^n
+\]</span></p></li>
+<li><p>选取特解</p>
+<p>常见激励和它对应的特解如下：</p>
+<table>
+
+<thead>
+<tr class="header">
+<th style="text-align: center;">激励<span class="math inline">\(x(n)\)</span></th>
+<th style="text-align: center;">特解</th>
+<th style="text-align: center;">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(n^m\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\sum_{i=0}^m P_{m-i}n^{m-i}\)</span></td>
+<td style="text-align: center;">所有特征根不为1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(n^m\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(n^r\sum_{i=0}^m P_{m-i}n^{m-i}\)</span></td>
+<td style="text-align: center;">1是<span class="math inline">\(r\)</span>重特征根</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\lambda^n\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(P\lambda^n\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\lambda\)</span>不是特征根</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\lambda^n\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(P_1n\lambda^n+P_0\lambda^n\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\lambda\)</span>是特征单根</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\lambda^n\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\sum_{i=0}^rP_{r-i}n^{r-i}\lambda^n\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\lambda\)</span>是<span class="math inline">\(r\)</span>重特征根</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\sin(\beta n)\)</span>或<span class="math inline">\(\cos(\beta t)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(P\cos(\beta n)+Q\sin(\beta n)\)</span> 或 <span class="math inline">\(A\cos(\beta n-\theta)\)</span></td>
+<td style="text-align: center;">其中<span class="math inline">\(Ae^{j\theta}=P+jQ\)</span>,<span class="math inline">\(e^{\pm j\theta}\)</span>不是特征根</td>
+</tr>
+</tbody>
+</table></li>
+</ol>
+<blockquote>
+<p>【例】求解差分方程 <span class="math display">\[
+y(n)+3y(n-1)+2y(n-2)=x(n)
+\]</span> 其中激励为<span class="math inline">\(x(n)=2^n,n\geq 0\)</span>， <strong>起始条件</strong> 为<span class="math inline">\(y(-2)=\frac12,y(-1)=0\)</span>。</p>
+<p>【解】特征方程为： <span class="math display">\[
+\lambda^2+3\lambda+2=0
+\]</span> 特征根为 <span class="math display">\[
+\lambda_1=-1,\lambda_2=-2
+\]</span> 则齐次解为 <span class="math display">\[
+y_h(h)=C_1(-1)^n+C_2(-2)^n
+\]</span> 由于<span class="math inline">\(x(n)=2^n\)</span>，2不是特征根，选特解形式为 <span class="math display">\[
+y_p(n)=P\cdot2^n
+\]</span> 代入方程，有： <span class="math display">\[
+P\cdot2^n+3P\cdot2^{n-1}+2P\cdot 2^{n-2}=2^n
+\]</span> 两边同时除以<span class="math inline">\(2^n\)</span>，有： <span class="math display">\[
+3P=1
+\]</span> 得特解： <span class="math display">\[
+y_p(n)=\frac 13\cdot2^n
+\]</span> 则完全解形式为： <span class="math display">\[
+y(n)=C_1(-1)^n+C_2(-2)^n+\frac 13\cdot 2^n
+\]</span> 代入初始条件.因为方程右边的激励只在<span class="math inline">\(n\geq0\)</span>处有定义，我们要把已知的<span class="math inline">\(y(-1),y(-2)\)</span>转换成<span class="math inline">\(y(0),y(1)\)</span>.有： <span class="math display">\[
+\begin{cases}
+y(0)+3y(-1)+2y(-2)=x(0)\\\\
+y(1)+3y(0)+2y(-1)=x(1)
+\end{cases}
+\]</span> 得： <span class="math display">\[
+y(0)=0,y(1)=2
+\]</span> 将上述条件代入完全解形式，得： <span class="math display">\[
+\begin{cases}
+C_1+C_2+\frac 13=0\\\\
+-C_1-2C_2+\frac 23=1
+\end{cases}
+\]</span> 于是可解得完全解： <span class="math display">\[
+y(n)=\frac 23(-1)^n -(-2)^n +\frac 13 \cdot2^n \ \ n\geq 0
+\]</span></p>
+</blockquote>
+<h3 id="零输入和零状态响应">零输入和零状态响应</h3>
+<ol type="1">
+<li><p>零输入响应</p>
+<p>零输入响应就是只考虑起始状态，而把输入置0时，系统的响应。也就是 <span class="math display">\[
+\begin{cases}
+\sum_{i=0}^N a_iy_{zi}(n-i)=0\\\\[2ex]
+y_{zi}(-1)=y(-1)\\\\
+y_{zi}(-2)=y(-2)\\\\
+\cdots\\\\
+y_{zi}(-N)=y(-N)
+\end{cases}
+\]</span> 的解。其中<span class="math inline">\(y_{zi}\)</span>表示零输入（Zero Input）。</p></li>
+<li><p>零状态响应</p>
+<p>零状态响应的意思是起始状态全为0，仅仅考虑外加激励，所引起的响应。也就是 <span class="math display">\[
+\begin{cases}
+\sum_{i=0}^N a_iy_{zs}(n-i)=\sum_{i=0}^N b_ix(n-i)\\\\
+y(-1)=y(-2)=\cdots=0
+\end{cases}
+\]</span> 其中<span class="math inline">\(y_{zs}(n)\)</span>表示零状态（Zero State）。</p></li>
+</ol>
+<p>可以通过零输入响应和零状态响应求和的办法求解全响应。</p>
+<blockquote>
+<p>【例】求解差分方程 <span class="math display">\[
+y(n)+3y(n-1)+2y(n-2)=x(n)
+\]</span> 其中激励为<span class="math inline">\(x(n)=2^n,n\geq 0\)</span>，初始条件为<span class="math inline">\(y(0)=1,y(1)=2\)</span>。</p>
+<p>【解】特征方程为： <span class="math display">\[
+\lambda^2+3\lambda+2=0
+\]</span> 特征根为 <span class="math display">\[
+\lambda_1=-1,\lambda_2=-2
+\]</span> 则齐次解为 <span class="math display">\[
+y_h(n)=C_1(-1)^n+C_2(-2)^n
+\]</span> 因为初始条件包含了激励信号的影响，因此需要求出起始条件为： <span class="math display">\[
+y(-2)=\frac12,y(-1)=0
+\]</span> 则有： <span class="math display">\[
+\begin{cases}
+C_1(-1)^{-1}+C_2(-2)^{-1}=0\\\\
+C_1(-1)^{-2}+C_2(-2)^{-2}=\frac 12\\\\
+\end{cases}
+\]</span> 解得零输入响应为： <span class="math display">\[
+y_{zi}(n)=(-1)^n-2(-2)^n
+\]</span> 然后求零状态响应。由于<span class="math inline">\(x(n)=2^n\)</span>，2不是特征根，选特解形式为 <span class="math display">\[
+y_p(n)=P\cdot2^n
+\]</span> 代入方程，有： <span class="math display">\[
+P\cdot2^n+3P\cdot2^{n-1}+2P\cdot 2^{n-2}=2^n
+\]</span> 两边同时除以<span class="math inline">\(2^n\)</span>，有： <span class="math display">\[
+3P=1
+\]</span> 得特解： <span class="math display">\[
+y_p(n)=\frac 13\cdot2^n
+\]</span> 则零状态响应的形式为： <span class="math display">\[
+y_{zs}(n)=D_1(-1)^n+D_2(-2)^n+\frac 13 \cdot 2^n
+\]</span></p>
+<p>因为求解的是零状态响应，因此此时系统的初始条件为：<span class="math inline">\(y(-1)=y(-2)=0\)</span>。代入差分方程，得初始条件： <span class="math display">\[
+y_{zs}(0)=0,y_{zs}(1)=1
+\]</span> 代入待定系数，解得： <span class="math display">\[
+y_{zs}(n)=-\frac 13(-1)^n+(-2)^n +\frac 13 \cdot (2^n)
+\]</span> 则全响应为 <span class="math display">\[
+\begin{aligned}
+y(n)&amp;=y_{zi}(n)+y_{zs}(n)\\\\
+&amp;=\frac 23(-1)^n -(-2)^n +\frac 13 \cdot2^n \ \ n\geq 0
+\end{aligned}
+\]</span></p>
+</blockquote>
+<h3 id="单位样值响应">单位样值响应</h3>
+<p>单位响应就是激励信号是<span class="math inline">\(\delta(n)\)</span>时的零状态响应。它具有齐次解的形式，而且具有固定起始条件，即： <span class="math display">\[
+h(-N+1)=0,h(-N+2)=0,\cdots,h(0)=1
+\]</span></p>
+<blockquote>
+<p>【例】求以下系统的单位样值响应 <span class="math display">\[
+y(n)+3y(n-1)+2y(n-2)=2x(n-1)+x(n-2)
+\]</span> 【解】先求系统 <span class="math display">\[
+y(n)+3y(n-1)+2y(n-2)=x(n)
+\]</span> 的单位样值响应<span class="math inline">\(h_1\)</span>，再由线性时不变特性求<span class="math inline">\(h(n)\)</span>.</p>
+<p>齐次解的形式为： <span class="math display">\[
+h_1(n)=[C_1(-1)^n+C_2(-2)^n]u(n)
+\]</span> 代入固定起始条件<span class="math inline">\(h(-1)=0,h(0)=1\)</span>： <span class="math display">\[
+\begin{cases}
+-C_1-\frac 12 C_2=0\\\\
+C_1+C_2=1
+\end{cases}
+\]</span> 得： <span class="math display">\[
+h_1(n)=[(-1)^(n+1)+2(-2)^n]u(n)
+\]</span> 有： <span class="math display">\[
+\begin{aligned}
+h(n)&amp;=2h_1(n-1)+h_1(n-2)\\\\
+&amp;=2[(-1)^n+2(-2)^{n-2}]u(n-1)+[(-1)^{n-1}+2(-2)^{n-2}]u(n-2)\\\\
+&amp;=\frac {\delta(n)}2+(-1)^nu(n)-1.5(-2)^nu(n)
+\end{aligned}
+\]</span></p>
+</blockquote>
+<h3 id="卷积和">卷积和</h3>
+<p>两个序列<span class="math inline">\(x(n)\)</span>和<span class="math inline">\(h(n)\)</span>的“卷积和”定义如下： <span class="math display">\[
+y(n)=x(n)\bigotimes h(n)=\sum_{m=-\infty}^\infty x(m)h(n-m)
+\]</span> 卷积和具有交换律、结合律、分配律，此外，还有：</p>
+<ol type="1">
+<li><p>移不变性 <span class="math display">\[
+x_1(n-m)\bigotimes x_2(n+k)=y(n-m+k)
+\]</span></p></li>
+<li><p>序列和单位样值序列的卷积 <span class="math display">\[
+x(n)\bigotimes h(n-m)=x(n-m)
+\]</span></p></li>
+<li><p>序列和单位阶跃序列的卷积 <span class="math display">\[
+x(n)\bigotimes u(n)=\sum_{i=-\infty}^n x(n)
+\]</span></p></li>
+</ol>
+<p>在计算两个有限长度序列的卷积时，可以像列乘法竖式一样，先把两个序列右对齐，然后算“乘法”（只是不进位），即：</p>
+<ol type="1">
+<li>两序列右对齐</li>
+<li>逐个样值对应相乘，不进位</li>
+<li>同列乘积相加</li>
+</ol>
+<p>得到的结果<span class="math inline">\(y(n)\)</span>的第一个数的下标是两个原始序列的第一个数的下标的和。</p>
+<p>对于无穷长序列一般只能通过定义公式计算。</p>
+<h2 id="离散时间信号与系统变换域分析">离散时间信号与系统变换域分析</h2>
+<h3 id="z变换"><span class="math inline">\(Z\)</span>变换</h3>
+<p>类似于拉普拉斯变换，Z变换也分为双边和单边。</p>
+<p>双边<span class="math inline">\(Z\)</span>变换的定义如下： <span class="math display">\[
+X(z)={\mathscr Z}[x(n)]=\sum_{n=-\infty}^\infty x(n)z^{-n}
+\]</span> 单边<span class="math inline">\(Z\)</span>变换的定义如下： <span class="math display">\[
+X(z)={\mathscr Z}[x(n)]=\sum_{n=0}^\infty x(n)z^{-n}
+\]</span></p>
+<p>那么为什么和拉普拉斯变换这么像呢？这是因为<span class="math inline">\(Z\)</span>变换可以从拉普拉斯变换导出。</p>
+<p>考虑对一个连续时间信号<span class="math inline">\(x(t)\)</span>进行时间间隔为<span class="math inline">\(T\)</span>的理想冲激抽样，抽样所得的信号记为<span class="math inline">\(x_s(t)\)</span>，则有： <span class="math display">\[
+x_s(t)=x(t)\cdot \delta_T(t)=\sum_{n=-\infty}^\infty x(nT)\delta(t-nT)
+\]</span> 对上式取<span class="math inline">\(Z\)</span>变换，有： <span class="math display">\[
+X_s(s)={\mathscr L}[x_s(t)]=\int_{0}^{\infty}\left[\sum_{n=-\infty}^\infty x(nT)\delta(t-nT)\right]e^{-st} {\mathbf d}t
+\]</span> 对调积分求和、利用冲激函数性质，有： <span class="math display">\[
+X_s(s)=\sum_{n=-\infty}^\infty x(nT)e^{-snT} 
+\]</span> 设<span class="math inline">\(z=e^{sT}\)</span>，由于<span class="math inline">\(T\)</span>是给定常数，则<span class="math inline">\(z\)</span>是<span class="math inline">\(s\)</span>的函数，则有： <span class="math display">\[
+X_s(z)=\sum_{n=-\infty}^\infty x(nT)z^{-n}
+\]</span> 在一般的离散系统中，让<span class="math inline">\(T=1\)</span>，则有： <span class="math display">\[
+X_s(z)=\sum_{n=-\infty}^{\infty} x(n)z^{-n}
+\]</span> 一个序列的<span class="math inline">\(Z\)</span>变换，实际上是一个系数为这个序列的样值，变量为<span class="math inline">\(z^{-1}\)</span>的幂级数。即： <span class="math display">\[
+X(z)=\cdots+x(-2)z^2+x(-1)z^1+x(0)z^0+x(1)z^{-1}+x(2)z^{-2}+\cdots
+\]</span></p>
+<h3 id="z变换的收敛域"><span class="math inline">\(Z\)</span>变换的收敛域</h3>
+<p>既然是从拉普拉斯变换导出来的，而且还是幂级数，那就不得不讨论收敛域。</p>
+<p>复习一下，分析里面判断级数收敛有很多方法，其中最常用的有达朗贝尔判别法，即对于变号级数， <span class="math display">\[
+\lim_{n\to \infty} \left|\frac{x(n+1)z^{-(n+1)} } {x(n)z^{-n} }\right|=\rho
+\]</span> 如果<span class="math inline">\(\rho&lt;1\)</span>，那么绝对收敛；如果<span class="math inline">\(\rho&gt;1\)</span>，那么发散。</p>
+<p>结合拉普拉斯变换，我们把序列分成左边序列，右边序列，双边序列来讨论。由于 <span class="math display">\[
+z=e^{s}
+\]</span> 我们可以通过下图的方法来建立S平面和Z平面的联系。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/AAC37E072C27DA06CC75C6F0EE4975D9.gif" srcset="/img/loading.gif" lazyload alt="img" /><figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p>有：</p>
+<table>
+<thead>
+<tr class="header">
+<th>序列（函数）类型</th>
+<th>Z变换收敛性形状</th>
+<th>拉普拉斯变换收敛域形状</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>右边</td>
+<td>以原点为中心的圆之外 <span class="math inline">\(\|z\|&gt;\|a\|\)</span></td>
+<td>右半平面 <span class="math inline">\(Re[s]&gt;\alpha\)</span></td>
+</tr>
+<tr class="even">
+<td>左边</td>
+<td>以原点为中心的圆之内 <span class="math inline">\(\|z\|&lt;\|b\|\)</span></td>
+<td>左半平面 <span class="math inline">\(Re[s]&lt;\beta\)</span></td>
+</tr>
+<tr class="odd">
+<td>两边</td>
+<td>以原点为圆心的圆环 <span class="math inline">\(\|z\|\in(a,b)\)</span></td>
+<td>条带 <span class="math inline">\(Re[s]\in (\alpha,\beta)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>对于有限长的序列，收敛域是除去零点和无穷远点的整个Z平面。</p>
+<h3 id="常见序列的z变换">常见序列的<span class="math inline">\(Z\)</span>变换</h3>
+<table>
+<thead>
+<tr class="header">
+<th>序列名称</th>
+<th>序列表达式</th>
+<th><span class="math inline">\(Z\)</span>变换</th>
+<th>收敛域</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>单位样值序列</td>
+<td><span class="math inline">\(\delta(n)=(n=0)?1:0\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td>全平面</td>
+</tr>
+<tr class="even">
+<td>单位阶跃序列</td>
+<td><span class="math inline">\(u(n)=(n\geq 0)?1:0\)</span></td>
+<td><span class="math inline">\(\frac{z} {z-1}\)</span></td>
+<td><span class="math inline">\(\|z\|&gt;1\)</span></td>
+</tr>
+<tr class="odd">
+<td>因果指数序列</td>
+<td><span class="math inline">\(x(n)=a^nu(n)\)</span></td>
+<td><span class="math inline">\(\frac{z} {z-a}\)</span></td>
+<td><span class="math inline">\(\|z\|&gt;\|a\|\)</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="z变换的性质"><span class="math inline">\(Z\)</span>变换的性质</h3>
+<p>设 <span class="math display">\[
+{\mathscr Z}[x(n)]=X(z),|z|\in(\alpha,\beta)
+\]</span></p>
+<h4 id="时域性质">时域性质</h4>
+<ol type="1">
+<li><p>反褶性质 <span class="math display">\[
+{\mathscr Z}[x(-n)]=X(z^{-1}),|z|\in(\frac 1\beta,\frac 1\alpha)
+\]</span></p></li>
+<li><p>扩展性质 <span class="math display">\[
+{\mathscr Z}\left[x\left(\frac na \right)\right]=X(z^a),|z|\in (\alpha^{\frac 1a},\beta ^{\frac 1a})
+\]</span></p></li>
+<li><p>位移性质</p>
+<ol type="1">
+<li><p>单边</p>
+<p>若<span class="math inline">\(x(n)\)</span>是双边序列，有： <span class="math display">\[
+{\mathscr Z}[x(n)u(n)]=X(z) ,|z|&gt;a
+\]</span> 则有： <span class="math display">\[
+{\mathscr Z}[x(n+m)u(n)]=z^m\left[ X(z)-\sum_{k=0}^{m-1} x(k)z^{-k} \right]\\\\
+{\mathscr Z}[x(n-m)u(n)]=z^{-m}\left[ X(z)+\sum_{k=-m}^{-1} x(k)z^{-k} \right]\\\\
+\]</span> 请注意这里的“位移”：<span class="math inline">\(x(n-m)u(n)\)</span>和拉普拉斯变换里的“位移”<span class="math inline">\(f(t-t_0)u(t-t_0)\)</span>，以及傅里叶变换里的“位移”<span class="math inline">\(f(t-t_0)\)</span>的区别。</p>
+<p>特别的，如果<span class="math inline">\(x(n)\)</span>是因果序列，那么有： <span class="math display">\[
+\begin{aligned}
+{\mathscr Z}[x(n+m)u(n)]&amp;=z^m\left[ X(z)-\sum_{k=0}^{m-1} x(k)z^{-k} \right]\\\\
+{\mathscr Z}[x(n-m)u(n)]&amp;=z^{-m}X(z)
+\end{aligned}
+\]</span></p></li>
+<li><p>双边</p>
+<p>双边位移性质比较简单。 <span class="math display">\[
+{\mathscr Z}[x(n\pm m)]=z^{\pm m}X(z),|z|\in(\alpha,\beta)
+\]</span></p></li>
+</ol></li>
+<li><p>线性性质</p></li>
+</ol>
+<h4 id="频域性质">频域性质</h4>
+<ol type="1">
+<li><p><span class="math inline">\(Z\)</span>域微分-序列线性加权 <span class="math display">\[
+{\mathscr Z}[n\cdot x(n)]=-z\frac{ {\mathbf d}X(z)} { {\mathbf d}z}
+\]</span></p></li>
+<li><p><span class="math inline">\(Z\)</span>域压扩-序列指数加权 <span class="math display">\[
+{\mathscr Z}[a^n x(n)]=X\left(\frac za\right),\alpha&lt;\left|\frac za\right|&lt;\beta
+\]</span> 特殊的，如果要实现<span class="math inline">\(Z\)</span>域反褶运算，有： <span class="math display">\[
+{\mathscr Z}[(-1)^nx(n)]=X(-z)
+\]</span></p></li>
+</ol>
+<h4 id="其它性质">其它性质</h4>
+<ol type="1">
+<li><p>时域卷积 <span class="math display">\[
+{\mathscr Z}[x_1(n)\bigotimes x_2(n)]=X_1(z)X_2(z)
+\]</span></p></li>
+<li><p>初值定理</p>
+<p>对于因果序列 <span class="math display">\[
+x(0)=\lim_{z\to \infty} X(z)
+\]</span></p></li>
+<li><p>终值定理 <span class="math display">\[
+x(\infty)=\lim_{z\to 1}[(z-1)X(z)]
+\]</span></p></li>
+</ol>
+<h3 id="利用z变换性质求其它常用序列的z变换">利用<span class="math inline">\(Z\)</span>变换性质求其它常用序列的<span class="math inline">\(Z\)</span>变换</h3>
+<ol type="1">
+<li><p>单位样值序列的平移<span class="math inline">\(\delta(n-m)\)</span></p>
+<p>由时移性质，有： <span class="math display">\[
+{\mathscr Z}[\delta(n-m)]=z^{-m}
+\]</span></p></li>
+<li><p>斜变序列<span class="math inline">\(x(n)=nu(n)\)</span></p>
+<p>由<span class="math inline">\(Z\)</span>域微分-线性加权性质，有： <span class="math display">\[
+{\mathscr Z}[nu(n)]=-z\frac{ {\mathbf d} } {\mathbf dz}\left(\frac {z} {z-1}\right)=\frac{z} {(z-1)^2}
+\]</span></p></li>
+<li><p>因果余弦序列<span class="math inline">\(x(n)=\cos(\omega_0 n)u(n)\)</span></p>
+<p>由欧拉公式： <span class="math display">\[
+\cos(\omega_0 n)=\frac 12 \left(e^{j\omega_0n}+e^{-j\omega_0 n}\right)
+\]</span> 和已知的公式 <span class="math display">\[
+{\mathscr Z}[\left(e^{\pm j\omega_0}\right)^nu(n)]=\frac{z} {z-e^{\pm j\omega_0} },|z|&gt;1
+\]</span> 结合线性性质，得 <span class="math display">\[
+{\mathscr Z}[\cos(\omega_0 n)u(n)]=\frac{z^2 -z\cos(\omega_0)} {z^2-2z\cos \omega_0+1},|z|&gt;1
+\]</span> 同理，因果正弦序列为： <span class="math display">\[
+{\mathscr Z}[\sin(\omega_0 n)u(n)]=\frac{z\sin(\omega_0)} {z^2-2z\cos \omega_0+1},|z|&gt;1
+\]</span></p></li>
+</ol>
+<h3 id="逆z变换的求解">逆<span class="math inline">\(Z\)</span>变换的求解</h3>
+<p>一般的线性时不变系统的<span class="math inline">\(Z\)</span>变换表达式往往具有有理多项式的形式。</p>
+<h4 id="长除法">长除法</h4>
+<p>长除法的意思就是根据<span class="math inline">\(Z\)</span>变换的定义，直接求解幂级数的系数，从而求解原始序列。</p>
+<p>当收敛域形式为<span class="math inline">\(|z|&gt;a\)</span>时，幂级数表现出洛朗级数的形式，序列是右边序列，此时应把分母整理成降幂形式，再做长除法。</p>
+<p>当收敛域形式为<span class="math inline">\(|z|&lt;b\)</span>时，幂级数表现出泰勒级数的形式，序列是左边序列，此时应把分母整理成升幂形式，再做长除法。</p>
+<p>这种长除法只能得到序列的部分样值，而且多用于单边<span class="math inline">\(z\)</span>变换。对于双边<span class="math inline">\(z\)</span>变换，一般用部分分式展开法。</p>
+<h4 id="部分分式分解法">部分分式分解法</h4>
+<p>部分分式分解法的核心思想是把有理多项式分式分解成基本分式 <span class="math display">\[
+\frac{kz} {z-a}
+\]</span> 的和，然后由于 <span class="math display">\[
+{\mathscr Z}^{-1}\left[\frac{kz} {z-a}\right]=ka^nu(n),|z|&gt;a
+\]</span> 或者 <span class="math display">\[
+{\mathscr Z}^{-1}\left[\frac{kz} {z-a}\right]=-ka^nu(-n-1),|z|&lt;a
+\]</span> 来求解原始序列。</p>
+<blockquote>
+<p>【例】求解： <span class="math display">\[
+{\mathscr Z}^{-1}\left[\frac{5z} {-3z^2+7z-2}\right]
+\]</span> 分收敛域为：(1) <span class="math inline">\(|z|&gt;2\)</span> (2) <span class="math inline">\(|z|\in (\frac 13 , 2)\)</span>两种情况。</p>
+<p>【解】首先对 <span class="math display">\[
+\frac{X(z)} {z}=\frac{5} {-3z^2+7z-2}
+\]</span> 进行分解，过程略，如果不会请参考拉普拉斯变换部分相关内容。有： <span class="math display">\[
+\frac{X(z)} {z}=\frac{-1} {z-2}+\frac{1} {z-\frac{1} {3} }
+\]</span> 则： <span class="math display">\[
+X(z)=\frac{-z} {z-2}+\frac{z} {z-\frac{1} {3} }
+\]</span></p>
+<ol type="1">
+<li><p>收敛域为<span class="math inline">\(|z|&gt;2\)</span></p>
+<p>此时，有： <span class="math display">\[
+x(n)=-2^nu(n)+\left(\frac 13\right)^nu(n)
+\]</span></p></li>
+<li><p>收敛域为<span class="math inline">\(|z|\in \left(\frac 13,2\right)\)</span></p>
+<p>这时要考虑两个分式分别代表的收敛域是什么。因为线性组合的收敛域是各项的收敛域的交集。我们经分析，得：第一项对应收敛域<span class="math inline">\(|z|&lt;2\)</span>，第二项对应收敛域<span class="math inline">\(|z|&gt;\frac 13\)</span>。(如果反过来，那么收敛域就是空集，这和题目不符)，因此： <span class="math display">\[
+x(n)=2^nu(-n-1)+\left(\frac 13\right)^nu(n)
+\]</span></p></li>
+</ol>
+</blockquote>
+<p>对于右边序列，如果出现共轭复根的情况，即 <span class="math display">\[
+\frac{kz} {z^2+a}
+\]</span> 则有 <span class="math display">\[
+\begin{aligned}
+\frac{kz} {z^2+a}&amp;=\frac{\frac{k} {\sqrt a}\cdot \frac{z} {\sqrt a} } {\left(\frac z{\sqrt a}\right)^2+1}\\\\
+&amp;=\frac{k} {\sqrt a}\frac{\frac{z} {\sqrt a}\sin \frac \pi 2} {\left(\frac z{\sqrt a}\right)^2-2\left(\frac z{\sqrt a}\right)\cos\frac \pi 2 +1}\\\\
+&amp;\to \frac{k} {\sqrt a}\cdot \sqrt{a}^n\cdot \sin\left(\frac{\pi} {2}n\right)u(n)
+\end{aligned}
+\]</span> 可以使用<code>mathematica</code>验证上述推导，输入：</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mathematica"><span class="hljs-built_in">ZTransform</span><span class="hljs-punctuation">[</span><span class="hljs-variable">k</span><span class="hljs-operator">*</span><span class="hljs-punctuation">(</span><span class="hljs-built_in">Sqrt</span><span class="hljs-punctuation">[</span><span class="hljs-variable">a</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">)</span><span class="hljs-operator">^</span><span class="hljs-punctuation">(</span><span class="hljs-variable">n</span> <span class="hljs-operator">-</span> <span class="hljs-number">1</span><span class="hljs-punctuation">)</span><span class="hljs-operator">*</span><span class="hljs-built_in">Sin</span><span class="hljs-punctuation">[</span><span class="hljs-variable">n</span><span class="hljs-operator">*</span><span class="hljs-built_in">Pi</span><span class="hljs-operator">/</span><span class="hljs-number">2</span><span class="hljs-punctuation">]</span><span class="hljs-operator">*</span><span class="hljs-built_in">UnitStep</span><span class="hljs-punctuation">[</span><span class="hljs-variable">n</span><span class="hljs-punctuation">]</span><span class="hljs-operator">,</span> <span class="hljs-variable">n</span><span class="hljs-operator">,</span> <span class="hljs-variable">z</span><span class="hljs-punctuation">]</span><br></code></pre></td></tr></table></figure>
+<p>输出： <span class="math display">\[
+\frac{k z} {a+z^2}
+\]</span> 对于2阶重极点，有： <span class="math display">\[
+{\mathscr Z}^{-1}\left[\frac{kz} {(z-a)^2}\right]=a^{n-1}knu(n)
+\]</span> 对于更高阶的极点，有： <span class="math display">\[
+{\mathscr Z}\left[\frac{kz} {(z-a)^r}\right]=\frac{k} {(r-1)!}a^{n-r+1}\prod_{i=0}^{r-2}(n-i)=k a^{n-r+1} \binom{n} {r-1}
+\]</span></p>
+<h3 id="用z变换求解差分方程">用<span class="math inline">\(Z\)</span>变换求解差分方程</h3>
+<p>一般差分方程的形式如下： <span class="math display">\[
+\sum_{k=0}^N a_ky(n-k)=\sum_{r=0}^M b_rx(n-r)
+\]</span> 对等式两边取<span class="math inline">\(Z\)</span>变换： <span class="math display">\[
+\sum_{k=0}^N a_kz^{-k}\left[Y(z)+\sum_{l=-k}^{-1}y(l)z^{-l}\right]=\sum_{r=0}^M b_rz^{-r}\left[X(z)+\sum_{m=-r}^{-1}x(m)z^{-m}\right]
+\]</span> 则系统全响应（的<span class="math inline">\(Z\)</span>变换）为： <span class="math display">\[
+Y(z)=\frac{\sum_{r=0}^M b_rz^{-r}\left[X(z)+\sum_{m=-r}^{-1}x(m)z^{-m}\right]} {\sum_{k=0}^Na_kz^{-k} }-\frac{\sum_{k=0}^N\left[a_kz^{-k}\cdot\sum_{l=-k}^{-1}y(l)z^{-l}\right]} {\sum_{k=0}^Na_kz^{-k} }
+\]</span> 其中第一项代表零状态响应，第二项代表零输入响应。</p>
+<p>......麻了没？这么多分式，<span class="math inline">\(\sum\)</span>，我打着都麻。其实这玩意很简单的，下面通过一个例题给大家表演一下。</p>
+<blockquote>
+<p>【例】差分方程 <span class="math display">\[
+y(n)+3y(n-1)+2y(n-2)=x(n)
+\]</span> 其中激励为<span class="math inline">\(x(n)=2^n,n\geq 0\)</span>， <strong>起始条件</strong> 为<span class="math inline">\(y(-2)=2,y(-1)=0\)</span>。求零输入、零状态和全响应。</p>
+<p>【解】对方程两边取<span class="math inline">\(Z\)</span>变换，有： <span class="math display">\[
+Y(z)+3\left[z^{-1}Y(z)+y(-1)\right]+2\left[z^{-2}Y(z)+y(-2)+y(-1)z^{-1}\right]=X(z)
+\]</span> 代入数据： <span class="math display">\[
+(1+3z^{-1}+2z^{-2})Y(z)+4=\frac{z} {z-2}
+\]</span> 则： <span class="math display">\[
+\begin{aligned}
+Y(z)&amp;=\frac {-4} {1+3z^{-1}+2z^{-2} }+\frac{1} {1+3z^{-1}+2z^{-2} }\frac{z} {z-2}\\\\
+&amp;=\frac{-4z^2} {z^2+3z+2}+\frac{z^2} {z^2+3z+2}\frac{z} {z-2}
+\end{aligned}
+\]</span> 其中第一项代表零状态响应，第二项代表零输入响应。有： <span class="math display">\[
+Y_{zi}(z)=\frac{4z} {z+1}+\frac{-8z} {z+2}
+\]</span></p>
+<p><span class="math display">\[
+Y_{zs}(z)=\frac{-\frac 13 z} {z+1}+\frac{z} {z+2}+\frac{\frac 13 z} {z-2}
+\]</span></p>
+<p>则： <span class="math display">\[
+y_{zi}(n)=4(-1)^n-8(-2)^n\\\\
+y_{zs}(n)=-\frac 13 (-1)^n+(-2)^n+\frac 13 (2)^n
+\]</span> (<span class="math inline">\(n\geq 0\)</span>)</p>
+</blockquote>
+<h3 id="离散系统传递函数">离散系统传递函数</h3>
+<p>就是单位样值响应（零状态）<span class="math inline">\(h(n)\)</span>的<span class="math inline">\(Z\)</span>变换<span class="math inline">\(H(z)\)</span>,一般有如下形式：</p>
+<p><span class="math display">\[
+H(z)=\frac{\sum_{r=0}^M b_rz^{-r} } {\sum_{k=0}^N a_kz^{-k} }=G\frac{\prod _{r=1}^M (1-o_rz^{-1})} {\prod_{k=0}^N (1-p_kz^{-1})}
+\]</span></p>
+<p>其中<span class="math inline">\(o\)</span>就是零点，<span class="math inline">\(p\)</span>就是极点。对于因果序列而言，极点分布和<span class="math inline">\(h(n)\)</span>大致时域形状的关系如下：</p>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(H(z)\)</span>极点位置</th>
+<th><span class="math inline">\(h(n)\)</span>时域形状</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>单位圆内实数</td>
+<td>指数衰减序列</td>
+</tr>
+<tr class="even">
+<td>单位圆内共轭复数</td>
+<td>衰减的正弦序列</td>
+</tr>
+<tr class="odd">
+<td>单位圆外实数</td>
+<td>指数增长序列</td>
+</tr>
+<tr class="even">
+<td>单位圆外共轭复数</td>
+<td>增长的正弦序列</td>
+</tr>
+<tr class="odd">
+<td>单位圆上实数</td>
+<td>常序列（一阶）或逐渐增大</td>
+</tr>
+<tr class="even">
+<td>单位圆上共轭复数</td>
+<td>幅度为常数或逐渐增大的正弦序列</td>
+</tr>
+</tbody>
+</table>
+<p>由此可以看出极点分布和系统稳定性的关系。另外，这个表也可以由<span class="math inline">\(s-z\)</span>平面变换得出。</p>
+<p>至于因果性，那就更简单了。只要系统函数的极点分布在<span class="math inline">\(Z\)</span>平面内的一个半径有限的圆内就行，即保证收敛域为 <span class="math display">\[
+|z|&gt;R
+\]</span></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">#信号与系统</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>关于离散系统和Z变换的那些事</div>
+      <div>https://suzumiyaakizuki.github.io/2022/07/03/关于离散系统和Z变换的那些事/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>SuzumiyaAkizuki</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年7月3日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/07/03/%E6%9C%AC%E4%BA%BA%E7%9C%8B%E8%BF%87%E7%9A%84%E5%90%84%E5%8A%A8%E7%94%BB%E9%94%90%E8%AF%84/" title="本人看过的各动画锐评：一">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">本人看过的各动画锐评：一</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/07/02/%E6%9A%91%E5%81%87%E8%AE%A1%E5%88%92/" title="暑假计划">
+                        <span class="hidden-mobile">暑假计划</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.7.2/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"48fb14f9689ae0d11307","clientSecret":"091ab25a88e87bfd9d9d40d97d1d0d932e694059","repo":"SuzumiyaAkizuki.github.io","owner":"SuzumiyaAkizuki","admin":["SuzumiyaAkizuki"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '2179b8e26686a1cefe957bd4250a401f'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       Powered by: <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
