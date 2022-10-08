@@ -1,0 +1,896 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <link rel="icon" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="SuzumiyaAkizuki">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="[toc] 准备工作  安装Vivado软件，VSCode软件，VSCode的Verilog插件 在环境变量中加入Vivado的XVlog，以便VSCode检查 在Vivado中新建一个project，除取名和选择路径以外一路Next即可。 来到了以下界面  image-20221008230354388  鼠标选择Constraints，点加号，在弹出的窗口中选择第二个选项，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vlab Verilog OJ 做题记录(1-10)">
+<meta property="og:url" content="https://suzumiyaakizuki.github.io/2022/10/08/verilog1-10/index.html">
+<meta property="og:site_name" content="凉宫秋月的文艺部">
+<meta property="og:description" content="[toc] 准备工作  安装Vivado软件，VSCode软件，VSCode的Verilog插件 在环境变量中加入Vivado的XVlog，以便VSCode检查 在Vivado中新建一个project，除取名和选择路径以外一路Next即可。 来到了以下界面  image-20221008230354388  鼠标选择Constraints，点加号，在弹出的窗口中选择第二个选项，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210090005819.png">
+<meta property="article:published_time" content="2022-10-08T15:01:08.000Z">
+<meta property="article:modified_time" content="2022-10-08T16:06:17.766Z">
+<meta property="article:author" content="SuzumiyaAkizuki">
+<meta property="article:tag" content="数电">
+<meta property="article:tag" content="Verilog">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210090005819.png">
+  
+  
+  
+  <title>Vlab Verilog OJ 做题记录(1-10) - 凉宫秋月的文艺部</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"suzumiyaakizuki.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":"G-J01HK5TZ0Y","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"QGqf9VPGTa96KerO0JvDW3Ld-gzGzoHsz","app_key":"RhwwUaYq4lMo1tCJwcQTWdRp","server_url":"https://qgqf9vpg.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.google-analytics.com/analytics.js', function() {
+          window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
+          ga.l = +new Date;
+          ga('create', 'G-J01HK5TZ0Y', 'auto');
+          ga('send', 'pageview');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>凉宫秋月的文艺部</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友情链接
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210090005819.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Vlab Verilog OJ 做题记录(1-10)"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        SuzumiyaAkizuki
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-10-08 23:01" pubdate>
+          2022年10月8日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          14 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Vlab Verilog OJ 做题记录(1-10)</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>[toc]</p>
+<h2 id="准备工作">准备工作</h2>
+<ol type="1">
+<li><p>安装Vivado软件，VSCode软件，VSCode的Verilog插件</p></li>
+<li><p>在环境变量中加入Vivado的XVlog，以便VSCode检查</p></li>
+<li><p>在Vivado中新建一个project，除取名和选择路径以外一路Next即可。</p></li>
+<li><p>来到了以下界面</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210082304579.png" srcset="/img/loading.gif" lazyload alt="image-20221008230354388" /><figcaption aria-hidden="true">image-20221008230354388</figcaption>
+</figure>
+<p>鼠标选择Constraints，点加号，在弹出的窗口中选择第二个选项，点Next，点Creat File新建一个文件，文件名最好是模块名。</p></li>
+<li><p>点小齿轮（设置），点Text Editor，选择Custom Editor，输入<code>.../Microsoft VS Code/Code.exe -g [file name]</code>，点OK</p></li>
+<li><p>先打开VSCode软件，再双击Vivado Sources/Design Sources里你刚刚新建的.v文件，弹出新VSCode窗口，于是可以开始写代码了。</p></li>
+</ol>
+<h2 id="输出1">输出1</h2>
+<h3 id="题目描述">题目描述</h3>
+<p>编写 Verilog 代码，使电路输出信号1</p>
+<h3 id="输入格式">输入格式</h3>
+<p>无输入</p>
+<h3 id="输出格式">输出格式</h3>
+<p>输出1，位宽为1</p>
+<h3 id="代码和解析">代码和解析</h3>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> top_module(out);<br>  <span class="hljs-keyword">output</span> <span class="hljs-keyword">wire</span> out;<br>  <span class="hljs-keyword">assign</span> out = <span class="hljs-number">1&#x27;b1</span>;<br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<p>这个题没什么好解析的，直接用<code>assign</code>赋值即可，主要熟悉基本的操作。Verilog的基本结构是模块，也就是这里面的<code>module</code>，一个模块代表一个功能单元。模块最基本的结构是这样的：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> 模块名称(端口列表);<br>    <span class="hljs-keyword">input</span> 数据类型(<span class="hljs-keyword">reg</span> 或 <span class="hljs-keyword">wire</span>) 输入端口表;<br>    <span class="hljs-keyword">output</span> 数据类型(<span class="hljs-keyword">reg</span> 或 <span class="hljs-keyword">wire</span>) 输出端口表;<br>    <span class="hljs-comment">//逻辑代码...</span><br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<p>上述的声明方法是Verilog-1995标准 风格，还有一种声明方法是这样的：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> 模块名 <span class="hljs-variable">#(参数声明1，参数声明2,...)</span><br>    (端口声明 端口<span class="hljs-number">1</span>，端口<span class="hljs-number">2</span>，...,<br>     端口声明 端口<span class="hljs-number">3</span>，端口<span class="hljs-number">4</span>,....);<br>    <span class="hljs-comment">//逻辑代码...</span><br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<p>以这种风格书写的本题代码是这样的：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> top_module(<br>  <span class="hljs-keyword">output</span> out<br>);<br>  <span class="hljs-keyword">assign</span> out = <span class="hljs-number">1&#x27;b1</span>;<br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<h2 id="输出0">输出0</h2>
+<p>把上题中的<code>1</code>变成<code>0</code>即可，略。</p>
+<h2 id="wire">wire</h2>
+<h3 id="题目描述-1">题目描述</h3>
+<p>wire 是 Verilog 的关键字，用于表征信号类型的，其含义是线网。wire 可理解为物理连线，但又有所不同，因为 Verilog 中的 wire 是有方向的。例如设计一模块，模块名命名为 top_module，输入信号名为 in，输出信号名为 out，使 in 与 out 直连，如下图所示：</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210082321013.png" srcset="/img/loading.gif" lazyload /></p>
+<p>请使用 assign 语句将代码补充完整，使其实现上述电路图的功能。</p>
+<h3 id="输入格式-1">输入格式</h3>
+<p>任意</p>
+<h3 id="输出格式-1">输出格式</h3>
+<p>与输入完全相同</p>
+<h3 id="代码和解析-1">代码和解析</h3>
+<p>Verilog的变量有两种最基本的类型，即<code>wire</code>和<code>reg</code>，默认1位宽。</p>
+<p><code>wire</code>如其名字所示，表示连线。驱动端信号的改变会立刻传递到输出的连线上。输入输出端口，如果不另行声明类型，都默认为`<code>wire</code>，如果使用<code>assign</code>的连续赋值语句，被赋值的变量都得是<code>wire</code>。</p>
+<p><code>reg</code>的意思是寄存器，它能保持其值，直到它被赋于新的值。在行为建模中，在过程块(<code>always</code>块)中被赋值的变量必须是<code>reg</code>类型</p>
+<p>还有其它类型，如整数、实数、比特矢量、数组，等用到了再说。</p>
+<p>这个题的代码实现是：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> top_module(in,out);<br>    <span class="hljs-keyword">input</span> <span class="hljs-keyword">wire</span> in;<br>    <span class="hljs-keyword">output</span> <span class="hljs-keyword">wire</span> out;<br>    <span class="hljs-keyword">assign</span> out = in;<br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<h2 id="多个端口的模块">多个端口的模块</h2>
+<h3 id="题目描述-2">题目描述</h3>
+<p>wire是Verilog的关键字，用于表征信号类型的，其含义是线网，wire可理解为物理连线，但又有所不同，因为verilog中的wire是有方向的，例如设计一模块，模块名命名为top_module，输入信号名为in，输出信号名为out，使in与out直连，如下图所示：</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210082332727.png" srcset="/img/loading.gif" lazyload /></p>
+<p>请使用assign语句将代码补充完整，使其实现上述电路图的功能</p>
+<h3 id="输入格式-2">输入格式</h3>
+<p>1 1 1</p>
+<h3 id="输出格式-2">输出格式</h3>
+<p>1 1 1 1</p>
+<h3 id="代码和解析-2">代码和解析</h3>
+<p>这题没啥解析的，和上一题差不多。</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> top_module(a,b,c,w,x,y,z);<br>    <span class="hljs-keyword">input</span> <span class="hljs-keyword">wire</span> a,b,c;<br>    <span class="hljs-keyword">output</span> <span class="hljs-keyword">wire</span> w,x,y,z;<br>    <span class="hljs-keyword">assign</span> w=a;<br>    <span class="hljs-keyword">assign</span> x=b;<br>    <span class="hljs-keyword">assign</span> y=b;<br>    <span class="hljs-keyword">assign</span> z=c;<br><span class="hljs-keyword">endmodule</span><br><br></code></pre></td></tr></table></figure>
+<h2 id="非门">非门</h2>
+<h3 id="题目描述-3">题目描述</h3>
+<p>创建一个名为top_module的Verilog模块，实现非门的功能</p>
+<h3 id="输入格式-3">输入格式</h3>
+<p>无</p>
+<h3 id="输出格式-3">输出格式</h3>
+<p>无</p>
+<h3 id="代码和解析-3">代码和解析</h3>
+<p>在这个题里，我们要介绍一下连续赋值。总的来说，Verilog里有两种赋值，叫做过程赋值和连续赋值。其中过程赋值主要在<code>initial</code>或<code>always</code>块中使用，我们也是到时候再说，先来说连续赋值。</p>
+<p>连续赋值的格式是：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">assign</span> 被赋值量 = 值;<br></code></pre></td></tr></table></figure>
+<p>其中被赋值量只能是<code>wire</code>型的，值的类型没有限制。</p>
+<p>本题的代码为：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> top_module(a,b);<br>    <span class="hljs-keyword">input</span> <span class="hljs-keyword">wire</span> a;<br>    <span class="hljs-keyword">output</span> <span class="hljs-keyword">wire</span> b;<br>    <span class="hljs-keyword">assign</span>  b = ~a;<br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<h2 id="与门">与门</h2>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210082342033.png" srcset="/img/loading.gif" lazyload /></p>
+<p>和上一题差别不大</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> top_module(a,b,out);<br>    <span class="hljs-keyword">input</span> <span class="hljs-keyword">wire</span> a,b;<br>    <span class="hljs-keyword">output</span> <span class="hljs-keyword">wire</span> out;<br>    <span class="hljs-keyword">assign</span> out=a&amp;b;<br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<h2 id="或非门">或非门</h2>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210082343150.png" srcset="/img/loading.gif" lazyload /></p>
+<p>和上一题的差别不大，或非的意思就是先或再非。</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> top_module(a,b,out);<br>    <span class="hljs-keyword">input</span> <span class="hljs-keyword">wire</span> a,b;<br>    <span class="hljs-keyword">output</span> <span class="hljs-keyword">wire</span> out;<br>    <span class="hljs-keyword">assign</span> out=~(a|b);<br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<h2 id="同或门">同或门</h2>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210082344430.png" srcset="/img/loading.gif" lazyload /></p>
+<p>和上一题差别不大，同或的意思就是俩信号一样就是0，不一样就是1，也就是异或取反。</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> top_module(a,b,out);<br>    <span class="hljs-keyword">input</span> <span class="hljs-keyword">wire</span> a,b;<br>    <span class="hljs-keyword">output</span> <span class="hljs-keyword">wire</span> out;<br>    <span class="hljs-keyword">assign</span> out=~(a^b);<br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<h2 id="线网型中间信号">线网型中间信号</h2>
+<h3 id="题目描述-4">题目描述</h3>
+<p>之前的verilog模块结构都比较简单，输出信号可直接用输入信号的逻辑表达式表示出来，模块功能稍微复杂时，一般都会用到中间信号，以下图为例，输入信号in经过两个非门后输出到out端口，为了在verilog模块中表示两个非门中间的这跟信号，需要将其定义为线网型（wire）信号，此处我们命名为not_in。</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210082345009.png" srcset="/img/loading.gif" lazyload /></p>
+<p>上述模块的verilog代码为：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> top_module (<br>	<span class="hljs-keyword">input</span> in,<br>    <span class="hljs-keyword">output</span> out;<br>);<br>    <span class="hljs-keyword">wire</span> not_in;<br>    <br>    <span class="hljs-keyword">assign</span> out=~not_in;<br>    <span class="hljs-keyword">assign</span> not_in=~in;<br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<p>请根据上述示例，完成下图中电路所对应的Verilog模块</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210082346567.png" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="输入格式-4">输入格式</h3>
+<p>四个线网型变量a、b、c、d</p>
+<h3 id="输出格式-4">输出格式</h3>
+<p>两个线网型变量out、out_n</p>
+<h3 id="代码和解析-4">代码和解析</h3>
+<p>这个题属于稍微复杂一点的组合逻辑，需要用到中间变量。在做题以前，我们先观察一下他给我们的代码，里面有这么两句：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">assign</span> out=~not_in;<br><span class="hljs-keyword">assign</span> not_in=~in;<br></code></pre></td></tr></table></figure>
+<p>有同学可能就问了，按照逻辑，难道不应该是<code>not_in</code>先有值，然后<code>out</code>才有值吗？怎么能先给<code>out</code>赋值呢？这就是Verilog的一个特点，那就是并行赋值。你不要把这两个语句当成C语言，先执行上面的，再执行下面的，而是要当成图里面那个电路，输入信号来的时候，<code>not_in</code>和<code>out</code>有先后之分吗？忽略光速和元件延时的情况下，显然没有。</p>
+<p>根据给出的图，我们很容易写出下面的代码：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> top_module(a,b,c,d,out,out_n);<br>    <span class="hljs-keyword">input</span> <span class="hljs-keyword">wire</span> a,b,c,d;<br>    <span class="hljs-keyword">output</span> <span class="hljs-keyword">wire</span> out,out_n;<br>    <span class="hljs-keyword">wire</span> x,y;<br>    <span class="hljs-keyword">assign</span> x = (a&amp;b);<br>    <span class="hljs-keyword">assign</span> y = (c&amp;d);<br>    <span class="hljs-keyword">assign</span> out = x|y;<br>    <span class="hljs-keyword">assign</span> out_n=~(x|y);<br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<p>但是有个问题，就是我们不知道这个代码对不对。那么怎么知道我们的代码是怎么运行起来呢？在C语言里，我们一般是编译执行然后在控制台里输入一些数据，看输出是不是符合我们的期待。在Verilog中，我们也要给程序输入一些信号，看输出的信号是否符合我们的期待，但是这个过程比C语言的要复杂一些：我们还要再写一个Verilog代码，它叫做“testbench”。</p>
+<p>首先我们回到Vivado软件，鼠标选择Constraints，点加号，在弹出的窗口中选择第<strong>三</strong>个选项，点Next，点Creat File新建一个文件，文件名最好是“模块名_tb”。这里的“tb”就是"testbench"的意思。然后，在Simulation Source里面就生产力testbench代码。</p>
+<p>testbench代码的基本结构是这样的：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-meta">`<span class="hljs-keyword">timescale</span> 1ns / 1ps</span><br><span class="hljs-keyword">module</span> 模块名_tb;<br>   <span class="hljs-keyword">reg</span> 输入端口名<span class="hljs-number">1</span>,输入端口名<span class="hljs-number">2</span>,...;<br>   <span class="hljs-keyword">wire</span> 输出端口名<span class="hljs-number">1</span>，输出端口名<span class="hljs-number">2</span>，...;<br>   模块名 模块的示例名(.端口名<span class="hljs-number">1</span>(端口<span class="hljs-number">1</span>),.端口名<span class="hljs-number">2</span>(端口<span class="hljs-number">2</span>),...);<br>   <span class="hljs-keyword">initial</span> <span class="hljs-keyword">begin</span><br>       输入端口<span class="hljs-number">1</span>=值<span class="hljs-number">1_1</span>;输入端口<span class="hljs-number">2</span>=值<span class="hljs-number">1_2</span>;...<br>       #<span class="hljs-number">50</span>;<br>       输入端口<span class="hljs-number">1</span>=值<span class="hljs-number">2_1</span>;输入端口<span class="hljs-number">2</span>=值<span class="hljs-number">2_2</span>;...<br>       #<span class="hljs-number">50</span>;<br>       ...<br>       输入端口<span class="hljs-number">1</span>=值n_1;输入端口<span class="hljs-number">2</span>=值n_2;...<br>       #<span class="hljs-number">50</span>;<br>       <span class="hljs-built_in">$stop</span>;<br>   <span class="hljs-keyword">end</span><br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<p>这里面有几个我们之前没见过的东西。首先是第一行</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-meta">`<span class="hljs-keyword">timescale</span> 1ns / 1ps</span><br></code></pre></td></tr></table></figure>
+<p>这个以反撇号开头的语句叫做编译指令，用于说明参考时间单位和仿真时间精度。</p>
+<p>然后是第五行</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs verilog">模块名 模块的示例名(.端口名<span class="hljs-number">1</span>(端口<span class="hljs-number">1</span>),.端口名<span class="hljs-number">2</span>(端口<span class="hljs-number">2</span>),...);<br></code></pre></td></tr></table></figure>
+<p>这个叫做“例化”，可以类比C语言里面的“调用”。在C语言中，调用一个函数只能按顺序传参，但是在Verilog里，可以像这里一样端口命名法传递信号。</p>
+<p>然后是第十行</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs verilog">#<span class="hljs-number">50</span>;<br></code></pre></td></tr></table></figure>
+<p>这个的意思是延时50个时间单位。</p>
+<p>于是，我们可以写出这道题的testbench代码：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-meta">`<span class="hljs-keyword">timescale</span> 1ns / 1ps</span><br><span class="hljs-keyword">module</span> top_module_tb;<br>   <span class="hljs-keyword">reg</span> a, b, c, d;<br>   <span class="hljs-keyword">wire</span> out, out_n;<br>   top_module ul(<span class="hljs-variable">.a</span>(a),<span class="hljs-variable">.b</span>(b),<span class="hljs-variable">.c</span>(c),<span class="hljs-variable">.d</span>(d),<span class="hljs-variable">.out</span>(out),<span class="hljs-variable">.out_n</span>(out_n));<br>   <span class="hljs-keyword">initial</span> <span class="hljs-keyword">begin</span><br>      a=<span class="hljs-number">0</span>;b=<span class="hljs-number">0</span>;c=<span class="hljs-number">0</span>;d=<span class="hljs-number">0</span>;<br>      #<span class="hljs-number">50</span>;<br>      d=<span class="hljs-number">1</span>;c=<span class="hljs-number">0</span>;b=<span class="hljs-number">0</span>;a=<span class="hljs-number">0</span>;<br>      #<span class="hljs-number">50</span>;<br>      d=<span class="hljs-number">0</span>;c=<span class="hljs-number">1</span>;b=<span class="hljs-number">0</span>;a=<span class="hljs-number">0</span>;<br>      #<span class="hljs-number">50</span>;<br>      d=<span class="hljs-number">1</span>;c=<span class="hljs-number">1</span>;b=<span class="hljs-number">0</span>;a=<span class="hljs-number">0</span>;<br>      #<span class="hljs-number">50</span>;<br>      d=<span class="hljs-number">0</span>;c=<span class="hljs-number">0</span>;b=<span class="hljs-number">1</span>;a=<span class="hljs-number">0</span>;<br>      #<span class="hljs-number">50</span>;<br>      d=<span class="hljs-number">1</span>;c=<span class="hljs-number">0</span>;b=<span class="hljs-number">1</span>;a=<span class="hljs-number">0</span>;<br>      #<span class="hljs-number">50</span>;<br>      d=<span class="hljs-number">0</span>;c=<span class="hljs-number">1</span>;b=<span class="hljs-number">1</span>;a=<span class="hljs-number">0</span>;<br>      #<span class="hljs-number">50</span>;<br>      d=<span class="hljs-number">1</span>;c=<span class="hljs-number">1</span>;b=<span class="hljs-number">1</span>;a=<span class="hljs-number">0</span>;<br>      #<span class="hljs-number">50</span>;<br>      d=<span class="hljs-number">0</span>;c=<span class="hljs-number">0</span>;b=<span class="hljs-number">0</span>;a=<span class="hljs-number">1</span>;<br>      #<span class="hljs-number">50</span>;<br>      d=<span class="hljs-number">1</span>;c=<span class="hljs-number">0</span>;b=<span class="hljs-number">0</span>;a=<span class="hljs-number">1</span>;<br>      #<span class="hljs-number">50</span>;<br>      d=<span class="hljs-number">0</span>;c=<span class="hljs-number">1</span>;b=<span class="hljs-number">0</span>;a=<span class="hljs-number">1</span>;<br>      #<span class="hljs-number">50</span>;<br>      d=<span class="hljs-number">1</span>;c=<span class="hljs-number">1</span>;b=<span class="hljs-number">0</span>;a=<span class="hljs-number">1</span>;<br>      #<span class="hljs-number">50</span>;<br>      d=<span class="hljs-number">0</span>;c=<span class="hljs-number">0</span>;b=<span class="hljs-number">1</span>;a=<span class="hljs-number">1</span>;<br>      #<span class="hljs-number">50</span>;<br>      d=<span class="hljs-number">1</span>;c=<span class="hljs-number">0</span>;b=<span class="hljs-number">1</span>;a=<span class="hljs-number">1</span>;<br>      #<span class="hljs-number">50</span>;<br>      d=<span class="hljs-number">0</span>;c=<span class="hljs-number">1</span>;b=<span class="hljs-number">1</span>;a=<span class="hljs-number">1</span>;<br>      #<span class="hljs-number">50</span>;<br>      d=<span class="hljs-number">1</span>;c=<span class="hljs-number">1</span>;b=<span class="hljs-number">1</span>;a=<span class="hljs-number">1</span>;<br>      #<span class="hljs-number">50</span>;<br>      <span class="hljs-built_in">$stop</span>;<br>   <span class="hljs-keyword">end</span><br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<p>呃，说实话，这个代码不是我写的，是我写的代码帮我写的。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cstdio&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-type">const</span> <span class="hljs-type">double</span> eps = <span class="hljs-number">1e-11</span>;<br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;输入模块名称:&quot;</span>);<br>	<span class="hljs-type">char</span> s[<span class="hljs-number">100</span>];<br>	<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%s&quot;</span>, s);<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;输入input信号个数：&quot;</span>);<br>	<span class="hljs-type">int</span> NumInput;<br>	<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;NumInput);<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;依次输入input信号名称：&quot;</span>);<br>	string inputSign[<span class="hljs-number">100</span>];<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= NumInput; ++i) &#123;<br>		cin &gt;&gt; inputSign[i];<br>	&#125;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;输入output信号个数：&quot;</span>);<br>	<span class="hljs-type">int</span> NumOutput;<br>	<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;NumOutput);<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;依次输入output信号名称：&quot;</span>);<br>	string outputSign[<span class="hljs-number">100</span>];<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= NumOutput; ++i) &#123;<br>		cin &gt;&gt; outputSign[i];<br>	&#125;<br><br>	cout &lt;&lt; <span class="hljs-string">&quot;`timescale 1ns / 1ps\n&quot;</span>;<br>	cout &lt;&lt; <span class="hljs-string">&quot;module &quot;</span> &lt;&lt; s &lt;&lt; <span class="hljs-string">&quot;_tb;\n&quot;</span>;<br>	cout &lt;&lt; <span class="hljs-string">&quot;   reg &quot;</span>;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= NumInput; ++i)&#123;<br>		cout &lt;&lt; inputSign[i];<br>		<span class="hljs-keyword">if</span>(i!=NumInput) cout&lt;&lt;<span class="hljs-string">&quot;, &quot;</span>;<br>	&#125;<br>	cout &lt;&lt; <span class="hljs-string">&quot;;&quot;</span> &lt;&lt; endl;<br>	cout &lt;&lt; <span class="hljs-string">&quot;   wire &quot;</span>;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= NumOutput; ++i)&#123;<br>		cout &lt;&lt; outputSign[i];<br>		<span class="hljs-keyword">if</span>(i!=NumOutput) cout&lt;&lt;<span class="hljs-string">&quot;, &quot;</span>;<br>	&#125;<br>	cout &lt;&lt; <span class="hljs-string">&quot;;&quot;</span> &lt;&lt; endl;<br>	cout &lt;&lt; <span class="hljs-string">&quot;   &quot;</span> &lt;&lt; s &lt;&lt; <span class="hljs-string">&quot; ul(&quot;</span>;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= NumInput; ++i)<br>		cout &lt;&lt; <span class="hljs-string">&quot;.&quot;</span> &lt;&lt; inputSign[i] &lt;&lt; <span class="hljs-string">&quot;(&quot;</span> &lt;&lt; inputSign[i] &lt;&lt; <span class="hljs-string">&quot;),&quot;</span>;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= NumOutput; ++i) &#123;<br>		cout &lt;&lt; <span class="hljs-string">&quot;.&quot;</span> &lt;&lt; outputSign[i] &lt;&lt; <span class="hljs-string">&quot;(&quot;</span> &lt;&lt; outputSign[i] &lt;&lt; <span class="hljs-string">&quot;)&quot;</span>;<br>		<span class="hljs-keyword">if</span> (i != NumOutput) cout &lt;&lt; <span class="hljs-string">&quot;,&quot;</span>;<br>	&#125;<br>	cout &lt;&lt; <span class="hljs-string">&quot;);&quot;</span> &lt;&lt; endl;<br>	cout &lt;&lt; <span class="hljs-string">&quot;   initial begin&quot;</span> &lt;&lt; endl;<br>	<span class="hljs-type">int</span> pow2in = <span class="hljs-number">1</span> &lt;&lt; NumInput;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt;= pow2in<span class="hljs-number">-1</span>; ++i) &#123;<br>		cout&lt;&lt;<span class="hljs-string">&quot;      &quot;</span>;<br>		<span class="hljs-type">int</span> temp = i, cnt = NumInput;<br>		<span class="hljs-keyword">if</span> (i == <span class="hljs-number">0</span>) &#123;<br>			<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= NumInput; ++j)<br>				cout &lt;&lt; inputSign[j] &lt;&lt; <span class="hljs-string">&quot;=0;&quot;</span>;<br>		&#125; <span class="hljs-keyword">else</span> &#123;<br>			<span class="hljs-keyword">while</span> (temp &amp;&amp; cnt&gt;=<span class="hljs-number">1</span>) &#123;<br>				cout &lt;&lt; inputSign[cnt] &lt;&lt; <span class="hljs-string">&quot;=&quot;</span> &lt;&lt; temp % <span class="hljs-number">2</span> &lt;&lt; <span class="hljs-string">&quot;;&quot;</span>;<br>				temp = temp / <span class="hljs-number">2</span>;<br>				--cnt;<br>			&#125;<br>			<span class="hljs-keyword">if</span>(cnt&gt;=<span class="hljs-number">1</span>)&#123;<br>				<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=cnt;j&gt;=<span class="hljs-number">1</span>;--j)&#123;<br>					cout &lt;&lt; inputSign[j] &lt;&lt; <span class="hljs-string">&quot;=0;&quot;</span>;<br>				&#125;<br>			&#125;<br>		&#125;<br>		cout &lt;&lt;endl&lt;&lt; <span class="hljs-string">&quot;      #50;&quot;</span>&lt;&lt;endl;<br>	&#125;<br>	cout &lt;&lt; <span class="hljs-string">&quot;      $stop;&quot;</span>&lt;&lt;endl;<br>	cout &lt;&lt; <span class="hljs-string">&quot;   end&quot;</span> &lt;&lt; endl;<br>	cout &lt;&lt; <span class="hljs-string">&quot;endmodule&quot;</span> &lt;&lt; endl;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>保存文件，点这个</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210090004442.png" srcset="/img/loading.gif" lazyload alt="image-20221009000446371" /><figcaption aria-hidden="true">image-20221009000446371</figcaption>
+</figure>
+<p>Vivado就产生了对应的波形：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210090005315.png" srcset="/img/loading.gif" lazyload alt="image-20221009000506234" /><figcaption aria-hidden="true">image-20221009000506234</figcaption>
+</figure>
+<p>我们就能照着这个看自己写的对不对了。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%95%B0%E7%94%B5/">#数电</a>
+      
+        <a href="/tags/Verilog/">#Verilog</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Vlab Verilog OJ 做题记录(1-10)</div>
+      <div>https://suzumiyaakizuki.github.io/2022/10/08/verilog1-10/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>SuzumiyaAkizuki</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年10月8日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/10/04/%E5%91%A8%E8%AE%B0%EF%BC%8820220926-20221002%EF%BC%89/" title="周记（20220926-20221002）">
+                        <span class="hidden-mobile">周记（20220926-20221002）</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.7.2/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"48fb14f9689ae0d11307","clientSecret":"091ab25a88e87bfd9d9d40d97d1d0d932e694059","repo":"SuzumiyaAkizuki.github.io","owner":"SuzumiyaAkizuki","admin":["SuzumiyaAkizuki"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '3c7c1d6537d928249773f4e72d16e139'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       Powered by: <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
