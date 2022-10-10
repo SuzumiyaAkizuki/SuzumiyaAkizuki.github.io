@@ -1,0 +1,915 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <link rel="icon" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="SuzumiyaAkizuki">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="这一部分主要是比特矢量。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vlab Verilog OJ 做题记录(10-20)">
+<meta property="og:url" content="https://suzumiyaakizuki.github.io/2022/10/10/verilog10-20/index.html">
+<meta property="og:site_name" content="凉宫秋月的文艺部">
+<meta property="og:description" content="这一部分主要是比特矢量。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210102306579.jpg">
+<meta property="article:published_time" content="2022-10-10T13:46:33.000Z">
+<meta property="article:modified_time" content="2022-10-10T15:06:51.423Z">
+<meta property="article:author" content="SuzumiyaAkizuki">
+<meta property="article:tag" content="数电">
+<meta property="article:tag" content="Verilog">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210102306579.jpg">
+  
+  
+  
+  <title>Vlab Verilog OJ 做题记录(10-20) - 凉宫秋月的文艺部</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"suzumiyaakizuki.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":"G-J01HK5TZ0Y","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"QGqf9VPGTa96KerO0JvDW3Ld-gzGzoHsz","app_key":"RhwwUaYq4lMo1tCJwcQTWdRp","server_url":"https://qgqf9vpg.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.google-analytics.com/analytics.js', function() {
+          window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
+          ga.l = +new Date;
+          ga('create', 'G-J01HK5TZ0Y', 'auto');
+          ga('send', 'pageview');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>凉宫秋月的文艺部</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友情链接
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210102306579.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Vlab Verilog OJ 做题记录(10-20)"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        SuzumiyaAkizuki
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-10-10 21:46" pubdate>
+          2022年10月10日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          13 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Vlab Verilog OJ 做题记录(10-20)</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>这一部分主要是比特矢量。</p>
+<span id="more"></span>
+<h2 id="向量">向量</h2>
+<h3 id="题目描述">题目描述</h3>
+<p><strong>Hint:</strong> 向量是为了编写、阅读代码方便，将一组相关的信号用一个向量名称统一命名的方式。例如：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">wire</span> [<span class="hljs-number">7</span>:<span class="hljs-number">0</span>] w;<br></code></pre></td></tr></table></figure>
+<p>声明了一个8bit位宽的向量信号w，实际上代表的是8个1bit的wire型信号。 注意向量信号的声明是将位宽信息放在信号名之前，这与C语言不太一样。我们可以将向量信号中的一位或多位单独拿来使用。例如：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">wire</span> out;<br><span class="hljs-keyword">wire</span> [<span class="hljs-number">3</span>:<span class="hljs-number">0</span>] out_4;<br><span class="hljs-keyword">wire</span> [<span class="hljs-number">99</span>:<span class="hljs-number">0</span>] my_vector;<br><span class="hljs-comment">// 声明一个100bit的向量my_vector</span><br><span class="hljs-keyword">assign</span> out = my_vector[<span class="hljs-number">11</span>] &amp; my_vector[<span class="hljs-number">10</span>];<br><span class="hljs-comment">// 选择其中两位信号进行运算</span><br><span class="hljs-keyword">assign</span> out_4 = my_vector[<span class="hljs-number">23</span>:<span class="hljs-number">20</span>];<br><span class="hljs-comment">// 选择其中4bit信号</span><br></code></pre></td></tr></table></figure>
+<p><strong>任务目标：</strong> 创建一verilog模块，具有一个3bit位宽的输入向量信号，然后将其输出到3bit位宽的输出向量信号，同时再分别输出到3个1bit位宽的输出信号，如下图所示</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210102158555.png" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="输入格式">输入格式</h3>
+<p>1个3bit位宽的向量信号vec</p>
+<h3 id="输出格式">输出格式</h3>
+<p>1个与输入vec保持一致的3bit位宽向量信号<code>outv</code>； 3个1bit位宽信号<code>o0</code>, <code>o1</code>, <code>o2</code>，分别对应输入信号<code>vec</code>的三位</p>
+<h3 id="代码和解析">代码和解析</h3>
+<p>当位宽大于 1 时，<code>wire</code>或 <code>reg</code> 即可声明为向量的形式。这种“向量”也叫“比特矢量”，为的是强调它的每一位都是一个二进制位。一个比特矢量一般来说是这么定义的：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">wire</span> [WIDTH-<span class="hljs-number">1</span>:<span class="hljs-number">0</span>] name;<br></code></pre></td></tr></table></figure>
+<p>对于一个比特矢量来说，我们更应该把它看成一个“变量”或“数”，而尽可能不把它看成“数列”，这样可能会为思考带来些许方便。比如说，一个比特矢量是可以直接赋值的：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">wire</span> [<span class="hljs-number">7</span>:<span class="hljs-number">0</span>] <span class="hljs-keyword">var</span>;<br><span class="hljs-keyword">var</span>=<span class="hljs-number">8&#x27;hFF</span>;<br></code></pre></td></tr></table></figure>
+<p>这样的话，变量<code>var</code>就被赋予了8位二进制数<code>8'b1111_1111</code>的值，也就是十进制下的511。在比特矢量中，更靠“左”的位对应的“下标”的数字会更大。初看很奇怪，但是只要把左边的理解成二进制的“高位”，那么位越高数字越大，就很显然了。</p>
+<p>在访问单个元素时，可以使用类似于“数组”的形式来访问。</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> top_module(vec,outv,o2,o1,o0);<br>    <span class="hljs-keyword">input</span> <span class="hljs-keyword">wire</span> [<span class="hljs-number">2</span>:<span class="hljs-number">0</span>] vec;<br>    <span class="hljs-keyword">output</span> <span class="hljs-keyword">wire</span> [<span class="hljs-number">2</span>:<span class="hljs-number">0</span>]outv;<br>    <span class="hljs-keyword">output</span> <span class="hljs-keyword">wire</span> o0,o1,o2;<br><br>    <span class="hljs-keyword">assign</span> outv = vec[<span class="hljs-number">2</span>:<span class="hljs-number">0</span>];<br>    <span class="hljs-keyword">assign</span> o0=vec[<span class="hljs-number">0</span>];<br>    <span class="hljs-keyword">assign</span> o1=vec[<span class="hljs-number">1</span>];<br>    <span class="hljs-keyword">assign</span> o2=vec[<span class="hljs-number">2</span>];<br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<h2 id="向量_续-1">向量_续 1</h2>
+<h3 id="题目描述-1">题目描述</h3>
+<p>创建一 Verilog 模块，将 16bit 输入信号 <code>in</code>分成两个 8bit 的信号 <code>out_hi</code>、<code>out_lo</code>，然后输出，如下图所示：</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210102225212.png" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="输入格式-1">输入格式</h3>
+<p>输入信号 <code>in</code>, 位宽 16bit，类型为 <code>wire</code>。</p>
+<h3 id="输出格式-1">输出格式</h3>
+<p>输出信号<code>out_hi</code>，位宽 8bit，为输入信号的高 8 位。 输出信号<code>out_lo</code>，位宽 8bit，为输入信号的低 8 位。</p>
+<h3 id="代码和解析-1">代码和解析</h3>
+<p>Verilog里面的比特矢量是可以以和Python里面的列表切片有点类似的方法使用的，就像这里面一样，<code>[15:8]</code>就表示取第15位到第8位。这个学名叫“part-select操作”。</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> top_module(<br>    <span class="hljs-keyword">input</span> <span class="hljs-keyword">wire</span> [<span class="hljs-number">15</span>:<span class="hljs-number">0</span>]in,<br>    <span class="hljs-keyword">output</span> <span class="hljs-keyword">wire</span> [<span class="hljs-number">7</span>:<span class="hljs-number">0</span>]out_hi,<br>    <span class="hljs-keyword">output</span> <span class="hljs-keyword">wire</span> [<span class="hljs-number">7</span>:<span class="hljs-number">0</span>]out_lo<br>);<br><br><span class="hljs-keyword">assign</span> out_lo = in[<span class="hljs-number">7</span>:<span class="hljs-number">0</span>];<br><span class="hljs-keyword">assign</span> out_hi = in[<span class="hljs-number">15</span>:<span class="hljs-number">8</span>];<br>    <br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<h2 id="向量_续2">向量_续2</h2>
+<h3 id="题目描述-2">题目描述</h3>
+<p>一个32bit的向量信号包含有4个字节（bit[31:24]、bit[23:16]等），创建一个电路，用以调整4个字节的顺序，该电路经常用于在不同大小端系统之间进行数据交互： <figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs abnf"><span class="hljs-attribute">AaaaaaaaBbbbbbbbCcccccccDddddddd</span> <span class="hljs-operator">=</span>&gt; DdddddddCcccccccBbbbbbbbAaaaaaaa<br></code></pre></td></tr></table></figure> 提示：part-select操作即可以用于赋值语句的左侧也可用于右侧。</p>
+<h3 id="输入格式-2">输入格式</h3>
+<p>1个 32bit 位宽的向量信号 in</p>
+<h3 id="输出格式-2">输出格式</h3>
+<p>1个 32bit 位宽的向量信号 out</p>
+<h3 id="代码和解析-2">代码和解析</h3>
+<p>正如题目所说的，part-select操作即可以用于赋值语句的左侧也可用于右侧。</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> top_module(<br>    <span class="hljs-keyword">input</span> [<span class="hljs-number">31</span>:<span class="hljs-number">0</span>] in,<br>    <span class="hljs-keyword">output</span> [<span class="hljs-number">31</span>:<span class="hljs-number">0</span>] out<br>);<br><br>    <span class="hljs-keyword">assign</span> out[<span class="hljs-number">31</span>:<span class="hljs-number">24</span>] = in[<span class="hljs-number">7</span>:<span class="hljs-number">0</span>];<br>    <span class="hljs-keyword">assign</span> out[<span class="hljs-number">23</span>:<span class="hljs-number">16</span>] = in[<span class="hljs-number">15</span>:<span class="hljs-number">8</span>];<br>    <span class="hljs-keyword">assign</span> out[<span class="hljs-number">15</span>:<span class="hljs-number">8</span>] = in[<span class="hljs-number">23</span>:<span class="hljs-number">16</span>];<br>    <span class="hljs-keyword">assign</span> out[<span class="hljs-number">7</span>:<span class="hljs-number">0</span>] = in[<span class="hljs-number">31</span>:<span class="hljs-number">24</span>];<br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<h2 id="位操作">位操作</h2>
+<h3 id="题目描述-3">题目描述</h3>
+<p>创建一个电路，包含两个 3bit 的输入信号 a 和 b，分别对 ab 进行按位或、逻辑或操作，以及将 ab 拼接成 6bit 信号后进行按位取反，如下图所示：</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210102234810.png" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="输入格式-3">输入格式</h3>
+<p>a = 3'b101 b = 3'b000</p>
+<h3 id="输出格式-3">输出格式</h3>
+<p>按位或：3'b101 逻辑或：1 拼接ab后再按位取反：6'b111010</p>
+<h3 id="代码和解析-3">代码和解析</h3>
+<p>这里主要区分一下按位操作和逻辑操作。在逻辑操作中，一个数如果不等于0（即所有位都是0），那么它代表“真”值，反之，如果所有位都是0，那么它代表“假”值。</p>
+<p>Verilog中，比特矢量是可以拼接的。只需要用个大括号把两部分括起来就行了。</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> top_module( <br>    <span class="hljs-keyword">input</span> [<span class="hljs-number">2</span>:<span class="hljs-number">0</span>] a,<br>    <span class="hljs-keyword">input</span> [<span class="hljs-number">2</span>:<span class="hljs-number">0</span>] b,<br>    <span class="hljs-keyword">output</span> [<span class="hljs-number">2</span>:<span class="hljs-number">0</span>] out_or_bitwise,<br>    <span class="hljs-keyword">output</span> out_or_logical,<br>    <span class="hljs-keyword">output</span> [<span class="hljs-number">5</span>:<span class="hljs-number">0</span>] out_not<br>);<br>    <span class="hljs-keyword">assign</span> out_or_bitwise = a|b;<br>    <span class="hljs-keyword">assign</span> out_or_logical = a || b;<br>    <span class="hljs-keyword">assign</span> out_not = &#123;~b,~a&#125;;<br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<h2 id="位操作2">位操作2</h2>
+<h3 id="题目描述-4">题目描述</h3>
+<p>创建一个组合逻辑电路，包含4bit输入（in[3:0]），和3个输出，分别为：</p>
+<ul>
+<li><code>out_and</code>：四输入与门的输出信号</li>
+<li><code>out_or</code>：四输入或门的输出信号</li>
+<li><code>out_xor</code>：四输出异或门的输出信号</li>
+</ul>
+<p>电路结构如下图所示</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210102241454.png" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="输入格式-4">输入格式</h3>
+<p>0 0 0 0</p>
+<h3 id="输出格式-4">输出格式</h3>
+<p>0 0 0</p>
+<h3 id="代码和解析-4">代码和解析</h3>
+<p>在Verilog中，可以把一个本来是二目运算符的按位算符放在一个比特矢量的前面，这表示从高位到低位一个一个依次用这个二目运算符计算，最后得到一个一位的结果。这种操作叫“归约操作符”。归约操作符包括：归约与<code>&amp;</code>，归约与非<code>~&amp;</code>，归约或<code>|</code>，归约或非<code>~|</code>，归约异或<code>^</code>，归约同或<code>~^</code>。</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> top_module( <br>    <span class="hljs-keyword">input</span> <span class="hljs-keyword">wire</span> [<span class="hljs-number">3</span>:<span class="hljs-number">0</span>]in,<br>    <span class="hljs-keyword">output</span> <span class="hljs-keyword">wire</span> out_and,<br>    <span class="hljs-keyword">output</span> <span class="hljs-keyword">wire</span> out_or,<br>    <span class="hljs-keyword">output</span> <span class="hljs-keyword">wire</span> out_xor<br>);<br>    <span class="hljs-keyword">assign</span> out_and = &amp;in;<br>    <span class="hljs-keyword">assign</span> out_or = |in;<br>    <span class="hljs-keyword">assign</span> out_xor = ^in;<br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<h2 id="向量拼接">向量拼接</h2>
+<h3 id="题目描述-5">题目描述</h3>
+<p>part_selection用于选择向量信号中的一部分，而向量拼接算子{a,b,c}用于将多个信号组合成一个位宽更大的向量信号，如： <code>&#123;3'b111, 3'b000&#125;</code> 等同于 <code>6'b111000</code> <code>&#123;1'b1, 1'b0, 3'b101&#125;</code>等同于<code>5'b10101</code> <code>&#123;4'ha, 4'd10&#125;</code> 等同于 <code>8'b10101010</code> // 4'ha and 4'd10 are both 4'b1010 in binary 向量拼接时，每个信号都需要有明确的位宽，这样拼接后的信号才会有明确的位宽。例如，{1,2,3}就是非法的，因为无法确定各信号的位宽，语法检查时会报错。 向量拼接算子既可以用于赋值语句的左侧，也可用于右侧，如下所示：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">input</span> [<span class="hljs-number">15</span>:<span class="hljs-number">0</span>] in;<br><span class="hljs-keyword">output</span> [<span class="hljs-number">23</span>:<span class="hljs-number">0</span>] out;<br><span class="hljs-keyword">assign</span> &#123;out[<span class="hljs-number">7</span>:<span class="hljs-number">0</span>], out[<span class="hljs-number">15</span>:<span class="hljs-number">8</span>]&#125; = in;<br><span class="hljs-keyword">assign</span> out[<span class="hljs-number">15</span>:<span class="hljs-number">0</span>] = &#123;in[<span class="hljs-number">7</span>:<span class="hljs-number">0</span>], in[<span class="hljs-number">15</span>:<span class="hljs-number">8</span>]&#125;;<br><span class="hljs-keyword">assign</span> out = &#123;in[<span class="hljs-number">7</span>:<span class="hljs-number">0</span>], in[<span class="hljs-number">15</span>:<span class="hljs-number">8</span>]&#125;;  <br></code></pre></td></tr></table></figure>
+<p>创建Verilog电路，将6个5bit位宽的输入信号，以及2bit的常量信号2’b11拼接成32bit的向量信号，并将其拆成4个8bit的信号，分别赋值给4个输出信号，如下图所示：</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210102248499.png" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="输入格式-5">输入格式</h3>
+<p>6个5位宽的输入信号a,b,c,d,e,f</p>
+<h3 id="输出格式-5">输出格式</h3>
+<p>4个8位宽的信号w,x,y,z</p>
+<h3 id="代码和解析-5">代码和解析</h3>
+<p>正如题目中所说：向量拼接算子既可以用于赋值语句的左侧，也可用于右侧。</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> top_module (<br>    <span class="hljs-keyword">input</span> <span class="hljs-keyword">wire</span>[<span class="hljs-number">4</span>:<span class="hljs-number">0</span>] a, b, c, d, e, f,<br>    <span class="hljs-keyword">output</span> <span class="hljs-keyword">wire</span>[<span class="hljs-number">7</span>:<span class="hljs-number">0</span>] w, x, y, z );<br>    <span class="hljs-keyword">assign</span> &#123;w,x,y,z&#125; = &#123;a,b,c,d,e,f,<span class="hljs-number">2&#x27;b11</span>&#125;;<br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<h2 id="向量翻转">向量翻转</h2>
+<h3 id="题目描述-6">题目描述</h3>
+<p>创建verilog电路，将8bit的输入信号按bit翻转，并输出到输出端口，如下图所示：</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210102255765.png" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="输入格式-6">输入格式</h3>
+<p>8 bit in</p>
+<h3 id="输出格式-6">输出格式</h3>
+<p>8 bit out, 为in的向量翻转</p>
+<h3 id="代码和解析-6">代码和解析</h3>
+<p>想到翻转，我第一时间想到的是直接写成这样：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> top_module( <br>    <span class="hljs-keyword">input</span> <span class="hljs-keyword">wire</span>[<span class="hljs-number">7</span>:<span class="hljs-number">0</span>] in,<br>    <span class="hljs-keyword">output</span> <span class="hljs-keyword">wire</span>[<span class="hljs-number">7</span>:<span class="hljs-number">0</span>] out<br>);<br>    <span class="hljs-keyword">assign</span> out=in[<span class="hljs-number">0</span>:<span class="hljs-number">7</span>];<br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<p>然而实践证明并不行，是因为 Verilog 不允许翻转向量的位顺序，所以还是只能一个一个赋值。</p>
+<p>正确的代码是这样的：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> top_module( <br>    <span class="hljs-keyword">input</span> <span class="hljs-keyword">wire</span>[<span class="hljs-number">7</span>:<span class="hljs-number">0</span>] in,<br>    <span class="hljs-keyword">output</span> <span class="hljs-keyword">wire</span>[<span class="hljs-number">7</span>:<span class="hljs-number">0</span>] out<br>);<br>    <span class="hljs-keyword">assign</span> out=&#123;in[<span class="hljs-number">0</span>],in[<span class="hljs-number">1</span>],in[<span class="hljs-number">2</span>],in[<span class="hljs-number">3</span>],in[<span class="hljs-number">4</span>],in[<span class="hljs-number">5</span>],in[<span class="hljs-number">6</span>],in[<span class="hljs-number">7</span>]&#125;;<br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<h2 id="复制算子">复制算子</h2>
+<h3 id="题目描述-7">题目描述</h3>
+<p>复制算子是拼接算子的一种特殊情况，如<code>a=&#123;b,b,b,b,b,b&#125;</code>便可以写成<code>a=&#123;6&#123;b&#125;&#125;</code>的形式。复制算子的格式为：<code>&#123;num&#123;vector&#125;&#125;</code>，其中<code>num</code>必须为常量。如下所示：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs Verilog">&#123;<span class="hljs-number">5</span>&#123;<span class="hljs-number">1&#x27;b1</span>&#125;&#125; <span class="hljs-comment">// 5&#x27;b11111 (or 5&#x27;d31 or 5&#x27;h1f)</span><br>&#123;<span class="hljs-number">2</span>&#123;a,b,c&#125;&#125; <span class="hljs-comment">// The same as &#123;a,b,c,a,b,c&#125;</span><br>&#123;<span class="hljs-number">3&#x27;d5</span>, &#123;<span class="hljs-number">2</span>&#123;<span class="hljs-number">3&#x27;d6</span>&#125;&#125;&#125; <span class="hljs-comment">// 9&#x27;b101_110_110</span><br></code></pre></td></tr></table></figure>
+<p>创建一verilog电路，将一个8bit位宽的输入信号进行符号位扩展，并通过32bit的输出端口输出，如下图所示</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210102258111.png" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="输入格式-7">输入格式</h3>
+<p>8位in信号</p>
+<h3 id="输出格式-7">输出格式</h3>
+<p>32位out信号</p>
+<h3 id="代码和解析-7">代码和解析</h3>
+<p>关于复制算子，题目里已经说得很清楚了，照着写就行了。</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> top_module (<br>    <span class="hljs-keyword">input</span> <span class="hljs-keyword">wire</span>[<span class="hljs-number">7</span>:<span class="hljs-number">0</span>] in,<br>    <span class="hljs-keyword">output</span> <span class="hljs-keyword">wire</span>[<span class="hljs-number">31</span>:<span class="hljs-number">0</span>] out <br>);<br>    <span class="hljs-keyword">assign</span> out = &#123;&#123;<span class="hljs-number">24</span>&#123;in[<span class="hljs-number">7</span>]&#125;&#125;,in&#125;;<br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<h2 id="复制算子_2">复制算子_2</h2>
+<h3 id="题目描述-8">题目描述</h3>
+<p>创建一verilog电路，包含5个1bit输入，使所有输入两两进行同或（两bit相同时输出1，不同时输出0），并将结果通过25bit的向量信号输出，如下图所示：</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210102259350.png" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="输入格式-8">输入格式</h3>
+<p>1位的a,b,c,d,e</p>
+<h3 id="输出格式-8">输出格式</h3>
+<p>25位的out</p>
+<h3 id="代码和解析-8">代码和解析</h3>
+<p>使用复制算子实现该电路，可以大大减少代码量，提高编码效率。</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> top_module (<br>    <span class="hljs-keyword">input</span> <span class="hljs-keyword">wire</span> a, b, c, d, e,<br>    <span class="hljs-keyword">output</span> <span class="hljs-keyword">wire</span> [<span class="hljs-number">24</span>:<span class="hljs-number">0</span>] out <br>);<br>    <span class="hljs-keyword">wire</span> [<span class="hljs-number">24</span>:<span class="hljs-number">0</span>] mid_1;<br>    <span class="hljs-keyword">wire</span> [<span class="hljs-number">24</span>:<span class="hljs-number">0</span>] mid_2;<br>    <span class="hljs-keyword">assign</span> mid_1=&#123;&#123;<span class="hljs-number">5</span>&#123;a&#125;&#125;,&#123;<span class="hljs-number">5</span>&#123;b&#125;&#125;,&#123;<span class="hljs-number">5</span>&#123;c&#125;&#125;,&#123;<span class="hljs-number">5</span>&#123;d&#125;&#125;,&#123;<span class="hljs-number">5</span>&#123;e&#125;&#125;&#125;;<br>    <span class="hljs-keyword">assign</span> mid_2=&#123;&#123;<span class="hljs-number">5</span>&#123;a,b,c,d,e&#125;&#125;&#125;;<br>    <span class="hljs-keyword">assign</span> out=~(mid_1 ^ mid_2);<br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<h2 id="模块例化">模块例化</h2>
+<h3 id="题目描述-9">题目描述</h3>
+<p>通过前面一系列的练习，用户应当已经熟悉单个模块电路的设计了。对于功能上更复杂的电路模块，一般都是由若干子模块以及附加的功能电路构成的。</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210102301840.png" srcset="/img/loading.gif" lazyload /></p>
+<p>在模块实例化过程中，被例化模块的端口信号是最重要的，用户甚至可以不知道模块的内部结构。上图展示了一个非常简单的包含有子模块电路的电路结构，在此电路中，创建模块mod_a的一个实例化，并将该实例化模块的三个端口（<code>in1</code>,<code>in2</code>,<code>out</code>）与顶层电路的三个端口(<code>a</code>,<code>b</code>,<code>out</code>)直接连接，其中<code>mod_a</code>模块的代码如下：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> mod_a ( <span class="hljs-keyword">input</span> in1, <span class="hljs-keyword">input</span> in2, <span class="hljs-keyword">output</span> out );<br><span class="hljs-comment">// Module body</span><br><span class="hljs-keyword">assign</span> out = in1 &amp; in2; <span class="hljs-comment">//这只是一个简单的示例</span><br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<p>模块实例化一般有两种语法格式，分别称为基于端口名称的实例化和基于端口位置的实例化。 基于位置的实例化和C语言中的函数调用类似（只是语法上类似，实际上该例化会产生实际的硬件电路），以上述<code>mod_a</code>模块的实例化为例，可以在上层模块中使用以下语句：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> top_module(<span class="hljs-keyword">input</span> wa,<span class="hljs-keyword">input</span> wb,<span class="hljs-keyword">output</span> wc);<br>mod_a inst_name1(wa,wb,wc);<br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<p>其中<code>inst_name1</code>是<code>mod_a</code>模块的实例化名称，可以由用户自定义，通过这种例化方式，便实现了端口对应：<code>wa↔︎in1</code>, <code>wb↔︎in2</code>, <code>wc↔︎out</code>。 基于端口名称的实例化如下所示</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> top_module(<span class="hljs-keyword">input</span> wa,<span class="hljs-keyword">input</span> wb,<span class="hljs-keyword">output</span> wc);<br>mod_a 	inst_name2(<br><span class="hljs-variable">.out</span>		(wc),<br><span class="hljs-variable">.in1</span>		(wa),<br><span class="hljs-variable">.in2</span>		(wb));<br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<p>本教程推荐用户使用基于端口名称的例化方式，因为这种方式编写的代码可读性更强。 试创建一verilog电路，并按照上图中所示实例化<code>mod_a</code>模块（建议使用基于端口名称的方式实例化）。</p>
+<p>Hint:</p>
+<ul>
+<li>推荐使用基于端口名称的实例化方式</li>
+<li>模块调用就像是一个树形的层次结构，不允许循环调用，如a调用b，b又调用a，也不允许模块调用自身，即模块c中又实例化模块c。</li>
+<li>不允许在进程块（如always、initial等）或赋值语句（如assign语句）内进行模块实例化</li>
+<li>模块的实例化名称可以自定义，如在同一模块中要对一个模块多次实例化，需要有不同的实例化名称。</li>
+</ul>
+<h3 id="输入格式-9">输入格式</h3>
+<p>一位线网型变量a、b</p>
+<h3 id="输出格式-9">输出格式</h3>
+<p>一位线网型变量out</p>
+<h3 id="代码和解析-9">代码和解析</h3>
+<p>正如上一篇文章中所说，模块实例化可以类比为C语言里面的函数调用。</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> top_module(<br>  <span class="hljs-keyword">input</span> 	a,<br>  <span class="hljs-keyword">input</span> 	b,<br>  <span class="hljs-keyword">output</span> 	out<br>);<br>  <br><span class="hljs-comment">// 请用户在下方编辑代码</span><br><br>mod_a mod_a_inst(<span class="hljs-variable">.in1</span>(a),<span class="hljs-variable">.in2</span>(b),<span class="hljs-variable">.out</span>(out));<br><br><span class="hljs-comment">//用户编辑到此为止</span><br><span class="hljs-keyword">endmodule</span><br><br><br><span class="hljs-keyword">module</span> mod_a ( <br>  <span class="hljs-keyword">input</span> 	in1, <br>  <span class="hljs-keyword">input</span> 	in2, <br>  <span class="hljs-keyword">output</span> 	out <br>);<br><span class="hljs-keyword">assign</span> out = in1 &amp; in2;<br><span class="hljs-keyword">endmodule</span><br><br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%95%B0%E7%94%B5/">#数电</a>
+      
+        <a href="/tags/Verilog/">#Verilog</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Vlab Verilog OJ 做题记录(10-20)</div>
+      <div>https://suzumiyaakizuki.github.io/2022/10/10/verilog10-20/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>SuzumiyaAkizuki</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年10月10日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/10/09/%E5%91%A8%E8%AE%B0-20221003-20221009/" title="周记（20221003-20221009）">
+                        <span class="hidden-mobile">周记（20221003-20221009）</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.7.2/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"48fb14f9689ae0d11307","clientSecret":"091ab25a88e87bfd9d9d40d97d1d0d932e694059","repo":"SuzumiyaAkizuki.github.io","owner":"SuzumiyaAkizuki","admin":["SuzumiyaAkizuki"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '51d3d6781a64d06bb84fece4cda2c443'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       Powered by: <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
