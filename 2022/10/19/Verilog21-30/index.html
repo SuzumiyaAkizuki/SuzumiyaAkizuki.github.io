@@ -1,0 +1,967 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <link rel="icon" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="SuzumiyaAkizuki">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="基于端口位置的实例化 题目描述 创建一verilog电路，实现对模块mod_a基于端口位置的实例化，如下图所示：  其中mod_a模块的代码提供为： 12345678module mod_a(    output out1, out2,    input in1,in2,in3,in4);    assign out1 &#x3D; in1 &amp; in2 &amp; in3 &amp; in">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Verilog21-30">
+<meta property="og:url" content="https://suzumiyaakizuki.github.io/2022/10/19/Verilog21-30/index.html">
+<meta property="og:site_name" content="凉宫秋月的文艺部">
+<meta property="og:description" content="基于端口位置的实例化 题目描述 创建一verilog电路，实现对模块mod_a基于端口位置的实例化，如下图所示：  其中mod_a模块的代码提供为： 12345678module mod_a(    output out1, out2,    input in1,in2,in3,in4);    assign out1 &#x3D; in1 &amp; in2 &amp; in3 &amp; in">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210192204193.png">
+<meta property="article:published_time" content="2022-10-19T08:26:10.000Z">
+<meta property="article:modified_time" content="2022-10-19T14:06:27.106Z">
+<meta property="article:author" content="SuzumiyaAkizuki">
+<meta property="article:tag" content="数电">
+<meta property="article:tag" content="Verilog">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210192204193.png">
+  
+  
+  
+  <title>Verilog21-30 - 凉宫秋月的文艺部</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"suzumiyaakizuki.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":"G-J01HK5TZ0Y","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"QGqf9VPGTa96KerO0JvDW3Ld-gzGzoHsz","app_key":"RhwwUaYq4lMo1tCJwcQTWdRp","server_url":"https://qgqf9vpg.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.google-analytics.com/analytics.js', function() {
+          window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
+          ga.l = +new Date;
+          ga('create', 'G-J01HK5TZ0Y', 'auto');
+          ga('send', 'pageview');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>凉宫秋月的文艺部</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友情链接
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210192204193.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Verilog21-30"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        SuzumiyaAkizuki
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-10-19 16:26" pubdate>
+          2022年10月19日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          12k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          24 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Verilog21-30</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="基于端口位置的实例化">基于端口位置的实例化</h2>
+<h3 id="题目描述">题目描述</h3>
+<p>创建一verilog电路，实现对模块mod_a基于端口位置的实例化，如下图所示：</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210191637163.png" srcset="/img/loading.gif" lazyload /></p>
+<p>其中mod_a模块的代码提供为：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> mod_a(<br>    <span class="hljs-keyword">output</span> out1, out2,<br>    <span class="hljs-keyword">input</span> in1,in2,in3,in4);<br>    <span class="hljs-keyword">assign</span> out1 = in1 &amp; in2 &amp; in3 &amp; in4;<br>    <span class="hljs-comment">//这只是一个简单的示例</span><br>    <span class="hljs-keyword">assign</span> out2 = in1 | in2 | in3 | in4;   <br>    <span class="hljs-comment">//这只是一个简单的示例</span><br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<p><strong>Hint:</strong></p>
+<ul>
+<li>实例化名称可以与模块名称相同</li>
+<li>实例化模块时，需要注意端口信号的位宽相匹配，本例中都是1bit，所以不存在问题</li>
+</ul>
+<h3 id="输入格式">输入格式</h3>
+<p>4个1bit信号a, b, c, d</p>
+<h3 id="输出格式">输出格式</h3>
+<p>经由模块mod_a输出的信号out1, out2</p>
+<h3 id="代码和解析">代码和解析</h3>
+<p>如题目所说，像调用函数一样依次传“参数”即可，注意位置要一一对应。</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> mod_a(<br>	<span class="hljs-keyword">output</span> out1, out2,<br>	<span class="hljs-keyword">input</span> in1,in2,in3,in4);<br>	<span class="hljs-keyword">assign</span> out1 = in1 &amp; in2 &amp; in3 &amp; in4; 	<span class="hljs-comment">//这只是一个简单的示例</span><br>	<span class="hljs-keyword">assign</span> out2 = in1 | in2 | in3 | in4;	<span class="hljs-comment">//这只是一个简单的示例</span><br><span class="hljs-keyword">endmodule</span><br><br><br><span class="hljs-keyword">module</span> top_module( <br>    <span class="hljs-keyword">input</span> a, <br>    <span class="hljs-keyword">input</span> b, <br>    <span class="hljs-keyword">input</span> c,<br>    <span class="hljs-keyword">input</span> d,<br>    <span class="hljs-keyword">output</span> out1,<br>    <span class="hljs-keyword">output</span> out2<br>);<br><span class="hljs-comment">// 请用户在下方编辑代码</span><br>    mod_a mod_a_inst(out1,out2,a,b,c,d);<br><br><span class="hljs-comment">// 用户编辑到此为止</span><br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<h2 id="基于端口名称的实例化">基于端口名称的实例化</h2>
+<h3 id="题目描述-1">题目描述</h3>
+<p>创建一 verilog 电路，实现对模块 mod_a 基于端口名称的实例化，如下图所示：</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210191640660.png" srcset="/img/loading.gif" lazyload /></p>
+<p>其中mod_a模块的代码为：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> mod_a (<br>    <span class="hljs-keyword">output</span>   out1,<br>    <span class="hljs-keyword">output</span>   out2,<br>    <span class="hljs-keyword">input</span>    in1,<br>    <span class="hljs-keyword">input</span>    in2,<br>    <span class="hljs-keyword">input</span>    in3,<br>    <span class="hljs-keyword">input</span>    in4<br>);<br>    <span class="hljs-keyword">assign</span> out1 = in1 &amp; in2 &amp; in3 &amp; in4;    <span class="hljs-comment">//这只是一个简单的示例</span><br>    <span class="hljs-keyword">assign</span> out2 = in1 | in2 | in3 | in4;    <span class="hljs-comment">//这只是一个简单的示例</span><br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<h3 id="输入格式-1">输入格式</h3>
+<p>输入信号 a, b, c, d，位宽 1bit。</p>
+<h3 id="输出格式-1">输出格式</h3>
+<p>输出信号 out1, out2，位宽 1bit。</p>
+<h3 id="代码和解析-1">代码和解析</h3>
+<p>除了像C语言一样按顺序传参数以外，Verilog还可以进行基于端口名称的实例化，如这道题所示。</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> mod_a (<br>    <span class="hljs-keyword">output</span>   out1   ,<br>    <span class="hljs-keyword">output</span>   out2   ,<br>    <span class="hljs-keyword">input</span>    in1    ,<br>    <span class="hljs-keyword">input</span>    in2    ,<br>    <span class="hljs-keyword">input</span>    in3    ,<br>    <span class="hljs-keyword">input</span>    in4<br>);<br>    <span class="hljs-keyword">assign</span> out1 = in1 &amp; in2 &amp; in3 &amp; in4;    <span class="hljs-comment">//这只是一个简单的示例</span><br>    <span class="hljs-keyword">assign</span> out2 = in1 | in2 | in3 | in4;    <span class="hljs-comment">//这只是一个简单的示例</span><br><span class="hljs-keyword">endmodule</span><br><br><span class="hljs-keyword">module</span> top_module ( <br>    <span class="hljs-keyword">input</span>   a   ,<br>    <span class="hljs-keyword">input</span>   b   ,<br>    <span class="hljs-keyword">input</span>   c   ,<br>    <span class="hljs-keyword">input</span>   d   ,<br>    <span class="hljs-keyword">output</span>  out1,<br>    <span class="hljs-keyword">output</span>  out2<br>);<br><br>mod_a ul(<br>    <span class="hljs-variable">.out1</span>       (out1),<br>    <span class="hljs-variable">.out2</span>       (out2),<br>    <span class="hljs-variable">.in1</span>        (a),<br>    <span class="hljs-variable">.in2</span>        (b),<br>    <span class="hljs-variable">.in3</span>        (c),<br>    <span class="hljs-variable">.in4</span>        (d));<br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<h2 id="多个模块的例化">多个模块的例化</h2>
+<h3 id="题目描述-2">题目描述</h3>
+<p>对于给定模块my_dff，包含两个输入信号和一个输出信号（D触发器模块），其代码如下：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> my_dff(<span class="hljs-keyword">input</span> clk,<span class="hljs-keyword">input</span> d,<span class="hljs-keyword">output</span> <span class="hljs-keyword">reg</span> q);<br>   <span class="hljs-keyword">always</span>@(<span class="hljs-keyword">posedge</span> clk)<br>      q &lt;= d;<br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<p>请创建一verilog模块，在该模块中将my_dff模块例化3次，并串行连接，使其构成一个长度为3的移位寄存器，其中3个模块公用一个clk信号，如下图所示：</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210191642288.png" srcset="/img/loading.gif" lazyload /></p>
+<p>为实现电路功能，用户需要在顶层模块定义一些内部信号，从而能够将3个例化的模块进行连接。</p>
+<h3 id="输入格式-2">输入格式</h3>
+<p>2个 1bit 位宽信号 clk、d</p>
+<h3 id="输出格式-2">输出格式</h3>
+<p>1个 1bit 位宽信号 q</p>
+<h3 id="代码和解析-2">代码和解析</h3>
+<p>只需要对于图里面的两个粗箭头定义两个<code>wire</code>型中间信号即可。</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> my_dff(<span class="hljs-keyword">input</span> clk,<span class="hljs-keyword">input</span> d,<span class="hljs-keyword">output</span> <span class="hljs-keyword">reg</span> q);<br>    <span class="hljs-keyword">always</span>@(<span class="hljs-keyword">posedge</span> clk)<br>        q &lt;= d;<br><span class="hljs-keyword">endmodule</span><br><br><span class="hljs-keyword">module</span> top_module ( <span class="hljs-keyword">input</span> clk, <span class="hljs-keyword">input</span> d, <span class="hljs-keyword">output</span> q );<br>    <span class="hljs-keyword">wire</span> w1,w2;<br>    my_dff u1(<span class="hljs-variable">.clk</span>(clk),<span class="hljs-variable">.d</span>(d),<span class="hljs-variable">.q</span>(w1));<br>    my_dff u2(<span class="hljs-variable">.clk</span>(clk),<span class="hljs-variable">.d</span>(w1),<span class="hljs-variable">.q</span>(w2));<br>    my_dff u3(<span class="hljs-variable">.clk</span>(clk),<span class="hljs-variable">.d</span>(w2),<span class="hljs-variable">.q</span>(q));<br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<h2 id="模块与向量信号">模块与向量信号</h2>
+<h3 id="题目描述-3">题目描述</h3>
+<p>对于给定模块 my_dff8，其代码如下所示：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> my_dff8(<br><span class="hljs-keyword">input</span> clk,<br><span class="hljs-keyword">input</span> [<span class="hljs-number">7</span>:<span class="hljs-number">0</span>] d,<br><span class="hljs-keyword">output</span> <span class="hljs-keyword">reg</span> [<span class="hljs-number">7</span>:<span class="hljs-number">0</span>] q<br>);<br>    <span class="hljs-keyword">always</span>@(<span class="hljs-keyword">posedge</span> clk)<br>        q &lt;= d;      <br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<p>试创建一 Verilog 模块，对 my_dff8 模块例化 3 次，并串行连接，构成一个 8bit 位宽长度为 3 的移位寄存器，同时可以通过选择信号选择输出结果，如下图所示：</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210191647063.png" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="输入格式-3">输入格式</h3>
+<p>8bit 的任意有效输入</p>
+<h3 id="输出格式-3">输出格式</h3>
+<p>根据 sel 信号，选择一个模块或者原输入作为输出信号</p>
+<h3 id="代码和解析-3">代码和解析</h3>
+<p>比特矢量是可以作为一个信号直接参与模块例化的，这也是我之前说要把比特矢量看成一个“数”的原因之一。</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> my_dff8(<br>  <span class="hljs-keyword">input</span> clk,<br>  <span class="hljs-keyword">input</span> [<span class="hljs-number">7</span>:<span class="hljs-number">0</span>] d,<br>  <span class="hljs-keyword">output</span> <span class="hljs-keyword">reg</span> [<span class="hljs-number">7</span>:<span class="hljs-number">0</span>] q<br>);<br>	<span class="hljs-keyword">always</span>@(<span class="hljs-keyword">posedge</span> clk)<br>    	q &lt;= d;<br><span class="hljs-keyword">endmodule</span><br><br><br><span class="hljs-keyword">module</span> top_module(<br>  <span class="hljs-keyword">input</span> clk,<br>  <span class="hljs-keyword">input</span> [<span class="hljs-number">7</span>:<span class="hljs-number">0</span>] d,<br>  <span class="hljs-keyword">input</span> [<span class="hljs-number">1</span>:<span class="hljs-number">0</span>] sel,<br>  <span class="hljs-keyword">output</span> <span class="hljs-keyword">reg</span> [<span class="hljs-number">7</span>:<span class="hljs-number">0</span>] q<br>);<br>    <span class="hljs-keyword">wire</span> [<span class="hljs-number">7</span>:<span class="hljs-number">0</span>] w1,w2,w3;<br>    my_dff8 u1(<span class="hljs-variable">.clk</span>(clk),<span class="hljs-variable">.d</span>(d),<span class="hljs-variable">.q</span>(w1));<br>    my_dff8 u2(<span class="hljs-variable">.clk</span>(clk),<span class="hljs-variable">.d</span>(w1),<span class="hljs-variable">.q</span>(w2));<br>    my_dff8 u3(<span class="hljs-variable">.clk</span>(clk),<span class="hljs-variable">.d</span>(w2),<span class="hljs-variable">.q</span>(w3));<br>  	<span class="hljs-keyword">always</span> @(*) <span class="hljs-keyword">begin</span><br>        <span class="hljs-keyword">case</span> (sel)<br>            <span class="hljs-number">0</span>:q=d;<br>            <span class="hljs-number">1</span>:q=w1;<br>            <span class="hljs-number">2</span>:q=w2;<br>            <span class="hljs-number">3</span>:q=w3;<br>            <span class="hljs-keyword">default</span> : q=<span class="hljs-number">8&#x27;b00000000</span>;<br>        <span class="hljs-keyword">endcase</span><br>      <span class="hljs-keyword">end</span><br>  <span class="hljs-comment">// Write your code here</span><br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<p>这里用到了<code>always</code>块，是以前没有用到过的，但是我后面几个题的时候再来讲解。</p>
+<h2 id="加法器">加法器</h2>
+<p>对于给定的16bit加法器电路，其代码如下：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> add16 ( <span class="hljs-keyword">input</span>[<span class="hljs-number">15</span>:<span class="hljs-number">0</span>] a, <span class="hljs-keyword">input</span>[<span class="hljs-number">15</span>:<span class="hljs-number">0</span>] b, <span class="hljs-keyword">input</span> cin, <span class="hljs-keyword">output</span>[<span class="hljs-number">15</span>:<span class="hljs-number">0</span>] sum, <span class="hljs-keyword">output</span> cout );<br>    <span class="hljs-keyword">assign</span> &#123;cout,sum&#125; = a + b + cin;<br> <span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<p>试创建一verilog模块，在该模块中实例化两个16bit的加法器，并进行适当的连接，最终构成一个32bit的加法器，该加法器输入进位位为0，如下图所示：</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210191652602.png" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="输入格式-4">输入格式</h3>
+<p>32'b0 32'b0</p>
+<h3 id="输出格式-4">输出格式</h3>
+<p>32'b0</p>
+<h3 id="代码和解析-4">代码和解析</h3>
+<p>这个题只需要读懂逻辑，然后照着图实现就可以了。这是一个典型的链接两个加法器的题，对于一个加法器（全加器），一般有三个输入：<code>a,b</code>是两个加数，<code>cin</code>是用来记录上一步有没有进位的值。输出一般有两个：<code>sum</code>是结果，<code>cout</code>是用来记录这个加法器有没有产生进位的值。</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> add16 ( <span class="hljs-keyword">input</span>[<span class="hljs-number">15</span>:<span class="hljs-number">0</span>] a, <span class="hljs-keyword">input</span>[<span class="hljs-number">15</span>:<span class="hljs-number">0</span>] b, <span class="hljs-keyword">input</span> cin, <span class="hljs-keyword">output</span>[<span class="hljs-number">15</span>:<span class="hljs-number">0</span>] sum, <span class="hljs-keyword">output</span> cout );<br>	<span class="hljs-keyword">assign</span> &#123;cout,sum&#125; = a + b + cin;<br><span class="hljs-keyword">endmodule</span><br><br><span class="hljs-keyword">module</span> top_module(<br>    <span class="hljs-keyword">input</span> [<span class="hljs-number">31</span>:<span class="hljs-number">0</span>] a,<br>    <span class="hljs-keyword">input</span> [<span class="hljs-number">31</span>:<span class="hljs-number">0</span>] b,<br>    <span class="hljs-keyword">output</span> [<span class="hljs-number">31</span>:<span class="hljs-number">0</span>] sum<br>);<br>    <span class="hljs-keyword">wire</span> [<span class="hljs-number">15</span>:<span class="hljs-number">0</span>] sum1,sum2;<br>    <span class="hljs-keyword">wire</span> w1,w2;<br>    add16 u1(<span class="hljs-variable">.a</span>(a[<span class="hljs-number">15</span>:<span class="hljs-number">0</span>]),<span class="hljs-variable">.b</span>(b[<span class="hljs-number">15</span>:<span class="hljs-number">0</span>]),<span class="hljs-variable">.cin</span>(<span class="hljs-number">0</span>),<span class="hljs-variable">.sum</span>(sum1),<span class="hljs-variable">.cout</span>(w1));<br>    add16 u2(<span class="hljs-variable">.a</span>(a[<span class="hljs-number">31</span>:<span class="hljs-number">16</span>]),<span class="hljs-variable">.b</span>(b[<span class="hljs-number">31</span>:<span class="hljs-number">16</span>]),<span class="hljs-variable">.cin</span>(w1),<span class="hljs-variable">.sum</span>(sum2),<span class="hljs-variable">.cout</span>(w2));<br>    <span class="hljs-keyword">assign</span> sum=&#123;sum2,sum1&#125;;<br>  <br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<h2 id="多层次例化加法器">多层次例化加法器</h2>
+<h3 id="题目描述-4">题目描述</h3>
+<p>在此练习中，用户需要创建一个包含两层调用的电路，在顶层模块中，实例化两个16bit位宽的加法器add16,而add16模块又是通过例化16个1bit全加器实现的，如下图所示：</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210191656711.png" srcset="/img/loading.gif" lazyload /></p>
+<p>在本设计中，一共涉及到3个模块，分别是：顶层模块、add16模块、add1模块，其中add16模块源代码如下：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> add16 ( <span class="hljs-keyword">input</span>[<span class="hljs-number">15</span>:<span class="hljs-number">0</span>] a, <span class="hljs-keyword">input</span>[<span class="hljs-number">15</span>:<span class="hljs-number">0</span>] b, <span class="hljs-keyword">input</span> cin, <span class="hljs-keyword">output</span>[<span class="hljs-number">15</span>:<span class="hljs-number">0</span>] sum, <span class="hljs-keyword">output</span> cout);<br><span class="hljs-keyword">wire</span> c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15;<br><br>add1 inst_0(<span class="hljs-variable">.a</span>(a[<span class="hljs-number">0</span>]),<span class="hljs-variable">.b</span>(b[<span class="hljs-number">0</span>]),<span class="hljs-variable">.cin</span>(cin),<span class="hljs-variable">.sum</span>(sum[<span class="hljs-number">0</span>]),<span class="hljs-variable">.cout</span>(c1));<br>add1 inst_1(<span class="hljs-variable">.a</span>(a[<span class="hljs-number">1</span>]),<span class="hljs-variable">.b</span>(b[<span class="hljs-number">1</span>]),<span class="hljs-variable">.cin</span>(c1),<span class="hljs-variable">.sum</span>(sum[<span class="hljs-number">1</span>]),<span class="hljs-variable">.cout</span>(c2));<br>add1 inst_2(<span class="hljs-variable">.a</span>(a[<span class="hljs-number">2</span>]),<span class="hljs-variable">.b</span>(b[<span class="hljs-number">2</span>]),<span class="hljs-variable">.cin</span>(c2),<span class="hljs-variable">.sum</span>(sum[<span class="hljs-number">2</span>]),<span class="hljs-variable">.cout</span>(c3));<br>add1 inst_3(<span class="hljs-variable">.a</span>(a[<span class="hljs-number">3</span>]),<span class="hljs-variable">.b</span>(b[<span class="hljs-number">3</span>]),<span class="hljs-variable">.cin</span>(c3),<span class="hljs-variable">.sum</span>(sum[<span class="hljs-number">3</span>]),<span class="hljs-variable">.cout</span>(c4));<br>add1 inst_4(<span class="hljs-variable">.a</span>(a[<span class="hljs-number">4</span>]),<span class="hljs-variable">.b</span>(b[<span class="hljs-number">4</span>]),<span class="hljs-variable">.cin</span>(c4),<span class="hljs-variable">.sum</span>(sum[<span class="hljs-number">4</span>]),<span class="hljs-variable">.cout</span>(c5));<br>add1 inst_5(<span class="hljs-variable">.a</span>(a[<span class="hljs-number">5</span>]),<span class="hljs-variable">.b</span>(b[<span class="hljs-number">5</span>]),<span class="hljs-variable">.cin</span>(c5),<span class="hljs-variable">.sum</span>(sum[<span class="hljs-number">5</span>]),<span class="hljs-variable">.cout</span>(c6));<br>add1 inst_6(<span class="hljs-variable">.a</span>(a[<span class="hljs-number">6</span>]),<span class="hljs-variable">.b</span>(b[<span class="hljs-number">6</span>]),<span class="hljs-variable">.cin</span>(c6),<span class="hljs-variable">.sum</span>(sum[<span class="hljs-number">6</span>]),<span class="hljs-variable">.cout</span>(c7));<br>add1 inst_7(<span class="hljs-variable">.a</span>(a[<span class="hljs-number">7</span>]),<span class="hljs-variable">.b</span>(b[<span class="hljs-number">7</span>]),<span class="hljs-variable">.cin</span>(c7),<span class="hljs-variable">.sum</span>(sum[<span class="hljs-number">7</span>]),<span class="hljs-variable">.cout</span>(c8));<br>add1 inst_8(<span class="hljs-variable">.a</span>(a[<span class="hljs-number">8</span>]),<span class="hljs-variable">.b</span>(b[<span class="hljs-number">8</span>]),<span class="hljs-variable">.cin</span>(c8),<span class="hljs-variable">.sum</span>(sum[<span class="hljs-number">8</span>]),<span class="hljs-variable">.cout</span>(c9));<br>add1 inst_9(<span class="hljs-variable">.a</span>(a[<span class="hljs-number">9</span>]),<span class="hljs-variable">.b</span>(b[<span class="hljs-number">9</span>]),<span class="hljs-variable">.cin</span>(c9),<span class="hljs-variable">.sum</span>(sum[<span class="hljs-number">9</span>]),<span class="hljs-variable">.cout</span>(c10));<br>add1 inst_10(<span class="hljs-variable">.a</span>(a[<span class="hljs-number">10</span>]),<span class="hljs-variable">.b</span>(b[<span class="hljs-number">10</span>]),<span class="hljs-variable">.cin</span>(c10),<span class="hljs-variable">.sum</span>(sum[<span class="hljs-number">10</span>]),<span class="hljs-variable">.cout</span>(c11));<br>add1 inst_11(<span class="hljs-variable">.a</span>(a[<span class="hljs-number">11</span>]),<span class="hljs-variable">.b</span>(b[<span class="hljs-number">11</span>]),<span class="hljs-variable">.cin</span>(c11),<span class="hljs-variable">.sum</span>(sum[<span class="hljs-number">11</span>]),<span class="hljs-variable">.cout</span>(c12));<br>add1 inst_12(<span class="hljs-variable">.a</span>(a[<span class="hljs-number">12</span>]),<span class="hljs-variable">.b</span>(b[<span class="hljs-number">12</span>]),<span class="hljs-variable">.cin</span>(c12),<span class="hljs-variable">.sum</span>(sum[<span class="hljs-number">12</span>]),<span class="hljs-variable">.cout</span>(c13));<br>add1 inst_13(<span class="hljs-variable">.a</span>(a[<span class="hljs-number">13</span>]),<span class="hljs-variable">.b</span>(b[<span class="hljs-number">13</span>]),<span class="hljs-variable">.cin</span>(c13),<span class="hljs-variable">.sum</span>(sum[<span class="hljs-number">13</span>]),<span class="hljs-variable">.cout</span>(c14));<br>add1 inst_14(<span class="hljs-variable">.a</span>(a[<span class="hljs-number">14</span>]),<span class="hljs-variable">.b</span>(b[<span class="hljs-number">14</span>]),<span class="hljs-variable">.cin</span>(c14),<span class="hljs-variable">.sum</span>(sum[<span class="hljs-number">14</span>]),<span class="hljs-variable">.cout</span>(c15));<br>add1 inst_15(<span class="hljs-variable">.a</span>(a[<span class="hljs-number">15</span>]),<span class="hljs-variable">.b</span>(b[<span class="hljs-number">15</span>]),<span class="hljs-variable">.cin</span>(c15),<span class="hljs-variable">.sum</span>(sum[<span class="hljs-number">15</span>]),<span class="hljs-variable">.cout</span>(cout));<br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<p>现在，你需要完成顶层模块和add1模块的verilog代码。</p>
+<h3 id="输入格式-5">输入格式</h3>
+<p>两个32位宽的加数a,b</p>
+<h3 id="输出格式-5">输出格式</h3>
+<p>32位宽的和sum</p>
+<h3 id="代码和解析-5">代码和解析</h3>
+<p>首先，第一部分是实现一位全加器<code>add1</code>，有两种实现方式。第一种是写出真值表，画出卡诺图并化简成逻辑表达式：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> add1 ( <span class="hljs-keyword">input</span> a, <span class="hljs-keyword">input</span> b, <span class="hljs-keyword">input</span> cin,   <span class="hljs-keyword">output</span> sum, <span class="hljs-keyword">output</span> cout );<br>    <span class="hljs-keyword">wire</span> w1,a1,a2,a3;<br>    <span class="hljs-keyword">assign</span> w1 = a ^ b;<br>    <span class="hljs-keyword">assign</span> sum = w1 ^ cin;<br>    <span class="hljs-keyword">assign</span> a1 = a &amp; b;<br>    <span class="hljs-keyword">assign</span> a2 = a &amp; cin;<br>    <span class="hljs-keyword">assign</span> a3 = b &amp; cin;<br>    <span class="hljs-keyword">assign</span> cout = a1 | a2 | a3;<br><span class="hljs-comment">// Full adder module here</span><br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<p>第二种是基于行为建模，直接写出结果即可：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> add1 ( <span class="hljs-keyword">input</span> a, <span class="hljs-keyword">input</span> b, <span class="hljs-keyword">input</span> cin,   <span class="hljs-keyword">output</span> sum, <span class="hljs-keyword">output</span> cout );<br>    <span class="hljs-keyword">assign</span> &#123;cout,sum&#125;=a+b+cin;<br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<p>然后，第二部分就是<code>top_module</code>，这个没有什么新意，照着图写就行。</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> top_module (<br>    <span class="hljs-keyword">input</span> [<span class="hljs-number">31</span>:<span class="hljs-number">0</span>] a,<br>    <span class="hljs-keyword">input</span> [<span class="hljs-number">31</span>:<span class="hljs-number">0</span>] b,<br>    <span class="hljs-keyword">output</span> [<span class="hljs-number">31</span>:<span class="hljs-number">0</span>] sum);<br>    <br>    <span class="hljs-keyword">wire</span> w1,w2;<br>    <span class="hljs-keyword">wire</span> [<span class="hljs-number">15</span>:<span class="hljs-number">0</span>] sum1,sum2;<br><br>    add16 u1(<br>        <span class="hljs-variable">.a</span>(a[<span class="hljs-number">15</span>:<span class="hljs-number">0</span>]),<br>        <span class="hljs-variable">.b</span>(b[<span class="hljs-number">15</span>:<span class="hljs-number">0</span>]),<br>        <span class="hljs-variable">.cin</span>(<span class="hljs-number">0</span>),<br>        <span class="hljs-variable">.sum</span>(sum1),<br>        <span class="hljs-variable">.cout</span>(w1)<br>    );<br><br>    add16 u2(<br>        <span class="hljs-variable">.a</span>(a[<span class="hljs-number">32</span>:<span class="hljs-number">16</span>]),<br>        <span class="hljs-variable">.b</span>(b[<span class="hljs-number">32</span>:<span class="hljs-number">16</span>]),<br>        <span class="hljs-variable">.cin</span>(w1),<br>        <span class="hljs-variable">.sum</span>(sum2),<br>        <span class="hljs-variable">.cout</span>(w2)<br>    );<br><br>    <span class="hljs-keyword">assign</span> sum = &#123;sum2,sum1&#125;;<br><br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<h2 id="进位选择加法器">进位选择加法器</h2>
+<h3 id="题目描述-5">题目描述</h3>
+<p>前例中的加法器成为串行进位加法器，只有等前一级的加法器运算结束产生进位位之后，下一级加法器才能利用进位位进行计算，因此电路延时会随加法器串联级数的增加而线性增加，这使得电路计算速度大大降低。设每一级全加器的延时为t，则32bit加法器的延时则为：32t。 为降低电路整体延时，我们可以按下图进行设计：</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210191702113.png" srcset="/img/loading.gif" lazyload /></p>
+<p>我们将电路分为两段，每段实现16bit的加法，为了使高16位与低16位同时进行运算，我们采用两个add16对高位进行计算，区别在于进位位分别为0和1，最终通过低16位加法器的输出进位作为选择控制信号，选择高16位的运算结果。这样，32bit加法器的延时就变为：16t+tmux2 ≈16t,延时降低了接近一倍，这种以空间（增加电路）换时间（提高速度）的做法，在数字电路设计中经常使用。 请创建Verilog模块，实现上图中的电路结构，其中add16不需要用户编写，其声明如下：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> add16 ( <span class="hljs-keyword">input</span>[<span class="hljs-number">15</span>:<span class="hljs-number">0</span>] a, <span class="hljs-keyword">input</span>[<span class="hljs-number">15</span>:<span class="hljs-number">0</span>] b, <span class="hljs-keyword">input</span> cin, <span class="hljs-keyword">output</span>[<span class="hljs-number">15</span>:<span class="hljs-number">0</span>] sum, <span class="hljs-keyword">output</span> cout );<br>   <span class="hljs-keyword">assign</span> &#123;cout,sum&#125; = a + b + cin;<br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<h3 id="输入格式-6">输入格式</h3>
+<p>32bit a, 32bit b</p>
+<h3 id="输出格式-6">输出格式</h3>
+<p>32bit sum 为 a 与 b 的和</p>
+<h3 id="代码和解析-6">代码和解析</h3>
+<p>这题和前面几题差不多，没有什么难度，但是这个题介绍的方法很有趣。</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> add16 ( <br>	<span class="hljs-keyword">input</span>[<span class="hljs-number">15</span>:<span class="hljs-number">0</span>] a, <br>    <span class="hljs-keyword">input</span>[<span class="hljs-number">15</span>:<span class="hljs-number">0</span>] b, <br>    <span class="hljs-keyword">input</span> cin, <br>    <span class="hljs-keyword">output</span>[<span class="hljs-number">15</span>:<span class="hljs-number">0</span>] sum, <br>    <span class="hljs-keyword">output</span> cout <br>);<br>	<span class="hljs-keyword">assign</span> &#123;cout,sum&#125; = a + b + cin;<br><span class="hljs-keyword">endmodule</span><br><br><span class="hljs-keyword">module</span> top_module(<br>    <span class="hljs-keyword">input</span> [<span class="hljs-number">31</span>:<span class="hljs-number">0</span>] a,<br>    <span class="hljs-keyword">input</span> [<span class="hljs-number">31</span>:<span class="hljs-number">0</span>] b,<br>    <span class="hljs-keyword">output</span> [<span class="hljs-number">31</span>:<span class="hljs-number">0</span>] sum<br>);<br>    <span class="hljs-keyword">wire</span> [<span class="hljs-number">15</span>:<span class="hljs-number">0</span>] sumH0,sumH1,sumL;<br>    <span class="hljs-keyword">wire</span> coutL;<br>    add16 H0(<br>        <span class="hljs-variable">.a</span>(a[<span class="hljs-number">32</span>:<span class="hljs-number">16</span>]),<br>        <span class="hljs-variable">.b</span>(b[<span class="hljs-number">32</span>:<span class="hljs-number">16</span>]),<br>        <span class="hljs-variable">.cin</span>(<span class="hljs-number">0</span>),<br>        <span class="hljs-variable">.sum</span>(sumH0)<br>    );<br>    add16 H1(<br>        <span class="hljs-variable">.a</span>(a[<span class="hljs-number">32</span>:<span class="hljs-number">16</span>]),<br>        <span class="hljs-variable">.b</span>(b[<span class="hljs-number">32</span>:<span class="hljs-number">16</span>]),<br>        <span class="hljs-variable">.cin</span>(<span class="hljs-number">1</span>),<br>        <span class="hljs-variable">.sum</span>(sumH1)<br>    );<br>    add16 L(<br>        <span class="hljs-variable">.a</span>(a[<span class="hljs-number">15</span>:<span class="hljs-number">0</span>]),<br>        <span class="hljs-variable">.b</span>(b[<span class="hljs-number">15</span>:<span class="hljs-number">0</span>]),<br>        <span class="hljs-variable">.cin</span>(<span class="hljs-number">0</span>),<br>        <span class="hljs-variable">.sum</span>(sumL),<br>        <span class="hljs-variable">.cout</span>(coutL)<br>    );<br>    <span class="hljs-keyword">assign</span> sum=(coutL?&#123;sumH1,sumL&#125;:&#123;sumH0,sumL&#125;);<br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<h2 id="加法减法器">加法减法器</h2>
+<h3 id="题目描述-6">题目描述</h3>
+<p>通过对加法器进行改造，可以支持加、减两种运算。我们知道，电路中有符号数通常使用补码表示，如<span class="math inline">\(-b\)</span>其补码为：<span class="math inline">\(\sim b + 1\)</span>（按位取反然后加1）。因此，对于减法算式<span class="math inline">\(a-b\)</span>,可以理解为<span class="math inline">\(a+(-b) = a+(\sim b+1)= a + (\sim b) +1\)</span>,因此对于减法运算，可以将加法器进行如下改造实现</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210191705188.png" srcset="/img/loading.gif" lazyload /></p>
+<p>实现减法运算时，首先通过32bit的异或门，将信号b按位取反，同时将输入进位位置1，实现加法运算时，b保持不变，输入进位位置0。 其中add16模块代码如下，用户可直接调用：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> add16 ( <span class="hljs-keyword">input</span>[<span class="hljs-number">15</span>:<span class="hljs-number">0</span>] a, <span class="hljs-keyword">input</span>[<span class="hljs-number">15</span>:<span class="hljs-number">0</span>] b, <span class="hljs-keyword">input</span> cin, <span class="hljs-keyword">output</span>[<span class="hljs-number">15</span>:<span class="hljs-number">0</span>] sum, <span class="hljs-keyword">output</span> cout );<br>	<span class="hljs-keyword">assign</span> &#123;cout,sum&#125; = a + b + cin;<br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<p>请创建Verilog模块，实现上述电路功能。</p>
+<h3 id="输入格式-7">输入格式</h3>
+<p>32位的a,b，以及一个1位信号sub，sub为1时为减法，sub为0时为加法</p>
+<h3 id="输出格式-7">输出格式</h3>
+<p>32位信号sum 注：我想你读到这里的时候，一定跟我一样想着直接用sum=(sub==0?a+b:a-b)逃课了，但是请老老实实地按题目要求分高位低位取补码相加哦~~~</p>
+<h3 id="代码与解析">代码与解析</h3>
+<p>我们先对<span class="math inline">\(b\)</span>进行一个处理。如果题目要求加，即<code>sub==0</code>，那么不需要做任何处理，直接加即可。但是如果题目要求减，即<code>sub==1</code>，那么需要求取<code>b</code>的反码，即<code>~b</code>。我们很容易想到，异或可以完成这个工作：遇到0不变，遇到1取反。所以我们可以直接把<code>b</code>和<code>sub</code>异或。</p>
+<p>由于减法是<span class="math inline">\(a+(-b) = a+(\sim b+1)= a + (\sim b) +1\)</span>，为了实现这个加一，我们直接把<code>sub</code>信号接到第一个全加器的<code>cin</code>上即可。</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> add16 ( <span class="hljs-keyword">input</span>[<span class="hljs-number">15</span>:<span class="hljs-number">0</span>] a, <span class="hljs-keyword">input</span>[<span class="hljs-number">15</span>:<span class="hljs-number">0</span>] b, <span class="hljs-keyword">input</span> cin, <span class="hljs-keyword">output</span>[<span class="hljs-number">15</span>:<span class="hljs-number">0</span>] sum, <span class="hljs-keyword">output</span> cout );<br>	<span class="hljs-keyword">assign</span> &#123;cout,sum&#125; = a + b + cin;<br><span class="hljs-keyword">endmodule</span><br><span class="hljs-keyword">module</span> top_module(<br>    <span class="hljs-keyword">input</span> [<span class="hljs-number">31</span>:<span class="hljs-number">0</span>] a,<br>    <span class="hljs-keyword">input</span> [<span class="hljs-number">31</span>:<span class="hljs-number">0</span>] b,<br>    <span class="hljs-keyword">input</span> sub,<br>    <span class="hljs-keyword">output</span> [<span class="hljs-number">31</span>:<span class="hljs-number">0</span>] sum<br>);<br>    <span class="hljs-keyword">wire</span> [<span class="hljs-number">31</span>:<span class="hljs-number">0</span>] bXorSub;<br>    <span class="hljs-keyword">wire</span> [<span class="hljs-number">15</span>:<span class="hljs-number">0</span>] sum1,sum2;<br>    <span class="hljs-keyword">wire</span> w1;<br>    <span class="hljs-keyword">assign</span> bXorSub = b ^ &#123;<span class="hljs-number">32</span>&#123;sub&#125;&#125;;<br>    add16 u1(<br>        <span class="hljs-variable">.a</span>(a[<span class="hljs-number">15</span>:<span class="hljs-number">0</span>]),<br>        <span class="hljs-variable">.b</span>(bXorSub[<span class="hljs-number">15</span>:<span class="hljs-number">0</span>]),<br>        <span class="hljs-variable">.cin</span>(sub),<br>        <span class="hljs-variable">.sum</span>(sum1),<br>        <span class="hljs-variable">.cout</span>(w1)<br>    );<br>    add16 u2(<br>        <span class="hljs-variable">.a</span>(a[<span class="hljs-number">31</span>:<span class="hljs-number">16</span>]),<br>        <span class="hljs-variable">.b</span>(bXorSub[<span class="hljs-number">31</span>:<span class="hljs-number">16</span>]),<br>        <span class="hljs-variable">.cin</span>(w1),<br>        <span class="hljs-variable">.sum</span>(sum2)<br>    );<br>    <span class="hljs-keyword">assign</span> sum=&#123;sum2,sum1&#125;;<br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<h2 id="always过程块_组合逻辑">always过程块_组合逻辑</h2>
+<h3 id="题目描述-7">题目描述</h3>
+<p>所有的数字电路都是由逻辑门和连线构成的，因此理论上来说都可以通过模块的连接和<code>assign</code>语句进行描述，然而在很多情况下这并不是最方便的一种方式，过程块提供了一种更加方便的描述方式，<code>always</code>过程块便是其中最常用的一种。 对于可综合电路（即能转化成实际电路的verilog描述方式，与之相对的是不可综合电路，多用于电路仿真，不能转换成实际电路），有两种<code>always</code>块的语法形式：</p>
+<ul>
+<li>组合逻辑电路：<code>always@(*)</code></li>
+<li>时序逻辑电路：<code>always@(posedge clk)</code></li>
+</ul>
+<p>组合逻辑电路的<code>always</code>块与<code>assign</code>语句等效，用户描述组合逻辑电路时，可根据便利性选择其中一种方式使用。两者生成的硬件电路一般是等效的，但在语法规则上稍有不同：</p>
+<ul>
+<li><code>assign</code>语句只能对一个信号进行赋值，<code>always</code>块内可对多个信号进行赋值</li>
+<li><code>assign</code>语句中被赋值信号为<code>wire</code>类型，<code>always</code>块内被赋值信号需定义为<code>reg</code>类型</li>
+<li><code>always</code>块内支持更加丰富的语法，如使用<code>if…else..</code>、<code>case</code>等适合实现交复杂的组合逻辑 例如下述两条语句是等效的（out1需定义为<code>wire</code>类型，out2需定义为<code>reg</code>类型，但这仅仅是语法上的要求，生成的电路并没有区别）： <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">assign</span> out1 = a &amp; b | c ^ d;<br><span class="hljs-keyword">always</span> @(*) out2 = a &amp; b | c ^ d;<br></code></pre></td></tr></table></figure> 其对应的电路图如下所示：</li>
+</ul>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210192023388.png" srcset="/img/loading.gif" lazyload /></p>
+<p><code>always</code>语句后的括号内放的是敏感变量列表，对于上例来说，可以写成<code>always @(a,b,c,d) out2 = a &amp; b | c ^ d</code>，但为了简单起见，我们一般都用符号<code>*</code>代替。 试创建一verilog模块，实现一与门，分别用<code>assign</code>语句和<code>always</code>块实现。</p>
+<h3 id="输入格式-8">输入格式</h3>
+<p>1位的a，1位的b</p>
+<h3 id="输出格式-8">输出格式</h3>
+<p>1位的out_assign，1位的out_alwaysblock</p>
+<h3 id="代码和解析-7">代码和解析</h3>
+<p>这道题向我们介绍了一个叫做“过程块”的事物，它就是<code>always</code>。在过程块中被赋值的变量必须是<code>reg</code>类型，尽管综合时可能和平常所使用的<code>assign</code>得到的电路没有区别。</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> top_module(<br>    <span class="hljs-keyword">input</span> a, <br>    <span class="hljs-keyword">input</span> b,<br>    <span class="hljs-keyword">output</span> <span class="hljs-keyword">wire</span> out_assign,<br>    <span class="hljs-keyword">output</span> <span class="hljs-keyword">reg</span> out_alwaysblock<br>);<br>    <span class="hljs-keyword">assign</span> out_assign = a &amp; b;<br>    <span class="hljs-keyword">always</span> @(*) <span class="hljs-keyword">begin</span><br>        out_alwaysblock = a &amp; b;<br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<h2 id="always过程块_时序逻辑">always过程块_时序逻辑</h2>
+<h3 id="题目描述-8">题目描述</h3>
+<p>通过前例已经了解到，对于可综合电路，有两种always块的语法形式：</p>
+<ul>
+<li>组合逻辑电路：<code>always@(*)</code></li>
+<li>时序逻辑电路：<code>always@(posedge clk)</code></li>
+</ul>
+<p>用always描述的时序逻辑电路，除了像组合逻辑always块那样生成组合逻辑电路外，还会生成一组触发器（或称寄存器），用于寄存组合逻辑的输出。寄存器的输出只有在时钟的上升沿时（<code>posedge clk</code>）才会更新，其余时刻均保持不变。 阻塞赋值和非阻塞赋值： 在Verilog中，有三种赋值方式，分别为：</p>
+<ul>
+<li>连续赋值（如<code>assign x = y;</code>），该赋值方式只能用于过程块(如always块)之外</li>
+<li>阻塞赋值（如<code>x = y;</code>），该赋值方式只能用在过程块（如<code>always@（*）</code>）内</li>
+<li>非阻塞赋值（如<code>x &lt;= y;</code>），该赋值方式只能用在过程块内（如<code>always@（posedge clk）</code>）</li>
+</ul>
+<p>在设计Verilog模块时，请遵循以下原则：</p>
+<ul>
+<li>在组合逻辑的always块内采用阻塞赋值</li>
+<li>时序逻辑的always块内采用非阻塞赋值</li>
+</ul>
+<p>违背这一原则将可能导致难以发现的电路错误，且可能导致仿真与综合的不一致，请用户切记。至于为何这样，初学者可以不必理会，简单理解为verilog语法规范性要求即可。 创建一verilog电路，分别采用上述三种赋值方式实现异或门电路，如下图所示：</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210192119474.png" srcset="/img/loading.gif" lazyload /></p>
+<p><strong>Hint</strong></p>
+<ul>
+<li>always块内被赋值的信号都应定义成reg类型</li>
+<li>always块内，组合逻辑采用阻塞赋值（<code>a = b</code>），时序逻辑采用非阻塞赋值（<code>a &lt;= b</code>）</li>
+<li>always语句括号内是敏感变量列表，时序逻辑是边沿敏感的，<code>posedge clk</code>表示的是clk信号的上升沿，此外，还可以是<code>negedge clk</code>，表示clk信号的下降沿。</li>
+</ul>
+<h3 id="输入格式-9">输入格式</h3>
+<p>一位线网型变量clk，a, b。clk为时钟，a，b为输入</p>
+<h3 id="输出格式-9">输出格式</h3>
+<p>一位线网型变量out_assign，out_always_comb，out_always_ff。out_assign为a，b连续赋值得到的结果。out_always_comb为a，b阻塞赋值得到的结果。out_always_ff为a，b非阻塞赋值得到的结果</p>
+<h3 id="代码和解析-8">代码和解析</h3>
+<p>连续性赋值总是处于激活状态，任何操作数的改变都会影响表达式的结果；过程赋值只有在语句执行的时候，才会起作用。这是连续性赋值与过程性赋值的区别。</p>
+<p>阻塞赋值属于顺序执行，即下一条语句执行前，当前语句一定会执行完毕。例如：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">wire</span> sel, a, b ;<br><span class="hljs-keyword">reg</span> y , c ;<br><span class="hljs-keyword">always</span> @( sel <span class="hljs-keyword">or</span> a <span class="hljs-keyword">or</span> b ) <span class="hljs-keyword">begin</span><br>    <span class="hljs-keyword">if</span> ( sel == <span class="hljs-number">1&#x27;b1</span> ) <span class="hljs-keyword">begin</span><br>        c = a ;<br>        y = c ；<span class="hljs-comment">//实际就是y=a，这为了展示依次描述过程</span><br>    <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">else</span> y = b ;<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+<p>这就是阻塞赋值，先执行<code>c=a</code>，再执行<code>y=c</code>，这段代码等价于：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">wire</span> sel, a, b, y ;<br><span class="hljs-keyword">assign</span> y = ( sel == <span class="hljs-number">1</span>’b1 ) ? a : b ;<br></code></pre></td></tr></table></figure>
+<p>非阻塞赋值属于并行执行语句，即下一条语句的执行和当前语句的执行是同时进行的，它不会阻塞位于同一个语句块中后面语句的执行。例如：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> Cyclic_shifter ( clk, rst_n, Q );<br>    <span class="hljs-keyword">input</span> clk, rst_n ;<br>    <span class="hljs-keyword">output</span> [ <span class="hljs-number">2</span> : <span class="hljs-number">0</span> ] Q ;<br>    <span class="hljs-keyword">reg</span> [ <span class="hljs-number">2</span> : <span class="hljs-number">0</span> ] Q ;<br>    <span class="hljs-keyword">always</span> @ ( <span class="hljs-keyword">posedge</span> clk <span class="hljs-keyword">or</span> <span class="hljs-keyword">negedge</span> rst_n ) <span class="hljs-keyword">begin</span><br>        <span class="hljs-keyword">if</span> ( ~rst_n ) Q &lt;= <span class="hljs-number">3&#x27;b001</span> ;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">begin</span><br>            Q[<span class="hljs-number">0</span>] &lt;= Q[<span class="hljs-number">2</span>] ; <span class="hljs-comment">//相当于 Q &lt;= &#123; Q[1:0], Q[2]&#125; ;</span><br>            Q[<span class="hljs-number">1</span>] &lt;= Q[<span class="hljs-number">0</span>] ; <span class="hljs-comment">//这里只是为了展示非阻塞赋值，</span><br>            Q[<span class="hljs-number">2</span>] &lt;= Q[<span class="hljs-number">1</span>] ; <span class="hljs-comment">//实际上，可打乱这3句的次序，无影响</span><br>        <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<p>非阻塞赋值是先计算出要“赋”的“值”，然后到块结束再统一“赋予”。例如上面的代码，就是利用非阻塞赋值来交换了三个变量的值。</p>
+<p>本题的代码为：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> top_module(<br>    <span class="hljs-keyword">input</span> clk,<br>    <span class="hljs-keyword">input</span> a,<br>    <span class="hljs-keyword">input</span> b,<br>    <span class="hljs-keyword">output</span> <span class="hljs-keyword">wire</span> out_assign,<br>    <span class="hljs-keyword">output</span> <span class="hljs-keyword">reg</span> out_always_comb,<br>    <span class="hljs-keyword">output</span> <span class="hljs-keyword">reg</span> out_always_ff   <br>);<br><span class="hljs-comment">// 请用户在下方编辑代码</span><br>    <span class="hljs-keyword">assign</span> out_assign = a ^ b;<br>    <span class="hljs-keyword">always</span> @(*) <span class="hljs-keyword">begin</span><br>        out_always_comb = a ^ b;    <br>    <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">always</span> @(<span class="hljs-keyword">posedge</span> clk) <span class="hljs-keyword">begin</span><br>        out_always_ff &lt;= a ^ b;<br>    <span class="hljs-keyword">end</span><br><span class="hljs-comment">//用户编辑到此为止</span><br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+<h2 id="ifelse语句">if…else…语句</h2>
+<p>题目描述</p>
+<p>if语句用于过程块内部，其对应的电路是二选一的选择器，</p>
+<p>以下述代码为例：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">always</span>@(*)<br><span class="hljs-keyword">begin</span><br><span class="hljs-keyword">if</span>(condition) out = x;<br>  <span class="hljs-keyword">else</span> out = y;<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+<p>上述代码与下面的assign语句完全等效：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">assign</span> out = (condition) ? x : y;<br></code></pre></td></tr></table></figure>
+<p>试创建一Verilog模块，分别采用assing语句和过程块内的if语句实现下述选择器电路：</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210192154335.png" srcset="/img/loading.gif" lazyload /></p>
+<p><strong>Hint：</strong> 1. if…else…可以嵌套使用</p>
+<ol start="2" type="1">
+<li>使用if语句描述组合逻辑时，务必加上else语句，以免产生锁存器（数字电路设计中应尽力避免产生锁存器）</li>
+<li>本题两个输出信号波形其实是完全一致的，原则上是为了训练大家采用assign和过程块内的if语句使用，所以希望大家能够两种方式都各自尝试一下</li>
+</ol>
+<h3 id="输入格式-10">输入格式</h3>
+<p>信号a, b, 选择信号sel_b1, sel_b2</p>
+<h3 id="输出格式-10">输出格式</h3>
+<p>通过assign语句选择的信号out_assign 通过if语句选择的信号out_always</p>
+<h3 id="代码和解析-9">代码和解析</h3>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> top_module(<br>    <span class="hljs-keyword">input</span> a,<br>    <span class="hljs-keyword">input</span> b,<br>    <span class="hljs-keyword">input</span> sel_b1,<br>    <span class="hljs-keyword">input</span> sel_b2,<br>    <span class="hljs-keyword">output</span> <span class="hljs-keyword">wire</span> out_assign,<br>    <span class="hljs-keyword">output</span> <span class="hljs-keyword">reg</span> out_always); <br><span class="hljs-comment">// 请用户在下方编辑代码</span><br>    <span class="hljs-keyword">assign</span> out_assign = (sel_b1 &amp; sel_b2) ? b : a;<br>    <span class="hljs-keyword">always</span> @(*) <span class="hljs-keyword">begin</span><br>        <span class="hljs-keyword">if</span>(sel_b1 &amp; sel_b2)<br>            out_always = b;<br>        <span class="hljs-keyword">else</span> <br>            out_always = a;<br>    <span class="hljs-keyword">end</span><br><span class="hljs-comment">//用户编辑到此为止</span><br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%95%B0%E7%94%B5/">#数电</a>
+      
+        <a href="/tags/Verilog/">#Verilog</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Verilog21-30</div>
+      <div>https://suzumiyaakizuki.github.io/2022/10/19/Verilog21-30/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>SuzumiyaAkizuki</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年10月19日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/10/19/%E5%91%A8%E8%AE%B0%EF%BC%8820221010-20221016%EF%BC%89/" title="周记（20221010-20221016）">
+                        <span class="hidden-mobile">周记（20221010-20221016）</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.7.2/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"48fb14f9689ae0d11307","clientSecret":"091ab25a88e87bfd9d9d40d97d1d0d932e694059","repo":"SuzumiyaAkizuki.github.io","owner":"SuzumiyaAkizuki","admin":["SuzumiyaAkizuki"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: 'a4c113626ccabcbbde6daa24e8d2d3f9'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       Powered by: <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
