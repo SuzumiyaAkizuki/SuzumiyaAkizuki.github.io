@@ -16,16 +16,16 @@
   <meta name="author" content="SuzumiyaAkizuki">
   <meta name="keywords" content="">
   
-    <meta name="description" content="[toc] 第二章：离散时间信号与系统 离数时间序列 序列的表示方式略。 序列的分类 有限长度&#x2F;无限长度序列、左&#x2F;右&#x2F;双边序列、因果&#x2F;非因果序列、实&#x2F;复数序列的定义很显然，就是字面意思，略。  周期序列和非周期序列 周期序列的定义： \[ \exist N\neq 0\ \forall n\ x[n]&#x3D;x[n+N] \] 满足上面式子的序列称为周期序列，否则称为非周期序列。需要">
+    <meta name="description" content="[toc] 第二章：离散时间信号与系统 离数时间序列 序列的表示方式略。 序列的分类 有限长度&#x2F;无限长度序列、左&#x2F;右&#x2F;双边序列、因果&#x2F;非因果序列、实&#x2F;复数序列的定义很显然，就是字面意思，略。  周期序列和非周期序列 周期序列的定义： \[ \exists N\neq 0\ \forall n\ x[n]&#x3D;x[n+N] \] 满足上面式子的序列称为周期序列，否则称为非周期序列。需">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数字信号处理前四章笔记">
 <meta property="og:url" content="https://suzumiyaakizuki.github.io/2022/10/26/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%E5%89%8D%E5%9B%9B%E7%AB%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="凉宫秋月的文艺部">
-<meta property="og:description" content="[toc] 第二章：离散时间信号与系统 离数时间序列 序列的表示方式略。 序列的分类 有限长度&#x2F;无限长度序列、左&#x2F;右&#x2F;双边序列、因果&#x2F;非因果序列、实&#x2F;复数序列的定义很显然，就是字面意思，略。  周期序列和非周期序列 周期序列的定义： \[ \exist N\neq 0\ \forall n\ x[n]&#x3D;x[n+N] \] 满足上面式子的序列称为周期序列，否则称为非周期序列。需要">
+<meta property="og:description" content="[toc] 第二章：离散时间信号与系统 离数时间序列 序列的表示方式略。 序列的分类 有限长度&#x2F;无限长度序列、左&#x2F;右&#x2F;双边序列、因果&#x2F;非因果序列、实&#x2F;复数序列的定义很显然，就是字面意思，略。  周期序列和非周期序列 周期序列的定义： \[ \exists N\neq 0\ \forall n\ x[n]&#x3D;x[n+N] \] 满足上面式子的序列称为周期序列，否则称为非周期序列。需">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210310011371.jpg">
 <meta property="article:published_time" content="2022-10-26T02:00:12.000Z">
-<meta property="article:modified_time" content="2022-10-31T15:30:41.129Z">
+<meta property="article:modified_time" content="2022-11-01T01:26:19.204Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="DSP">
 <meta name="twitter:card" content="summary_large_image">
@@ -267,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          9.1k 字
+          9.2k 字
         
       </span>
     
@@ -342,7 +342,7 @@
 <ul>
 <li><p>周期序列和非周期序列</p>
 <p>周期序列的定义： <span class="math display">\[
-\exist N\neq 0\ \forall n\ x[n]=x[n+N]
+\exists N\neq 0\ \forall n\ x[n]=x[n+N]
 \]</span> 满足上面式子的序列称为周期序列，否则称为非周期序列。需要提醒的是：如果一个序列满足上面的式子，它一定是无限长的双边序列，也就是<span class="math inline">\(n\)</span>从负无穷取遍正无穷。例如：<span class="math inline">\(x[n]=\sin (\pi n/5)\)</span>是周期序列，但<span class="math inline">\(x[n]=u[n]\sin(\pi n/5)\)</span>不是周期序列。</p></li>
 <li><p>能量序列和功率序列</p>
 <p>如果对序列<span class="math inline">\(x[n]\)</span>有： <span class="math display">\[
@@ -359,7 +359,7 @@ P=\lim_{N\to \infty} \frac{1}{N} \sum_{n=n}^{N-1}\lvert x[n]\rvert^2
 <li><p>复指数序列</p>
 <p>对于指数序列 <span class="math display">\[
 x[n]=A\alpha^n
-\]</span> 如果<span class="math inline">\(A,\alpha\)</span>是复数，那么这个序列是复指数序列。若有<span class="math inline">\(A=|A|\ang \varphi,\alpha=|\alpha|\ang\omega_0\)</span>，则复指数序列也可以表示成： <span class="math display">\[
+\]</span> 如果<span class="math inline">\(A,\alpha\)</span>是复数，那么这个序列是复指数序列。若有<span class="math inline">\(A=|A|\angle \varphi,\alpha=|\alpha|\angle \omega_0\)</span>，则复指数序列也可以表示成： <span class="math display">\[
 x[n]=|A||\alpha|^n\exp [j(\omega_0n+\varphi)]
 \]</span> 复指数序列表现为一列不断收缩或者扩张的螺旋。特别地，当<span class="math inline">\(|\alpha|=1\)</span>时，复指数序列的幅值保持不变。此时，如果满足 <span class="math display">\[
 \frac {\omega_0}{2N}\in \mathbb Q
@@ -404,8 +404,10 @@ y[n]-ay[n-1]=x[n]
 <h2 id="dtftdfs和z变换">DTFT、DFS和Z变换</h2>
 <h3 id="离散时间傅里叶变换dtft">离散时间傅里叶变换(DTFT)</h3>
 <p>首先，我们可以回忆一下连续时间信号的傅里叶变换： <span class="math display">\[
+\begin{align}
 X(j\Omega)=\int_{-\infty}^\infty x(t)e^{-j\Omega t}\mathbf dt\\
 x(t)=\frac{1}{2\pi}\int_{-\infty}^\infty X(j\Omega)e^{j\Omega t}\mathbf d\Omega
+\end{align}
 \]</span></p>
 <h4 id="dtft的定义">DTFT的定义</h4>
 <p>和连续时间傅里叶变换类似，DTFT是要把序列<span class="math inline">\(x[n]\)</span>表示序列<span class="math inline">\(e^{j\omega n }\mathbf d\omega\)</span>的线性组合： <span class="math display">\[
@@ -436,15 +438,19 @@ x^*[n]\to X^*(e^{-j\omega})
 </ol>
 <h4 id="dtft的对称性">DTFT的对称性</h4>
 <p>对于一个序列<span class="math inline">\(x[n]\)</span>，有其共轭逆序序列<span class="math inline">\(x^*[-n]\)</span>，利用这个序列，我们可以把原序列分解<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="为什么说“分解”呢？因为$x[n]=x_e[n]+x_o[n]$显然成立。">[2]</span></a></sup>成共轭对称序列和共轭反对称序列，即： <span class="math display">\[
-x_e[n]=\frac 12(x[n]+x^*[-n])\\\\
+\begin{align}
+x_e[n]=\frac 12(x[n]+x^*[-n])\\
 x_o[n]=\frac 12(x[n]-x^*[-n])
+\end{align}
 \]</span> 同样，对于连续函数（当然这里说的连续函数就是<span class="math inline">\(X(e^{j\omega})\)</span>，也可以按照类似的方法进行分解。</p>
 <p>共轭对称序列<span class="math inline">\(x_e[n]\)</span>的实部偶对称，虚部奇对称；共轭反对称序列<span class="math inline">\(x_o[n]\)</span>的实部奇对称，虚部偶对称。</p>
 <p>利用“共轭性质”，“线性性质”，有： <span class="math display">\[
-x_{Re}[n]\to X_e(e^{j\omega})\\\\
-jx_{Im}[n]\to X_o(e^{j\omega})\\\\
-x_e[n]\to X_{Re}(e^{j\omega})\\\\
+\begin{align}
+x_{Re}[n]\to X_e(e^{j\omega})\\
+jx_{Im}[n]\to X_o(e^{j\omega})\\
+x_e[n]\to X_{Re}(e^{j\omega})\\
 x_o[n]\to jX_{Im}(e^{j\omega})
+\end{align}
 \]</span> 由第一个式子，可以看出：实序列的DTFT幅度谱是偶函数，相位谱是奇函数。</p>
 <h3 id="离散傅里叶级数dfs">离散傅里叶级数（DFS）</h3>
 <p>DFS就是把DTFT里面的<span class="math inline">\(\omega\)</span>换成<span class="math inline">\(2\pi k/N\)</span>，其中<span class="math inline">\(N\)</span>是原序列的周期，<span class="math inline">\(k\)</span>是变换后得到的权序列的自变量。</p>
@@ -468,8 +474,8 @@ y[n]=x[n]*h[n]=\sum_{k=-\infty}^\infty e^{j\omega(n-k)}h[k]=e^{j\omega n}H(e^{j\
 \]</span> 所以LTI系统的其中一个特征函数就是<span class="math inline">\(x[n]=e^{j\omega n}\)</span>（事实上，所有的指数型函数，例如<span class="math inline">\(5^n\)</span>等，都是特征函数，而且，指数型函数和指数型函数的有限项乘积也是特征函数，但是形容<span class="math inline">\(e^{j\omega n}u[n]\)</span>这种就不行），其对应的特征值为<span class="math inline">\(H(e^{j\omega})\)</span>。</p>
 <p>而且，由傅里叶变换，我们知道：序列<span class="math inline">\(x[n]\)</span>往往可以表示为<span class="math inline">\(e^{j\omega n}\)</span>的线性组合，即<span class="math inline">\(x[n]=\frac{1}{2\pi}\int_{-\pi}^\pi X(e^{j\omega})e^{j\omega n}d\omega\)</span>。于是，我们将其中的每一项乘以对应的特征值，就得到了输出<span class="math inline">\(y[n]=\frac{1}{2\pi}\int_{-\pi}^\pi X(e^{j\omega})H(e^{j\omega})e^{j\omega n}d\omega\)</span>。于是我们得到了： <span class="math display">\[
 Y(e^{j\omega})=X(e^{j\omega})H(e^{j\omega})
-\]</span> 如果LTI系统的相频响应满足<span class="math inline">\(\ang H(e^{j\omega})=-\omega n_d\)</span>，那么称这样的系统为线性相位系统。线性相位系统对所有频率分量<span class="math inline">\(e^{j\omega n}\)</span>造成的延迟均为<span class="math inline">\(n_d\)</span>。一般来说，我们用群延时衡量相位变化对信号的影响，有： <span class="math display">\[
-\tau(\omega)=-\frac{d}{d\omega}\ang H(e^{j\omega})
+\]</span> 如果LTI系统的相频响应满足<span class="math inline">\(\angle H(e^{j\omega})=-\omega n_d\)</span>，那么称这样的系统为线性相位系统。线性相位系统对所有频率分量<span class="math inline">\(e^{j\omega n}\)</span>造成的延迟均为<span class="math inline">\(n_d\)</span>。一般来说，我们用群延时衡量相位变化对信号的影响，有： <span class="math display">\[
+\tau(\omega)=-\frac{d}{d\omega}\angle H(e^{j\omega})
 \]</span> 如果群延时不是常数，那么会造成输出信号的失真，这称为色散。</p>
 <h4 id="lti系统的z变换分析">LTI系统的Z变换分析</h4>
 <p>对于以下差分方程表示的系统： <span class="math display">\[
