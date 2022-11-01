@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210310011371.jpg">
 <meta property="article:published_time" content="2022-10-26T02:00:12.000Z">
-<meta property="article:modified_time" content="2022-10-30T16:12:21.401Z">
+<meta property="article:modified_time" content="2022-10-31T15:30:41.129Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="DSP">
 <meta name="twitter:card" content="summary_large_image">
@@ -267,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.6k 字
+          9.1k 字
         
       </span>
     
@@ -278,7 +278,7 @@
         
         
         
-          12 分钟
+          19 分钟
         
       </span>
     
@@ -490,9 +490,90 @@ H(z)=\frac{b_0}{a_0}\frac{\prod_{m=1}^M(1-c_mz^{-1})}{\prod_{n=1}^N (1-d_nz^{-1}
 </ul>
 <h4 id="有理系统的全通分解">有理系统的全通分解</h4>
 <ul>
+<li><p>幅频特性相同的系统</p>
+<p>若有一个有理实系统，把其中的若干个零点或极点用它的共轭倒数代替，新系统的幅频响应和原来的系统相同。于是，如果设计好一个系统的幅频特性，一定存在符合要求的因果稳定LTI系统，其极点都在单位圆内。</p></li>
 <li><p>全通系统</p>
-<p>全通指的是<span class="math inline">\(|H(e^{j\omega})|\equiv1\)</span>的系统，仅有相频特性随频率变化而变化。全通系统的零极点相对单位圆是镜像共轭成对的。也就是说：如果<span class="math inline">\(a_i\)</span>是系统的零点，那么<span class="math inline">\(\frac{1}{a_i^*}\)</span>，即<span class="math inline">\(a_i\)</span>的共轭的倒数，定是全通系统的极点。此外，对于有理实系数系统来说，零点和极点本身也是共轭成对的，即如果<span class="math inline">\(b_i\)</span>是零点或极点，那么它的共轭一定也是零点或极点。</p></li>
+<p>全通指的是<span class="math inline">\(|H(e^{j\omega})|\equiv1\)</span>的系统，仅有相频特性随频率变化而变化。全通系统的零极点相对单位圆是镜像共轭成对的。也就是说：如果<span class="math inline">\(a_i\)</span>是系统的零点，那么<span class="math inline">\((a_i^*)^{-1}\)</span>，即<span class="math inline">\(a_i\)</span>的共轭的倒数，定是全通系统的极点。而且，对于有理实系数系统来说，零点和极点本身也是共轭成对的，即如果<span class="math inline">\(b_i\)</span>是零点或极点，那么它的共轭一定也是零点或极点。</p>
+<p>全通系统具有以下性质：</p>
+<ul>
+<li><p>相位特性随频率单调下降，即 <span class="math display">\[
+\frac{\rm d\theta(\omega)}{\rm d\omega}&lt;0
+\]</span></p></li>
+<li><p>输入信号<span class="math inline">\(x[n]\)</span>和输出信号<span class="math inline">\(y[n]\)</span>的能量相同，即 <span class="math display">\[
+\sum_{n=-\infty}^\infty\lvert x[n]\rvert^2=\sum_{n=-\infty}^\infty\lvert y[n]\rvert^2
+\]</span></p></li>
+<li><p>当频率<span class="math inline">\(\omega\)</span>从<span class="math inline">\(0\)</span>变化到<span class="math inline">\(\pi\)</span>时，<span class="math inline">\(N\)</span>阶全通系统的相位改变为<span class="math inline">\(N\pi\)</span></p></li>
 </ul>
+<p>全通系统的应用主要在作相位均衡器，或者通过级联全通系统的方法提高系统的稳定性。</p></li>
+<li><p>最小相位系统</p>
+<p>对于一个离散时间因果稳定系统，它的极点都在单位圆内。如果在此基础上，零点也都在单位圆内，那么这样的系统叫做最小相位系统<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="也就是说最小相位系统的意思就是零极点都在单位圆内。">[3]</span></a></sup>；如果零点全在单位圆外，叫最大相位系统；如果零点在单位圆内外都有，叫混合相位系统。</p>
+<p>最小相位系统有以下性质：</p>
+<ul>
+<li>在所有幅频响应相同的因果稳定系统中，最小相位系统的相位延迟最小</li>
+<li>在所有幅频响应相同的实系数因果稳定系统中，最小相位系统的群延时最小</li>
+<li>最小相位系统的逆系统也是最小相位系统</li>
+</ul>
+<blockquote>
+<p>【例】因果序列<span class="math inline">\(x[n]\)</span>的<span class="math inline">\(z\)</span>变换为 <span class="math display">\[
+X(z)=\frac{\left(1-\frac 12 z^{-1}\right)\left(1-\frac 14 z^{-1}\right)\left(1-\frac 15 z\right)}{\left(1-\frac 16 z\right)}
+\]</span> 又已知<span class="math inline">\(\alpha^nx[n]\)</span>是一个最小相位系统，求<span class="math inline">\(\alpha\)</span>的范围。</p>
+<p>【解】只有不在单位圆内的有一个零点<span class="math inline">\(5\)</span>和一个极点<span class="math inline">\(6\)</span>。记<span class="math inline">\(y[n]=\alpha^nx[n]\)</span>，则有 <span class="math display">\[
+Y(z)=\sum_{n=-\infty}^\infty\alpha^nx[n]z^{-n}=X\left(\frac z\alpha\right)
+\]</span> 如果<span class="math inline">\(a_i\)</span>是<span class="math inline">\(X(z)\)</span>的零点或极点，那么<span class="math inline">\(a_i\cdot\alpha\)</span>就是<span class="math inline">\(Y(z)\)</span>的零点或极点。为了让<span class="math inline">\(Y(z)\)</span>的所有零极点都在单位圆内，只需调整<span class="math inline">\(\alpha\)</span>，让<span class="math inline">\(6\alpha\)</span>在单位圆内即可。于是有： <span class="math display">\[
+\alpha&lt;\frac 16
+\]</span></p>
+</blockquote></li>
+<li><p>有理系统的全通分解</p>
+<p>任何有理系统函数都可以分解为最小相位系统<span class="math inline">\(H_{min}(z)\)</span>和全通系统<span class="math inline">\(H_{ap}(z)\)</span>级联的形式。假设系统仅有一个单位圆外的零点<span class="math inline">\((c^*)^{-1}\)</span>，即： <span class="math display">\[
+H(z)=H_1(z)(z^{-1}-c^*)
+\]</span> 则<span class="math inline">\(H_1\)</span>的零极点都在单位圆内，是最小相位系统。上式可以进一步表示为： <span class="math display">\[
+H(z)=H_1(z)(z^{-1}-c^*)\frac{1-cz^{-1}}{1-cz^{-1}}=H_1(z)(1-cz^{-1})\frac{z^{-1}-c^*}{1-cz^{-1}}
+\]</span> 其中<span class="math inline">\(\frac{z^{-1}-c^*}{1-cz^{-1}}\)</span>的零点是<span class="math inline">\((c^*)^{-1}\)</span>，极点是<span class="math inline">\(c\)</span>，互为共轭倒数，是全通系统，记作<span class="math inline">\(H_{ap}(z)\)</span>。因为<span class="math inline">\(|z|&lt;1\)</span>，其余部分是最小相位系统，记作<span class="math inline">\(H_{min}(z)\)</span>，于是分解完成。</p>
+<p>上述过程的实质是在单位圆外零点<span class="math inline">\((c^*)^{-1}\)</span>的共轭倒数<span class="math inline">\(c\)</span>的位置放置了一个零点和一个极点。<span class="math inline">\(c\)</span>上的极点和<span class="math inline">\((c^*)^{-1}\)</span>这个零点一起构成了全通系统；<span class="math inline">\(c\)</span>上的极点和原来系统的其它零极点构成了最小相位系统。</p>
+<blockquote>
+<p>【例】把以下系统分解成全通系统和最小相位系统的级联 <span class="math display">\[
+H(z)=\frac{1-3z^{-1}}{1+\frac 12 z^{-1}}
+\]</span> 【解】该系统有<span class="math inline">\(z=-1/2\)</span>的极点和<span class="math inline">\(z=3\)</span>的零点。即<span class="math inline">\((c^*)^{-1}=3\)</span>，得<span class="math inline">\(c=1/3\)</span>。则有： <span class="math display">\[
+\begin{align}
+H(z)&amp;=\frac{-3}{1+\frac 12 z^{-1}}\left(z^{-1}-\frac 13\right)\\
+&amp;=-3\left(\frac{1-\frac 13z^{-1}}{1+\frac 12 z^{-1}}\right)\left(\frac{z^{-1}-\frac 13}{1-\frac 13z^{-1}}\right)
+\end{align}
+\]</span> 于是： <span class="math display">\[
+H_{min}(z)=-3\left(\frac{1-\frac 13z^{-1}}{1+\frac 12 z^{-1}}\right)
+\]</span></p>
+<p><span class="math display">\[
+H_{ap}(z)=\left(\frac{z^{-1}-\frac 13}{1-\frac 13z^{-1}}\right)
+\]</span></p>
+</blockquote></li>
+</ul>
+<h4 id="广义线性相位系统">广义线性相位系统</h4>
+<p>所谓的线性相位的意思是，系统对不同频率的正弦信号所产生的相移和正弦信号的频率呈线性关系。即： <span class="math display">\[
+\angle H(e^{j\omega})=-\alpha \omega
+\]</span> 那么广义线性相位的意思就是，给这个加上一个常数，变成 <span class="math display">\[
+\angle H(e^{j\omega})=\beta-\alpha \omega
+\]</span> 经过一番数学推导，相频响应满足上面式子的系统的单位脉冲响应满足以下等式： <span class="math display">\[
+\sum_{n=-\infty}^\infty h[n]\sin(\omega(n-\alpha)+\beta)=0
+\]</span> 满足上面式子的情况的两组解如下：</p>
+<ul>
+<li><span class="math inline">\(\beta=0\)</span>或<span class="math inline">\(\pi\)</span>，<span class="math inline">\(2\alpha=M\in \mathbb N\)</span>，<span class="math inline">\(h[2\alpha-n]=h[n]\)</span></li>
+<li><span class="math inline">\(\beta=\pi/2\)</span>或<span class="math inline">\(3\pi/2\)</span>，<span class="math inline">\(2\alpha=M\in \mathbb N\)</span>，<span class="math inline">\(h[2\alpha-n]=-h[n]\)</span></li>
+</ul>
+<p>于是，我们可以分出四种广义线性相位系统。</p>
+<ul>
+<li><p>第I类广义线性相位系统</p>
+<p>该类系统满足<span class="math inline">\(h[M-n]=h[n]\)</span>，即<span class="math inline">\(h[n]\)</span>关于<span class="math inline">\(M/2\)</span>偶对称，而且<span class="math inline">\(M\)</span>是偶数。第I类的<span class="math inline">\(\beta=0,\pi\)</span>。所以相频响应是过原点的直线，斜率是<span class="math inline">\(-M/2\)</span>，群延时是<span class="math inline">\(M/2\)</span>。</p>
+<p>这类系统的广义幅频响应<span class="math inline">\(A(e^{j\omega})\)</span>关于<span class="math inline">\(\omega=m\pi,m\in \mathbb Z\)</span>偶对称。</p></li>
+<li><p>第II类广义线性相位系统</p>
+<p>该类系统满足<span class="math inline">\(h[M-n]=h[n]\)</span>，即<span class="math inline">\(h[n]\)</span>关于<span class="math inline">\(M/2\)</span>偶对称，而且<span class="math inline">\(M\)</span>是奇数。第II类的<span class="math inline">\(\beta=0,\pi\)</span>。所以相频响应是过原点的直线，斜率是<span class="math inline">\(-M/2\)</span>，群延时是<span class="math inline">\(M/2\)</span>。</p>
+<p>这类系统的广义幅频响应<span class="math inline">\(A(e^{j\omega})\)</span>关于<span class="math inline">\(\omega=2m\pi,m\in \mathbb Z\)</span>偶对称，关于<span class="math inline">\(\omega=(2m+1)\pi,m\in \mathbb Z\)</span>奇对称，幅度函数在<span class="math inline">\(\pi\)</span>时为零，不适合作高通、带阻滤波器。</p></li>
+<li><p>第III类广义线性相位系统</p>
+<p>该类系统满足<span class="math inline">\(h[M-n]=-h[n]\)</span>，即<span class="math inline">\(h[n]\)</span>关于<span class="math inline">\(M/2\)</span>奇对称，而且<span class="math inline">\(M\)</span>是偶数。第III类的<span class="math inline">\(\beta=\pi/2,3\pi/2\)</span>。所以相频响应是不过原点的直线（过<span class="math inline">\((0,\pi/2)\)</span>或<span class="math inline">\((0,3\pi/2)\)</span>），斜率是<span class="math inline">\(-M/2\)</span>，群延时是<span class="math inline">\(M/2\)</span>。</p>
+<p>这类系统的广义幅频响应<span class="math inline">\(A(e^{j\omega})\)</span>关于<span class="math inline">\(\omega=m\pi,m\in \mathbb Z\)</span>奇对称。</p></li>
+<li><p>第IV类广义线性相位系统</p>
+<p>该类系统满足<span class="math inline">\(h[M-n]=-h[n]\)</span>，即<span class="math inline">\(h[n]\)</span>关于<span class="math inline">\(M/2\)</span>奇对称，而且<span class="math inline">\(M\)</span>是奇数。第IV类的<span class="math inline">\(\beta=0,\pi\)</span>。所以相频响应是过原点的直线，斜率是<span class="math inline">\(-M/2\)</span>，群延时是<span class="math inline">\(M/2\)</span>。</p>
+<p>这类系统的广义幅频响应<span class="math inline">\(A(e^{j\omega})\)</span>关于<span class="math inline">\(\omega=2m\pi,m\in \mathbb Z\)</span>奇对称，关于<span class="math inline">\(\omega=(2m+1)\pi,m\in \mathbb Z\)</span>偶对称，幅度函数在<span class="math inline">\(\pi\)</span>时为零，不适合作低通、带通滤波器。</p></li>
+</ul>
+<p>对于广义线性系统而言，如果<span class="math inline">\(z_0\)</span>是系统的零点，那么<span class="math inline">\(z_0^{-1},z_0^*,(z_0^*)^{-1}\)</span>也是系统的零点。</p>
 <p>【未完待续】</p>
 <hr />
 <section class="footnotes">
@@ -503,6 +584,9 @@ H(z)=\frac{b_0}{a_0}\frac{\prod_{m=1}^M(1-c_mz^{-1})}{\prod_{n=1}^N (1-d_nz^{-1}
 </li>
 <li>
 <span id="fn:2" class="footnote-text"><span>为什么说“分解”呢？因为<span class="math inline">(x[n]=x_e[n]+x_o[n])</span>显然成立。 <a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩︎</a></span></span>
+</li>
+<li>
+<span id="fn:3" class="footnote-text"><span>也就是说最小相位系统的意思就是零极点都在单位圆内。 <a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩︎</a></span></span>
 </li>
 </ol>
 </div>
