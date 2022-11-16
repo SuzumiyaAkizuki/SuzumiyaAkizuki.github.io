@@ -1,0 +1,1078 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <link rel="icon" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="SuzumiyaAkizuki">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="[toc] 数制和码制 数制 数制指的是数字每一位的构成方法，以及从低位到高位的进位规则。常用的数制有十进制、二进制、八进制、十六进制。 k进制数字的基本表示方式为： \[ (\cdots x_2x_1x_0.x_{-1}x_{-2}\cdots)_k&#x3D;\sum_{i&#x3D;-\infty}^{\infty}x_i\times k^i \] 不同数制的转换方式  任意进制到十进制的转换">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数字电子技术学习笔记">
+<meta property="og:url" content="https://suzumiyaakizuki.github.io/2022/11/16/%E6%95%B0%E5%AD%97%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="凉宫秋月的文艺部">
+<meta property="og:description" content="[toc] 数制和码制 数制 数制指的是数字每一位的构成方法，以及从低位到高位的进位规则。常用的数制有十进制、二进制、八进制、十六进制。 k进制数字的基本表示方式为： \[ (\cdots x_2x_1x_0.x_{-1}x_{-2}\cdots)_k&#x3D;\sum_{i&#x3D;-\infty}^{\infty}x_i\times k^i \] 不同数制的转换方式  任意进制到十进制的转换">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162142585.jpg">
+<meta property="article:published_time" content="2022-11-16T06:21:15.000Z">
+<meta property="article:modified_time" content="2022-11-16T13:43:10.971Z">
+<meta property="article:author" content="SuzumiyaAkizuki">
+<meta property="article:tag" content="数电">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162142585.jpg">
+  
+  
+  
+  <title>数字电子技术学习笔记 - 凉宫秋月的文艺部</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"suzumiyaakizuki.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":"G-J01HK5TZ0Y","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"QGqf9VPGTa96KerO0JvDW3Ld-gzGzoHsz","app_key":"RhwwUaYq4lMo1tCJwcQTWdRp","server_url":"https://qgqf9vpg.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.google-analytics.com/analytics.js', function() {
+          window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
+          ga.l = +new Date;
+          ga('create', 'G-J01HK5TZ0Y', 'auto');
+          ga('send', 'pageview');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>凉宫秋月的文艺部</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友情链接
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162142585.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="数字电子技术学习笔记"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        SuzumiyaAkizuki
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-11-16 14:21" pubdate>
+          2022年11月16日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          14 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">数字电子技术学习笔记</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>[toc]</p>
+<h2 id="数制和码制">数制和码制</h2>
+<h3 id="数制">数制</h3>
+<p>数制指的是数字每一位的构成方法，以及从低位到高位的进位规则。常用的数制有十进制、二进制、八进制、十六进制。</p>
+<p>k进制数字的基本表示方式为： <span class="math display">\[
+(\cdots x_2x_1x_0.x_{-1}x_{-2}\cdots)_k=\sum_{i=-\infty}^{\infty}x_i\times k^i
+\]</span></p>
+<h4 id="不同数制的转换方式">不同数制的转换方式</h4>
+<ul>
+<li><p>任意进制到十进制的转换</p>
+<p>直接按上面的式子展开即可。</p>
+<blockquote>
+<p>【例】<span class="math inline">\((8FA.C)_{16}=8\times 16^2+F\times16^1+A\times16^0+C\times16^{-1}=(2298.75)_{10}\)</span></p>
+</blockquote></li>
+<li><p>十-二转换</p>
+<p>整数部分用除二取余法，小数部分用乘二取整法。这成天写，我不展开了，忘了就随便拿个什么11啊这种数字推一下。</p></li>
+<li><p>二-十六（八）转换</p>
+<p>分组对应法最快。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211161438587.png" srcset="/img/loading.gif" lazyload alt="进制转换对应表" /><figcaption aria-hidden="true">进制转换对应表</figcaption>
+</figure></li>
+</ul>
+<p>不同进制下四则运算的规则和方法和十进制一致。</p>
+<h4 id="原码反码和补码">原码、反码和补码</h4>
+<ul>
+<li><p>原码</p>
+<p>最高位（最左边的一位）表示正负号，0为+，1为-，其余各位表示数的绝对值。</p>
+<p>表示范围为<span class="math inline">\(-(2^{n-1}-1)\sim (2^{n-1}-1)\)</span>，0的表示不唯一</p></li>
+<li><p>反码</p>
+<p>正数和原码的规则一样，有符号位和绝对值；负数是它的相反数整体（含符号位）取反，当然也可以理解成，负数的符号位是1，绝对值按位取反。</p>
+<p>表示范围为<span class="math inline">\(-(2^{n-1}-1)\sim (2^{n-1}-1)\)</span>，0的表示不唯一</p></li>
+<li><p>补码</p>
+<p>正数和原码的规则一样；负数为“反码加一”，即符号位为1，绝对值按位取反，再加一。</p>
+<p>表示范围为<span class="math inline">\(-(2^{n-1})\sim (2^{n-1}-1)\)</span>，0的表示唯一。</p>
+<p>补码加减法运算，符号位参与运算，而且应该在相应位数表示的数值范围内进行，进位直接丢弃。</p>
+<blockquote>
+<p>【例】利用补码加法计算39-22</p>
+<p>【解】<span class="math inline">\((39)_{10}=(0|010\ 0111)_{2},(-22)_{10}=(1|110\ 1010)_2\)</span>，两个二进制数相加后为<span class="math inline">\((1\ 0001\ 0001)_2\)</span>，舍弃溢出位，得结果为<span class="math inline">\((0|001\ 0001)_2=(17)_{10}\)</span></p>
+</blockquote>
+<p>补码的运算有模的特性。</p></li>
+</ul>
+<h3 id="码制">码制</h3>
+<ul>
+<li><p>BCD码</p>
+<p>BCD码，即二-十进制代码，它是用二进制代码表示十进制数码的编码方法，也就是0~9这十个符号的二进制编码。分为恒权码和变权码等。</p>
+<p>例如：8421码，就是从高位到低位的权依次是8421（和普通二进制一样），它的有效编码是0000<sub>1001，分别代表0</sub>9，其它的是非法码。</p>
+<p>还有其他的编码，比如2421码、余3码、余3循环码等。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211161527716.png" srcset="/img/loading.gif" lazyload alt="常用BCD码" /><figcaption aria-hidden="true">常用BCD码</figcaption>
+</figure></li>
+<li><p>格雷码</p>
+<p>格雷码的特性如下：</p>
+<ul>
+<li>单位距离：相邻码字仅有一个位元不同，其它位都相同。</li>
+<li>循环相邻：对于n位循环码，如果从第0个码字开始，最大范围是第<span class="math inline">\((2^n-1)\)</span>个码字，而对<span class="math inline">\((2^n-1)\)</span>的编码一定是<span class="math inline">\(( 2^ {n-1})\)</span>的自然二进制码。</li>
+<li>镜像反射</li>
+</ul></li>
+</ul>
+<h2 id="逻辑代数">逻辑代数</h2>
+<p>逻辑运算的大部分知识已经在“离散数学”课程中讲过了，这里仅进行补充。这里“<span class="math inline">\(\cdot\)</span>”表示与，"<span class="math inline">\(+\)</span>"表示或，<span class="math inline">\(\overline{X}\)</span>表示非，<span class="math inline">\(\oplus\)</span>表示异或，<span class="math inline">\(\odot\)</span>表示异或。</p>
+<h3 id="逻辑函数的两种标准形式">逻辑函数的两种标准形式</h3>
+<p>两种标准形式就是指标准与或表达式（也叫最小项之和，主析取范式），和标准或与表达式（也叫最大项之积，主合取范式）。</p>
+<ul>
+<li><p>标准与或表达式</p>
+<p>形如下列式子的形式： <span class="math display">\[
+\begin{align}
+Y&amp;=AB\overline{C}+ABC+\overline{A}BC\\
+&amp;=m_{3}+m_{6}+m_{7}\\
+&amp;=\sum m(3,6,7)
+\end{align}
+\]</span> 这三个形式都是标准与或表达式。<span class="math inline">\(m\)</span>下面的下标由对应的最小项确定（没有取反的项记为1，有取反的项记为1，构成一个二进制串，转换为十进制即可）。</p></li>
+<li><p>标准或与表达式</p>
+<p>形如下面的式子： <span class="math display">\[
+\begin{align}
+Y&amp;=(A+B+C)(A+B+\overline{C})(\overline{A}+B+C)\\
+&amp;=M_0M_1M_4\\
+&amp;=\prod M(0,1,4)
+\end{align}
+\]</span> 和上面的一样，不赘述了。</p></li>
+</ul>
+<h3 id="逻辑化简">逻辑化简</h3>
+<p>公式法略。</p>
+<h4 id="卡诺图法">卡诺图法</h4>
+<p>卡诺图法是一种从真值表出发得到最简与或表达式的方法。使用卡诺图的步骤如下：</p>
+<ol type="1">
+<li><p>先记住这几个标准格式</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211161607455.png" srcset="/img/loading.gif" lazyload alt="卡诺图" /><figcaption aria-hidden="true">卡诺图</figcaption>
+</figure>
+<p>其实很好记的，横纵坐标就是格雷码的顺序，这也是为了利用单位距离性。</p></li>
+<li><p>在逻辑函数为真的格子上填1，逻辑函数为假的格子填0</p></li>
+<li><p>画卡诺圈（乘积项），合并最小项（1），反复利用互补律化简。卡诺圈的形状可以是日字形，田字形，而且有循环边界条件。</p>
+<p>互补律：<span class="math inline">\(A\overline{A}=0,A+\overline{A}=1\)</span></p>
+<p>画卡诺圈时应该遵循以下原则：</p>
+<ol type="1">
+<li>“1”格不能漏圈</li>
+<li>“1”格可以属于一个以上的圈</li>
+<li>圈越大越好</li>
+<li>圈越少越好</li>
+<li>每个圈应该包含至少一个新的“1”格</li>
+</ol></li>
+</ol>
+<h4 id="无关项">无关项</h4>
+<p>有时候，输入逻辑变量的某些取值组合禁止出现，这种叫做“约束项”。有时候，一些取值组合出现时，输出逻辑值可以是任意的，这种叫做“任意项”。以上两个统称为无关项。在化简时，把无关项用X表示，在画卡诺圈时，X既可以被当作1，也可以被当作0，具体看你需要。</p>
+<h4 id="逻辑函数形式的转换">逻辑函数形式的转换</h4>
+<p>除了我们前面说的最简与或式以外，还有一些常用的形式。</p>
+<ul>
+<li><p>最简或与式</p>
+<p>在画出<span class="math inline">\(Y\)</span>的卡诺图后，合并<span class="math inline">\(0\)</span>方格，求反函数的最简与或表达式，然后使用德摩根公式进行反演变换，得到原函数的最简或与表达式</p>
+<p>德摩根公式： <span class="math display">\[
+\overline{AB}=\overline{A}+\overline{B},\overline{A+B}=\overline{A}\cdot\overline{B}
+\]</span></p></li>
+</ul>
+<blockquote>
+<p>【例】已知Y的反函数，求Y的最简或与式。 <span class="math display">\[
+\overline{Y}=AB+CD+B\overline{D}
+\]</span> 【解】 <span class="math display">\[
+\begin{align}
+Y&amp;=\overline{AB}\cdot\overline{CD}\cdot\overline{B\overline{D}}\\
+&amp;=(\overline{A}+\overline{B})(\overline{C}+\overline{D})(\overline{B}+\overline{D})
+\end{align}
+\]</span></p>
+</blockquote>
+<ul>
+<li><p>或非-或非式</p>
+<p>先求出最简或与式，对最简或与式求两次反，再用一次德摩根公式展开。</p>
+<blockquote>
+<p>【例】 <span class="math display">\[
+\overline{\overline{(A+B)(\overline{A}+C)}}\to \overline{\overline{A+B}+\overline{\overline{A}+C}}
+\]</span></p>
+</blockquote>
+<p>也可以在求出反函数的最简与或表达式的时候，直接对反函数两端求反，在对各个乘积项用德摩根公式</p>
+<blockquote>
+<p>【例】 <span class="math display">\[
+\begin{align}
+&amp;\overline Y=\overline A\cdot \overline B+A\overline C\\
+&amp;\to Y=\overline{\overline A\cdot \overline B+A\overline C}\\
+&amp;\to Y=\overline{\overline{A+B}+\overline{\overline A+C}}
+\end{align}
+\]</span></p>
+</blockquote></li>
+<li><p>与非-与非式</p>
+<p>把与或表达式两次取反，再用德摩根公式即可。</p>
+<blockquote>
+<p>【例】 <span class="math display">\[
+\begin{aligned}
+Y &amp;={A C+\overline{A} B} \\
+&amp;=\overline{\overline{A C+\overline{A} B}} \\
+&amp;=\overline{\overline{A \cdot C} \cdot \overline{\overline{A} \cdot B}}
+\end{aligned}
+\]</span></p>
+</blockquote></li>
+<li><p>与或非式</p>
+<p>先求反函数的最简与或表达式，再求反。</p>
+<blockquote>
+<p>【例】 <span class="math display">\[
+\begin{align}
+Y&amp;=A C+\overline{A} B \\
+\overline{Y}&amp;=\overline{A} \cdot \overline{B}+A \cdot \overline{C} \\
+Y&amp;=\overline{\overline{A} \cdot \overline{B}+A \cdot \overline{C}}
+\end{align}
+\]</span></p>
+</blockquote></li>
+</ul>
+<h2 id="门电路">门电路</h2>
+<h3 id="cmos门电路">CMOS门电路</h3>
+<p>要研究CMOS门电路，首先要认识MOS器件以及它们的特性。</p>
+<h4 id="mos管的基本概念">MOS管的基本概念</h4>
+<p>MOS管全名叫“结型场效应晶体管”，我们平常见到的有以下四种</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211161943768.png" srcset="/img/loading.gif" lazyload alt="常见MOS管符号" /><figcaption aria-hidden="true">常见MOS管符号</figcaption>
+</figure>
+<p>注意看：箭头方向决定是N还是P，线的虚实决定是增强还是耗尽。</p>
+<p>MOS管的符号也有简化画法，如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211161944750.png" srcset="/img/loading.gif" lazyload alt="MOS管符号的简化画法" /><figcaption aria-hidden="true">MOS管符号的简化画法</figcaption>
+</figure>
+<p>它们的特性按P、N和增强、耗尽，有所不同：</p>
+<ul>
+<li><strong>N沟道</strong>的，当<span class="math inline">\(V_{GS}\)</span>接足够大的正向电压时，<span class="math inline">\(DS\)</span>之间相当于联通。<strong>P沟道</strong>的，当<span class="math inline">\(V_{GS}\)</span>之间接足够大的反向电压，<span class="math inline">\(DS\)</span>之间相当于导通。</li>
+<li><strong>增强型</strong>，开启电压为正。以<span class="math inline">\(N\)</span>沟道为例，当<span class="math inline">\(V_{GS}&gt;V_{GS(th)}&gt;0\)</span>时，<span class="math inline">\(DS\)</span>之间才能相当于联通。<strong>耗尽型</strong>，截止电压为负。以<span class="math inline">\(N\)</span>沟道为例，只要<span class="math inline">\(V&gt;V_{GS(off)}\)</span>，其中<span class="math inline">\(V_{GS(off)}&lt;0\)</span>，<span class="math inline">\(DS\)</span>之间就能导通，也就是说为了让N沟道耗尽型的DS之间不再导通，<span class="math inline">\(V_{GS}\)</span>需要一个足够大的负值电压才行。</li>
+</ul>
+<p>为了加深对这个特性的理解，我们来分析一下下面这个电路：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211161954418.png" srcset="/img/loading.gif" lazyload alt="未知的CMOS门电路" /><figcaption aria-hidden="true">未知的CMOS门电路</figcaption>
+</figure>
+<p>约定：<span class="math inline">\(V_{DD}\)</span>大于两管开启电源绝对值之和。</p>
+<ul>
+<li>当<span class="math inline">\(V_i=0\)</span>（接低电平）时，<span class="math inline">\(T_1\)</span>P沟道增强型MOS管的<span class="math inline">\(V_{GS}=-V_{DD}&lt;V_{GS(th)P}\)</span>，于是<span class="math inline">\(T_1\)</span>两端相当于连通，<span class="math inline">\(V_o=V_{DD}\)</span>，输出高电平。此时<span class="math inline">\(T_2\)</span>截止，两端相当于断路。</li>
+<li>当<span class="math inline">\(V_i=V_{DD}\)</span>（接低电平）时，<span class="math inline">\(T_2\)</span>N沟道增强型MOS管的<span class="math inline">\(V_{GS}=V_{DD}&gt;V_{GS(th)N}\)</span>，于是<span class="math inline">\(T_2\)</span>导通，<span class="math inline">\(V_o\)</span>输出地（0V），此时<span class="math inline">\(T_1\)</span>截止，两端相当于断路。</li>
+<li>综上所述，这是个非门。</li>
+</ul>
+<h4 id="经典门电路的mos管实现">经典门电路的MOS管实现</h4>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162009771.png" srcset="/img/loading.gif" lazyload alt="MOS门电路" /><figcaption aria-hidden="true">MOS门电路</figcaption>
+</figure>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162009164.png" srcset="/img/loading.gif" lazyload alt="MOS门电路" /><figcaption aria-hidden="true">MOS门电路</figcaption>
+</figure>
+<p>对于CMOS器件构成的门电路，不允许输入端悬空，输入端经电阻接地时和低电平等效，输入端经电阻接电源时和高电平等效。</p>
+<h4 id="od门">OD门</h4>
+<p>OD门全称为漏极开关输出门电路，它的电路长这样：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162017294.png" srcset="/img/loading.gif" lazyload alt="OD与非门电路详图" /><figcaption aria-hidden="true">OD与非门电路详图</figcaption>
+</figure>
+<p>其逻辑符号为门电路符号里面加一个带下划线的菱形，如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162018140.png" srcset="/img/loading.gif" lazyload alt="OD与非门逻辑符号" /><figcaption aria-hidden="true">OD与非门逻辑符号</figcaption>
+</figure>
+<p>OD门要正常工作，必须把输出端经过一个上拉电阻和电源相连。也就是电路详图中的<span class="math inline">\(R_L\)</span>，这样一来，输出的高电平具体是几伏，就取决于<span class="math inline">\(V_{DD2}\)</span>而不是<span class="math inline">\(V_{DD1}\)</span>了。</p>
+<p>把多个OD门的输出端直接接在一起，可以构成“线与”逻辑，如下图所示：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162022900.png" srcset="/img/loading.gif" lazyload alt="线与接法" /><figcaption aria-hidden="true">线与接法</figcaption>
+</figure>
+<p>这时，有<span class="math inline">\(Y=Y_1Y_2\)</span>。有时，线与的与门符号省略，直接用圆点表示。</p>
+<p>在选取<span class="math inline">\(R_L\)</span>时，应该注意以下原则：</p>
+<ol type="1">
+<li><p><span class="math inline">\(R_L\)</span>不能太大，以保证<span class="math inline">\(V_{DD}-V_{R_L}\geq V_{OH}\)</span>。在这个条件下，有： <span class="math display">\[
+R_{\mathrm{L}}\leq\frac{V_{\mathrm{DD}}-V_{\mathrm{OH}}}{n \cdot I_{\mathrm{OH}}+m \cdot I_{\mathrm{IH}}}
+\]</span> 这里的<span class="math inline">\(V_{DD}\)</span>当然是<span class="math inline">\(R_L\)</span>连接的那个电源，其中<span class="math inline">\(n\)</span>是OD门的数目，<span class="math inline">\(m\)</span>是下一级输入端的数目（比如说，一个与非门一般有两个输入端），<span class="math inline">\(I_{OH}\)</span>是OD门截止时的漏电流，<span class="math inline">\(I_{IH}\)</span>是负载门每个输入端的高电平输入电流</p></li>
+<li><p><span class="math inline">\(R_L\)</span>不能过小，以保证“灌入”的负载电流不大于单只OD门可承受的输入电流。有： <span class="math display">\[
+R_{\mathrm{L}} \geq \frac{V_{\mathrm{DD}}-V_{\mathrm{OL}}}{I_{\mathrm{OL}(\mathrm{OD})}-m \cdot I_{\mathrm{IL}}}
+\]</span> <span class="math inline">\(m\)</span>是下一级输入端的数目。</p></li>
+</ol>
+<h4 id="传输门">传输门</h4>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162030714.png" srcset="/img/loading.gif" lazyload alt="CMOS传输门电路和逻辑符号" /><figcaption aria-hidden="true">CMOS传输门电路和逻辑符号</figcaption>
+</figure>
+<p>其特性为：</p>
+<ul>
+<li><span class="math inline">\(C\)</span>接高电平而<span class="math inline">\(\overline{C}\)</span>接低电平，<span class="math inline">\(V_o=V_i\)</span>，相当于信号直接通过</li>
+<li><span class="math inline">\(C\)</span>接低电平而<span class="math inline">\(\overline{C}\)</span>接高电平，相当于中间的电路断开，输出是高阻态。</li>
+</ul>
+<h4 id="三态门">三态门</h4>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162032490.png" srcset="/img/loading.gif" lazyload alt="三态门符号" /><figcaption aria-hidden="true">三态门符号</figcaption>
+</figure>
+<p>三态门是一个正常的门电路外加一个<span class="math inline">\(EN\)</span>信号，里面画一个倒三角。当<span class="math inline">\(EN\)</span>为有效信号（上图是低电平有效，也就是<span class="math inline">\(EN=0\)</span>）时，门电路正常工作，否则，输出高阻态。</p>
+<h3 id="ttl门电路">TTL门电路</h3>
+<p>我也不会分析，所以分析略。</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162040271.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162040028.png" srcset="/img/loading.gif" lazyload /></p>
+<p>这里这个OC门就和前面那个OD门意思差不多，也有线与，也得算<span class="math inline">\(R_L\)</span>的范围。不同的是，当输出端含有与非门时，要按与非门的门数计算，而不是端数。</p>
+<p>对于TTL门电路，输入端悬空等效于逻辑高电平；输入端经过几十千欧以内的电阻接电源，等效于逻辑高电平；输入端经过几十欧的小电阻接地等效于低电平，当电阻升高到一定程度（一般是几千欧）以后，等效为高电平。</p>
+<h2 id="组合逻辑电路">组合逻辑电路</h2>
+<h3 id="设计分析">设计分析</h3>
+<p>略，无非是列功能表、真值表、画卡诺图、化简、转换形式、连电路。</p>
+<h3 id="经典组合逻辑电路模块">经典组合逻辑电路模块</h3>
+<h4 id="编码器">编码器</h4>
+<ul>
+<li><p>8（位）-3（线）编码器</p>
+<p>其基本功能是输入8位中的一位表示被编码的十进制数，3条输出线表示这个十进制数的二进制形式。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162058622.png" srcset="/img/loading.gif" lazyload alt="83编码器功能表" /><figcaption aria-hidden="true">83编码器功能表</figcaption>
+</figure></li>
+<li><p>优先编码器</p>
+<p>相比于83编码器，优先编码器的输出取决于最高为1的那一位。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162100464.png" srcset="/img/loading.gif" lazyload alt="优先编码器功能表" /><figcaption aria-hidden="true">优先编码器功能表</figcaption>
+</figure></li>
+<li><p>74HC148优先编码器</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162102678.png" srcset="/img/loading.gif" lazyload alt="电路图" /><figcaption aria-hidden="true">电路图</figcaption>
+</figure>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162102372.png" srcset="/img/loading.gif" lazyload alt="逻辑符号" /><figcaption aria-hidden="true">逻辑符号</figcaption>
+</figure>
+<p>其中的<span class="math inline">\(A_i,Y_i\)</span>是完成基本功能的输入输出端，此外，它还有一些其它的端口，能进行扩展功能：</p>
+<ul>
+<li><span class="math inline">\(\overline S\)</span>选通输入端，当且仅当<span class="math inline">\(\overline S=0\)</span>，电路正常工作，否则，所有输出都被封锁在高电平。</li>
+<li><span class="math inline">\(\overline {Y_S}\)</span>选通输出端，当它为0时表示：电路工作但无编码输入</li>
+<li><span class="math inline">\(\overline {Y_{EX}}\)</span>扩展输出端，它为0时表示：电路工作且有编码输入</li>
+</ul>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162110457.png" srcset="/img/loading.gif" lazyload alt="74HC148功能表" /><figcaption aria-hidden="true">74HC148功能表</figcaption>
+</figure></li>
+</ul>
+<h4 id="译码器">译码器</h4>
+<p>译码器就是编码器的逆，输入三个信号表示一个二进制数，输出八个信号中的一个表示那个二进制数的十进制表示。</p>
+<p>常用的译码器是74138译码器：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162113986.png" srcset="/img/loading.gif" lazyload alt="74138逻辑图" /><figcaption aria-hidden="true">74138逻辑图</figcaption>
+</figure>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162114347.png" srcset="/img/loading.gif" lazyload alt="功能表" /><figcaption aria-hidden="true">功能表</figcaption>
+</figure>
+<p>它有三个附加控制器：<span class="math inline">\(S_1,\overline S_{2},\overline S_3\)</span>。当<span class="math inline">\(S_1=1,\overline S_{2}=\overline S_3=0\)</span>时，电路正常工作，否则，所有输出端为高电平。</p>
+<h4 id="数据选择器">数据选择器</h4>
+<p>数据选择器有若干个输入信号，一个选择信号（可能有多位）和一个输出。由选择信号决定输出接哪个输入信号。</p>
+<p>常用的数据选择器是74HC153双四选一数据选择器。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162121574.png" srcset="/img/loading.gif" lazyload alt="74HC153逻辑图" /><figcaption aria-hidden="true">74HC153逻辑图</figcaption>
+</figure>
+<p>其中<span class="math inline">\(D\)</span>表示输入信号，<span class="math inline">\(A_1A_0\)</span>共同表示一个二进制数，是选择信号，<span class="math inline">\(Y\)</span>是输出信号，<span class="math inline">\(S\)</span>是选通输入端。有时候我们只用单四选一，这时候把其它管脚留空即可，但是不能把这个片劈成两半。</p>
+<h4 id="数值比较器">数值比较器</h4>
+<p>略，没啥说的，都差不多。</p>
+<p>常用的数值比较器是7485数值比较器</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162137127.png" srcset="/img/loading.gif" lazyload alt="7485逻辑图" /><figcaption aria-hidden="true">7485逻辑图</figcaption>
+</figure>
+<p>其中<span class="math inline">\(A,B\)</span>是待比较的数值，<span class="math inline">\(F\)</span>是输出。而<span class="math inline">\(I\)</span>则是当数值比较器扩展时，来自低位的比较结果。比如说，要实现八位数值的比较，我们可以这样级联：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162139534.png" srcset="/img/loading.gif" lazyload alt="数值比较器扩展" /><figcaption aria-hidden="true">数值比较器扩展</figcaption>
+</figure>
+<p>首先比较高四位。如果高四位出现了不同，那么自然可以直接输出。如果高四位相同，那么就需要另接入一个数值比较器来比较下四位，然后把下四位的比较结果通过<span class="math inline">\(I\)</span>端反馈到高位的比较器，再由负责高位的比较器来输出最终的结果。</p>
+<p>也就是说，当<span class="math inline">\(AB\)</span>不相等时，输出和<span class="math inline">\(I\)</span>无关，直接输出<span class="math inline">\(AB\)</span>的关系，否则，直接输出<span class="math inline">\(I\)</span>。</p>
+<h4 id="加法器">加法器</h4>
+<p>全加器有三个输入<span class="math inline">\(A,B,CI\)</span>，其中<span class="math inline">\(AB\)</span>表示两个加数，<span class="math inline">\(CI\)</span>表示上个全加器产生的进位信号。有两个输出：<span class="math inline">\(S,CO\)</span>，<span class="math inline">\(S\)</span>表示和，<span class="math inline">\(CO\)</span>表示有无进位。</p>
+<p>这个功能很简单就能描述：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">assign</span> &#123;CO,S&#125;=A+B+CI<br></code></pre></td></tr></table></figure>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162127862.png" srcset="/img/loading.gif" lazyload alt="全加器功能表" /><figcaption aria-hidden="true">全加器功能表</figcaption>
+</figure>
+<h2 id="时序逻辑电路">时序逻辑电路</h2>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%95%B0%E7%94%B5/">#数电</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>数字电子技术学习笔记</div>
+      <div>https://suzumiyaakizuki.github.io/2022/11/16/数字电子技术学习笔记/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>SuzumiyaAkizuki</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年11月16日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/11/07/%E5%BE%AE%E6%B3%A2%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" title="微波技术笔记">
+                        <span class="hidden-mobile">微波技术笔记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.7.2/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"48fb14f9689ae0d11307","clientSecret":"091ab25a88e87bfd9d9d40d97d1d0d932e694059","repo":"SuzumiyaAkizuki.github.io","owner":"SuzumiyaAkizuki","admin":["SuzumiyaAkizuki"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '883a727b48688797eb3071856a4830d4'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       Powered by: <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
