@@ -16,16 +16,16 @@
   <meta name="author" content="SuzumiyaAkizuki">
   <meta name="keywords" content="">
   
-    <meta name="description" content="[toc] 数制和码制 数制 数制指的是数字每一位的构成方法，以及从低位到高位的进位规则。常用的数制有十进制、二进制、八进制、十六进制。 k进制数字的基本表示方式为： \[ (\cdots x_2x_1x_0.x_{-1}x_{-2}\cdots)_k&#x3D;\sum_{i&#x3D;-\infty}^{\infty}x_i\times k^i \] 不同数制的转换方式  任意进制到十进制的转换">
+    <meta name="description" content="[toc] 你说得对，但是《数字电子技术基础》是电子信息工程学院独立开设的一门核心专业课，课程发生在一个被称作五（202）的幻想世界，在这里，被神选中的信号将被授予“门电路”，导引高低电平之力。玩家将扮演一位名为“学生”的神秘角色，在自由的课程中邂逅性格各异、能力独特的元件们，和他们一起分析逻辑，找回失散的导线——同时，逐步发掘“Verilog”的真相。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数字电子技术学习笔记">
 <meta property="og:url" content="https://suzumiyaakizuki.github.io/2022/11/16/%E6%95%B0%E5%AD%97%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="凉宫秋月的文艺部">
-<meta property="og:description" content="[toc] 数制和码制 数制 数制指的是数字每一位的构成方法，以及从低位到高位的进位规则。常用的数制有十进制、二进制、八进制、十六进制。 k进制数字的基本表示方式为： \[ (\cdots x_2x_1x_0.x_{-1}x_{-2}\cdots)_k&#x3D;\sum_{i&#x3D;-\infty}^{\infty}x_i\times k^i \] 不同数制的转换方式  任意进制到十进制的转换">
+<meta property="og:description" content="[toc] 你说得对，但是《数字电子技术基础》是电子信息工程学院独立开设的一门核心专业课，课程发生在一个被称作五（202）的幻想世界，在这里，被神选中的信号将被授予“门电路”，导引高低电平之力。玩家将扮演一位名为“学生”的神秘角色，在自由的课程中邂逅性格各异、能力独特的元件们，和他们一起分析逻辑，找回失散的导线——同时，逐步发掘“Verilog”的真相。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162142585.jpg">
 <meta property="article:published_time" content="2022-11-16T06:21:15.000Z">
-<meta property="article:modified_time" content="2022-11-16T13:43:10.971Z">
+<meta property="article:modified_time" content="2022-11-27T14:33:09.354Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="数电">
 <meta name="twitter:card" content="summary_large_image">
@@ -267,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.5k 字
+          9.9k 字
         
       </span>
     
@@ -278,7 +278,7 @@
         
         
         
-          14 分钟
+          20 分钟
         
       </span>
     
@@ -334,6 +334,8 @@
               <div class="markdown-body">
                 
                 <p>[toc]</p>
+<p>你说得对，但是《数字电子技术基础》是电子信息工程学院独立开设的一门核心专业课，课程发生在一个被称作五（202）的幻想世界，在这里，被神选中的信号将被授予“门电路”，导引高低电平之力。玩家将扮演一位名为“学生”的神秘角色，在自由的课程中邂逅性格各异、能力独特的元件们，和他们一起分析逻辑，找回失散的导线——同时，逐步发掘“Verilog”的真相。</p>
+<span id="more"></span>
 <h2 id="数制和码制">数制和码制</h2>
 <h3 id="数制">数制</h3>
 <p>数制指的是数字每一位的构成方法，以及从低位到高位的进位规则。常用的数制有十进制、二进制、八进制、十六进制。</p>
@@ -646,7 +648,183 @@ R_{\mathrm{L}} \geq \frac{V_{\mathrm{DD}}-V_{\mathrm{OL}}}{I_{\mathrm{OL}(\mathr
 <figure>
 <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162127862.png" srcset="/img/loading.gif" lazyload alt="全加器功能表" /><figcaption aria-hidden="true">全加器功能表</figcaption>
 </figure>
-<h2 id="时序逻辑电路">时序逻辑电路</h2>
+<h2 id="半导体存储电路">半导体存储电路</h2>
+<p>基本的半导体存储电路有锁存器、触发器、寄存器、存储器等。其中触发器可按结构分为基本、同步、主从、边沿触发器，按触发方式分为电平、脉冲、脉冲边沿触发器，按逻辑功能分为RS、JK、D和T触发器等。</p>
+<h3 id="sr锁存器">SR锁存器</h3>
+<p>SR锁存器是最基本的半导体存储电路。一般来说，我们所谓的锁存器，都指的是SR锁存器。其电路图如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211271054295.png" srcset="/img/loading.gif" lazyload alt="或非门SR锁存器" /><figcaption aria-hidden="true">或非门SR锁存器</figcaption>
+</figure>
+<p>由于或非门可以被“锁定”的特性，这个电路具有了锁存的功能。其状态转移图如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211271052715.png" srcset="/img/loading.gif" lazyload alt="image-20221127105256632" /><figcaption aria-hidden="true">image-20221127105256632</figcaption>
+</figure>
+<p>状态方程如下： <span class="math display">\[
+\left\{\begin{array}{c}
+Q^{n+1}=S_{\mathrm{D}}+\overline{R_{\mathrm{D}}} \cdot Q^n \\
+R_{\mathrm{D}} S_{\mathrm{D}} \equiv 0
+\end{array}\right.
+\]</span> 状态表如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211271107647.png" srcset="/img/loading.gif" lazyload alt="或非门SR锁存器状态表" /><figcaption aria-hidden="true">或非门SR锁存器状态表</figcaption>
+</figure>
+<p>状态转移图、状态方程、状态表，说的都是一件事，那就是这个元件的状态如何变化。在SR触发器中，记住状态表是最高效的分析方法。</p>
+<p>在状态表中，我们观察最后两行，这是状态转移图和状态方程中没有考虑到的。这里的“不定”有两种含义。第一种，当电路正常工作时，如果施加<span class="math inline">\(S_D=1,R_D=1\)</span>的输入，会有<span class="math inline">\(Q=\overline{Q}=0\)</span>的状态，这既<strong>不</strong>是<strong>定</strong>义的“1”状态，也<strong>不</strong>是<strong>定</strong>义的“0”状态，所以叫“<strong>不定</strong>”。第二种是，当电路本来就是上一个状态时，如果同时把<span class="math inline">\(S,R\)</span>置<span class="math inline">\(0\)</span>，那么电路的输出状态<strong>不</strong>能确<strong>定</strong>（这个照着电路图推一推就明白了），于是叫做“<strong>不定</strong>”。</p>
+<p>观察状态转换方法，我们有时将<span class="math inline">\(S_D\)</span>叫做“直接置位端”，意思是直接把状态置为1；将<span class="math inline">\(R_D\)</span>叫做“直接复位端”，意思是把状态复位为0，于是这个电路叫做“Ser-Reser Latch”，即“SR锁存器”。</p>
+<p>SR锁存器也可以用与非门构造，如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211271115837.png" srcset="/img/loading.gif" lazyload alt="与非门SR锁存器" /><figcaption aria-hidden="true">与非门SR锁存器</figcaption>
+</figure>
+<p>不同的是，这里的<span class="math inline">\(S_D,R_D\)</span>都变成了低电平有效。</p>
+<h3 id="触发器">触发器</h3>
+<h4 id="电平触发">电平触发</h4>
+<p>电平触发的意思，就是当且仅当<code>clk</code>信号是有效信号时，触发器的输出状态随着输入信号变化。如果不是有效信号，则保持之前的输出状态。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211271609270.png" srcset="/img/loading.gif" lazyload alt="电平触发SR触发器" /><figcaption aria-hidden="true">电平触发SR触发器</figcaption>
+</figure>
+<p>电平触发有时会因为一些短暂的噪声而影响整个输出，因此我们要考虑其它触发方式</p>
+<h4 id="脉冲触发">脉冲触发</h4>
+<p>首先来考虑主从SR触发器（也叫“脉冲触发的SR触发器”）。主从SR触发器的结构和符号如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211271644991.png" srcset="/img/loading.gif" lazyload alt="主从SR触发器" /><figcaption aria-hidden="true">主从SR触发器</figcaption>
+</figure>
+<p>可以看出，一个脉冲触发的SR触发器，是由两个电平触发的SR触发器接成的。<span class="math inline">\(FF_1\)</span>叫主触发器，<span class="math inline">\(FF_2\)</span>叫从触发器，主触发器的输出直接接入从触发器的输入。在分析时，应该在高电平先对<span class="math inline">\(Q_1\)</span>进行分析，之后，再在低电平（注意，从触发器接的时钟信号是翻转的）对<span class="math inline">\(Q\)</span>进行分析。显然，主触发器在一个高电平时间段内，可以随着输入信号的变化而翻转多次。</p>
+<p>接下来我们考虑JK触发器。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211272038848.png" srcset="/img/loading.gif" lazyload alt="JK触发器" /><figcaption aria-hidden="true">JK触发器</figcaption>
+</figure>
+<p>这里在输出端和输入端之间接了一个反馈。即： <span class="math display">\[
+S=\overline{Q}J,R=QK
+\]</span> 带入，有： <span class="math display">\[
+Q^{n+1}=J \cdot \overline{Q^n}+\overline{K} \cdot Q^n
+\]</span> 这就是JK触发器的状态转移方程，可以写出状态转移图：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211272045222.png" srcset="/img/loading.gif" lazyload alt="JK触发器的状态转移图" /><figcaption aria-hidden="true">JK触发器的状态转移图</figcaption>
+</figure>
+<p>状态表：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211272106517.png" srcset="/img/loading.gif" lazyload alt="JK触发器状态表" /><figcaption aria-hidden="true">JK触发器状态表</figcaption>
+</figure>
+<p>接下来，我们讨论一下JK触发器是怎么进行状态转移的。JK的主触发器仍然是一个电平触发的SR触发器，但是由于JK触发器的反馈机制，当<span class="math inline">\(Q=0\)</span>时，因为<span class="math inline">\(R=QK=0\)</span>，主触发器只能接受“置1输入信号”；当<span class="math inline">\(Q=1\)</span>时，因为<span class="math inline">\(S=\overline QJ=0\)</span>，主触发器只能接受“置0（复位）输入信号”，所以这个主触发器在<span class="math inline">\(CLK=1\)</span>期间至多翻转一次，这就是所谓的“JK触发器的一次性变化现象”。</p>
+<p>于是，我们可以知道所谓“脉冲触发”到底是什么意思。</p>
+<ol type="1">
+<li>触发器的翻转分两步动作，首先，在<span class="math inline">\(CLK=1\)</span>时，主触发器接收输入信号，进行动作，而从触发器不动。第二步，<span class="math inline">\(CLK=1\)</span>的信号消失时（有的人把这个动作表述为“下降沿来临时”），从触发器根据主触发器的状态进行动作。由于输出信号是从触发器的输出信号，我们看起来，脉冲触发的触发器进行动作总是发生在<span class="math inline">\(CLK\)</span>信号的下降沿。</li>
+<li>主触发器本来是一个电平触发的SR触发器，所以在<span class="math inline">\(CLK=1\)</span>的全部时间，输入信号都会对主触发器起作用。</li>
+</ol>
+<h4 id="边沿触发">边沿触发</h4>
+<p>边沿触发是最简单的，它的次态仅仅取决与<span class="math inline">\(CLK\)</span>信号的上升沿或下降沿来临的瞬间，输入信号的状态。在分析时，只用对触发的边沿那几个有限的点进行分析就行了。</p>
+<h4 id="按逻辑功能的分类">按逻辑功能的分类</h4>
+<p>SR触发器和JK触发器的逻辑功能前面已经讲了。接下来介绍两种其它的触发器：</p>
+<ol type="1">
+<li><p>T触发器</p>
+<p>T触发器的功能简单来说是：“0保持，1取反”，即： <span class="math display">\[
+Q^{n+1}=T\overline{Q}+\overline{T}Q
+\]</span></p>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(T\)</span></th>
+<th><span class="math inline">\(Q\)</span></th>
+<th><span class="math inline">\(Q^{n+1}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>D触发器</p>
+<p>D触发器的功能简单来说是：“延迟一位”，即： <span class="math display">\[
+Q^{n+1}=D
+\]</span></p>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(D\)</span></th>
+<th><span class="math inline">\(Q\)</span></th>
+<th><span class="math inline">\(Q^{n+1}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table></li>
+</ol>
+<h3 id="存储器">存储器</h3>
+<p>首先明确一个概念：怎么表达一个存储器的大小呢？书上说：“通常写成（字数）x（每个字的位数）”的形式。什么是字？字就是这个存储器输出的东西。存储器每读入一个地址，就会输出一个01串，这个01串就是一个“字”，这个01串的长度就是“每个字的位数”。那么有人说，假设每个字的位数是<span class="math inline">\(n\)</span>，那么字数难道不会自动是<span class="math inline">\(2^n\)</span>吗？不是这样的。因为我们可以在不同的地址里存相同的字，也可以不在存储器中存储所有字，这是显而易见的。存储器的每个地址中存法一个字，所以所谓的“字数”其实是有效的地址数。</p>
+<h4 id="随机存取存储器ram">随机存取存储器RAM</h4>
+<p>可以随时从任何一个指定的地址读出数据，也可以随时将数据写入任何一个指定的存储单元中去，但是掉电后数据会丢失。其基本结构如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211272202657.png" srcset="/img/loading.gif" lazyload alt="RAM结构" /><figcaption aria-hidden="true">RAM结构</figcaption>
+</figure>
+<h4 id="只读存储器rom">只读存储器ROM</h4>
+<p>ROM的基本结构如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211272204218.png" srcset="/img/loading.gif" lazyload alt="ROM" /><figcaption aria-hidden="true">ROM</figcaption>
+</figure>
+<p>我们可以考察一下二极管ROM的详细结构。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211272205218.png" srcset="/img/loading.gif" lazyload alt="二极管ROM" /><figcaption aria-hidden="true">二极管ROM</figcaption>
+</figure>
+<p>在地址译码器中，看纵列，每个纵列构成了一个二极管与门。于是： <span class="math display">\[
+\begin{aligned}
+W_0=\overline{A_0}\ \overline{A_1}\\
+W_1=A_0 \overline{A_1}\\
+W_2=\overline{A_0}A_1\\
+W_3=A_0A_1
+\end{aligned}
+\]</span> 这样一来，就实现了一个译码器，这就是地址译码器。它将输入的二位二进制地址码翻译成<span class="math inline">\(W_i\)</span>的其中一个信号。</p>
+<p>现在看存储矩阵，看横行，每个横行构成了一个二极管或门，比如<span class="math inline">\(D_3=W_1+W_3,D_2=W_0+W_2+W_3,\cdots\)</span>，这样一来，输出端<span class="math inline">\(D\)</span>就能根据<span class="math inline">\(W\)</span>的选通而输出对应的信号<span class="math inline">\(\{D_3D_2D_1D_0\}\)</span>了。这就是二极管ROM的工作原理。根据这个原理，我们也可以使用ROM来实现多输出端逻辑函数，不再赘述了。</p>
+<h4 id="存储器容量的扩展">存储器容量的扩展</h4>
+<ol type="1">
+<li><p>位扩展</p>
+<p>当字数够用而每个字的位数不够时，可以使用位扩展。位扩展很简单，只需要把所有地址线、读写控制线、<span class="math inline">\(CS&#39;\)</span>线（CS‘线就是片选输入端，当<span class="math inline">\(\overline{CS}=0\)</span>时，这个片才工作）统统拧在一起就行了，如下是把8个1024x1位存储器位扩展为一个1024x8位存储器的过程：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211272225535.png" srcset="/img/loading.gif" lazyload alt="位扩展" /><figcaption aria-hidden="true">位扩展</figcaption>
+</figure></li>
+<li><p>字扩展</p>
+<p>当位数够用而字数不够时，可以使用字扩展。字扩展的接法是：首先把每个片的每个输出端，每个低位地址端，读写控制线并联起来，然后在新的地址位上加入一个译码器，通过译码器和CS端来控制不同的片工作与否，以达到扩展字数的目的。如下图是把4个256x8存储器接成一个1024x8存储器的过程：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211272232639.png" srcset="/img/loading.gif" lazyload alt="字扩展" /><figcaption aria-hidden="true">字扩展</figcaption>
+</figure></li>
+</ol>
 
                 
               </div>
