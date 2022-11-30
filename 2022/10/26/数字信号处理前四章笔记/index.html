@@ -18,14 +18,14 @@
   
     <meta name="description" content="[toc] 第二章：离散时间信号与系统 离数时间序列 序列的表示方式略。 序列的分类 有限长度&#x2F;无限长度序列、左&#x2F;右&#x2F;双边序列、因果&#x2F;非因果序列、实&#x2F;复数序列的定义很显然，就是字面意思，略。  周期序列和非周期序列 周期序列的定义： \[ \exists N\neq 0\ \forall n\ x[n]&#x3D;x[n+N] \] 满足上面式子的序列称为周期序列，否则称为非周期序列。需">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数字信号处理前四章笔记">
+<meta property="og:title" content="数字信号处理笔记">
 <meta property="og:url" content="https://suzumiyaakizuki.github.io/2022/10/26/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%E5%89%8D%E5%9B%9B%E7%AB%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="凉宫秋月的文艺部">
 <meta property="og:description" content="[toc] 第二章：离散时间信号与系统 离数时间序列 序列的表示方式略。 序列的分类 有限长度&#x2F;无限长度序列、左&#x2F;右&#x2F;双边序列、因果&#x2F;非因果序列、实&#x2F;复数序列的定义很显然，就是字面意思，略。  周期序列和非周期序列 周期序列的定义： \[ \exists N\neq 0\ \forall n\ x[n]&#x3D;x[n+N] \] 满足上面式子的序列称为周期序列，否则称为非周期序列。需">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210310011371.jpg">
 <meta property="article:published_time" content="2022-10-26T02:00:12.000Z">
-<meta property="article:modified_time" content="2022-11-01T01:26:19.204Z">
+<meta property="article:modified_time" content="2022-11-30T14:30:47.426Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="DSP">
 <meta name="twitter:card" content="summary_large_image">
@@ -33,7 +33,7 @@
   
   
   
-  <title>数字信号处理前四章笔记 - 凉宫秋月的文艺部</title>
+  <title>数字信号处理笔记 - 凉宫秋月的文艺部</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -239,7 +239,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="数字信号处理前四章笔记"></span>
+            <span id="subtitle" data-typed-text="数字信号处理笔记"></span>
           
         </div>
 
@@ -267,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          9.2k 字
+          13k 字
         
       </span>
     
@@ -278,7 +278,7 @@
         
         
         
-          19 分钟
+          26 分钟
         
       </span>
     
@@ -328,7 +328,7 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">数字信号处理前四章笔记</h1>
+            <h1 style="display: none">数字信号处理笔记</h1>
             
             
               <div class="markdown-body">
@@ -576,11 +576,102 @@ H_{ap}(z)=\left(\frac{z^{-1}-\frac 13}{1-\frac 13z^{-1}}\right)
 <p>该类系统满足<span class="math inline">\(h[M-n]=-h[n]\)</span>，即<span class="math inline">\(h[n]\)</span>关于<span class="math inline">\(M/2\)</span>奇对称，而且<span class="math inline">\(M\)</span>是偶数。第III类的<span class="math inline">\(\beta=\pi/2,3\pi/2\)</span>。所以相频响应是不过原点的直线（过<span class="math inline">\((0,\pi/2)\)</span>或<span class="math inline">\((0,3\pi/2)\)</span>），斜率是<span class="math inline">\(-M/2\)</span>，群延时是<span class="math inline">\(M/2\)</span>。</p>
 <p>这类系统的广义幅频响应<span class="math inline">\(A(e^{j\omega})\)</span>关于<span class="math inline">\(\omega=m\pi,m\in \mathbb Z\)</span>奇对称。</p></li>
 <li><p>第IV类广义线性相位系统</p>
-<p>该类系统满足<span class="math inline">\(h[M-n]=-h[n]\)</span>，即<span class="math inline">\(h[n]\)</span>关于<span class="math inline">\(M/2\)</span>奇对称，而且<span class="math inline">\(M\)</span>是奇数。第IV类的<span class="math inline">\(\beta=0,\pi\)</span>。所以相频响应是过原点的直线，斜率是<span class="math inline">\(-M/2\)</span>，群延时是<span class="math inline">\(M/2\)</span>。</p>
+<p>该类系统满足<span class="math inline">\(h[M-n]=-h[n]\)</span>，即<span class="math inline">\(h[n]\)</span>关于<span class="math inline">\(M/2\)</span>奇对称，而且<span class="math inline">\(M\)</span>是奇数。第IV类的<span class="math inline">\(\beta=\pi/2,3\pi/2\)</span>。所以相频响应是不过原点的直线，斜率是<span class="math inline">\(-M/2\)</span>，群延时是<span class="math inline">\(M/2\)</span>。</p>
 <p>这类系统的广义幅频响应<span class="math inline">\(A(e^{j\omega})\)</span>关于<span class="math inline">\(\omega=2m\pi,m\in \mathbb Z\)</span>奇对称，关于<span class="math inline">\(\omega=(2m+1)\pi,m\in \mathbb Z\)</span>偶对称，幅度函数在<span class="math inline">\(\pi\)</span>时为零，不适合作低通、带通滤波器。</p></li>
 </ul>
-<p>对于广义线性系统而言，如果<span class="math inline">\(z_0\)</span>是系统的零点，那么<span class="math inline">\(z_0^{-1},z_0^*,(z_0^*)^{-1}\)</span>也是系统的零点。</p>
-<p>【未完待续】</p>
+<p>由于第3、4类广义线性系统的相移特性，可以作希尔伯特变换器使用。</p>
+<p>对于广义线性系统而言，如果<span class="math inline">\(z_0\)</span>是系统的零点，那么<span class="math inline">\(z_0^{-1},z_0^*,(z_0^*)^{-1}\)</span>也是系统的零点。第2、3类的零点一定包含-1，第3、4类的零点一定包含1.</p>
+<h2 id="信号的采样和重建">信号的采样和重建</h2>
+<h3 id="连续信号的理想采样">连续信号的理想采样</h3>
+<p>设原连续信号为<span class="math inline">\(x_c(t)\)</span>，用来采样的理想冲击串为<span class="math inline">\(s(t)\)</span>，采样得的连续采样信号为<span class="math inline">\(x_s(t)\)</span>，采样得的离散时间序列为<span class="math inline">\(x[n]\)</span>。其中采样用的理想冲击串的周期为<span class="math inline">\(T_s\)</span>。</p>
+<h4 id="x_s和x_c的关系"><span class="math inline">\(X_s\)</span>和<span class="math inline">\(X_c\)</span>的关系</h4>
+<p>这一部分是《信号与系统》的内容，这里只简单提一下。</p>
+<p>首先我们知道，冲击串的傅里叶变换还是冲击串，即： <span class="math display">\[
+S(j\Omega)=\frac{2\pi}{T_s}\sum_{k=-\infty}^{\infty}\delta(\Omega-k\Omega_s)
+\]</span> 由傅里叶变换的乘积性质，有： <span class="math display">\[
+X_s(j\Omega)=\frac 1 {T_s}\sum_{k=-\infty}^\infty X_c(j\Omega-jk\Omega_s)
+\]</span> 即：<span class="math inline">\(x_s(t)\)</span>的频谱<span class="math inline">\(X_s(j\Omega)\)</span>是连续时间信号<span class="math inline">\(x_c(t)\)</span>的频谱<span class="math inline">\(X_c(j\Omega)\)</span>以采样周期<span class="math inline">\(\Omega_s=2\pi/T_s\)</span>的周期延拓，并以<span class="math inline">\(\frac 1{T_s}\)</span>加权的结果。所以，为了不使得频域混叠，需满足<span class="math inline">\(\Omega_s&gt;2\Omega_N\)</span>，其中<span class="math inline">\(\Omega_N\)</span>是原信号所含有的最高频分量的频率。</p>
+<h4 id="xejomega和x_cjomega的关系"><span class="math inline">\(X(e^{j\omega})\)</span>和<span class="math inline">\(X_c(j\Omega)\)</span>的关系</h4>
+<p>有： <span class="math display">\[
+X_s(j\Omega)=\sum_{n=-\infty}^{\infty}x[n]e^{-j\Omega nT_s}
+\]</span> 令<span class="math inline">\(\omega=\Omega T_s\)</span>，有： <span class="math display">\[
+X_s\left(j\frac{\omega}{T_s}\right)=\sum_{n=-\infty}^\infty x[n]e^{-j\omega n}
+\]</span></p>
+<p>可以发现：使用<span class="math inline">\(1/T_s\)</span>对<span class="math inline">\(X_c(j\Omega)\)</span>加权且频率按<span class="math inline">\(\Omega=\omega/T_s\)</span>尺度变换，得到函数<span class="math inline">\(X_c(j\omega/T_s)/T_s\)</span>，将其以<span class="math inline">\(2\pi\)</span>为周期进行延拓，得离散序列<span class="math inline">\(x[n]\)</span>频谱<span class="math inline">\(X(e^{j\omega})\)</span>.</p>
+<h3 id="连续信号的理想重建">连续信号的理想重建</h3>
+<p>重建系统的示意图如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211301039578.png" srcset="/img/loading.gif" lazyload alt="连续信号重建系统" /><figcaption aria-hidden="true">连续信号重建系统</figcaption>
+</figure>
+<p>先把离散时间信号序列<span class="math inline">\(y[n]\)</span>转化为连续时间信号<span class="math inline">\(y_s(t)\)</span>，然后让<span class="math inline">\(y_s(t)\)</span>经过截止频率为<span class="math inline">\(\pi/T_s\)</span>，幅度<span class="math inline">\(T_s\)</span>的低通滤波器，得到重建信号<span class="math inline">\(y_r(t)\)</span>。</p>
+<p>即： <span class="math display">\[
+H_r(j\Omega)=\begin{cases}
+T_s, &amp;|\Omega|&lt;\frac{\Omega_s}{2}\\
+0 , &amp;\text{others}
+\end{cases}
+\]</span></p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211301112181.png" srcset="/img/loading.gif" lazyload alt="重建过程" /><figcaption aria-hidden="true">重建过程</figcaption>
+</figure>
+<h3 id="余弦信号的采样">余弦信号的采样</h3>
+<p>这一段没有什么新东西，主要内容是以对余弦信号采样举例来让人直观感受“频域混叠”的存在，尤其是在采样频率<span class="math inline">\(\Omega_s=2\Omega_0\)</span>时，可能会出现各种情况：当<span class="math inline">\(\varphi=0\)</span>时，才能恢复原信号；当其它情况时，都不能恢复原信号，极端时刻，甚至采样值全部为0，不包含任何信息。</p>
+<h2 id="离散傅里叶变换dft">离散傅里叶变换DFT</h2>
+<p>我们之前已学过很多“变换”了，例如连续时间信号傅里叶变换FT、连续时间信号傅里叶级数FS、离散时间序列傅里叶变换DTFT、离散时间序列傅里叶级数FS。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211301609617.png" srcset="/img/loading.gif" lazyload alt="各个变换" /><figcaption aria-hidden="true">各个变换</figcaption>
+</figure>
+<p>因为数字系统只能处理离散序列，而这其中只有DFS同时在时域和频域是离散的。但是DFS又是周期无限长序列，而现有的数字系统仍然不能实现。因此我们必须考虑用有限长序列建立时域离散和频域离散的关系。</p>
+<p>设<span class="math inline">\(\widetilde{x}[n]\)</span>是周期为<span class="math inline">\(N\)</span>的周期序列，那么称 <span class="math display">\[
+x[n]=\widetilde x[n]R_N[n]
+\]</span> 为“主值序列”，也就是原序列的第<span class="math inline">\(0\sim N-1\)</span>个值。</p>
+<p>设<span class="math inline">\(x[n]\)</span>是长度为<span class="math inline">\(N\)</span>的有限长序列，那么为了将其周期性延拓，有： <span class="math display">\[
+\widetilde  {x}[n]=\sum_{r=-\infty}^{\infty} x[n+r N]
+\]</span></p>
+<p>记作： <span class="math display">\[
+\widetilde{x}[n]=x[((n))_N]
+\]</span> 其中<span class="math inline">\(((n))_N\)</span>称作取模运算，设<span class="math inline">\(n=mN+n_1\)</span>，则<span class="math inline">\(((n))_N=n_1\)</span>。</p>
+<p>周期序列<span class="math inline">\(\widetilde x[n],\widetilde X[k]\)</span>可以看作有限长序列<span class="math inline">\(x[n],X[k]\)</span>的周期延拓，因此只需计算主值区间中的DFS，即可对周期序列进行恢复。有DFT的定义： <span class="math display">\[
+\begin{gathered}
+x[n]=\frac{1}{N} \sum_{k=0}^{N-1} X[k] \mathrm{e}^{\frac{2\pi k n}{N}} \\
+X[k]=\sum_{n=0}^{N-1} x[n] \mathrm{e}^{j \frac{-2 \pi k n}{N}}
+\end{gathered}
+\]</span> 我们可以看出：DFT并不是一个新的变换形式，而是DFS在实频域的主值序列，因此其很多性质和DFS有类似性。</p>
+<h3 id="几大变换之间的关系">几大变换之间的关系</h3>
+<p>以下：将Z变换记作<span class="math inline">\(X(z)\)</span>，将DTFT（离散时间序列傅里叶变换）记作<span class="math inline">\(X(e^{j\omega})\)</span>，将DFS（离散时间序列傅里叶级数）记作<span class="math inline">\(\widetilde X[k]\)</span>，将DFT（离散傅里叶变换）记作<span class="math inline">\(X[k]\)</span>。</p>
+<h4 id="z变换和dtft">Z变换和DTFT</h4>
+<p><span class="math inline">\(x[n]\)</span>的DTFT是其Z变换在单位圆上的采样。即： <span class="math display">\[
+X\left(\mathrm{e}^{j w}\right)=\left.X(z)\right|_{z=e^{j\omega}}
+\]</span></p>
+<h4 id="dtft和dfs">DTFT和DFS</h4>
+<p>对<span class="math inline">\(X(e^{j\omega})\)</span>在<span class="math inline">\(\omega \in [0,2\pi)\)</span>的等间隔频率点进行<span class="math inline">\(N\)</span>点采样得到周期序列<span class="math inline">\(\widetilde X[k]\)</span>。对<span class="math inline">\(\widetilde X[k]\)</span>作IDFS（离散时间序列傅里叶级数逆变换），得到序列<span class="math inline">\(\widetilde x_N[n]\)</span>。</p>
+<p>由： <span class="math display">\[
+\tilde{X}[k]=\left.X\left(\mathrm{e}^{j \omega}\right)\right|_{\omega=\frac{2 \pi i}{N}}=\sum_{n=-\infty}^{\infty} x[n] \mathrm{e}^{-j \frac{2 \pi}{N} k n}
+\]</span> 和 <span class="math display">\[
+\tilde{x}_N[n]=\operatorname{IDFS}[\tilde{X}[k]]=\frac{1}{N} \sum_{k=0}^{N-1} \widetilde {X}[k] \mathrm{e}^{j\frac{2 \pi}{N} k n}
+\]</span> 把上式带入下式，有： <span class="math display">\[
+\widetilde x_N[n]=\sum_{m=-\infty}^{\infty} x[m]\left[\frac{1}{N} \sum_{k=0}^{N-1} \mathrm{e}^{-j \frac{2 \pi}{N} k(m-n)}\right]
+\]</span> 有复指数函数的正交性和周期性，有： <span class="math display">\[
+\begin{aligned}
+\tilde{x}_N[n]&amp;=\sum_{m=-\infty}^{\infty} x[m]\left[\sum_{r=-\infty}^{\infty} \delta[m-n-r N]\right]\\
+&amp;=\cdots+x[n+N]+x[n]+x[n-N]+\cdots
+\end{aligned}
+\]</span> 可以看到，<span class="math inline">\(\widetilde x_N[n]\)</span>是<span class="math inline">\(x[n]\)</span>的周期移位。也就是说，正如时域采样会导致频域周期延拓，频域采样也会导致时域周期延拓。下面按<span class="math inline">\(x[n]\)</span>的长度<span class="math inline">\(L\)</span>和频域采样数<span class="math inline">\(N\)</span>分情况讨论：</p>
+<ol type="1">
+<li>非周期序列<span class="math inline">\(x[n]\)</span>不是有限长序列，则频域采样一定会造成混叠</li>
+<li><span class="math inline">\(N&lt;L\)</span>时，仍会产生时域混叠失真。混叠的长度就是<span class="math inline">\(L-N\)</span>，参考上面的式子</li>
+<li><span class="math inline">\(N\geq L\)</span>时，才能由频域采样<span class="math inline">\(\tilde X[k]\)</span>恢复出<span class="math inline">\(x[n]\)</span></li>
+</ol>
+<h4 id="dfs和dft">DFS和DFT</h4>
+<p>如前文所说，DFT和DFS本质上来说是一种变换，不过DFS的离散时间序列是周期的，变换得到的频域也是周期的，DFT是DFS的主值序列。</p>
+<h4 id="dft的性质和定理">DFT的性质和定理</h4>
+<p>在研究DFT的性质时，需要时刻注意DFT的有限定长度性以及循环周期性。当涉及到两个长度不同的序列时，要通过补0的方式使其长度均为<span class="math inline">\(N\geq max(N_1,N_2)\)</span>。</p>
+<ol type="1">
+<li><p>线性</p></li>
+<li><p>时域循环位移性质</p>
+<p>这里的循环移位是圆周移位，在序列中，从左（右）边移出多少位，就会从右（左）边移入相同位的序列值。 <span class="math display">\[
+x\left[\left(\left(n+n_d\right)\right)_N\right] R_N[n] \underset{N-\mathrm{DFFT}}{\stackrel{N-\mathrm{DFT}}{\longrightarrow}} \mathrm{e}^{j\left(2 \pi kn_d / N\right)} X[k]
+\]</span></p></li>
+</ol>
 <hr />
 <section class="footnotes">
 <div class="footnote-list">
@@ -642,7 +733,7 @@ H_{ap}(z)=\left(\frac{z^{-1}-\frac 13}{1-\frac 13z^{-1}}\right)
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>数字信号处理前四章笔记</div>
+      <div>数字信号处理笔记</div>
       <div>https://suzumiyaakizuki.github.io/2022/10/26/数字信号处理前四章笔记/</div>
     </div>
     <div class="license-meta">
