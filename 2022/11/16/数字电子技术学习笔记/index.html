@@ -16,16 +16,16 @@
   <meta name="author" content="SuzumiyaAkizuki">
   <meta name="keywords" content="">
   
-    <meta name="description" content="[toc] 你说得对，但是《数字电子技术基础》是电子信息工程学院独立开设的一门核心专业课，课程发生在一个被称作五（202）的幻想世界，在这里，被神选中的信号将被授予“门电路”，导引高低电平之力。玩家将扮演一位名为“学生”的神秘角色，在自由的课程中邂逅性格各异、能力独特的元件们，和他们一起分析逻辑，找回失散的导线——同时，逐步发掘“Verilog”的真相。">
+    <meta name="description" content="[toc] 你说得对，但是《数字电子技术基础》是电子信息工程学院独立开设的一门核心专业课，课程发生在一个被称作五（203）的幻想世界，在这里，被神选中的信号将被授予“门电路”，导引高低电平之力。玩家将扮演一位名为“学生”的神秘角色，在自由的课程中邂逅性格各异、能力独特的元件们，和他们一起分析逻辑，找回失散的导线——同时，逐步发掘“Verilog”的真相。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数字电子技术学习笔记">
 <meta property="og:url" content="https://suzumiyaakizuki.github.io/2022/11/16/%E6%95%B0%E5%AD%97%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="凉宫秋月的文艺部">
-<meta property="og:description" content="[toc] 你说得对，但是《数字电子技术基础》是电子信息工程学院独立开设的一门核心专业课，课程发生在一个被称作五（202）的幻想世界，在这里，被神选中的信号将被授予“门电路”，导引高低电平之力。玩家将扮演一位名为“学生”的神秘角色，在自由的课程中邂逅性格各异、能力独特的元件们，和他们一起分析逻辑，找回失散的导线——同时，逐步发掘“Verilog”的真相。">
+<meta property="og:description" content="[toc] 你说得对，但是《数字电子技术基础》是电子信息工程学院独立开设的一门核心专业课，课程发生在一个被称作五（203）的幻想世界，在这里，被神选中的信号将被授予“门电路”，导引高低电平之力。玩家将扮演一位名为“学生”的神秘角色，在自由的课程中邂逅性格各异、能力独特的元件们，和他们一起分析逻辑，找回失散的导线——同时，逐步发掘“Verilog”的真相。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162142585.jpg">
 <meta property="article:published_time" content="2022-11-16T06:21:15.000Z">
-<meta property="article:modified_time" content="2022-11-27T14:33:09.354Z">
+<meta property="article:modified_time" content="2022-12-07T03:11:44.175Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="数电">
 <meta name="twitter:card" content="summary_large_image">
@@ -267,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          9.9k 字
+          14k 字
         
       </span>
     
@@ -278,7 +278,7 @@
         
         
         
-          20 分钟
+          28 分钟
         
       </span>
     
@@ -334,7 +334,7 @@
               <div class="markdown-body">
                 
                 <p>[toc]</p>
-<p>你说得对，但是《数字电子技术基础》是电子信息工程学院独立开设的一门核心专业课，课程发生在一个被称作五（202）的幻想世界，在这里，被神选中的信号将被授予“门电路”，导引高低电平之力。玩家将扮演一位名为“学生”的神秘角色，在自由的课程中邂逅性格各异、能力独特的元件们，和他们一起分析逻辑，找回失散的导线——同时，逐步发掘“Verilog”的真相。</p>
+<p>你说得对，但是《数字电子技术基础》是电子信息工程学院独立开设的一门核心专业课，课程发生在一个被称作五（203）的幻想世界，在这里，被神选中的信号将被授予“门电路”，导引高低电平之力。玩家将扮演一位名为“学生”的神秘角色，在自由的课程中邂逅性格各异、能力独特的元件们，和他们一起分析逻辑，找回失散的导线——同时，逐步发掘“Verilog”的真相。</p>
 <span id="more"></span>
 <h2 id="数制和码制">数制和码制</h2>
 <h3 id="数制">数制</h3>
@@ -823,6 +823,258 @@ W_3=A_0A_1
 <p>当位数够用而字数不够时，可以使用字扩展。字扩展的接法是：首先把每个片的每个输出端，每个低位地址端，读写控制线并联起来，然后在新的地址位上加入一个译码器，通过译码器和CS端来控制不同的片工作与否，以达到扩展字数的目的。如下图是把4个256x8存储器接成一个1024x8存储器的过程：</p>
 <figure>
 <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211272232639.png" srcset="/img/loading.gif" lazyload alt="字扩展" /><figcaption aria-hidden="true">字扩展</figcaption>
+</figure></li>
+</ol>
+<h2 id="时序逻辑电路">时序逻辑电路</h2>
+<p>时序逻辑电路的特点是：任意时刻的输出状态不仅仅和当前的输入有关，还和电路之前的状态有关。其基本结构是由存储器电路和组合逻辑电路组成的。如下图所示：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212062052681.png" srcset="/img/loading.gif" lazyload alt="时序逻辑电路结构" /><figcaption aria-hidden="true">时序逻辑电路结构</figcaption>
+</figure>
+<p>描述时序逻辑，一般用三个方程。下面所说的“Q状态”指的是存储电路中各触发器的输出端状态：</p>
+<ul>
+<li><p>状态方程 <span class="math display">\[
+Q^{n+1}=H(Z,Q^n)
+\]</span> 状态方程描述的是前一次的<span class="math inline">\(Q\)</span>状态和后一次的<span class="math inline">\(Q\)</span>状态的关系。</p></li>
+<li><p>驱动方程 <span class="math display">\[
+Z=Q(X,Q^n)
+\]</span> 驱动方程描述的是触发器各输入端口和电路的<span class="math inline">\(Q\)</span>状态以及输入信号的关系。</p></li>
+<li><p>输出方程 <span class="math display">\[
+Y=F(X,Q^n)
+\]</span> 输出方程描述的是电路的输出信号和输入信号以及<span class="math inline">\(Q\)</span>状态的关系。</p></li>
+</ul>
+<p>时序逻辑电路按照电路状态转换情况不同，分为同步时序逻辑电路（所有触发器共用一个时钟信号）、异步时序逻辑电路（有些触发器的时钟信号可能是其它触发器的输出或者其它信号，总之不是共用一个时钟信号）。</p>
+<p>按照输出变量是否和输入变量直接相关，分为Mealy型（外部输出和触发器的状态以及输入信号有关）和Moore型（外部输出仅与触发器的状态有关）。</p>
+<h3 id="时序逻辑电路的分析">时序逻辑电路的分析</h3>
+<p>分析时序逻辑电路的基本纲领是：</p>
+<ol type="1">
+<li>根据电路逻辑图写出各个触发器的<strong>驱动方程</strong>（基本形式为：<span class="math inline">\(\text{触发器输入端信号}=f(Q^n,\text{输入信号})\)</span>）和输出方程</li>
+<li>把各驱动方程带入触发器的特性方程，得到电路的状态方程（基本形式为：<span class="math inline">\(Q^{n+1}=f(Q^n,\text{输入信号})\)</span>）</li>
+<li>列出逻辑转换表、逻辑转换图</li>
+<li>分析电路功能</li>
+</ol>
+<p>以下以一些例子说明这个过程。</p>
+<h4 id="同步时序逻辑电路分析">同步时序逻辑电路分析</h4>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212062120494.png" srcset="/img/loading.gif" lazyload alt="同步时序逻辑电路" /><figcaption aria-hidden="true">同步时序逻辑电路</figcaption>
+</figure>
+<ol type="1">
+<li><p>列电路驱动方程： <span class="math display">\[
+\begin{cases}J_1=\overline{Q_2} \cdot Q_3 &amp; K_1=1 \\ J_2=Q_1 &amp; K_2=\overline{\overline{Q_1} \cdot \overline{Q_3}} \\ J_3=Q_1 \cdot Q_2 &amp; K_3=Q_2\end{cases}
+\]</span> 输出方程： <span class="math display">\[
+Y=Q_2Q_3
+\]</span></p></li>
+<li><p>电路所用触发器是<span class="math inline">\(JK\)</span>触发器，其特性方程为：<span class="math inline">\(Q^{n+1}=J\bar Q+\bar KQ\)</span>，把驱动方程带入特性方程，有： <span class="math display">\[
+\begin{aligned}
+&amp; Q_1^{n+1}=\overline{Q_2} \cdot Q_3 \cdot \overline{Q_1} \\
+&amp; Q_2{ }^{n+1}=Q_1 \cdot \overline{Q_2}+\overline{Q_1} \cdot \overline{Q_3} \cdot Q_2 \\
+&amp; Q_3{ }^{n+1}=Q_1 \cdot Q_2 \cdot \bar{Q}_3+\overline{Q_2} \cdot Q_3
+\end{aligned}
+\]</span></p></li>
+<li><p>列出状态转移表：</p>
+<p>这个表有三部分：<span class="math inline">\(Q,Q^{n+1},Y\)</span>。其中<span class="math inline">\(Q\)</span>栏要预先穷举所有组合，<span class="math inline">\(Q^{n+1}\)</span>栏和<span class="math inline">\(Y\)</span>栏根据状态方程和输出方程书写。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212062135331.png" srcset="/img/loading.gif" lazyload alt="状态转移表" /><figcaption aria-hidden="true">状态转移表</figcaption>
+</figure></li>
+<li><p>分析，得这个电路是一个七进制加法计数器，<span class="math inline">\(Y\)</span>是进位信号。</p></li>
+</ol>
+<h4 id="同步mealy时序逻辑电路分析">同步Mealy时序逻辑电路分析</h4>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212062147191.png" srcset="/img/loading.gif" lazyload alt="有输入的同步时序逻辑电路" /><figcaption aria-hidden="true">有输入的同步时序逻辑电路</figcaption>
+</figure>
+<ol type="1">
+<li><p>写驱动方程 <span class="math display">\[
+\begin{aligned}
+&amp; D_1=\overline{Q_1} \\
+&amp; D_2=A \oplus Q_1 \oplus Q_2
+\end{aligned}
+\]</span></p></li>
+<li><p>由<span class="math inline">\(D\)</span>触发器的特性方程<span class="math inline">\(Q^{n+1}=D\)</span>，写状态方程： <span class="math display">\[
+\begin{aligned}
+&amp; Q_1^{n+1}=D_1=\bar{Q}_1 \\
+&amp; Q_2^{n+1}=D_2=A \oplus Q_1 \oplus Q_2
+\end{aligned}
+\]</span></p></li>
+<li><p>写输出方程： <span class="math display">\[
+Y=\overline{\overline{\bar{A} Q_1 Q_2} \cdot \overline{A \overline{Q_1} \overline{Q_2}}}=\bar{A} Q_1 Q_2+A \overline{Q_1} \overline{Q_2}
+\]</span></p></li>
+<li><p>写状态转移表：</p>
+<table>
+<thead>
+<tr class="header">
+<th>A</th>
+<th>Q2</th>
+<th>Q1</th>
+<th>Q2*</th>
+<th>Q1*</th>
+<th>Y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>经分析，其是四进制加减计数器，输入控制加减。状态转换图如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212062155771.png" srcset="/img/loading.gif" lazyload alt="状态转换图" /><figcaption aria-hidden="true">状态转换图</figcaption>
+</figure></li>
+</ol>
+<h4 id="异步时序逻辑电路分析">异步时序逻辑电路分析</h4>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212062158972.png" srcset="/img/loading.gif" lazyload alt="异步时序逻辑电路" /><figcaption aria-hidden="true">异步时序逻辑电路</figcaption>
+</figure>
+<ol type="1">
+<li><p>写出驱动方程： <span class="math display">\[
+\begin{cases}
+J_0=1 &amp; K_0=1 &amp; cp_0=CP\downarrow\\
+J_1=\overline{\overline{Q_2} \cdot \overline{Q_3}} &amp; K_1=1 &amp; cp_1=\bar Q_0\downarrow\\
+J_2=1 &amp; K_2=1 &amp; cp_2=\bar Q_1\downarrow\\
+J_3=\bar Q_1\bar Q_2 &amp; K_3=1 &amp; cp_3=\bar Q_0\downarrow
+\end{cases}
+\]</span></p></li>
+<li><p>根据<span class="math inline">\(JK\)</span>触发器的特性方程<span class="math inline">\(Q^{n+1}=J\bar Q+\bar KQ\)</span>，写出状态方程： <span class="math display">\[
+\begin{cases}
+Q_0^{n+1}=\left.\overline{Q_0}\right|_{CP \downarrow}\\
+Q_1^{n+1}=Q_2 \overline{Q_1}+Q_3 \left.\overline{Q_1}\right| _{\bar Q_0 \downarrow}\\
+Q_2^{n+1}=\left.\overline{Q_2}\right|_{\overline{Q_1} \downarrow}\\
+Q_3^{n+1}=\overline{Q_1} \cdot \overline{Q_2} \cdot \left. \overline{Q_3} \right| _{\overline{Q_0} \downarrow}
+\end{cases}
+\]</span></p></li>
+<li><p>写状态转换表。</p>
+<p>首先画一张空表</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212062216825.png" srcset="/img/loading.gif" lazyload alt="空表" /><figcaption aria-hidden="true">空表</figcaption>
+</figure>
+<p>然后填写Q和已确定的<span class="math inline">\(cp_0\)</span></p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212062218665.png" srcset="/img/loading.gif" lazyload alt="填写Q和cp0" /><figcaption aria-hidden="true">填写Q和cp0</figcaption>
+</figure>
+<p>写出可以写出的<span class="math inline">\(Q^{n+1}\)</span>，比如<span class="math inline">\(Q_0^{n+1}\)</span></p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212062220582.png" srcset="/img/loading.gif" lazyload alt="填写Q0*" /><figcaption aria-hidden="true">填写Q0*</figcaption>
+</figure>
+<p>根据Q0*，写出由Q0*确定的时钟信号<span class="math inline">\(cp_1\)</span>,<span class="math inline">\(cp_3\)</span>.因为这两个信号都是<span class="math inline">\(\bar Q_0\downarrow\)</span>，所以在<span class="math inline">\(Q_0^{n+1}=1\)</span>的地方画下箭头</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212062224507.png" srcset="/img/loading.gif" lazyload alt="画cp1cp3" /><figcaption aria-hidden="true">画cp1cp3</figcaption>
+</figure>
+<p>根据已经确定的<span class="math inline">\(Q,cp_1,cp_3\)</span>,填写<span class="math inline">\(Q_1^{n+1},Q_3^{n+1}\)</span>.在<span class="math inline">\(cp\)</span>有下降沿时，根据状态方程计算状态；当<span class="math inline">\(cp\)</span>不是下降沿时，直接保持<span class="math inline">\(Q_1^n,Q_3^n\)</span>（原状态）的值</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212062229881.png" srcset="/img/loading.gif" lazyload /></p>
+<p>根据<span class="math inline">\(Q_1^{n+1}\)</span>，写出<span class="math inline">\(cp_2\)</span>（连续1串的末尾处填写↓），仿照上面的过程填写<span class="math inline">\(Q_2^{n+1}\)</span>，最后填写<span class="math inline">\(Y\)</span>.</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212062232556.png" srcset="/img/loading.gif" lazyload /></p></li>
+<li><p>根据表格画出状态转移图，发现其为模十减法计数器</p></li>
+</ol>
+<h3 id="时序逻辑电路设计">时序逻辑电路设计</h3>
+<p>设计时序逻辑电路的纲领就是把分析的过程反过来</p>
+<ol type="1">
+<li>根据设计要求设定状态，绘制状态转换图和表</li>
+<li>根据触发器类型对状态方程进行逻辑化简</li>
+<li>写出输出方程和驱动方程</li>
+<li>根据输出方程和驱动方程画电路图</li>
+<li>验证自启动性</li>
+</ol>
+<p>下面以一些例子说明这个过程：</p>
+<h4 id="同步时序逻辑电路设计">同步时序逻辑电路设计</h4>
+<p>【例】设计一个同步13进制加法计数器。</p>
+<ol type="1">
+<li><p>绘制状态转换图：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212071028422.png" srcset="/img/loading.gif" lazyload alt="状态转换图" /><figcaption aria-hidden="true">状态转换图</figcaption>
+</figure>
+<p>根据图列出状态转换表：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212071029063.png" srcset="/img/loading.gif" lazyload alt="状态转换表" /><figcaption aria-hidden="true">状态转换表</figcaption>
+</figure></li>
+<li><p>进行逻辑化简，画卡诺图：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212071033299.png" srcset="/img/loading.gif" lazyload alt="卡诺图" /><figcaption aria-hidden="true">卡诺图</figcaption>
+</figure>
+<p>在使用JK触发器时，因为JK触发器的特性方程是（以<span class="math inline">\(Q_3\)</span>为例子）： <span class="math display">\[
+Q_3^{n+1}=J\cdot \overline{Q_3^n}+\overline{K}\cdot Q_3^n
+\]</span> 所以我们终究是要化简成像这样的形式，才能进行下一步驱动方程的书写的。所以，在化简时，我们可以在卡诺图中画一条“鸿沟”，把<span class="math inline">\(Q_3\)</span>和<span class="math inline">\(\overline{Q_3}\)</span>的部分分割开，合并“1”格画卡诺圈时不跨越“鸿沟”，这样的话，化简出来就直接是上面式子的形式了。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212071055814.png" srcset="/img/loading.gif" lazyload alt="“鸿沟法”" /><figcaption aria-hidden="true">“鸿沟法”</figcaption>
+</figure>
+<p>如图，可以写出各状态方程： <span class="math display">\[
+\begin{cases}
+Q_3^{n+1}=Q_2Q_1Q_0\cdot \overline{Q_3}+\overline{Q_2}\cdot Q_3\\
+Q_2^{n+1}=Q_1Q_0\cdot \overline{Q_2}+(\overline{Q_3}\ \overline{Q_1}\cdot Q_2+\overline{Q_3}\ \overline{Q_0}\cdot Q_2)\\
+Q_1^{n+1}=Q_0 \cdot \overline{Q_1}+\overline{Q_0} \cdot Q_1\\
+Q_0^{n+1}=(\overline{Q_3} \cdot \overline{Q_0}+\overline{Q_2} \cdot \overline{Q_0})
+\end{cases}
+\]</span></p></li>
+<li><p>根据JK触发器的特性方程，可以直接写出驱动方程： <span class="math display">\[
+\begin{cases}
+J_3=Q_2Q_1Q_0 &amp; K_3=\overline{\overline{Q_2}}=Q_2\\
+J_2=Q_1Q_0 &amp; K_2=\overline{\overline{Q_3}(\overline{Q_1}+\overline{Q_0})}=Q_3+(Q_1Q_0)\\
+J_1=Q_0 &amp; K_1=Q_0\\
+J_0=\overline{Q_2}+\overline{Q_3} &amp; K_0=1
+\end{cases}
+\]</span></p></li>
+<li><p>画出电路图</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212071111134.png" srcset="/img/loading.gif" lazyload alt="电路图" /><figcaption aria-hidden="true">电路图</figcaption>
 </figure></li>
 </ol>
 

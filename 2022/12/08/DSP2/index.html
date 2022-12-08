@@ -1,0 +1,938 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <link rel="icon" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="SuzumiyaAkizuki">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="你说得对，但是《数字电子技术基础》是电子信息工程学院独立开设的一门核心专业课，课程发生在一个被称作五（203）的幻想世界，在这里，被神选中的信号将被授予“门电路”，导引高低电平之力。玩家将扮演一位名为“学生”的神秘角色，在自由的课程中邂逅性格各异、能力独特的元件们，和他们一起分析逻辑，找回失散的导线——同时，逐步发掘“Verilog”的真相。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数字信号处理·系统之章">
+<meta property="og:url" content="https://suzumiyaakizuki.github.io/2022/12/08/DSP2/index.html">
+<meta property="og:site_name" content="凉宫秋月的文艺部">
+<meta property="og:description" content="你说得对，但是《数字电子技术基础》是电子信息工程学院独立开设的一门核心专业课，课程发生在一个被称作五（203）的幻想世界，在这里，被神选中的信号将被授予“门电路”，导引高低电平之力。玩家将扮演一位名为“学生”的神秘角色，在自由的课程中邂逅性格各异、能力独特的元件们，和他们一起分析逻辑，找回失散的导线——同时，逐步发掘“Verilog”的真相。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212082301321.jpg">
+<meta property="article:published_time" content="2022-12-08T07:26:18.000Z">
+<meta property="article:modified_time" content="2022-12-08T15:01:56.647Z">
+<meta property="article:author" content="SuzumiyaAkizuki">
+<meta property="article:tag" content="DSP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212082301321.jpg">
+  
+  
+  
+  <title>数字信号处理·系统之章 - 凉宫秋月的文艺部</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"suzumiyaakizuki.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":"G-J01HK5TZ0Y","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"QGqf9VPGTa96KerO0JvDW3Ld-gzGzoHsz","app_key":"RhwwUaYq4lMo1tCJwcQTWdRp","server_url":"https://qgqf9vpg.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.google-analytics.com/analytics.js', function() {
+          window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
+          ga.l = +new Date;
+          ga('create', 'G-J01HK5TZ0Y', 'auto');
+          ga('send', 'pageview');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>凉宫秋月的文艺部</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友情链接
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212082301321.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="数字信号处理·系统之章"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        SuzumiyaAkizuki
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-12-08 15:26" pubdate>
+          2022年12月8日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          14 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">数字信号处理·系统之章</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>你说得对，但是《数字电子技术基础》是电子信息工程学院独立开设的一门核心专业课，课程发生在一个被称作五（203）的幻想世界，在这里，被神选中的信号将被授予“门电路”，导引高低电平之力。玩家将扮演一位名为“学生”的神秘角色，在自由的课程中邂逅性格各异、能力独特的元件们，和他们一起分析逻辑，找回失散的导线——同时，逐步发掘“Verilog”的真相。</p>
+<span id="more"></span>
+<h2 id="离散系统变换域分析">离散系统变换域分析</h2>
+<p>表示LTI系统有很多方法，我们常用三种：</p>
+<ul>
+<li>单位脉冲响应 <span class="math inline">\(h[n]\)</span></li>
+<li>单位脉冲响应的频谱密度函数（DTFT） <span class="math inline">\(H(e^{j\omega})\)</span></li>
+<li>系统函数（单位脉冲响应的Z变换） <span class="math inline">\(H(z)\)</span></li>
+</ul>
+<h3 id="lti系统的频域表示">LTI系统的频域表示</h3>
+<h4 id="特征函数和频率响应">特征函数和频率响应</h4>
+<p>对于LTI系统，对于某些输入序列，输出序列是输入序列和某个复常数的乘积。这样的输入序列叫做特征函数，复常数叫做系统的特征值。</p>
+<p>由于输入序列为<span class="math inline">\(x[n]=e^{j\omega n}\)</span>时，有 <span class="math display">\[
+y[n]=x[n]*h[n]=\sum_{k=-\infty}^\infty e^{j\omega(n-k)}h[k]=e^{j\omega n}H(e^{j\omega})
+\]</span> 所以LTI系统的其中一个特征函数就是<span class="math inline">\(x[n]=e^{j\omega n}\)</span>（事实上，所有的指数型函数，例如<span class="math inline">\(5^n\)</span>等，都是特征函数，而且，指数型函数和指数型函数的有限项乘积也是特征函数，但是形容<span class="math inline">\(e^{j\omega n}u[n]\)</span>这种就不行），其对应的特征值为<span class="math inline">\(H(e^{j\omega})\)</span>。</p>
+<p>而且，由傅里叶变换，我们知道：序列<span class="math inline">\(x[n]\)</span>往往可以表示为<span class="math inline">\(e^{j\omega n}\)</span>的线性组合，即<span class="math inline">\(x[n]=\frac{1}{2\pi}\int_{-\pi}^\pi X(e^{j\omega})e^{j\omega n}d\omega\)</span>。于是，我们将其中的每一项乘以对应的特征值，就得到了输出<span class="math inline">\(y[n]=\frac{1}{2\pi}\int_{-\pi}^\pi X(e^{j\omega})H(e^{j\omega})e^{j\omega n}d\omega\)</span>。于是我们得到了： <span class="math display">\[
+Y(e^{j\omega})=X(e^{j\omega})H(e^{j\omega})
+\]</span> 如果LTI系统的相频响应满足<span class="math inline">\(\angle H(e^{j\omega})=-\omega n_d\)</span>，那么称这样的系统为线性相位系统。线性相位系统对所有频率分量<span class="math inline">\(e^{j\omega n}\)</span>造成的延迟均为<span class="math inline">\(n_d\)</span>。一般来说，我们用群延时衡量相位变化对信号的影响，有： <span class="math display">\[
+\tau(\omega)=-\frac{d}{d\omega}\angle H(e^{j\omega})
+\]</span> 如果群延时不是常数，那么会造成输出信号的失真，这称为色散。</p>
+<h4 id="lti系统的z变换分析">LTI系统的Z变换分析</h4>
+<p>对于以下差分方程表示的系统： <span class="math display">\[
+y[n]=\sum_{k=1}^N a_ky[n-k]+\sum_{k=0}^Mb[k]x[n-k]
+\]</span> 在有初始松弛条件（零状态）时，是因果LTI系统。其系统函数为： <span class="math display">\[
+H(z)=\frac{Y(z)}{X(z)}=\frac{\sum_{k=0}^M b_kz^{-k}}{1-\sum_{k=1}^N a_kz^{-k}}
+\]</span> 也可以把它表示为因式的形式： <span class="math display">\[
+H(z)=\frac{b_0}{a_0}\frac{\prod_{m=1}^M(1-c_mz^{-1})}{\prod_{n=1}^N (1-d_nz^{-1})}
+\]</span> 关于系统的因果和稳定性，有如下结论：</p>
+<ul>
+<li>LTI系统是因果的 等价于 <span class="math inline">\(H(z)\)</span>的收敛域包含无穷远点</li>
+<li>LTI系统是稳定的 等价于<span class="math inline">\(H(z)\)</span>在单位圆上是收敛的</li>
+</ul>
+<p>关于系统的零极点和幅频响应的关系，有如下结论：</p>
+<ul>
+<li>对于单零点系统，零点为<span class="math inline">\(c\)</span>，当<span class="math inline">\(\omega=\theta_c\)</span>时，幅频响应是极小值，零点越靠近单位圆，幅频响应的极小值越小，当零点在单位圆上时，这个极小值为<span class="math inline">\(0\)</span>(如果采用对数坐标则为负无穷)</li>
+<li>对于单极点系统，极点为<span class="math inline">\(d\)</span>，当<span class="math inline">\(\omega=\theta_d\)</span>时，幅频响应是极大值，极点越靠近单位圆，幅频响应的极大值越大，当极点在单位圆上时，这个极大值为正无穷。极点在单位圆上或单位圆外，则系统不稳定。</li>
+</ul>
+<h4 id="有理系统的全通分解">有理系统的全通分解</h4>
+<ul>
+<li><p>幅频特性相同的系统</p>
+<p>若有一个有理实系统，把其中的若干个零点或极点用它的共轭倒数代替，新系统的幅频响应和原来的系统相同。于是，如果设计好一个系统的幅频特性，一定存在符合要求的因果稳定LTI系统，其极点都在单位圆内。</p></li>
+<li><p>全通系统</p>
+<p>全通指的是<span class="math inline">\(|H(e^{j\omega})|\equiv1\)</span>的系统，仅有相频特性随频率变化而变化。全通系统的零极点相对单位圆是镜像共轭成对的。也就是说：如果<span class="math inline">\(a_i\)</span>是系统的零点，那么<span class="math inline">\((a_i^*)^{-1}\)</span>，即<span class="math inline">\(a_i\)</span>的共轭的倒数，定是全通系统的极点。而且，对于有理实系数系统来说，零点和极点本身也是共轭成对的，即如果<span class="math inline">\(b_i\)</span>是零点或极点，那么它的共轭一定也是零点或极点。</p>
+<p>全通系统具有以下性质：</p>
+<ul>
+<li><p>相位特性随频率单调下降，即 <span class="math display">\[
+\frac{\rm d\theta(\omega)}{\rm d\omega}&lt;0
+\]</span></p></li>
+<li><p>输入信号<span class="math inline">\(x[n]\)</span>和输出信号<span class="math inline">\(y[n]\)</span>的能量相同，即 <span class="math display">\[
+\sum_{n=-\infty}^\infty\lvert x[n]\rvert^2=\sum_{n=-\infty}^\infty\lvert y[n]\rvert^2
+\]</span></p></li>
+<li><p>当频率<span class="math inline">\(\omega\)</span>从<span class="math inline">\(0\)</span>变化到<span class="math inline">\(\pi\)</span>时，<span class="math inline">\(N\)</span>阶全通系统的相位改变为<span class="math inline">\(N\pi\)</span></p></li>
+</ul>
+<p>全通系统的应用主要在作相位均衡器，或者通过级联全通系统的方法提高系统的稳定性。</p></li>
+<li><p>最小相位系统</p>
+<p>对于一个离散时间因果稳定系统，它的极点都在单位圆内。如果在此基础上，零点也都在单位圆内，那么这样的系统叫做最小相位系统<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="也就是说最小相位系统的意思就是零极点都在单位圆内。">[3]</span></a></sup>；如果零点全在单位圆外，叫最大相位系统；如果零点在单位圆内外都有，叫混合相位系统。</p>
+<p>最小相位系统有以下性质：</p>
+<ul>
+<li>在所有幅频响应相同的因果稳定系统中，最小相位系统的相位延迟最小</li>
+<li>在所有幅频响应相同的实系数因果稳定系统中，最小相位系统的群延时最小</li>
+<li>最小相位系统的逆系统也是最小相位系统</li>
+</ul>
+<blockquote>
+<p>【例】因果序列<span class="math inline">\(x[n]\)</span>的<span class="math inline">\(z\)</span>变换为 <span class="math display">\[
+X(z)=\frac{\left(1-\frac 12 z^{-1}\right)\left(1-\frac 14 z^{-1}\right)\left(1-\frac 15 z\right)}{\left(1-\frac 16 z\right)}
+\]</span> 又已知<span class="math inline">\(\alpha^nx[n]\)</span>是一个最小相位系统，求<span class="math inline">\(\alpha\)</span>的范围。</p>
+<p>【解】只有不在单位圆内的有一个零点<span class="math inline">\(5\)</span>和一个极点<span class="math inline">\(6\)</span>。记<span class="math inline">\(y[n]=\alpha^nx[n]\)</span>，则有 <span class="math display">\[
+Y(z)=\sum_{n=-\infty}^\infty\alpha^nx[n]z^{-n}=X\left(\frac z\alpha\right)
+\]</span> 如果<span class="math inline">\(a_i\)</span>是<span class="math inline">\(X(z)\)</span>的零点或极点，那么<span class="math inline">\(a_i\cdot\alpha\)</span>就是<span class="math inline">\(Y(z)\)</span>的零点或极点。为了让<span class="math inline">\(Y(z)\)</span>的所有零极点都在单位圆内，只需调整<span class="math inline">\(\alpha\)</span>，让<span class="math inline">\(6\alpha\)</span>在单位圆内即可。于是有： <span class="math display">\[
+\alpha&lt;\frac 16
+\]</span></p>
+</blockquote></li>
+<li><p>有理系统的全通分解</p>
+<p>任何有理系统函数都可以分解为最小相位系统<span class="math inline">\(H_{min}(z)\)</span>和全通系统<span class="math inline">\(H_{ap}(z)\)</span>级联的形式。假设系统仅有一个单位圆外的零点<span class="math inline">\((c^*)^{-1}\)</span>，即： <span class="math display">\[
+H(z)=H_1(z)(z^{-1}-c^*)
+\]</span> 则<span class="math inline">\(H_1\)</span>的零极点都在单位圆内，是最小相位系统。上式可以进一步表示为： <span class="math display">\[
+H(z)=H_1(z)(z^{-1}-c^*)\frac{1-cz^{-1}}{1-cz^{-1}}=H_1(z)(1-cz^{-1})\frac{z^{-1}-c^*}{1-cz^{-1}}
+\]</span> 其中<span class="math inline">\(\frac{z^{-1}-c^*}{1-cz^{-1}}\)</span>的零点是<span class="math inline">\((c^*)^{-1}\)</span>，极点是<span class="math inline">\(c\)</span>，互为共轭倒数，是全通系统，记作<span class="math inline">\(H_{ap}(z)\)</span>。因为<span class="math inline">\(|z|&lt;1\)</span>，其余部分是最小相位系统，记作<span class="math inline">\(H_{min}(z)\)</span>，于是分解完成。</p>
+<p>上述过程的实质是在单位圆外零点<span class="math inline">\((c^*)^{-1}\)</span>的共轭倒数<span class="math inline">\(c\)</span>的位置放置了一个零点和一个极点。<span class="math inline">\(c\)</span>上的极点和<span class="math inline">\((c^*)^{-1}\)</span>这个零点一起构成了全通系统；<span class="math inline">\(c\)</span>上的极点和原来系统的其它零极点构成了最小相位系统。</p>
+<blockquote>
+<p>【例】把以下系统分解成全通系统和最小相位系统的级联 <span class="math display">\[
+H(z)=\frac{1-3z^{-1}}{1+\frac 12 z^{-1}}
+\]</span> 【解】该系统有<span class="math inline">\(z=-1/2\)</span>的极点和<span class="math inline">\(z=3\)</span>的零点。即<span class="math inline">\((c^*)^{-1}=3\)</span>，得<span class="math inline">\(c=1/3\)</span>。则有： <span class="math display">\[
+\begin{align}
+H(z)&amp;=\frac{-3}{1+\frac 12 z^{-1}}\left(z^{-1}-\frac 13\right)\\
+&amp;=-3\left(\frac{1-\frac 13z^{-1}}{1+\frac 12 z^{-1}}\right)\left(\frac{z^{-1}-\frac 13}{1-\frac 13z^{-1}}\right)
+\end{align}
+\]</span> 于是： <span class="math display">\[
+H_{min}(z)=-3\left(\frac{1-\frac 13z^{-1}}{1+\frac 12 z^{-1}}\right)
+\]</span></p>
+<p><span class="math display">\[
+H_{ap}(z)=\left(\frac{z^{-1}-\frac 13}{1-\frac 13z^{-1}}\right)
+\]</span></p>
+</blockquote></li>
+</ul>
+<h4 id="广义线性相位系统">广义线性相位系统</h4>
+<p>所谓的线性相位的意思是，系统对不同频率的正弦信号所产生的相移和正弦信号的频率呈线性关系。即： <span class="math display">\[
+\angle H(e^{j\omega})=-\alpha \omega
+\]</span> 那么广义线性相位的意思就是，给这个加上一个常数，变成 <span class="math display">\[
+\angle H(e^{j\omega})=\beta-\alpha \omega
+\]</span> 经过一番数学推导，相频响应满足上面式子的系统的单位脉冲响应满足以下等式： <span class="math display">\[
+\sum_{n=-\infty}^\infty h[n]\sin(\omega(n-\alpha)+\beta)=0
+\]</span> 满足上面式子的情况的两组解如下：</p>
+<ul>
+<li><span class="math inline">\(\beta=0\)</span>或<span class="math inline">\(\pi\)</span>，<span class="math inline">\(2\alpha=M\in \mathbb N\)</span>，<span class="math inline">\(h[2\alpha-n]=h[n]\)</span></li>
+<li><span class="math inline">\(\beta=\pi/2\)</span>或<span class="math inline">\(3\pi/2\)</span>，<span class="math inline">\(2\alpha=M\in \mathbb N\)</span>，<span class="math inline">\(h[2\alpha-n]=-h[n]\)</span></li>
+</ul>
+<p>于是，我们可以分出四种广义线性相位系统。</p>
+<ul>
+<li><p>第I类广义线性相位系统</p>
+<p>该类系统满足<span class="math inline">\(h[M-n]=h[n]\)</span>，即<span class="math inline">\(h[n]\)</span>关于<span class="math inline">\(M/2\)</span>偶对称，而且<span class="math inline">\(M\)</span>是偶数。第I类的<span class="math inline">\(\beta=0,\pi\)</span>。所以相频响应是过原点的直线，斜率是<span class="math inline">\(-M/2\)</span>，群延时是<span class="math inline">\(M/2\)</span>。</p>
+<p>这类系统的广义幅频响应<span class="math inline">\(A(e^{j\omega})\)</span>关于<span class="math inline">\(\omega=m\pi,m\in \mathbb Z\)</span>偶对称。</p></li>
+<li><p>第II类广义线性相位系统</p>
+<p>该类系统满足<span class="math inline">\(h[M-n]=h[n]\)</span>，即<span class="math inline">\(h[n]\)</span>关于<span class="math inline">\(M/2\)</span>偶对称，而且<span class="math inline">\(M\)</span>是奇数。第II类的<span class="math inline">\(\beta=0,\pi\)</span>。所以相频响应是过原点的直线，斜率是<span class="math inline">\(-M/2\)</span>，群延时是<span class="math inline">\(M/2\)</span>。</p>
+<p>这类系统的广义幅频响应<span class="math inline">\(A(e^{j\omega})\)</span>关于<span class="math inline">\(\omega=2m\pi,m\in \mathbb Z\)</span>偶对称，关于<span class="math inline">\(\omega=(2m+1)\pi,m\in \mathbb Z\)</span>奇对称，幅度函数在<span class="math inline">\(\pi\)</span>时为零，不适合作高通、带阻滤波器。</p></li>
+<li><p>第III类广义线性相位系统</p>
+<p>该类系统满足<span class="math inline">\(h[M-n]=-h[n]\)</span>，即<span class="math inline">\(h[n]\)</span>关于<span class="math inline">\(M/2\)</span>奇对称，而且<span class="math inline">\(M\)</span>是偶数。第III类的<span class="math inline">\(\beta=\pi/2,3\pi/2\)</span>。所以相频响应是不过原点的直线（过<span class="math inline">\((0,\pi/2)\)</span>或<span class="math inline">\((0,3\pi/2)\)</span>），斜率是<span class="math inline">\(-M/2\)</span>，群延时是<span class="math inline">\(M/2\)</span>。</p>
+<p>这类系统的广义幅频响应<span class="math inline">\(A(e^{j\omega})\)</span>关于<span class="math inline">\(\omega=m\pi,m\in \mathbb Z\)</span>奇对称。</p></li>
+<li><p>第IV类广义线性相位系统</p>
+<p>该类系统满足<span class="math inline">\(h[M-n]=-h[n]\)</span>，即<span class="math inline">\(h[n]\)</span>关于<span class="math inline">\(M/2\)</span>奇对称，而且<span class="math inline">\(M\)</span>是奇数。第IV类的<span class="math inline">\(\beta=\pi/2,3\pi/2\)</span>。所以相频响应是不过原点的直线，斜率是<span class="math inline">\(-M/2\)</span>，群延时是<span class="math inline">\(M/2\)</span>。</p>
+<p>这类系统的广义幅频响应<span class="math inline">\(A(e^{j\omega})\)</span>关于<span class="math inline">\(\omega=2m\pi,m\in \mathbb Z\)</span>奇对称，关于<span class="math inline">\(\omega=(2m+1)\pi,m\in \mathbb Z\)</span>偶对称，幅度函数在<span class="math inline">\(\pi\)</span>时为零，不适合作低通、带通滤波器。</p></li>
+</ul>
+<p>由于第3、4类广义线性系统的相移特性，可以作希尔伯特变换器使用。</p>
+<p>对于广义线性系统而言，如果<span class="math inline">\(z_0\)</span>是系统的零点，那么<span class="math inline">\(z_0^{-1},z_0^*,(z_0^*)^{-1}\)</span>也是系统的零点。第2、3类的零点一定包含-1，第3、4类的零点一定包含1.</p>
+<h2 id="信号的采样和重建">信号的采样和重建</h2>
+<h3 id="连续信号的理想采样">连续信号的理想采样</h3>
+<p>设原连续信号为<span class="math inline">\(x_c(t)\)</span>，用来采样的理想冲击串为<span class="math inline">\(s(t)\)</span>，采样得的连续采样信号为<span class="math inline">\(x_s(t)\)</span>，采样得的离散时间序列为<span class="math inline">\(x[n]\)</span>。其中采样用的理想冲击串的周期为<span class="math inline">\(T_s\)</span>。</p>
+<h4 id="x_s和x_c的关系"><span class="math inline">\(X_s\)</span>和<span class="math inline">\(X_c\)</span>的关系</h4>
+<p>这一部分是《信号与系统》的内容，这里只简单提一下。</p>
+<p>首先我们知道，冲击串的傅里叶变换还是冲击串，即： <span class="math display">\[
+S(j\Omega)=\frac{2\pi}{T_s}\sum_{k=-\infty}^{\infty}\delta(\Omega-k\Omega_s)
+\]</span> 由傅里叶变换的乘积性质，有： <span class="math display">\[
+X_s(j\Omega)=\frac 1 {T_s}\sum_{k=-\infty}^\infty X_c(j\Omega-jk\Omega_s)
+\]</span> 即：<span class="math inline">\(x_s(t)\)</span>的频谱<span class="math inline">\(X_s(j\Omega)\)</span>是连续时间信号<span class="math inline">\(x_c(t)\)</span>的频谱<span class="math inline">\(X_c(j\Omega)\)</span>以采样周期<span class="math inline">\(\Omega_s=2\pi/T_s\)</span>的周期延拓，并以<span class="math inline">\(\frac 1{T_s}\)</span>加权的结果。所以，为了不使得频域混叠，需满足<span class="math inline">\(\Omega_s&gt;2\Omega_N\)</span>，其中<span class="math inline">\(\Omega_N\)</span>是原信号所含有的最高频分量的频率。</p>
+<h4 id="xejomega和x_cjomega的关系"><span class="math inline">\(X(e^{j\omega})\)</span>和<span class="math inline">\(X_c(j\Omega)\)</span>的关系</h4>
+<p>有： <span class="math display">\[
+X_s(j\Omega)=\sum_{n=-\infty}^{\infty}x[n]e^{-j\Omega nT_s}
+\]</span> 令<span class="math inline">\(\omega=\Omega T_s\)</span>，有： <span class="math display">\[
+X_s\left(j\frac{\omega}{T_s}\right)=\sum_{n=-\infty}^\infty x[n]e^{-j\omega n}
+\]</span></p>
+<p>可以发现：使用<span class="math inline">\(1/T_s\)</span>对<span class="math inline">\(X_c(j\Omega)\)</span>加权且频率按<span class="math inline">\(\Omega=\omega/T_s\)</span>尺度变换，得到函数<span class="math inline">\(X_c(j\omega/T_s)/T_s\)</span>，将其以<span class="math inline">\(2\pi\)</span>为周期进行延拓，得离散序列<span class="math inline">\(x[n]\)</span>频谱<span class="math inline">\(X(e^{j\omega})\)</span>.</p>
+<h3 id="连续信号的理想重建">连续信号的理想重建</h3>
+<p>重建系统的示意图如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211301039578.png" srcset="/img/loading.gif" lazyload alt="连续信号重建系统" /><figcaption aria-hidden="true">连续信号重建系统</figcaption>
+</figure>
+<p>先把离散时间信号序列<span class="math inline">\(y[n]\)</span>转化为连续时间信号<span class="math inline">\(y_s(t)\)</span>，然后让<span class="math inline">\(y_s(t)\)</span>经过截止频率为<span class="math inline">\(\pi/T_s\)</span>，幅度<span class="math inline">\(T_s\)</span>的低通滤波器，得到重建信号<span class="math inline">\(y_r(t)\)</span>。</p>
+<p>即： <span class="math display">\[
+H_r(j\Omega)=\begin{cases}
+T_s, &amp;|\Omega|&lt;\frac{\Omega_s}{2}\\
+0 , &amp;\text{others}
+\end{cases}
+\]</span></p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211301112181.png" srcset="/img/loading.gif" lazyload alt="重建过程" /><figcaption aria-hidden="true">重建过程</figcaption>
+</figure>
+<h3 id="余弦信号的采样">余弦信号的采样</h3>
+<p>这一段没有什么新东西，主要内容是以对余弦信号采样举例来让人直观感受“频域混叠”的存在，尤其是在采样频率<span class="math inline">\(\Omega_s=2\Omega_0\)</span>时，可能会出现各种情况：当<span class="math inline">\(\varphi=0\)</span>时，才能恢复原信号；当其它情况时，都不能恢复原信号，极端时刻，甚至采样值全部为0，不包含任何信息。</p>
+<hr />
+<section class="footnotes">
+<div class="footnote-list">
+<ol>
+<li>
+<span id="fn:3" class="footnote-text"><span>也就是说最小相位系统的意思就是零极点都在单位圆内。 <a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩︎</a></span></span>
+</li>
+</ol>
+</div>
+</section>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/DSP/">#DSP</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>数字信号处理·系统之章</div>
+      <div>https://suzumiyaakizuki.github.io/2022/12/08/DSP2/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>SuzumiyaAkizuki</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年12月8日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/12/08/DSP3/" title="数字信号处理·傅里叶之章">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">数字信号处理·傅里叶之章</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/12/04/%E5%AE%9E%E5%8F%98%E6%B3%9B%E5%87%BD/" title="实变泛函">
+                        <span class="hidden-mobile">实变泛函</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.7.2/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"48fb14f9689ae0d11307","clientSecret":"091ab25a88e87bfd9d9d40d97d1d0d932e694059","repo":"SuzumiyaAkizuki.github.io","owner":"SuzumiyaAkizuki","admin":["SuzumiyaAkizuki"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '0825c0979e564df9140d10c847f46c8a'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       Powered by: <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

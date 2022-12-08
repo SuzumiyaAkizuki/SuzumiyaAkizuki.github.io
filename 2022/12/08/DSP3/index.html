@@ -1,0 +1,989 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <link rel="icon" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="SuzumiyaAkizuki">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="你说得对，但是《数字电子技术基础》是电子信息工程学院独立开设的一门核心专业课，课程发生在一个被称作五（203）的幻想世界，在这里，被神选中的信号将被授予“门电路”，导引高低电平之力。玩家将扮演一位名为“学生”的神秘角色，在自由的课程中邂逅性格各异、能力独特的元件们，和他们一起分析逻辑，找回失散的导线——同时，逐步发掘“Verilog”的真相。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数字信号处理·傅里叶之章">
+<meta property="og:url" content="https://suzumiyaakizuki.github.io/2022/12/08/DSP3/index.html">
+<meta property="og:site_name" content="凉宫秋月的文艺部">
+<meta property="og:description" content="你说得对，但是《数字电子技术基础》是电子信息工程学院独立开设的一门核心专业课，课程发生在一个被称作五（203）的幻想世界，在这里，被神选中的信号将被授予“门电路”，导引高低电平之力。玩家将扮演一位名为“学生”的神秘角色，在自由的课程中邂逅性格各异、能力独特的元件们，和他们一起分析逻辑，找回失散的导线——同时，逐步发掘“Verilog”的真相。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212082303090.jpg">
+<meta property="article:published_time" content="2022-12-08T07:26:25.000Z">
+<meta property="article:modified_time" content="2022-12-08T15:04:21.176Z">
+<meta property="article:author" content="SuzumiyaAkizuki">
+<meta property="article:tag" content="DSP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212082303090.jpg">
+  
+  
+  
+  <title>数字信号处理·傅里叶之章 - 凉宫秋月的文艺部</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"suzumiyaakizuki.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":"G-J01HK5TZ0Y","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"QGqf9VPGTa96KerO0JvDW3Ld-gzGzoHsz","app_key":"RhwwUaYq4lMo1tCJwcQTWdRp","server_url":"https://qgqf9vpg.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.google-analytics.com/analytics.js', function() {
+          window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
+          ga.l = +new Date;
+          ga('create', 'G-J01HK5TZ0Y', 'auto');
+          ga('send', 'pageview');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>凉宫秋月的文艺部</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友情链接
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212082303090.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="数字信号处理·傅里叶之章"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        SuzumiyaAkizuki
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-12-08 15:26" pubdate>
+          2022年12月8日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          17 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">数字信号处理·傅里叶之章</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>你说得对，但是《数字电子技术基础》是电子信息工程学院独立开设的一门核心专业课，课程发生在一个被称作五（203）的幻想世界，在这里，被神选中的信号将被授予“门电路”，导引高低电平之力。玩家将扮演一位名为“学生”的神秘角色，在自由的课程中邂逅性格各异、能力独特的元件们，和他们一起分析逻辑，找回失散的导线——同时，逐步发掘“Verilog”的真相。</p>
+<span id="more"></span>
+<h2 id="离散傅里叶变换dft">离散傅里叶变换DFT</h2>
+<p>我们之前已学过很多“变换”了，例如连续时间信号傅里叶变换FT、连续时间信号傅里叶级数FS、离散时间序列傅里叶变换DTFT、离散时间序列傅里叶级数FS。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212081540465.png" srcset="/img/loading.gif" lazyload alt="各个变换" /><figcaption aria-hidden="true">各个变换</figcaption>
+</figure>
+<p>因为数字系统只能处理离散序列，而这其中只有DFS同时在时域和频域是离散的。但是DFS又是周期无限长序列，而现有的数字系统仍然不能实现。因此我们必须考虑用有限长序列建立时域离散和频域离散的关系。</p>
+<p>设<span class="math inline">\(\widetilde{x}[n]\)</span>是周期为<span class="math inline">\(N\)</span>的周期序列，那么称 <span class="math display">\[
+x[n]=\widetilde x[n]R_N[n]
+\]</span> 为“主值序列”，也就是原序列的第<span class="math inline">\(0\sim N-1\)</span>个值。</p>
+<p>设<span class="math inline">\(x[n]\)</span>是长度为<span class="math inline">\(N\)</span>的有限长序列，那么为了将其周期性延拓，有： <span class="math display">\[
+\widetilde  {x}[n]=\sum_{r=-\infty}^{\infty} x[n+r N]
+\]</span></p>
+<p>记作： <span class="math display">\[
+\widetilde{x}[n]=x[((n))_N]
+\]</span> 其中<span class="math inline">\(((n))_N\)</span>称作取模运算，设<span class="math inline">\(n=mN+n_1\)</span>，则<span class="math inline">\(((n))_N=n_1\)</span>。</p>
+<p>周期序列<span class="math inline">\(\widetilde x[n],\widetilde X[k]\)</span>可以看作有限长序列<span class="math inline">\(x[n],X[k]\)</span>的周期延拓，因此只需计算主值区间中的DFS，即可对周期序列进行恢复。有DFT的定义： <span class="math display">\[
+\begin{gathered}
+x[n]=\frac{1}{N} \sum_{k=0}^{N-1} X[k] \mathrm{e}^{\frac{2\pi k n}{N}} \\
+X[k]=\sum_{n=0}^{N-1} x[n] \mathrm{e}^{j \frac{-2 \pi k n}{N}}
+\end{gathered}
+\]</span> 我们可以看出：DFT并不是一个新的变换形式，而是DFS在实频域的主值序列，因此其很多性质和DFS有类似性。</p>
+<h3 id="几大变换之间的关系">几大变换之间的关系</h3>
+<p>以下：将Z变换记作<span class="math inline">\(X(z)\)</span>，将DTFT（离散时间序列傅里叶变换）记作<span class="math inline">\(X(e^{j\omega})\)</span>，将DFS（离散时间序列傅里叶级数）记作<span class="math inline">\(\widetilde X[k]\)</span>，将DFT（离散傅里叶变换）记作<span class="math inline">\(X[k]\)</span>。</p>
+<h4 id="z变换和dtft">Z变换和DTFT</h4>
+<p><span class="math inline">\(x[n]\)</span>的DTFT是其Z变换在单位圆上的采样。即： <span class="math display">\[
+X\left(\mathrm{e}^{j w}\right)=\left.X(z)\right|_{z=e^{j\omega}}
+\]</span></p>
+<h4 id="dtft和dfs">DTFT和DFS</h4>
+<p>对<span class="math inline">\(X(e^{j\omega})\)</span>在<span class="math inline">\(\omega \in [0,2\pi)\)</span>的等间隔频率点进行<span class="math inline">\(N\)</span>点采样得到周期序列<span class="math inline">\(\widetilde X[k]\)</span>。对<span class="math inline">\(\widetilde X[k]\)</span>作IDFS（离散时间序列傅里叶级数逆变换），得到序列<span class="math inline">\(\widetilde x_N[n]\)</span>。</p>
+<p>由： <span class="math display">\[
+\tilde{X}[k]=\left.X\left(\mathrm{e}^{j \omega}\right)\right|_{\omega=\frac{2 \pi i}{N}}=\sum_{n=-\infty}^{\infty} x[n] \mathrm{e}^{-j \frac{2 \pi}{N} k n}
+\]</span> 和 <span class="math display">\[
+\tilde{x}_N[n]=\operatorname{IDFS}[\tilde{X}[k]]=\frac{1}{N} \sum_{k=0}^{N-1} \widetilde {X}[k] \mathrm{e}^{j\frac{2 \pi}{N} k n}
+\]</span> 把上式带入下式，有： <span class="math display">\[
+\widetilde x_N[n]=\sum_{m=-\infty}^{\infty} x[m]\left[\frac{1}{N} \sum_{k=0}^{N-1} \mathrm{e}^{-j \frac{2 \pi}{N} k(m-n)}\right]
+\]</span> 有复指数函数的正交性和周期性，有： <span class="math display">\[
+\begin{aligned}
+\tilde{x}_N[n]&amp;=\sum_{m=-\infty}^{\infty} x[m]\left[\sum_{r=-\infty}^{\infty} \delta[m-n-r N]\right]\\
+&amp;=\cdots+x[n+N]+x[n]+x[n-N]+\cdots
+\end{aligned}
+\]</span> 可以看到，<span class="math inline">\(\widetilde x_N[n]\)</span>是<span class="math inline">\(x[n]\)</span>的周期移位。也就是说，正如时域采样会导致频域周期延拓，频域采样也会导致时域周期延拓。下面按<span class="math inline">\(x[n]\)</span>的长度<span class="math inline">\(L\)</span>和频域采样数<span class="math inline">\(N\)</span>分情况讨论：</p>
+<ol type="1">
+<li>非周期序列<span class="math inline">\(x[n]\)</span>不是有限长序列，则频域采样一定会造成混叠</li>
+<li><span class="math inline">\(N&lt;L\)</span>时，仍会产生时域混叠失真。混叠的长度就是<span class="math inline">\(L-N\)</span>，参考上面的式子</li>
+<li><span class="math inline">\(N\geq L\)</span>时，才能由频域采样<span class="math inline">\(\tilde X[k]\)</span>恢复出<span class="math inline">\(x[n]\)</span></li>
+</ol>
+<h4 id="dfs和dft">DFS和DFT</h4>
+<p>如前文所说，DFT和DFS本质上来说是一种变换，不过DFS的离散时间序列是周期的，变换得到的频域也是周期的，DFT是DFS的主值序列。</p>
+<h3 id="dft的性质和定理">DFT的性质和定理</h3>
+<p>在研究DFT的性质时，需要时刻注意DFT的有限定长度性以及循环周期性。当涉及到两个长度不同的序列时，要通过补0的方式使其长度均为<span class="math inline">\(N\geq max(N_1,N_2)\)</span>。</p>
+<ol type="1">
+<li><p>线性</p></li>
+<li><p>时域循环位移性质</p>
+<p>这里的循环移位是圆周移位，在序列中，从左（右）边移出多少位，就会从右（左）边移入相同位的序列值。 <span class="math display">\[
+x\left[\left(\left(n+n_d\right)\right)_N\right] R_N[n] \underset{N-\mathrm{IDFT}}{\stackrel{N-\mathrm{DFT}}{\longrightarrow}} \mathrm{e}^{j\left(2 \pi kn_d / N\right)} X[k]
+\]</span></p></li>
+<li><p>频域循环位移性质 <span class="math display">\[
+\mathrm{e}^{\mathrm{j}(2 \pi k / N) l n} x[n] \underset{N-\mathrm{IDFT}}{\stackrel{N-\mathrm{DFT}}{\rightleftarrows}} X\left[((k-l))_N\right] R_N[n]
+\]</span></p></li>
+<li><p>时间倒置性质 <span class="math display">\[
+x[-n] \underset{N-\mathrm{IDFT}}{\stackrel{N-\mathrm{DFT}}{\rightleftarrows}} X[-k]
+\]</span></p></li>
+<li><p>此外，还有实频域循环卷积、对偶、帕塞瓦尔等性质。</p></li>
+</ol>
+<h3 id="dft的对称性">DFT的对称性</h3>
+<p>和DFS的基本相同。重点是：DFT的对称都是“圆周对称”。对于圆周共轭对称序列，有： <span class="math display">\[
+x[n]=x^*[N-n]
+\]</span> 对于圆周共轭反对称序列，有： <span class="math display">\[
+x[n]=-x^*[N-n]
+\]</span> 如果<span class="math inline">\(x[n]\)</span>是实信号，那么它的DFT<span class="math inline">\(X[k]\)</span>是圆周共轭对称的。也就是说它的实部<span class="math inline">\(X_{Re}[k]\)</span>是圆周偶对称，虚部是圆周奇对称。</p>
+<h3 id="用dft实现线性卷积">用DFT实现线性卷积</h3>
+<p>这是我们之前几章经常用的线性卷积： <span class="math display">\[
+y_l[n]=x[n] * h[n]=\sum_{m=-\infty}^{+\infty} h[m] x[n-m]
+\]</span> 这是我们DFT里经常用的N点循环卷积： <span class="math display">\[
+y_c[n]=x[n] N h[n]=\left(\sum_{m=0}^{N-1} h[m] x\left[((n-m))_N\right]\right) R_N[n]
+\]</span> 把<span class="math inline">\(x\left[((n-m))_N\right]=\sum_{i=-\infty}^{+\infty} x[n-m+i N]\)</span> 带入，有： <span class="math display">\[
+\begin{aligned}
+y_c[n] &amp; =\left(\sum_{m=0}^{N-1} x[m] h\left[((n-m))_N\right]\right) R_N[n] \\
+&amp; =\left(\sum_{m=0}^{N-1} h[m] \sum_{i=-\infty}^{+\infty} x[n-m+i N]\right) R_N[n] \\
+&amp; =\left(\sum_{i=-\infty}^{+\infty} \sum_{m=0}^{N-1} h[m] x[n-m+i N]\right) R_N[n] \\
+&amp; =\left(\sum_{i=-\infty}^{+\infty} y_l[n+i N]\right) R_N[n]
+\end{aligned}
+\]</span> 于是，我们可以证明：循环卷积的结果是线性卷积以<span class="math inline">\(N\)</span>为周期的周期延拓的序列的主值序列。因为线性卷积序列的长度是<span class="math inline">\(L+P-1\)</span>，于是循环卷积的点数必须满足<span class="math inline">\(N\geq L+P-1\)</span>时，才不会发生混叠，取主值序列时才满足<span class="math inline">\(y_c[n]=y_l[n]\)</span></p>
+<p>根据上述推理，我们可以利用DFT来实现卷积，计算框图如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212081757914.png" srcset="/img/loading.gif" lazyload alt="DFT实现线性卷积" /><figcaption aria-hidden="true">DFT实现线性卷积</figcaption>
+</figure>
+<h4 id="dft实现线性系统块卷积方法">DFT实现线性系统（块卷积方法）</h4>
+<p>在实际的操作中，输入序列<span class="math inline">\(x[n]\)</span>的长度远远大于冲激响应<span class="math inline">\(h[n]\)</span>的长度<span class="math inline">\(P\)</span>，所以计算效率比较低，所以需要分段处理，把输入序列分成长度为<span class="math inline">\(L\)</span>的块，再进行计算。有两种方法，分别是重叠相加法和重叠保留法。</p>
+<p>重叠相加法：把输入序列按顺序直接切割成若干个长度为<span class="math inline">\(L\)</span>的段序列<span class="math inline">\(x_r[n]\)</span>，即： <span class="math display">\[
+x_r[n]= \begin{cases}x[n+r L], &amp; 0 \leqslant n \leqslant L-1 \\ 0, &amp; \text { 其他 }\end{cases}
+\]</span> 对每个分段信号，和<span class="math inline">\(h[n]\)</span>进行线性卷积： <span class="math display">\[
+y_r[n]=x_r[n] * h[n]
+\]</span> 其中<span class="math inline">\(y_r[n]\)</span>是长度为<span class="math inline">\(L+P-1\)</span>的序列。由卷积的性质，有： <span class="math display">\[
+y[n]=\sum_{r=0}^{\infty} x_r[n-r L] * h[n]
+\]</span> 则： <span class="math display">\[
+y[n]=\sum_{r=0}^{\infty} y_r[n-r L]
+\]</span> 也就是说，尽管相邻两段<span class="math inline">\(y_r\)</span>会有重叠部分，但是加的时候不要管，直接叠加就行了。所以，这种方法叫做重叠相加法。</p>
+<p>重叠保留法：</p>
+<p>重叠保留法在对<span class="math inline">\(x[n]\)</span>分割成<span class="math inline">\(x_r[n]\)</span>时，两个相邻的<span class="math inline">\(x_r[n]\)</span>之间存在<span class="math inline">\(P-1\)</span>长度的重叠，即： <span class="math display">\[
+x_r[n]=x[n+r(L-P+1)-P+1], 0 \leqslant n \leqslant L-1
+\]</span> 有： <span class="math display">\[
+y[n]=\sum_{r=0}^{\infty} y_r[n-r(L-P+1)+P-1]
+\]</span> 把每个序列段和<span class="math inline">\(h[n]\)</span>的线性卷积记作<span class="math inline">\(y_{rp}[n]\)</span>则： <span class="math display">\[
+y_r= \begin{cases}y_{rp}[n], &amp; P-1 \leqslant n \leqslant L-1 \\ 0, &amp; \text { 其他 }\end{cases}
+\]</span> 意思是，在拼接时，每个<span class="math inline">\(y_r\)</span>序列都应该去掉<span class="math inline">\(0\leq n\leq P-2\)</span>和<span class="math inline">\(L\leq n\leq L+P-1\)</span>的部分。但是，明明拼接时去掉了一部分，为什么要叫“重叠保留”呢？哈哈。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212081959819.png" srcset="/img/loading.gif" lazyload alt="块卷积方法" /><figcaption aria-hidden="true">块卷积方法</figcaption>
+</figure>
+<h2 id="快速傅里叶变换fft">快速傅里叶变换FFT</h2>
+<p>一般的DFT，其时间复杂度是<span class="math inline">\(O(N^2)\)</span>，难以处理很长的数据。FFT把计算复杂度降低到了<span class="math inline">\(\frac N2 \log_2 N\)</span>次，大大提高了计算效率。FFT的实质是分治算法，把一个长度为<span class="math inline">\(N\)</span><sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="在本节中，进行FFT的序列长度默认为2的整数次幂，不足则用0补齐。">[1]</span></a></sup>的序列不断地分拆成长度为<span class="math inline">\(N/2\)</span>，再利用旋转因子<span class="math inline">\(W_N^{nk}\)</span>（即<span class="math inline">\(\exp(-j\frac{2\pi kn}{N})\)</span>）的性质由子序列的DFT来合成整个序列的DFT。</p>
+<h3 id="时间抽取ditfft">时间抽取（DIT）FFT</h3>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212082052669.png" srcset="/img/loading.gif" lazyload alt="时间抽取FFT" /><figcaption aria-hidden="true">时间抽取FFT</figcaption>
+</figure>
+<p>这是DIT-FFT的基本框图。把长度为<span class="math inline">\(N\)</span>的序列<span class="math inline">\(x[n]\)</span>按奇偶分为两个长度为<span class="math inline">\(N/2\)</span>的序列<span class="math inline">\(g[n],h[n]\)</span>。接下来我们来<strong>推导“组合成长序列”这一步</strong>究竟是如何进行的。</p>
+<p>由傅里叶变换定义式： <span class="math display">\[
+{X}[{k}]=\sum_{n=0}^{N-1} {x}[{n}] \cdot e^{-j \frac{2 \pi k}{N} n}
+\]</span> 把<span class="math inline">\(x[n]\)</span>分解为奇数偶数两部分： <span class="math display">\[
+ {X}[ {k}]=\sum_{ {r}=0}^{\frac{N}{2}-1}  {x}[2  {r}] e^{-j \frac{2 \pi k}{N} 2  {r}}+\sum_{r=0}^{\frac{N}{2}-1}  {x}[2  {r}+1] e^{-j \frac{2 \pi k}{N}(2  {r}+1)}
+\]</span> 把等式右侧的<span class="math inline">\(\exp [-j\frac{2\pi k}{N}(2r+1)]\)</span>分解开，有： <span class="math display">\[
+X[k]=\sum_{r=0}^{\frac{N}{2}-1}  {g}[ {r}] e^{-j \frac{2 \pi k}{N} 2 r}+\sum_{r=0}^{\frac{N}{2}-1}  {h}[ {r}] e^{-j \frac{2 \pi k}{N} 2 r} e^{-j \frac{2 \pi k}{N}}
+\]</span> 再回忆一下傅里叶变换的定义： <span class="math display">\[
+G[k]=\sum_{r=0}^{\frac N2-1}g[r]e^{-j\frac{2\pi k}{N/2}r}
+\]</span></p>
+<p><span class="math display">\[
+H[k]=\sum_{r=0}^{\frac N2-1}h[r]e^{-j\frac{2\pi k}{N/2}r}
+\]</span></p>
+<p>我们惊喜地发现：可以代换了。有： <span class="math display">\[
+X[k]=G[k]+e^{-j\frac{2\pi k}{N}}H[k]
+\]</span> 只要再注意到<span class="math inline">\(G,H\)</span>都是以<span class="math inline">\(N/2\)</span>为周期的，那么“组合成长序列”的方法已经昭然若揭了：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212082117370.png" srcset="/img/loading.gif" lazyload alt="组合成长序列" /><figcaption aria-hidden="true">组合成长序列</figcaption>
+</figure>
+<p>当然，这个图还可以继续优化，只需要注意到： <span class="math display">\[
+e^{j\frac{2\pi N/2}{N}}=-1,e^{j\frac{2\pi}{N}(k+\frac N2)}=-e^{j\frac{2\pi}{N}k}
+\]</span> 有：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212082119083.png" srcset="/img/loading.gif" lazyload alt="优化" /><figcaption aria-hidden="true">优化</figcaption>
+</figure>
+<p>接下来如法炮制，对<span class="math inline">\(g,h\)</span>进行分析，把它们分解为<span class="math inline">\(N/4\)</span>的序列，进行计算，直到序列的长度只有2为止。此时，有：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212082125722.png" srcset="/img/loading.gif" lazyload alt="序列长度只有2" /><figcaption aria-hidden="true">序列长度只有2</figcaption>
+</figure>
+<p>我们得到了计算这个长度为8的序列的FFT的全过程流图：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212082126128.png" srcset="/img/loading.gif" lazyload alt="全过程流图" /><figcaption aria-hidden="true">全过程流图</figcaption>
+</figure>
+<h3 id="按频率抽取diffft">按频率抽取（DIF）FFT</h3>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212082132719.png" srcset="/img/loading.gif" lazyload alt="按频率抽取" /><figcaption aria-hidden="true">按频率抽取</figcaption>
+</figure>
+仿照上面的过程，我们来推导“组合成短序列”的过程。由DFT的定义： <span class="math display">\[
+X[k]=\sum_{n=0}^{N-1} x[n] \cdot e^{-j \frac{2 \pi k}{N} n}
+\]</span> 把它拆开： $$
+<span class="math display">\[\begin{aligned}
+
+{X}[{k}]&amp;=\sum_{n=0}^{N / 2-1} x[{n}] e^{-j \frac{2 \pi k}{N} n}+\sum_{n=N / 2}^{N-1} x[n] e^{-j \frac{2 \pi k}{N} n}\\
+&amp;=\sum_{n=0}^{\frac{N}{2}-1} {x}[{n}] e^{-j \frac{2 \pi k}{N} n}+\sum_{r=0}^{\frac{N}{2}-1} x\left[r+\frac{N}{2}\right] e^{-j \frac{2 \pi k}{N}\left(r+\frac{N}{2}\right)}\\
+&amp;=\sum_{n=0}^{\frac{N}{2}-1}  {x}[ {n}]  {e}^{-j \frac{2 \pi k}{N} n}+\sum_{n=0}^{\frac{N}{2}-1}  {e}^{-j \pi k}  {x}\left[ {n}+\frac{N}{2}\right] e^{-j \frac{2 \pi k}{N} n}\\
+&amp;=\sum_{n=0}^{\frac{N}{2}-1}\left(x[n]+e^{-j \pi k} x\left[n+\frac{N}{2}\right]\right) e^{-j \frac{2 \pi k}{N} n}
+\end{aligned}\]</span>
+<span class="math display">\[
+然后，我们分别让$k=2r,2r+1$，有：
+\]</span>
+<span class="math display">\[\begin{cases}
+X[2 r+1]=\sum_{n=0}^{\frac{N}{2}-1}\left(\left(x[n]-x\left[n+\frac{N}{2}\right]\right) e^{-j \frac{2 \pi}{N} n}\right) e^{-j \frac{2 \pi r}{N / 2} n}\\
+X[2 r]=\sum_{n=0}^{\frac{N}{2}-1}\left(x[n]+x\left[n+\frac{N}{2}\right]\right) e^{-j \frac{2 \pi r}{N / 2} n}
+\end{cases}\]</span>
+<span class="math display">\[
+即：
+\]</span>
+<span class="math display">\[\begin{cases}
+X[2r+1]=DFT\{x[n]-x[n+\frac N2]e^{-j\frac{2\pi}Nn}\}\\
+X[2r]=DFT\{x[n]+x[n+\frac N2]\}
+\end{cases}\]</span>
+<p>$$ 于是，我们可以画出流图：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212082153498.png" srcset="/img/loading.gif" lazyload alt="DIF流图" /><figcaption aria-hidden="true">DIF流图</figcaption>
+</figure>
+<p>如此重复，直到序列长度为2，有：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212082154503.png" srcset="/img/loading.gif" lazyload alt="长度为2的流图" /><figcaption aria-hidden="true">长度为2的流图</figcaption>
+</figure>
+<p>于是，全过程流图为：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212082154066.png" srcset="/img/loading.gif" lazyload alt="DIFFFT全过程流图" /><figcaption aria-hidden="true">DIFFFT全过程流图</figcaption>
+</figure>
+<h3 id="ifft">IFFT</h3>
+<p>在不修改电路（程序）的情况下，直接借用FFT的模块实现IFFT，有两种操作方法。</p>
+<ol type="1">
+<li>把蝶形运算中的旋转因子<span class="math inline">\(W_N^k\)</span>换成<span class="math inline">\(W_N^{-k}\)</span>，把<span class="math inline">\(X[k]\)</span>送进输入端，对输出的结果除以<span class="math inline">\(N\)</span></li>
+<li>把<span class="math inline">\(X^*[k]\)</span>送入输入端，计算输出的共轭，然后除以<span class="math inline">\(N\)</span></li>
+</ol>
+<h3 id="实数序列的fft">实数序列的FFT</h3>
+<p>前面所提到的序列都是复序列。如果要计算实数，当然可以把它当成虚部为零的复数，但是也有更简便的计算方法。</p>
+<h4 id="n点fft计算两个n点实序列">N点FFT计算两个N点实序列</h4>
+<p>构造复序列<span class="math inline">\(x[n]=x_1[n]+jx_2[n]\)</span>，则有： <span class="math display">\[
+X_1[k]=X_{e p}[k]= \begin{cases}X_{\mathrm{Re}}[0], &amp; k=0 \\ \frac{1}{2}\left(X[k]+X^*[N-k]\right), &amp; 0&lt;k&lt;N\end{cases}
+\]</span></p>
+<p><span class="math display">\[
+X_2[k]=X_{\text {op }}[k]= \begin{cases}X_{1 \mathrm{~s}}[0], &amp; k=0 \\ -\frac{\mathrm{j}}{2}\left(X[k]-X^*[N-k]\right), &amp; 0&lt;k&lt;N\end{cases}
+\]</span></p>
+<h4 id="n点fft计算2n点实序列">N点FFT计算2N点实序列</h4>
+<p>构造复序列<span class="math inline">\(x[n]=g[n]+jh[n]\)</span>，其中<span class="math inline">\(g\)</span>是原实序列的偶数项，<span class="math inline">\(h\)</span>是原实序列的奇数项。则有： <span class="math display">\[
+G[k]=Y_{e p}[k]= \begin{cases}Y_{\mathrm{k}_*}[0], &amp; k=0 \\ \frac{1}{2}\left(Y[k]+Y^*[N-k]\right), &amp; 0&lt;k&lt;N\end{cases}
+\]</span></p>
+<p><span class="math display">\[
+H[k]=Y_{\text {ap }}[k]= \begin{cases}Y_{1 \mathrm{~m}}[0], &amp; k=0 \\ -\frac{\mathrm{j}}{2}\left(Y[k]-Y^*[N-k]\right), &amp; 0&lt;k&lt;N\end{cases}
+\]</span></p>
+<p><span class="math display">\[
+X[k]= \begin{cases}G[k]+W_{2 v}^k H[k], &amp; k=0,1, \cdots, N-1 \\ G[k-N]-W_{2 N}^{k-N} H[k-N], &amp; k=N, N+1, \cdots, 2 N-1\end{cases}
+\]</span></p>
+<hr />
+<section class="footnotes">
+<div class="footnote-list">
+<ol>
+<li>
+<span id="fn:1" class="footnote-text"><span>在本节中，进行FFT的序列长度默认为2的整数次幂，不足则用0补齐。 <a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩︎</a></span></span>
+</li>
+</ol>
+</div>
+</section>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/DSP/">#DSP</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>数字信号处理·傅里叶之章</div>
+      <div>https://suzumiyaakizuki.github.io/2022/12/08/DSP3/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>SuzumiyaAkizuki</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年12月8日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/12/08/DSP2/" title="数字信号处理·系统之章">
+                        <span class="hidden-mobile">数字信号处理·系统之章</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.7.2/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"48fb14f9689ae0d11307","clientSecret":"091ab25a88e87bfd9d9d40d97d1d0d932e694059","repo":"SuzumiyaAkizuki.github.io","owner":"SuzumiyaAkizuki","admin":["SuzumiyaAkizuki"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '8c8af6d4f0736c09ea9590ba5d5bb24e'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       Powered by: <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
