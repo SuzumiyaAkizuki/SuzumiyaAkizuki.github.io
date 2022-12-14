@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162142585.jpg">
 <meta property="article:published_time" content="2022-11-16T06:21:15.000Z">
-<meta property="article:modified_time" content="2022-12-07T03:11:44.175Z">
+<meta property="article:modified_time" content="2022-12-13T15:04:08.350Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="数电">
 <meta name="twitter:card" content="summary_large_image">
@@ -267,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          14k 字
+          15k 字
         
       </span>
     
@@ -278,7 +278,7 @@
         
         
         
-          28 分钟
+          31 分钟
         
       </span>
     
@@ -1076,6 +1076,81 @@ J_0=\overline{Q_2}+\overline{Q_3} &amp; K_0=1
 <figure>
 <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212071111134.png" srcset="/img/loading.gif" lazyload alt="电路图" /><figcaption aria-hidden="true">电路图</figcaption>
 </figure></li>
+</ol>
+<h4 id="异步时序逻辑电路设计">异步时序逻辑电路设计</h4>
+<p>【例】用JK触发器设计一个异步五进制计数器</p>
+<ol type="1">
+<li><p>绘制状态转换图（略），时序波形图：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212132041777.png" srcset="/img/loading.gif" lazyload alt="波形图" /><figcaption aria-hidden="true">波形图</figcaption>
+</figure></li>
+<li><p>在保证状态变化的时候必有触发脉冲的前提条件下, 选择在状态不变的时候触发脉冲最少的, 使得 <span class="math inline">\(\mathrm{JK}\)</span> 的输入条件简化。根据以上准则，选定各触发器的触发信号源；列写状态转移表：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212132044245.png" srcset="/img/loading.gif" lazyload alt="状态转移表" /><figcaption aria-hidden="true">状态转移表</figcaption>
+</figure></li>
+<li><p>把状态转换表变成卡诺图形式，逻辑化简，写出逻辑表达式 <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212132046917.png" srcset="/img/loading.gif" lazyload alt="卡诺图" /></p>
+<p>状态方程： <span class="math display">\[
+\begin{cases}
+Q_2^{n+1}=Q_1Q_0\cdot\overline{Q_2}\\
+Q_1^{n+1}=\overline{Q_1}\\
+Q_0^{n+1}=\overline{Q_2}\cdot\overline{Q_0}
+\end{cases}
+\]</span> 驱动方程： <span class="math display">\[
+\begin{cases}
+J_2=Q_1Q_0 &amp; K_2=1\\
+J_1=1 &amp; K_1=1\\
+J_0=\overline{Q_2} &amp; K_0=1
+\end{cases}
+\]</span></p></li>
+</ol>
+<h3 id="计数器">计数器</h3>
+<p>计数器是用以统计输入脉冲CP个数的电路。常用的计数器有以下这么几种：</p>
+<ol type="1">
+<li><p>74161：4位二进制同步加法计数器</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212132138461.png" srcset="/img/loading.gif" lazyload alt="74161的逻辑图和功能表" /><figcaption aria-hidden="true">74161的逻辑图和功能表</figcaption>
+</figure></li>
+<li><p>74191：四位二进制同步可逆计数器</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212132142262.png" srcset="/img/loading.gif" lazyload alt="功能表" /><figcaption aria-hidden="true">功能表</figcaption>
+</figure>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212132143570.png" srcset="/img/loading.gif" lazyload alt="符号" /><figcaption aria-hidden="true">符号</figcaption>
+</figure></li>
+<li><p>74160：十进制同步加法计数器</p>
+<p>其逻辑符号和功能表和74161相同，仅靠上面的数字区分。</p></li>
+</ol>
+<h4 id="任意进制计数器的构成">任意进制计数器的构成</h4>
+<p>假设已经有了<span class="math inline">\(N\)</span>进制计数器，要求通过链接、外加电路的方法得到<span class="math inline">\(M\)</span>进制计数器。</p>
+<ol type="1">
+<li><p><span class="math inline">\(M&lt;N\)</span>时</p>
+<p>主要方法有置零法和置数法两种。置零法是在电路从<span class="math inline">\(S_0\)</span>计数到<span class="math inline">\(S_M\)</span>时，外接一个<span class="math inline">\(M\)</span>的译码器，产生一个置零信号，接入置零端。因为电路一经过<span class="math inline">\(S_M\)</span>状态就会产生置零信号，进而被置入<span class="math inline">\(S_0\)</span>状态，因此<span class="math inline">\(S_M\)</span>并不会出现在稳定循环中。以上是异步置零的情况，如果是同步置零的话，需要在<span class="math inline">\(S_{M-1}\)</span>处进行译码，传回置零信号，然后在下一个时钟触发置零。其逻辑转换图如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212132232915.png" srcset="/img/loading.gif" lazyload alt="置零法" /><figcaption aria-hidden="true">置零法</figcaption>
+</figure>
+<p>下图是用置零法把同步十进制计数器74160接成同步六进制计数器的电路图：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212132237765.png" srcset="/img/loading.gif" lazyload alt="10-6" /><figcaption aria-hidden="true">10-6</figcaption>
+</figure>
+<p>这里的清零端是异步清零。此时标志“进位”这个动作发生的信号是进位输出信号的下降沿。这种接法的清零信号持续时间非常的短，有可能导致电路出错。可以在进位输出前加一个锁存器，如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212132241978.png" srcset="/img/loading.gif" lazyload alt="改进的10-6" /><figcaption aria-hidden="true">改进的10-6</figcaption>
+</figure>
+<p>此时如果电路进入<span class="math inline">\(S_6(0110)\)</span>状态，在<span class="math inline">\(G_1\)</span>门后输出低电平，把与非门SR锁存器置1，<span class="math inline">\(\bar Q\)</span>端输出低电平，接入低电平有效置零端<span class="math inline">\(R_D\)</span>，把电路置零。而因为锁存器的存在，置零信号会维持一段时间，直到计数脉冲回到低电平，SR锁存器才被置零。</p>
+<p>置位法是通过给计数器重复置入某个数值的方法跳过<span class="math inline">\(N-M\)</span>个状态，从而获得<span class="math inline">\(M\)</span>进制计数器的。其逻辑转换图如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212132234036.png" srcset="/img/loading.gif" lazyload alt="置位法" /><figcaption aria-hidden="true">置位法</figcaption>
+</figure>
+<p>下图是一种用置数法构成的电路：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212132257611.png" srcset="/img/loading.gif" lazyload alt="在S5(0101)时置入0000" /><figcaption aria-hidden="true">在S5(0101)时置入0000</figcaption>
+</figure>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212132258697.png" srcset="/img/loading.gif" lazyload alt="在S4(0100)时置入SN-1(1001)" /><figcaption aria-hidden="true">在S4(0100)时置入SN-1(1001)</figcaption>
+</figure></li>
+<li><p><span class="math inline">\(M&gt;N\)</span>时</p>
+<p>应用多片N进制计数器进行组合。如果M可以因式分解成多个小于N的数之和，即：<span class="math inline">\(M=N_1N_2\cdots N_n\)</span>，那么可以把第<span class="math inline">\(i\)</span>片计数器接成<span class="math inline">\(N_i\)</span>进制，然后采用串行进位或者并行进位把他们链接起来。</p>
+<p>如果M是素数，或者不能像这样因式分解，则必须采用整体置零/置数法。</p></li>
 </ol>
 
                 
