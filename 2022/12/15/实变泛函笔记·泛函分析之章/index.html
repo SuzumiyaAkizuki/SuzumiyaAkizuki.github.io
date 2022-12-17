@@ -1,0 +1,1070 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <link rel="icon" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="SuzumiyaAkizuki">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="度量空间和赋范线性空间 度量（距离）空间 如果\(X\)是一个非空集合，对于\(X\)中的任何两个元素\((x,y)\)，都有一个实数\(d(x,y)\)与之对应，且满足：  \(d(x,y)\geq 0\)，等号仅在\(x&#x3D;y\)时取得 \(d(x,y)&#x3D;d(y,x)\) \(d(x,z)\leq d(x,y)+d(y,z)\)，也就是“三角形两边之和大于第三边”  那么称函数\">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实变泛函笔记·泛函分析之章">
+<meta property="og:url" content="https://suzumiyaakizuki.github.io/2022/12/15/%E5%AE%9E%E5%8F%98%E6%B3%9B%E5%87%BD%E7%AC%94%E8%AE%B0%C2%B7%E6%B3%9B%E5%87%BD%E5%88%86%E6%9E%90%E4%B9%8B%E7%AB%A0/index.html">
+<meta property="og:site_name" content="凉宫秋月的文艺部">
+<meta property="og:description" content="度量空间和赋范线性空间 度量（距离）空间 如果\(X\)是一个非空集合，对于\(X\)中的任何两个元素\((x,y)\)，都有一个实数\(d(x,y)\)与之对应，且满足：  \(d(x,y)\geq 0\)，等号仅在\(x&#x3D;y\)时取得 \(d(x,y)&#x3D;d(y,x)\) \(d(x,z)\leq d(x,y)+d(y,z)\)，也就是“三角形两边之和大于第三边”  那么称函数\">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212172305878.jpg">
+<meta property="article:published_time" content="2022-12-15T06:40:38.000Z">
+<meta property="article:modified_time" content="2022-12-17T15:05:32.812Z">
+<meta property="article:author" content="SuzumiyaAkizuki">
+<meta property="article:tag" content="实变泛函">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212172305878.jpg">
+  
+  
+  
+  <title>实变泛函笔记·泛函分析之章 - 凉宫秋月的文艺部</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"suzumiyaakizuki.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":"G-J01HK5TZ0Y","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"QGqf9VPGTa96KerO0JvDW3Ld-gzGzoHsz","app_key":"RhwwUaYq4lMo1tCJwcQTWdRp","server_url":"https://qgqf9vpg.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.google-analytics.com/analytics.js', function() {
+          window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
+          ga.l = +new Date;
+          ga('create', 'G-J01HK5TZ0Y', 'auto');
+          ga('send', 'pageview');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>凉宫秋月的文艺部</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友情链接
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212172305878.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="实变泛函笔记·泛函分析之章"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        SuzumiyaAkizuki
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-12-15 14:40" pubdate>
+          2022年12月15日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          11k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          22 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">实变泛函笔记·泛函分析之章</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="度量空间和赋范线性空间">度量空间和赋范线性空间</h2>
+<h3 id="度量距离空间">度量（距离）空间</h3>
+<p>如果<span class="math inline">\(X\)</span>是一个非空集合，对于<span class="math inline">\(X\)</span>中的任何两个元素<span class="math inline">\((x,y)\)</span>，都有一个实数<span class="math inline">\(d(x,y)\)</span>与之对应，且满足：</p>
+<ol type="1">
+<li><span class="math inline">\(d(x,y)\geq 0\)</span>，等号仅在<span class="math inline">\(x=y\)</span>时取得</li>
+<li><span class="math inline">\(d(x,y)=d(y,x)\)</span></li>
+<li><span class="math inline">\(d(x,z)\leq d(x,y)+d(y,z)\)</span>，也就是“三角形两边之和大于第三边”</li>
+</ol>
+<p>那么称函数<span class="math inline">\(d\)</span>是<span class="math inline">\(X\)</span>上的一个距离（度量），<span class="math inline">\((X,d)\)</span>是距离空间。</p>
+<p>事实上，对于任何非空集合，我们都可以让他变成距离空间，大不了定义<code>d(x,y)=(x==y)?0:1</code>嘛。</p>
+<h4 id="常用的距离空间">常用的距离空间</h4>
+<ol type="1">
+<li><p><span class="math inline">\(R\)</span>，<span class="math inline">\(d(x,y)=|y-x|\)</span></p></li>
+<li><p><span class="math inline">\(R^n\)</span>，有很多种<span class="math inline">\(d\)</span>的定义，列举三种： <span class="math display">\[
+\begin{aligned}
+&amp; d_1(x, y)=\sum_{i=1}^n\left|x_i-y_i\right| \\
+&amp; d_2(x, y)=\left(\sum_{i=1}^n\left|x_i-y_i\right|^2\right)^{1 / 2} \\
+&amp; d_3(x, y)=\max _{\forall i}\left|x_i-y_i\right|^2
+\end{aligned}
+\]</span></p></li>
+<li><p><span class="math inline">\(C[a,b]\)</span>，指<span class="math inline">\([a,b]\)</span>上的连续函数构成的集合 <span class="math display">\[
+d(x, y)=\max _{a \leq t \leq b}|x(t)-y(t)|, \forall x, y \in C[a, b]
+\]</span> 距离定义为定义域内两个函数垂直距离的最大值</p></li>
+<li><p>所有序列构成的集合<span class="math inline">\(S\)</span></p>
+<p>如果<span class="math inline">\(x=\{\xi_i\},y=\{\eta_i\}\)</span>，则 <span class="math display">\[
+d(x, y)=\sum_{i=1}^{\infty} \frac{1}{2^i} \frac{\left|\xi_i-\eta_i\right|}{1+\left|\xi_i-\eta_i\right|}
+\]</span> 提示：验证第三条公理只需考察函数<span class="math inline">\(f(x)=\frac{x}{1+x}\)</span>的单调性</p></li>
+<li><p>有界序列空间<span class="math inline">\(l^\infty\)</span> <span class="math display">\[
+d(x, y)=\sup _{\forall i}\left|\xi_i-\eta_i\right|
+\]</span></p></li>
+<li><p>收敛序列空间<span class="math inline">\(c\)</span></p>
+<p>距离的定义同有界数列空间一样</p></li>
+<li><p><span class="math inline">\(p\)</span>次可和序列空间<span class="math inline">\(l^p\)</span> <span class="math display">\[
+l^p=\left\{x=\left\{\xi_i\right\}\left|\sum_{i=1}^{\infty}\left| \xi_i\right|^p&lt;\infty\right.\right\}, 1 \leq p&lt;\infty
+\]</span> 距离： <span class="math display">\[
+d(x, y)=\left(\sum_{i=1}^{\infty}\left|\xi_i-\eta_i\right|^p\right)^{\frac{1}{p}}
+\]</span></p></li>
+<li><p>本质有界可测函数空间<span class="math inline">\(L^\infty[a,b]\)</span></p>
+<p>本质有界：指除了一个零测集<span class="math inline">\(E\)</span>以外都有界</p>
+<p>距离： <span class="math display">\[
+d(x,y)=\inf _{m(E)=0}\left\{\sup _{t \in[a, b] \backslash E}|x(t)-y(t)|\right\}
+\]</span> 意思是：先遍历零测集<span class="math inline">\(E\)</span>，再对每个<span class="math inline">\(E\)</span>沿着<span class="math inline">\(x\)</span>轴找到两个函数垂直距离最大的点，再找这个最小的“最大的垂直距离”。</p></li>
+<li><p><span class="math inline">\(p\)</span>次可积函数空间<span class="math inline">\(L^p\)</span> <span class="math display">\[
+d(x, y)=\left(\int_a^b|x(t)-y(t)|^p \mathrm{~d} t\right)^{1 / p}
+\]</span></p></li>
+</ol>
+<h4 id="距离空间中的拓扑">距离空间中的拓扑</h4>
+<p>既然我们定义了距离，那么什么都好办了，距离空间中的拓扑可以对照<span class="math inline">\(R^n\)</span>中的拓扑的相关定义，包括开球、邻域、内点外点边界点、聚点、开集导集闭包等等。这些定义都是相同的。</p>
+<p><strong>【连续映射】</strong>设<span class="math inline">\((X,d),(Y,p)\)</span>都是距离空间，<span class="math inline">\(T:X\to Y\)</span>，如果对于给定的<span class="math inline">\(x_0\in X,\forall \epsilon &gt;0,\exists\delta&gt;0,s.t. x\in X,d(x,x_0)&lt;\delta,p(T_x,T_{x_0})&lt;\epsilon\)</span>，也就是说，如果<span class="math inline">\(X\)</span>中的两点足够近，那么其映射的像在<span class="math inline">\(Y\)</span>中也足够近，那么称映射<span class="math inline">\(T\)</span>在点<span class="math inline">\(x_0\)</span>处连续。如果<span class="math inline">\(T\)</span>在<span class="math inline">\(X\)</span>的每一点都连续，称<span class="math inline">\(T\)</span>是<span class="math inline">\(X\)</span>上的连续映射。</p>
+<p>连续有两个充要条件，可以辅助判别：</p>
+<ol type="1">
+<li><span class="math inline">\(\forall x_0\in X\)</span>当<span class="math inline">\(X\)</span>中的点列<span class="math inline">\(x_n\to x_0\)</span>（距离意义上），相应<span class="math inline">\(Y\)</span>中的像点列<span class="math inline">\(Tx_n\to Tx_0\)</span>（海涅定理）</li>
+<li>对<span class="math inline">\(Y\)</span>中的任何开集<span class="math inline">\(O\)</span>，<span class="math inline">\(T^{-1}O\)</span>是<span class="math inline">\(X\)</span>中的开集</li>
+</ol>
+<p><strong>【稠密性】</strong>设<span class="math inline">\((X,d)\)</span>是距离空间，<span class="math inline">\(A\subset X\)</span>，对<span class="math inline">\(\forall x\in X,x\)</span>的任何球中后含有<span class="math inline">\(A\)</span>中的点，称<span class="math inline">\(A\)</span>在<span class="math inline">\(X\)</span>中稠密</p>
+<p><strong>【可分性】</strong>设<span class="math inline">\((X,d)\)</span>是距离空间，如果<span class="math inline">\(X\)</span>中存在可数的稠密子集，那么称<span class="math inline">\(X\)</span>是可分的。</p>
+<blockquote>
+<p>例如：<span class="math inline">\(R^n,l^p,s,C[a,b],P[a,b],L^p[a,b]\)</span>都是可分的。</p>
+<p>但是<span class="math inline">\(l^\infty\)</span>是不可分的。</p>
+</blockquote>
+<h4 id="完备距离空间">完备距离空间</h4>
+<p>满足“所有基本列（柯西列）都收敛”<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="所有收敛列都是基本列是永远成立的。">[1]</span></a></sup>的距离空间叫做完备距离空间。</p>
+<blockquote>
+<p>反例1：对距离空间<span class="math inline">\((Q,d(x,y)=|x-y|)\)</span>，有基本列<span class="math inline">\(x_n=(1+1/n)^n\)</span>，在<span class="math inline">\(Q\)</span>上不收敛。</p>
+<p>反例2：对距离空间<span class="math inline">\((X=(0,1),d(x,y)=|x-y|)\)</span>，有基本列<span class="math inline">\(x_n=1/(n+1)\)</span>，在<span class="math inline">\((0,1)\)</span>上不收敛</p>
+</blockquote>
+<p>典型的完备距离空间有：<span class="math inline">\(R^n,L^P,l^p,C[a,b]\)</span></p>
+<p><strong>【等距映射】</strong>设<span class="math inline">\((X,d),(\hat X,\rho)\)</span>都是距离空间，如果存在一个映射<span class="math inline">\(T:X\to \hat X\)</span>，使得 <span class="math display">\[
+d(x,y)=\rho (Tx,Ty)
+\]</span> 称<span class="math inline">\(T\)</span>是等距映射。<span class="math inline">\(X,\hat X\)</span>称为等距同构空间。</p>
+<p><strong>【完备化】</strong> 对距离空间<span class="math inline">\((X,d)\)</span>，如果有完备距离空间<span class="math inline">\((\hat X,\rho)\)</span>，使得这两个空间等距同构，那么称<span class="math inline">\(\hat X\)</span>是<span class="math inline">\(X\)</span>的完备化空间。每个距离空间都有自己的完备化空间。</p>
+<h3 id="线性空间">线性空间</h3>
+<p>在数域<span class="math inline">\(K\)</span>，集合<span class="math inline">\(X\)</span>上定义加法、数乘，满足前文提到的“线性运算加法和数乘8条性质”的集合<span class="math inline">\(X\)</span>称作向量空间或线性空间。</p>
+<p>线性空间的性质，我们在线性代数中已经学了很多，这里仅仅列举</p>
+<ul>
+<li>零向量唯一</li>
+<li>一个向量的负向量唯一</li>
+<li>线性子空间的定义（X的子集对加法和数乘封闭）</li>
+<li>线性组合</li>
+<li>生成子空间</li>
+<li>线性无关</li>
+<li>维数</li>
+<li>线性子空间的直和<span class="math inline">\(X=M\bigoplus N=\{m+n|\forall m\in M,\forall n\in N,M\cap N=\emptyset\}\)</span>，有<span class="math inline">\(\dim X=\dim M+\dim N\)</span></li>
+<li>补子空间：<span class="math inline">\(X=M\bigoplus N\)</span>，称<span class="math inline">\(N\)</span>是<span class="math inline">\(X\)</span>的补。对于一个线性空间<span class="math inline">\(X\)</span>和它的一个子空间<span class="math inline">\(M\)</span>，<span class="math inline">\(M\)</span>的补一定存在。</li>
+</ul>
+<h4 id="赋范线性空间">赋范线性空间</h4>
+<p>设<span class="math inline">\(X\)</span>是线性空间，且<span class="math inline">\(\forall x\in X\)</span>，存在一个非负实数<span class="math inline">\(||x||\)</span>，且</p>
+<ol type="1">
+<li><span class="math inline">\(\|x\| \geq \mathbf{0},\|x\|=0 \Leftrightarrow x=\theta\)</span></li>
+<li><span class="math inline">\(\|\alpha x\|=|\alpha| \cdot\|x\|, \forall \alpha \in C\)</span> (或 <span class="math inline">\(R)\)</span></li>
+<li><span class="math inline">\(\|x+y\| \leq\|x\|+\|y\|, \forall x, y \in X \quad\)</span> (三角不等式）</li>
+</ol>
+<p>那么称<span class="math inline">\(||x||\)</span>是<span class="math inline">\(x\)</span>的范数，<span class="math inline">\((X,||\cdot||)\)</span>为赋范线性空间。</p>
+<p>例如：在<span class="math inline">\(R^n\)</span>空间中的常用范数：</p>
+<ol type="1">
+<li><p>p-范数： <span class="math display">\[
+\|x\|_p=\left(\sum_{i=1}^n\left|x_i\right|^p\right)^{1 / p}
+\]</span></p></li>
+<li><p>无穷范数： <span class="math display">\[
+||x||_\infty=\max |x_i|
+\]</span></p></li>
+<li><p>1-范数： <span class="math display">\[
+||x||_1=\sum_{i=1}^n |x_i|
+\]</span></p></li>
+</ol>
+<p>任何赋范线性空间都能诱导出一种距离： <span class="math display">\[
+d(x,y)=||x-y||
+\]</span> 但距离空间不一定能诱导出一种范数。</p>
+<p><strong>【依范数收敛】</strong> <span class="math display">\[
+\lim_{n\to \infty}||x_n-x_0||=0
+\]</span> <strong>【范数的等价】</strong>对于不同的范数，如果存在<span class="math inline">\(C_1,C_2&gt;0\)</span>，使得 <span class="math display">\[
+C_1||x||_2&lt;||x||_1&lt;C_2||x||_2
+\]</span> 那么称这两个范数等价</p>
+<p><strong>【巴拿赫空间】</strong>如果一个赋范线性空间按照它的范数诱导出来的距离构成的距离空间是完备距离空间，那么称这个赋范线性空间为巴拿赫空间。</p>
+<p><strong>【有限维赋范线性空间】</strong>有如下性质：</p>
+<ol type="1">
+<li>维数相等的赋范线性空间都同构</li>
+<li>有限维线性赋范线性空间必完备且可分</li>
+<li>赋范线性空间<span class="math inline">\(X\)</span>是列紧的，和它是有限维等价</li>
+<li>在其上定义的各种范数都等价</li>
+<li>从有限维到有限维的线性算子都有界</li>
+</ol>
+<h2 id="有界线性算子和连续线性泛函">有界线性算子和连续线性泛函</h2>
+<p>在泛函分析中，把具有一定性质的元素的集合称为空间，把空间到空间的映射称为算子。算子的概念可以类比于平常所说的映射，也有值域、单、满、双、逆的概念。</p>
+<p><strong>【线性算子】</strong>如果<span class="math inline">\(T:(X,||\cdot||_1)\to (Y,||\cdot||_2)\)</span>，有： <span class="math display">\[
+T(\alpha_1x_1+\alpha_2x_2)=\alpha_1Tx_1+\alpha_2Tx_2
+\]</span> 则称这个算子<span class="math inline">\(T\)</span>是线性算子。</p>
+<p><strong>【连续算子】</strong> 如果<span class="math inline">\(T:(X,||\cdot||_1)\to (Y,||\cdot||_2)\)</span>，有： <span class="math display">\[
+\text{当}||x-x_0||_1\to 0\text{有}||Tx-Tx_0||_2\to 0
+\]</span> 称<span class="math inline">\(T\)</span>在<span class="math inline">\(x_0\)</span>处连续。如果<span class="math inline">\(T\)</span>在<span class="math inline">\(X\)</span>的每个点都连续，称其为连续算子。</p>
+<p><strong>【同构同胚】</strong> 如果<span class="math inline">\(T:(X,||\cdot||_1)\to (Y,||\cdot||_2)\)</span>，线性</p>
+<ol type="1">
+<li>如果<span class="math inline">\(T\)</span>是双射，那么称<span class="math inline">\(T\)</span>是线性同构的</li>
+<li>进一步，如果<span class="math inline">\(T\)</span>和它的逆都是连续的，那么称<span class="math inline">\(T\)</span>是线性同胚的</li>
+</ol>
+<p><strong>【有界】</strong>如果<span class="math inline">\(T:(X,||\cdot||_1)\to (Y,||\cdot||_2)\)</span>，存在常数<span class="math inline">\(C\)</span>，使得对任意<span class="math inline">\(x\)</span> <span class="math display">\[
+||T_x||_2\leq C||x||_1
+\]</span> 则称 <span class="math inline">\(T\)</span>是有界的。有界当且仅当其把任意有界集映射为有界集。</p>
+<p><strong>【算子的范数】</strong>如果<span class="math inline">\(T:(X,||\cdot||_1)\to (Y,||\cdot||_2)\)</span>的线性有界算子，称 <span class="math display">\[
+||T||=\sup_{\forall x\neq \theta}\frac{||Tx||_2}{||x||_1}
+\]</span> 为算子<span class="math inline">\(T\)</span>的范数。</p>
+<p>如果在上述“算子”的描述中，<span class="math inline">\(Y\)</span>是数集，那么这个算子也可以叫做“泛函”。</p>
+<h3 id="有界线性算子空间和共轭空间">有界线性算子空间和共轭空间</h3>
+<h4 id="有界线性算子空间">有界线性算子空间</h4>
+<p>设全体<span class="math inline">\(T:X\to Y\)</span>构成一个集合，记作<span class="math inline">\(\mathcal L(X,Y)\)</span>。则它按范数是赋范线性空间。其中 <span class="math display">\[
+(A+B)x=Ax+Bx,(\alpha A)x=\alpha(Ax)
+\]</span> 如果<span class="math inline">\(X\)</span>是赋范线性空间，<span class="math inline">\(Y\)</span>是巴拿赫空间（按照它的范数诱导出来的距离构成的距离空间是完备距离空间的赋范线性空间），那么<span class="math inline">\(\mathcal L(X,Y)\)</span>也是巴拿赫空间。</p>
+<p>如果<span class="math inline">\(A,B\in \mathcal L(X,Y)\)</span>，则<span class="math inline">\(AB\in L(X,Y)\)</span>，且<span class="math inline">\(||AB||\leq ||A||\cdot||B||\)</span>。进一步，有：<span class="math inline">\(||A^n||\leq ||A||^n\)</span></p>
+<p><strong>【范数的强弱】</strong> 对于同一个集合上的两个范数，如果： <span class="math display">\[
+(||x_n||_1\to 0)\to (||x_n||_2\to 0)
+\]</span> 称范数1比范数2更强。</p>
+<h4 id="算子的逆">算子的逆</h4>
+<p>设 <span class="math inline">\(X, Y\)</span> 都是线性赋范空间, <span class="math inline">\(A: X \rightarrow Y\)</span> 是线性映射. 那么 <span class="math inline">\(A\)</span> 是单射, 且定义在 <span class="math inline">\(R(A)\)</span> 上的算子 <span class="math inline">\(A^{-1}\)</span> 是连续的 <span class="math inline">\(\Leftrightarrow\)</span> 存在常数 <span class="math inline">\(m&gt;0\)</span>, 使 <span class="math inline">\(\|A x\| \geq m\|x\|, \forall x \in X\)</span>.</p>
+<p>设 <span class="math inline">\(X\)</span> 为 Banach空间, <span class="math inline">\(A \in \mathcal{L}(X)\)</span>, 且 <span class="math inline">\(\|A\|&lt;1\)</span>, 则 <span class="math inline">\(I-A\)</span> 是有界可逆的, 且 <span class="math display">\[
+(I-A)^{-1}=\sum_{n=0}^{\infty} A^n, \quad\left\|(I-A)^{-1}\right\| \leq \frac{1}{1-\|A\|},
+\]</span> 其中 <span class="math inline">\(A^0=I, I\)</span> 是恒等算子.</p>
+<h4 id="对偶空间">对偶空间</h4>
+<p>如果<span class="math inline">\(X\)</span>是数域<span class="math inline">\(C\)</span>上的赋范线性空间，集合 <span class="math display">\[
+X^{\prime}=\mathcal{L}(X, C)=\left\{x^{\prime} \mid x^{\prime}: X \rightarrow C \text { 是连续线性泛函 }\right\}
+\]</span> 规定：</p>
+<ol type="1">
+<li><span class="math inline">\(\left(x_1^{\prime}+x_2^{\prime}\right)(x)=x_1^{\prime}(x)+x_2^{\prime}(x)\)</span>，<span class="math inline">\((\lambda x&#39;)(x)=\lambda(x&#39;(x))\)</span></li>
+<li><span class="math inline">\(\left\|x^{\prime}\right\|=\sup _{\|x\| \leq 1}\left|x^{\prime}(x)\right|\)</span></li>
+</ol>
+<p>称<span class="math inline">\(X&#39;\)</span>是<span class="math inline">\(X\)</span>的对偶空间/共轭空间。</p>
+<p>如果<span class="math inline">\(X\)</span>可分，那么<span class="math inline">\(X&#39;\)</span>可分。</p>
+<h4 id="常见空间上的连续线性泛函">常见空间上的连续线性泛函</h4>
+<ol type="1">
+<li><p><span class="math inline">\(l^1\)</span>空间</p>
+<p>其上的连续线性泛函可以表现为： <span class="math display">\[
+f(x)=\sum_{k=1}^{\infty} \xi_k \eta_k, \forall x=\left\{\xi_k\right\} \in l^1
+\]</span> 就是序列中的各项按由<span class="math inline">\(f(x)\)</span>唯一确定的权重<span class="math inline">\(y=\{\eta_i\}\)</span>线性组合。且： <span class="math display">\[
+||f(x)||=\sup|\eta_k|=||y||_{l^1}
+\]</span></p></li>
+<li><p><span class="math inline">\(l^p\)</span>空间 <span class="math display">\[
+f(x)=\sum_{k=1}^{\infty} \xi_k \eta_k, \forall x=\left\{\xi_k\right\} \in l^1
+\]</span> 其中<span class="math inline">\(y\in l^q\)</span>，满足<span class="math inline">\(p^{-1}+q^{-1}=1\)</span>。也就是说：<span class="math inline">\((l^p)&#39;=l^q\)</span></p></li>
+<li><p><span class="math inline">\(L^p[a,b]\)</span>空间： <span class="math display">\[
+f(x)=\int_a^b x(t) y(t) \mathrm{d} t, \forall x=x(t) \in L^p[a, b]
+\]</span> 其中<span class="math inline">\(y=y(t)\in L^q[a,b]\)</span>，<span class="math inline">\(q=\frac{p}{p-1}\)</span>。</p></li>
+</ol>
+<h2 id="内积空间和希尔伯特hilbert空间">内积空间和希尔伯特（Hilbert）空间</h2>
+<p>设 <span class="math inline">\(X\)</span> 是数域 <span class="math inline">\(K\)</span> (实或复数域)上的线性空间, 若 <span class="math inline">\(\forall x, y \in X\)</span> 存在唯一的数 <span class="math inline">\((x, y) \in K\)</span>, 满足下列三条内积公理:</p>
+<ul>
+<li>正定性: <span class="math inline">\((x, x) \geq 0,(x, x)=0 \Leftrightarrow x=\theta\)</span>;</li>
+<li>对第一变元的线性性:<span class="math inline">\((\alpha x+\beta y, z)=\alpha(x, z)+\beta(y, z), \forall z \in X, \forall \alpha, \beta \in K\)</span></li>
+<li>共轭对称性: <span class="math inline">\((x, y)=\overline{(y, x)}\)</span>,</li>
+</ul>
+<p>则称 <span class="math inline">\((x, y)\)</span> 为 <span class="math inline">\(x, y\)</span> 的内积, <span class="math inline">\(X\)</span> 为内积空间。如果是复内积空间，对第二变元有共轭线性，即： <span class="math display">\[
+(x, \alpha y+\beta z)=\bar{\alpha}(x, y)+\bar{\beta}(x, z)
+\]</span> 两个向量内积为零，称为正交。如果一个集合<span class="math inline">\(\{x_i\}\)</span>满足<span class="math inline">\((x_i,x_j)=\delta_{ij}\)</span>，称为正规正交集。</p>
+<p><strong>【勾股定理】</strong> <span class="math inline">\(X\)</span>是内积空间，<span class="math inline">\(x\)</span>和<span class="math inline">\(y\)</span>正交，则有： <span class="math display">\[
+\|x+y\|^2=\|x\|^2+\|y\|^2
+\]</span> 其中<span class="math inline">\(||x||=\sqrt{(x,x)}\)</span>称为向量<span class="math inline">\(x\)</span>的范数。</p>
+<p>如果<span class="math inline">\(\{x_i\}\)</span>是正规正交集，则<span class="math inline">\(\forall x\in X\)</span> <span class="math display">\[
+\|x\|^2=\sum_{j=1}^n\left|\left(x, x_j\right)\right|^2+\left\|x-\sum_{j=1}^n\left(x, x_j\right) x_j\right\|^2
+\]</span> <strong>【贝塞尔不等式】</strong>如果<span class="math inline">\(\{x_i\}\)</span>是正规正交集，则<span class="math inline">\(\forall x\in X\)</span> <span class="math display">\[
+\sum_{j=1}^n\left|\left(x, x_j\right)\right|^2 \leq\|x\|^2
+\]</span> <strong>【柯西-施瓦茨不等式】</strong> <span class="math display">\[
+|(x, y)| \leq\|x\| \cdot\|y\|
+\]</span></p>
+<h3 id="内积的性质">内积的性质</h3>
+<p><strong>【连续性】</strong>内积对两个变元都是连续泛函。即<span class="math inline">\(x_n\to x,y_n\to y\)</span>时，<span class="math inline">\((x_n,y_n)\to (x,y)\)</span></p>
+<blockquote>
+<p>证明时先用三角不等式，再用柯西-施瓦茨不等式。 <span class="math display">\[
+\begin{aligned}
+\left|\left(x_n, y_n\right)-(x, y)\right| &amp; \leq\left|\left(x_n, y_n\right)-\left(x_n, y\right)\right|+\left|\left(x_n, y\right)-(x, y)\right| \\
+&amp; =\left|\left(x_n, y_n-y\right)\right|+\left|\left(x_n-x, y\right)\right| \\
+&amp; \leq\left\|x_n\right\| \cdot\left\|y_n-y\right\|+\left\|x_n-x\right\| \cdot\|y\|
+\end{aligned}
+\]</span></p>
+</blockquote>
+<p><strong>【平行四边形公式】</strong> <span class="math display">\[
+\|x+y\|^2+\|x-y\|^2=2\left(\|x\|^2+\|y\|^2\right)
+\]</span> 如果赋范线性空间的范数满足这个式子，那么它可以成为内积空间，反之亦然。</p>
+<p><strong>【极化恒等式】</strong> <span class="math display">\[
+(x, y)=\frac{1}{4}\left(\|x+y\|^2-\|x-y\|^2\right)+\frac{i}{4}\left(\|x+i y\|^2-\|x-i y\|^2\right)
+\]</span></p>
+<h3 id="希尔伯特空间">希尔伯特空间</h3>
+<p>完备（所有基本列都是收敛的）的内积空间被称为希尔伯特空间。</p>
+<ol type="1">
+<li><p><span class="math inline">\(n\)</span>维实/复向量空间 <span class="math display">\[
+(x, y)=\bar{y}^{\mathrm{T}} x=\sum_{i=1}^n x_i \bar{y}_i
+\]</span></p></li>
+<li><p><span class="math inline">\(l^2\)</span>平方可和序列空间 <span class="math display">\[
+(x, y)=\sum_{j=1}^{\infty} \xi_j \bar{\eta}_j
+\]</span></p></li>
+<li><p><span class="math inline">\(L^2[a,b]\)</span>平方可积函数空间 <span class="math display">\[
+(x, y)=\int_a^b x(t) \cdot \bar{y}(t) \mathrm{d} t
+\]</span></p></li>
+</ol>
+<h3 id="正规正交基">正规正交基</h3>
+<p><strong>【施密特正交化】</strong>对于任意线性无关组<span class="math inline">\(\{x\}\)</span>，有以下过程可以构造一个正规正交集： <span class="math display">\[
+\begin{aligned}
+&amp; y_1=x_1 \Rightarrow e_1=\frac{y_1}{\left\|y_1\right\|} \\
+&amp; y_2=x_2-\left(x_2, e_1\right) e_1 \Rightarrow e_2=\frac{y_2}{\left\|y_2\right\|} \\
+&amp; y_3=x_3-\left(x_3, e_1\right) e_1-\left(x_3, e_2\right) e_2 \Rightarrow e_3=\frac{y_3}{\left\|y_3\right\|}, \cdots \\
+&amp; y_n=x_n-\sum_{i=1}^{n-1}\left(x_n, e_i\right) e_i \Rightarrow e_n=\frac{y_n}{\left\|y_n\right\|}, \cdots
+\end{aligned}
+\]</span> 得到的正规正交集为<span class="math inline">\(\{e\}\)</span>,</p>
+<p><strong>【正规正交基】</strong>在希尔伯特空间中，不是任何其它正规正交集的子集的正规正交集，叫做正规正交基。</p>
+<p>也即：在空间中，如果一个向量和正规正交基的每个元素都正交，那么这个向量是零向量。这说明了正规正交基的完全性。</p>
+<p>设 <span class="math inline">\(H\)</span> 为无穷维Hilbert空间, 则</p>
+<ol type="1">
+<li>若 <span class="math inline">\(H\)</span> 可分, 则 <span class="math inline">\(H\)</span> 有一个可数的正规正交基</li>
+<li>每个非零的 <span class="math inline">\(H\)</span> 都有正规正交基</li>
+</ol>
+<p>设 <span class="math inline">\(S=\left\{e_\alpha\right\}_{\alpha \in \mathrm{A}}\)</span> 是 <span class="math inline">\(H\)</span> 的一个正规正交基, 则对 <span class="math inline">\(\forall x \in H\)</span>, 有</p>
+<ol type="1">
+<li>【傅里叶系数】<span class="math inline">\(x=\sum_{\alpha \in \mathrm{A}}\left(x, e_\alpha\right) e_\alpha\)</span></li>
+<li>【帕塞瓦尔定理（勾股定理），完备性】<span class="math inline">\(\|x\|^2=\sum_{\alpha \in \mathbb{A}}\left|\left(x, e_\alpha\right)\right|^2\)</span></li>
+</ol>
+<h3 id="射影定理">射影定理</h3>
+<p><strong>【射影定理】</strong> 设 <span class="math inline">\(M\)</span> 是Hilbert空间 <span class="math inline">\(H\)</span> 中闭的线性子空间 则 <span class="math inline">\(\forall x \in H\)</span>, 必存在唯一的 <span class="math inline">\(y \in M, z \in M^{\perp}\)</span>, 使得 <span class="math display">\[
+x=y+z
+\]</span> 其中<span class="math inline">\(y\)</span>就是<span class="math inline">\(x\)</span>在<span class="math inline">\(M\)</span>上的射影。</p>
+<p><strong>【Frechet-Riesz表示定理】</strong> 设 <span class="math inline">\(H\)</span> 是Hilbert空间, 对 <span class="math inline">\(\forall f \in H^*, \exists ! z_f \in H\)</span>, 使得 <span class="math inline">\(f(x)\)</span> 可表示为 <span class="math display">\[
+f(x)=\left(x, z_f\right), \quad \forall x \in H,
+\]</span> 并且 <span class="math inline">\(\|\boldsymbol{f}\|=\left\|z_f\right\|\)</span>.</p>
+<blockquote>
+<p>例如，对<span class="math inline">\(R^3\)</span>而言， <span class="math display">\[
+f(x)=a x_1+b x_2+c x_3=\vec{x} \cdot \vec{n}
+\]</span> 其中 <span class="math inline">\(\vec{x}=\left\{x_1, x_2, x_3\right\}, \vec{n}=\{a, b, c\}\)</span>.要找的 <span class="math inline">\(z_f\)</span> 就是 <span class="math inline">\(\vec{n}\)</span>, 它是平面 <span class="math inline">\(f(x)=0\)</span> 的法向量.</p>
+</blockquote>
+<h2 id="巴拿赫banach空间的基本定理">巴拿赫（Banach）空间的基本定理</h2>
+<h3 id="hahn-banach定理">Hahn-Banach定理</h3>
+<p>【Hahn-Banach定理】 对于线性赋范空间 <span class="math inline">\(X\)</span> 中线性子空间 <span class="math inline">\(G\)</span> 上的连续线性泛函 <span class="math inline">\(f(x)\)</span>, 恒有 <span class="math inline">\(X\)</span> 上的连续线性泛函 <span class="math inline">\(F(x)\)</span>, 使得 1. <span class="math inline">\(F(x)=f(x), x \in G\)</span>, 2. <span class="math inline">\(\|\boldsymbol{F}\|=\|f\|_G\)</span>.</p>
+<p>【推论1】设 <span class="math inline">\(X\)</span> 是线性赋范空间, 任给非零的 <span class="math inline">\(x_0 \in X\)</span>, 总存在 <span class="math inline">\(X\)</span> 上的 连续线性泛函 <span class="math inline">\(f\)</span>, 满足 1. <span class="math inline">\(\|f\|=1\)</span>, 2. <span class="math inline">\(f\left(x_0\right)=\left\|x_0\right\|\)</span>.</p>
+<p>【推论1的几何形式】 任意球面<span class="math inline">\(S\)</span>上的任意一点<span class="math inline">\(x_0\)</span>，必定存在一个支撑超平面。</p>
+<p>【推论2】设 <span class="math inline">\(X\)</span> 是线性赋范空间, <span class="math inline">\(E\)</span> 是 <span class="math inline">\(X\)</span> 的闭子空间, <span class="math inline">\(x_0 \notin E\)</span>, 则存在 <span class="math inline">\(X\)</span> 上的有界线性泛函 <span class="math inline">\(f\)</span>, 满足 1. <span class="math inline">\(f(x)=0, \forall x \in E\)</span> 2. <span class="math inline">\(f\left(x_0\right)=d\)</span>, 3. <span class="math inline">\(\|f\|=1, d \triangleq \operatorname{dist}\left(x_0, E\right)&gt;0\)</span>.</p>
+<p>【Hahn-Banach定理的几何形式】若<span class="math inline">\(X\)</span>中的线性流形<span class="math inline">\(g\)</span>与开球<span class="math inline">\(B\)</span>不相交，则有超平面<span class="math inline">\(H\)</span>包含<span class="math inline">\(g\)</span>且与<span class="math inline">\(B\)</span>不相交</p>
+<h3 id="banach逆算子定理">Banach逆算子定理</h3>
+<p>【纲集】可数个稀疏并叫第一纲集，不是第一纲的叫第二纲集。</p>
+<p>完备距离空间是第二纲集。</p>
+<p>【开映射定理】 设 <span class="math inline">\(X, Y\)</span> 都是Banach空间, <span class="math inline">\(T \in \mathcal{L}(X, Y)\)</span>. 如果 <span class="math inline">\(\mathcal{R}(T)\)</span> 是第二纲集, 则 <span class="math inline">\(T\)</span> 为开映射.</p>
+<p>【Banach逆算子定理】 设 <span class="math inline">\(X, Y\)</span> 都是Banach空间, <span class="math inline">\(T \in \mathcal{L}(X, Y)\)</span>. 如果 <span class="math inline">\(T\)</span> 既单又满, 则 <span class="math inline">\(T\)</span> 是有界可逆的, 即 <span class="math inline">\(T^{-1} \in \mathcal{L}(Y, X)\)</span>.</p>
+<p>【等价范数定理】设线性空间 <span class="math inline">\(X\)</span> 上赋予了两个范数 <span class="math inline">\(\|\|_1,\|\|_2\)</span>, 它们都使 <span class="math inline">\(X\)</span> 成为Banach空间, 如果 <span class="math inline">\(\|\cdot\|_1\)</span> 强于 <span class="math inline">\(\|\cdot\|_2\)</span>, 则两个范数等价.</p>
+<h3 id="闭图像定理">闭图像定理</h3>
+<p>【闭算子】 设 <span class="math inline">\(X, Y\)</span> 是赋范线性空间, <span class="math inline">\(M\)</span> 是 <span class="math inline">\(X\)</span> 中的线性子空间， <span class="math inline">\(T: M \rightarrow Y\)</span> 线性算子, <span class="math inline">\(M\)</span> 称为 <span class="math inline">\(T\)</span> 的定义域, 记为 <span class="math inline">\(\mathcal{D}(T)\)</span>. 如果由 <span class="math display">\[
+x_n \in \mathcal{D}(T), x_n \rightarrow x_0 \text {, 与 } T x_n \rightarrow y_0,
+\]</span> 可推知 <span class="math inline">\(x_0 \in \mathcal{D}(T), T x_0=y_0\)</span>, 则称 <span class="math inline">\(T\)</span> 为闭算子.</p>
+<p>【图像】设 <span class="math inline">\(X, Y\)</span> 是赋范线性空间, <span class="math inline">\(T: \mathcal{D}(T) \subset X \rightarrow Y\)</span> 线性算子, 定义其图像为： <span class="math display">\[
+\mathcal{G}(T)=\{(x, y) \in X \times Y: x \in \mathcal{D}(T), y=T x\},
+\]</span></p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212171143426.png" srcset="/img/loading.gif" lazyload alt="image-20221217114236831" /><figcaption aria-hidden="true">image-20221217114236831</figcaption>
+</figure>
+<p>若对 <span class="math inline">\((x, y) \in X \times Y\)</span>, 引进范数 <span class="math display">\[
+\|(x, y)\|=\|x\|+\|y\| \text {. }
+\]</span> 则 <span class="math inline">\(T\)</span> 是闭算子 <span class="math inline">\(\Leftrightarrow \mathcal{G}(T)\)</span> 是 <span class="math inline">\(X \times Y\)</span> 中的闭集.</p>
+<p>【闭图像定理】 设 <span class="math inline">\(X, Y\)</span> 是Banach空间, <span class="math inline">\(T: X \rightarrow Y\)</span> 闭算子, 则 <span class="math inline">\(T\)</span> 为有界的.</p>
+<section class="footnotes">
+<div class="footnote-list">
+<ol>
+<li>
+<span id="fn:1" class="footnote-text"><span>所有收敛列都是基本列是永远成立的。 <a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩︎</a></span></span>
+</li>
+</ol>
+</div>
+</section>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%AE%9E%E5%8F%98%E6%B3%9B%E5%87%BD/">#实变泛函</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>实变泛函笔记·泛函分析之章</div>
+      <div>https://suzumiyaakizuki.github.io/2022/12/15/实变泛函笔记·泛函分析之章/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>SuzumiyaAkizuki</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年12月15日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/12/17/%E5%BE%AE%E6%B3%A2%C2%B7%E8%B7%AF%E4%B9%8B%E7%AB%A0/" title="微波技术·路之章">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">微波技术·路之章</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/12/08/DSP3/" title="数字信号处理·傅里叶之章">
+                        <span class="hidden-mobile">数字信号处理·傅里叶之章</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.7.2/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"48fb14f9689ae0d11307","clientSecret":"091ab25a88e87bfd9d9d40d97d1d0d932e694059","repo":"SuzumiyaAkizuki.github.io","owner":"SuzumiyaAkizuki","admin":["SuzumiyaAkizuki"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: 'fda20860548acbecdf21f7cdde2e8a50'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       Powered by: <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
