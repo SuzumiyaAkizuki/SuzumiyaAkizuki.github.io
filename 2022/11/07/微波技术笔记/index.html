@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211072304425.jpg">
 <meta property="article:published_time" content="2022-11-07T11:45:31.000Z">
-<meta property="article:modified_time" content="2022-12-17T15:08:20.940Z">
+<meta property="article:modified_time" content="2022-12-20T16:48:09.316Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="微波">
 <meta name="twitter:card" content="summary_large_image">
@@ -267,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          8.5k 字
+          11k 字
         
       </span>
     
@@ -278,7 +278,7 @@
         
         
         
-          17 分钟
+          23 分钟
         
       </span>
     
@@ -505,6 +505,118 @@ Z_{\mathrm{in}}(z)=Z_0 \frac{1+\Gamma_2 \mathrm{e}^{-\mathrm{j} 2 \beta z}}{1-\G
 <p>于是，在圆图中任意确定一个点，总能找到一个等电抗圆和一个等电阻圆与之对应，这样一来，我们就能读出这个点的阻抗。要确定传输线上其它点的阻抗，只需要按照源顺负逆的规则，在等反射系数圆上进行移动即可。</p>
 <h4 id="导纳圆图">导纳圆图</h4>
 <p>把阻抗圆图以圆心为中心旋转180度就是导纳圆图。在阻抗圆图中确定一点，绕等反射系数圆旋转180度，反射系数变为<span class="math inline">\(-\Gamma\)</span>。则<span class="math inline">\(-\Gamma\)</span>处在阻抗圆图中读出的归一化阻抗值就是原位置<span class="math inline">\(\Gamma\)</span>处的导纳值。</p>
+<p>旋转时，波节线、波腹线、短路点、开路点随之旋转。但是“源顺负逆”的准则不变。</p>
+<p>在导纳圆图上确定归一化导纳时，有关系： <span class="math display">\[
+\bar Y=Y\cdot Z_0
+\]</span></p>
+<h3 id="阻抗匹配技术">阻抗匹配技术</h3>
+<p>阻抗匹配包含两种含义，其一是信号源的匹配，即想办法从信号源中获得最大的功率并消除信号源的反射；其二是负载的匹配，即想办法消除反射。阻抗匹配有三种：信号源阻抗匹配，负载阻抗匹配，共轭阻抗匹配。其重要性有：</p>
+<ol type="1">
+<li><p>负载匹配时功率最大，功率损耗最小</p></li>
+<li><p>阻抗匹配可以改善系统信噪比</p></li>
+<li><p>功率分配网络中的阻抗匹配可以吉昂蒂幅度和相位的误差</p></li>
+<li><p>保持信号源工作稳定性</p></li>
+<li><p>提高传输线 的功率容量 <span class="math display">\[
+P_{br}=\frac 12\frac{U^2_{br}}{Z_0}K
+\]</span></p></li>
+</ol>
+<h4 id="lambda4匹配"><span class="math inline">\(\lambda/4\)</span>匹配</h4>
+<p>是一段特征阻抗为<span class="math inline">\(Z_{01}\)</span>，长度为<span class="math inline">\(\lambda/4\)</span>的传输线。如果这段传输线末端接<span class="math inline">\(R_L\)</span>阻抗，那么可以计算出，这部分的输入阻抗为： <span class="math display">\[
+Z_{in}=\frac{Z_{01}^2}{R_L}=Z_0
+\]</span></p>
+<blockquote>
+<p>推导过程：由公式 <span class="math display">\[
+Z_{\mathrm{in}}(z)=Z_0 \frac{1+\Gamma_2 \mathrm{e}^{-\mathrm{j} 2 \beta z}}{1-\Gamma_2 \mathrm{e}^{-j 2 \beta z}}=Z_0 \frac{Z_{\mathrm{L}}+\mathrm{j} Z_0 \tan \beta z}{Z_0+\mathrm{j} Z_{\mathrm{L}} \tan \beta z}
+\]</span> 把<span class="math inline">\(\beta z=2\pi/4=\pi/2\)</span>代入，得<span class="math inline">\(\tan \beta z=\infty\)</span>，此时可以把<span class="math inline">\(Z_L,Z_0\)</span>项略去，并把<span class="math inline">\(j\tan \beta z\)</span>项约分掉，就得： <span class="math display">\[
+Z_{in}=\frac{Z_0^2}{Z_L}
+\]</span></p>
+</blockquote>
+<p>这个结论也叫“<span class="math inline">\(\lambda/4\)</span>传输线阻抗变换特性”，需要记住。</p>
+<p>得 <span class="math display">\[
+Z_{01}=\sqrt{Z_0R_L}
+\]</span> 如果负载不是纯电阻，那么可以把匹配器接在电压波腹点<span class="math inline">\(l_{max}\)</span>或电压波节点<span class="math inline">\(l_{min}\)</span>。此时，匹配的目的是要把输入阻抗变成纯电阻。匹配时，首先确定负载所在的等反射系数（等驻波比）圆，然后在这个圆上确定波节点/波腹点，读出对应的电阻值。负载的点和波节/波腹点的电标度的差决定了<span class="math inline">\(\lambda/4\)</span>传输线的位置（这个位置指的是从负载到<span class="math inline">\(\lambda/4\)</span>传输线最近的边缘的距离），在这里放置<span class="math inline">\(\lambda/4\)</span>传输线，其到负载之间的部分（负载+原传输线）等效为纯阻。然后，再把这个纯阻（刚刚读出来的）带入前面的方程中，计算<span class="math inline">\(\lambda/4\)</span>传输线所需的阻抗。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212202328429.png" srcset="/img/loading.gif" lazyload alt="四分之一波长匹配器匹配过程" /><figcaption aria-hidden="true">四分之一波长匹配器匹配过程</figcaption>
+</figure>
+<h4 id="单支节匹配">单支节匹配</h4>
+<p>单支节匹配是在传输线上并联一根传输线枝节，通过调节枝节的位置<span class="math inline">\(d\)</span>和长度<span class="math inline">\(l\)</span>，抵消阻抗的虚部，从而实现匹配。其步骤为：</p>
+<ol type="1">
+<li><p>在史密斯圆图上画出归一化负载阻抗<span class="math inline">\(\bar Z_L\)</span>的位置，把它旋转180度，画出归一化负载导纳<span class="math inline">\(\bar Y_L\)</span>的位置，把导纳的位置记作<span class="math inline">\(A\)</span>，电标度为<span class="math inline">\(\bar l_A\)</span></p></li>
+<li><p>首先来求<span class="math inline">\(d\)</span>：从<span class="math inline">\(A\)</span>点开始，沿着等反射系数圆顺时针旋转，直到和可匹配圆（<span class="math inline">\(\bar G=1\)</span>）相交，交点记作<span class="math inline">\(C\)</span>，对应导纳<span class="math inline">\(\bar Y_1=1+j\bar B\)</span>，则在此位置并联<span class="math inline">\(\bar Y_2=-jB\)</span>的电纳即可实现匹配。设<span class="math inline">\(C\)</span>点的电标度为<span class="math inline">\(\bar l_C\)</span>，则有： <span class="math display">\[
+d=(\bar l_C-\bar l_A)\lambda
+\]</span></p></li>
+<li><p>接下来求<span class="math inline">\(l\)</span>：找到短路点（圆图右侧端点）位置，其电标度为0.25.从短路点开始，顺时针沿着全反射圆移动到电纳值为<span class="math inline">\(-\bar B\)</span>的地方，记作<span class="math inline">\(E\)</span>点。<span class="math inline">\(E\)</span>点的电标度为<span class="math inline">\(\bar l_E\)</span>，则有： <span class="math display">\[
+l=(\bar l_E-0.25)\lambda
+\]</span></p></li>
+</ol>
+<p>以上过程可由如下图示描述，不同颜色表示不同的步骤：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212201140012.png" srcset="/img/loading.gif" lazyload alt="单枝节匹配过程" /><figcaption aria-hidden="true">单枝节匹配过程</figcaption>
+</figure>
+<h4 id="双支节匹配">双支节匹配</h4>
+<p>在单支节匹配中，我们移动枝节的位置，来寻找归一化电导值为1的参考面。那么有没有别的办法得到这个面呢？有：我们在枝节和负载中间附加一个纯电纳即可。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212210021630.png" srcset="/img/loading.gif" lazyload alt="双支节匹配示意图" /><figcaption aria-hidden="true">双支节匹配示意图</figcaption>
+</figure>
+<p>如图所示，这两个枝节的位置是固定的，我们首先要调节<span class="math inline">\(l_1\)</span>的长度，让<span class="math inline">\(2\)</span>号支节所在的参考面的归一化电导值为1，然后再调节<span class="math inline">\(l_2\)</span>的长度，以达到匹配效果。</p>
+<p>以下，记：</p>
+<table>
+<thead>
+<tr class="header">
+<th>名称</th>
+<th>含义</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\bar Y_1\)</span></td>
+<td><span class="math inline">\(d_1\)</span>段传输线（含负载）归一化输入导纳</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\bar Y_2\)</span></td>
+<td><span class="math inline">\(1\)</span>号支节始端归一化输入导纳</td>
+<td>纯纳</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\bar Y_3\)</span></td>
+<td><span class="math inline">\(d_2\)</span>段传输线始端归一化输入导纳</td>
+<td>在可匹配圆上</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\bar Y_4\)</span></td>
+<td><span class="math inline">\(2\)</span>号支节始端归一化输入导纳</td>
+<td>纯纳</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\bar Y_B\)</span></td>
+<td>整个系统最前端等效负载归一化导纳</td>
+<td><span class="math inline">\(Y_B=Y_3+Y_4\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\bar Y_A\)</span></td>
+<td><span class="math inline">\(d_2\)</span>段传输线终端等效负载归一化导纳</td>
+<td><span class="math inline">\(Y_A=Y_1+Y_2\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>于是，我们知道：<span class="math inline">\(Y_3\)</span>在可匹配圆上，由于<span class="math inline">\(d_2\)</span>传输线会对于每个<span class="math inline">\(Y_3\)</span>对应的点有一个绕着圆心旋转的作用，所以我们把可匹配圆也绕着圆心旋转<span class="math inline">\(\bar d_2=d_2/\lambda\)</span>，称作“辅助圆”。双支节匹配的过程是：</p>
+<ol type="1">
+<li><p>把可匹配圆绕着单位圆的圆心旋转<span class="math inline">\(\bar d_2=d_2/\lambda\)</span>，画出辅助圆（深绿色）</p></li>
+<li><p>确定<span class="math inline">\(\bar Z_L,\bar Y_L\)</span>位置（鲜红色）</p></li>
+<li><p>从<span class="math inline">\(\bar Y_L\)</span>开始，沿其所在的等反射系数圆顺时针旋转<span class="math inline">\(\bar d_1\)</span>，得到<span class="math inline">\(\bar Y_1\)</span>（橙色）</p></li>
+<li><p>因为<span class="math inline">\(\bar Y_2\)</span>是纯纳，所以<span class="math inline">\(\bar Y_A\)</span>和<span class="math inline">\(\bar Y_1\)</span>在一个等电导圆上。画出<span class="math inline">\(Y_1\)</span>所在的等电导圆<span class="math inline">\(G=G_1\)</span>，这个等电导圆和辅助圆的交点就是<span class="math inline">\(\bar Y_A\)</span>。由<span class="math inline">\(\bar Y_2=\bar Y_A-\bar Y_1\)</span>计算出<span class="math inline">\(\bar Y_2\)</span>，绘制<span class="math inline">\(\bar Y_2\)</span>，读出<span class="math inline">\(\bar l_2\)</span>的电标度，有（鲜绿色）： <span class="math display">\[
+\bar l_1=(\bar l_{Y_2}-0.25)
+\]</span></p></li>
+<li><p>画出<span class="math inline">\(\bar Y_A\)</span>所在的等反射系数圆，交可匹配圆<span class="math inline">\(G=1\)</span>于<span class="math inline">\(\bar Y_3\)</span>点。读出<span class="math inline">\(\bar Y_3=1+j\bar B_3\)</span>.（蓝色）</p></li>
+<li><p>画出<span class="math inline">\(\bar Y_4=-jB_3\)</span>，有（紫色）： <span class="math display">\[
+\bar l_2=(\bar l_{Y_4}-0.25)
+\]</span></p></li>
+</ol>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212210047719.png" srcset="/img/loading.gif" lazyload alt="双支节匹配过程" /><figcaption aria-hidden="true">双支节匹配过程</figcaption>
+</figure>
 <h2 id="波导理论">波导理论</h2>
 <h3 id="导行波的传播特性">导行波的传播特性</h3>
 <p>导行波的场量都有因子<span class="math inline">\(e^{-\gamma z}\)</span>，其中<span class="math inline">\(\gamma=\alpha+j\beta\)</span>。由麦克斯韦方程和边界条件推导（意思就是我也不想推导）可知： <span class="math display">\[
@@ -551,6 +663,9 @@ k_c^2=\left(\frac{m\pi}{a}\right)^2+\left(\frac{n\pi}{b}\right)^2
 \lambda_c=\frac{2\pi}{k_c}=\frac{2}{\sqrt{\left(\frac{m\pi}{a}\right)^2+\left(\frac{n\pi}{b}\right)^2}}
 \]</span> 考察波的<span class="math inline">\(k\)</span>(由频率和介质决定)，当满足传输条件<span class="math inline">\(k&gt;k_c\)</span>或<span class="math inline">\(\lambda&lt;\lambda_c\)</span>时，就存在对应的模式。观察这个式子，我们发现当<span class="math inline">\(m,n\)</span>对应相等时，TM波和TE波有着相同的截止波数，我们把这样的现象叫做模式简并<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="严格的定义是：模式简并：截止波数相同但是场分布不同的现象">[3]</span></a></sup>。</p>
 <p>通常，我们称截止波数最小（截止波长最大）的模式为主模，也叫基本模式或者最低模式。矩形波导的主模是<span class="math inline">\(TE_{10}\)</span>模。</p>
+<p>矩形波导的功率容量（最大传输功率）如下： <span class="math display">\[
+P_{max}=\frac{ab}{480\pi}E^2_{br}\sqrt{1-\left(\frac{\lambda}{2a}\right)^2}
+\]</span> 其中<span class="math inline">\(E_{br}\)</span>是波导内媒质的击穿电压。</p>
 <h4 id="圆波导">圆波导</h4>
 <p>圆波导的分析的大概形状和矩形波导是类似的，也有TE、TM波。</p>
 <p>TM通解为：</p>

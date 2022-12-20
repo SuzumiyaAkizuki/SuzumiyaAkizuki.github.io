@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212172350080.jpg">
 <meta property="article:published_time" content="2022-12-17T15:06:43.000Z">
-<meta property="article:modified_time" content="2022-12-17T15:51:15.048Z">
+<meta property="article:modified_time" content="2022-12-20T14:15:51.851Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="微波">
 <meta name="twitter:card" content="summary_large_image">
@@ -267,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.5k 字
+          9.4k 字
         
       </span>
     
@@ -278,7 +278,7 @@
         
         
         
-          11 分钟
+          19 分钟
         
       </span>
     
@@ -516,6 +516,240 @@ L=\frac{1}{\left|S_{21}\right|^2}=\frac{1}{1-\left|S_{11}\right|^2}=\frac{(\rho+
 R L=\left.10 \lg \frac{\left(P^{+}\right)_1}{\left(P^{-}\right)_1}\right|_{a_2=0}=\left.10 \lg \frac{\left|a_1\right|^2}{\left|b_1\right|^2}\right|_{a_2=0}=-20 \lg \left|S_{11}\right|
 \]</span></p></li>
 </ul>
+<h4 id="二端口网络的互联">二端口网络的互联</h4>
+<ol type="1">
+<li><p>串联</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212182232843.png" srcset="/img/loading.gif" lazyload alt="二端网络串联" /><figcaption aria-hidden="true">二端网络串联</figcaption>
+</figure>
+<p>有： <span class="math display">\[
+Z=Z_1+Z_2
+\]</span> 可以类比为电阻（阻抗）串联，阻值相加。</p></li>
+<li><p>并联</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212182235435.png" srcset="/img/loading.gif" lazyload alt="二端网络并联" /><figcaption aria-hidden="true">二端网络并联</figcaption>
+</figure>
+<p>有： <span class="math display">\[
+Y=Y_1+Y_2
+\]</span> 可以类比导纳并联的电导等于各电导之和</p></li>
+<li><p>级联</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212182237317.png" srcset="/img/loading.gif" lazyload alt="二端网络级联" /><figcaption aria-hidden="true">二端网络级联</figcaption>
+</figure>
+<p>有 ： <span class="math display">\[
+T=T_1\cdot T_2
+\]</span></p></li>
+</ol>
+<h4 id="转移参量">转移参量</h4>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212182248801.png" srcset="/img/loading.gif" lazyload alt="二端口网络示意图" /> <span class="math display">\[
+\left\{\begin{array}{l}
+\dot{U}_1=a \dot{U}_2+b\left(-\dot{I}_2\right) \\
+\dot{I}_1=c \dot{U}_2+d\left(-\dot{I}_2\right)
+\end{array}\right.
+\]</span> 即： <span class="math display">\[
+\left[\begin{array}{l}
+\dot{U}_1 \\
+\dot{I}_1
+\end{array}\right]=\left[\begin{array}{ll}
+a &amp; b \\
+c &amp; d
+\end{array}\right]\left[\begin{array}{c}
+\dot{U}_2 \\
+-\dot{I}_2
+\end{array}\right]=[A]\left[\begin{array}{c}
+\dot{U}_2 \\
+-\dot{I}_2
+\end{array}\right]
+\]</span> 其中<span class="math inline">\(A\)</span>称为转移矩阵，其中的各个元素称为转移参量。</p>
+<p>归一化转移参量：把上面式子中的电压电流都换成归一化的，有： <span class="math display">\[
+[\bar{A}]=\left[\begin{array}{cc}
+\bar{a} &amp; \bar{b} \\
+\bar{c} &amp; \bar{d}
+\end{array}\right]=\left[\begin{array}{cc}
+a \sqrt{\frac{Z_{02}}{Z_{01}}} &amp; \frac{b}{\sqrt{Z_{01} Z_{02}}} \\
+c \sqrt{Z_{01} Z_{02}} &amp; d \sqrt{\frac{Z_{01}}{Z_{02}}}
+\end{array}\right]
+\]</span></p>
+<p>转移参量和其它参量的关系：</p>
+<ol type="1">
+<li><p>散射参量 <span class="math display">\[
+[S]=\frac{1}{\bar{a}+\bar{b}+\bar{c}+\bar{d}}\left[\begin{array}{cc}
+\bar{a}+\bar{b}-\bar{c}-\bar{d} &amp; 2|\bar{A}| \\
+2 &amp; -\bar{a}+\bar{b}-\bar{c}+\bar{d}
+\end{array}\right]
+\]</span> 反过来，有： <span class="math display">\[
+[\bar{A}]=\frac{1}{2 S_{21}}\left[\begin{array}{ll}
+1-|S|+S_{11}-S_{22} &amp; 1+|S|+S_{11}+S_{22} \\
+1+|S|-S_{11}-S_{22} &amp; 1-|S|-S_{11}+S_{22}
+\end{array}\right]
+\]</span></p></li>
+<li><p>阻抗参量 <span class="math display">\[
+[\bar{Z}]=\frac{1}{c}\left[\begin{array}{cc}
+\bar{a} &amp; |\bar{A}| \\
+1 &amp; \bar{d}
+\end{array}\right]
+\]</span> 反过来，有： <span class="math display">\[
+[\bar{A}]=\frac{1}{Z_{21}}\left[\begin{array}{cc}
+\bar{Z}_{11} &amp; |\bar{Z}| \\
+1 &amp; \bar{Z}_{22}
+\end{array}\right]
+\]</span></p></li>
+<li><p>导纳参量 <span class="math display">\[
+[\bar{Y}]=\frac{1}{b}\left[\begin{array}{cc}
+\bar{d} &amp; -|\bar{A}| \\
+-1 &amp; \bar{a}
+\end{array}\right]
+\]</span> 反过来，有： <span class="math display">\[
+[\bar{A}]=-\frac{1}{\bar Y_{21}}\left[\begin{array}{cc}
+\bar{Y}_{22} &amp; 1 \\
+\mid \bar{Y}\mid &amp; \bar{Y}_{11}
+\end{array}\right]
+\]</span></p></li>
+</ol>
+<p>至于二端口网络的各种性质，也可以用转移参量描述：</p>
+<ol type="1">
+<li><p>互易性： <span class="math display">\[
+|\bar A|=|A|=1
+\]</span></p></li>
+<li><p>对称性： <span class="math display">\[
+\begin{array}{ll}
+\bar{a}=\bar{d}, &amp; |\bar{A}|=\bar{a} \bar{d}-\bar{b} \bar{c}=1 \\
+a=d, &amp; |A|=a d-b c=1
+\end{array}
+\]</span></p></li>
+<li><p>无耗互易： <span class="math display">\[
+\bar a,\bar d\in \mathbb R
+\]</span></p>
+<p><span class="math display">\[
+\bar b,\bar c\in \mathbb I
+\]</span></p></li>
+</ol>
+<h4 id="基本电路单元">基本电路单元</h4>
+<ol type="1">
+<li><p>串联阻抗</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212192031951.png" srcset="/img/loading.gif" lazyload alt="串联阻抗" /><figcaption aria-hidden="true">串联阻抗</figcaption>
+</figure>
+<p>转移矩阵： <span class="math display">\[
+[A]=\left[\begin{array}{ll}
+1 &amp; 0 \\
+Y &amp; 1
+\end{array}\right]
+\]</span> 归一化： <span class="math display">\[
+[\bar{A}]=\left[\begin{array}{cc}
+\sqrt{\frac{Z_{02}}{Z_{01}}} &amp; 0 \\
+Y \sqrt{Z_{01} Z_{02}} &amp; \sqrt{\frac{Z_{01}}{Z_{02}}}
+\end{array}\right]
+\]</span></p></li>
+<li><p>不同阻抗的传输线相连</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212192040220.png" srcset="/img/loading.gif" lazyload alt="不同阻抗的传输线相连" /><figcaption aria-hidden="true">不同阻抗的传输线相连</figcaption>
+</figure>
+<p>转移矩阵： <span class="math display">\[
+[A]=\left[\begin{array}{ll}
+1 &amp; 0 \\
+0 &amp; 1
+\end{array}\right]
+\]</span> 归一化转移矩阵： <span class="math display">\[
+[\bar{A}]=\left[\begin{array}{cc}
+\sqrt{\frac{Z_{02}}{Z_{01}}} &amp; 0 \\
+0 &amp; \sqrt{\frac{Z_{01}}{Z_{02}}}
+\end{array}\right]
+\]</span></p></li>
+<li><p>理想变压器：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212192041717.png" srcset="/img/loading.gif" lazyload alt="理想变压器" /><figcaption aria-hidden="true">理想变压器</figcaption>
+</figure>
+<p>转移矩阵： <span class="math display">\[
+[A]=\left[\begin{array}{ll}
+n^{-1} &amp; 0 \\
+0 &amp; n
+\end{array}\right]
+\]</span> 归一化： <span class="math display">\[
+[\bar{A}]=\left[\begin{array}{cc}
+\frac{1}{n} \sqrt{\frac{Z_{02}}{Z_{01}}} &amp; 0 \\
+0 &amp; n\sqrt{\frac{Z_{01}}{Z_{02}}}
+\end{array}\right]
+\]</span></p></li>
+<li><p>一段均匀传输线：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212192045931.png" srcset="/img/loading.gif" lazyload alt="均匀传输线" /><figcaption aria-hidden="true">均匀传输线</figcaption>
+</figure>
+<p>转移矩阵： <span class="math display">\[
+[A]=\left[\begin{array}{cc}
+\cos \beta l &amp; \mathrm{j} Z_0 \sin \beta l \\
+\frac{\mathrm{j} \sin \beta l}{Z_0} &amp; \cos \beta l
+\end{array}\right]
+\]</span> 归一化： <span class="math display">\[
+[\bar{A}]=\left[\begin{array}{cc}
+\cos \beta l &amp; j \sin \beta l \\
+j \sin \beta l &amp; \cos \beta l
+\end{array}\right]
+\]</span></p></li>
+</ol>
+<h3 id="无耗三端口网络">无耗三端口网络</h3>
+<p>具有以下性质：</p>
+<ol type="1">
+<li>无耗互易三端口网络不可能完全匹配。如果端口1、2匹配，那么端口3和网络完全隔离，即<span class="math inline">\(S_{13}=S_{23}=0\)</span></li>
+<li>任何完全匹配的无耗三端口网络一定是非互易的。</li>
+<li>对称互易无耗的三端口网络，输入驻波比不低于2</li>
+<li>无耗互易三端口网络中任意端口接短路活塞，总可以找到活塞的一个位置，使其它两个端口互相隔离。</li>
+<li>如果无耗互易三端口网络对于接有短路活塞的端口是对称的，则总可以找到活塞的一个位置，使其它两个端口之间可以无耗的传输。</li>
+</ol>
+<h3 id="无耗四端口网络">无耗四端口网络</h3>
+<p>具有以下性质：</p>
+<ol type="1">
+<li>如果一个无耗互易四端口网络的任意三个端口匹配，则第四个端口自动匹配，且该网络构成一个定向耦合器。所谓的定向耦合器是指对四端口元件，当某个端口接波源、其余端口接匹配负载时，必然和其中一个端口理想隔离。理想定向性要求接波源的端口无反射，即输入端口匹配。</li>
+<li>有理想定向性的无耗互易四端口网络不一定四个端口都匹配。</li>
+<li>有两个端口匹配且互相隔离的无耗互易四端口网络一定是完全匹配的定向耦合器。</li>
+</ol>
+<h2 id="微波元件">微波元件</h2>
+<h3 id="一端口元件">一端口元件</h3>
+<ol type="1">
+<li><p>短路负载</p>
+<p>扼流式短路负载的基本原理是：利用传输线的<span class="math inline">\(\lambda/4\)</span>波长阻抗变换特性，把有高频电流流过，需要良好电接触的地方，恰好安排在电压波节点（电流波腹点）处，从而得到等效短路。</p></li>
+<li><p>匹配负载</p>
+<p>它可以几乎无反射地吸收入射波的全部功率，在传输系统中建立行波状态。</p></li>
+<li><p>失配负载</p>
+<p>它具有某一个固定的驻波比，在微波测量中作为标准终端负载。</p></li>
+</ol>
+<h3 id="二端口元件">二端口元件</h3>
+<ol type="1">
+<li><p>波导接头</p>
+<p>是用来把传输线接在一起的。有平接头、扼流接头等。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212192224219.png" srcset="/img/loading.gif" lazyload alt="波导接头" /><figcaption aria-hidden="true">波导接头</figcaption>
+</figure>
+<p>扼流接头在连接波导的法兰盘上有一个深为<span class="math inline">\(\lambda_g/4\)</span>的槽，这样可以保证接头处恰好是电流波腹点。</p></li>
+<li><p>拐角、弯曲、扭转元件</p></li>
+<li><p>调配元件</p>
+<p>是一些电抗元件，放在传输线上，产生附加反射，使得传输线匹配。</p>
+<ol type="1">
+<li>电抗膜片：分为感性膜片、容性膜片、谐振窗</li>
+<li>销钉</li>
+<li>螺钉匹配器</li>
+</ol></li>
+<li><p>衰减器</p>
+<p>吸收式衰减器散射矩阵： <span class="math display">\[
+S=\begin{pmatrix}
+0 &amp; e^{-\alpha t}\\
+e^{-\alpha t} &amp; 0
+\end{pmatrix}
+\]</span> 截止式衰减器：插入一个比较小的传输线，使得电磁场在这一小段里面截止。其特点有：</p>
+<ol type="1">
+<li>衰减量dB和距离呈线性关系</li>
+<li>当<span class="math inline">\(\lambda_c&lt;&lt;\lambda\)</span>，衰减系数<span class="math inline">\(\alpha\)</span>很大，移动较小的距离就可以得到很大的衰减量</li>
+<li>衰减是由于反射产生，输入端和输出端严重失配</li>
+</ol>
+<p>还有极化衰减器</p></li>
+<li><p>相移器</p>
+<p>其S矩阵为： <span class="math display">\[
+S=\begin{pmatrix}
+0 &amp; e^{-j\beta l}\\
+e^{-j\beta l} &amp; 0
+\end{pmatrix}
+\]</span></p></li>
+</ol>
 <hr />
 <section class="footnotes" role="doc-endnotes">
 <hr />
