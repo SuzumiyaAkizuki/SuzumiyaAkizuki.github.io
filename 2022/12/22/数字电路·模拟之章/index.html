@@ -1,0 +1,980 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <link rel="icon" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="SuzumiyaAkizuki">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="门电路 CMOS门电路 要研究CMOS门电路，首先要认识MOS器件以及它们的特性。 MOS管的基本概念 MOS管全名叫“结型场效应晶体管”，我们平常见到的有以下四种  常见MOS管符号  注意看：箭头方向决定是N还是P，线的虚实决定是增强还是耗尽。 MOS管的符号也有简化画法，如下：  MOS管符号的简化画法  它们的特性按P、N和增强、耗尽，有所不同：  N沟道的，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数字电路·模拟之章">
+<meta property="og:url" content="https://suzumiyaakizuki.github.io/2022/12/22/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%C2%B7%E6%A8%A1%E6%8B%9F%E4%B9%8B%E7%AB%A0/index.html">
+<meta property="og:site_name" content="凉宫秋月的文艺部">
+<meta property="og:description" content="门电路 CMOS门电路 要研究CMOS门电路，首先要认识MOS器件以及它们的特性。 MOS管的基本概念 MOS管全名叫“结型场效应晶体管”，我们平常见到的有以下四种  常见MOS管符号  注意看：箭头方向决定是N还是P，线的虚实决定是增强还是耗尽。 MOS管的符号也有简化画法，如下：  MOS管符号的简化画法  它们的特性按P、N和增强、耗尽，有所不同：  N沟道的，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212222234004.jpg">
+<meta property="article:published_time" content="2022-12-22T07:22:03.000Z">
+<meta property="article:modified_time" content="2022-12-22T14:34:39.687Z">
+<meta property="article:author" content="SuzumiyaAkizuki">
+<meta property="article:tag" content="数电">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212222234004.jpg">
+  
+  
+  
+  <title>数字电路·模拟之章 - 凉宫秋月的文艺部</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"suzumiyaakizuki.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":"G-J01HK5TZ0Y","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"QGqf9VPGTa96KerO0JvDW3Ld-gzGzoHsz","app_key":"RhwwUaYq4lMo1tCJwcQTWdRp","server_url":"https://qgqf9vpg.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.google-analytics.com/analytics.js', function() {
+          window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
+          ga.l = +new Date;
+          ga('create', 'G-J01HK5TZ0Y', 'auto');
+          ga('send', 'pageview');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>凉宫秋月的文艺部</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友情链接
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212222234004.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="数字电路·模拟之章"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        SuzumiyaAkizuki
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-12-22 15:22" pubdate>
+          2022年12月22日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          14 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">数字电路·模拟之章</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="门电路">门电路</h2>
+<h3 id="cmos门电路">CMOS门电路</h3>
+<p>要研究CMOS门电路，首先要认识MOS器件以及它们的特性。</p>
+<h4 id="mos管的基本概念">MOS管的基本概念</h4>
+<p>MOS管全名叫“结型场效应晶体管”，我们平常见到的有以下四种</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211161943768.png" srcset="/img/loading.gif" lazyload alt="常见MOS管符号" /><figcaption aria-hidden="true">常见MOS管符号</figcaption>
+</figure>
+<p>注意看：箭头方向决定是N还是P，线的虚实决定是增强还是耗尽。</p>
+<p>MOS管的符号也有简化画法，如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211161944750.png" srcset="/img/loading.gif" lazyload alt="MOS管符号的简化画法" /><figcaption aria-hidden="true">MOS管符号的简化画法</figcaption>
+</figure>
+<p>它们的特性按P、N和增强、耗尽，有所不同：</p>
+<ul>
+<li><strong>N沟道</strong>的，当<span class="math inline">\(V_{GS}\)</span>接足够大的正向电压时，<span class="math inline">\(DS\)</span>之间相当于联通。<strong>P沟道</strong>的，当<span class="math inline">\(V_{GS}\)</span>之间接足够大的反向电压，<span class="math inline">\(DS\)</span>之间相当于导通。</li>
+<li><strong>增强型</strong>，开启电压为正。以<span class="math inline">\(N\)</span>沟道为例，当<span class="math inline">\(V_{GS}&gt;V_{GS(th)}&gt;0\)</span>时，<span class="math inline">\(DS\)</span>之间才能相当于联通。<strong>耗尽型</strong>，截止电压为负。以<span class="math inline">\(N\)</span>沟道为例，只要<span class="math inline">\(V&gt;V_{GS(off)}\)</span>，其中<span class="math inline">\(V_{GS(off)}&lt;0\)</span>，<span class="math inline">\(DS\)</span>之间就能导通，也就是说为了让N沟道耗尽型的DS之间不再导通，<span class="math inline">\(V_{GS}\)</span>需要一个足够大的负值电压才行。</li>
+</ul>
+<p>为了加深对这个特性的理解，我们来分析一下下面这个电路：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211161954418.png" srcset="/img/loading.gif" lazyload alt="未知的CMOS门电路" /><figcaption aria-hidden="true">未知的CMOS门电路</figcaption>
+</figure>
+<p>约定：<span class="math inline">\(V_{DD}\)</span>大于两管开启电源绝对值之和。</p>
+<ul>
+<li>当<span class="math inline">\(V_i=0\)</span>（接低电平）时，<span class="math inline">\(T_1\)</span>P沟道增强型MOS管的<span class="math inline">\(V_{GS}=-V_{DD}&lt;V_{GS(th)P}\)</span>，于是<span class="math inline">\(T_1\)</span>两端相当于连通，<span class="math inline">\(V_o=V_{DD}\)</span>，输出高电平。此时<span class="math inline">\(T_2\)</span>截止，两端相当于断路。</li>
+<li>当<span class="math inline">\(V_i=V_{DD}\)</span>（接低电平）时，<span class="math inline">\(T_2\)</span>N沟道增强型MOS管的<span class="math inline">\(V_{GS}=V_{DD}&gt;V_{GS(th)N}\)</span>，于是<span class="math inline">\(T_2\)</span>导通，<span class="math inline">\(V_o\)</span>输出地（0V），此时<span class="math inline">\(T_1\)</span>截止，两端相当于断路。</li>
+<li>综上所述，这是个非门。</li>
+</ul>
+<h4 id="经典门电路的mos管实现">经典门电路的MOS管实现</h4>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162009771.png" srcset="/img/loading.gif" lazyload alt="MOS门电路" /><figcaption aria-hidden="true">MOS门电路</figcaption>
+</figure>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162009164.png" srcset="/img/loading.gif" lazyload alt="MOS门电路" /><figcaption aria-hidden="true">MOS门电路</figcaption>
+</figure>
+<p>对于CMOS器件构成的门电路，不允许输入端悬空，输入端经电阻接地时和低电平等效，输入端经电阻接电源时和高电平等效。</p>
+<h4 id="od门">OD门</h4>
+<p>OD门全称为漏极开关输出门电路，它的电路长这样：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162017294.png" srcset="/img/loading.gif" lazyload alt="OD与非门电路详图" /><figcaption aria-hidden="true">OD与非门电路详图</figcaption>
+</figure>
+<p>其逻辑符号为门电路符号里面加一个带下划线的菱形，如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162018140.png" srcset="/img/loading.gif" lazyload alt="OD与非门逻辑符号" /><figcaption aria-hidden="true">OD与非门逻辑符号</figcaption>
+</figure>
+<p>OD门要正常工作，必须把输出端经过一个上拉电阻和电源相连。也就是电路详图中的<span class="math inline">\(R_L\)</span>，这样一来，输出的高电平具体是几伏，就取决于<span class="math inline">\(V_{DD2}\)</span>而不是<span class="math inline">\(V_{DD1}\)</span>了。</p>
+<p>把多个OD门的输出端直接接在一起，可以构成“线与”逻辑，如下图所示：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162022900.png" srcset="/img/loading.gif" lazyload alt="线与接法" /><figcaption aria-hidden="true">线与接法</figcaption>
+</figure>
+<p>这时，有<span class="math inline">\(Y=Y_1Y_2\)</span>。有时，线与的与门符号省略，直接用圆点表示。</p>
+<p>在选取<span class="math inline">\(R_L\)</span>时，应该注意以下原则：</p>
+<ol type="1">
+<li><p><span class="math inline">\(R_L\)</span>不能太大，以保证<span class="math inline">\(V_{DD}-V_{R_L}\geq V_{OH}\)</span>。在这个条件下，有： <span class="math display">\[
+R_{\mathrm{L}}\leq\frac{V_{\mathrm{DD}}-V_{\mathrm{OH}}}{n \cdot I_{\mathrm{OH}}+m \cdot I_{\mathrm{IH}}}
+\]</span> 这里的<span class="math inline">\(V_{DD}\)</span>当然是<span class="math inline">\(R_L\)</span>连接的那个电源，其中<span class="math inline">\(n\)</span>是OD门的数目，<span class="math inline">\(m\)</span>是下一级输入端的数目（比如说，一个与非门一般有两个输入端），<span class="math inline">\(I_{OH}\)</span>是OD门截止时的漏电流，<span class="math inline">\(I_{IH}\)</span>是负载门每个输入端的高电平输入电流</p></li>
+<li><p><span class="math inline">\(R_L\)</span>不能过小，以保证“灌入”的负载电流不大于单只OD门可承受的输入电流。有： <span class="math display">\[
+R_{\mathrm{L}} \geq \frac{V_{\mathrm{DD}}-V_{\mathrm{OL}}}{I_{\mathrm{OL}(\mathrm{OD})}-m \cdot I_{\mathrm{IL}}}
+\]</span> <span class="math inline">\(m\)</span>是下一级输入端的数目。</p></li>
+</ol>
+<h4 id="传输门">传输门</h4>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162030714.png" srcset="/img/loading.gif" lazyload alt="CMOS传输门电路和逻辑符号" /><figcaption aria-hidden="true">CMOS传输门电路和逻辑符号</figcaption>
+</figure>
+<p>其特性为：</p>
+<ul>
+<li><span class="math inline">\(C\)</span>接高电平而<span class="math inline">\(\overline{C}\)</span>接低电平，<span class="math inline">\(V_o=V_i\)</span>，相当于信号直接通过</li>
+<li><span class="math inline">\(C\)</span>接低电平而<span class="math inline">\(\overline{C}\)</span>接高电平，相当于中间的电路断开，输出是高阻态。</li>
+</ul>
+<h4 id="三态门">三态门</h4>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162032490.png" srcset="/img/loading.gif" lazyload alt="三态门符号" /><figcaption aria-hidden="true">三态门符号</figcaption>
+</figure>
+<p>三态门是一个正常的门电路外加一个<span class="math inline">\(EN\)</span>信号，里面画一个倒三角。当<span class="math inline">\(EN\)</span>为有效信号（上图是低电平有效，也就是<span class="math inline">\(EN=0\)</span>）时，门电路正常工作，否则，输出高阻态。</p>
+<h3 id="ttl门电路">TTL门电路</h3>
+<p>我也不会分析，所以分析略。</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162040271.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162040028.png" srcset="/img/loading.gif" lazyload /></p>
+<p>这里这个OC门就和前面那个OD门意思差不多，也有线与，也得算<span class="math inline">\(R_L\)</span>的范围。不同的是，当输出端含有与非门时，要按与非门的门数计算，而不是端数。</p>
+<p>对于TTL门电路，输入端悬空等效于逻辑高电平；输入端经过几十千欧以内的电阻接电源，等效于逻辑高电平；输入端经过几十欧的小电阻接地等效于低电平，当电阻升高到一定程度（一般是几千欧）以后，等效为高电平。</p>
+<h2 id="脉冲波形的产生和整形电路">脉冲波形的产生和整形电路</h2>
+<h3 id="施密特触发器">施密特触发器</h3>
+<p>施密特触发器是脉冲波形变换中的常用电路。它具有以下两个特点：</p>
+<ol type="1">
+<li>输入信号本来是低电平，上升的过程中电路状态发生转换时对应的输入电平，和输入信号本来是高电平，下降的过程中电路状态发生转换时对应的输入电平不相等</li>
+<li>在电路状态变化的过程中，电路内存在正反馈过程，从而使得电压波形非常陡峭</li>
+</ol>
+<p>施密特触发器的电路图如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212221543571.png" srcset="/img/loading.gif" lazyload alt="施密特触发器" /><figcaption aria-hidden="true">施密特触发器</figcaption>
+</figure>
+<p>当<span class="math inline">\(v_1\)</span>从0开始逐渐上升，使得<span class="math inline">\(v_A=V_{TH}\)</span>时，<span class="math inline">\(G_1\)</span>门的输出端<span class="math inline">\(v_{O1}\)</span>下降，变成低电平，于是<span class="math inline">\(G_2\)</span>门的输出端<span class="math inline">\(v_O\)</span>抬升，变成高电平。因为对<span class="math inline">\(v_1-R_1-R_2-v_O\)</span>回路，有 <span class="math display">\[
+v_A=v_1-(v_1-v_O)\frac{R_1}{R_1+R_2}
+\]</span> 抬升的<span class="math inline">\(v_O\)</span>通过电阻<span class="math inline">\(R_2\)</span>反作用于<span class="math inline">\(v_A\)</span>，使得<span class="math inline">\(v_A\)</span>继续上升。于是，<span class="math inline">\(v_O\)</span>迅速地达到高电平<span class="math inline">\(V_{DD}\)</span>。</p>
+<p>在上述过程中，状态转换发生的瞬间，此时<span class="math inline">\(v_o\)</span>还是低电平<span class="math inline">\(0\)</span>，有： <span class="math display">\[
+v_A=\frac{R_2}{R_1+R_2}V_{T+}=V_{TH}
+\]</span> 解得 <span class="math display">\[
+V_{T+}=\left(1+\frac {R_1}{R_2}\right)V_{TH}
+\]</span> 其中<span class="math inline">\(V_{T+}\)</span>是施密特触发器上升过程中电路状态转换瞬间对应的输入电平，<span class="math inline">\(V_{TH}\)</span>是逻辑门高低电平的分界线。</p>
+<p>同理，当<span class="math inline">\(v_1\)</span>从高电平<span class="math inline">\(V_{DD}\)</span>开始下降，直到<span class="math inline">\(v_A=V_{TH}\)</span>时，<span class="math inline">\(G_1\)</span>门的输出端<span class="math inline">\(v_{O1}\)</span>抬升，变成高电平，于是<span class="math inline">\(G_2\)</span>门的输出端<span class="math inline">\(v_{O}\)</span>下降，根据上面的式子，下降的<span class="math inline">\(v_O\)</span>作用于<span class="math inline">\(v_A\)</span>形成正反馈，使得<span class="math inline">\(v_A\)</span>继续下降，于是<span class="math inline">\(v_O\)</span>迅速地达到0.</p>
+<p>同样，有： <span class="math display">\[
+v_A=V_{T-}-(V_{T-}-V_{DD})\frac{R_1}{R_1+R_2}
+\]</span> 解得： <span class="math display">\[
+V_{T-}=\left(1-\frac{R_1}{R_2}\right)V_{TH}
+\]</span> 其中<span class="math inline">\(V_{T-}\)</span>是施密特触发器下降过程中电路状态转换瞬间对应的输入电平。</p>
+<p>于是，可以得到施密特触发器的电压传输特性：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212221613215.png" srcset="/img/loading.gif" lazyload alt="电压传输特性" /><figcaption aria-hidden="true">电压传输特性</figcaption>
+</figure>
+<p>中间的部分叫做回差电压： <span class="math display">\[
+\Delta V_T=V_{T+}-V_{T-}=2\frac{R_1}{R_2}V_{TH}
+\]</span> 如果施密特触发器要正常工作，那么<span class="math inline">\(R_1&lt;R_2\)</span>，否则会发生互锁。</p>
+<p>施密特触发器的电路符号如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212221620747.png" srcset="/img/loading.gif" lazyload alt="施密特触发器的符号" /><figcaption aria-hidden="true">施密特触发器的符号</figcaption>
+</figure>
+<p>上面的同相输出，下面的是反相输出。</p>
+<h3 id="单稳态电路">单稳态电路</h3>
+<p>单稳态电路具有以下特点：</p>
+<ol type="1">
+<li>具有稳态、暂稳态两个不同的工作状态</li>
+<li>在外界脉冲的触发下，从稳态进入暂稳态，并在暂稳态停留一段时间后恢复稳态。这段时间的长度只和电路本身的参数有关，和触发脉冲的持续时间，强度无关。</li>
+</ol>
+<p>这个工作特性可以类比声控灯，触发脉冲就是声音，无论你拍个手，还是长时间地播放声音，无论声音多大，只要能触发，它一次就亮那么长时间。</p>
+<h4 id="微分型单稳态电路">微分型单稳态电路</h4>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212221652036.png" srcset="/img/loading.gif" lazyload alt="微分型单稳态电路图" /><figcaption aria-hidden="true">微分型单稳态电路图</figcaption>
+</figure>
+<p>如图，微分型单稳态电路由一些电阻、电容、或非门和非门构成。其前级由<span class="math inline">\(C_d-R_d\)</span>构成一个微分电路，环路内由<span class="math inline">\(C-R\)</span>构成一个微分电路。</p>
+<p>输入端本来是低电平，当向输入端<span class="math inline">\(v_I\)</span>加入一个脉冲时，因为<span class="math inline">\(C_d\)</span>两端电压不可以突变，所以<span class="math inline">\(v_d\)</span>会被拉高，于是<span class="math inline">\(R_d\)</span>上产生一个向下的电流，负电荷流向<span class="math inline">\(C_d\)</span>，<span class="math inline">\(C_d\)</span>开始充电，<span class="math inline">\(v_d\)</span>开始下降。总的来说，微分电路<span class="math inline">\(C_d-R_d\)</span>会产生一个尖刺，就像下图一样：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212221710310.png" srcset="/img/loading.gif" lazyload alt="vd随vi的变化" /><figcaption aria-hidden="true">vd随vi的变化</figcaption>
+</figure>
+<p>当<span class="math inline">\(v_d\)</span>上升达到<span class="math inline">\(V_{TH}\)</span>时，<span class="math inline">\(v_{O1}\)</span>会下降的低电平，因为<span class="math inline">\(C\)</span>两端的电压差不能突变，于是<span class="math inline">\(v_{I2}\)</span>也跟着下降到低电平，于是<span class="math inline">\(v_O\)</span>跳变到高电平，电路进入了暂稳态。</p>
+<p>这时，<span class="math inline">\(R\)</span>上产生了向下的电流，正电荷流入<span class="math inline">\(C\)</span>，电容<span class="math inline">\(C\)</span>开始充电。随着充电的进行，<span class="math inline">\(v_{I2}\)</span>逐渐抬升，直到其抬升到<span class="math inline">\(V_{TH}\)</span>，此时<span class="math inline">\(v_O\)</span>下降为低电平，低电平反馈回<span class="math inline">\(G_1\)</span>（因为此时<span class="math inline">\(v_d\)</span>已经回到低电平），使得<span class="math inline">\(v_{O1}\)</span>抬升为高电平，进而使得<span class="math inline">\(v_{I2}\)</span>抬升。此时，电容<span class="math inline">\(C\)</span>通过电阻<span class="math inline">\(R\)</span>和门<span class="math inline">\(G_2\)</span>的输入保护电路向<span class="math inline">\(V_{DD}\)</span>放电，直至电容上的电压为<span class="math inline">\(0\)</span>，电路恢复稳态。</p>
+<p>全过程的电压波形如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212221728138.png" srcset="/img/loading.gif" lazyload alt="全过程电压波形" /><figcaption aria-hidden="true">全过程电压波形</figcaption>
+</figure>
+<p>我们考察<span class="math inline">\(R-C\)</span>回路充电的过程。从充电开始到变化到<span class="math inline">\(V_{TH}\)</span>的耗时为： <span class="math display">\[
+t=RC\ln \frac{v_c(\infty)-v_c(0)}{v_c(\infty)-V_{TH}}
+\]</span> 把<span class="math inline">\(v_c(\infty)=V_{DD}\)</span>带入，有： <span class="math display">\[
+t_w=RC\ln 2=0.69RC
+\]</span> 这就是暂稳态持续的时间。</p>
+<p>当<span class="math inline">\(v_o\)</span>恢复稳态后，<span class="math inline">\(C\)</span>还要经历一个放电的过程。放电的时间为： <span class="math display">\[
+t_{re}=(3\sim 5)R_{ON}C
+\]</span> 其中<span class="math inline">\(R_{ON}\)</span>是<span class="math inline">\(G_1\)</span>的输出电阻。整个电路两个相邻触发脉冲的最小时间间隔为 <span class="math display">\[
+t_d=t_w+t_{re}
+\]</span></p>
+<h4 id="积分型">积分型</h4>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212221749651.png" srcset="/img/loading.gif" lazyload alt="积分型单稳态电路图" /><figcaption aria-hidden="true">积分型单稳态电路图</figcaption>
+</figure>
+<p>如图是用与非门、非门、积分电路构成的积分型单稳态电路。</p>
+<p>当输入正脉冲时，<span class="math inline">\(v_{O1}\)</span>变成低电平，但是因为<span class="math inline">\(C\)</span>两端的电压不能突变，所以<span class="math inline">\(v_A\)</span>仍然维持在高电平。<span class="math inline">\(G_2\)</span>的输入端是两个高电平，<span class="math inline">\(v_O\)</span>输出低电平，电路进入暂稳态。</p>
+<p>此时，电容开始放电。随着电容的放电，<span class="math inline">\(v_A\)</span>不断降低，直到低过<span class="math inline">\(v_{TH}\)</span>。此时，与非门的其中一个输入变成低电平，<span class="math inline">\(v_O\)</span>回到高电平。等到输入端的脉冲结束以后，<span class="math inline">\(v_{O1}\)</span>又变成高电平，给电容充电，经过一段时间以后，电容充满电，电路恢复稳态。</p>
+<p>全过程电压波形图如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212221949659.png" srcset="/img/loading.gif" lazyload alt="全过程电压波形" /><figcaption aria-hidden="true">全过程电压波形</figcaption>
+</figure>
+<p>在计算电容放电过程时，有放电等效电路：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212222001589.png" srcset="/img/loading.gif" lazyload alt="放电等效电路" /><figcaption aria-hidden="true">放电等效电路</figcaption>
+</figure>
+<p>放电时，相当于<span class="math inline">\(R\)</span>和<span class="math inline">\(R_O\)</span>串联，有： <span class="math display">\[
+t_=\left(R+R_{\mathrm{O}}\right) C \ln \frac{V_{\mathrm{OL}}-V_{\mathrm{OH}}}{V_{\mathrm{OL}}-V_{\mathrm{TH}}}
+\]</span> 充电时，有： <span class="math display">\[
+t_{re}=(3\sim 5)(R+R_O&#39;)C
+\]</span> 整个电路两个相邻触发脉冲的最小时间间隔为： <span class="math display">\[
+t_d=t_w+t_{re}
+\]</span></p>
+<h3 id="多谐振荡器">多谐振荡器</h3>
+<h4 id="对称式多谐振荡器">对称式多谐振荡器</h4>
+<p>对称式多谐振荡器的电路图如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212222144835.png" srcset="/img/loading.gif" lazyload alt="对称式多谐振荡器" /><figcaption aria-hidden="true">对称式多谐振荡器</figcaption>
+</figure>
+<p>那么有人就说了：这也不对称啊？其实，它可以画成这样的形式：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212222145042.png" srcset="/img/loading.gif" lazyload alt="“对称”式多谐振荡器" /><figcaption aria-hidden="true">“对称”式多谐振荡器</figcaption>
+</figure>
+<p>对称式多谐振荡器是没有“稳态”的，<span class="math inline">\(G_1\)</span>和<span class="math inline">\(G_2\)</span>被反馈电阻偏置到放大状态。在一开始的“不平衡稳定态”，门工作在转折区，有：<span class="math inline">\(v_{I1}=v_{O1}=v_{I2}=v_{O2}\)</span>。</p>
+<p>现在，因为某些原因，给<span class="math inline">\(v_{I1}\)</span>上加一个微小的扰动，使其有一个正跳变。那么，<span class="math inline">\(v_{O1}\)</span>会下降，因为电容<span class="math inline">\(C_1\)</span>的存在，<span class="math inline">\(v_{I2}\)</span>跟着一起下降，于是<span class="math inline">\(v_{O2}\)</span>上升，经过电容<span class="math inline">\(C_2\)</span>而继续带动<span class="math inline">\(v_{I1}\)</span>的上升，进入一个正反馈过程，此时电路进入了暂稳态。</p>
+<p>需要注意的一点是，在接下来的分析里，我们要明确哪些电压是有外界电源保持的，哪些电压是纯数字（只有两个状态的），哪些电压是没有外界电源保持的，哪些电压是模拟（可以连续变化的）。因为这样才能知道是谁在对谁充电、画波形图时也比较方便。</p>
+<p>有外界电源保持的电压，是纯数字的，作为门的输出端口电压出现；没有外界电源保持的电压，是模拟的，作为门的输入端口的形式出现。</p>
+<p>对于<span class="math inline">\(C_1\)</span>，因为<span class="math inline">\(v_{O2}\)</span>上升而<span class="math inline">\(v_{I2}\)</span>下降，电流从<span class="math inline">\(R_{F2}\)</span>流入<span class="math inline">\(C_1\)</span>，对其进行充电。这时，实际上是<span class="math inline">\(G_2\)</span>的外接电源通过<span class="math inline">\(v_{O2}\)</span>，来对<span class="math inline">\(C_1\)</span>进行充电。此外，流入<span class="math inline">\(C_1\)</span>的还有门<span class="math inline">\(G_2\)</span>输入级的电流。因为<span class="math inline">\(v_{O1}\)</span>是有外界电源保持的，所以充电的效果是：<span class="math inline">\(v_{I2}\)</span>缓慢抬升。</p>
+<p>对于<span class="math inline">\(C_2\)</span>，因为<span class="math inline">\(v_{I1}\)</span>上升而<span class="math inline">\(v_{O1}\)</span>下降，<span class="math inline">\(C_2\)</span>向电阻<span class="math inline">\(R_{F1}\)</span>放电。因为一开始给了<span class="math inline">\(v_{I1}\)</span>的一个向上的微扰，当<span class="math inline">\(v_{O2}\)</span>反馈回来时，<span class="math inline">\(v_{I1}&gt;v_{O2}\)</span>，但是<span class="math inline">\(v_{I1}\)</span>是没有外界电源保持的，因此<span class="math inline">\(C_2\)</span>会放电，把<span class="math inline">\(v_{I1}\)</span>放下去。于是，放电的效果就是<span class="math inline">\(v_{I1}\)</span>缓慢下降。那么有人就问了，既然一开始的所谓“不稳定的平衡态”，这四个电压都一样，<span class="math inline">\(C_2\)</span>上本来就没有电。那么<span class="math inline">\(C_2\)</span>放电的“电”来自于何处呢？是来自于<span class="math inline">\(v_{I1}\)</span>一开始的正跳变。</p>
+<p>电路的充放电回路示意图如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212222158087.png" srcset="/img/loading.gif" lazyload alt="充放电回路示意图" /><figcaption aria-hidden="true">充放电回路示意图</figcaption>
+</figure>
+<p>接下来，我们详细分析一下充放电过程。</p>
+<p>对于<span class="math inline">\(C_1\)</span>:</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212222218443.png" srcset="/img/loading.gif" lazyload alt="C1充电等效回路" /><figcaption aria-hidden="true">C1充电等效回路</figcaption>
+</figure>
+<p>由戴维南定理，首先把所有电源接地，看进去等效于两个电阻并联，于是有： <span class="math display">\[
+R_{\mathrm{E} 1}=\frac{R_1 R_{\mathrm{F} 2}}{R_1+R_{\mathrm{F} 2}}
+\]</span> 接着运用叠加定理，或者说以<span class="math inline">\(V_{OH2}\)</span>为基准进行分析，得到等效电源： <span class="math display">\[
+V_{\mathrm{E} 1}=V_{\mathrm{OH}}+\frac{R_{\mathrm{F} 2}}{R_1+R_{\mathrm{F} 2}}\left(V_{\mathrm{CC}}-V_{\mathrm{OH}}-V_{\mathrm{BE}}\right)
+\]</span> 对于<span class="math inline">\(C_2\)</span>:</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212222221917.png" srcset="/img/loading.gif" lazyload alt="C2放电等效回路" /><figcaption aria-hidden="true">C2放电等效回路</figcaption>
+</figure>
+<p>因为同时有两个电源伺候<span class="math inline">\(C_1\)</span>，所以它冲的比较快，<span class="math inline">\(v_{I2}\)</span>抢先一步达到<span class="math inline">\(V_{TH}\)</span>，此时<span class="math inline">\(v_{O2}\)</span>下降为低电平，连带着<span class="math inline">\(v_{I1}\)</span>一起下降，然后通过<span class="math inline">\(G_1\)</span>使得<span class="math inline">\(v_{O_1}\)</span>上升。<span class="math inline">\(v_{O1}\)</span>的上升又通过电容<span class="math inline">\(C_1\)</span>传递给<span class="math inline">\(v_{I2}\)</span>，此时，电路进入第二个暂稳态，<span class="math inline">\(C_2\)</span>开始充电使得<span class="math inline">\(v_{I2}\)</span>下降，<span class="math inline">\(C_1\)</span>开始放电使得<span class="math inline">\(v_{I_1}\)</span>上升。从开始到<span class="math inline">\(v_{I2}\)</span>达到<span class="math inline">\(V_{TH}\)</span>的时间为： <span class="math display">\[
+T_1=R_{\mathrm{E} 1} C_1 \ln \frac{V_{\mathrm{E} 1}-V_{\mathrm{IK}}}{V_{\mathrm{E} 1}-V_{\mathrm{TH}}}
+\]</span> 因为还是有两个电源伺候<span class="math inline">\(C_2\)</span>，所以这次轮到<span class="math inline">\(v_{I1}\)</span>先上升到<span class="math inline">\(V_{TH}\)</span>，使得<span class="math inline">\(v_{O1}\)</span>下降到低电平，因为电容<span class="math inline">\(C_1\)</span>的存在，<span class="math inline">\(v_{I2}\)</span>跟着一起下降，于是<span class="math inline">\(v_{O2}\)</span>上升，经过电容<span class="math inline">\(C_2\)</span>而继续带动<span class="math inline">\(v_{I1}\)</span>的上升，又回到了第一个暂稳态。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212222234255.png" srcset="/img/loading.gif" lazyload alt="电压波形图" /><figcaption aria-hidden="true">电压波形图</figcaption>
+</figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%95%B0%E7%94%B5/">#数电</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>数字电路·模拟之章</div>
+      <div>https://suzumiyaakizuki.github.io/2022/12/22/数字电路·模拟之章/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>SuzumiyaAkizuki</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年12月22日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/12/22/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%C2%B7%E7%BB%84%E5%90%88%E4%B8%8E%E6%97%B6%E5%BA%8F%E4%B9%8B%E7%AB%A0/" title="数字电路·组合与时序之章">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">数字电路·组合与时序之章</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/12/17/%E5%BE%AE%E6%B3%A2%C2%B7%E8%B7%AF%E4%B9%8B%E7%AB%A0/" title="微波技术·路之章">
+                        <span class="hidden-mobile">微波技术·路之章</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.7.2/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"48fb14f9689ae0d11307","clientSecret":"091ab25a88e87bfd9d9d40d97d1d0d932e694059","repo":"SuzumiyaAkizuki.github.io","owner":"SuzumiyaAkizuki","admin":["SuzumiyaAkizuki"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: 'f401612deb52ebfcd561c02c71a56cee'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       Powered by: <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

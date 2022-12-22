@@ -1,0 +1,1337 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <link rel="icon" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="SuzumiyaAkizuki">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="组合逻辑电路 设计分析 略，无非是列功能表、真值表、画卡诺图、化简、转换形式、连电路。 经典组合逻辑电路模块 编码器  8（位）-3（线）编码器 其基本功能是输入8位中的一位表示被编码的十进制数，3条输出线表示这个十进制数的二进制形式。  83编码器功能表  优先编码器 相比于83编码器，优先编码器的输出取决于最高为1的那一位。  优先编码器功能表  74HC148">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数字电路·组合与时序之章">
+<meta property="og:url" content="https://suzumiyaakizuki.github.io/2022/12/22/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%C2%B7%E7%BB%84%E5%90%88%E4%B8%8E%E6%97%B6%E5%BA%8F%E4%B9%8B%E7%AB%A0/index.html">
+<meta property="og:site_name" content="凉宫秋月的文艺部">
+<meta property="og:description" content="组合逻辑电路 设计分析 略，无非是列功能表、真值表、画卡诺图、化简、转换形式、连电路。 经典组合逻辑电路模块 编码器  8（位）-3（线）编码器 其基本功能是输入8位中的一位表示被编码的十进制数，3条输出线表示这个十进制数的二进制形式。  83编码器功能表  优先编码器 相比于83编码器，优先编码器的输出取决于最高为1的那一位。  优先编码器功能表  74HC148">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212222235838.jpg">
+<meta property="article:published_time" content="2022-12-22T07:22:23.000Z">
+<meta property="article:modified_time" content="2022-12-22T14:36:03.886Z">
+<meta property="article:author" content="SuzumiyaAkizuki">
+<meta property="article:tag" content="数电">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212222235838.jpg">
+  
+  
+  
+  <title>数字电路·组合与时序之章 - 凉宫秋月的文艺部</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"suzumiyaakizuki.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":"G-J01HK5TZ0Y","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"QGqf9VPGTa96KerO0JvDW3Ld-gzGzoHsz","app_key":"RhwwUaYq4lMo1tCJwcQTWdRp","server_url":"https://qgqf9vpg.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.google-analytics.com/analytics.js', function() {
+          window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
+          ga.l = +new Date;
+          ga('create', 'G-J01HK5TZ0Y', 'auto');
+          ga('send', 'pageview');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>凉宫秋月的文艺部</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友情链接
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212222235838.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="数字电路·组合与时序之章"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        SuzumiyaAkizuki
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-12-22 15:22" pubdate>
+          2022年12月22日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          9.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          20 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">数字电路·组合与时序之章</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="组合逻辑电路">组合逻辑电路</h2>
+<h3 id="设计分析">设计分析</h3>
+<p>略，无非是列功能表、真值表、画卡诺图、化简、转换形式、连电路。</p>
+<h3 id="经典组合逻辑电路模块">经典组合逻辑电路模块</h3>
+<h4 id="编码器">编码器</h4>
+<ul>
+<li><p>8（位）-3（线）编码器</p>
+<p>其基本功能是输入8位中的一位表示被编码的十进制数，3条输出线表示这个十进制数的二进制形式。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162058622.png" srcset="/img/loading.gif" lazyload alt="83编码器功能表" /><figcaption aria-hidden="true">83编码器功能表</figcaption>
+</figure></li>
+<li><p>优先编码器</p>
+<p>相比于83编码器，优先编码器的输出取决于最高为1的那一位。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162100464.png" srcset="/img/loading.gif" lazyload alt="优先编码器功能表" /><figcaption aria-hidden="true">优先编码器功能表</figcaption>
+</figure></li>
+<li><p>74HC148优先编码器</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162102678.png" srcset="/img/loading.gif" lazyload alt="电路图" /><figcaption aria-hidden="true">电路图</figcaption>
+</figure>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162102372.png" srcset="/img/loading.gif" lazyload alt="逻辑符号" /><figcaption aria-hidden="true">逻辑符号</figcaption>
+</figure>
+<p>其中的<span class="math inline">\(A_i,Y_i\)</span>是完成基本功能的输入输出端，此外，它还有一些其它的端口，能进行扩展功能：</p>
+<ul>
+<li><span class="math inline">\(\overline S\)</span>选通输入端，当且仅当<span class="math inline">\(\overline S=0\)</span>，电路正常工作，否则，所有输出都被封锁在高电平。</li>
+<li><span class="math inline">\(\overline {Y_S}\)</span>选通输出端，当它为0时表示：电路工作但无编码输入</li>
+<li><span class="math inline">\(\overline {Y_{EX}}\)</span>扩展输出端，它为0时表示：电路工作且有编码输入</li>
+</ul>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162110457.png" srcset="/img/loading.gif" lazyload alt="74HC148功能表" /><figcaption aria-hidden="true">74HC148功能表</figcaption>
+</figure></li>
+</ul>
+<h4 id="译码器">译码器</h4>
+<p>译码器就是编码器的逆，输入三个信号表示一个二进制数，输出八个信号中的一个表示那个二进制数的十进制表示。</p>
+<p>常用的译码器是74138译码器：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162113986.png" srcset="/img/loading.gif" lazyload alt="74138逻辑图" /><figcaption aria-hidden="true">74138逻辑图</figcaption>
+</figure>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162114347.png" srcset="/img/loading.gif" lazyload alt="功能表" /><figcaption aria-hidden="true">功能表</figcaption>
+</figure>
+<p>它有三个附加控制器：<span class="math inline">\(S_1,\overline S_{2},\overline S_3\)</span>。当<span class="math inline">\(S_1=1,\overline S_{2}=\overline S_3=0\)</span>时，电路正常工作，否则，所有输出端为高电平。</p>
+<h4 id="数据选择器">数据选择器</h4>
+<p>数据选择器有若干个输入信号，一个选择信号（可能有多位）和一个输出。由选择信号决定输出接哪个输入信号。</p>
+<p>常用的数据选择器是74HC153双四选一数据选择器。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162121574.png" srcset="/img/loading.gif" lazyload alt="74HC153逻辑图" /><figcaption aria-hidden="true">74HC153逻辑图</figcaption>
+</figure>
+<p>其中<span class="math inline">\(D\)</span>表示输入信号，<span class="math inline">\(A_1A_0\)</span>共同表示一个二进制数，是选择信号，<span class="math inline">\(Y\)</span>是输出信号，<span class="math inline">\(S\)</span>是选通输入端。有时候我们只用单四选一，这时候把其它管脚留空即可，但是不能把这个片劈成两半。</p>
+<h4 id="数值比较器">数值比较器</h4>
+<p>略，没啥说的，都差不多。</p>
+<p>常用的数值比较器是7485数值比较器</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162137127.png" srcset="/img/loading.gif" lazyload alt="7485逻辑图" /><figcaption aria-hidden="true">7485逻辑图</figcaption>
+</figure>
+<p>其中<span class="math inline">\(A,B\)</span>是待比较的数值，<span class="math inline">\(F\)</span>是输出。而<span class="math inline">\(I\)</span>则是当数值比较器扩展时，来自低位的比较结果。比如说，要实现八位数值的比较，我们可以这样级联：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162139534.png" srcset="/img/loading.gif" lazyload alt="数值比较器扩展" /><figcaption aria-hidden="true">数值比较器扩展</figcaption>
+</figure>
+<p>首先比较高四位。如果高四位出现了不同，那么自然可以直接输出。如果高四位相同，那么就需要另接入一个数值比较器来比较下四位，然后把下四位的比较结果通过<span class="math inline">\(I\)</span>端反馈到高位的比较器，再由负责高位的比较器来输出最终的结果。</p>
+<p>也就是说，当<span class="math inline">\(AB\)</span>不相等时，输出和<span class="math inline">\(I\)</span>无关，直接输出<span class="math inline">\(AB\)</span>的关系，否则，直接输出<span class="math inline">\(I\)</span>。</p>
+<h4 id="加法器">加法器</h4>
+<p>全加器有三个输入<span class="math inline">\(A,B,CI\)</span>，其中<span class="math inline">\(AB\)</span>表示两个加数，<span class="math inline">\(CI\)</span>表示上个全加器产生的进位信号。有两个输出：<span class="math inline">\(S,CO\)</span>，<span class="math inline">\(S\)</span>表示和，<span class="math inline">\(CO\)</span>表示有无进位。</p>
+<p>这个功能很简单就能描述：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">assign</span> &#123;CO,S&#125;=A+B+CI<br></code></pre></td></tr></table></figure>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162127862.png" srcset="/img/loading.gif" lazyload alt="全加器功能表" /><figcaption aria-hidden="true">全加器功能表</figcaption>
+</figure>
+<h2 id="半导体存储电路">半导体存储电路</h2>
+<p>基本的半导体存储电路有锁存器、触发器、寄存器、存储器等。其中触发器可按结构分为基本、同步、主从、边沿触发器，按触发方式分为电平、脉冲、脉冲边沿触发器，按逻辑功能分为RS、JK、D和T触发器等。</p>
+<h3 id="sr锁存器">SR锁存器</h3>
+<p>SR锁存器是最基本的半导体存储电路。一般来说，我们所谓的锁存器，都指的是SR锁存器。其电路图如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211271054295.png" srcset="/img/loading.gif" lazyload alt="或非门SR锁存器" /><figcaption aria-hidden="true">或非门SR锁存器</figcaption>
+</figure>
+<p>由于或非门可以被“锁定”的特性，这个电路具有了锁存的功能。其状态转移图如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211271052715.png" srcset="/img/loading.gif" lazyload alt="image-20221127105256632" /><figcaption aria-hidden="true">image-20221127105256632</figcaption>
+</figure>
+<p>状态方程如下： <span class="math display">\[
+\left\{\begin{array}{c}
+Q^{n+1}=S_{\mathrm{D}}+\overline{R_{\mathrm{D}}} \cdot Q^n \\
+R_{\mathrm{D}} S_{\mathrm{D}} \equiv 0
+\end{array}\right.
+\]</span> 状态表如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211271107647.png" srcset="/img/loading.gif" lazyload alt="或非门SR锁存器状态表" /><figcaption aria-hidden="true">或非门SR锁存器状态表</figcaption>
+</figure>
+<p>状态转移图、状态方程、状态表，说的都是一件事，那就是这个元件的状态如何变化。在SR触发器中，记住状态表是最高效的分析方法。</p>
+<p>在状态表中，我们观察最后两行，这是状态转移图和状态方程中没有考虑到的。这里的“不定”有两种含义。第一种，当电路正常工作时，如果施加<span class="math inline">\(S_D=1,R_D=1\)</span>的输入，会有<span class="math inline">\(Q=\overline{Q}=0\)</span>的状态，这既<strong>不</strong>是<strong>定</strong>义的“1”状态，也<strong>不</strong>是<strong>定</strong>义的“0”状态，所以叫“<strong>不定</strong>”。第二种是，当电路本来就是上一个状态时，如果同时把<span class="math inline">\(S,R\)</span>置<span class="math inline">\(0\)</span>，那么电路的输出状态<strong>不</strong>能确<strong>定</strong>（这个照着电路图推一推就明白了），于是叫做“<strong>不定</strong>”。</p>
+<p>观察状态转换方法，我们有时将<span class="math inline">\(S_D\)</span>叫做“直接置位端”，意思是直接把状态置为1；将<span class="math inline">\(R_D\)</span>叫做“直接复位端”，意思是把状态复位为0，于是这个电路叫做“Ser-Reser Latch”，即“SR锁存器”。</p>
+<p>SR锁存器也可以用与非门构造，如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211271115837.png" srcset="/img/loading.gif" lazyload alt="与非门SR锁存器" /><figcaption aria-hidden="true">与非门SR锁存器</figcaption>
+</figure>
+<p>不同的是，这里的<span class="math inline">\(S_D,R_D\)</span>都变成了低电平有效。</p>
+<h3 id="触发器">触发器</h3>
+<h4 id="电平触发">电平触发</h4>
+<p>电平触发的意思，就是当且仅当<code>clk</code>信号是有效信号时，触发器的输出状态随着输入信号变化。如果不是有效信号，则保持之前的输出状态。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211271609270.png" srcset="/img/loading.gif" lazyload alt="电平触发SR触发器" /><figcaption aria-hidden="true">电平触发SR触发器</figcaption>
+</figure>
+<p>电平触发有时会因为一些短暂的噪声而影响整个输出，因此我们要考虑其它触发方式</p>
+<h4 id="脉冲触发">脉冲触发</h4>
+<p>首先来考虑主从SR触发器（也叫“脉冲触发的SR触发器”）。主从SR触发器的结构和符号如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211271644991.png" srcset="/img/loading.gif" lazyload alt="主从SR触发器" /><figcaption aria-hidden="true">主从SR触发器</figcaption>
+</figure>
+<p>可以看出，一个脉冲触发的SR触发器，是由两个电平触发的SR触发器接成的。<span class="math inline">\(FF_1\)</span>叫主触发器，<span class="math inline">\(FF_2\)</span>叫从触发器，主触发器的输出直接接入从触发器的输入。在分析时，应该在高电平先对<span class="math inline">\(Q_1\)</span>进行分析，之后，再在低电平（注意，从触发器接的时钟信号是翻转的）对<span class="math inline">\(Q\)</span>进行分析。显然，主触发器在一个高电平时间段内，可以随着输入信号的变化而翻转多次。</p>
+<p>接下来我们考虑JK触发器。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211272038848.png" srcset="/img/loading.gif" lazyload alt="JK触发器" /><figcaption aria-hidden="true">JK触发器</figcaption>
+</figure>
+<p>这里在输出端和输入端之间接了一个反馈。即： <span class="math display">\[
+S=\overline{Q}J,R=QK
+\]</span> 带入，有： <span class="math display">\[
+Q^{n+1}=J \cdot \overline{Q^n}+\overline{K} \cdot Q^n
+\]</span> 这就是JK触发器的状态转移方程，可以写出状态转移图：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211272045222.png" srcset="/img/loading.gif" lazyload alt="JK触发器的状态转移图" /><figcaption aria-hidden="true">JK触发器的状态转移图</figcaption>
+</figure>
+<p>状态表：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211272106517.png" srcset="/img/loading.gif" lazyload alt="JK触发器状态表" /><figcaption aria-hidden="true">JK触发器状态表</figcaption>
+</figure>
+<p>接下来，我们讨论一下JK触发器是怎么进行状态转移的。JK的主触发器仍然是一个电平触发的SR触发器，但是由于JK触发器的反馈机制，当<span class="math inline">\(Q=0\)</span>时，因为<span class="math inline">\(R=QK=0\)</span>，主触发器只能接受“置1输入信号”；当<span class="math inline">\(Q=1\)</span>时，因为<span class="math inline">\(S=\overline QJ=0\)</span>，主触发器只能接受“置0（复位）输入信号”，所以这个主触发器在<span class="math inline">\(CLK=1\)</span>期间至多翻转一次，这就是所谓的“JK触发器的一次性变化现象”。</p>
+<p>于是，我们可以知道所谓“脉冲触发”到底是什么意思。</p>
+<ol type="1">
+<li>触发器的翻转分两步动作，首先，在<span class="math inline">\(CLK=1\)</span>时，主触发器接收输入信号，进行动作，而从触发器不动。第二步，<span class="math inline">\(CLK=1\)</span>的信号消失时（有的人把这个动作表述为“下降沿来临时”），从触发器根据主触发器的状态进行动作。由于输出信号是从触发器的输出信号，我们看起来，脉冲触发的触发器进行动作总是发生在<span class="math inline">\(CLK\)</span>信号的下降沿。</li>
+<li>主触发器本来是一个电平触发的SR触发器，所以在<span class="math inline">\(CLK=1\)</span>的全部时间，输入信号都会对主触发器起作用。</li>
+</ol>
+<h4 id="边沿触发">边沿触发</h4>
+<p>边沿触发是最简单的，它的次态仅仅取决与<span class="math inline">\(CLK\)</span>信号的上升沿或下降沿来临的瞬间，输入信号的状态。在分析时，只用对触发的边沿那几个有限的点进行分析就行了。</p>
+<h4 id="按逻辑功能的分类">按逻辑功能的分类</h4>
+<p>SR触发器和JK触发器的逻辑功能前面已经讲了。接下来介绍两种其它的触发器：</p>
+<ol type="1">
+<li><p>T触发器</p>
+<p>T触发器的功能简单来说是：“0保持，1取反”，即： <span class="math display">\[
+Q^{n+1}=T\overline{Q}+\overline{T}Q
+\]</span></p>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(T\)</span></th>
+<th><span class="math inline">\(Q\)</span></th>
+<th><span class="math inline">\(Q^{n+1}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>D触发器</p>
+<p>D触发器的功能简单来说是：“延迟一位”，即： <span class="math display">\[
+Q^{n+1}=D
+\]</span></p>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(D\)</span></th>
+<th><span class="math inline">\(Q\)</span></th>
+<th><span class="math inline">\(Q^{n+1}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table></li>
+</ol>
+<h3 id="存储器">存储器</h3>
+<p>首先明确一个概念：怎么表达一个存储器的大小呢？书上说：“通常写成（字数）x（每个字的位数）”的形式。什么是字？字就是这个存储器输出的东西。存储器每读入一个地址，就会输出一个01串，这个01串就是一个“字”，这个01串的长度就是“每个字的位数”。那么有人说，假设每个字的位数是<span class="math inline">\(n\)</span>，那么字数难道不会自动是<span class="math inline">\(2^n\)</span>吗？不是这样的。因为我们可以在不同的地址里存相同的字，也可以不在存储器中存储所有字，这是显而易见的。存储器的每个地址中存法一个字，所以所谓的“字数”其实是有效的地址数。</p>
+<h4 id="随机存取存储器ram">随机存取存储器RAM</h4>
+<p>可以随时从任何一个指定的地址读出数据，也可以随时将数据写入任何一个指定的存储单元中去，但是掉电后数据会丢失。其基本结构如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211272202657.png" srcset="/img/loading.gif" lazyload alt="RAM结构" /><figcaption aria-hidden="true">RAM结构</figcaption>
+</figure>
+<h4 id="只读存储器rom">只读存储器ROM</h4>
+<p>ROM的基本结构如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211272204218.png" srcset="/img/loading.gif" lazyload alt="ROM" /><figcaption aria-hidden="true">ROM</figcaption>
+</figure>
+<p>我们可以考察一下二极管ROM的详细结构。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211272205218.png" srcset="/img/loading.gif" lazyload alt="二极管ROM" /><figcaption aria-hidden="true">二极管ROM</figcaption>
+</figure>
+<p>在地址译码器中，看纵列，每个纵列构成了一个二极管与门。于是： <span class="math display">\[
+\begin{aligned}
+W_0=\overline{A_0}\ \overline{A_1}\\
+W_1=A_0 \overline{A_1}\\
+W_2=\overline{A_0}A_1\\
+W_3=A_0A_1
+\end{aligned}
+\]</span> 这样一来，就实现了一个译码器，这就是地址译码器。它将输入的二位二进制地址码翻译成<span class="math inline">\(W_i\)</span>的其中一个信号。</p>
+<p>现在看存储矩阵，看横行，每个横行构成了一个二极管或门，比如<span class="math inline">\(D_3=W_1+W_3,D_2=W_0+W_2+W_3,\cdots\)</span>，这样一来，输出端<span class="math inline">\(D\)</span>就能根据<span class="math inline">\(W\)</span>的选通而输出对应的信号<span class="math inline">\(\{D_3D_2D_1D_0\}\)</span>了。这就是二极管ROM的工作原理。根据这个原理，我们也可以使用ROM来实现多输出端逻辑函数，不再赘述了。</p>
+<h4 id="存储器容量的扩展">存储器容量的扩展</h4>
+<ol type="1">
+<li><p>位扩展</p>
+<p>当字数够用而每个字的位数不够时，可以使用位扩展。位扩展很简单，只需要把所有地址线、读写控制线、<span class="math inline">\(CS&#39;\)</span>线（CS‘线就是片选输入端，当<span class="math inline">\(\overline{CS}=0\)</span>时，这个片才工作）统统拧在一起就行了，如下是把8个1024x1位存储器位扩展为一个1024x8位存储器的过程：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211272225535.png" srcset="/img/loading.gif" lazyload alt="位扩展" /><figcaption aria-hidden="true">位扩展</figcaption>
+</figure></li>
+<li><p>字扩展</p>
+<p>当位数够用而字数不够时，可以使用字扩展。字扩展的接法是：首先把每个片的每个输出端，每个低位地址端，读写控制线并联起来，然后在新的地址位上加入一个译码器，通过译码器和CS端来控制不同的片工作与否，以达到扩展字数的目的。如下图是把4个256x8存储器接成一个1024x8存储器的过程：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211272232639.png" srcset="/img/loading.gif" lazyload alt="字扩展" /><figcaption aria-hidden="true">字扩展</figcaption>
+</figure></li>
+</ol>
+<h2 id="时序逻辑电路">时序逻辑电路</h2>
+<p>时序逻辑电路的特点是：任意时刻的输出状态不仅仅和当前的输入有关，还和电路之前的状态有关。其基本结构是由存储器电路和组合逻辑电路组成的。如下图所示：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212062052681.png" srcset="/img/loading.gif" lazyload alt="时序逻辑电路结构" /><figcaption aria-hidden="true">时序逻辑电路结构</figcaption>
+</figure>
+<p>描述时序逻辑，一般用三个方程。下面所说的“Q状态”指的是存储电路中各触发器的输出端状态：</p>
+<ul>
+<li><p>状态方程 <span class="math display">\[
+Q^{n+1}=H(Z,Q^n)
+\]</span> 状态方程描述的是前一次的<span class="math inline">\(Q\)</span>状态和后一次的<span class="math inline">\(Q\)</span>状态的关系。</p></li>
+<li><p>驱动方程 <span class="math display">\[
+Z=Q(X,Q^n)
+\]</span> 驱动方程描述的是触发器各输入端口和电路的<span class="math inline">\(Q\)</span>状态以及输入信号的关系。</p></li>
+<li><p>输出方程 <span class="math display">\[
+Y=F(X,Q^n)
+\]</span> 输出方程描述的是电路的输出信号和输入信号以及<span class="math inline">\(Q\)</span>状态的关系。</p></li>
+</ul>
+<p>时序逻辑电路按照电路状态转换情况不同，分为同步时序逻辑电路（所有触发器共用一个时钟信号）、异步时序逻辑电路（有些触发器的时钟信号可能是其它触发器的输出或者其它信号，总之不是共用一个时钟信号）。</p>
+<p>按照输出变量是否和输入变量直接相关，分为Mealy型（外部输出和触发器的状态以及输入信号有关）和Moore型（外部输出仅与触发器的状态有关）。</p>
+<h3 id="时序逻辑电路的分析">时序逻辑电路的分析</h3>
+<p>分析时序逻辑电路的基本纲领是：</p>
+<ol type="1">
+<li>根据电路逻辑图写出各个触发器的<strong>驱动方程</strong>（基本形式为：<span class="math inline">\(\text{触发器输入端信号}=f(Q^n,\text{输入信号})\)</span>）和输出方程</li>
+<li>把各驱动方程带入触发器的特性方程，得到电路的状态方程（基本形式为：<span class="math inline">\(Q^{n+1}=f(Q^n,\text{输入信号})\)</span>）</li>
+<li>列出逻辑转换表、逻辑转换图</li>
+<li>分析电路功能</li>
+</ol>
+<p>以下以一些例子说明这个过程。</p>
+<h4 id="同步时序逻辑电路分析">同步时序逻辑电路分析</h4>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212062120494.png" srcset="/img/loading.gif" lazyload alt="同步时序逻辑电路" /><figcaption aria-hidden="true">同步时序逻辑电路</figcaption>
+</figure>
+<ol type="1">
+<li><p>列电路驱动方程： <span class="math display">\[
+\begin{cases}J_1=\overline{Q_2} \cdot Q_3 &amp; K_1=1 \\ J_2=Q_1 &amp; K_2=\overline{\overline{Q_1} \cdot \overline{Q_3}} \\ J_3=Q_1 \cdot Q_2 &amp; K_3=Q_2\end{cases}
+\]</span> 输出方程： <span class="math display">\[
+Y=Q_2Q_3
+\]</span></p></li>
+<li><p>电路所用触发器是<span class="math inline">\(JK\)</span>触发器，其特性方程为：<span class="math inline">\(Q^{n+1}=J\bar Q+\bar KQ\)</span>，把驱动方程带入特性方程，有： <span class="math display">\[
+\begin{aligned}
+&amp; Q_1^{n+1}=\overline{Q_2} \cdot Q_3 \cdot \overline{Q_1} \\
+&amp; Q_2{ }^{n+1}=Q_1 \cdot \overline{Q_2}+\overline{Q_1} \cdot \overline{Q_3} \cdot Q_2 \\
+&amp; Q_3{ }^{n+1}=Q_1 \cdot Q_2 \cdot \bar{Q}_3+\overline{Q_2} \cdot Q_3
+\end{aligned}
+\]</span></p></li>
+<li><p>列出状态转移表：</p>
+<p>这个表有三部分：<span class="math inline">\(Q,Q^{n+1},Y\)</span>。其中<span class="math inline">\(Q\)</span>栏要预先穷举所有组合，<span class="math inline">\(Q^{n+1}\)</span>栏和<span class="math inline">\(Y\)</span>栏根据状态方程和输出方程书写。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212062135331.png" srcset="/img/loading.gif" lazyload alt="状态转移表" /><figcaption aria-hidden="true">状态转移表</figcaption>
+</figure></li>
+<li><p>分析，得这个电路是一个七进制加法计数器，<span class="math inline">\(Y\)</span>是进位信号。</p></li>
+</ol>
+<h4 id="同步mealy时序逻辑电路分析">同步Mealy时序逻辑电路分析</h4>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212062147191.png" srcset="/img/loading.gif" lazyload alt="有输入的同步时序逻辑电路" /><figcaption aria-hidden="true">有输入的同步时序逻辑电路</figcaption>
+</figure>
+<ol type="1">
+<li><p>写驱动方程 <span class="math display">\[
+\begin{aligned}
+&amp; D_1=\overline{Q_1} \\
+&amp; D_2=A \oplus Q_1 \oplus Q_2
+\end{aligned}
+\]</span></p></li>
+<li><p>由<span class="math inline">\(D\)</span>触发器的特性方程<span class="math inline">\(Q^{n+1}=D\)</span>，写状态方程： <span class="math display">\[
+\begin{aligned}
+&amp; Q_1^{n+1}=D_1=\bar{Q}_1 \\
+&amp; Q_2^{n+1}=D_2=A \oplus Q_1 \oplus Q_2
+\end{aligned}
+\]</span></p></li>
+<li><p>写输出方程： <span class="math display">\[
+Y=\overline{\overline{\bar{A} Q_1 Q_2} \cdot \overline{A \overline{Q_1} \overline{Q_2}}}=\bar{A} Q_1 Q_2+A \overline{Q_1} \overline{Q_2}
+\]</span></p></li>
+<li><p>写状态转移表：</p>
+<table>
+<thead>
+<tr class="header">
+<th>A</th>
+<th>Q2</th>
+<th>Q1</th>
+<th>Q2*</th>
+<th>Q1*</th>
+<th>Y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>经分析，其是四进制加减计数器，输入控制加减。状态转换图如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212062155771.png" srcset="/img/loading.gif" lazyload alt="状态转换图" /><figcaption aria-hidden="true">状态转换图</figcaption>
+</figure></li>
+</ol>
+<h4 id="异步时序逻辑电路分析">异步时序逻辑电路分析</h4>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212062158972.png" srcset="/img/loading.gif" lazyload alt="异步时序逻辑电路" /><figcaption aria-hidden="true">异步时序逻辑电路</figcaption>
+</figure>
+<ol type="1">
+<li><p>写出驱动方程： <span class="math display">\[
+\begin{cases}
+J_0=1 &amp; K_0=1 &amp; cp_0=CP\downarrow\\
+J_1=\overline{\overline{Q_2} \cdot \overline{Q_3}} &amp; K_1=1 &amp; cp_1=\bar Q_0\downarrow\\
+J_2=1 &amp; K_2=1 &amp; cp_2=\bar Q_1\downarrow\\
+J_3=\bar Q_1\bar Q_2 &amp; K_3=1 &amp; cp_3=\bar Q_0\downarrow
+\end{cases}
+\]</span></p></li>
+<li><p>根据<span class="math inline">\(JK\)</span>触发器的特性方程<span class="math inline">\(Q^{n+1}=J\bar Q+\bar KQ\)</span>，写出状态方程： <span class="math display">\[
+\begin{cases}
+Q_0^{n+1}=\left.\overline{Q_0}\right|_{CP \downarrow}\\
+Q_1^{n+1}=Q_2 \overline{Q_1}+Q_3 \left.\overline{Q_1}\right| _{\bar Q_0 \downarrow}\\
+Q_2^{n+1}=\left.\overline{Q_2}\right|_{\overline{Q_1} \downarrow}\\
+Q_3^{n+1}=\overline{Q_1} \cdot \overline{Q_2} \cdot \left. \overline{Q_3} \right| _{\overline{Q_0} \downarrow}
+\end{cases}
+\]</span></p></li>
+<li><p>写状态转换表。</p>
+<p>首先画一张空表</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212062216825.png" srcset="/img/loading.gif" lazyload alt="空表" /><figcaption aria-hidden="true">空表</figcaption>
+</figure>
+<p>然后填写Q和已确定的<span class="math inline">\(cp_0\)</span></p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212062218665.png" srcset="/img/loading.gif" lazyload alt="填写Q和cp0" /><figcaption aria-hidden="true">填写Q和cp0</figcaption>
+</figure>
+<p>写出可以写出的<span class="math inline">\(Q^{n+1}\)</span>，比如<span class="math inline">\(Q_0^{n+1}\)</span></p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212062220582.png" srcset="/img/loading.gif" lazyload alt="填写Q0*" /><figcaption aria-hidden="true">填写Q0*</figcaption>
+</figure>
+<p>根据Q0*，写出由Q0*确定的时钟信号<span class="math inline">\(cp_1\)</span>,<span class="math inline">\(cp_3\)</span>.因为这两个信号都是<span class="math inline">\(\bar Q_0\downarrow\)</span>，所以在<span class="math inline">\(Q_0^{n+1}=1\)</span>的地方画下箭头</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212062224507.png" srcset="/img/loading.gif" lazyload alt="画cp1cp3" /><figcaption aria-hidden="true">画cp1cp3</figcaption>
+</figure>
+<p>根据已经确定的<span class="math inline">\(Q,cp_1,cp_3\)</span>,填写<span class="math inline">\(Q_1^{n+1},Q_3^{n+1}\)</span>.在<span class="math inline">\(cp\)</span>有下降沿时，根据状态方程计算状态；当<span class="math inline">\(cp\)</span>不是下降沿时，直接保持<span class="math inline">\(Q_1^n,Q_3^n\)</span>（原状态）的值</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212062229881.png" srcset="/img/loading.gif" lazyload /></p>
+<p>根据<span class="math inline">\(Q_1^{n+1}\)</span>，写出<span class="math inline">\(cp_2\)</span>（连续1串的末尾处填写↓），仿照上面的过程填写<span class="math inline">\(Q_2^{n+1}\)</span>，最后填写<span class="math inline">\(Y\)</span>.</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212062232556.png" srcset="/img/loading.gif" lazyload /></p></li>
+<li><p>根据表格画出状态转移图，发现其为模十减法计数器</p></li>
+</ol>
+<h3 id="时序逻辑电路设计">时序逻辑电路设计</h3>
+<p>设计时序逻辑电路的纲领就是把分析的过程反过来</p>
+<ol type="1">
+<li>根据设计要求设定状态，绘制状态转换图和表</li>
+<li>根据触发器类型对状态方程进行逻辑化简</li>
+<li>写出输出方程和驱动方程</li>
+<li>根据输出方程和驱动方程画电路图</li>
+<li>验证自启动性</li>
+</ol>
+<p>下面以一些例子说明这个过程：</p>
+<h4 id="同步时序逻辑电路设计">同步时序逻辑电路设计</h4>
+<p>【例】设计一个同步13进制加法计数器。</p>
+<ol type="1">
+<li><p>绘制状态转换图：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212071028422.png" srcset="/img/loading.gif" lazyload alt="状态转换图" /><figcaption aria-hidden="true">状态转换图</figcaption>
+</figure>
+<p>根据图列出状态转换表：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212071029063.png" srcset="/img/loading.gif" lazyload alt="状态转换表" /><figcaption aria-hidden="true">状态转换表</figcaption>
+</figure></li>
+<li><p>进行逻辑化简，画卡诺图：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212071033299.png" srcset="/img/loading.gif" lazyload alt="卡诺图" /><figcaption aria-hidden="true">卡诺图</figcaption>
+</figure>
+<p>在使用JK触发器时，因为JK触发器的特性方程是（以<span class="math inline">\(Q_3\)</span>为例子）： <span class="math display">\[
+Q_3^{n+1}=J\cdot \overline{Q_3^n}+\overline{K}\cdot Q_3^n
+\]</span> 所以我们终究是要化简成像这样的形式，才能进行下一步驱动方程的书写的。所以，在化简时，我们可以在卡诺图中画一条“鸿沟”，把<span class="math inline">\(Q_3\)</span>和<span class="math inline">\(\overline{Q_3}\)</span>的部分分割开，合并“1”格画卡诺圈时不跨越“鸿沟”，这样的话，化简出来就直接是上面式子的形式了。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212071055814.png" srcset="/img/loading.gif" lazyload alt="“鸿沟法”" /><figcaption aria-hidden="true">“鸿沟法”</figcaption>
+</figure>
+<p>如图，可以写出各状态方程： <span class="math display">\[
+\begin{cases}
+Q_3^{n+1}=Q_2Q_1Q_0\cdot \overline{Q_3}+\overline{Q_2}\cdot Q_3\\
+Q_2^{n+1}=Q_1Q_0\cdot \overline{Q_2}+(\overline{Q_3}\ \overline{Q_1}\cdot Q_2+\overline{Q_3}\ \overline{Q_0}\cdot Q_2)\\
+Q_1^{n+1}=Q_0 \cdot \overline{Q_1}+\overline{Q_0} \cdot Q_1\\
+Q_0^{n+1}=(\overline{Q_3} \cdot \overline{Q_0}+\overline{Q_2} \cdot \overline{Q_0})
+\end{cases}
+\]</span></p></li>
+<li><p>根据JK触发器的特性方程，可以直接写出驱动方程： <span class="math display">\[
+\begin{cases}
+J_3=Q_2Q_1Q_0 &amp; K_3=\overline{\overline{Q_2}}=Q_2\\
+J_2=Q_1Q_0 &amp; K_2=\overline{\overline{Q_3}(\overline{Q_1}+\overline{Q_0})}=Q_3+(Q_1Q_0)\\
+J_1=Q_0 &amp; K_1=Q_0\\
+J_0=\overline{Q_2}+\overline{Q_3} &amp; K_0=1
+\end{cases}
+\]</span></p></li>
+<li><p>画出电路图</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212071111134.png" srcset="/img/loading.gif" lazyload alt="电路图" /><figcaption aria-hidden="true">电路图</figcaption>
+</figure></li>
+</ol>
+<h4 id="异步时序逻辑电路设计">异步时序逻辑电路设计</h4>
+<p>【例】用JK触发器设计一个异步五进制计数器</p>
+<ol type="1">
+<li><p>绘制状态转换图（略），时序波形图：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212132041777.png" srcset="/img/loading.gif" lazyload alt="波形图" /><figcaption aria-hidden="true">波形图</figcaption>
+</figure></li>
+<li><p>在保证状态变化的时候必有触发脉冲的前提条件下, 选择在状态不变的时候触发脉冲最少的, 使得 <span class="math inline">\(\mathrm{JK}\)</span> 的输入条件简化。根据以上准则，选定各触发器的触发信号源；列写状态转移表：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212132044245.png" srcset="/img/loading.gif" lazyload alt="状态转移表" /><figcaption aria-hidden="true">状态转移表</figcaption>
+</figure></li>
+<li><p>把状态转换表变成卡诺图形式，逻辑化简，写出逻辑表达式 <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212132046917.png" srcset="/img/loading.gif" lazyload alt="卡诺图" /></p>
+<p>状态方程： <span class="math display">\[
+\begin{cases}
+Q_2^{n+1}=Q_1Q_0\cdot\overline{Q_2}\\
+Q_1^{n+1}=\overline{Q_1}\\
+Q_0^{n+1}=\overline{Q_2}\cdot\overline{Q_0}
+\end{cases}
+\]</span> 驱动方程： <span class="math display">\[
+\begin{cases}
+J_2=Q_1Q_0 &amp; K_2=1\\
+J_1=1 &amp; K_1=1\\
+J_0=\overline{Q_2} &amp; K_0=1
+\end{cases}
+\]</span></p></li>
+</ol>
+<h3 id="计数器">计数器</h3>
+<p>计数器是用以统计输入脉冲CP个数的电路。常用的计数器有以下这么几种：</p>
+<ol type="1">
+<li><p>74161：4位二进制同步加法计数器</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212132138461.png" srcset="/img/loading.gif" lazyload alt="74161的逻辑图和功能表" /><figcaption aria-hidden="true">74161的逻辑图和功能表</figcaption>
+</figure></li>
+<li><p>74191：四位二进制同步可逆计数器</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212132142262.png" srcset="/img/loading.gif" lazyload alt="功能表" /><figcaption aria-hidden="true">功能表</figcaption>
+</figure>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212132143570.png" srcset="/img/loading.gif" lazyload alt="符号" /><figcaption aria-hidden="true">符号</figcaption>
+</figure></li>
+<li><p>74160：十进制同步加法计数器</p>
+<p>其逻辑符号和功能表和74161相同，仅靠上面的数字区分。</p></li>
+</ol>
+<h4 id="任意进制计数器的构成">任意进制计数器的构成</h4>
+<p>假设已经有了<span class="math inline">\(N\)</span>进制计数器，要求通过链接、外加电路的方法得到<span class="math inline">\(M\)</span>进制计数器。</p>
+<ol type="1">
+<li><p><span class="math inline">\(M&lt;N\)</span>时</p>
+<p>主要方法有置零法和置数法两种。置零法是在电路从<span class="math inline">\(S_0\)</span>计数到<span class="math inline">\(S_M\)</span>时，外接一个<span class="math inline">\(M\)</span>的译码器，产生一个置零信号，接入置零端。因为电路一经过<span class="math inline">\(S_M\)</span>状态就会产生置零信号，进而被置入<span class="math inline">\(S_0\)</span>状态，因此<span class="math inline">\(S_M\)</span>并不会出现在稳定循环中。以上是异步置零的情况，如果是同步置零的话，需要在<span class="math inline">\(S_{M-1}\)</span>处进行译码，传回置零信号，然后在下一个时钟触发置零。其逻辑转换图如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212132232915.png" srcset="/img/loading.gif" lazyload alt="置零法" /><figcaption aria-hidden="true">置零法</figcaption>
+</figure>
+<p>下图是用置零法把同步十进制计数器74160接成同步六进制计数器的电路图：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212132237765.png" srcset="/img/loading.gif" lazyload alt="10-6" /><figcaption aria-hidden="true">10-6</figcaption>
+</figure>
+<p>这里的清零端是异步清零。此时标志“进位”这个动作发生的信号是进位输出信号的下降沿。这种接法的清零信号持续时间非常的短，有可能导致电路出错。可以在进位输出前加一个锁存器，如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212132241978.png" srcset="/img/loading.gif" lazyload alt="改进的10-6" /><figcaption aria-hidden="true">改进的10-6</figcaption>
+</figure>
+<p>此时如果电路进入<span class="math inline">\(S_6(0110)\)</span>状态，在<span class="math inline">\(G_1\)</span>门后输出低电平，把与非门SR锁存器置1，<span class="math inline">\(\bar Q\)</span>端输出低电平，接入低电平有效置零端<span class="math inline">\(R_D\)</span>，把电路置零。而因为锁存器的存在，置零信号会维持一段时间，直到计数脉冲回到低电平，SR锁存器才被置零。</p>
+<p>置位法是通过给计数器重复置入某个数值的方法跳过<span class="math inline">\(N-M\)</span>个状态，从而获得<span class="math inline">\(M\)</span>进制计数器的。其逻辑转换图如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212132234036.png" srcset="/img/loading.gif" lazyload alt="置位法" /><figcaption aria-hidden="true">置位法</figcaption>
+</figure>
+<p>下图是一种用置数法构成的电路：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212132257611.png" srcset="/img/loading.gif" lazyload alt="在S5(0101)时置入0000" /><figcaption aria-hidden="true">在S5(0101)时置入0000</figcaption>
+</figure>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212132258697.png" srcset="/img/loading.gif" lazyload alt="在S4(0100)时置入SN-1(1001)" /><figcaption aria-hidden="true">在S4(0100)时置入SN-1(1001)</figcaption>
+</figure></li>
+<li><p><span class="math inline">\(M&gt;N\)</span>时</p>
+<p>应用多片N进制计数器进行组合。如果M可以因式分解成多个小于N的数之和，即：<span class="math inline">\(M=N_1N_2\cdots N_n\)</span>，那么可以把第<span class="math inline">\(i\)</span>片计数器接成<span class="math inline">\(N_i\)</span>进制，然后采用串行进位或者并行进位把他们链接起来。</p>
+<p>如果M是素数，或者不能像这样因式分解，则必须采用整体置零/置数法。</p></li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%95%B0%E7%94%B5/">#数电</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>数字电路·组合与时序之章</div>
+      <div>https://suzumiyaakizuki.github.io/2022/12/22/数字电路·组合与时序之章/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>SuzumiyaAkizuki</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年12月22日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/12/22/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%C2%B7%E6%A8%A1%E6%8B%9F%E4%B9%8B%E7%AB%A0/" title="数字电路·模拟之章">
+                        <span class="hidden-mobile">数字电路·模拟之章</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.7.2/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"48fb14f9689ae0d11307","clientSecret":"091ab25a88e87bfd9d9d40d97d1d0d932e694059","repo":"SuzumiyaAkizuki.github.io","owner":"SuzumiyaAkizuki","admin":["SuzumiyaAkizuki"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '52e920450f22136bc2a1bd3e54308f83'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       Powered by: <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
