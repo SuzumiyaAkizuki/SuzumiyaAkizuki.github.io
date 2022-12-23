@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212222234004.jpg">
 <meta property="article:published_time" content="2022-12-22T07:22:03.000Z">
-<meta property="article:modified_time" content="2022-12-22T14:34:39.687Z">
+<meta property="article:modified_time" content="2022-12-23T07:22:38.823Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="数电">
 <meta name="twitter:card" content="summary_large_image">
@@ -267,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.5k 字
+          9.5k 字
         
       </span>
     
@@ -278,7 +278,7 @@
         
         
         
-          14 分钟
+          19 分钟
         
       </span>
     
@@ -519,7 +519,7 @@ t_d=t_w+t_{re}
 <p>需要注意的一点是，在接下来的分析里，我们要明确哪些电压是有外界电源保持的，哪些电压是纯数字（只有两个状态的），哪些电压是没有外界电源保持的，哪些电压是模拟（可以连续变化的）。因为这样才能知道是谁在对谁充电、画波形图时也比较方便。</p>
 <p>有外界电源保持的电压，是纯数字的，作为门的输出端口电压出现；没有外界电源保持的电压，是模拟的，作为门的输入端口的形式出现。</p>
 <p>对于<span class="math inline">\(C_1\)</span>，因为<span class="math inline">\(v_{O2}\)</span>上升而<span class="math inline">\(v_{I2}\)</span>下降，电流从<span class="math inline">\(R_{F2}\)</span>流入<span class="math inline">\(C_1\)</span>，对其进行充电。这时，实际上是<span class="math inline">\(G_2\)</span>的外接电源通过<span class="math inline">\(v_{O2}\)</span>，来对<span class="math inline">\(C_1\)</span>进行充电。此外，流入<span class="math inline">\(C_1\)</span>的还有门<span class="math inline">\(G_2\)</span>输入级的电流。因为<span class="math inline">\(v_{O1}\)</span>是有外界电源保持的，所以充电的效果是：<span class="math inline">\(v_{I2}\)</span>缓慢抬升。</p>
-<p>对于<span class="math inline">\(C_2\)</span>，因为<span class="math inline">\(v_{I1}\)</span>上升而<span class="math inline">\(v_{O1}\)</span>下降，<span class="math inline">\(C_2\)</span>向电阻<span class="math inline">\(R_{F1}\)</span>放电。因为一开始给了<span class="math inline">\(v_{I1}\)</span>的一个向上的微扰，当<span class="math inline">\(v_{O2}\)</span>反馈回来时，<span class="math inline">\(v_{I1}&gt;v_{O2}\)</span>，但是<span class="math inline">\(v_{I1}\)</span>是没有外界电源保持的，因此<span class="math inline">\(C_2\)</span>会放电，把<span class="math inline">\(v_{I1}\)</span>放下去。于是，放电的效果就是<span class="math inline">\(v_{I1}\)</span>缓慢下降。那么有人就问了，既然一开始的所谓“不稳定的平衡态”，这四个电压都一样，<span class="math inline">\(C_2\)</span>上本来就没有电。那么<span class="math inline">\(C_2\)</span>放电的“电”来自于何处呢？是来自于<span class="math inline">\(v_{I1}\)</span>一开始的正跳变。</p>
+<p>对于<span class="math inline">\(C_2\)</span>，因为<span class="math inline">\(v_{I1}\)</span>上升而<span class="math inline">\(v_{O1}\)</span>下降，<span class="math inline">\(C_2\)</span>向电阻<span class="math inline">\(R_{F1}\)</span>放电。因为一开始给了<span class="math inline">\(v_{I1}\)</span>的一个向上的微扰，当<span class="math inline">\(v_{O2}\)</span>反馈回来时，<span class="math inline">\(v_{I1}&gt;v_{O2}\)</span>，但是<span class="math inline">\(v_{I1}\)</span>是没有外界电源保持的，因此<span class="math inline">\(C_2\)</span>会放电，把<span class="math inline">\(v_{I1}\)</span>放下去。于是，放电的效果就是<span class="math inline">\(v_{I1}\)</span>缓慢下降。那么有人就问了，既然一开始的所谓“不稳定的平衡态”，这四个电压都一样，<span class="math inline">\(C_2\)</span>上本来就没有电。那么<span class="math inline">\(C_2\)</span>放电的“电”来自于何处呢？是来自于<span class="math inline">\(v_{I1}\)</span>一开始的正跳变后引发的正反馈过程。</p>
 <p>电路的充放电回路示意图如下：</p>
 <figure>
 <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212222158087.png" srcset="/img/loading.gif" lazyload alt="充放电回路示意图" /><figcaption aria-hidden="true">充放电回路示意图</figcaption>
@@ -542,6 +542,89 @@ T_1=R_{\mathrm{E} 1} C_1 \ln \frac{V_{\mathrm{E} 1}-V_{\mathrm{IK}}}{V_{\mathrm{
 \]</span> 因为还是有两个电源伺候<span class="math inline">\(C_2\)</span>，所以这次轮到<span class="math inline">\(v_{I1}\)</span>先上升到<span class="math inline">\(V_{TH}\)</span>，使得<span class="math inline">\(v_{O1}\)</span>下降到低电平，因为电容<span class="math inline">\(C_1\)</span>的存在，<span class="math inline">\(v_{I2}\)</span>跟着一起下降，于是<span class="math inline">\(v_{O2}\)</span>上升，经过电容<span class="math inline">\(C_2\)</span>而继续带动<span class="math inline">\(v_{I1}\)</span>的上升，又回到了第一个暂稳态。</p>
 <figure>
 <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212222234255.png" srcset="/img/loading.gif" lazyload alt="电压波形图" /><figcaption aria-hidden="true">电压波形图</figcaption>
+</figure>
+<h4 id="非对称式多谐振荡器">非对称式多谐振荡器</h4>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212231056601.png" srcset="/img/loading.gif" lazyload alt="非对称式多谐振荡器" /><figcaption aria-hidden="true">非对称式多谐振荡器</figcaption>
+</figure>
+<p>非对称式多谐振荡器如上图所示，相比于对称式，非对称式少了一个电容、一个反馈电阻，多了一个<span class="math inline">\(R_p\)</span>的<span class="math inline">\(G_1\)</span>输入端保护电阻。静态时，<span class="math inline">\(G_1,G_2\)</span>工作在电压传输特性图的中点（转折区），即<span class="math inline">\(v_{I1}=v_{O1}=v_{I2}=v_{O2}=V_{DD}/2\)</span>。其中<span class="math inline">\(v_{O1}\equiv v_{I2}\)</span>和<span class="math inline">\(v_{O}\)</span>是有外界电源保持的数字信号，而<span class="math inline">\(v_{I1}\)</span>是没有外界电源保持的模拟信号。</p>
+<p>由于某种扰动，使得<span class="math inline">\(v_{I1}\)</span>上升，那么<span class="math inline">\(v_{O1}\)</span>下降，<span class="math inline">\(v_{O2}\)</span>上升，通过电容<span class="math inline">\(C\)</span>反过来作用到<span class="math inline">\(v_{I1}\)</span>使其继续上升，进入了正反馈过程。当<span class="math inline">\(v_{O2}\)</span>提升到高电平<span class="math inline">\(V_{DD}\)</span>，<span class="math inline">\(v_{I1}\)</span>提升到<span class="math inline">\(V_{TH}+V_{DD}\)</span>时，电路进入第一个暂稳态。</p>
+<p>在第一个暂稳态，电容<span class="math inline">\(C\)</span>经过<span class="math inline">\(R_F\)</span>把电放到<span class="math inline">\(G_1\)</span>门的地中，放电回路如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212231114936.png" srcset="/img/loading.gif" lazyload alt="放电回路" /><figcaption aria-hidden="true">放电回路</figcaption>
+</figure>
+<p>因为<span class="math inline">\(R_F\)</span>远大于<span class="math inline">\(R_{ON}\)</span>，有： <span class="math display">\[
+t=R C \ln \frac{v_R(\infty)-v_R(0)}{v_R(\infty)-v_R(t)}
+\]</span> 由终了态电容等效于断路，得<span class="math inline">\(v_R(\infty)=0\)</span>，第一暂稳态将在<span class="math inline">\(v_R=V_{TH}\)</span>时发生改变，得： <span class="math display">\[
+\begin{aligned}
+T_1 &amp; \approx R_{\mathrm{F}} C \ln \frac{0-\left(V_{\mathrm{TH}}+V_{\mathrm{DD}}\right)}{0-V_{\mathrm{TH}}} \\
+&amp; =R_{\mathrm{F}} C \ln 3
+\end{aligned}
+\]</span> 当<span class="math inline">\(v_{I1}=v_R(t)\)</span>下降到<span class="math inline">\(V_{TH}\)</span>时，<span class="math inline">\(v_{O1}\)</span>拉高，<span class="math inline">\(v_{O2}\)</span>降低，反过来作用于<span class="math inline">\(v_{I1}\)</span>使得它继续下降，<span class="math inline">\(v_{I1}\)</span>下降到<span class="math inline">\(V_{TH}-V_{DD}\)</span>时，电路进入第二暂稳态。为什么之前对称的多谐振荡器只能下降到<span class="math inline">\(V_{IK}\)</span>，而这里却能下降到<span class="math inline">\(V_{TH}-V_{DD}\)</span>呢？是因为有<span class="math inline">\(R_p\)</span>的存在。</p>
+<p>这时，电容<span class="math inline">\(C\)</span>进行充电，<span class="math inline">\(v_{I1}\)</span>开始上升，充电回路如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212231132758.png" srcset="/img/loading.gif" lazyload alt="充电回路" /><figcaption aria-hidden="true">充电回路</figcaption>
+</figure>
+<p>计算充电时间，有： <span class="math display">\[
+\begin{aligned}
+T_2 &amp; \approx R_{\mathrm{F}} C \ln \frac{V_{\mathrm{DD}}-\left(V_{\mathrm{TH}}-V_{\mathrm{DD}}\right)}{V_{\mathrm{DD}}-V_{\mathrm{TH}}} \\
+&amp; =R_{\mathrm{F}} C \ln 3
+\end{aligned}
+\]</span> 当电容冲电，<span class="math inline">\(v_{I1}\)</span>上升到<span class="math inline">\(V_{TH}\)</span>后，电路又会回到第一暂稳态，如此循环，于是，一个循环的周期是： <span class="math display">\[
+T=T_1+T_2=R_FC\cdot 2\ln 3
+\]</span></p>
+<h4 id="环形振荡电路">环形振荡电路</h4>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212231448009.png" srcset="/img/loading.gif" lazyload alt="基本环形振荡电路" /><figcaption aria-hidden="true">基本环形振荡电路</figcaption>
+</figure>
+<p>上图是基本环形振荡电路，由3个非门首尾相连构成，利用非门之间的传输延时<span class="math inline">\(t_{pd}\)</span>来进行振荡，它的周期是 <span class="math display">\[
+T=2nt_{pd}
+\]</span> 但是这个周期太短了，而且不可控，于是可以通过加阻容的方式增大这个延时：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212231450308.png" srcset="/img/loading.gif" lazyload alt="实用环形振荡器" /><figcaption aria-hidden="true">实用环形振荡器</figcaption>
+</figure>
+<p>当<span class="math inline">\(v_{I2}\)</span>发生负跳变时，这个负跳变由电容<span class="math inline">\(C\)</span>传递到<span class="math inline">\(v_{I3}\)</span>，使得<span class="math inline">\(v_{I3}\)</span>也被下拉。但是<span class="math inline">\(G_2\)</span>的输出口上呈现出高电平，于是电容开始充电直到达到<span class="math inline">\(V_{TH}\)</span>。电容的充电回路如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212231454667.png" srcset="/img/loading.gif" lazyload alt="充电回路" /><figcaption aria-hidden="true">充电回路</figcaption>
+</figure>
+<p>主要是由<span class="math inline">\(V_{OH2}\)</span>和<span class="math inline">\(G_3\)</span>的外接电源<span class="math inline">\(V_{CC}\)</span>来对<span class="math inline">\(C\)</span>进行充电的。有： <span class="math display">\[
+R_E=\frac{R(R_1+R_s)}{R+R_1+R_s}
+\]</span></p>
+<p><span class="math display">\[
+V_E=V_{OH}+(V_{CC}-V_{BE}-V_{OH})\frac{R}{R+R_1+R_s}
+\]</span></p>
+<p>因此，从<span class="math inline">\(v_{I3}=V_{TH}-V_{OH}+V_{OL}\)</span>充电到<span class="math inline">\(V_{TH}\)</span>的时间为： <span class="math display">\[
+T_1=R_{\mathrm{E}} C \ln \frac{V_{\mathrm{E}}-\left[V_{\mathrm{TH}}-\left(V_{\mathrm{OH}}-V_{\mathrm{OL}}\right)\right]}{V_{\mathrm{E}}-V_{\mathrm{TH}}}
+\]</span> <span class="math inline">\(v_{I3}\)</span>达到<span class="math inline">\(V_{TH}\)</span>以后，引发<span class="math inline">\(G_3\)</span>输出端<span class="math inline">\(v_{O},v_{I1}\)</span>跳变到低电平，<span class="math inline">\(v_{I2}\)</span>跳变到高电平，进一步拉高<span class="math inline">\(v_{I3}\)</span>到<span class="math inline">\(V_{TH}+V_{OH}-V_{OL}\)</span>，然后<span class="math inline">\(C\)</span>开始放电，放电回路如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212231506341.png" srcset="/img/loading.gif" lazyload alt="放电回路" /><figcaption aria-hidden="true">放电回路</figcaption>
+</figure>
+<p>放电时间为： <span class="math display">\[
+T_2=R C \ln \frac{V_{\mathrm{OL}}-\left[V_{\mathrm{TH}}+\left(V_{\mathrm{OH}}-V_{\mathrm{OL}}\right)\right]}{V_{\mathrm{OL}}-V_{\mathrm{TH}}}
+\]</span> 充放电时间之和即为振荡周期，有： <span class="math display">\[
+T=T_1+T_2 \approx R C \ln \left(\frac{2 V_{\mathrm{OH}}-V_{\mathrm{TH}}}{V_{\mathrm{OH}}-V_{\mathrm{TH}}} \cdot \frac{V_{\mathrm{OH}}+V_{\mathrm{TH}}}{V_{\mathrm{TH}}}\right)
+\]</span> 这里约等于的条件是<span class="math inline">\(R_1+R_s&gt;&gt;R,V_{OL}=0\)</span>，进而<span class="math inline">\(V_E=V_{OH},R_E=R\)</span></p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212231520051.png" srcset="/img/loading.gif" lazyload alt="波形图" /><figcaption aria-hidden="true">波形图</figcaption>
+</figure>
+<h4 id="施密特触发器多谐振荡器">施密特触发器多谐振荡器</h4>
+<p>其原理是让电压在施密特触发器的滞回线<span class="math inline">\(V_{T+},V_{T-}\)</span>之间来回摆动，在输出端得到矩形波，</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212231515840.png" srcset="/img/loading.gif" lazyload alt="基本电路" style="zoom:33%;" /></p>
+<p>一开始，<span class="math inline">\(v_I=0\)</span>，输出<span class="math inline">\(v_O\)</span>是高电平，通过<span class="math inline">\(R\)</span>向<span class="math inline">\(C\)</span>充电。设<span class="math inline">\(V_{OH}=V_{DD},V_{OL}=0\)</span>，充电时间为： <span class="math display">\[
+T_0=RC\ln \frac{V_{DD}}{V_{DD-V_{T+}}}
+\]</span> 达到<span class="math inline">\(V_{T+}\)</span>后，<span class="math inline">\(v_{O}\)</span>转化为低电平，<span class="math inline">\(C\)</span>开始放电，放电时间为： <span class="math display">\[
+T_2=RC\ln \frac{V_{T+}}{V_{T-}}
+\]</span> 放到<span class="math inline">\(V_{T-}\)</span>后，<span class="math inline">\(v_O\)</span>再次变成高电平，<span class="math inline">\(C\)</span>又开始充电，有： <span class="math display">\[
+T_1=R C \ln \left(\frac{V_{\mathrm{DD}}-V_{\mathrm{T}-}}{V_{\mathrm{DD}}-V_{\mathrm{T}+}}\right)
+\]</span> 系统周期振荡的周期为 <span class="math display">\[
+T=T_1+T_2
+\]</span> 占空比为 <span class="math display">\[
+p=\frac {T_1}{T}
+\]</span> 于是，只要我们通过两个二极管，使得电容充放电时的时间常数不同，就能控制占空比了，改进电路如下：</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212231521147.png" srcset="/img/loading.gif" lazyload alt="image-20221223152142047" style="zoom:33%;" /></p>
+<p>波形图如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212231522032.png" srcset="/img/loading.gif" lazyload alt="施密特振荡器波形图" /><figcaption aria-hidden="true">施密特振荡器波形图</figcaption>
 </figure>
 
                 
