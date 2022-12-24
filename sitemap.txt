@@ -80,8 +80,6 @@ https://suzumiyaakizuki.github.io/tags/%E5%9B%9E%E5%BF%86/
 https://suzumiyaakizuki.github.io/tags/%E7%A7%91%E5%B9%BB/
 https://suzumiyaakizuki.github.io/tags/%E5%90%8C%E4%BA%BA/
 https://suzumiyaakizuki.github.io/tags/%E7%94%B5%E5%BD%B1/
-https://suzumiyaakizuki.github.io/tags/%E6%A0%87%E7%AD%BE1/
-https://suzumiyaakizuki.github.io/tags/%E6%A0%87%E7%AD%BE2/
 https://suzumiyaakizuki.github.io/tags/%E6%95%B0%E7%94%B5/
 https://suzumiyaakizuki.github.io/tags/Verilog/
 https://suzumiyaakizuki.github.io/tags/DSP/
