@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212082301321.jpg">
 <meta property="article:published_time" content="2022-12-08T07:26:18.000Z">
-<meta property="article:modified_time" content="2022-12-10T15:35:12.440Z">
+<meta property="article:modified_time" content="2022-12-25T10:03:25.813Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="DSP">
 <meta name="twitter:card" content="summary_large_image">
@@ -267,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.8k 字
+          7.2k 字
         
       </span>
     
@@ -278,7 +278,7 @@
         
         
         
-          14 分钟
+          15 分钟
         
       </span>
     
@@ -429,6 +429,11 @@ H_{ap}(z)=\left(\frac{z^{-1}-\frac 13}{1-\frac 13z^{-1}}\right)
 </blockquote></li>
 </ul>
 <h4 id="广义线性相位系统">广义线性相位系统</h4>
+<p>我们之前所说的经典频响是这样的： <span class="math display">\[
+H(e^{j\omega})=|H(e^{j\omega})|e^{j\angle H(e^{j\omega})}
+\]</span> 这时<span class="math inline">\(|H|\)</span>叫经典幅频响应，<span class="math inline">\(\angle H\)</span>叫经典相频响应.但是现在我们引入广义响应： <span class="math display">\[
+H(e^{j\omega})=A(e^{j\omega})e^{j\varphi(\omega)}
+\]</span> 这时候，<span class="math inline">\(A\)</span>叫做“广义幅频响应”，而<span class="math inline">\(\varphi\)</span>叫做“广义相频响应”。请注意“经典”和“广义”的不同：经典幅频响应永远是正的，而广义相频响应可以是负的。因此，广义相频响应和经典相频响应，在<span class="math inline">\(A\)</span>变成负数的时候，会有一个<span class="math inline">\(\pi\)</span>的差距。</p>
 <p>所谓的线性相位的意思是，系统对不同频率的正弦信号所产生的相移和正弦信号的频率呈线性关系。即： <span class="math display">\[
 \angle H(e^{j\omega})=-\alpha \omega
 \]</span> 那么广义线性相位的意思就是，给这个加上一个常数，变成 <span class="math display">\[
