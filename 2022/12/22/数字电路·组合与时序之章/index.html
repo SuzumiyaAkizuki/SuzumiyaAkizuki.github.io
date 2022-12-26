@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212222235838.jpg">
 <meta property="article:published_time" content="2022-12-22T07:22:23.000Z">
-<meta property="article:modified_time" content="2022-12-22T14:36:03.886Z">
+<meta property="article:modified_time" content="2022-12-26T12:29:54.192Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="数电">
 <meta name="twitter:card" content="summary_large_image">
@@ -267,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          9.6k 字
+          11k 字
         
       </span>
     
@@ -278,7 +278,7 @@
         
         
         
-          20 分钟
+          23 分钟
         
       </span>
     
@@ -376,6 +376,7 @@
 <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162114347.png" srcset="/img/loading.gif" lazyload alt="功能表" /><figcaption aria-hidden="true">功能表</figcaption>
 </figure>
 <p>它有三个附加控制器：<span class="math inline">\(S_1,\overline S_{2},\overline S_3\)</span>。当<span class="math inline">\(S_1=1,\overline S_{2}=\overline S_3=0\)</span>时，电路正常工作，否则，所有输出端为高电平。</p>
+<p>使用多个译码器进行串接时，往往可以在第二个译码器上对高位取反，以此来达到串联效果。</p>
 <h4 id="数据选择器">数据选择器</h4>
 <p>数据选择器有若干个输入信号，一个选择信号（可能有多位）和一个输出。由选择信号决定输出接哪个输入信号。</p>
 <p>常用的数据选择器是74HC153双四选一数据选择器。</p>
@@ -904,7 +905,74 @@ J_0=\overline{Q_2} &amp; K_0=1
 </figure></li>
 <li><p><span class="math inline">\(M&gt;N\)</span>时</p>
 <p>应用多片N进制计数器进行组合。如果M可以因式分解成多个小于N的数之和，即：<span class="math inline">\(M=N_1N_2\cdots N_n\)</span>，那么可以把第<span class="math inline">\(i\)</span>片计数器接成<span class="math inline">\(N_i\)</span>进制，然后采用串行进位或者并行进位把他们链接起来。</p>
+<p>串行进位指的是以低位片的进位输出信号作为高位片的时钟信号，如下图是把两个十进制计数器用串行接法接成一个一百进制计数器：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212261931290.png" srcset="/img/loading.gif" lazyload alt="串行100进制计数器" /><figcaption aria-hidden="true">串行100进制计数器</figcaption>
+</figure>
+<p>在第9个<span class="math inline">\(CLK\)</span>信号来临时，第一个计数器的状态为<span class="math inline">\(1001\)</span>，进位输出<span class="math inline">\(C\)</span>出现高电平，第二片的时钟信号在低电平；当第10个<span class="math inline">\(CLK\)</span>信号到来时，第一个计数器的状态变为<span class="math inline">\(0000\)</span>，进位输出<span class="math inline">\(C\)</span>输出低电平，第二片的时钟信号出现一个上升沿，第二片的状态变成<span class="math inline">\(0001\)</span>，以此实现进位功能。</p>
+<p>并行进位指的是以低位片的进位输出信号作为高位片的使能信号，两片的时钟同时接<span class="math inline">\(CLK\)</span>输入信号，如下图是把两个十进制计数器用并行接法接成一个一百进制计数器：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212261935682.png" srcset="/img/loading.gif" lazyload alt="并行100进制计数器" /><figcaption aria-hidden="true">并行100进制计数器</figcaption>
+</figure>
+<p>在第9个<span class="math inline">\(CLK\)</span>信号来临时，第一个计数器的状态为<span class="math inline">\(1001\)</span>，进位输出<span class="math inline">\(C\)</span>出现高电平，第二片使能开启，开始工作；下个<span class="math inline">\(CLK\)</span>信号来临，第二片正在工作，状态变为<span class="math inline">\(0001\)</span>，第一片的状态变为<span class="math inline">\(0000\)</span>，进位输出低电平，第二片使能关闭。</p>
 <p>如果M是素数，或者不能像这样因式分解，则必须采用整体置零/置数法。</p></li>
+</ol>
+<h4 id="移位寄存器型计数器">移位寄存器型计数器</h4>
+<ol type="1">
+<li><p>环形计数器</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212261939073.png" srcset="/img/loading.gif" lazyload alt="环形计数器" /><figcaption aria-hidden="true">环形计数器</figcaption>
+</figure>
+<p>有效循环为<span class="math inline">\(1000\to 0100\to0010\to0001\to 1000\)</span>，不能自启动</p></li>
+<li><p>扭环形计数器</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212261940589.png" srcset="/img/loading.gif" lazyload alt="扭环形计数器" /><figcaption aria-hidden="true">扭环形计数器</figcaption>
+</figure>
+<p>其状态转移图如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212261941367.png" srcset="/img/loading.gif" lazyload alt="扭环形计数器状态转移图" /><figcaption aria-hidden="true">扭环形计数器状态转移图</figcaption>
+</figure></li>
+</ol>
+<p>用<span class="math inline">\(n\)</span>位移位寄存器构成 环形计数器 可以得到<span class="math inline">\(n\)</span>个状态的有效循环；</p>
+<p>用<span class="math inline">\(n\)</span>位移位寄存器构成 扭环形计数器 可以得到<span class="math inline">\(2n\)</span>个状态的有效循环。</p>
+<h3 id="序列信号发生器">序列信号发生器</h3>
+<h4 id="计数译码型">计数译码型</h4>
+<p>其原理是由一个计数器和一个数据选择器连接，计数器的计数输出连在数据选择器的地址输入上。在数据选择器的信号输入端，预置已知的序列，然后用<span class="math inline">\(CLK\)</span>驱动计数器，数据选择器根据计数器的状态选择要输出的信号。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212261954151.png" srcset="/img/loading.gif" lazyload alt="计数译码型序列信号发生器" /><figcaption aria-hidden="true">计数译码型序列信号发生器</figcaption>
+</figure>
+<p>如上图，发生的序列是<span class="math inline">\(00010111\)</span>。</p>
+<p>当然，上面的数据选择器也可以换成自己搭建的组合逻辑译码电路（输入计数信号，输出该信号对应的序列的值）</p>
+<h4 id="反馈移位型">反馈移位型</h4>
+<p>其一般电路如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212262002159.png" srcset="/img/loading.gif" lazyload alt="反馈移位型序列发生器" /><figcaption aria-hidden="true">反馈移位型序列发生器</figcaption>
+</figure>
+<p>驱动方程为： <span class="math display">\[
+\begin{aligned}
+D_0&amp;=F(Q_0,Q_1,\cdots,Q_n)\\
+D_1&amp;=Q_0\\
+\cdots\\
+D_n&amp;=Q_{n-1}
+\end{aligned}
+\]</span> 在分析时，完全可以当成一般的同步时序逻辑电路分析，当然也可以用序列发生器的特点简化分析。在分析时，这两者的复杂度区别并不大。</p>
+<p>在设计时，首先需要注意，在一个周期内状态编码不能重复；然后根据序列长度<span class="math inline">\(n\)</span>使用<span class="math inline">\(\log _2 n\)</span>个<span class="math inline">\(D\)</span>触发器。接下来以一个例子说明设计过程：</p>
+<p>【例】设计反馈移位型序列发生器，序列为<span class="math inline">\(\{1111\ 0101\ 1001\ 000\}\)</span>（右侧的先出现）。</p>
+<ol type="1">
+<li><p>检查是否有重复和确定触发器数目：</p>
+<p>应用四个触发器</p></li>
+<li><p>确定输出信号的位置</p>
+<p>一般来说，选取最后一个触发器的输出端，即<span class="math inline">\(Q_3\)</span></p></li>
+<li><p>设计组合逻辑反馈电路</p>
+<p>这里，实际上就是要求写出<span class="math inline">\(D_0\)</span>和<span class="math inline">\(Q_3,Q_2,Q_1,Q_0\)</span>的函数关系式。</p>
+<p>首先列出表，在<span class="math inline">\(Q_3\)</span>里填入要输出的序列：</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212262022013.png" srcset="/img/loading.gif" lazyload /></p>
+<p>然后因为“移位”的特点，把<span class="math inline">\(Q_3\)</span>整体向上提一格，填入<span class="math inline">\(Q_2\)</span>；把<span class="math inline">\(Q_2\)</span>整体往上提一格，填入<span class="math inline">\(Q_1\)</span>；......把<span class="math inline">\(Q_0\)</span>整体往上提一格填入<span class="math inline">\(D_0\)</span>（这里的“往上提”是含有循环意味的）：</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212262025544.png" srcset="/img/loading.gif" lazyload /></p>
+<p>于是，我们就得到了逻辑关系表，然后画卡诺图化简，连电路就行了。</p></li>
+<li><p>最终结果 <span class="math display">\[
+D_0=Q_0 \overline{Q_3}+\overline{Q_0} Q_3=Q_0\bigoplus Q_3
+\]</span> <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212262028019.png" srcset="/img/loading.gif" lazyload /></p></li>
 </ol>
 
                 
