@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212082303090.jpg">
 <meta property="article:published_time" content="2022-12-08T07:26:25.000Z">
-<meta property="article:modified_time" content="2022-12-10T15:35:29.053Z">
+<meta property="article:modified_time" content="2022-12-27T15:10:43.155Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="DSP">
 <meta name="twitter:card" content="summary_large_image">
@@ -375,7 +375,7 @@ X\left(\mathrm{e}^{j w}\right)=\left.X(z)\right|_{z=e^{j\omega}}
 \tilde{x}_N[n]&amp;=\sum_{m=-\infty}^{\infty} x[m]\left[\sum_{r=-\infty}^{\infty} \delta[m-n-r N]\right]\\
 &amp;=\cdots+x[n+N]+x[n]+x[n-N]+\cdots
 \end{aligned}
-\]</span> 可以看到，<span class="math inline">\(\widetilde x_N[n]\)</span>是<span class="math inline">\(x[n]\)</span>的周期移位。也就是说，正如时域采样会导致频域周期延拓，频域采样也会导致时域周期延拓。下面按<span class="math inline">\(x[n]\)</span>的长度<span class="math inline">\(L\)</span>和频域采样数<span class="math inline">\(N\)</span>分情况讨论：</p>
+\]</span> 可以看到，<span class="math inline">\(\widetilde x_N[n]\)</span>是<span class="math inline">\(x[n]\)</span>的周期移位。也就是说，正如<strong>时域采样会导致频域周期延拓，频域采样也会导致时域周期延拓</strong>。下面按<span class="math inline">\(x[n]\)</span>的长度<span class="math inline">\(L\)</span>和频域采样数<span class="math inline">\(N\)</span>分情况讨论：</p>
 <ol type="1">
 <li>非周期序列<span class="math inline">\(x[n]\)</span>不是有限长序列，则频域采样一定会造成混叠</li>
 <li><span class="math inline">\(N&lt;L\)</span>时，仍会产生时域混叠失真。混叠的长度就是<span class="math inline">\(L-N\)</span>，参考上面的式子</li>
@@ -424,7 +424,8 @@ y_c[n] &amp; =\left(\sum_{m=0}^{N-1} x[m] h\left[((n-m))_N\right]\right) R_N[n] 
 </figure>
 <h4 id="dft实现线性系统块卷积方法">DFT实现线性系统（块卷积方法）</h4>
 <p>在实际的操作中，输入序列<span class="math inline">\(x[n]\)</span>的长度远远大于冲激响应<span class="math inline">\(h[n]\)</span>的长度<span class="math inline">\(P\)</span>，所以计算效率比较低，所以需要分段处理，把输入序列分成长度为<span class="math inline">\(L\)</span>的块，再进行计算。有两种方法，分别是重叠相加法和重叠保留法。</p>
-<p>重叠相加法：把输入序列按顺序直接切割成若干个长度为<span class="math inline">\(L\)</span>的段序列<span class="math inline">\(x_r[n]\)</span>，即： <span class="math display">\[
+<p><strong>重叠相加法：</strong></p>
+<p>把输入序列按顺序直接切割成若干个长度为<span class="math inline">\(L\)</span>的段序列<span class="math inline">\(x_r[n]\)</span>，即： <span class="math display">\[
 x_r[n]= \begin{cases}x[n+r L], &amp; 0 \leqslant n \leqslant L-1 \\ 0, &amp; \text { 其他 }\end{cases}
 \]</span> 对每个分段信号，和<span class="math inline">\(h[n]\)</span>进行线性卷积： <span class="math display">\[
 y_r[n]=x_r[n] * h[n]
@@ -433,7 +434,7 @@ y[n]=\sum_{r=0}^{\infty} x_r[n-r L] * h[n]
 \]</span> 则： <span class="math display">\[
 y[n]=\sum_{r=0}^{\infty} y_r[n-r L]
 \]</span> 也就是说，尽管相邻两段<span class="math inline">\(y_r\)</span>会有重叠部分，但是加的时候不要管，直接叠加就行了。所以，这种方法叫做重叠相加法。</p>
-<p>重叠保留法：</p>
+<p><strong>重叠保留法：</strong></p>
 <p>重叠保留法在对<span class="math inline">\(x[n]\)</span>分割成<span class="math inline">\(x_r[n]\)</span>时，两个相邻的<span class="math inline">\(x_r[n]\)</span>之间存在<span class="math inline">\(P-1\)</span>长度的重叠，即： <span class="math display">\[
 x_r[n]=x[n+r(L-P+1)-P+1], 0 \leqslant n \leqslant L-1
 \]</span> 有： <span class="math display">\[
