@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212082303090.jpg">
 <meta property="article:published_time" content="2022-12-08T07:26:25.000Z">
-<meta property="article:modified_time" content="2022-12-27T15:10:43.155Z">
+<meta property="article:modified_time" content="2022-12-28T03:07:22.435Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="DSP">
 <meta name="twitter:card" content="summary_large_image">
@@ -488,7 +488,7 @@ e^{j\frac{2\pi N/2}{N}}=-1,e^{j\frac{2\pi}{N}(k+\frac N2)}=-e^{j\frac{2\pi}{N}k}
 <figure>
 <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212082132719.png" srcset="/img/loading.gif" lazyload alt="按频率抽取" /><figcaption aria-hidden="true">按频率抽取</figcaption>
 </figure>
-仿照上面的过程，我们来推导“组合成短序列”的过程。由DFT的定义： <span class="math display">\[
+仿照上面的过程，我们来<strong>推导“组合成短序列”的过程</strong>。由DFT的定义： <span class="math display">\[
 X[k]=\sum_{n=0}^{N-1} x[n] \cdot e^{-j \frac{2 \pi k}{N} n}
 \]</span> 把它拆开： $$
 <span class="math display">\[\begin{aligned}
@@ -509,8 +509,8 @@ X[2 r]=\sum_{n=0}^{\frac{N}{2}-1}\left(x[n]+x\left[n+\frac{N}{2}\right]\right) e
 即：
 \]</span>
 <span class="math display">\[\begin{cases}
-X[2r+1]=DFT\{x[n]-x[n+\frac N2]e^{-j\frac{2\pi}Nn}\}\\
-X[2r]=DFT\{x[n]+x[n+\frac N2]\}
+X[2r+1]=DFT\left\{x[n]-x[n+\frac N2]e^{-j\frac{2\pi}Nn}\right\}\\
+X[2r]=DFT\left\{x[n]+x[n+\frac N2]\right\}
 \end{cases}\]</span>
 <p>$$ 于是，我们可以画出流图：</p>
 <figure>
