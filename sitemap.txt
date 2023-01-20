@@ -1,3 +1,4 @@
+https://suzumiyaakizuki.github.io/2022/08/09/%E5%B9%A1%E7%84%B6%E6%82%94%E6%82%9F%EF%BC%88%E6%9A%82%E5%AE%9A%EF%BC%89/
 https://suzumiyaakizuki.github.io/2023/01/19/%E5%91%A8%E8%AE%B0%EF%BC%8820230101-20230119%EF%BC%89/
 https://suzumiyaakizuki.github.io/2022/12/30/%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6/
 https://suzumiyaakizuki.github.io/2022/12/08/DSP3/
@@ -22,7 +23,6 @@ https://suzumiyaakizuki.github.io/2022/10/09/%E5%91%A8%E8%AE%B0-20221003-2022100
 https://suzumiyaakizuki.github.io/2022/10/08/verilog1-10/
 https://suzumiyaakizuki.github.io/2022/07/03/%E6%9C%AC%E4%BA%BA%E7%9C%8B%E8%BF%87%E7%9A%84%E5%90%84%E5%8A%A8%E7%94%BB%E9%94%90%E8%AF%84/
 https://suzumiyaakizuki.github.io/2022/10/04/%E5%91%A8%E8%AE%B0%EF%BC%8820220926-20221002%EF%BC%89/
-https://suzumiyaakizuki.github.io/2022/08/09/%E5%B9%A1%E7%84%B6%E6%82%94%E6%82%9F%EF%BC%88%E6%9A%82%E5%AE%9A%EF%BC%89/
 https://suzumiyaakizuki.github.io/2022/09/20/%E5%91%A8%E8%AE%B0%EF%BC%8820220919-20220925%EF%BC%89/
 https://suzumiyaakizuki.github.io/2022/09/12/%E5%91%A8%E8%AE%B0%EF%BC%8820220912-20220918%EF%BC%89/
 https://suzumiyaakizuki.github.io/2022/09/05/%E5%91%A8%E8%AE%B0%EF%BC%8820220905-20220911%EF%BC%89/
