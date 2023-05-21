@@ -4,7 +4,32 @@
   
   
   <entry>
-    <title>自动控制原理笔记</title>
+    <title>自动控制原理（轨迹分析）</title>
+    <link href="/2023/05/21/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86%EF%BC%88%E8%BD%A8%E8%BF%B9%E5%88%86%E6%9E%90%EF%BC%89/"/>
+    <url>/2023/05/21/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86%EF%BC%88%E8%BD%A8%E8%BF%B9%E5%88%86%E6%9E%90%EF%BC%89/</url>
+    
+    <content type="html"><![CDATA[<p>轨迹分析主要包含两部分内容，即根轨迹分析和频域分析（即奈奎斯特图和波特图）。</p><h2 id="根轨迹分析法">根轨迹分析法</h2><p>闭环系统的根轨迹指的是闭环系统特征方程的根随着系统开环增益<span class="math inline">\(K\)</span>从零变化到正无穷时变化的轨迹。得到根轨迹图后，就有一一对应的一组系统闭环极点分布，再考虑到系统的闭环零点分布和输入函数等，就可以完成系统的性能分析。</p><p>我们知道，稳定的充要条件就是闭环系统的极点，也就是闭环系统特征方程的根都在<span class="math inline">\(s\)</span>坐标系的左半平面（也就是实部小于零），可以根据不同<span class="math inline">\(K\)</span>取值对应的根轨迹位置，来观察<span class="math inline">\(K\)</span>对系统稳定性的影响。</p><h3 id="根轨迹方程和幅值相角条件">根轨迹方程和幅值相角条件</h3><p>闭环系统的特征方程为： <span class="math display">\[G(s)H(s)=-1\]</span> 那么我们可以写出根轨迹方程： <span class="math display">\[K \cdot \frac{\prod_{i=1}^m\left(s-z_i\right)}{\prod_{j=1}^n\left(s-p_j\right)}=-1\]</span> 凡是满足根轨迹方程的<span class="math inline">\(s\)</span>点都在系统的根轨迹上，其中<span class="math inline">\(K\)</span>是根轨迹增益。对于每个<span class="math inline">\(K\)</span>，都有一组对应的闭环极点，当<span class="math inline">\(K:0\to \infty\)</span>时，不同的<span class="math inline">\(s\)</span>点就形成<span class="math inline">\(n\)</span>条系统根轨迹（其中<span class="math inline">\(n\)</span>是分母的次数）</p><p>把根轨迹方程写出幅值和相角形式，即： <span class="math display">\[K \cdot \frac{\prod_{i=1}^m\left(s-z_i\right)}{\prod_{j=1}^n\left(s-p_j\right)}=1\angle (2k+1)\pi\]</span> 进一步，可以写出幅值条件： <span class="math display">\[\frac{\prod_{j=1}^n\left|s-p_j\right|}{\prod_{i=1}^m\left|s-z_i\right|}=K\]</span> 相角条件： <span class="math display">\[\sum_{i=1}^m \angle (s-z_i)-\sum_{j=1}^n \angle (s-p_j)=(2 k+1) \pi \quad(k=0, \pm 1, \pm 2, \cdots)\]</span></p><h3 id="绘制根轨迹图的基本规则">绘制根轨迹图的基本规则</h3><h4 id="根轨迹的对称性">根轨迹的对称性</h4><p>因为特征方程的根不是实数就是共轭复数，所以根轨迹是关于实轴对称的，所以画的时候只用画上半平面（或者下半平面）的就行了。</p><h4 id="根轨迹的起始点和终止点">根轨迹的起始点和终止点</h4><p>根轨迹起始于开环极点，终止于开环零点。</p><h4 id="根轨迹的条数">根轨迹的条数</h4><p>对于<span class="math inline">\(n\)</span>阶系统，根轨迹有<span class="math inline">\(n\)</span>个起始点，因此有<span class="math inline">\(n\)</span>条。在这<span class="math inline">\(n\)</span>条中，有<span class="math inline">\(m\)</span>（零点数）条终止于有限零点，其余的终止于无穷远点（无限零点）。</p><h4 id="根轨迹在实轴上的分布规律">根轨迹在实轴上的分布规律</h4><p>对于实轴上的一段，如果其右边的开环零极点数目之和是奇数，那么这段实轴是根轨迹的一部分。</p><h4 id="根轨迹的渐近线">根轨迹的渐近线</h4><p>有<span class="math inline">\((n-m)\)</span>条根轨迹终止于无穷远点，描述它们的方法就是用渐近线。确定渐近线的方法很简单，即首先确定其斜率，然后确定其在实轴（横轴）上的截距。</p><p>其斜率（与正实轴的夹角）满足： <span class="math display">\[\varphi_{\mathrm{A}}=\frac{ \pm(2 k+1) \pi}{n-m} \quad(k=0,1,2, \cdots)\]</span> 截距（和实轴的交点）满足： <span class="math display">\[\sigma_{\mathrm{A}}=\frac{\sum_{j=1}^n p_j-\sum_{i=1}^m z_i}{(n-m)}\]</span></p><h4 id="实轴上根轨迹的分离点和汇合点">实轴上根轨迹的分离点和汇合点</h4><p>根轨迹在实轴上的某个点分叉或者相会，这个点就称为分离点或者汇合点，而且这个点一定是重极点。算分离点和汇合点的方法有两种。</p><p>其一是解方程： <span class="math display">\[\sum_{i=1}^m \frac{1}{\sigma_{\mathrm{B}}-z_i}=\sum_{j=1}^n \frac{1}{\sigma_{\mathrm{B}}-p_j}\]</span> 得到的<span class="math inline">\(\sigma_b\)</span>们即为分离点或汇合点。</p><p>其二是解联立方程： <span class="math display">\[\begin{cases}&amp; 1+G(s) H(s)=0 \\&amp; \frac{\mathrm{d}}{\mathrm{d} s}[G(s) H(s)]=0\end{cases}\]</span> 得到的<span class="math inline">\(s\)</span>即为分离点或汇合点。当然解这个方程不是硬解，因为里面有个常数<span class="math inline">\(K\)</span>。一般是先解下面的那个，然后检验解是不是在根轨迹上就行了。</p><h4 id="根轨迹的起始角和终止角">根轨迹的起始角和终止角</h4><p>起始角就是开环极点处根轨迹的切线和正实轴的夹角；终止角就是开环零点处根轨迹和正实轴的夹角。</p><p><span class="math inline">\(p_1\)</span>极点处起始角为： <span class="math display">\[\theta_{p1}=\pm (2k+1)\pi+\sum_{i=1}^m\angle (p_1-z_i)-\sum_{j=2}^n \angle(p_1-p_j)\]</span> <span class="math inline">\(z_1\)</span>零点处终止角为： <span class="math display">\[\theta_{z1}=\pm (2k+1)\pi+\sum_{i=1}^n\angle (z_1-p_i)-\sum_{j=2}^m \angle(z_1-z_j)\]</span></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>自控</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>自动控制原理笔记（时域分析）</title>
     <link href="/2023/05/20/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/"/>
     <url>/2023/05/20/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/</url>
     
