@@ -23,11 +23,15 @@
 <meta property="og:site_name" content="凉宫秋月的文艺部">
 <meta property="og:description" content="在之前的调制部分，我们解决了信号的调制和编码的问题。接下来，我们将对数字信号如何在信道中更高效地传输的问题进行讨论。 传输分为两种，即基带传输和通带传输。基带传输无需进行进一步调制，只需要直接在信道中传输编码后的数字脉冲信号（即01串方波），一般多用于非带限信道，有线传输。 通带传输需要借调制进行频谱搬移，用于带限信道，一般是无线传输，但是也可以用于有线传输，比如DVB-C。 非带限信道码型">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305241049672.png">
+<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305241103542.png">
+<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305241608451.png">
 <meta property="article:published_time" content="2023-05-23T02:58:47.000Z">
-<meta property="article:modified_time" content="2023-05-23T04:29:36.062Z">
+<meta property="article:modified_time" content="2023-05-25T14:08:29.198Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="通信原理">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305241049672.png">
   
   
   
@@ -265,7 +269,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          244 字
+          2.6k 字
         
       </span>
     
@@ -276,7 +280,7 @@
         
         
         
-          1 分钟
+          6 分钟
         
       </span>
     
@@ -335,7 +339,97 @@
 <p>传输分为两种，即基带传输和通带传输。基带传输无需进行进一步调制，只需要直接在信道中传输编码后的数字脉冲信号（即<code>01</code>串方波），一般多用于非带限信道，有线传输。</p>
 <p>通带传输需要借调制进行频谱搬移，用于带限信道，一般是无线传输，但是也可以用于有线传输，比如DVB-C。</p>
 <h2 id="非带限信道码型设计">非带限信道码型设计</h2>
-<p>码型设计是数字信息的电脉冲表示过程，其主要目的是使数字信息变换为适合于给定信道传输特性的频谱结构</p>
+<p>码型设计是数字信息的电脉冲表示过程，其主要目的是使数字信息变换为适合于给定信道传输特性的频谱结构。其设计的基本原则有：</p>
+<ul>
+<li><p>尽量避免含有直流分量</p></li>
+<li><p>码型变换过程应对任何信源具有透明性，和信源的统计特性无关</p></li>
+<li><p>便于从基带信号中提取定时信息</p></li>
+<li><p>具有检错能力</p></li>
+<li><p>无误码扩散现象</p></li>
+<li><p>当采用分组形式的传递码型时（如5B6B、4B3T码等），在接收端不但要从基带信号中提取位定时信息，</p>
+<p>而且要恢复出分组同步信息，以便将收到的信号正确地划分成固定长度的码组</p></li>
+<li><p>减少基带信号中的高频分量</p></li>
+<li><p>编译码设备简单</p></li>
+</ul>
+<h3 id="二元码">二元码</h3>
+<p>二元码的意思就是基带信号的幅度取值只有两种电平。常用的二元码有：</p>
+<ul>
+<li><p>单极性非归零码：</p>
+<p>两个电平分别为<code>1</code>和<code>0</code>，传完一个符号后不归零</p></li>
+<li><p>双极性非归零码：</p>
+<p>两个电平分别为<code>1</code>和<code>-1</code>，传完一个符号后不归零</p></li>
+<li><p>单极性归零码：</p>
+<p>两个电平分别为<code>1</code>和<code>0</code>，每个符号前一半时间传输码，后一半时间归零</p></li>
+<li><p>差分码：</p>
+<p>差分码的传输依赖于当前符号和前一个符号的变化关系。</p>
+<ul>
+<li>传号差分码：电平从<code>0</code>开始，如果当前符号是<code>1</code>就翻转电平，如果是<code>0</code>则保持电平</li>
+<li>空号差分码：电平从<code>0</code>开始，如果当前符号是<code>0</code>就翻转电平，如果是<code>1</code>则保持电平</li>
+</ul></li>
+</ul>
+<p>各二元码的时域波形示例如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305241049672.png" srcset="/img/loading.gif" lazyload alt="image-20230524104926672" /><figcaption aria-hidden="true">image-20230524104926672</figcaption>
+</figure>
+<p>其中非差分码的低频分量丰富，不适用于交流耦合的有线信道；非归零码的连续符号不适合提取定时信息；不具备检错能力；仅适用于近距离传输。</p>
+<p>还有一些更高级的二元码：</p>
+<ul>
+<li><p>数字双相码（曼彻斯特码）</p>
+<p>其特点是<code>1</code>和<code>0</code>的波形反向。生成方法是用单极性非归零码和时钟信号做模二和。</p></li>
+<li><p>信号反转码</p>
+<p><code>1</code>交替用确定相位的方波（<code>11</code>,<code>00</code>）表示，<code>0</code>用<code>01</code>表示</p>
+<p>方便提取定时信息，有检错能力</p></li>
+<li><p>米勒码</p>
+<p><code>1</code>在码元中间跳变；单<code>0</code>不跳变；多个<code>0</code>在从第2个<code>0</code>起始跳变</p></li>
+</ul>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305241103542.png" srcset="/img/loading.gif" lazyload alt="高级二元码" /><figcaption aria-hidden="true">高级二元码</figcaption>
+</figure>
+<h3 id="三元码">三元码</h3>
+<p>在三元码数字基带信号中，信号幅度取值有三个：<code>+1</code>、<code>0</code>、<code>-1</code>。</p>
+<ul>
+<li><p>AMI码</p>
+<p>其实就是符号<code>1</code>交替变换为<code>+1</code>、<code>-1</code>的双极性归零码。</p>
+<p>AMI码具有检错能力，其性能和信源的统计特性关系很密切，如果长时间出现连续<code>0</code>，会对定时提取造成困难。所以，使用AMI码前需要进行随机化操作，以使<code>1</code>、<code>0</code>出现的概率一致。</p></li>
+<li><p>HDBn码</p>
+<p>为了改进AMI码，提出HDBn码的概念。HDBn码是<span class="math inline">\(n\)</span>阶高密度双极性码的缩写，在HDBn码中信息<code>1</code>也交替地变换为<code>+1</code>与<code>-1</code>的归零码，但与AMI码不同的是：HDBn码中的连<code>0</code>数被限制为小于或等于<span class="math inline">\(n\)</span>。</p>
+<p>当信息中出现<span class="math inline">\(n+1\)</span>个连<code>0</code>码时就用特定码组来取代，这种特定码组称为取代节。为了在接收端识别</p>
+<p>出取代节，人为地在取代节中设置“破坏点”，在这些“破坏点”处传号极性交替规律受到破坏。</p>
+<p>一般来说，用的最广泛的是HDB3码。其生成步骤如下：</p>
+<ul>
+<li>加<code>V</code>：检查4连<code>0</code>的情况，如果出现，将4连<code>0</code>编为一组，用<code>V</code>取代<code>0000</code>的最后一个<code>0</code>，变成<code>000V</code></li>
+<li>加<code>B</code>：检查相邻的<code>V</code>中间非零符号的个数，如果是奇数，那么记为<code>000V</code>，如果是偶数，则记为<code>B00V</code></li>
+<li>对信码加符号：将<code>1</code>和<code>B</code>看做整体，保证这个整体按正负交替的规律变化。此时可把<code>B</code>恢复为<code>1</code>或<code>-1</code></li>
+<li>对<code>V</code>加符号：保证<code>V</code>和其前一个信码的符号一致。此时可把<code>V</code>恢复为<code>1</code>或<code>-1</code></li>
+</ul>
+<blockquote>
+<p>【例】将信息<code>0100001100000101</code>进行HDB3编码。</p>
+<p>【解】编码步骤如下：</p>
+<ol type="1">
+<li>加V：<code>01 000V 11 000V 0101</code></li>
+<li>加B：<code>01 000V 11 B00V 0101</code></li>
+<li>对信码加符号：<code>0 +1 000V -1 +1 -100V 0 +1 0 -1</code></li>
+<li>对V加符号：<code>0 +1 000 +1 -1 +1 -1 00 -1 0 +1 0 -1</code></li>
+</ol>
+</blockquote></li>
+</ul>
+<h2 id="符号映射与波形设计">符号映射与波形设计</h2>
+<p>数字通信中，所需传输的往往是一个比特流，因此就需要一个符号序列去承载这个比特流。我们让这些符号在时间轴上，以<span class="math inline">\(Ts\)</span>为间隔均匀的排布，因此将其称为符号间隔/符号周期。由此，可定义符号速率为：<span class="math inline">\(R_s=1/T_s\)</span>。数字通信的比特速率为：<span class="math inline">\(R_b=R_s\log_2 M\)</span>，其中<span class="math inline">\(M\)</span>是数字通信的符号进制，就常用的二进制而言，符号速率等于比特速率。</p>
+<p>比特需要转换为符号，这个过程称为符号映射。但是符号作为离散时间、离散幅度信号，不能直接传输，需要转换为连续时间、连续幅度的信号，一般是转换成准方波。这个过程叫做波形设计。</p>
+<p>数字通信波形的统一数学表达式为： <span class="math display">\[
+a(t)=\sum_{k=-\infty}^\infty a_k g(t-kT_s)
+\]</span> 其中 <span class="math inline">\(g(t)\)</span>​称为成型脉冲，将离散的符号映射为通信波形。每一个符号周期内，以<span class="math inline">\(a_k\)</span>为幅度，独立产生一个成形脉冲；并将所有符号周期形成的脉冲进行叠加，得到最终的波形。如果<span class="math inline">\(g(t)\)</span>是矩形窗函数，那么就会得到一个方波，也就是之前非带限信道传输中的波形。</p>
+<p>但是矩形窗函数是频域无限宽的信号，因此不能在带限信道中使用。带限信道中只能通过频域有限宽，时域无限宽的信号，那么既然时域无限宽，就有可能出现码间串扰。只有经过特别设计的<span class="math inline">\(g(t)\)</span>才没有码间串扰，比如之前采样定理中用到的信号核重建函数 <span class="math display">\[
+g(t)=\frac{\sin (\omega_0t)}{\omega_0 t}
+\]</span> 如果信号经传输后整个波形发生了变化，但只要其特定点的抽样值保持不变，那么用再次抽样的方法仍然可以准确无误地恢复原始信码。于是，有<strong>采样点无失真定理（也叫奈奎斯特第一准则）</strong>：</p>
+<p>数字通信波形满足采样点无失真，即：<span class="math inline">\(a(kT_s)=a_k\)</span>，当且仅当： <span class="math display">\[
+\sum_{n=-\infty}^{\infty} G\left(f+\frac{n}{T_S}\right)=T_S
+\]</span> 即以<span class="math inline">\(R_s=1/T_s\)</span>为周期对其频谱进行延拓，其和为常数。</p>
+<p>在验证时，一般将其频域响应<span class="math inline">\(G(\omega)\)</span>按照<span class="math inline">\(2\pi/T_s\)</span>为单位进行分段，然后把各分段都沿横轴的方向平移到<span class="math inline">\([-\pi/T_s,\pi/T_s]\)</span>之间，并把它们叠加起来。如果实部是常数，虚部是零，那么就符合条件。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305241608451.png" srcset="/img/loading.gif" lazyload alt="验证示意图" /><figcaption aria-hidden="true">验证示意图</figcaption>
+</figure>
+<p>更进一步，只需验证其频域函数是否以<span class="math inline">\(R_s/2=1/2T_s\)</span>为中心互补对称即可。</p>
 
                 
               </div>
