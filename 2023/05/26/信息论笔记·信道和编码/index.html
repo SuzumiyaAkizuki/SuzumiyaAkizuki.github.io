@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305262312301.jpg">
 <meta property="article:published_time" content="2023-05-26T12:50:51.000Z">
-<meta property="article:modified_time" content="2023-05-26T15:12:44.695Z">
+<meta property="article:modified_time" content="2023-05-27T09:39:35.654Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="信息论">
 <meta name="twitter:card" content="summary_large_image">
@@ -267,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.8k 字
+          5.4k 字
         
       </span>
     
@@ -278,7 +278,7 @@
         
         
         
-          6 分钟
+          11 分钟
         
       </span>
     
@@ -396,7 +396,7 @@ p(a_ib_j)=p(X=a_i,Y=b_j)
 p(a_ib_j)=p(b_j)p(a_i|b_j)=p(a_i)p(b_j|a_i)
 \]</span></p></li>
 </ul>
-<p>定义“信道疑义度”为： <span class="math display">\[
+<p>定义“信道疑义度”(损失熵)为： <span class="math display">\[
 \begin{aligned}
 H(X|Y) &amp;= E[H(X|b_j)]\\
 &amp;= \sum_{j=1}^s p(b_j)\cdot \left(\sum_{i=1}^r-p(a_i|b_j)\log p(a_i|b_j)\right)\\
@@ -448,6 +448,93 @@ I(X;Z)\leq I(Y;Z)
 \]</span></p>
 <p>也就是说，在任意信息传输系统中，最后获得的信息至多是信源提供的信息，如果在传输过程中丢失了信息，而且以后的系统不触及输入端，那么丢失的信息就不能再恢复。</p></li>
 </ol>
+<h3 id="信道容量">信道容量</h3>
+<p>对一个特定的信道而言，其信道容量是平均互信息量随输入符号集变化时的最大值： <span class="math display">\[
+C=\max _{p(x)}\{I(X;Y)\}
+\]</span> 相应的使得平均互信息量最大的信源概率分布称为最佳输入分布。信道容量<span class="math inline">\(C\)</span>仅和信道本身的统计特性有关，而和信源无关，其表征了信道传送信息的最大能力。例如，对于最简单的二元对称信道（输入输出符号集都是<span class="math inline">\(\{0,1\}\)</span>，传输过程中符号翻转的概率为<span class="math inline">\(p\)</span>），信源符号为<span class="math inline">\(1\)</span>的概率是<span class="math inline">\(\omega\)</span>，有： <span class="math display">\[
+I(X;Y)=H(\omega \overline p+\overline \omega p)-H(p)
+\]</span> 则： <span class="math display">\[
+C=1-H(p)
+\]</span> 事实上，研究信道的核心问题就是研究信道容量以及最佳输入分布，但是这其实比较困难，接下来会对几个特殊的信道进行分析。</p>
+<h4 id="离散无噪信道">离散无噪信道</h4>
+<ol type="1">
+<li><p>无损信道</p>
+<p>无损信道的一个输入对应多个不相交的输出，输出端接收到<span class="math inline">\(Y\)</span>以后一定能知道发射端<span class="math inline">\(X\)</span>的状态，示意图如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305271122498.png" srcset="/img/loading.gif" lazyload alt="无损信道示意图" /><figcaption aria-hidden="true">无损信道示意图</figcaption>
+</figure>
+<p>一个典型的无损信道矩阵如下： <span class="math display">\[
+\mathbf{P}_{Y \mid X}=\left[\begin{array}{cccccc}
+\frac{1}{2} &amp; \frac{1}{2} &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; \frac{6}{10} &amp; \frac{3}{10} &amp; \frac{1}{10} &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1
+\end{array}\right]
+\]</span> 它的行“不相互重叠”，且行和为一。</p>
+<p>其信道疑义度（损失熵）<span class="math inline">\(H(X|Y)=0\)</span>。因为并不能根据输入<span class="math inline">\(a_i\)</span>断定输出会是哪一个<span class="math inline">\(b_i\)</span>，所以其噪声熵<span class="math inline">\(H(Y|X)&gt;0\)</span>。其信道容量为： <span class="math display">\[
+C=\max _{p(x)}H(X)=\log r
+\]</span> 最佳输入分布是等概分布。</p></li>
+<li><p>确定信道</p>
+<p>确定信道是一个输出对应多个互不相交的输入的信道，即发出信源<span class="math inline">\(a_i\)</span>，就一定能知道信道的输出<span class="math inline">\(b_j\)</span>。示意图如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305271131747.png" srcset="/img/loading.gif" lazyload alt="确定信道示意图" /><figcaption aria-hidden="true">确定信道示意图</figcaption>
+</figure>
+<p>一个典型的确定信道矩阵如下： <span class="math display">\[
+\mathbf{P}_{Y \mid X}=\left[\begin{array}{lll}
+1 &amp; 0 &amp; 0 \\
+1 &amp; 0 &amp; 0 \\
+1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{array}\right]
+\]</span> 信道矩阵中每一行只有一个<span class="math inline">\(1\)</span>，其余元素都是<span class="math inline">\(0\)</span>。</p>
+<p>其噪声熵<span class="math inline">\(H(Y|X)=0\)</span>。因为并不能根据输出<span class="math inline">\(b_j\)</span>断定输入是哪一个<span class="math inline">\(a_i\)</span>，所以其损失熵<span class="math inline">\(H(X|Y)&gt;0\)</span>。</p>
+<p>其信道容量为： <span class="math display">\[
+C=\max _{p(x)} H(Y)=\log s
+\]</span> 最佳输入分布是能让输出呈现等概分布的输入分布。</p></li>
+<li><p>无损确定信道</p>
+<p>既无损又确定的信道是无损确定信道。其矩阵是单位阵，输入输出之间有一一对应关系。</p></li>
+</ol>
+<h4 id="离散对称信道">离散对称信道</h4>
+<p>若一个离散无记忆信道的信道矩阵中，每一行都是其它行的同一组元素的不同排列，则称此类信道为<strong>离散输入对称信道</strong>，一个典型的离散输入对称信道矩阵为： <span class="math display">\[
+\mathbf{P}=\left[\begin{array}{cccc}
+\frac{1}{3} &amp; \frac{1}{3} &amp; \frac{1}{6} &amp; \frac{1}{6} \\
+\frac{1}{6} &amp; \frac{1}{3} &amp; \frac{1}{6} &amp; \frac{1}{3}
+\end{array}\right]
+\]</span> 若一个离散无记忆信道的信道矩阵中，每一列都是其它列的同一组元素的不同排列，则称此类信道为<strong>离散输出对称信道</strong>，一个典型的离散输出对称信道矩阵为： <span class="math display">\[
+\mathbf{P}=\left[\begin{array}{ll}
+0.4 &amp; 0.6 \\
+0.6 &amp; 0.4 \\
+0.5 &amp; 0.5
+\end{array}\right]
+\]</span> 如果同时满足以上两个条件，则称之为<strong>离散对称信道</strong>，例如： <span class="math display">\[
+\mathbf{P}=\left[\begin{array}{ccc}
+\frac{1}{2} &amp; \frac{1}{3} &amp; \frac{1}{6} \\
+\frac{1}{6} &amp; \frac{1}{2} &amp; \frac{1}{3} \\
+\frac{1}{3} &amp; \frac{1}{6} &amp; \frac{1}{2}
+\end{array}\right]
+\]</span> 若一个离散无记忆信道，按照信道矩阵的行（即信道的输出集）可以将信道矩阵划分成<span class="math inline">\(n\)</span>个子矩阵，且每个子矩阵中的每一行（列）都是其它行（列）的同一组元素的不同排列，则称此类信道为<strong>离散准对称信道</strong>。例如下面的矩阵： <span class="math display">\[
+\mathbf{P}_2=\left[\begin{array}{lll}
+0.7 &amp; 0.1 &amp; 0.2 \\
+0.2 &amp; 0.1 &amp; 0.7
+\end{array}\right]
+\]</span> 可以划分为： <span class="math display">\[
+\left[\begin{array}{ll}
+0.7 &amp; 0.2 \\
+0.2 &amp; 0.7
+\end{array}\right]\left[\begin{array}{l}
+0.1 \\
+0.1
+\end{array}\right]
+\]</span> 离散准对称信道的最佳输入分布是等概分布。</p>
+<p>如果一个离散对称信道有<span class="math inline">\(r\)</span>个输入符号和<span class="math inline">\(s\)</span>个输出符号，则输入是等概分布时达到信道容量<span class="math inline">\(C\)</span>，且： <span class="math display">\[
+C=\log s-H\left(p_1^{\prime}, p_2^{\prime}, \cdots, p_s^{\prime}\right)
+\]</span> 其中<span class="math inline">\(p&#39;_1,p&#39;_2,\cdots,p&#39;_s\)</span>是信道矩阵中的任何一行。</p>
+<p>达到信道容量<span class="math inline">\(C\)</span>的概率分布是使输出为等概分布的信道输入分布。求离散对称信道的信道容量，实质是求一种输入分布<span class="math inline">\(p(x)\)</span>，它使输出熵<span class="math inline">\(H(Y)\)</span>达最大。<strong>对于对称信道，只有信道输入分布是等概分布时，输出才为等概分布。</strong></p>
+<p>对于<strong>离散无记忆 <span class="math inline">\(N\)</span>次扩展信道</strong>，其信道容量等于单变量信道的信道容量的 <span class="math inline">\(N\)</span>倍,即： <span class="math display">\[
+C^N=NC
+\]</span></p>
+<h2 id="无失真信源编码">无失真信源编码</h2>
 
                 
               </div>
