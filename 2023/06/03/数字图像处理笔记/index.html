@@ -16,24 +16,24 @@
   <meta name="author" content="SuzumiyaAkizuki">
   <meta name="keywords" content="">
   
-    <meta name="description" content="离散信道及其容量 信道的分类 根据信道的输入输出特性，可以分为：  离散信道：输入输出空间都是离散的 连续信道：输入输出空间都是连续的 半连续信道：输入输出空间中一个是离散的，而另一个是连续的 波形信道：输入输出都是时间的实函数  根据信道的统计特性，可以分为：  恒参信道：统计特性不随时间变化 变参信道：统计特性随时间变化  根据信道的记忆特性，可以分为：  无记">
+    <meta name="description" content="数字图像的基本知识 主观亮度感觉：人眼的主观亮度感觉\(S\)和光强度\(B\)呈现对数线性关系，有： \[ S&#x3D;k\log B+k_0 \] 图像数字化的过程：一个图像可以通过采样和量化过程转变为数字图像，相关过程已经在“通信原理”中学过了，此处不再详细说明。数字越大，表示图像越明亮。 图像噪声 指妨碍人们感觉器官对所接收的信源信息理解的因素。其不可预测，只能用概率分布函数和概率密度函">
 <meta property="og:type" content="article">
-<meta property="og:title" content="信息论笔记·信道和编码">
-<meta property="og:url" content="https://suzumiyaakizuki.github.io/2023/05/26/%E4%BF%A1%E6%81%AF%E8%AE%BA%E7%AC%94%E8%AE%B0%C2%B7%E4%BF%A1%E9%81%93%E5%92%8C%E7%BC%96%E7%A0%81/index.html">
+<meta property="og:title" content="数字图像处理笔记">
+<meta property="og:url" content="https://suzumiyaakizuki.github.io/2023/06/03/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="凉宫秋月的文艺部">
-<meta property="og:description" content="离散信道及其容量 信道的分类 根据信道的输入输出特性，可以分为：  离散信道：输入输出空间都是离散的 连续信道：输入输出空间都是连续的 半连续信道：输入输出空间中一个是离散的，而另一个是连续的 波形信道：输入输出都是时间的实函数  根据信道的统计特性，可以分为：  恒参信道：统计特性不随时间变化 变参信道：统计特性随时间变化  根据信道的记忆特性，可以分为：  无记">
+<meta property="og:description" content="数字图像的基本知识 主观亮度感觉：人眼的主观亮度感觉\(S\)和光强度\(B\)呈现对数线性关系，有： \[ S&#x3D;k\log B+k_0 \] 图像数字化的过程：一个图像可以通过采样和量化过程转变为数字图像，相关过程已经在“通信原理”中学过了，此处不再详细说明。数字越大，表示图像越明亮。 图像噪声 指妨碍人们感觉器官对所接收的信源信息理解的因素。其不可预测，只能用概率分布函数和概率密度函">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305262312301.jpg">
-<meta property="article:published_time" content="2023-05-26T12:50:51.000Z">
-<meta property="article:modified_time" content="2023-05-27T09:39:35.654Z">
+<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306031608224.jpg">
+<meta property="article:published_time" content="2023-06-03T03:01:17.000Z">
+<meta property="article:modified_time" content="2023-06-03T08:20:24.168Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
-<meta property="article:tag" content="信息论">
+<meta property="article:tag" content="数字图像处理">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305262312301.jpg">
+<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306031608224.jpg">
   
   
   
-  <title>信息论笔记·信道和编码 - 凉宫秋月的文艺部</title>
+  <title>数字图像处理笔记 - 凉宫秋月的文艺部</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -233,13 +233,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305262312301.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306031608224.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="信息论笔记·信道和编码"></span>
+            <span id="subtitle" data-typed-text="数字图像处理笔记"></span>
           
         </div>
 
@@ -255,8 +255,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-05-26 20:50" pubdate>
-          2023年5月26日 晚上
+        <time datetime="2023-06-03 11:01" pubdate>
+          2023年6月3日 上午
         </time>
       </span>
     
@@ -267,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.4k 字
+          5.2k 字
         
       </span>
     
@@ -328,213 +328,218 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">信息论笔记·信道和编码</h1>
+            <h1 style="display: none">数字图像处理笔记</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="离散信道及其容量">离散信道及其容量</h2>
-<h3 id="信道的分类">信道的分类</h3>
-<p>根据信道的输入输出特性，可以分为：</p>
-<ol type="1">
-<li>离散信道：输入输出空间都是离散的</li>
-<li>连续信道：输入输出空间都是连续的</li>
-<li>半连续信道：输入输出空间中一个是离散的，而另一个是连续的</li>
-<li>波形信道：输入输出都是时间的实函数</li>
-</ol>
-<p>根据信道的统计特性，可以分为：</p>
-<ol type="1">
-<li>恒参信道：统计特性不随时间变化</li>
-<li>变参信道：统计特性随时间变化</li>
-</ol>
-<p>根据信道的记忆特性，可以分为：</p>
-<ol type="1">
-<li>无记忆信道：信道输出仅仅和当前的输入有关</li>
-<li>有记忆信道：信道的输出还和过去的输入有关</li>
-</ol>
-<p>还有几种比较特殊的信道：</p>
-<p>满足以下条件之一（其实三个条件等价）的信道称为无损信道，无损信道的输出完全由输入决定：</p>
-<ol type="1">
-<li>总存在输出符号集合<span class="math inline">\(b_1,\cdots b_k\)</span>，满足<span class="math inline">\(P(Y\in b_i|x=x_i)=1\)</span></li>
-<li>对于所有的输入分布，只要<span class="math inline">\(p(y_j)\neq 0\)</span>，则总有一个<span class="math inline">\(x_i\)</span>使得<span class="math inline">\(p(x_i|y_j)=0\)</span></li>
-<li>对于所有的输入分布，已知<span class="math inline">\(Y\)</span>时，<span class="math inline">\(X\)</span>的不确定度为零，即<span class="math inline">\(H(X|Y)=0\)</span></li>
-</ol>
-<p>满足以下条件之一（其实两个条件等价）的信道称为无噪信道，无噪信道中不存在随机干扰：</p>
-<ol type="1">
-<li>对于所有的<span class="math inline">\(x_i\)</span>，都存在一个<span class="math inline">\(y_j\)</span>，使得<span class="math inline">\(p(x_i|y_j)=1\)</span></li>
-<li><span class="math inline">\(H(Y|X)=0\)</span></li>
-</ol>
-<p>既无损又无噪的信道叫做确定信道。</p>
-<h3 id="离散无记忆信道">离散无记忆信道</h3>
-<p>首先来讨论单符号离散信道。假设信道输入随机变量（总体）为<span class="math inline">\(X\)</span>，其取值为<span class="math inline">\(x\)</span>， <span class="math inline">\(x\in A=\{a_1 ,a_2 ,……,a_r\}\)</span>；输出随机变量为<span class="math inline">\(Y\)</span>，取值为<span class="math inline">\(y\)</span>， <span class="math inline">\(y\in B={b_1 ,b_2 , ……,b_s }\)</span>。信道传递概率为 <span class="math display">\[
-p(y|x)=P(Y=b_j|X=a_i)=p(b_j|a_i)
-\]</span> 于是，可以用一个<span class="math inline">\(p\)</span>组成的矩阵来描述这个信道，有： <span class="math display">\[
-\mathbf P=\begin{pmatrix}
-p_{11} &amp; p_{12} &amp; \cdots &amp;p_{1s}\\
-p_{21} &amp; p_{22} &amp; \cdots &amp;p_{2s}\\
-\cdots &amp; \cdots &amp; \cdots &amp;\cdots\\
-p_{r1} &amp; p_{r2} &amp; \cdots &amp;p_{rs}
-\end{pmatrix}
-\]</span> 其中<span class="math inline">\(p_{ij}=p(b_j|a_i)\)</span>。这个矩阵的每个元素都大于等于零，而且行和都是<span class="math inline">\(1\)</span>。</p>
-<p>接下来介绍几个后面常用的名词，以免产生困扰：</p>
+                <h2 id="数字图像的基本知识">数字图像的基本知识</h2>
+<p>主观亮度感觉：人眼的主观亮度感觉<span class="math inline">\(S\)</span>和光强度<span class="math inline">\(B\)</span>呈现对数线性关系，有： <span class="math display">\[
+S=k\log B+k_0
+\]</span> 图像数字化的过程：一个图像可以通过采样和量化过程转变为数字图像，相关过程已经在“通信原理”中学过了，此处不再详细说明。数字越大，表示图像越明亮。</p>
+<h3 id="图像噪声">图像噪声</h3>
+<p>指妨碍人们感觉器官对所接收的信源信息理解的因素。其不可预测，只能用概率分布函数和概率密度函数来描述，一般研究加性噪声，既： <span class="math display">\[
+U(x,y)=I(x,y)+n(x,y)
+\]</span> 且假设信号和噪声相互统计独立。噪声的统计模型常用概率密度函数描述，比较常见的有：</p>
 <ul>
-<li><p>先验概率：指的是信源的统计特性，即： <span class="math display">\[
-p(a_i)=p(X=a_i)
+<li><p>高斯噪声： <span class="math display">\[
+P(z)=\frac{1}{\sqrt{2 \pi} \sigma} e^{-(z-\mu)^2 / 2 \sigma^2}
+\]</span> 其中<span class="math inline">\(\mu\)</span>是均值，<span class="math inline">\(\sigma^2\)</span>是方差。它是应用最广泛的一种噪声模型。</p></li>
+<li><p>椒盐噪声： <span class="math display">\[
+P(z)=\left\{\begin{array}{cc}
+P_a &amp; \mathrm{z}=\mathrm{a} \\
+P_b &amp; \mathrm{z}=\mathrm{b} \\
+0 &amp; \text { 其他 }
+\end{array}\right.
+\]</span> 脉冲噪声也叫椒盐噪声，如果<span class="math inline">\(b&gt;a\)</span>，那么灰度值<span class="math inline">\(b\)</span>在图像上显示一个亮点，称为“盐噪声”，灰度值<span class="math inline">\(a\)</span>在图像上显示一个黑点，称为“椒噪声”。</p></li>
+<li><p>此外，还要瑞丽噪声、伽马噪声、指数噪声等形式。</p></li>
+</ul>
+<p>为了衡量噪声对图像的影响，需要对图像的质量进行评价。评价的指标有保真度（描述被评价图像与标准图像之间的偏离程度）和可懂度（图像向人（机器）提供信息的能力）。评价的方法有主观方法（即请一些志愿者对图像按照某个量表进行打分）和客观方法（即对图像的矩阵进行研究），接下来主要介绍客观保真度方法：</p>
+<p>假设原图为<span class="math inline">\(f(x,y)\)</span>，待评价的图像为<span class="math inline">\(\hat f(x,y)\)</span>，有：</p>
+<ul>
+<li><p>互相关函数：描述“接近程度” <span class="math display">\[
+R=\int_{-I_x}^{L_x} \int_{-I_v}^{L_y} f(x, y) \widetilde{f}(x, y) d x d y
 \]</span></p></li>
-<li><p>前向概率：即信道传递概率，也就是上面那个矩阵里面的元素，表示已经收到信源为<span class="math inline">\(a_i\)</span>时信道输出<span class="math inline">\(b_j\)</span>的概率，即 <span class="math display">\[
-p(b_j|a_i)=p(Y=b_j|X=a_i)
+<li><p>均方误差： <span class="math display">\[
+\bar{e}^2=\frac{1}{N M} \sum_{x=0}^{N-1} \sum_{y=1}^{M-1}[\hat{f}(x, y)-f(x, y)]^2
 \]</span></p></li>
-<li><p>输出符号概率：指的是输出的统计特性，即： <span class="math display">\[
-p(b_j)=p(Y=b_j)
+<li><p>归一化均方误差NMSE： <span class="math display">\[
+N M S E=\frac{\sum_{x=0}^{N-1} \sum_{y=1}^{M-1}[\hat{f}(x, y)-f(x, y)]^2}{\sum_{x=0}^{N-1} \sum_{y=1}^{M-1} f(x, y)^2}
 \]</span></p></li>
-<li><p>后向概率：指的是目前已经知道输出是<span class="math inline">\(b_j\)</span>，在这个情况下信源是<span class="math inline">\(a_i\)</span>的概率，即： <span class="math display">\[
-p(a_i|b_j)=p(X=a_i|Y=b_j)
+<li><p>信噪比SNR： <span class="math display">\[
+\mathrm{SNR}_{\mathrm{ms}}=\frac{\sum_{x=0}^{N-1} \sum_{y=1}^{M-1}[f(x, y)]^2}{\sum_{x=0}^{N-1} \sum_{y=1}^{M-1}[\hat{f}(x, y)-f(x, y)]^2}
 \]</span></p></li>
-<li><p>联合概率：指的是输入为<span class="math inline">\(a_i\)</span>而且输出为<span class="math inline">\(b_j\)</span>的概率，即： <span class="math display">\[
-p(a_ib_j)=p(X=a_i,Y=b_j)
-\]</span> 有： <span class="math display">\[
-p(a_ib_j)=p(b_j)p(a_i|b_j)=p(a_i)p(b_j|a_i)
+<li><p>峰值信噪比PSNR： <span class="math display">\[
+PSNR(dB)=20\log_{10} \frac{\max_{x,y} f(x,y)}{\bar e^2}
 \]</span></p></li>
 </ul>
-<p>定义“信道疑义度”(损失熵)为： <span class="math display">\[
-\begin{aligned}
-H(X|Y) &amp;= E[H(X|b_j)]\\
-&amp;= \sum_{j=1}^s p(b_j)\cdot \left(\sum_{i=1}^r-p(a_i|b_j)\log p(a_i|b_j)\right)\\
-&amp;= -\sum_{j=1}^s\sum_{i=1}^r p(a_ib_j)\log p(a_i|b_j)
-\end{aligned}
-\]</span> 其物理意义为信宿收到全部符号Y后，对输入符号X尚存在的平均不确定程度。那么有：<span class="math inline">\(H(X|Y)\leq H(X)\)</span>，意思就是说，信宿接收到输出信号以后，总是要消除一些对信源的不确定度的。而平均互信息量就是来表征这一部分被消除的不确定度的： <span class="math display">\[
-I(X;Y)=H(X)-H(X|Y)
-\]</span> 平均互信息量是输入信源概率分布的上凸函数，是信道传递概率<span class="math inline">\(p(y|x)\)</span>的下凸函数。</p>
+<p>信噪比越大，均方误差越小，说明图像的质量越强。</p>
+<h3 id="彩色图像">彩色图像</h3>
+<p>光谱上的大多数颜色都能够由红、绿、蓝这三种颜色的加权混合产生，而基于R、G、B三基色的颜色表示方法称为RGB彩色模型。RGB模型是由黑到白的过程，称为增色处理。</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305262226162.png" srcset="/img/loading.gif" lazyload alt="示意图" /><figcaption aria-hidden="true">示意图</figcaption>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306031138444.png" srcset="/img/loading.gif" lazyload alt="RGB立方体" /><figcaption aria-hidden="true">RGB立方体</figcaption>
 </figure>
-<h3 id="无记忆扩展信道">无记忆扩展信道</h3>
-<p>对于单符号无记忆信道来说，输入和输出的都是一个符号。如果一个信道的输入是单符号信道的信源的N次扩展（也就是长度为N的序列），输出是单符号信道信宿的N次扩展，那么这个信道就是单符号信道的N次扩展信道。</p>
-<p>在一般的信道中，传输长度为N的信息，有如下的定理：</p>
-<ol type="1">
-<li><p>如果输入和输出是<span class="math inline">\(N\)</span>长序列<span class="math inline">\(\mathbf {X,Y}\)</span>，且信道是无记忆的，亦即信道传递概率为： <span class="math display">\[
-p(\mathbf{y} \mid \mathbf{x})=\prod_{i=1}^N p\left(y_i \mid x_i\right)
-\]</span> 或者 <span class="math display">\[
-p\left(\beta_h \mid \alpha_k\right)=\prod_{i=1}^N p\left(b_{h_i} \mid a_{k_i}\right), k=1,2, \cdots, r^N, h=1,2, \cdots, s^N
-\]</span> 则有： <span class="math display">\[
-I(\mathbf{X} ; \mathbf{Y}) \leq \sum_{i=1}^N I\left(X_i ; Y_i\right)
-\]</span></p></li>
-<li><p>如果输入和输出是<span class="math inline">\(N\)</span>长序列<span class="math inline">\(\mathbf {X,Y}\)</span>，且信源是无记忆的，即： <span class="math display">\[
-p(\boldsymbol{x})=\prod_{i=1}^N p\left(x_i\right)
-\]</span> 或者 <span class="math display">\[
-p\left(\alpha_k\right)=p\left(a_{k_1}\right) p\left(a_{k_2}\right) \cdots p\left(a_{k_N}\right), k=1,2, \cdots, r^N
-\]</span> 则： <span class="math display">\[
-I(\mathbf{X} ; \mathbf{Y}) \geq \sum_{i=1}^N I\left(X_i ; Y_i\right)
-\]</span></p></li>
-</ol>
-<h3 id="信道的组合">信道的组合</h3>
-<p>级联信道的模型如下：</p>
+<p>使用上面这个立方体的另外三个顶角，即可构成<span class="math inline">\(CMY\)</span>彩色模型。CMY彩色模型一般用于在白纸上打印，是由白到黑的过程，称为减色处理。有： <span class="math display">\[
+\left[\begin{array}{c}
+\mathrm{C} \\
+\mathrm{M} \\
+\mathrm{Y}
+\end{array}\right]=\left[\begin{array}{l}
+1 \\
+1 \\
+1
+\end{array}\right]-\left[\begin{array}{l}
+\mathrm{R} \\
+\mathrm{G} \\
+\mathrm{B}
+\end{array}\right]
+\]</span> IHS彩色模型：利用色调、色饱和度和亮度来描述物体的颜色。与RGB模型相比，能够更好的定量化分析人眼对颜色的视觉作用，非常适合彩色图像处理和计算机视觉中的应用。</p>
+<h2 id="图像变换">图像变换</h2>
+<p>关于各类信号，系统的定义，已经说了很多，不再赘述了。需要强调的是，图像处理中的系统一般为线性非因果系统。</p>
+<p>关于变换的基础知识，例如冲激函数及其性质、正交函数与正交函数系、一维连续傅里叶变换，也不再重新说明了。</p>
+<h3 id="二维离散傅里叶变换二维dft">二维离散傅里叶变换（二维DFT）</h3>
+<p>正变换： <span class="math display">\[
+F(u, v)=\sum_{x=0}^{M-1} \sum_{y=0}^{N-1} f(x, y) \exp \left[-j 2 \pi\left(\frac{u x}{M}+\frac{v y}{N}\right)\right]
+\]</span> 逆变换： <span class="math display">\[
+f(x, y)=\frac{1}{M N} \sum_{v=0}^{M-1} \sum_{v=0}^{N-1} F(u, v) \exp \left[j 2 \pi\left(\frac{u v}{M}+\frac{v y }{ N}\right)\right]
+\]</span> 它的性质如下：</p>
+<ul>
+<li><p>线性（略）</p></li>
+<li><p>可分离性：</p>
+<p>一个二维DFT可以分解为两个一维DFT进行，即先由<span class="math inline">\(f(x,y)\)</span>变为<span class="math inline">\(F(x,v)\)</span>，再变成<span class="math inline">\(F(u,v)\)</span>,用公式描述就是： <span class="math display">\[
+F(u, v)=\sum_{x=0}^{M-1} \exp [-j 2 \pi \frac{u x}  {M}] \times \frac{1}{N} \sum_{y=0}^{N-1} f(x, y) \exp [-j 2 \pi \frac{v y}  {N}]
+\]</span> 其中 <span class="math display">\[
+F(x,v)=\frac{1}{N} \sum_{y=0}^{N-1} f(x, y) \exp [-j 2 \pi \frac{v y}  {N}]
+\]</span> 就是从<span class="math inline">\(f(x,y)\)</span>变成<span class="math inline">\(F(x,v)\)</span>的过程。</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305262247587.png" srcset="/img/loading.gif" lazyload alt="级联信道" /><figcaption aria-hidden="true">级联信道</figcaption>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306031451650.png" srcset="/img/loading.gif" lazyload alt="二维DFT可分离性图解" /><figcaption aria-hidden="true">二维DFT可分离性图解</figcaption>
 </figure>
-<p>对于级联信道中的互信息，有：</p>
-<ol type="1">
-<li><p>级联信道中的平均互信息满足： <span class="math display">\[
-I(XY;Z)\geq I(Y;Z)
-\]</span> 等号取得的充要条件： <span class="math display">\[
-p(z|xy)=p(z|y)
-\]</span> 也就是说，输出变量<span class="math inline">\(z\)</span>只和<span class="math inline">\(y\)</span>有关，而和<span class="math inline">\(x\)</span>无关。进一步，<span class="math inline">\(X,Y,Z\)</span>构成了一个一阶马尔可夫链。</p>
-<p>把上面两式右边的<span class="math inline">\(y\)</span>换成<span class="math inline">\(x\)</span>，定理仍然成立。</p></li>
-<li><p>如果<span class="math inline">\(X,Y,Z\)</span>构成了一个一阶马尔可夫链，有： <span class="math display">\[
-I(X;Z)\leq I(X;Y)
+<p>逆变换也有类似的结论。</p></li>
+<li><p>对称性</p>
+<p>周期对称： <span class="math display">\[
+F(u,v)=F(u+aM,v+bN)
 \]</span></p>
 <p><span class="math display">\[
-I(X;Z)\leq I(Y;Z)
+f(x,y)=f(x+aM,y+bN)
 \]</span></p>
-<p>也就是说，在任意信息传输系统中，最后获得的信息至多是信源提供的信息，如果在传输过程中丢失了信息，而且以后的系统不触及输入端，那么丢失的信息就不能再恢复。</p></li>
-</ol>
-<h3 id="信道容量">信道容量</h3>
-<p>对一个特定的信道而言，其信道容量是平均互信息量随输入符号集变化时的最大值： <span class="math display">\[
-C=\max _{p(x)}\{I(X;Y)\}
-\]</span> 相应的使得平均互信息量最大的信源概率分布称为最佳输入分布。信道容量<span class="math inline">\(C\)</span>仅和信道本身的统计特性有关，而和信源无关，其表征了信道传送信息的最大能力。例如，对于最简单的二元对称信道（输入输出符号集都是<span class="math inline">\(\{0,1\}\)</span>，传输过程中符号翻转的概率为<span class="math inline">\(p\)</span>），信源符号为<span class="math inline">\(1\)</span>的概率是<span class="math inline">\(\omega\)</span>，有： <span class="math display">\[
-I(X;Y)=H(\omega \overline p+\overline \omega p)-H(p)
-\]</span> 则： <span class="math display">\[
-C=1-H(p)
-\]</span> 事实上，研究信道的核心问题就是研究信道容量以及最佳输入分布，但是这其实比较困难，接下来会对几个特殊的信道进行分析。</p>
-<h4 id="离散无噪信道">离散无噪信道</h4>
-<ol type="1">
-<li><p>无损信道</p>
-<p>无损信道的一个输入对应多个不相交的输出，输出端接收到<span class="math inline">\(Y\)</span>以后一定能知道发射端<span class="math inline">\(X\)</span>的状态，示意图如下：</p>
+<p>共轭对称： <span class="math display">\[
+F(u,v)=F^*(-u,-v)
+\]</span></p></li>
+<li><p>平移性 <span class="math display">\[
+f(x, y) \exp \left\{j 2 \pi(\frac{u_0x}{M}+\frac{v_0y}{N})\right\} \Leftrightarrow F\left(\left(u-u_0\right)_{\mathrm{M}},\left(v-v_0\right)_{\mathrm{N}}\right)
+\]</span> 和 <span class="math display">\[
+f\left(\left(x-x_0\right)_{\mathrm{M}},\left(y-y_0\right)_{\mathrm{N}}\right) \Leftrightarrow F(u, v) \exp \left\{-j 2 \pi\left(\frac{u x_0}{M}+\frac {v y_0}{N}\right) \right\}
+\]</span> 从中可以推出两个结论：</p>
+<p>在空间域<span class="math inline">\(f(x,y)\)</span>中平移时，在频域仅仅发生相移，而傅里叶变换的幅值不变。</p>
+<p>在研究中，经常把<span class="math inline">\(F(u,v)\)</span>平移到<span class="math inline">\((M/2,N/2)\)</span>，以更清楚地进行分析。如果要把频谱原点移动到图像中心，只需要给<span class="math inline">\(f(x,y)\)</span>乘上因子<span class="math inline">\((-1)^{x+y}\)</span>，再进行变换即可。</p></li>
+<li><p>旋转不变性</p>
+<p>在空间旋转某一角度，在频域也旋转相同的角度</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305271122498.png" srcset="/img/loading.gif" lazyload alt="无损信道示意图" /><figcaption aria-hidden="true">无损信道示意图</figcaption>
-</figure>
-<p>一个典型的无损信道矩阵如下： <span class="math display">\[
-\mathbf{P}_{Y \mid X}=\left[\begin{array}{cccccc}
-\frac{1}{2} &amp; \frac{1}{2} &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
-0 &amp; 0 &amp; \frac{6}{10} &amp; \frac{3}{10} &amp; \frac{1}{10} &amp; 0 \\
-0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1
-\end{array}\right]
-\]</span> 它的行“不相互重叠”，且行和为一。</p>
-<p>其信道疑义度（损失熵）<span class="math inline">\(H(X|Y)=0\)</span>。因为并不能根据输入<span class="math inline">\(a_i\)</span>断定输出会是哪一个<span class="math inline">\(b_i\)</span>，所以其噪声熵<span class="math inline">\(H(Y|X)&gt;0\)</span>。其信道容量为： <span class="math display">\[
-C=\max _{p(x)}H(X)=\log r
-\]</span> 最佳输入分布是等概分布。</p></li>
-<li><p>确定信道</p>
-<p>确定信道是一个输出对应多个互不相交的输入的信道，即发出信源<span class="math inline">\(a_i\)</span>，就一定能知道信道的输出<span class="math inline">\(b_j\)</span>。示意图如下：</p>
-<figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305271131747.png" srcset="/img/loading.gif" lazyload alt="确定信道示意图" /><figcaption aria-hidden="true">确定信道示意图</figcaption>
-</figure>
-<p>一个典型的确定信道矩阵如下： <span class="math display">\[
-\mathbf{P}_{Y \mid X}=\left[\begin{array}{lll}
-1 &amp; 0 &amp; 0 \\
-1 &amp; 0 &amp; 0 \\
-1 &amp; 0 &amp; 0 \\
-0 &amp; 1 &amp; 0 \\
-0 &amp; 1 &amp; 0 \\
-0 &amp; 0 &amp; 1
-\end{array}\right]
-\]</span> 信道矩阵中每一行只有一个<span class="math inline">\(1\)</span>，其余元素都是<span class="math inline">\(0\)</span>。</p>
-<p>其噪声熵<span class="math inline">\(H(Y|X)=0\)</span>。因为并不能根据输出<span class="math inline">\(b_j\)</span>断定输入是哪一个<span class="math inline">\(a_i\)</span>，所以其损失熵<span class="math inline">\(H(X|Y)&gt;0\)</span>。</p>
-<p>其信道容量为： <span class="math display">\[
-C=\max _{p(x)} H(Y)=\log s
-\]</span> 最佳输入分布是能让输出呈现等概分布的输入分布。</p></li>
-<li><p>无损确定信道</p>
-<p>既无损又确定的信道是无损确定信道。其矩阵是单位阵，输入输出之间有一一对应关系。</p></li>
-</ol>
-<h4 id="离散对称信道">离散对称信道</h4>
-<p>若一个离散无记忆信道的信道矩阵中，每一行都是其它行的同一组元素的不同排列，则称此类信道为<strong>离散输入对称信道</strong>，一个典型的离散输入对称信道矩阵为： <span class="math display">\[
-\mathbf{P}=\left[\begin{array}{cccc}
-\frac{1}{3} &amp; \frac{1}{3} &amp; \frac{1}{6} &amp; \frac{1}{6} \\
-\frac{1}{6} &amp; \frac{1}{3} &amp; \frac{1}{6} &amp; \frac{1}{3}
-\end{array}\right]
-\]</span> 若一个离散无记忆信道的信道矩阵中，每一列都是其它列的同一组元素的不同排列，则称此类信道为<strong>离散输出对称信道</strong>，一个典型的离散输出对称信道矩阵为： <span class="math display">\[
-\mathbf{P}=\left[\begin{array}{ll}
-0.4 &amp; 0.6 \\
-0.6 &amp; 0.4 \\
-0.5 &amp; 0.5
-\end{array}\right]
-\]</span> 如果同时满足以上两个条件，则称之为<strong>离散对称信道</strong>，例如： <span class="math display">\[
-\mathbf{P}=\left[\begin{array}{ccc}
-\frac{1}{2} &amp; \frac{1}{3} &amp; \frac{1}{6} \\
-\frac{1}{6} &amp; \frac{1}{2} &amp; \frac{1}{3} \\
-\frac{1}{3} &amp; \frac{1}{6} &amp; \frac{1}{2}
-\end{array}\right]
-\]</span> 若一个离散无记忆信道，按照信道矩阵的行（即信道的输出集）可以将信道矩阵划分成<span class="math inline">\(n\)</span>个子矩阵，且每个子矩阵中的每一行（列）都是其它行（列）的同一组元素的不同排列，则称此类信道为<strong>离散准对称信道</strong>。例如下面的矩阵： <span class="math display">\[
-\mathbf{P}_2=\left[\begin{array}{lll}
-0.7 &amp; 0.1 &amp; 0.2 \\
-0.2 &amp; 0.1 &amp; 0.7
-\end{array}\right]
-\]</span> 可以划分为： <span class="math display">\[
-\left[\begin{array}{ll}
-0.7 &amp; 0.2 \\
-0.2 &amp; 0.7
-\end{array}\right]\left[\begin{array}{l}
-0.1 \\
-0.1
-\end{array}\right]
-\]</span> 离散准对称信道的最佳输入分布是等概分布。</p>
-<p>如果一个离散对称信道有<span class="math inline">\(r\)</span>个输入符号和<span class="math inline">\(s\)</span>个输出符号，则输入是等概分布时达到信道容量<span class="math inline">\(C\)</span>，且： <span class="math display">\[
-C=\log s-H\left(p_1^{\prime}, p_2^{\prime}, \cdots, p_s^{\prime}\right)
-\]</span> 其中<span class="math inline">\(p&#39;_1,p&#39;_2,\cdots,p&#39;_s\)</span>是信道矩阵中的任何一行。</p>
-<p>达到信道容量<span class="math inline">\(C\)</span>的概率分布是使输出为等概分布的信道输入分布。求离散对称信道的信道容量，实质是求一种输入分布<span class="math inline">\(p(x)\)</span>，它使输出熵<span class="math inline">\(H(Y)\)</span>达最大。<strong>对于对称信道，只有信道输入分布是等概分布时，输出才为等概分布。</strong></p>
-<p>对于<strong>离散无记忆 <span class="math inline">\(N\)</span>次扩展信道</strong>，其信道容量等于单变量信道的信道容量的 <span class="math inline">\(N\)</span>倍,即： <span class="math display">\[
-C^N=NC
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306031508669.png" srcset="/img/loading.gif" lazyload alt="旋转不变性" /><figcaption aria-hidden="true">旋转不变性</figcaption>
+</figure></li>
+<li><p>加法分配性（乘法不行）</p>
+<p>即两个图像之和的DFT等于两个图像分别DFT再求和。</p></li>
+<li><p>比例性 <span class="math display">\[
+f(a x, b y) \Leftrightarrow \frac{1}{|a b|} F\left(\frac{u}{a}, \frac{v}{b}\right)
+\]</span></p></li>
+<li><p>卷积定理、相关定理、帕塞瓦尔定理略。</p></li>
+</ul>
+<h3 id="离散图像变换的一般表达式">离散图像变换的一般表达式</h3>
+<p>如果说数字图像是<span class="math inline">\(N\times N\)</span>实矩阵<span class="math inline">\(f\)</span>，则数字图像处理的变换一般可以表示为： <span class="math display">\[
+F=PfQ
+\]</span> 如果<span class="math inline">\(P,Q\)</span>满秩，那么其反变换为： <span class="math display">\[
+f=P^{-1}FQ^{-1}
+\]</span> 如果写成分离的形式，就是： <span class="math display">\[
+F(u, v)=\sum_{x=0}^{N-1} \sum_{y=0}^{N-1} P(x, u) f(x, y) Q(v, y)
+\]</span> 重新审视二维DFT，有： <span class="math display">\[
+F(u, v)=\sum_{x=0}^{N-1} \sum_{y=0}^{N-1} \exp [-j 2 \pi(u x / N)] f(x, y) \exp [-j 2 \pi(v y / N)]
+\]</span> 其中 <span class="math display">\[
+\begin{aligned}
+&amp; P(x, u)=g_1(x, u)=\exp \{-j 2 \pi u x / N\} \\
+&amp; Q(y, v)=g_2(y, v)=\exp \{-j 2 \pi v y / N\}
+\end{aligned}
 \]</span></p>
-<h2 id="无失真信源编码">无失真信源编码</h2>
+<h3 id="沃尔什-哈达玛变换dwt-dht">沃尔什-哈达玛变换（DWT-DHT）</h3>
+<p>沃尔什变换的变换核为： <span class="math display">\[
+wal_p(i,u)=\prod_{k=0}^{p-1}(-1)^{(i)_k(u)_{p-k-1}}
+\]</span> 其中：</p>
+<ul>
+<li><span class="math inline">\((a)_b\)</span>表示<span class="math inline">\(a\)</span>的二进制中第<span class="math inline">\(b\)</span>位的值</li>
+<li><span class="math inline">\(p\)</span>表示总长度是<span class="math inline">\(2^p\)</span></li>
+</ul>
+<p>沃尔什变换的表示为： <span class="math display">\[
+W=\frac 1{N^2} GfG
+\]</span> 其中<span class="math inline">\(G\)</span>是沃尔什变换核矩阵。</p>
+<blockquote>
+<p>【例1】求序列<span class="math inline">\(f(i)=\{00110011\}^T\)</span>的沃尔什变换</p>
+<p>【解】此序列有<span class="math inline">\(2^3=8\)</span>位，取<span class="math inline">\(p=3\)</span>，有： <span class="math display">\[
+G=wal_3=
+\left[\begin{array}{cccccccc}
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\
+1 &amp; 1 &amp; 1 &amp; 1 &amp; -1 &amp; -1 &amp; -1 &amp; -1 \\
+1 &amp; 1 &amp; -1 &amp; -1 &amp; 1 &amp; 1 &amp; -1 &amp; -1 \\
+1 &amp; 1 &amp; -1 &amp; -1 &amp; -1 &amp; -1 &amp; 1 &amp; 1 \\
+1 &amp; -1 &amp; 1 &amp; -1 &amp; 1 &amp; -1 &amp; 1 &amp; -1 \\
+1 &amp; -1 &amp; 1 &amp; -1 &amp; -1 &amp; 1 &amp; -1 &amp; 1 \\
+1 &amp; -1 &amp; -1 &amp; 1 &amp; 1 &amp; -1 &amp; -1 &amp; 1 \\
+1 &amp; -1 &amp; -1 &amp; 1 &amp; -1 &amp; 1 &amp; 1 &amp; -1
+\end{array}\right]
+\]</span> 由公式： <span class="math display">\[
+\left[\begin{array}{c}
+W(0) \\
+W(1) \\
+\vdots \\
+W(N-1)
+\end{array}\right]=\frac{1}{N}[\text { wal }(N)]\left[\begin{array}{c}
+f(0) \\
+f(1) \\
+\vdots \\
+f(N-1)
+\end{array}\right]
+\]</span> 得： <span class="math display">\[
+W(i)=\left[\begin{array}{llllllll}
+\frac{1}{2} &amp; 0 &amp; -\frac{1}{2} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0
+\end{array}\right]^T
+\]</span></p>
+</blockquote>
+<p>对于二维沃尔什变换，有：</p>
+<blockquote>
+<p>【例2】求以下图像的沃尔什变换： <span class="math display">\[
+f=\left[\begin{array}{llll}
+1 &amp; 3 &amp; 3 &amp; 1 \\
+1 &amp; 3 &amp; 3 &amp; 1 \\
+1 &amp; 3 &amp; 3 &amp; 1 \\
+1 &amp; 3 &amp; 3 &amp; 1
+\end{array}\right]
+\]</span> 【解】其尺寸为<span class="math inline">\(2^2=4\)</span>，取<span class="math inline">\(p=2\)</span>，有： <span class="math display">\[
+G=\left[\begin{array}{cccc}
+1 &amp; 1 &amp; 1 &amp; 1 \\
+1 &amp; 1 &amp; -1 &amp; -1 \\
+1 &amp; -1 &amp; 1 &amp; -1 \\
+1 &amp; -1 &amp; -1 &amp; 1
+\end{array}\right]
+\]</span> 则 <span class="math display">\[
+W=\frac 1{16}GfG=
+\left[\begin{array}{cccc}
+2 &amp; 0 &amp; 0 &amp; -1 \\
+0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{array}\right]
+\]</span></p>
+</blockquote>
+<p>哈达玛变换本质上是一种特殊排序的沃尔什变换，不同之处仅是行的次序不一样，而且其矩阵有简单的递推关系： <span class="math display">\[
+H_2=\begin{bmatrix}
+1 &amp; 1\\
+1 &amp; -1
+\end{bmatrix}
+\]</span></p>
+<p><span class="math display">\[
+H_{2N}=\begin{bmatrix}
+H_N &amp; H_N\\
+H_N &amp; -H_N
+\end{bmatrix}
+\]</span></p>
 
                 
               </div>
@@ -568,7 +573,7 @@ C^N=NC
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E4%BF%A1%E6%81%AF%E8%AE%BA/">#信息论</a>
+        <a href="/tags/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">#数字图像处理</a>
       
     </div>
   
@@ -580,8 +585,8 @@ C^N=NC
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>信息论笔记·信道和编码</div>
-      <div>https://suzumiyaakizuki.github.io/2023/05/26/信息论笔记·信道和编码/</div>
+      <div>数字图像处理笔记</div>
+      <div>https://suzumiyaakizuki.github.io/2023/06/03/数字图像处理笔记/</div>
     </div>
     <div class="license-meta">
       
@@ -593,7 +598,7 @@ C^N=NC
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年5月26日</div>
+          <div>2023年6月3日</div>
         </div>
       
       
@@ -629,18 +634,12 @@ C^N=NC
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/06/03/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B0/" title="数字图像处理笔记">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">数字图像处理笔记</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/05/23/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86%C2%B7%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%9F%BA%E5%B8%A6%E4%BC%A0%E8%BE%93/" title="通信原理·数字信号基带传输">
-                        <span class="hidden-mobile">通信原理·数字信号基带传输</span>
+                      <a href="/2023/05/26/%E4%BF%A1%E6%81%AF%E8%AE%BA%E7%AC%94%E8%AE%B0%C2%B7%E4%BF%A1%E9%81%93%E5%92%8C%E7%BC%96%E7%A0%81/" title="信息论笔记·信道和编码">
+                        <span class="hidden-mobile">信息论笔记·信道和编码</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -661,7 +660,7 @@ C^N=NC
         var options = Object.assign(
           {"clientID":"48fb14f9689ae0d11307","clientSecret":"091ab25a88e87bfd9d9d40d97d1d0d932e694059","repo":"SuzumiyaAkizuki.github.io","owner":"SuzumiyaAkizuki","admin":["SuzumiyaAkizuki"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
           {
-            id: '23f4193f163329c8d2c6745675eb3904'
+            id: 'a0f14d675b983d2f3e7e93cf703410e0'
           }
         )
         var gitalk = new Gitalk(options);
