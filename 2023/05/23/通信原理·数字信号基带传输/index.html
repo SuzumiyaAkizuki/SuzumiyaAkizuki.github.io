@@ -16,16 +16,16 @@
   <meta name="author" content="SuzumiyaAkizuki">
   <meta name="keywords" content="">
   
-    <meta name="description" content="在之前的调制部分，我们解决了信号的调制和编码的问题。接下来，我们将对数字信号如何在信道中更高效地传输的问题进行讨论。 传输分为两种，即基带传输和通带传输。基带传输无需进行进一步调制，只需要直接在信道中传输编码后的数字脉冲信号（即01串方波），一般多用于非带限信道，有线传输。 通带传输需要借调制进行频谱搬移，用于带限信道，一般是无线传输，但是也可以用于有线传输，比如DVB-C。 非带限信道码型">
+    <meta name="description" content="在之前的调制部分，我们解决了信号的调制和编码的问题。接下来，我们将对数字信号如何在信道中更高效地传输的问题进行讨论。 传输分为两种，即基带传输和通带传输。基带传输无需进行进一步调制，只需要直接在信道中传输编码后的数字脉冲信号（即01串方波），一般多用于非带限信道，有线传输。 通带传输需要借调制进行频谱搬移，用于带限信道，一般是无线传输，但是也可以用于有线传输，比如DVB-C。 数字信号传输的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="通信原理·数字信号基带传输">
 <meta property="og:url" content="https://suzumiyaakizuki.github.io/2023/05/23/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86%C2%B7%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%9F%BA%E5%B8%A6%E4%BC%A0%E8%BE%93/index.html">
 <meta property="og:site_name" content="凉宫秋月的文艺部">
-<meta property="og:description" content="在之前的调制部分，我们解决了信号的调制和编码的问题。接下来，我们将对数字信号如何在信道中更高效地传输的问题进行讨论。 传输分为两种，即基带传输和通带传输。基带传输无需进行进一步调制，只需要直接在信道中传输编码后的数字脉冲信号（即01串方波），一般多用于非带限信道，有线传输。 通带传输需要借调制进行频谱搬移，用于带限信道，一般是无线传输，但是也可以用于有线传输，比如DVB-C。 非带限信道码型">
+<meta property="og:description" content="在之前的调制部分，我们解决了信号的调制和编码的问题。接下来，我们将对数字信号如何在信道中更高效地传输的问题进行讨论。 传输分为两种，即基带传输和通带传输。基带传输无需进行进一步调制，只需要直接在信道中传输编码后的数字脉冲信号（即01串方波），一般多用于非带限信道，有线传输。 通带传输需要借调制进行频谱搬移，用于带限信道，一般是无线传输，但是也可以用于有线传输，比如DVB-C。 数字信号传输的">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305262337751.jpg">
 <meta property="article:published_time" content="2023-05-23T02:58:47.000Z">
-<meta property="article:modified_time" content="2023-05-26T15:37:27.250Z">
+<meta property="article:modified_time" content="2023-06-06T15:59:54.629Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="通信原理">
 <meta name="twitter:card" content="summary_large_image">
@@ -267,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.6k 字
+          6.7k 字
         
       </span>
     
@@ -278,7 +278,7 @@
         
         
         
-          6 分钟
+          14 分钟
         
       </span>
     
@@ -336,6 +336,10 @@
                 <p>在之前的调制部分，我们解决了信号的调制和编码的问题。接下来，我们将对数字信号如何在信道中更高效地传输的问题进行讨论。</p>
 <p>传输分为两种，即基带传输和通带传输。基带传输无需进行进一步调制，只需要直接在信道中传输编码后的数字脉冲信号（即<code>01</code>串方波），一般多用于非带限信道，有线传输。</p>
 <p>通带传输需要借调制进行频谱搬移，用于带限信道，一般是无线传输，但是也可以用于有线传输，比如DVB-C。</p>
+<p>数字信号传输的方框图如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306061558358.png" srcset="/img/loading.gif" lazyload alt="数字信号传输方框图" /><figcaption aria-hidden="true">数字信号传输方框图</figcaption>
+</figure>
 <h2 id="非带限信道码型设计">非带限信道码型设计</h2>
 <p>码型设计是数字信息的电脉冲表示过程，其主要目的是使数字信息变换为适合于给定信道传输特性的频谱结构。其设计的基本原则有：</p>
 <ul>
@@ -428,6 +432,120 @@ g(t)=\frac{\sin (\omega_0t)}{\omega_0 t}
 <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305241608451.png" srcset="/img/loading.gif" lazyload alt="验证示意图" /><figcaption aria-hidden="true">验证示意图</figcaption>
 </figure>
 <p>更进一步，只需验证其频域函数是否以<span class="math inline">\(R_s/2=1/2T_s\)</span>为中心互补对称即可。</p>
+<p>频谱效率指的是单位频谱上所承载的通信速率，即 <span class="math display">\[
+\eta=\frac {R_b}{W}=\frac{R_s}{W}\log _2 M
+\]</span> 由奈奎斯特第一准则知，频谱效率有上界，即 <span class="math display">\[
+\eta \leq 2\log_2 M
+\]</span></p>
+<h3 id="升余弦成形滤波器">升余弦成形滤波器</h3>
+<p>理想低通滤波器是最好的，可是无法实现。在实际工程中，我们一般使用升余弦成型滤波器。其频域表达式为： <span class="math display">\[
+G(f)=\left\{\begin{array}{cl}
+T_s &amp; 0 \leq|f| \leq \frac{1-\alpha}{2 T_s} \\
+\frac{T_s}{2}\left\{1+\cos \left[\frac{\pi T_s}{\alpha}\left(|f|-\frac{1-\alpha}{2 T_s}\right)\right]\right\} &amp; \frac{1-\alpha}{2 T_s} \leq|f| \leq \frac{1+\alpha}{2 T_s} \\
+0 &amp; |f|&gt;\frac{1+\alpha}{2 T_s}
+\end{array}\right.
+\]</span> 可以看出：它是一个偶对称的函数，其下降沿起始于<span class="math inline">\(W=(1-\alpha)/(2T_s)\)</span>，终止于<span class="math inline">\(W=(1+\alpha)/(2T_s)\)</span>，带宽为 <span class="math display">\[
+W=\frac{1+\alpha}{2T_s}
+\]</span> 上面的式子太抽象了，看个图就清楚了：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306061538840.png" srcset="/img/loading.gif" lazyload alt="升余弦滤波器" /><figcaption aria-hidden="true">升余弦滤波器</figcaption>
+</figure>
+<p>直观来说，滚降系数<span class="math inline">\(\alpha\)</span>给出了下降沿的相对陡峭程度，其越小，下降沿越陡峭，频谱效率越高，物理上越难实现。一般不使用<span class="math inline">\(\alpha\leq 0.2\)</span>的升余弦滤波器。</p>
+<h2 id="最佳接收与匹配滤波">最佳接收与匹配滤波</h2>
+<p>在之前，我们假设了接收到的信号就是发射的信号，即信道的响应是<span class="math inline">\(H(f)=1\)</span>​。但是实际上，接收机前端会引入高斯白噪声，必须进行滤波处理，否则有大量带外噪声引入，影响通信质量。</p>
+<p>在分析噪声时，因为主要的噪声来源是接收机本身的热噪声，所以采取加性高斯白噪声模型。其双边功率谱为： <span class="math display">\[
+P_N(f)=\frac{n_0}{2}
+\]</span> 此时，考虑传输一个符号<span class="math inline">\(a\)</span>，成形脉冲是<span class="math inline">\(g(t)\)</span>，那么我们能够观测和处理的信号是 <span class="math display">\[
+Y(t)=ag(t)+N(t)
+\]</span> 最直接想到的方法就是在<span class="math inline">\(g(t)\)</span>的最高点进行直接采样，但是这并不是最优的，因为这是因为信号能量遍布整个<span class="math inline">\(g(t)\)</span>的非零区域。最佳的接受方案应该是尽可能的接收<span class="math inline">\(g(t)\)</span>的能量，同时尽可能不接受<span class="math inline">\(N(t)\)</span>的能量。我们可以用一个权函数<span class="math inline">\(h(t)\)</span>对信号<span class="math inline">\(Y(t)\)</span>进行加权，然后进行积分，即： <span class="math display">\[
+\hat{a}=\int_{-\infty}^{\infty} Y(t) h(t) d t=a \int_{-\infty}^{\infty} g(t) h(t) d t+\int_{-\infty}^{\infty} h(t) N(t) d t
+\]</span> 于是我们的问题就变成了怎么设计这个<span class="math inline">\(h(t)\)</span>。有定理：</p>
+<p>当且仅当<span class="math inline">\(h(t)=g(t)\)</span>时，信噪比 <span class="math display">\[
+S N R=\frac{\left[a \int_{-\infty}^{\infty} h(t) g(t) d t\right]^2}{E\left[\int_{-\infty}^{\infty} h(t) N(t) d t\right]^2}
+\]</span> 取得最大值，为： <span class="math display">\[
+S N R=\frac{a^2}{n_0 / 2} \int_{-\infty}^{\infty} g^2(t) d t
+\]</span></p>
+<blockquote>
+<p>【例】证明上面这个定理。</p>
+<p>【解】从函数空间的角度来看，<span class="math inline">\(N(t)\)</span>是白噪声，在各个方向上均匀分布，因此和任何方向的函数做内积，结果输出的平均能量都是相同的。有： <span class="math display">\[
+\begin{aligned}
+&amp;E\left[\left|\int_{-\infty}^{\infty} N(t) h(t) d t\right|^2\right]\\
+&amp;=\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} E[N(t) N(\tau)] h(t) h(\tau) d t d \tau\\
+&amp;=\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \frac{1}{2} n_0 \delta(t-\tau) h(t) h(\tau) d t d \tau\\
+&amp;=\frac{1}{2} n_0 \int_{-\infty}^{\infty} h^2(t) d t
+\end{aligned}
+\]</span> 于是，问题变成了求 <span class="math display">\[
+\frac{\left|\int_{-\infty}^{\infty} h(t) g(t) d t\right|^2}{\int_{-\infty}^{\infty} h^2(t) d t}
+\]</span> 的最大值的问题。也即，给定函数<span class="math inline">\(h(t)\)</span>的2-范数为1，最大化<span class="math inline">\(|\int h(t)g(t)dt|^2\)</span><sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="本文中，所有省略了积分上下界的积分，都表示积分是从负无穷到正无穷。">[1]</span></a></sup>，那么显然当<span class="math inline">\(h(t)\)</span>和<span class="math inline">\(g(t)\)</span>在函数空间中同方向时，这个内积最大。严格来说，根据柯西-施瓦茨不等式 <span class="math display">\[
+\left(\int_a^b f(x) g(x) d x\right)^2 \leq \int_a^b f^2(x) d x \int_a^b g^2(x) d x
+\]</span> 有： <span class="math display">\[
+\frac{\left|\int_{-\infty}^{\infty} h(t) g(t) d t\right|^2}{\int_{-\infty}^{\infty} h^2(t) d t} \leq \frac{\int_{-\infty}^{\infty} h^2(t) d t \int_{-\infty}^{\infty} g^2(t) d t}{\int_{-\infty}^{\infty} h^2(t) d t}=\int_{-\infty}^{\infty} g^2(t) d t
+\]</span> 证毕。</p>
+</blockquote>
+<p>于是，最佳接收的系统框图为：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306062207714.png" srcset="/img/loading.gif" lazyload alt="最佳接收系统框图" /><figcaption aria-hidden="true">最佳接收系统框图</figcaption>
+</figure>
+<p>我们可将此过程等效为<span class="math inline">\(Y(t)\)</span>通过一个线性系统，并对输出在<span class="math inline">\(t_0\)</span>时刻进行采样。因为上面这个线性系统蕴含了“匹配”的思想，因此被称为“匹配滤波器”。其冲激响应为： <span class="math display">\[
+h_m(t)=g(t_0-t)
+\]</span> <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306062229034.png" srcset="/img/loading.gif" lazyload alt="匹配滤波器和发送滤波器响应镜像对称" /></p>
+<h3 id="匹配滤波器的信噪比分析">匹配滤波器的信噪比分析</h3>
+<p>如果从一般的视角来分析匹配滤波器的信噪比增益，我们会发现是无穷大，因为<span class="math inline">\(Y(t)=s(t)+N(t)\)</span>​中噪声的功率是无穷大（因为功率谱密度是常数），因此它的信噪比是零，但是这显然没有什么意义。为了方便分析，我们将匹配滤波器等效为它本身与和它本身带宽相等理想低通滤波器的串联系统：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306062243827.png" srcset="/img/loading.gif" lazyload alt="匹配滤波器信噪比增益计算模型" /><figcaption aria-hidden="true">匹配滤波器信噪比增益计算模型</figcaption>
+</figure>
+<p>记匹配滤波器、成形滤波器和理想低通滤波器的带宽都是<span class="math inline">\(W\)</span>，然后可以用理想低通滤波器作为基准，来分析匹配滤波器对信噪比的增益。</p>
+<p><span class="math inline">\(Y(t)\)</span>通过理想滤波器以后，噪声的功率就被限制在了<span class="math inline">\(Wn_0\)</span>，注意到<span class="math inline">\(a^2\int g^2(t)dt\)</span>是一个符号的能量，而符号的速率是<span class="math inline">\(R_s\)</span>，所以信噪比为： <span class="math display">\[
+S N R_{i n}=\frac{R_s}{W} \frac{a^2}{n_0} \int_{-\infty}^{\infty} g^2(t) d t
+\]</span> 由前面的分析，匹配滤波后的信噪比是： <span class="math display">\[
+S N R=\frac{a^2}{n_0 / 2} \int_{-\infty}^{\infty} g^2(t) d t
+\]</span> 于是得到匹配滤波的增益是： <span class="math display">\[
+\lambda=\frac{2W}{R_s}
+\]</span> 可以看到：频谱效率越低，匹配滤波的信噪比增益越高。如果采取升余弦波形，那么它的增益和滚降系数有关，即： <span class="math display">\[
+\frac{2W}{R_s}=1+\alpha
+\]</span></p>
+<h3 id="根号奈奎斯特准则">根号奈奎斯特准则</h3>
+<p>在上述讨论中，我们仅仅传输了一个符号，而数字通信需要源源不断的传输间隔为<span class="math inline">\(T_s\)</span>的符号序列。此时，系统设计需要同时满足以下两个条件:</p>
+<ol type="1">
+<li>采样点无失真</li>
+<li>采样点信噪比最大</li>
+</ol>
+<p>回顾一下数字信号传输的框图：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306061606404.png" srcset="/img/loading.gif" lazyload alt="数字信号传输方框图" /><figcaption aria-hidden="true">数字信号传输方框图</figcaption>
+</figure>
+<p>实际上，我们需要让<span class="math inline">\(\hat G(f)=G(f)H(f)\)</span>满足奈奎斯特第一准则。</p>
+<p>因为匹配滤波器的频响是<span class="math inline">\(H(f)=G^*(f)\)</span>，所以有： <span class="math display">\[
+\hat G(f) = |G(f)|^2
+\]</span> 那么只需要这个等效的频响函数满足奈奎斯特第一准则，就能同时满足采样点无失真和采样点信噪比最大了。有： <span class="math display">\[
+\sum_{n=-\infty}^{\infty}\left|G\left(f+\frac{n}{T_s}\right)\right|^2=T_s
+\]</span> 这叫<strong>根号奈奎斯特准则</strong>。</p>
+<p>特别的，对于升余弦滤波器来说，如果<span class="math inline">\(G^2(f)\)</span>是升余弦滤波器，那么<span class="math inline">\(G(f)\)</span>叫做“根升余弦滤波器”。</p>
+<h3 id="等效基带模型">等效基带模型</h3>
+<p>为了对前两节（即应用根号奈奎斯特准则）的基带调制解调系统进行一个总体抽象，我们来看一下经过匹配滤波后<span class="math inline">\(kT_s\)</span>时刻的采样值： <span class="math display">\[
+Y(kT_s)=a_k \int_{-\infty}^{\infty} g^2(t) d t+\int_{-\infty}^{\infty} g(t) N\left(t+k T_s\right) d t
+\]</span> 等号两边同时除以<span class="math inline">\(E_g=\int g^2(t)dt\)</span>，并令： <span class="math display">\[
+n_k=\frac{\int_{-\infty}^{\infty} g(t) N\left(t+k T_s\right) d t}{\int_{-\infty}^{\infty} g^2(t) d t}
+\]</span> 则有： <span class="math display">\[
+y_k=\frac {Y(kT_S)}{E_g}=a_k+n_k
+\]</span> 其中<span class="math inline">\(n_k\)</span>符合高斯分布，均值为<span class="math inline">\(0\)</span>，方差为 <span class="math display">\[
+\frac{n_0}{2E_g}
+\]</span> 我们希望符号<span class="math inline">\(a_k\)</span>越大越好，但是发射机的平均功率有限制。其功率为： <span class="math display">\[
+P_s=E_sR_s
+\]</span> 即每个符号的能量乘以单位时间内传输符号的数目。有： <span class="math display">\[
+E_S=E[a_k^2]E_g
+\]</span> 令<span class="math inline">\(E_g=1\)</span>，则<span class="math inline">\(a_k\)</span>的取值满足： <span class="math display">\[
+E[a_k^2]=P_sT_s
+\]</span> 在等效基带模型中，<span class="math inline">\(y_k=a_k+n_k\)</span>，<span class="math inline">\(E[a_k^2]=E_s\)</span>，噪声能量<span class="math inline">\(E[n_k^2]=n_0/2\)</span>，平均信噪比<span class="math inline">\(2E_s/n_0\)</span>。</p>
+<section class="footnotes">
+<div class="footnote-list">
+<ol>
+<li>
+<span id="fn:1" class="footnote-text"><span>本文中，所有省略了积分上下界的积分，都表示积分是从负无穷到正无穷。 <a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩︎</a></span></span>
+</li>
+</ol>
+</div>
+</section>
 
                 
               </div>
