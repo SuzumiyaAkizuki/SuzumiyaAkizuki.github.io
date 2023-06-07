@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305262337751.jpg">
 <meta property="article:published_time" content="2023-05-23T02:58:47.000Z">
-<meta property="article:modified_time" content="2023-06-06T15:59:54.629Z">
+<meta property="article:modified_time" content="2023-06-07T01:43:11.241Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="通信原理">
 <meta name="twitter:card" content="summary_large_image">
@@ -267,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.7k 字
+          7.1k 字
         
       </span>
     
@@ -278,7 +278,7 @@
         
         
         
-          14 分钟
+          15 分钟
         
       </span>
     
@@ -537,6 +537,18 @@ E_S=E[a_k^2]E_g
 \]</span> 令<span class="math inline">\(E_g=1\)</span>，则<span class="math inline">\(a_k\)</span>的取值满足： <span class="math display">\[
 E[a_k^2]=P_sT_s
 \]</span> 在等效基带模型中，<span class="math inline">\(y_k=a_k+n_k\)</span>，<span class="math inline">\(E[a_k^2]=E_s\)</span>，噪声能量<span class="math inline">\(E[n_k^2]=n_0/2\)</span>，平均信噪比<span class="math inline">\(2E_s/n_0\)</span>。</p>
+<h2 id="最佳判决与差错概率">最佳判决与差错概率</h2>
+<p>回忆一下等效基带模型： <span class="math display">\[
+y_k=a_k+n_k
+\]</span> 观察到的是有噪声/干扰信号<span class="math inline">\(𝑦_𝑘\)</span>，需要根据观测值推断发送的符号<span class="math inline">\(𝑎_𝑘\)</span>，该过程称为判决。其中噪声满足<span class="math inline">\(n\sim N(\mu=0,\sigma^2=n_0/2)\)</span>，符号满足<span class="math inline">\(E[a^2]=E_s\)</span>。</p>
+<p>注意到<span class="math inline">\(y\)</span>的分布是整个实数域，而符号集合是一个离散的有限集合，所以符号判决的规范表达式为： <span class="math display">\[
+\varphi: \mathbb R \mapsto \mathbb{A}
+\]</span> 显然这是一个多对一的映射，其实和量化挺像的。</p>
+<h3 id="各种判决准则">各种判决准则</h3>
+<p>判决的根本目标是最小化错判概率，即： <span class="math display">\[
+p_e=\sum_{m=1}^M p_m\mathbf {Pr}\{\varphi(y)\neq a_m|a=a_m\}
+\]</span></p>
+<hr />
 <section class="footnotes">
 <div class="footnote-list">
 <ol>
