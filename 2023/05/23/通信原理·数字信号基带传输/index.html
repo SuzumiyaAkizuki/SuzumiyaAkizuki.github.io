@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305262337751.jpg">
 <meta property="article:published_time" content="2023-05-23T02:58:47.000Z">
-<meta property="article:modified_time" content="2023-06-07T01:43:11.241Z">
+<meta property="article:modified_time" content="2023-06-07T10:28:31.358Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="通信原理">
 <meta name="twitter:card" content="summary_large_image">
@@ -267,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7.1k 字
+          8.7k 字
         
       </span>
     
@@ -278,7 +278,7 @@
         
         
         
-          15 分钟
+          18 分钟
         
       </span>
     
@@ -547,6 +547,46 @@ y_k=a_k+n_k
 <h3 id="各种判决准则">各种判决准则</h3>
 <p>判决的根本目标是最小化错判概率，即： <span class="math display">\[
 p_e=\sum_{m=1}^M p_m\mathbf {Pr}\{\varphi(y)\neq a_m|a=a_m\}
+\]</span></p>
+<ol type="1">
+<li><p>极大似然准则</p>
+<p>极大似然准则的基本思想是在众多的<span class="math inline">\(a\)</span>中寻找一个<span class="math inline">\(a_m\)</span>，使得当发射的符号是<span class="math inline">\(a_m\)</span>时接收端观察到<span class="math inline">\(y\)</span>的可能性最大。即： <span class="math display">\[
+\varphi(y)=\underset{a_m \in \mathcal{A}}{\arg \max } \operatorname{Pr}\left\{y \mid a=a_m\right\}
+\]</span></p></li>
+<li><p>最小距离准则</p>
+<p>基于通信信号的收发关系模型<span class="math inline">\(𝑦 = 𝑎 + 𝑛\)</span>，我们可以对ML准则做进一步的简化，得到最小距离准则 <span class="math display">\[
+\varphi(y)=\arg \min_{a_m\in A}|y-a_m|
+\]</span> 也就是选择和<span class="math inline">\(y\)</span>距离最近的<span class="math inline">\(a_m\)</span>。</p>
+<p>把相邻两个许用符号的中点称作“判决门限”，把各个判决门限中间的区域称为“判决域”。</p></li>
+</ol>
+<h3 id="m元ask星座">M元ASK星座</h3>
+<p>符号集合<span class="math inline">\(𝔸\)</span>直观地被称为星座图，对其的设计在数字通信中又被称为星座设计。在一维空间上，最佳的<span class="math inline">\(M\)</span>元星座是零均值、等概分布的，这样可以使得平均差错概率最小化。</p>
+<p>双极性ASK星座可以表示为： <span class="math display">\[
+\mathbb A =\{-(M-1)A,\cdots,-3A,-A,A,3A,\cdots,(M-1)A\}
+\]</span> 其中符号半间隔为 <span class="math display">\[
+A=\sqrt{\frac{3E_s}{M^2-1}}
+\]</span></p>
+<h3 id="数字基带传输的差错分析方法">数字基带传输的差错分析方法</h3>
+<p>首先来点基础知识：标准正态截尾分布函数 <span class="math display">\[
+Q(u)=\int ^{\infty}_u \frac 1{\sqrt{2\pi}}\exp\left(\frac{-x^2}{2}\right) \mathbf dx
+\]</span> 这是把标准整体分布函数从一个点<span class="math inline">\(u\)</span>开始往后作积分，也就是一个符合标准正态分布的变量大于<span class="math inline">\(u\)</span>的概率。</p>
+<p>以前面的“双极性ASK星座”为例，进行分析。</p>
+<p>第一步，对于在两边的星座点<span class="math inline">\(-(M-1)A\)</span>和<span class="math inline">\((M-1)A\)</span>来说，以<span class="math inline">\(-(M-1)A\)</span>为例，当噪声<span class="math inline">\(n&gt;A\)</span>时，<span class="math inline">\(y&gt;-(M-2)A\)</span>，此时就会产生误判。于是条件差错概率为： <span class="math display">\[
+\int^\infty_A\frac{1}{\sqrt{\pi n_0}}\exp \left(-\frac {x^2}{n_0}\right) \mathbf dx
+\]</span> 针对任何概率形式，我们都需要将其标准正态变量(也就是<span class="math inline">\(A/\sqrt{n_0/2}\)</span>)的统计函数，在上式中，令<span class="math inline">\(z=x/\sqrt{n_0/2}\)</span>，则有： <span class="math display">\[
+p_1=\int^{\infty}_{\frac {A}{\sqrt{n_0/2}}} \frac 1{\sqrt {2\pi}}\exp\left(-\frac{z^2}{2}\right)\mathbf dz=Q\left(\frac{A}{\sqrt {n_0/2}}\right)
+\]</span> 对于在中间的星座点，如果噪声<span class="math inline">\(n\)</span>取值过大（<span class="math inline">\(n&gt;A\)</span>）或者过小（<span class="math inline">\(n&lt;-A\)</span>），都会出错，所以出错的概率为： <span class="math display">\[
+p_2=2Q\left(\frac{A}{\sqrt {n_0/2}}\right)
+\]</span> 第二步，综合一下，就得到平均误符号率： <span class="math display">\[
+p_s=\frac 1M (2p_1+(M-2)p_2)=\frac {2(M-1)}{M}Q\left(\frac A{\sqrt{n_0/2}}\right)
+\]</span> 第三步，计算<span class="math inline">\(A\)</span>和<span class="math inline">\(E_s\)</span>之间的关系，有： <span class="math display">\[
+E_s=\frac 2M\sum_{i=0}^{2i+1\leq M-1} [(2i+1)A]^2=\frac{M^2-1}{3}A^2
+\]</span> 于是 <span class="math display">\[
+A=\sqrt{\frac{3E_s}{M^2-1}}
+\]</span> 代入，有： <span class="math display">\[
+p_s=\frac {2(M-1)}{M}Q\left(\sqrt{\frac{6E_s}{(M^2-1)n_0}}\right)
+\]</span> 然后计算误比特率BER，一般来说，比特和符号之间的映射采用格雷码，信噪比较高时有： <span class="math display">\[
+p_b=\frac {p_s}{\log _2M}
 \]</span></p>
 <hr />
 <section class="footnotes">
