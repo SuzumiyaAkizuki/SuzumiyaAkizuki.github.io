@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305262312301.jpg">
 <meta property="article:published_time" content="2023-05-26T12:50:51.000Z">
-<meta property="article:modified_time" content="2023-05-27T09:39:35.654Z">
+<meta property="article:modified_time" content="2023-06-08T16:12:42.009Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="信息论">
 <meta name="twitter:card" content="summary_large_image">
@@ -267,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.4k 字
+          6.8k 字
         
       </span>
     
@@ -278,7 +278,7 @@
         
         
         
-          11 分钟
+          14 分钟
         
       </span>
     
@@ -535,6 +535,81 @@ C=\log s-H\left(p_1^{\prime}, p_2^{\prime}, \cdots, p_s^{\prime}\right)
 C^N=NC
 \]</span></p>
 <h2 id="无失真信源编码">无失真信源编码</h2>
+<p>将信源产生的全部信息无损地送给信宿，这种信源编码称无失真信源编码。编码可以分为：</p>
+<ul>
+<li>定长码：所有码字长度相等的码</li>
+<li>变长码：码字长度可能不相等的码</li>
+</ul>
+<p>或者</p>
+<ul>
+<li>奇异码：码组中有相同的码字</li>
+<li>非奇异码：码组中没有相同的码字</li>
+</ul>
+<h3 id="分组码">分组码</h3>
+<p>分组码指的是把信源符号集中的每一个符号<span class="math inline">\(s_i\)</span>都映射成一个固定的码字<span class="math inline">\(w_i\)</span>的编码规则。</p>
+<p>设信源符号<span class="math inline">\(s_i\)</span>映射为一个固定的码字<span class="math inline">\(w_i\)</span>，则码<span class="math inline">\(\alpha_j=(s_{j_1},s_{j_2}\cdots s_{j_n})\)</span>映射为<span class="math inline">\(W_j=(w_{j_1},w_{j_2},\cdots,w_{j_n})\)</span>的分组码称为原分组码的<span class="math inline">\(N\)</span>次扩展码。</p>
+<p>分组码能正确译码的必要条件是非奇异，这很直观，但是并不是充分的。</p>
+<p>如果一个分组码对于任意的正整数<span class="math inline">\(N\)</span>，其<span class="math inline">\(N\)</span>次扩展码都是非奇异的，那么这样的分组码叫做<strong>唯一可译码</strong>，这是分组码能正确译码的充要条件。</p>
+<p>虽然都是唯一可译码，但是译码方式仍有不同。考虑以下两种码：</p>
+<table>
+<thead>
+<tr class="header">
+<th>符号</th>
+<th>码1</th>
+<th>码2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>10</td>
+<td>01</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>100</td>
+<td>001</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>1000</td>
+<td>0001</td>
+</tr>
+</tbody>
+</table>
+<p>对于码1来说，我接收到一个消息，比如<code>10</code>，此时我并不知道符号是<code>2</code>、<code>3</code>还是<code>4</code>。直到下一个符号到达，我接收到的消息变成<code>101...</code>，我才知道前面的符号是<code>2</code>。但是对于码2，当我接收到<code>01</code>时，我立刻就能知道这个符号是<code>2</code>。 把像码2这种接收到一个码字就能立刻译码的唯一可译码称为“<strong>即时码</strong>”。一个唯一可译码是即时码的充要条件是其中任何一个码都不是其它码的前缀。</p>
+<h3 id="定长码">定长码</h3>
+<h4 id="唯一可译定长码">唯一可译定长码</h4>
+<p>对于有<span class="math inline">\(q\)</span>个符号的简单信源的<span class="math inline">\(N\)</span>次扩展信源，其存在基本码符号数为<span class="math inline">\(r\)</span>，扩展信源<span class="math inline">\(S^N\)</span>定长编码码长为<span class="math inline">\(L\)</span>的唯一可译码的条件为： <span class="math display">\[
+q^N\leq r^L
+\]</span> 这个定理更常用的形式是：唯一可译定长码的最短码长为： <span class="math display">\[
+L\geq N\frac{\log q}{\log r}
+\]</span></p>
+<h4 id="定长信源编码定理">定长信源编码定理</h4>
+<p>引理：设离散无记忆信源的熵为<span class="math inline">\(H(S)\)</span>，用码符号集<span class="math inline">\(X=(x_1,x_2\cdots x_r)\)</span>对<span class="math inline">\(S^N\)</span>进行长度为<span class="math inline">\(L\)</span>的定长编码，<span class="math inline">\(\forall \epsilon &gt;0,\delta&gt;0\)</span>，如果 <span class="math display">\[
+\frac LN \log r\geq H(s)+\epsilon
+\]</span> 则<span class="math inline">\(N\)</span>足够大时，译码错误率小于<span class="math inline">\(\delta\)</span>，反之，如果 <span class="math display">\[
+\frac LN \log r\leq H(s)-2\epsilon
+\]</span> 则<span class="math inline">\(N\)</span>足够大时，译码错误趋向于<span class="math inline">\(1\)</span>.</p>
+<p>也就是说，当 <span class="math display">\[
+L\log r&gt;NH(s)
+\]</span> 即码长为<span class="math inline">\(L\)</span>的符号序列能携带的最大信息量大于<span class="math inline">\(N\)</span>次扩展信源的信息熵时，<span class="math inline">\(N\)</span>足够大时，就可以近似实现无失真传输。</p>
+<p>对于定长编码，定义编码速率: <span class="math display">\[
+R=\frac{L\log r}{N}
+\]</span> 编码效率： <span class="math display">\[
+\eta = \frac {H(s)}{R}
+\]</span> 由定长信源编码定理知道，最佳编码效率为： <span class="math display">\[
+\eta = \frac{H(s)}{H(s)+\epsilon}
+\]</span> 如果允许错误概率<span class="math inline">\(p_e&lt;\delta\)</span>，信源长度<span class="math inline">\(N\)</span>要满足： <span class="math display">\[
+N\geq \frac{D[I(s_i)]}{\epsilon^2\delta}
+\]</span> 其中<span class="math inline">\(D[I(s_i)]\)</span>是自信息量的方差。代入，有： <span class="math display">\[
+N\geq \frac{D[I(s_i)]}{H^2(s)}\frac{\eta^2}{(1-\eta)^2\delta}
+\]</span></p>
 
                 
               </div>
