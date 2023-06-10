@@ -16,16 +16,16 @@
   <meta name="author" content="SuzumiyaAkizuki">
   <meta name="keywords" content="">
   
-    <meta name="description" content="虽然这里名叫数字通信，但是需要注意的是，数字通信实际包含三部分内容，即  数字信号基带传输 数字调制 差错控制编码  但是因为如果单个文件太大、公式太多，写起来会有点卡顿，看起来也比较费劲，所以拆成两篇文章。这篇文章的主要内容是数字调制和差错控制编码。 差错控制编码 在实际信道上传输数字信号时，由于信道传输特性不理想及加性噪声的影响，接收端所收到的数字信号不可避免地会发生错误。为了">
+    <meta name="description" content="虽然这里名叫数字通信，但是需要注意的是，数字通信实际包含三部分内容，即  数字信号基带传输 数字调制 差错控制编码  但是因为如果单个文件太大、公式太多，写起来会有点卡顿，看起来也比较费劲，所以拆成两篇文章。这篇文章的主要内容是数字调制和差错控制编码。 数字调制 二进制调制OOK 把幅度为\(2A\)的单极性非归零码按DSB方式进行调制，得到的就是单极性二进制幅移键控（2ASK）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="通信原理笔记·数字通信">
 <meta property="og:url" content="https://suzumiyaakizuki.github.io/2023/06/09/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0%C2%B7%E6%95%B0%E5%AD%97%E9%80%9A%E4%BF%A1/index.html">
 <meta property="og:site_name" content="凉宫秋月的文艺部">
-<meta property="og:description" content="虽然这里名叫数字通信，但是需要注意的是，数字通信实际包含三部分内容，即  数字信号基带传输 数字调制 差错控制编码  但是因为如果单个文件太大、公式太多，写起来会有点卡顿，看起来也比较费劲，所以拆成两篇文章。这篇文章的主要内容是数字调制和差错控制编码。 差错控制编码 在实际信道上传输数字信号时，由于信道传输特性不理想及加性噪声的影响，接收端所收到的数字信号不可避免地会发生错误。为了">
+<meta property="og:description" content="虽然这里名叫数字通信，但是需要注意的是，数字通信实际包含三部分内容，即  数字信号基带传输 数字调制 差错控制编码  但是因为如果单个文件太大、公式太多，写起来会有点卡顿，看起来也比较费劲，所以拆成两篇文章。这篇文章的主要内容是数字调制和差错控制编码。 数字调制 二进制调制OOK 把幅度为\(2A\)的单极性非归零码按DSB方式进行调制，得到的就是单极性二进制幅移键控（2ASK）">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306092248926.jpg">
 <meta property="article:published_time" content="2023-06-09T08:18:00.000Z">
-<meta property="article:modified_time" content="2023-06-10T07:42:31.977Z">
+<meta property="article:modified_time" content="2023-06-10T14:18:30.825Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="通信原理">
 <meta name="twitter:card" content="summary_large_image">
@@ -267,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          8.4k 字
+          13k 字
         
       </span>
     
@@ -278,7 +278,7 @@
         
         
         
-          17 分钟
+          26 分钟
         
       </span>
     
@@ -340,6 +340,202 @@
 <li>差错控制编码</li>
 </ul>
 <p>但是因为如果单个文件太大、公式太多，写起来会有点卡顿，看起来也比较费劲，所以拆成两篇文章。这篇文章的主要内容是数字调制和差错控制编码。</p>
+<h2 id="数字调制">数字调制</h2>
+<h3 id="二进制调制ook">二进制调制OOK</h3>
+<p>把幅度为<span class="math inline">\(2A\)</span>的单极性非归零码按DSB方式进行调制，得到的就是单极性二进制幅移键控（2ASK），也叫二进制启闭键控（OOK），系统框图如下（其实就是DSB调制的框图）：</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306101922269.png" srcset="/img/loading.gif" lazyload alt="OOK框图" style="zoom:25%;" /></p>
+<p>即： <span class="math display">\[
+s(t)=a(t)\sqrt 2 \cos(2\pi f_ct+\phi)
+\]</span> 调制信号波形示意图如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306101926854.png" srcset="/img/loading.gif" lazyload alt="OOK波形" /><figcaption aria-hidden="true">OOK波形</figcaption>
+</figure>
+<p>波形功率谱密度为：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306101930718.png" srcset="/img/loading.gif" lazyload alt="OOK功率谱" /><figcaption aria-hidden="true">OOK功率谱</figcaption>
+</figure>
+<p>可以看出，这个功率谱旁瓣比较高，不是很好。那咋办呢？一种常见的设计就是加个成形滤波。我们采用根升余弦成形滤波，则波形图如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306101932719.png" srcset="/img/loading.gif" lazyload alt="根升余弦OOK波形图" /><figcaption aria-hidden="true">根升余弦OOK波形图</figcaption>
+</figure>
+<p>功率谱如下：</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306101932930.png" srcset="/img/loading.gif" lazyload alt="根升余弦功率谱" style="zoom:50%;" /></p>
+<p>看着是不是顺眼多了。其带宽为 <span class="math display">\[
+\frac{1+\alpha}{T_b}
+\]</span> 里面的<span class="math inline">\(\alpha\)</span>是根升余弦滤波器的滚降因子。频谱效率为<span class="math inline">\(1/(1+\alpha)\)</span></p>
+<p>在解调时，因为是DSB信号，所以可以用DSB信号的解调方法，比如相干解调</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306101941159.png" srcset="/img/loading.gif" lazyload alt="相干解调" /><figcaption aria-hidden="true">相干解调</figcaption>
+</figure>
+<p>其中MF是匹配滤波器，如果<span class="math inline">\(g(t)\)</span>是矩形窗，那么MF是积分清零器。</p>
+<p>B点基带输入信号、噪声功率谱密度与上一章匹配滤波器输入信号、噪声功率谱密度完全一致，C点判决误符号率为 <span class="math display">\[
+p_s=Q\left(\frac A{\sqrt{n_0/2}}\right)
+\]</span> 因为<span class="math inline">\(E_b=E_s=\frac 12(0+4A^2)\)</span>，所以 <span class="math display">\[
+p_b=Q\left(\sqrt{\frac{E_b}{n_0}}\right)
+\]</span></p>
+<p>此外，还可以使用包络检波器进行非相干解调。非相干解调的误比特率比相干解调略高，信噪比差在匹配滤波上。</p>
+<h3 id="其余二进制调制">其余二进制调制</h3>
+<h4 id="bpsk">BPSK</h4>
+<p>对单极性非归零码进行相位调制，得到BPSK信号，框图如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306102009621.png" srcset="/img/loading.gif" lazyload alt="BPSK框图" /><figcaption aria-hidden="true">BPSK框图</figcaption>
+</figure>
+<p>信号表达式为： <span class="math display">\[
+s(t)=A\sqrt 2cos [2\pi f_ct+\pi  a(t)]
+\]</span> 其波形是在两种相反的相位（<span class="math inline">\(0,\pi\)</span>）之间切换的正弦波，即：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306102010341.png" srcset="/img/loading.gif" lazyload alt="BPSK波形" /><figcaption aria-hidden="true">BPSK波形</figcaption>
+</figure>
+<p>它也可以理解为一个DSB信号，即：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306102011550.png" srcset="/img/loading.gif" lazyload alt="BPSK调制（DSB版）" /><figcaption aria-hidden="true">BPSK调制（DSB版）</figcaption>
+</figure>
+<p>它和前面的OOK都是2ASK，不过其中一个的幅度是<span class="math inline">\(\{0,A\}\)</span>,而另一个是<span class="math inline">\(\{-A,A\}\)</span></p>
+<p>与OOK相比，其功率谱中没有冲击分量，其余的形状和参数基本类似。</p>
+<p>在解调上，包络检波器显然是不能用了，所以只能相干解调。输出判决误符号率是 <span class="math display">\[
+p_s=Q\left(\frac A{\sqrt{n_0/2}}\right)
+\]</span> 但是因为<span class="math inline">\(E_b=E_s=\frac 12 (A^2+A^2)\)</span>，所以： <span class="math display">\[
+p_b=Q\left(\sqrt{\frac{2E_b}{n_0}}\right)
+\]</span> 在相同<span class="math inline">\(E_b/n_0\)</span>的条件下，BPSK的误比特率比OOK更低.</p>
+<h4 id="二进制频移键控2fsk">二进制频移键控2FSK</h4>
+<p>把单极性非归零码进行FM调制，就得到2FSK。</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306102024865.png" srcset="/img/loading.gif" lazyload alt="image-20230610202459784" style="zoom:25%;" /></p>
+<p>信号表达式为： <span class="math display">\[
+s(t)=A \sqrt{2} \cos \left[2 \pi f_c t+2 \pi K_{F M} \int_{-\infty}^t a(\tau) d \tau\right]
+\]</span> 波形如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306102025565.png" srcset="/img/loading.gif" lazyload alt="2FSK波形" /><figcaption aria-hidden="true">2FSK波形</figcaption>
+</figure>
+<p>当然，如果至少为了实现频率切换，其实还有更方便的方法：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306102027135.png" srcset="/img/loading.gif" lazyload alt="更方便的2FSK" /><figcaption aria-hidden="true">更方便的2FSK</figcaption>
+</figure>
+<p>特别注意：这两个框图并不等价，主要差别在相位是否连续。第二个框图的表达式为 <span class="math display">\[
+s(t)=\left\{\begin{array}{l}
+s_1(t)=A \sqrt{2} \cos \left(2 \pi f_1 t+\phi_1\right), a(t)=0 \\
+s_2(t)=A \sqrt{2} \cos \left(2 \pi f_2 t+\phi_2\right), a(t)=1
+\end{array}\right.
+\]</span> 波形如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306102032579.png" srcset="/img/loading.gif" lazyload alt="image-20230610203256495" /><figcaption aria-hidden="true">image-20230610203256495</figcaption>
+</figure>
+<p>在实践中，一般要求这两个载波信号相互正交，具体来说，就是： <span class="math display">\[
+\frac{1}{T_s} \int_{k T_s}^{(k+1) T_s} s_1(t) s_2(t) d t=0
+\]</span> 满足要求的最小频差为<span class="math inline">\(1/2T_b\)</span></p>
+<p>对于上面的那个表达式，可以改写为： <span class="math display">\[
+s(t)=  {[1-a(t)] A \cdot \sqrt{2} \cos \left(2 \pi f_1 t+\phi_1\right)+}a(t) A \cdot \sqrt{2} \cos \left(2 \pi f_2 t+\phi_2\right)
+\]</span> 这就是两个OOK之和</p>
+<p>所以它的功率谱密度也是两个OOK之和，即：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306102036246.png" srcset="/img/loading.gif" lazyload alt="image-20230610203610136" /><figcaption aria-hidden="true">image-20230610203610136</figcaption>
+</figure>
+<p>主瓣带宽为<span class="math inline">\(2R_b+\Delta f\)</span></p>
+<p>2FSK一般不用根升余弦脉冲来改善旁瓣，因为这是因为2FSK系统具有恒定的包络，而根号升余弦脉冲成形后的信号包络不是常数（恒包络调制容易实现高发射功率）。</p>
+<p>因为是两个OOK之和，所以既可以用相干解调，也可以用非相干解调，误比特率也和OOK一样，为： <span class="math display">\[
+p_b=Q\left(\sqrt{\frac{E_b}{n_0}}\right)
+\]</span> 在相同<span class="math inline">\(E_b/n_0\)</span>的条件下，2FSK和OOK有相同的抗噪声性能</p>
+<p>但如果载波幅度𝐴相同，则OOK的平均比特能量比2FSK小一半，此时OOK的误比特率比2FSK高</p>
+<h4 id="二进制差分相移键控2dpsk">二进制差分相移键控2DPSK</h4>
+<p>若将输入的比特序列先进行差分编码，然后进行BPSK调制，如下图所示，便形成了二进制差分相移键控.</p>
+<p>波形如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306102050391.png" srcset="/img/loading.gif" lazyload alt="2DPSK" /><figcaption aria-hidden="true">2DPSK</figcaption>
+</figure>
+<p>图中是传号差分，即<span class="math inline">\(d=0\)</span>时相位不变，<span class="math inline">\(d=1\)</span>时相位翻转。</p>
+<p>因为2DPSK从本质上来说还是BPSK，所以可以相干解调。但是2DPSK信息携带在前后两个比特的已调信号相位差上，因此其解调也可以直接检测这个相位差。这种方法叫差分相干解调，如下图所示。因为不需要提取载波，故其属于非相干解调。</p>
+<p>差分译码器的输出是 <span class="math display">\[
+\hat d_k=\hat c_k \oplus \hat c_{k-1}
+\]</span> 所以2DPSK相干解调误比特率是 <span class="math display">\[
+P_s=P_b=2 Q\left(\sqrt{\frac{2 E_b}{n_0}}\right)\left[1-Q\left(\sqrt{\frac{2 E_b}{n_0}}\right)\right]
+\]</span> 近似为BPSK的两倍，而且会出现误码传播情况。</p>
+<p>直观看一下各个二进制调制的误比特率：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306102101982.png" srcset="/img/loading.gif" lazyload alt="误比特率曲线" /><figcaption aria-hidden="true">误比特率曲线</figcaption>
+</figure>
+<h3 id="正交相移键控qpsk">正交相移键控QPSK</h3>
+<p>可在BPSK的基础上叠加另一个正交载波的BPSK，两个BPSK各传一半数据，如下图所示，这种方式称为正交相移键控（QPSK）</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306102126707.png" srcset="/img/loading.gif" lazyload alt="QPSK" /><figcaption aria-hidden="true">QPSK</figcaption>
+</figure>
+<p>在QPSK中，因为数据被串并转换了，所以符号间隔<span class="math inline">\(T_s=2T_b\)</span>。</p>
+<p>发送单个符号<span class="math inline">\((a_{I,k},a_{Q,k})\)</span>时QPSK的数学表达式为： <span class="math display">\[
+\begin{aligned}
+s(t)=  \sqrt{2} A a_{I, k} g\left(t-k T_s\right) \cos \left(2 \pi f_c t+\phi\right)- 
+ \sqrt{2} A a_{Q, k} g\left(t-k T_s\right) \sin \left(2 \pi f_c t+\phi\right)
+\end{aligned}
+\]</span> 化简得： <span class="math display">\[
+s(t)=2 g\left(t-k T_s\right) \cos \left(2 \pi f_c t+\phi+\theta_k\right)
+\]</span> 其中信号控制的是<span class="math inline">\(\theta_k\)</span>，如下：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306102145570.png" srcset="/img/loading.gif" lazyload alt="QPSK相位数据对应表" /><figcaption aria-hidden="true">QPSK相位数据对应表</figcaption>
+</figure>
+<p>星座图为：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306102145947.png" srcset="/img/loading.gif" lazyload alt="image-20230610214557879" /><figcaption aria-hidden="true">image-20230610214557879</figcaption>
+</figure>
+<p>其功率谱密度是BPSK的两倍。</p>
+<p>对QPSK的解调可以用I/Q两路BPSK解调器组合而成，每个BPSK的误比特率是 <span class="math display">\[
+p_b=Q\left(\sqrt{\frac{2E_b}{n_0}}\right)
+\]</span> 所以QPSK的误符号率是 <span class="math display">\[
+p_s=1-(1-p_b)^2
+\]</span> 当信噪比较高时，误符号率近似是误比特率的2倍</p>
+<h4 id="oqpsk">OQPSK</h4>
+<p>在普通QPSK中，有时候会出现包络起伏比较严重的情况。为了降低包络起伏程度，可以把两路信号在时间上错开，错开零点，这就叫OQPSK</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306102151092.png" srcset="/img/loading.gif" lazyload alt="QPSK和OQPSK" /><figcaption aria-hidden="true">QPSK和OQPSK</figcaption>
+</figure>
+<p>在发送端，将Q路的信号延迟<span class="math inline">\(T_b=T_s/2\)</span>即可。其功率谱、误码率等和QPSK相同。</p>
+<h4 id="恒包络调制msk">恒包络调制MSK</h4>
+<p>为了降低非线性失真的影响，希望数字调制的输出信号有较低的包络起伏。OQPSK就是为此目的提出的，它通过将Q路错开𝑇𝑏时间使包络的起伏显著减小。包络起伏最小的情况是无起伏，即包络是常数。包络是常数的调制称为恒包络调制。</p>
+<p>在2FSK中，若FM调制的设计能使2FSK信号的两个频率的频差成为保持正交的最小间隔<span class="math inline">\(1/2T_s\)</span>，那就得到了最小频移键控MSK。</p>
+<p>有： <span class="math display">\[
+s(t)==A \cos \left[2 \pi f_{\mathrm{c}} t+2 \pi K_{\mathrm{FM}} \int_{-\infty}^t a(\tau) \mathrm{d} \tau\right]
+\]</span> 其相位有： <span class="math display">\[
+\frac{\mathrm{d}}{\mathrm{d} t} \varphi(t)=\frac{\pi}{2 T_{\mathrm{b}}} \cdot a(t)=\frac{\pi}{2 T_{\mathrm{b}}} \cdot \sum_{i=-\infty}^{\infty} b_i g\left(t-i T_{\mathrm{b}}\right)
+\]</span> 其中<span class="math inline">\(a(t)\)</span>是取值于<span class="math inline">\(\pm1\)</span>的双极性NRZ信号，<span class="math inline">\(g(t)\)</span>是持续时间为<span class="math inline">\([0,Ts]\)</span>,高度为1的矩形脉冲。<span class="math inline">\(b\in\{±1\}\)</span>代表双极性NRZ信号所携带的二进制数据。</p>
+<p>MSK是用FM形成的，而不是用开关形成的，相位是连续的，而且可以绘出相位路径：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306102212833.png" srcset="/img/loading.gif" lazyload alt="MSK相位路径" /><figcaption aria-hidden="true">MSK相位路径</figcaption>
+</figure>
+<p>其在每一个比特间隔中都是连续线性变化，往上走还是往下走取决于<span class="math inline">\(b_i\)</span>的取值。如果<span class="math inline">\(b_i\)</span>是<span class="math inline">\(1\)</span>，那就是往上走，否则如果<span class="math inline">\(b_i=-1\)</span>就是往下走。</p>
+<p>事实上如果OQASK使用了一种特殊的成型脉冲：</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306102216057.png" srcset="/img/loading.gif" lazyload alt="特殊地成型脉冲" style="zoom:25%;" /></p>
+<p>那它就是MSK。所以MSK的功率谱可以从OQPSK得到。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306102217064.png" srcset="/img/loading.gif" lazyload alt="MSK和QPSK的功率谱" /><figcaption aria-hidden="true">MSK和QPSK的功率谱</figcaption>
+</figure>
+<p>MSK的主瓣带宽是<span class="math inline">\(1.5/𝑇_𝑏\)</span>，QPSK的主瓣带宽是<span class="math inline">\(1/𝑇_𝑏\)</span></p>
+<h3 id="高阶调制">高阶调制</h3>
+<h4 id="mask">MASK</h4>
+<p>类比于2ASK，其中M是符号数。在功率谱上，双极性MASK信号与BPSK一致（没有线谱），单极性MASK信号与OOK一致（有线谱）。MASK的误符号率已经在“数字信号基带传输”里分析过了。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306102154836.png" srcset="/img/loading.gif" lazyload alt="双极性MASK误符号率曲线" /><figcaption aria-hidden="true">双极性MASK误符号率曲线</figcaption>
+</figure>
+<h4 id="qam">QAM</h4>
+<p>类似于用俩载波正交BPSK构成QPSK，也可以用俩载波正交ASK构成QAM。</p>
+<p>MQAM是由两路<span class="math inline">\(\sqrt M\)</span>ASK组成的：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306102157477.png" srcset="/img/loading.gif" lazyload alt="16QAM" /><figcaption aria-hidden="true">16QAM</figcaption>
+</figure>
+<p>误符号率： <span class="math display">\[
+p_s=1-\left(1-p_{s, \mathrm{ASK}}\right)^2 \approx \frac{4(\sqrt{M}-1)}{\sqrt{M}} Q\left(\sqrt{\frac{3}{M-1} \frac{E_s}{n_0}}\right)
+\]</span></p>
+<h4 id="mfsk">MFSK</h4>
+<p>MFSK的星座图是在M维欧氏空间的每个坐标轴上放一个点。</p>
+<p>对某一个载频来说，开关时而接通，时而断开，形成一个OOK。因此可将MFSK信号看成是M个OOK信号的叠加。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306102202551.png" srcset="/img/loading.gif" lazyload alt="MFSK框图" /><figcaption aria-hidden="true">MFSK框图</figcaption>
+</figure>
+<p>主瓣带宽为： <span class="math display">\[
+B=\left|f_M-f_1\right|+2 R_s
+\]</span> 在频差按最佳设计的情况下，相邻载波的频差是1/(2𝑇𝑠 )=𝑅𝑠/2，主瓣带宽为 <span class="math display">\[
+B=\frac{M-1}{2} R_s+2 R_s=\frac{M}{2} R_s+1.5 R_s
+\]</span></p>
+<h4 id="mpsk">MPSK</h4>
+<p>MPSK的星座分布在圆上</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306102209338.png" srcset="/img/loading.gif" lazyload alt="MPSK" /><figcaption aria-hidden="true">MPSK</figcaption>
+</figure>
 <h2 id="差错控制编码">差错控制编码</h2>
 <p>在实际信道上传输数字信号时，由于信道传输特性不理想及加性噪声的影响，接收端所收到的数字信号不可避免地会发生错误。为了在给定信噪比情况下达到一定的误比特率指标，应该合理设计基带信号，选择调制解调方式，采用时域、频域均衡，使误比特率尽可能降低。但若误比特率仍不能满足要求，则必须采用信道编码（即差错控制编码），将误比特率进一步降低。</p>
 <p>差错控制的基本思路是：在发送端给被传送的信息附带一些冗余的监督码元，这些监督码元和信息码元之间以某种规则建立联系，然后在接收端检验收到的信息是否符合这样的联系，如果不符合，那么就可以断定传输中出现了错误。</p>
