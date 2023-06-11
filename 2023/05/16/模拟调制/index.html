@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305162354335.jpg">
 <meta property="article:published_time" content="2023-05-16T07:44:01.000Z">
-<meta property="article:modified_time" content="2023-05-17T08:23:09.376Z">
+<meta property="article:modified_time" content="2023-06-11T05:20:52.370Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305162354335.jpg">
@@ -266,7 +266,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          11k 字
+          13k 字
         
       </span>
     
@@ -277,7 +277,7 @@
         
         
         
-          23 分钟
+          27 分钟
         
       </span>
     
@@ -533,11 +533,67 @@ B_{FM}=2(1+M_f)f_m=2(\Delta f+f_m)
 <td><span class="math inline">\(2(M_f+1)f_m\)</span></td>
 <td><span class="math inline">\(\frac{A^2}{2B_{FM}n_0}\)</span></td>
 <td><span class="math inline">\(3M_f^2\frac{P_mA^2/2}{A_m^2n_0f_m}\)</span></td>
-<td>单频<span class="math inline">\(3M_f^2(M_f+1)\)</span></td>
+<td><span class="math inline">\(6\beta^2(1+\beta)\frac{P_m}{A_m^2}\)</span></td>
 <td>中</td>
 </tr>
 </tbody>
 </table>
+<blockquote>
+<p>【例（2022期末）】已知信号<span class="math inline">\(m(t)\)</span>是带宽为20kHz的低频信号，分别经过以下两种方式调制以后得到调制信号，调制信号经过信道传输，解调后输出。如果要求输出信号的信噪比为40dB，设信道传输损耗为50dB，信道引入的加性高斯白噪声双边功率谱密度<span class="math inline">\(n_0/2=10^-12 W/Hz\)</span>，求以下两种情况的最小发射功率。</p>
+<ol type="1">
+<li>DSB-SC</li>
+<li>AM，<span class="math inline">\(\eta=0.2\)</span></li>
+</ol>
+<p>【解】</p>
+<ol type="1">
+<li><p>由题知，<span class="math inline">\(SNR_o=10^4,SNR_i=SNR_o/ G=2\times 10^3\)</span></p>
+<p>先假设信道没有衰减，那么有 <span class="math display">\[
+P_s=SNR_i\cdot 2n_0f_m=2\cdot10^3\times 2\cdot 10^{-12}\times20k=4\times10^{-4}W
+\]</span> 加上信道衰减，发射功率为<span class="math inline">\(P_s\times 10^5=40W\)</span></p></li>
+<li><p>由题知，<span class="math inline">\(SNR_o=10^4,SNR_i=SNR_o/G=SNR_o/(2\eta)=2.5\cdot 10^{4}\)</span></p>
+<p>假设没有衰减，那么有 <span class="math display">\[
+P_s=SNR_i\cdot2n_0f_m=2\cdot 10^{-3}W
+\]</span> 加上信道衰减，发射功率为<span class="math inline">\(P_s\times 10^5=200W\)</span></p></li>
+</ol>
+</blockquote>
+<p>在上面这个例子中，有些同学可能会有一个疑问，那就是dB不是<span class="math inline">\(20\lg(\cdot)\)</span>吗？为什么40dB是<span class="math inline">\(10^4\)</span>呢？实际上，因为这里是基于功率定义的dB。由于功率跟幅度的平方成正比，所以在基于幅度定义的dB的对数运算后前面又乘以2，变成了“20lg”。</p>
+<blockquote>
+<p>【例（2022期末）】对某一信号进行FM调制传输，设加到接收机的调制信号功率谱密度是 <span class="math display">\[
+P_m(f)=\left\{\begin{array}{cc}
+\frac{n_m}{2} \times \frac{|f|}{f_m} &amp; |f| \leq f_m \\
+0 &amp; |f|&gt;f_m
+\end{array}\right.
+\]</span> 其中<span class="math inline">\(f_m=5kHz,n_m=2V^2/Hz\)</span>。载波振幅100V，频率100MHz，<span class="math inline">\(k_f=500\pi\ rad/(s\cdot V)\)</span>，最大频偏<span class="math inline">\(\Delta f_{max}=75kHz\)</span>，噪声功率谱均匀，单边功率谱是<span class="math inline">\(p_n(f)=10^-3 W/Hz\)</span>，求</p>
+<ol type="1">
+<li>调制信号带宽</li>
+<li>解调器输入信噪功率比</li>
+<li>系统的解调增益和输出信噪功率比</li>
+</ol>
+<p>【解】</p>
+<ol type="1">
+<li><p>有卡森公式： <span class="math display">\[
+B=2(f_m+\Delta f)=2(5k+75k)=160 kHz
+\]</span></p></li>
+<li><p>有：<span class="math inline">\(S_i=(A/\sqrt 2)^2=(100/\sqrt 2)^2=5000\)</span></p>
+<p><span class="math inline">\(N_i=p_n\cdot W=10^{-3}\times 160k=160\)</span></p>
+<p>所以<span class="math inline">\(SNR_i=31.25\)</span></p></li>
+<li><p>由于 <span class="math display">\[
+G=6\beta_{fm}^2(\beta_{fm}+1)\frac{P_m}{A_m^2}
+\]</span> 其中<span class="math inline">\(\beta_{fm}=\Delta f/f_m=15\)</span> <span class="math display">\[
+P_m=2\int_{0}^{f_m}p_m(f)\mathbf df=\frac 12 f_mn_m=5000
+\]</span></p>
+<p><span class="math display">\[
+A_m=\frac{\Delta f}{k_f}=\frac{75k}{250}=300
+\]</span></p>
+<p>代入，有：<span class="math inline">\(G=1.2\cdot 10^{3}\)</span></p>
+<p>所以 <span class="math display">\[
+SNR_o=SNR_i\times G=3.75\times 10^4
+\]</span></p></li>
+</ol>
+</blockquote>
+<blockquote>
+
+</blockquote>
 <h2 id="模拟信号数字化">模拟信号数字化</h2>
 <h3 id="采样">采样</h3>
 <p>采样就是把时间上连续的模拟信号变成一系列时间上离散的采样值的过程。如果对一个频带有限的连续时间信号进行采样，当采样速率满足某些条件时，它的原信号就能由采样信号唯一地恢复出来，这是模拟信号数字化的理论依据。</p>
@@ -781,6 +837,34 @@ S=\frac {V^2} 3=\frac{(\Delta VL/2)^2}{3}
 \]</span> 所以总输出信噪比为： <span class="math display">\[
 S N R_o=\frac{S}{\sigma_q^2+\sigma_e^2}=\frac{S}{S / 2^{2 N}+4 P_e S}=\frac{2^{2 N}}{1+4 P_e 2^{2 N}}
 \]</span></p>
+<blockquote>
+<p>【例（2022期末）】已知信号<span class="math inline">\(m(t)\)</span>最高频率4kHz，幅度范围为<span class="math inline">\((-5.12,5.12)V\)</span>，采取13折线A律编码进行数字化，求：</p>
+<ol type="1">
+<li>采样值为-1.7V时的输出码组、输出量化电平、量化误差</li>
+<li>输出码组为<code>11011001</code>时代表的量化电平值，写出与之对应的均匀量化11位码</li>
+<li>输出速率<span class="math inline">\(R_b\)</span></li>
+<li>使用64QAM传输的最小带宽</li>
+</ol>
+<p>【解】</p>
+<ol type="1">
+<li><p>先把输入信号归一化： <span class="math display">\[
+\left[\frac{-1.7}{5.12}\times 2048\right]=-680
+\]</span> 符号位：<code>0</code></p>
+<p>段落码：因为<span class="math inline">\(680\in (512,1024]\)</span>，所以是第七段，即<code>110</code></p>
+<p>段内码： <span class="math display">\[
+\left[\frac{680-512}{32}\right]=5
+\]</span> 所以段内码为<code>0101</code></p>
+<p>所以整个码组为<code>01100101</code></p>
+<p>恢复出的电平为<span class="math inline">\(-[512+32(5+0.5)]=-688\)</span>，恢复成原始电平就是<span class="math inline">\(1.72V\)</span>，量化误差为<span class="math inline">\(0.02V\)</span></p></li>
+<li><p>正数，段落码是第第六段（256~512），段内码为<span class="math inline">\(16\times 9.5=152\)</span>，所以对应成归一化量化电平为408，对应原始电平1.02V，对应的11位均匀量化为 <span class="math display">\[
+(408)_{10}=(00110011000)_2
+\]</span></p></li>
+<li><p><span class="math inline">\(R_b=8f_s=64kbps\)</span></p></li>
+<li><p>有： <span class="math display">\[
+R_s=\frac{R_b}{\log_{2}64}=10666.67baud
+\]</span> 所以带宽为<span class="math inline">\(10.67kHz\)</span></p></li>
+</ol>
+</blockquote>
 <hr />
 <section class="footnotes">
 <div class="footnote-list">
