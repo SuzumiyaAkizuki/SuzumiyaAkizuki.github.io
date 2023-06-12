@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305162354335.jpg">
 <meta property="article:published_time" content="2023-05-16T07:44:01.000Z">
-<meta property="article:modified_time" content="2023-06-11T05:20:52.370Z">
+<meta property="article:modified_time" content="2023-06-12T03:19:15.106Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305162354335.jpg">
@@ -266,7 +266,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          13k 字
+          14k 字
         
       </span>
     
@@ -277,7 +277,7 @@
         
         
         
-          27 分钟
+          29 分钟
         
       </span>
     
@@ -449,9 +449,28 @@ s_{FM}(t)=A\cos \left[\omega_ct+\varphi_0+K_{FM}\int _{-\infty}^tm(\tau)d\tau\ri
 <p>瞬时频率偏离<span class="math inline">\(f_c\)</span>的最大值叫做最大频偏，即： <span class="math display">\[
 \Delta f=\frac 1{2\pi}\left| \frac d{dt}\varphi(t)\right|_{max}=K_{FM}A_m
 \]</span> 最大频偏按消息信号的带宽<span class="math inline">\(W\)</span>归一化的值代表调频波的最大相对偏移，叫做调频指数： <span class="math display">\[
-\beta_{FM}=\frac{K_{FM}A_m}{W}
-\]</span> 此处的<span class="math inline">\(\beta _{FM}\)</span>也可以写作<span class="math inline">\(M_f\)</span>。</p>
-<p>对于单频调制而言，当<span class="math inline">\(A_m\)</span>不变，调制信号频率<span class="math inline">\(\omega_m\)</span>增大时：</p>
+M_f=\beta_{FM}=\frac{K_{FM}A_m}{W}
+\]</span> <span class="math inline">\(M_f\)</span>和<span class="math inline">\(\beta_{FM}\)</span>都是调频指数，是同一个事物的两个名字，我也不知道为什么会这样。</p>
+<p>对于单频调制而言，假设调制信号为余弦波 <span class="math display">\[
+m(t)=A_m\cos \omega_m t
+\]</span> 调相，有： <span class="math display">\[
+s_{PM}(t)=A\cos(\omega_ct+K_{PM}A_m\cos \omega_mt)
+\]</span> 其中调相指数<span class="math inline">\(M_p=K_{PM}A_m\)</span>，就是相位部分的振幅值，代表最大相位偏移。</p>
+<p>调频，有： <span class="math display">\[
+\begin{aligned}
+s_{F M}(t) &amp; =A \cos \left(\omega_c t+K_{F M} \int_{-\infty}^t A_m \cos \omega_m \tau d \tau\right) \\
+&amp; =A \cos \left(\omega_c t+\frac{K_{F M} A_m}{\omega_m} \sin \omega_m t\right) \\
+&amp; =A \cos \left(\omega_c t+M_f \sin \omega_m t\right)
+\end{aligned}
+\]</span> 其中 <span class="math display">\[
+M_f=\frac{K_{FM}A_m}{\omega_m}
+\]</span> 为调频知数，代表调频波的最大相对偏移。调频波的最大频率偏移为： <span class="math display">\[
+\Delta \omega_m=K_{FM}A_m=M_f\omega_m
+\]</span> 可以看出，最大频偏就是把表达式相位部分的幅值和角频率乘起来。</p>
+<p>所以也可以说： <span class="math display">\[
+M_f=\frac{\Delta \omega_{m}}{\omega_m}
+\]</span> 即调频最大频偏/调制信号频率。请注意，上面这部分的频率都是角频率，也即<span class="math inline">\(\omega\)</span>，如果要算<span class="math inline">\(f\)</span>，需要除以<span class="math inline">\(2\pi\)</span></p>
+<p>当<span class="math inline">\(A_m\)</span>不变，调制信号频率<span class="math inline">\(\omega_m\)</span>增大时：</p>
 <ul>
 <li>FM中的<span class="math inline">\(\Delta f\)</span>不变，<span class="math inline">\(M_f\)</span>成反比例地减小</li>
 <li>PM中的<span class="math inline">\(\Delta f\)</span>成正比例增大，<span class="math inline">\(M_p\)</span>不变</li>
@@ -459,6 +478,34 @@ s_{FM}(t)=A\cos \left[\omega_ct+\varphi_0+K_{FM}\int _{-\infty}^tm(\tau)d\tau\ri
 <figure>
 <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305022146037.png" srcset="/img/loading.gif" lazyload alt="示意图" /><figcaption aria-hidden="true">示意图</figcaption>
 </figure>
+<blockquote>
+<p>【例】用基带信号对载波进行调频得到 <span class="math display">\[
+s(t)=10\cos(2\pi f_ct+5\cos 200\pi t)
+\]</span></p>
+<ol type="1">
+<li>求最大频偏、调频指数、带宽</li>
+<li>固定<span class="math inline">\(K_{FM},f_m\)</span>，把<span class="math inline">\(A_m\)</span>提高一倍，求（1）</li>
+<li>固定<span class="math inline">\(K_{FM},A_m\)</span>，把<span class="math inline">\(f_m\)</span>提高一倍，求（1）</li>
+</ol>
+<p>【解】</p>
+<ol type="1">
+<li><p>最大频偏(相位部分表达式幅度乘以频率) <span class="math display">\[
+\Delta f_m=5\times 200\pi/2\pi=500
+\]</span> 调频指数(相位部分表达式的幅度) <span class="math display">\[
+M_f=\frac{\Delta f_m}{f_m}=5
+\]</span> 带宽 <span class="math display">\[
+B=2(\Delta f_m+f_m)=1200
+\]</span></p></li>
+<li><p>调频指数 <span class="math display">\[
+M_f=\frac{K_{FM}A_m}{\omega_m}=10
+\]</span> 最大频偏 <span class="math display">\[
+\Delta f_m=1000
+\]</span> 带宽 <span class="math display">\[
+B=2(\Delta f_m+f_m)=2200
+\]</span></p></li>
+<li><p>仍旧从调频指数定义式出发，有：<span class="math inline">\(\Delta f_m=500,M_f=2.5,B=1400\)</span></p></li>
+</ol>
+</blockquote>
 <p>如果将调制信号先积分，而后进行调相，则得到的是调频波，这种方式叫间接调频。也就是说，PM和FM的区别其实就是更换了调制信号。下面，主要对FM进行讨论。</p>
 <p>经过分析，可以知道已调信号的带宽实际上是无穷，但是其能量主要集中在<span class="math inline">\(f_c\)</span>附近的一个范围内。其频带宽度可以大致用卡森公式估计： <span class="math display">\[
 B_{FM}=2(1+M_f)f_m=2(\Delta f+f_m)
