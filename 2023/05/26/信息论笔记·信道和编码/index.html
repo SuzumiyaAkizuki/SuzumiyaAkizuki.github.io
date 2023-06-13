@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305262312301.jpg">
 <meta property="article:published_time" content="2023-05-26T12:50:51.000Z">
-<meta property="article:modified_time" content="2023-06-09T04:10:11.078Z">
+<meta property="article:modified_time" content="2023-06-12T14:47:38.090Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="信息论">
 <meta name="twitter:card" content="summary_large_image">
@@ -267,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          8.5k 字
+          9.2k 字
         
       </span>
     
@@ -278,7 +278,7 @@
         
         
         
-          17 分钟
+          19 分钟
         
       </span>
     
@@ -696,6 +696,160 @@ P_i =\sum_{k=1}^{i-1}p(s_k)
 </tr>
 </tbody>
 </table>
+<p>【解】香农编码表如下：</p>
+<table>
+<thead>
+<tr class="header">
+<th>消息序号</th>
+<th>消息概率</th>
+<th>累加概率</th>
+<th><span class="math inline">\(-\log p(s_i)\)</span></th>
+<th>码组长度</th>
+<th>二进制代码</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>s1</td>
+<td>0.2</td>
+<td>0</td>
+<td>2.3</td>
+<td>3</td>
+<td>000</td>
+</tr>
+<tr class="even">
+<td>s2</td>
+<td>0.19</td>
+<td>0.2</td>
+<td>2.4</td>
+<td>3</td>
+<td>001</td>
+</tr>
+<tr class="odd">
+<td>s3</td>
+<td>0.18</td>
+<td>0.39</td>
+<td>2.4</td>
+<td>3</td>
+<td>011</td>
+</tr>
+<tr class="even">
+<td>s4</td>
+<td>0.17</td>
+<td>0.57</td>
+<td>2.5</td>
+<td>3</td>
+<td>100</td>
+</tr>
+<tr class="odd">
+<td>s5</td>
+<td>0.15</td>
+<td>0.74</td>
+<td>2.7</td>
+<td>3</td>
+<td>101</td>
+</tr>
+<tr class="even">
+<td>s6</td>
+<td>0.1</td>
+<td>0.89</td>
+<td>3.3</td>
+<td>4</td>
+<td>1110</td>
+</tr>
+<tr class="odd">
+<td>s7</td>
+<td>0.01</td>
+<td>0.99</td>
+<td>6.6</td>
+<td>7</td>
+<td>1111110</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h5 id="霍夫曼编码">霍夫曼编码</h5>
+<p>霍夫曼编码是一种紧致码，它的编码过程为：</p>
+<ol type="1">
+<li>把<span class="math inline">\(q\)</span>个符号按概率分布从大到小的顺序排列</li>
+<li>用<code>0</code>,<code>1</code>分别代表概率最小的两个信源，把这两个符号合并成一个新符号，从而得到包含<span class="math inline">\(q-1\)</span>个符号的缩减信源</li>
+<li>把缩减信源的符号概率仍从大到小排序</li>
+<li>重复2~3，直到信源只剩下两个符号为止，把这最后两个符号用<code>0</code>和<code>1</code>表示，然后从最后一级缩减信源开始向前返回，得到编码。</li>
+</ol>
+<blockquote>
+<p>【例】对以下信源进行霍夫曼编码：</p>
+<table>
+<thead>
+<tr class="header">
+<th>符号</th>
+<th>s1</th>
+<th>s2</th>
+<th>s3</th>
+<th>s4</th>
+<th>s5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>概率</td>
+<td>0.4</td>
+<td>0.2</td>
+<td>0.2</td>
+<td>0.1</td>
+<td>0.1</td>
+</tr>
+</tbody>
+</table>
+<p>【解】</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306122233893.png" srcset="/img/loading.gif" lazyload alt="image-20230612223226884" /><figcaption aria-hidden="true">image-20230612223226884</figcaption>
+</figure>
+</blockquote>
+<h5 id="费诺码">费诺码</h5>
+<p>费诺码的编码过程如下：</p>
+<ol type="1">
+<li>把<span class="math inline">\(q\)</span>个符号按概率分布从大到小的顺序排列</li>
+<li>把依次排列的信源符号依概率分为两大组，使两个组的概率和尽可能相等，然后给各组赋予一个二进制码符号<code>0</code>和<code>1</code></li>
+<li>把上面这两大组中每一大组的符号再分成两部分，使得划分后两小组的概率和尽可能相等，然后给各组赋予一个二进制码符号<code>0</code>和<code>1</code></li>
+<li>重复2~3，直到每个组都只剩下一个符号为止</li>
+</ol>
+<blockquote>
+<p>【例】对以下信源进行费诺编码</p>
+<table>
+<thead>
+<tr class="header">
+<th>符号</th>
+<th>s1</th>
+<th>s2</th>
+<th>s3</th>
+<th>s4</th>
+<th>s5</th>
+<th>s6</th>
+<th>s7</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>概率</td>
+<td>0.2</td>
+<td>0.19</td>
+<td>0.18</td>
+<td>0.17</td>
+<td>0.15</td>
+<td>0.1</td>
+<td>0.01</td>
+</tr>
+</tbody>
+</table>
+<p>【解】</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306122246232.png" srcset="/img/loading.gif" lazyload alt="费诺码" /><figcaption aria-hidden="true">费诺码</figcaption>
+</figure>
+<p>平均码长为 <span class="math display">\[
+\overline L=2.74
+\]</span> 信息速率 <span class="math display">\[
+R=\frac{H(s)}{\overline{L}}=0.953\quad bit/\text{码元}
+\]</span></p>
 </blockquote>
 
                 
