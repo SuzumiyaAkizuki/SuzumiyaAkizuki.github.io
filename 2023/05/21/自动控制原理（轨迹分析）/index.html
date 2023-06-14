@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305220908205.png">
 <meta property="article:published_time" content="2023-05-21T11:18:38.000Z">
-<meta property="article:modified_time" content="2023-06-14T15:30:37.242Z">
+<meta property="article:modified_time" content="2023-06-14T16:08:13.376Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="自控">
 <meta name="twitter:card" content="summary_large_image">
@@ -267,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.6k 字
+          7.4k 字
         
       </span>
     
@@ -278,7 +278,7 @@
         
         
         
-          14 分钟
+          15 分钟
         
       </span>
     
@@ -505,7 +505,7 @@ G(s)=\frac 1{(s^2+\omega_n^2)^u}G_2(s)
 </ol>
 <p>画图完成以后，还要计算一个点，那就是图像和横轴的交点，名叫穿越点，对应的频率叫穿越频率。</p>
 <h4 id="奈奎斯特稳定判据">奈奎斯特稳定判据</h4>
-<p>利用奈奎斯特图判断稳定性，需要计算 <span class="math display">\[
+<p>利用奈奎斯特图判断闭环系统的稳定性，需要计算 <span class="math display">\[
 Z=P-2N
 \]</span> 如果<span class="math inline">\(Z=0\)</span>，那么稳定。</p>
 <p>其中，<span class="math inline">\(P\)</span>是开环中实部大于零的极点的个数，也可以对分母用劳斯表，看第一列的符号改变次数。</p>
@@ -530,11 +530,24 @@ Z=P-2N
 \frac 1{\left(\frac s {\omega_n}\right)^2+2\xi\frac s{\omega_n}+1}
 \]</span> 对应的幅频斜率为<span class="math inline">\(-40\)</span>dB/十倍频，对应的相频变化量为<span class="math inline">\(-180^\circ\)</span></p></li>
 </ol>
-<p>然后可以开始画了。画的步骤如下：</p>
+<p>然后可以开始画了。画的步骤如下。在下面的例子中，传递函数为： <span class="math display">\[
+G(s)=\frac{100(1+\sqrt{10}s)}{(-100s^2+20s+1)(-0.001s^2+\frac{\sqrt{10}}{3000}s+1)}
+\]</span></p>
 <ol type="1">
-<li>把系统函数按转折频率从低到高排列，并把因子写成上面的那种形式，然后在横轴上标出转折频率</li>
-<li></li>
+<li><p>把系统函数按转折频率从低到高排列，并把因子写成上面的那种形式，然后在横轴上标出转折频率 <span class="math display">\[
+G(s)=100\cdot \frac{1}{\left(\frac{s}{0.1}\right)^2+2\frac{s}{0.1}+1}\cdot \left(\frac{s}{\frac{1}{\sqrt{10}}}+1\right)\cdot \frac{1}{\frac{s}{10\sqrt {10}}^2+\frac 1{30}\frac{s}{10\sqrt {10}}+1}
+\]</span> 所以转折频率为<span class="math inline">\(0.1,1/\sqrt {10},10\sqrt{10}\)</span></p></li>
+<li><p>低频段（即比最低的转折频率还低的一段）：幅频斜率为<span class="math inline">\(-20v\)</span>dB/十倍频，相位起点为<span class="math inline">\(-v\cdot 90^\circ+\angle K_0\)</span>，然后根据幅频曲线一定经过<span class="math inline">\((|K_0|^{1/v},0)\)</span>或者<span class="math inline">\((1,20\lg|K_0|)\)</span>来确定幅频曲线的位置</p>
+<p>在本例中，<span class="math inline">\(v=0,\angle K_0=0\)</span>，<span class="math inline">\(-20v=0\)</span>，<span class="math inline">\(20\lg K_0=40\)</span></p></li>
+<li><p>幅频图中，每段以转折频率为界限，调整斜率，在原有斜率的基础上增加目前环节对应的斜率。</p></li>
+<li><p>相频图中，每个转折频率代表相频图在<span class="math inline">\(0.1\omega_c,10\omega_c\)</span>上变化了<span class="math inline">\(\Delta \varphi\)</span>，不同的转折频率之间相互叠加</p></li>
+<li><p>（可选）在二阶环节对应的转折频率处补充一个高度为<span class="math inline">\(20\lg |1/2\xi|\)</span>的尖峰</p></li>
+<li><p>计算幅频曲线和<span class="math inline">\(\omega\)</span>轴的交点</p></li>
 </ol>
+<h4 id="对数判据">对数判据</h4>
+<p>要用波特图判断闭环系统的稳定性，同样要计算 <span class="math display">\[
+P-2N
+\]</span> 其中<span class="math inline">\(P\)</span>是开环中实部大于零的极点的个数，<span class="math inline">\(N\)</span>是在<span class="math inline">\(L(\omega)&gt;0\)</span>即幅频图为正值的部分中，相频曲线穿过<span class="math inline">\((2k+1)\pi\)</span>的次数之和，向上穿越算正数，向下穿越算负数</p>
 
                 
               </div>
