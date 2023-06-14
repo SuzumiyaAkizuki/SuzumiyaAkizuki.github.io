@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305220908205.png">
 <meta property="article:published_time" content="2023-05-21T11:18:38.000Z">
-<meta property="article:modified_time" content="2023-06-11T14:28:45.654Z">
+<meta property="article:modified_time" content="2023-06-14T15:03:43.600Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="自控">
 <meta name="twitter:card" content="summary_large_image">
@@ -267,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.5k 字
+          6.1k 字
         
       </span>
     
@@ -278,7 +278,7 @@
         
         
         
-          7 分钟
+          13 分钟
         
       </span>
     
@@ -435,6 +435,86 @@ j\omega(j\omega+20)(-\omega^2+4j\omega+20)+k=0
 </blockquote>
 <h2 id="频域分析法">频域分析法</h2>
 <p>系统的频率响应函数就是把<span class="math inline">\(G(s)\)</span>里面的<span class="math inline">\(s\)</span>换成<span class="math inline">\(j\omega\)</span>，即<span class="math inline">\(G(j\omega)\)</span>。</p>
+<p>在进行频域分析法时，有两件事是无论如何都要注意的：</p>
+<ol type="1">
+<li><p>对开环系统函数进行分析</p></li>
+<li><p>要把系统函数各个因子的系数化为1，即： <span class="math display">\[
+G(s)=\frac{K_0(\tau_1s+1)\cdots(\tau_2s^2+2\xi_2\tau_2s+1)\cdots}{s^v(T_1s+1)\cdots(T_2s^2+2\xi_2T_2s+1)\cdots}
+\]</span></p></li>
+</ol>
+<h3 id="奈奎斯特图">奈奎斯特图</h3>
+<p>奈奎斯特图就是在复平面上<span class="math inline">\(G(j\omega)\)</span>的值随<span class="math inline">\(\omega\)</span>从<span class="math inline">\(0\)</span>变化到<span class="math inline">\(+\infty\)</span>时的参数图像。在介绍奈奎斯特图的画法时，我将介绍两种方法。首先介绍一种公式法，然后来说明公式法的本质。</p>
+<h4 id="公式法">公式法</h4>
+<p>按照下面几个步骤，可以画出奈奎斯特图。</p>
+<ol type="1">
+<li><p>确定起点</p>
+<p>起点按照以下公式确定： <span class="math display">\[
+G(0+)=\begin{cases}
+0_+\angle(-v\frac \pi2+\angle K_0) &amp; v&lt;0\\[2ex]
+|K_0|\angle K_0 &amp; v=0\\[2ex]
+\infty\angle(-v\frac \pi2+\angle K_0) &amp; v&gt;0
+\end{cases}
+\]</span> 其中<span class="math inline">\(v\)</span>是传递函数分母里面单个<span class="math inline">\(s\)</span>的指数，<span class="math inline">\(K_0\)</span>是分子上提出来的系数。</p>
+<p>然后，看（分母中<span class="math inline">\(s\)</span>一次项的系数之和-分子中<span class="math inline">\(s\)</span>一次项的系数之和），如果这个值大于零，那么就在前进方向的坐标轴的左侧，否则在右侧。</p>
+<p>以 <span class="math display">\[
+G(s)=\frac 1{s(s+1)(2s+1)}
+\]</span> 为例，有<span class="math inline">\(v=1&gt;0\)</span>，所以<span class="math inline">\(G(0+)=\infty\angle (-\frac \pi2+0)=\infty\angle -90^\circ\)</span></p>
+<p>分母中<span class="math inline">\(s\)</span>的系数之和为<span class="math inline">\(1+1+2=3\)</span>，分子中<span class="math inline">\(s\)</span>的系数之和为零，所以在前进方向坐标轴的左侧，即正向纵轴的左侧，即从第四象限起笔</p></li>
+<li><p>确定终点</p>
+<p>终点按以下公式确定： <span class="math display">\[
+G(j\infty)=\begin{cases}
+|K^*|\angle\left[-(n&#39;+m&#39;)\frac \pi2+\angle K_0\right] &amp; n=m\\[2ex]
+0_+\angle\left[-(n&#39;+m&#39;)\frac \pi2+\angle K_0\right] &amp;n&gt;m
+\end{cases}
+\]</span> 其中<span class="math inline">\(m\)</span>是分子的总次数，<span class="math inline">\(n\)</span>是分母的总次数，<span class="math inline">\(m&#39;=m_a-m_b\)</span>，<span class="math inline">\(n&#39;=n_a-n_b\)</span></p>
+<p><span class="math inline">\(*_a\)</span>代表分子/分母中最小相位环节（就是<span class="math inline">\(s\)</span>前面系数是正的）的总阶数，<span class="math inline">\(*_b\)</span>代表分子/分母中非最小相位环节的总阶数。</p>
+<p>继续以上面的系统为例，分子中次数为零，最小相位环节阶数为零；分母中次数为3，最小相位环节总阶数也是3，所以 <span class="math display">\[
+G(j\infty)=0_+\angle\left[-(3-0)\frac \pi2+0\right]=0_+\angle -270^\circ
+\]</span> 于是，知道了起点和终点，我们就可以初步画出<span class="math inline">\(0_+\to\infty\)</span>的图像了：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306142222129.png" srcset="/img/loading.gif" lazyload alt="初步图像" /><figcaption aria-hidden="true">初步图像</figcaption>
+</figure>
+<p>绘图代码：</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mathematica"><span class="hljs-built_in">ParametricPlot</span><span class="hljs-punctuation">[</span><span class="hljs-punctuation">&#123;</span><span class="hljs-built_in">Re</span><span class="hljs-punctuation">[</span><span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-punctuation">)</span><span class="hljs-operator">/</span><span class="hljs-punctuation">(</span><span class="hljs-built_in">I</span><span class="hljs-operator">*</span><span class="hljs-variable">w</span><span class="hljs-operator">*</span><span class="hljs-punctuation">(</span><span class="hljs-built_in">I</span><span class="hljs-operator">*</span><span class="hljs-variable">w</span> <span class="hljs-operator">+</span> <span class="hljs-number">1</span><span class="hljs-punctuation">)</span><span class="hljs-operator">*</span><span class="hljs-punctuation">(</span><span class="hljs-number">2</span><span class="hljs-operator">*</span><span class="hljs-built_in">I</span><span class="hljs-operator">*</span><span class="hljs-variable">w</span> <span class="hljs-operator">+</span> <span class="hljs-number">1</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">]</span><span class="hljs-operator">,</span> <br>  <span class="hljs-built_in">Im</span><span class="hljs-punctuation">[</span><span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-punctuation">)</span><span class="hljs-operator">/</span><span class="hljs-punctuation">(</span><span class="hljs-built_in">I</span><span class="hljs-operator">*</span><span class="hljs-variable">w</span><span class="hljs-operator">*</span><span class="hljs-punctuation">(</span><span class="hljs-built_in">I</span><span class="hljs-operator">*</span><span class="hljs-variable">w</span> <span class="hljs-operator">+</span> <span class="hljs-number">1</span><span class="hljs-punctuation">)</span><span class="hljs-operator">*</span><span class="hljs-punctuation">(</span><span class="hljs-number">2</span><span class="hljs-operator">*</span><span class="hljs-built_in">I</span><span class="hljs-operator">*</span><span class="hljs-variable">w</span> <span class="hljs-operator">+</span> <span class="hljs-number">1</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">&#125;</span><span class="hljs-operator">,</span> <span class="hljs-punctuation">&#123;</span><span class="hljs-variable">w</span><span class="hljs-operator">,</span> <span class="hljs-number">0.01</span><span class="hljs-operator">,</span> <span class="hljs-number">3</span><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">]</span><br></code></pre></td></tr></table></figure></li>
+<li><p>补充虚圆</p>
+<p>为什么说上面的是初步呢？因为还有<span class="math inline">\(0\to0_+\)</span>这部分的没有画，而且这部分还很重要。</p>
+<p>如果<span class="math inline">\(v=0\)</span>，那么不用画。</p>
+<p>如果<span class="math inline">\(G(s)\)</span>在原点上有重根，即<span class="math inline">\(v&gt;0\)</span>，那么以<span class="math inline">\(\angle K_0\)</span>为开始，半径无穷大，顺时针转<span class="math inline">\(+v\frac \pi2\)</span>，接到上面那个图像的起点处。</p>
+<p>*如果<span class="math inline">\(G(s)\)</span>在虚轴上有<span class="math inline">\(n\)</span>重共轭极点<span class="math inline">\(\pm j\omega_n\)</span>，则： <span class="math display">\[
+G(s)=\frac 1{(s^2+\omega_n^2)^u}G_2(s)
+\]</span> 其中<span class="math inline">\(G_2(s)\)</span>是没有<span class="math inline">\(n\)</span>重共轭极点的。那么从<span class="math inline">\(G_2(j\omega_n)\)</span>开始，以半径为无穷大，顺时针转<span class="math inline">\(+u\pi\)</span>，接到起点处。</p>
+<p>还是对于上面这个例子，属于第二种情况，于是可以画出：</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306142232168.png" srcset="/img/loading.gif" lazyload alt="img" style="zoom:25%;" /></p></li>
+</ol>
+<h4 id="定义法">定义法</h4>
+<ol type="1">
+<li><p>确定起点</p>
+<p>说起起点，就是计算 <span class="math display">\[
+\lim_{\omega\to 0+}G(j\omega)
+\]</span> 不就行了吗？先来看模长部分，那当然是<span class="math inline">\(v&gt;0\)</span>就是无穷大，因为分母是零；<span class="math inline">\(v&lt;0\)</span>是零，因为分子是零，这是显然的。然后看相位，众所周知复数相乘就是相位相加，复数相除就是相位相减，所以相位就是分子的相位减去分母的相位之和了。考虑一个<span class="math inline">\((\tau j\omega+1)\)</span>，当<span class="math inline">\(\omega\to 0_+\)</span>时，这玩意就趋向于<span class="math inline">\(1\)</span>，对应的相位就是<span class="math inline">\(0\)</span>，所以不用管，只看<span class="math inline">\(j\omega\)</span>单独的那一项，一个它的相位是<span class="math inline">\(90^\circ\)</span>，总共有<span class="math inline">\(v\)</span>个它，这就是公式法里面的 <span class="math display">\[
+-v\frac \pi2+\angle K_0
+\]</span> 的来历。</p></li>
+<li><p>确定终点</p>
+<p>终点就是 <span class="math display">\[
+\lim_{\omega\to \infty}G(j\omega)
+\]</span> 幅值分析略，看相位。最小相位系统就是<span class="math inline">\((j\omega+1)\)</span>，非最小相位系统就是<span class="math inline">\((-j\omega+1)\)</span>，当<span class="math inline">\(\omega\to \infty\)</span>的时候他俩分别就是<span class="math inline">\(j,-j\)</span>，对应的相位就是<span class="math inline">\(90^\circ,-90^\circ\)</span>。这就是公式法里面的 <span class="math display">\[
+-(n&#39;+m&#39;)\frac \pi2+\angle K_0
+\]</span></p></li>
+<li><p>画出虚圆</p>
+<p>这里只说第二种情况。如果<span class="math inline">\(\omega=0\)</span>了，那么值显然是<span class="math inline">\(sgn[K_0]\infty\)</span>，实数，所以要从<span class="math inline">\(\angle K_0\)</span>开始。但是从<span class="math inline">\(0+\)</span>开始那它就不是实数，就有一个“确定起点”的那个角度，这时候虚圆就是把这俩连起来就行。</p></li>
+</ol>
+<p>画图完成以后，还要计算一个点，那就是图像和横轴的交点，名叫穿越点，对应的频率叫穿越频率。</p>
+<h4 id="奈奎斯特稳定判据">奈奎斯特稳定判据</h4>
+<p>利用奈奎斯特图判断稳定性，需要计算 <span class="math display">\[
+Z=P-2N
+\]</span> 如果<span class="math inline">\(Z=0\)</span>，那么稳定。</p>
+<p>其中，<span class="math inline">\(P\)</span>是开环中实部大于零的极点的个数，也可以对分母用劳斯表，看第一列的符号改变次数。</p>
+<p><span class="math inline">\(N\)</span>是曲线穿越<span class="math inline">\((-\infty,-1)\)</span>这段横轴的总次数，但是有正有负：</p>
+<ul>
+<li>虚圆穿越，总是负的</li>
+<li>实线穿越，以<span class="math inline">\((-1,0)\)</span>作为视点，看它是顺时针（负）还是逆时针（正）</li>
+<li>如果起始点、终止点在轴上，算<span class="math inline">\(0.5\)</span>次</li>
+</ul>
 
                 
               </div>
