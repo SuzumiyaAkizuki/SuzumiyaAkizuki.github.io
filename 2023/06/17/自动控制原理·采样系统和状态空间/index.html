@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306182129590.png">
 <meta property="article:published_time" content="2023-06-17T07:21:50.000Z">
-<meta property="article:modified_time" content="2023-06-18T13:30:26.813Z">
+<meta property="article:modified_time" content="2023-06-18T15:59:50.322Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="自动控制原理">
 <meta name="twitter:card" content="summary_large_image">
@@ -267,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.9k 字
+          7.8k 字
         
       </span>
     
@@ -278,7 +278,7 @@
         
         
         
-          14 分钟
+          16 分钟
         
       </span>
     
@@ -542,7 +542,7 @@ A_c=\begin{pmatrix}
 \vdots\\
 0\\
 1
-\end{pmatrix},C_c=(\beta_1,\cdots,\beta_{n-1})
+\end{pmatrix},C_c=(\beta_0,\cdots,\beta_{n-1})
 \]</span> 此时，对应的系统函数为： <span class="math display">\[
 G(s)
 =\frac{\beta_{n-1} s^{n-1}+\cdots+\beta_1 s+\beta_0}{s^n+a_{n-1} s^{n-1}+\cdots+a_1 s+a_0}
@@ -640,6 +640,61 @@ u=hx+r
 \]</span> 这就叫做状态反馈系统。</p>
 <p>对于系统<span class="math inline">\((A,B,C,0)\)</span>来说，其极点为特征方程<span class="math inline">\(|sI-A|=0\)</span>的根，如果系统不能达到设计指标，那么就需要修改系统的极点的位置，可以适当选取状态反馈变量<span class="math inline">\(h\)</span>，使得状态反馈系统的特征方程<span class="math inline">\(|sI-(A+Bh)|=0\)</span>的根满足性能要求。这样的过程就是极点配置过程。</p>
 <p>只有系统<span class="math inline">\((A,B,C,0)\)</span>完全可控时，才能进行极点配置。</p>
+<blockquote>
+<p>【例】系统 <span class="math display">\[
+\begin{cases}
+\dot x=Ax+\begin{bmatrix}
+2\\1
+\end{bmatrix}u\\
+y=[1\quad 1]x
+\end{cases}
+\]</span> 的状态转移矩阵 <span class="math display">\[
+\phi(t)=\begin{bmatrix}
+e^{-t} &amp; 0\\
+\beta(e^{-t}-e^{-2t}) &amp; e^{-2t}
+\end{bmatrix}
+\]</span></p>
+<ol type="1">
+<li>求<span class="math inline">\(A\)</span></li>
+<li>计算传递函数，写出可控标准型</li>
+<li>设<span class="math inline">\(\beta=1\)</span>，考虑状态反馈<span class="math inline">\(u=hx\)</span>，设计<span class="math inline">\(h\)</span>使得闭环系统极点为<span class="math inline">\(-1,-3\)</span></li>
+</ol>
+<p>【解】</p>
+<ol type="1">
+<li><p>做拉普拉斯变换，有： <span class="math display">\[
+\phi(s)=\begin{bmatrix}
+\frac 1{s+1} &amp; 0\\
+\frac \beta{s+1}-\frac \beta{s+2} &amp; \frac 1{s+2}
+\end{bmatrix}
+\]</span> 由<span class="math inline">\(\phi=(sI-A)^{-1}\)</span>，先求<span class="math inline">\(\phi^{-1}\)</span>: <span class="math display">\[
+\phi^{-1}={(s+1)(s+2)}\begin{bmatrix}
+\frac 1{s+2} &amp; 0\\
+\frac{-\beta}{(s+1)(s+2)} &amp; \frac 1{s+1}
+\end{bmatrix}=\begin{bmatrix}
+{s+1} &amp; 0\\
+{-\beta} &amp; {s+2}
+\end{bmatrix}=sI-A
+\]</span> 所以 <span class="math display">\[
+A=\begin{bmatrix}
+-1 &amp; 0\\
+\beta &amp; -2
+\end{bmatrix}
+\]</span></p></li>
+<li><p>传递函数(法1) <span class="math display">\[
+G(s)=C\phi(s)B=\frac{2\beta+2}{s+1}-\frac{2\beta-1}{s+2}
+\]</span> 即 <span class="math display">\[
+G(s)=\frac{s+2\beta+5}{s^2+3s+2}
+\]</span> 所以 <span class="math display">\[
+A=\begin{bmatrix}
+0 &amp; 1\\
+-2 &amp; -3
+\end{bmatrix},B=\begin{bmatrix}
+0\\1
+\end{bmatrix},C=[2\beta+5\quad 1]
+\]</span></p></li>
+<li></li>
+</ol>
+</blockquote>
 
                 
               </div>
