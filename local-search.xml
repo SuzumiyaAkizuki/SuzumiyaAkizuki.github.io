@@ -13,16 +13,14 @@
     
     <categories>
       
-      <category>分类</category>
+      <category>技术</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>标签1</tag>
-      
-      <tag>标签2</tag>
+      <tag>自动控制原理</tag>
       
     </tags>
     
@@ -2062,9 +2060,9 @@
     
     <tags>
       
-      <tag>C</tag>
-      
       <tag>信号与系统</tag>
+      
+      <tag>C</tag>
       
     </tags>
     
