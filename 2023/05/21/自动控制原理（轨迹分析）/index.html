@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305220908205.png">
 <meta property="article:published_time" content="2023-05-21T11:18:38.000Z">
-<meta property="article:modified_time" content="2023-06-14T16:08:13.376Z">
+<meta property="article:modified_time" content="2023-06-18T12:16:22.698Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="自控">
 <meta name="twitter:card" content="summary_large_image">
@@ -267,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7.4k 字
+          7.7k 字
         
       </span>
     
@@ -278,7 +278,7 @@
         
         
         
-          15 分钟
+          16 分钟
         
       </span>
     
@@ -548,6 +548,14 @@ G(s)=100\cdot \frac{1}{\left(\frac{s}{0.1}\right)^2+2\frac{s}{0.1}+1}\cdot \left
 <p>要用波特图判断闭环系统的稳定性，同样要计算 <span class="math display">\[
 P-2N
 \]</span> 其中<span class="math inline">\(P\)</span>是开环中实部大于零的极点的个数，<span class="math inline">\(N\)</span>是在<span class="math inline">\(L(\omega)&gt;0\)</span>即幅频图为正值的部分中，相频曲线穿过<span class="math inline">\((2k+1)\pi\)</span>的次数之和，向上穿越算正数，向下穿越算负数</p>
+<h4 id="稳定裕度">稳定裕度</h4>
+<p>稳定裕度是衡量系统相对稳定性质的量，分为相位裕度和增益裕度。</p>
+<p>相位裕度的定义是在幅频波特图和横轴的交点<span class="math inline">\(\omega_c\)</span>处，使系统达到临界稳定状态的附加相移，有： <span class="math display">\[
+\gamma=180^\circ+\angle G(j\omega_c)H(\omega_c)
+\]</span> 在奈奎斯特图中，相位裕度<span class="math inline">\(\gamma\)</span>指的是曲线和单位圆的交点和原点的连线与负实轴之间的夹角。</p>
+<p>增益裕度<span class="math inline">\(K_g\)</span>的定义是在相频波特图和<span class="math inline">\(-180^\circ\)</span>的交点<span class="math inline">\(\omega_g\)</span>处，使得系统达到临界稳定状态所需增大的增益倍数，一般用dB表示，有： <span class="math display">\[
+K_g=-20\lg|G(j\omega_g)H(j\omega_g)|
+\]</span> 在奈奎斯特图中，增益裕度是曲线和负实轴的交点离原点的距离的倒数。</p>
 
                 
               </div>

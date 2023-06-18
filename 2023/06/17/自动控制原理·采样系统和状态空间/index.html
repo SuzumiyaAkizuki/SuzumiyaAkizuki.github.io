@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306171550672.png">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306171645961.png">
 <meta property="article:published_time" content="2023-06-17T07:21:50.000Z">
-<meta property="article:modified_time" content="2023-06-17T16:24:56.299Z">
+<meta property="article:modified_time" content="2023-06-18T07:13:26.592Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="标签1">
 <meta property="article:tag" content="标签2">
@@ -271,7 +271,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.4k 字
+          6.9k 字
         
       </span>
     
@@ -282,7 +282,7 @@
         
         
         
-          7 分钟
+          14 分钟
         
       </span>
     
@@ -499,7 +499,151 @@ e^*(\infty)=0+0+\frac{0.2^2}{0.08}=0.5
 \]</span></p>
 </blockquote>
 <h2 id="状态空间分析方法">状态空间分析方法</h2>
-<p>状态空间分析方法是一种和前面讲的所有方法都不一样的方法。</p>
+<p>状态空间分析方法是一种和前面讲的所有方法都不一样的方法。用传递函数描述系统只能反映系统输出和输入变量的关系，而不了解系统内部的变化情况，而且是建立在零初始状态的基础上的。而状态空间分析方法会客服这些困难。在介绍状态空间分析法前，需要定义：</p>
+<ul>
+<li><p>状态变量：如果以最少的<span class="math inline">\(n\)</span>个变量<span class="math inline">\(x_1(t),\cdots,x_n(t)\)</span>就能完整描述一个系统的行为，这<span class="math inline">\(n\)</span>个变量就称为一组状态变量</p></li>
+<li><p>状态向量：把上面这<span class="math inline">\(n\)</span>个状态变量拼成一个列向量，就叫做状态向量</p></li>
+<li><p>状态空间：以各状态变量为轴的空间是状态空间，状态向量是状态空间里的一个点</p></li>
+<li><p>状态方程：描述状态变量和输入之间关系的一阶微分方程组： <span class="math display">\[
+\mathbf{\dot x}=A\mathbf x+B\mathbf {u}
+\]</span> 其中<span class="math inline">\(\mathbf x\)</span>是状态向量，<span class="math inline">\(\mathbf u\)</span>是<span class="math inline">\(r\)</span>维输入向量，<span class="math inline">\(A\)</span>是<span class="math inline">\(n\times n\)</span>矩阵，叫系统矩阵，<span class="math inline">\(B\)</span>是<span class="math inline">\(n\times r\)</span>矩阵，叫输入控制阵</p></li>
+<li><p>输出方程：描述系统输出和输入之间关系的方程组： <span class="math display">\[
+\mathbf y=C\mathbf x+D\mathbf u
+\]</span> 其中<span class="math inline">\(y\)</span>是<span class="math inline">\(m\)</span>维输出向量，<span class="math inline">\(C\)</span>是<span class="math inline">\(m\times n\)</span>输出矩阵，<span class="math inline">\(D\)</span>是<span class="math inline">\(m\times r\)</span>矩阵。<strong>一个线性时不变系统可用<span class="math inline">\((A,B,C,D)\)</span>直接描述。</strong></p></li>
+</ul>
+<h3 id="求解系统状态方程和输出方程">求解系统状态方程和输出方程</h3>
+<p>对状态方程左右两边做拉普拉斯变换，有： <span class="math display">\[
+sX(s)-X(0)=AX(s)+BU(s)
+\]</span> 化简一下： <span class="math display">\[
+X(s)=(sI-A)^{-1}[X(0)+BU(s)]
+\]</span> 设预解矩阵 <span class="math display">\[
+\phi(s)=(sI-A)^{-1}=\frac{(sI-A)^*}{|sI-A|}
+\]</span> 所以系统的特征方程为<span class="math inline">\(|sI-A|=0\)</span>。则 <span class="math display">\[
+X(s)=\phi(s)X(0)+\phi(s)BU(s)
+\]</span> 同理，对输出方程有： <span class="math display">\[
+Y(s)=C\phi(s)X(0)+[C\phi(s)B+D]U(s)
+\]</span> 如果是零状态，则<span class="math inline">\(C\phi(s)B+D\)</span>在这里就起到了传递函数的作用，所以定义传递函数矩阵： <span class="math display">\[
+G(s)=C\phi(s)B+D
+\]</span></p>
+<h3 id="可控和可观">可控和可观</h3>
+<h4 id="概念和基本判别方法">概念和基本判别方法</h4>
+<p>对于任意初始状态，如果存在一个控制量能在有限时刻将状态转译为零状态，则称系统状态可控。定义系统可控性阵为： <span class="math display">\[
+Q_c=[B\quad AB\quad A^2B\cdots\quad A^{n-1}B]
+\]</span> 如果有<span class="math inline">\(|Q_c|\neq0\)</span>，即<span class="math inline">\(Q_c\)</span>满秩，那么系统可控。</p>
+<p>如果<span class="math inline">\(u(t)\)</span>已知，能由一段时间内的输出测量值唯一确定任意时刻的状态，称为系统可控。定义系统可控性阵为 <span class="math display">\[
+Q_o=[C\quad CA\cdots CA^{n-1}]^T
+\]</span> 如果它是满秩的，那么系统可观。</p>
+<h4 id="标准型">标准型</h4>
+<p>如果一个<span class="math inline">\(n\)</span>阶单输入系统可控，则一定存在一个可逆线性变换，将其变为可控标准型。系统的可控标准型为： <span class="math display">\[
+A_c=\begin{pmatrix}
+0&amp;1&amp;0&amp;\cdots&amp;0\\
+\vdots&amp;\vdots&amp;\ddots&amp;\ddots&amp;\vdots\\
+0&amp;0&amp;\cdots&amp;\cdots&amp;0\\
+0&amp;0&amp;\cdots&amp;\cdots&amp;1\\
+-a_0&amp;-a_1&amp;\cdots&amp;\cdots&amp;-a_{n-1}
+\end{pmatrix},B_c=\begin{pmatrix}
+0\\
+\vdots\\
+0\\
+1
+\end{pmatrix},C_c=(\beta_1,\cdots,\beta_{n-1})
+\]</span> 此时，对应的系统函数为： <span class="math display">\[
+G(s)
+=\frac{\beta_{n-1} s^{n-1}+\cdots+\beta_1 s+\beta_0}{s^n+a_{n-1} s^{n-1}+\cdots+a_1 s+a_0}
+\]</span> 类似的，有可观测标准型： <span class="math display">\[
+A_o=\left[\begin{array}{ccccc}
+0 &amp; 0 &amp; \cdots &amp; 0 &amp; -a_0 \\
+1 &amp; \cdots &amp; \cdots &amp; 0 &amp; -a_1 \\
+0 &amp; \ddots &amp; &amp; \vdots &amp; \vdots \\
+\vdots &amp; &amp; \ddots &amp; \vdots &amp; \vdots \\
+0 &amp; \cdots &amp; 0 &amp; 1 &amp; -a_{n-1}
+\end{array}\right], \quad B_o=\left[\begin{array}{c}
+\gamma_0 \\
+\gamma_1 \\
+\vdots \\
+\gamma_{n-1}
+\end{array}\right]，C_o=[0,0,\cdots,1]
+\]</span> 对应的单输入单输出系统传递函数： <span class="math display">\[
+G(s)=\frac{\gamma_{n-1} s^{n-1}+\cdots+\gamma_1 s+\gamma_0}{s^n+a_{n-1} s^{n-1}+\cdots+a_1 s+a_0}
+\]</span> 把一个系统的一般形式化成可控标准型，遵循以下步骤：</p>
+<ol type="1">
+<li><p>计算可控性矩阵<span class="math inline">\(Q_c\)</span></p></li>
+<li><p>计算<span class="math inline">\(Q_c^{-1}\)</span>，记其最后一行为<span class="math inline">\(h^T\)</span></p></li>
+<li><p>构造矩阵<span class="math inline">\(P\)</span>，并求逆 <span class="math display">\[
+\boldsymbol{P}=\left[\begin{array}{c}
+\boldsymbol{h}^T \\
+\boldsymbol{h}^T \boldsymbol{A} \\
+\boldsymbol{h}^T \boldsymbol{A}^2 \\
+\vdots \\
+\boldsymbol{h}^T \boldsymbol{A}^{n-1}
+\end{array}\right]
+\]</span></p></li>
+<li><p>得<span class="math inline">\(\overline A=PAP^{-1},\overline B=PB,\overline C=CP^{-1},\overline D=D\)</span></p></li>
+</ol>
+<blockquote>
+<p>【例】把以下系统化为可控标准型 <span class="math display">\[
+\dot{\boldsymbol{x}}=\left[\begin{array}{ccc}
+-2 &amp; 2 &amp; -1 \\
+0 &amp; -2 &amp; 0 \\
+1 &amp; -4 &amp; 0
+\end{array}\right] \boldsymbol{x}+\left[\begin{array}{l}
+0 \\
+1 \\
+1
+\end{array}\right] u
+\]</span> 【解】有： <span class="math display">\[
+Ab=\left[\begin{array}{c}
+1 \\
+-2 \\
+-4
+\end{array}\right],A^2b=\left[\begin{array}{c}
+-2 \\
+4 \\
+9
+\end{array}\right]
+\]</span> 得 <span class="math display">\[
+Q_c=[b\quad Ab\quad A^2b]=\left[\begin{array}{ccc}
+0 &amp; 1 &amp; -2 \\
+1 &amp; -2 &amp; 4 \\
+1 &amp; -4 &amp; 9
+\end{array}\right]
+\]</span> 求逆，有： <span class="math display">\[
+Q_c^{-1}=\left[\begin{array}{ccc}
+2 &amp; 1 &amp; 0 \\
+5 &amp; -2 &amp; -2 \\
+2 &amp; -1 &amp; 1
+\end{array}\right]
+\]</span> 取最后一行： <span class="math display">\[
+h^T=[2\quad -1\quad -1]
+\]</span> 所以 <span class="math display">\[
+P=\left[\begin{array}{c}
+h^T \\
+h^TA \\
+h^TA^2
+\end{array}\right]=\left[\begin{array}{ccc}
+2 &amp; -1 &amp; 1\\
+-3 &amp;2 &amp; -2 \\
+4 &amp; -2 &amp; 3
+\end{array}\right]
+\]</span> 所以 <span class="math display">\[
+\overline A=PAP^{-1}=\left[\begin{array}{ccc}
+0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1 \\
+-2 &amp; -5 &amp; -4
+\end{array}\right]
+\]</span></p>
+</blockquote>
+<h3 id="状态反馈和极点配置">状态反馈和极点配置</h3>
+<p>对于定常系统 <span class="math display">\[
+\begin{cases}
+\dot x=Ax+Bu\\
+y=Cx
+\end{cases}
+\]</span> 如果系统的输入<span class="math inline">\(u\)</span>和<span class="math inline">\(x\)</span>有关系，即 <span class="math display">\[
+u=hx+r
+\]</span> 这就叫做状态反馈系统。</p>
+<p>对于系统<span class="math inline">\((A,B,C,0)\)</span>来说，其极点为特征方程<span class="math inline">\(|sI-A|=0\)</span>的根，如果系统不能达到设计指标，那么就需要修改系统的极点的位置，可以适当选取状态反馈变量<span class="math inline">\(h\)</span>，使得状态反馈系统的特征方程<span class="math inline">\(|sI-(A+Bh)|=0\)</span>的根满足性能要求。这样的过程就是极点配置过程。</p>
+<p>只有系统<span class="math inline">\((A,B,C,0)\)</span>完全可控时，才能进行极点配置。</p>
 
                 
               </div>
