@@ -1,0 +1,878 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <link rel="icon" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="SuzumiyaAkizuki">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="《通信原理》课程的实践部分包含了四次Matlab作业，两个Matlab仿真实验和两个上电路板的虚拟仿真实验。涉及到Matlab编程的部分在下面，虚拟仿真实验的文件和报告在全文最后供下载。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="通信原理Matlab软件作业">
+<meta property="og:url" content="https://suzumiyaakizuki.github.io/2023/06/30/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86Matlab%E8%BD%AF%E4%BB%B6%E4%BD%9C%E4%B8%9A/index.html">
+<meta property="og:site_name" content="凉宫秋月的文艺部">
+<meta property="og:description" content="《通信原理》课程的实践部分包含了四次Matlab作业，两个Matlab仿真实验和两个上电路板的虚拟仿真实验。涉及到Matlab编程的部分在下面，虚拟仿真实验的文件和报告在全文最后供下载。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306302245241.webp">
+<meta property="article:published_time" content="2023-06-30T13:59:21.000Z">
+<meta property="article:modified_time" content="2023-06-30T14:45:49.488Z">
+<meta property="article:author" content="SuzumiyaAkizuki">
+<meta property="article:tag" content="通信原理">
+<meta property="article:tag" content="matlab">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306302245241.webp">
+  
+  
+  
+  <title>通信原理Matlab软件作业 - 凉宫秋月的文艺部</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"suzumiyaakizuki.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":"G-J01HK5TZ0Y","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"QGqf9VPGTa96KerO0JvDW3Ld-gzGzoHsz","app_key":"RhwwUaYq4lMo1tCJwcQTWdRp","server_url":"https://qgqf9vpg.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.google-analytics.com/analytics.js', function() {
+          window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
+          ga.l = +new Date;
+          ga('create', 'G-J01HK5TZ0Y', 'auto');
+          ga('send', 'pageview');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>凉宫秋月的文艺部</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友情链接
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306302245241.webp') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="通信原理Matlab软件作业"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        SuzumiyaAkizuki
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-06-30 21:59" pubdate>
+          2023年6月30日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          13k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          26 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">通信原理Matlab软件作业</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>《通信原理》课程的实践部分包含了四次Matlab作业，两个Matlab仿真实验和两个上电路板的虚拟仿真实验。涉及到Matlab编程的部分在下面，虚拟仿真实验的文件和报告在全文最后供下载。</p>
+<span id="more"></span>
+<h2 id="matlab作业一线性调制">Matlab作业一：线性调制</h2>
+<p>(同上机实验一)</p>
+<p>分别用计算机仿真AM、DSB、SSB模拟调制、解调过程，其中，调制信号（基带信号）<span class="math inline">\(m(t)=\cos 2\pi f_mt\)</span>。调制信号与载波频率自定，要求调制信号频率远小于载波频率。信号时长为8个调制信号周期。</p>
+<p>输出结果包括：</p>
+<ol type="1">
+<li><p>输入信号波形；</p></li>
+<li><p>载波波形；</p></li>
+<li><p>已调信号波形及其包络；</p></li>
+<li><p>已调信号功率谱；</p></li>
+<li><p>相干解调下变频之后、低通滤波之前的信号波形；</p></li>
+<li><p>相干解调低通滤波之后的信号波形。</p></li>
+</ol>
+<h3 id="实验结果">实验结果</h3>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306302202166.png" srcset="/img/loading.gif" lazyload alt="AM调制" /><figcaption aria-hidden="true">AM调制</figcaption>
+</figure>
+<p>AM调制相关的图像如上所示。已调信号的包络完全反映了调制信号的波形。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306302202293.png" srcset="/img/loading.gif" lazyload alt="DSB调制" /><figcaption aria-hidden="true">DSB调制</figcaption>
+</figure>
+<p>DSB调制相关的图像如上所示。已调信号的包络不能完全反映调制信号的波形。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306302203053.png" srcset="/img/loading.gif" lazyload alt="SSB调制" /><figcaption aria-hidden="true">SSB调制</figcaption>
+</figure>
+<p>SSB调制相关的图像如上所示。已调信号的包络也不能完全反映调制信号的波形。</p>
+<h3 id="实验代码">实验代码</h3>
+<h4 id="am">AM</h4>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><code class="hljs matlab">dt=<span class="hljs-number">0.001</span>;<br>fm=<span class="hljs-number">1</span>;<br>fc=<span class="hljs-number">100</span>;<br>T=<span class="hljs-number">4</span>;<br>t=<span class="hljs-number">0</span>:dt:T;<br>mt=<span class="hljs-built_in">sqrt</span>(<span class="hljs-number">2</span>)*<span class="hljs-built_in">cos</span>(<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>*fm*t);<span class="hljs-comment">%信号源</span><br>subplot(<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>);<br><span class="hljs-built_in">plot</span>(t,mt);<span class="hljs-built_in">hold</span> on;<br>title(<span class="hljs-string">&#x27;调制信号&#x27;</span>)<br>s_dsb=modulate(mt,fc,<span class="hljs-number">1</span>/dt,<span class="hljs-string">&#x27;am&#x27;</span>)<br>subplot(<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>);<br><span class="hljs-built_in">plot</span>(t,<span class="hljs-built_in">cos</span>(<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>*fc*t));<span class="hljs-built_in">hold</span> on;<br>title(<span class="hljs-string">&#x27;载波信号&#x27;</span>)<br>subplot(<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>);<br><span class="hljs-built_in">plot</span>(t,s_dsb,t,mt);<span class="hljs-built_in">hold</span> on;<br>title(<span class="hljs-string">&#x27;已调信号波形及其包络&#x27;</span>);<br>rt=s_dsb.*<span class="hljs-built_in">cos</span>(<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>*fc*t);<br>subplot(<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span>);<br><span class="hljs-built_in">plot</span>(t,rt);<span class="hljs-built_in">hold</span> on;<br>title(<span class="hljs-string">&#x27;相干解调下变频之后、低通滤波之前的信号波形&#x27;</span>);<br>[f,rf]=T2F(t,rt);<br>[t,rt]=bpf(f,rf,<span class="hljs-number">0</span>,<span class="hljs-number">2</span>*fm);<br>subplot(<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">5</span>);<br><span class="hljs-built_in">plot</span>(t,rt);<span class="hljs-built_in">hold</span> on;<br>title(<span class="hljs-string">&#x27;相干解调低通滤波之后的信号波形&#x27;</span>);<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">[f,sf]</span> = <span class="hljs-title">T2F</span><span class="hljs-params">(t,st)</span></span><br>    dt=t(<span class="hljs-number">2</span>)-t(<span class="hljs-number">1</span>);<br>    T=t(<span class="hljs-keyword">end</span>);<br>    df=<span class="hljs-number">1</span>/T;<br>    N=<span class="hljs-built_in">length</span>(st);<br>    f=-N/<span class="hljs-number">2</span> * df : df : N/<span class="hljs-number">2</span>*df-df;<br>    sf = fft(st);<br>    sf=T/N * fftshift(sf);<br><span class="hljs-keyword">end</span><br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">[t,st]</span> = <span class="hljs-title">F2T</span><span class="hljs-params">(f,sf)</span></span><br>    df=f(<span class="hljs-number">2</span>)-f(<span class="hljs-number">1</span>);<br>    Fmx=(f(<span class="hljs-keyword">end</span>)-f(<span class="hljs-number">1</span>)+df);<br>    dt=<span class="hljs-number">1</span>/Fmx;<br>    N=<span class="hljs-built_in">length</span>(sf);<br>    T=dt*N;<br>    t=<span class="hljs-number">0</span>:dt:T-dt;<br>    sff=ifftshift(sf);<br>    st=Fmx*ifft(sff);<br><span class="hljs-keyword">end</span><br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">[t,st]</span> = <span class="hljs-title">bpf</span><span class="hljs-params">(f,sf,B1,B2)</span></span><br>    df=f(<span class="hljs-number">2</span>)-f(<span class="hljs-number">1</span>);<br>    T=<span class="hljs-number">1</span>/df;<br>    hf=<span class="hljs-built_in">zeros</span>(<span class="hljs-number">1</span>,<span class="hljs-built_in">length</span>(f));<br>    bf=[<span class="hljs-built_in">floor</span>(B1/df):<span class="hljs-built_in">floor</span>(B2/df)];<br>    bf1=<span class="hljs-built_in">floor</span>(<span class="hljs-built_in">length</span>(f)/<span class="hljs-number">2</span>)+bf;<br>    bf2=<span class="hljs-built_in">floor</span>(<span class="hljs-built_in">length</span>(f)/<span class="hljs-number">2</span>)-bf;<br>    hf(bf1)=<span class="hljs-number">1</span>/<span class="hljs-built_in">sqrt</span>(<span class="hljs-number">2</span>*(B2-B1));<br>    hf(bf1)=<span class="hljs-number">1</span>/<span class="hljs-built_in">sqrt</span>(<span class="hljs-number">2</span>*(B2-B1));<br>    yf=hf.*sf.*<span class="hljs-built_in">exp</span>(<span class="hljs-number">-1</span><span class="hljs-built_in">i</span>*<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>*f*<span class="hljs-number">0.1</span>*T);<br>    [t,st]=F2T(f,yf);<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+<h4 id="dsb">DSB</h4>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><code class="hljs matlab">dt=<span class="hljs-number">0.001</span>;<br>fm=<span class="hljs-number">1</span>;<br>fc=<span class="hljs-number">100</span>;<br>T=<span class="hljs-number">4</span>;<br>t=<span class="hljs-number">0</span>:dt:T;<br>mt=<span class="hljs-built_in">sqrt</span>(<span class="hljs-number">2</span>)*<span class="hljs-built_in">cos</span>(<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>*fm*t);<span class="hljs-comment">%信号源</span><br>subplot(<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>);<br><span class="hljs-built_in">plot</span>(t,mt);<span class="hljs-built_in">hold</span> on;<br>title(<span class="hljs-string">&#x27;调制信号&#x27;</span>)<br>s_dsb=modulate(mt,fc,<span class="hljs-number">1</span>/dt,<span class="hljs-string">&#x27;amdsb-tc&#x27;</span>)<br>subplot(<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>);<br><span class="hljs-built_in">plot</span>(t,<span class="hljs-built_in">cos</span>(<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>*fc*t));<span class="hljs-built_in">hold</span> on;<br>title(<span class="hljs-string">&#x27;载波信号&#x27;</span>)<br>subplot(<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>);<br><span class="hljs-built_in">plot</span>(t,s_dsb);<span class="hljs-built_in">hold</span> on;<br>title(<span class="hljs-string">&#x27;已调信号波形&#x27;</span>);<br>rt=s_dsb.*<span class="hljs-built_in">cos</span>(<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>*fc*t);<br>subplot(<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span>);<br><span class="hljs-built_in">plot</span>(t,rt);<span class="hljs-built_in">hold</span> on;<br>title(<span class="hljs-string">&#x27;相干解调下变频之后、低通滤波之前的信号波形&#x27;</span>);<br>[f,rf]=T2F(t,rt);<br>[t,rt]=bpf(f,rf,<span class="hljs-number">0</span>,<span class="hljs-number">2</span>*fm);<br>subplot(<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">5</span>);<br><span class="hljs-built_in">plot</span>(t,rt);<span class="hljs-built_in">hold</span> on;<br>title(<span class="hljs-string">&#x27;相干解调低通滤波之后的信号波形&#x27;</span>);<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">[f,sf]</span> = <span class="hljs-title">T2F</span><span class="hljs-params">(t,st)</span></span><br>	dt=t(<span class="hljs-number">2</span>)-t(<span class="hljs-number">1</span>);<br>	T=t(<span class="hljs-keyword">end</span>);<br>	df=<span class="hljs-number">1</span>/T;<br>	N=<span class="hljs-built_in">length</span>(st);<br>	f=-N/<span class="hljs-number">2</span> * df : df : N/<span class="hljs-number">2</span>*df-df;<br>	sf = fft(st);<br>	sf=T/N * fftshift(sf);<br><span class="hljs-keyword">end</span><br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">[t,st]</span> = <span class="hljs-title">F2T</span><span class="hljs-params">(f,sf)</span></span><br>	df=f(<span class="hljs-number">2</span>)-f(<span class="hljs-number">1</span>);<br>	Fmx=(f(<span class="hljs-keyword">end</span>)-f(<span class="hljs-number">1</span>)+df);<br>	dt=<span class="hljs-number">1</span>/Fmx;<br>	N=<span class="hljs-built_in">length</span>(sf);<br>	T=dt*N;<br>	t=<span class="hljs-number">0</span>:dt:T-dt;<br>	sff=ifftshift(sf);<br>	st=Fmx*ifft(sff);<br><span class="hljs-keyword">end</span><br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">[t,st]</span> = <span class="hljs-title">bpf</span><span class="hljs-params">(f,sf,B1,B2)</span></span><br>	df=f(<span class="hljs-number">2</span>)-f(<span class="hljs-number">1</span>);<br>	T=<span class="hljs-number">1</span>/df;<br>	hf=<span class="hljs-built_in">zeros</span>(<span class="hljs-number">1</span>,<span class="hljs-built_in">length</span>(f));<br>	bf=[<span class="hljs-built_in">floor</span>(B1/df):<span class="hljs-built_in">floor</span>(B2/df)];<br>	bf1=<span class="hljs-built_in">floor</span>(<span class="hljs-built_in">length</span>(f)/<span class="hljs-number">2</span>)+bf;<br>	bf2=<span class="hljs-built_in">floor</span>(<span class="hljs-built_in">length</span>(f)/<span class="hljs-number">2</span>)-bf;<br>	hf(bf1)=<span class="hljs-number">1</span>/<span class="hljs-built_in">sqrt</span>(<span class="hljs-number">2</span>*(B2-B1));<br>	hf(bf1)=<span class="hljs-number">1</span>/<span class="hljs-built_in">sqrt</span>(<span class="hljs-number">2</span>*(B2-B1));<br>	yf=hf.*sf.*<span class="hljs-built_in">exp</span>(<span class="hljs-number">-1</span><span class="hljs-built_in">i</span>*<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>*f*<span class="hljs-number">0.1</span>*T);<br>	[t,st]=F2T(f,yf);<br><span class="hljs-keyword">end</span><br><br></code></pre></td></tr></table></figure>
+<h4 id="ssb">SSB</h4>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><code class="hljs matlab">dt=<span class="hljs-number">0.001</span>;<br>fm=<span class="hljs-number">1</span>;<br>fc=<span class="hljs-number">100</span>;<br>T=<span class="hljs-number">4</span>;<br>t=<span class="hljs-number">0</span>:dt:T;<br>mt=<span class="hljs-built_in">sqrt</span>(<span class="hljs-number">2</span>)*<span class="hljs-built_in">cos</span>(<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>*fm*t);<span class="hljs-comment">%信号源</span><br>subplot(<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>);<br><span class="hljs-built_in">plot</span>(t,mt);<span class="hljs-built_in">hold</span> on;<br>title(<span class="hljs-string">&#x27;调制信号&#x27;</span>)<br>s_dsb=modulate(mt,fc,<span class="hljs-number">1</span>/dt,<span class="hljs-string">&#x27;amssb&#x27;</span>)<br>subplot(<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>);<br><span class="hljs-built_in">plot</span>(t,<span class="hljs-built_in">cos</span>(<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>*fc*t));<span class="hljs-built_in">hold</span> on;<br>title(<span class="hljs-string">&#x27;载波信号&#x27;</span>)<br>subplot(<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>);<br><span class="hljs-built_in">plot</span>(t,s_dsb);<span class="hljs-built_in">hold</span> on;<br>title(<span class="hljs-string">&#x27;已调信号波形&#x27;</span>);<br>rt=s_dsb.*<span class="hljs-built_in">cos</span>(<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>*fc*t);<br>subplot(<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span>);<br><span class="hljs-built_in">plot</span>(t,rt);<span class="hljs-built_in">hold</span> on;<br>title(<span class="hljs-string">&#x27;相干解调下变频之后、低通滤波之前的信号波形&#x27;</span>);<br>[f,rf]=T2F(t,rt);<br>[t,rt]=bpf(f,rf,<span class="hljs-number">0</span>,<span class="hljs-number">2</span>*fm);<br>subplot(<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">5</span>);<br><span class="hljs-built_in">plot</span>(t,rt);<span class="hljs-built_in">hold</span> on;<br>title(<span class="hljs-string">&#x27;相干解调低通滤波之后的信号波形&#x27;</span>);<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">[f,sf]</span> = <span class="hljs-title">T2F</span><span class="hljs-params">(t,st)</span></span><br>    dt=t(<span class="hljs-number">2</span>)-t(<span class="hljs-number">1</span>);<br>    T=t(<span class="hljs-keyword">end</span>);<br>    df=<span class="hljs-number">1</span>/T;<br>    N=<span class="hljs-built_in">length</span>(st);<br>    f=-N/<span class="hljs-number">2</span> * df : df : N/<span class="hljs-number">2</span>*df-df;<br>    sf = fft(st);<br>    sf=T/N * fftshift(sf);<br><span class="hljs-keyword">end</span><br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">[t,st]</span> = <span class="hljs-title">F2T</span><span class="hljs-params">(f,sf)</span></span><br>    df=f(<span class="hljs-number">2</span>)-f(<span class="hljs-number">1</span>);<br>    Fmx=(f(<span class="hljs-keyword">end</span>)-f(<span class="hljs-number">1</span>)+df);<br>    dt=<span class="hljs-number">1</span>/Fmx;<br>    N=<span class="hljs-built_in">length</span>(sf);<br>    T=dt*N;<br>    t=<span class="hljs-number">0</span>:dt:T-dt;<br>    sff=ifftshift(sf);<br>    st=Fmx*ifft(sff);<br><span class="hljs-keyword">end</span><br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">[t,st]</span> = <span class="hljs-title">bpf</span><span class="hljs-params">(f,sf,B1,B2)</span></span><br>    df=f(<span class="hljs-number">2</span>)-f(<span class="hljs-number">1</span>);<br>    T=<span class="hljs-number">1</span>/df;<br>    hf=<span class="hljs-built_in">zeros</span>(<span class="hljs-number">1</span>,<span class="hljs-built_in">length</span>(f));<br>    bf=[<span class="hljs-built_in">floor</span>(B1/df):<span class="hljs-built_in">floor</span>(B2/df)];<br>    bf1=<span class="hljs-built_in">floor</span>(<span class="hljs-built_in">length</span>(f)/<span class="hljs-number">2</span>)+bf;<br>    bf2=<span class="hljs-built_in">floor</span>(<span class="hljs-built_in">length</span>(f)/<span class="hljs-number">2</span>)-bf;<br>    hf(bf1)=<span class="hljs-number">1</span>/<span class="hljs-built_in">sqrt</span>(<span class="hljs-number">2</span>*(B2-B1));<br>    hf(bf1)=<span class="hljs-number">1</span>/<span class="hljs-built_in">sqrt</span>(<span class="hljs-number">2</span>*(B2-B1));<br>    yf=hf.*sf.*<span class="hljs-built_in">exp</span>(<span class="hljs-number">-1</span><span class="hljs-built_in">i</span>*<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>*f*<span class="hljs-number">0.1</span>*T);<br>    [t,st]=F2T(f,yf);<br><span class="hljs-keyword">end</span><br><br></code></pre></td></tr></table></figure>
+<h2 id="matlab作业二非线性调制">Matlab作业二：非线性调制</h2>
+<p>用计算机仿真FM调制，其中，调制信号（基带信号）<span class="math inline">\(m(t)=\cos 2\pi f_mt\)</span>。调制信号与载波频率、幅度、调制指数等参数自定，要求调制信号频率远小于载波频率。信号时长为4个调制信号周期。</p>
+<p>画出以下结果：</p>
+<ol type="1">
+<li><p>输入信号波形；</p></li>
+<li><p>载波波形；</p></li>
+<li><p>已调信号波形及其包络；</p></li>
+<li><p>试用fft分析已调波形功率谱（附加题，只加分，不减分）。</p></li>
+</ol>
+<h3 id="实验结果-1">实验结果</h3>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305232226555.jpg" srcset="/img/loading.gif" lazyload alt="FM调制图像" /><figcaption aria-hidden="true">FM调制图像</figcaption>
+</figure>
+<h3 id="实验代码-1">实验代码</h3>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-comment">% 参数设置</span><br>fm = <span class="hljs-number">100</span>;               <span class="hljs-comment">% 调制信号频率</span><br>fc = <span class="hljs-number">1000</span>;             <span class="hljs-comment">% 载波频率</span><br>kf = <span class="hljs-number">800</span>;               <span class="hljs-comment">% 调制指数</span><br>fs = <span class="hljs-number">20000</span>;            <span class="hljs-comment">% 采样率</span><br>t = <span class="hljs-number">0</span>: <span class="hljs-number">1</span>/fs :<span class="hljs-number">4</span>/fm<span class="hljs-number">-1</span>/fs;  <span class="hljs-comment">% 时间向量，4个调制信号周期</span><br><br><span class="hljs-comment">% 生成调制信号</span><br>m = <span class="hljs-built_in">cos</span>(<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>*fm*t);    <span class="hljs-comment">% 基带信号</span><br><br><span class="hljs-comment">% 生成载波信号</span><br>c = <span class="hljs-built_in">cos</span>(<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>*fc*t);    <span class="hljs-comment">% 载波信号</span><br><br><span class="hljs-comment">% FM 调制</span><br>s = <span class="hljs-built_in">cos</span>(<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>*fc*t + kf * <span class="hljs-built_in">sin</span>(<span class="hljs-number">2</span> * <span class="hljs-built_in">pi</span> * fm * t) / fm);<br><br><span class="hljs-comment">% 绘制输入信号波形</span><br>subplot(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>);<br><span class="hljs-built_in">plot</span>(t, m);<br>xlabel(<span class="hljs-string">&#x27;时间 (s)&#x27;</span>);<br>ylabel(<span class="hljs-string">&#x27;幅度&#x27;</span>);<br>title(<span class="hljs-string">&#x27;输入信号波形 (基带信号)&#x27;</span>);<br>grid on;<br><br><span class="hljs-comment">% 绘制载波波形</span><br>subplot(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>);<br><span class="hljs-built_in">plot</span>(t, c);<br>xlabel(<span class="hljs-string">&#x27;时间 (s)&#x27;</span>);<br>ylabel(<span class="hljs-string">&#x27;幅度&#x27;</span>);<br>title(<span class="hljs-string">&#x27;载波波形&#x27;</span>);<br>grid on;<br><br><span class="hljs-comment">% 绘制调制信号波形及其包络</span><br>subplot(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>);<br><span class="hljs-built_in">plot</span>(t, s);<br><span class="hljs-built_in">hold</span> on;<br>envelope = <span class="hljs-built_in">abs</span>(hilbert(s));    <span class="hljs-comment">% 计算调制信号包络</span><br><span class="hljs-comment">% plot(t, envelope, &#x27;r&#x27;);</span><br><span class="hljs-built_in">hold</span> off;<br>xlabel(<span class="hljs-string">&#x27;时间 (s)&#x27;</span>);<br>ylabel(<span class="hljs-string">&#x27;幅度&#x27;</span>);<br>title(<span class="hljs-string">&#x27;调制信号波形及其包络&#x27;</span>);<br><span class="hljs-comment">% legend(&#x27;调制信号&#x27;, &#x27;包络&#x27;);</span><br>grid on;<br><br><span class="hljs-comment">% FFT 分析已调波形的功率谱</span><br>subplot(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span>);<br>L = <span class="hljs-built_in">length</span>(s);                  <span class="hljs-comment">% 信号长度</span><br>f = (-fs/<span class="hljs-number">2</span>:fs/L:fs/<span class="hljs-number">2</span>-fs/L);     <span class="hljs-comment">% 频率向量</span><br>S = fftshift(fft(s));           <span class="hljs-comment">% 进行 FFT</span><br>P = <span class="hljs-built_in">abs</span>(S).^<span class="hljs-number">2</span> / L;              <span class="hljs-comment">% 计算功率谱</span><br><span class="hljs-built_in">plot</span>(f, P);<br>xlabel(<span class="hljs-string">&#x27;频率 (Hz)&#x27;</span>);<br>ylabel(<span class="hljs-string">&#x27;功率&#x27;</span>);<br>title(<span class="hljs-string">&#x27;已调波形功率谱&#x27;</span>);<br>grid on;<br></code></pre></td></tr></table></figure>
+<h2 id="matlab作业三模拟信号数字化">Matlab作业三：模拟信号数字化</h2>
+<p>用计算机仿真模拟信号数字化系统过程。量化器为均匀量化，量化范围<span class="math inline">\([-1,1]\)</span>V；输入信号假设服从均匀分布。二进制信道传输误比特率<span class="math inline">\(P=10^{-5}\)</span>。</p>
+<p>分别仿真得到以下曲线，并将它们绘制在一张图中：</p>
+<ol type="1">
+<li>量化比特<span class="math inline">\(N=11\)</span>（含符号位）、采用自然码编码时，作出输入信号平均功率从<span class="math inline">\(-60dBW\)</span>至0dBW（电阻1欧）间变化时输出信噪比变化曲线；</li>
+<li>量化比特<span class="math inline">\(N=11\)</span>（含符号位）、采用折叠码编码时，作出输入信号平均功率从-60dBW至0dBW（电阻1欧）间变化时输出信噪比变化曲线；</li>
+<li>量化比特<span class="math inline">\(N=12\)</span>（含符号位）、采用自然码编码时，作出输入信号平均功率从-60dBW至0dBW（电阻1欧）间变化时输出信噪比变化曲线；</li>
+<li>量化比特<span class="math inline">\(N=12\)</span>（含符号位）、采用折叠码编码时，作出输入信号平均功率从-60dBW至0dBW（电阻1欧）间变化时输出信噪比变化曲线；</li>
+</ol>
+<p>关键：如何统计输出信噪比，关键是统计平均输出噪声功率按照输入信号平均功率生成多个（如10000）个样值，对每一个样值作为输入信号，进行量化、编码、信道传输（产生随机误码）和译码，将恢复出的样值与输入样值作差取平方得到样值误差功率。最后，取平均得到平均输出噪声功率。</p>
+<h3 id="实验结果-2">实验结果</h3>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305232235729.jpg" srcset="/img/loading.gif" lazyload alt="仿真结果图" /><figcaption aria-hidden="true">仿真结果图</figcaption>
+</figure>
+<p>可以看出：在输入信号功率不大时，信噪比（dB）和功率（dB）成正比。当功率较大时，因为超出了量化范围，所以信噪比急剧减小。</p>
+<h3 id="实验代码-2">实验代码</h3>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-comment">% 信号数字化系统仿真模拟</span><br><br>P_in = <span class="hljs-built_in">logspace</span>(<span class="hljs-number">-3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>);  <span class="hljs-comment">% 平均功率从-60dBW至0dBW（电阻1欧）间变化</span><br>SNR1=PCM(P_in,<span class="hljs-number">11</span>,<span class="hljs-number">0</span>);<br>SNR2=PCM(P_in,<span class="hljs-number">11</span>,<span class="hljs-number">1</span>);<br>SNR3=PCM(P_in,<span class="hljs-number">12</span>,<span class="hljs-number">0</span>);<br>SNR4=PCM(P_in,<span class="hljs-number">12</span>,<span class="hljs-number">1</span>);<br>loglog(P_in,SNR1,<span class="hljs-string">&#x27;r.-&#x27;</span>,P_in,SNR2,<span class="hljs-string">&#x27;g.-&#x27;</span>,P_in,SNR3,<span class="hljs-string">&#x27;b.-&#x27;</span>,P_in,SNR4,<span class="hljs-string">&#x27;k.-&#x27;</span>);<br><span class="hljs-built_in">legend</span>(<span class="hljs-string">&#x27;11位自然码&#x27;</span>, <span class="hljs-string">&#x27;11位折叠码&#x27;</span>,<span class="hljs-string">&#x27;12位自然码&#x27;</span>,<span class="hljs-string">&#x27;12位折叠码&#x27;</span>);<br>xlabel(<span class="hljs-string">&#x27;输入信号功率&#x27;</span>);<br>ylabel(<span class="hljs-string">&#x27;信噪比&#x27;</span>);<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">SNRs</span> = <span class="hljs-title">PCM</span><span class="hljs-params">(P_in,bits,TYPE)</span></span><br>    <span class="hljs-comment">% 编码，计算信噪比</span><br>    <span class="hljs-comment">% 输入：</span><br>    <span class="hljs-comment">%   P_in：输入信号平均功率测试点</span><br>    <span class="hljs-comment">%   bits：量化比特数（含符号位）</span><br>    <span class="hljs-comment">%   TYPE：码型，0为自然码，1为折叠码</span><br>    <span class="hljs-comment">% 输出：</span><br>    <span class="hljs-comment">%   SNRs：对每个P_in的元素而言的平均噪声功率</span><br>    <br><br>    qrange = <span class="hljs-number">1</span>;  <span class="hljs-comment">% 量化范围</span><br><br>    L=<span class="hljs-built_in">length</span>(P_in);<br>    SNR=<span class="hljs-built_in">zeros</span>(<span class="hljs-number">1</span>,<span class="hljs-number">100</span>);<br>    <span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span> = <span class="hljs-number">1</span>:L <span class="hljs-comment">%对每个功率P_in</span><br>    <br>        <span class="hljs-comment">% 生成符合功率要求的输入信号</span><br>        x_num=<span class="hljs-number">10000</span>;<br>        x = unifrnd(<span class="hljs-number">-1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,x_num);<br>        Px = sum(x .* x) / x_num;<br>        k = <span class="hljs-built_in">sqrt</span>(P_in(<span class="hljs-built_in">i</span>) / Px);<br>        x = x.*k;<br>        <br>        <span class="hljs-comment">%量化x</span><br>        delta = qrange / (<span class="hljs-number">2</span>^(bits<span class="hljs-number">-1</span>));<br>        x_level=<span class="hljs-built_in">floor</span>(<span class="hljs-built_in">abs</span>(x)./delta);<br>        <span class="hljs-keyword">for</span> <span class="hljs-built_in">j</span>=<span class="hljs-number">1</span>:<span class="hljs-built_in">length</span>(x_level)<br>            <span class="hljs-keyword">if</span> x_level(<span class="hljs-built_in">j</span>)&gt;<span class="hljs-number">2</span>^(bits<span class="hljs-number">-1</span>)<br>                x_level(<span class="hljs-built_in">j</span>)=<span class="hljs-number">2</span>^(bits<span class="hljs-number">-1</span>);<br>            <span class="hljs-keyword">end</span><br>        <span class="hljs-keyword">end</span><br>        x_q = <span class="hljs-built_in">sign</span>(x) .* (x_level .* delta + <span class="hljs-number">0.5</span>*delta);<br>        y_signal=<span class="hljs-built_in">zeros</span>(<span class="hljs-number">1</span>,x_num);<br><br>        <span class="hljs-keyword">for</span> <span class="hljs-built_in">j</span> = <span class="hljs-number">1</span>:x_num <span class="hljs-comment">%对x信号中的每个点</span><br>            <span class="hljs-comment">%编码</span><br>            x_signal=x_q(<span class="hljs-built_in">j</span>);<br><br>            <span class="hljs-keyword">if</span>(x_signal&gt;<span class="hljs-number">0</span>)<br>                x_code=<span class="hljs-string">&#x27;1&#x27;</span>;<br>            <span class="hljs-keyword">else</span><br>                x_code=<span class="hljs-string">&#x27;0&#x27;</span>;<br>            <span class="hljs-keyword">end</span><br>            x_bin=dec2bin(x_level(<span class="hljs-built_in">j</span>),bits<span class="hljs-number">-1</span>);<br>            <span class="hljs-keyword">if</span>(TYPE==<span class="hljs-number">0</span>) <span class="hljs-comment">%自然码把对称码按位反转</span><br>                x_bin=flip(x_bin);<br>            <span class="hljs-keyword">end</span><br>            x_code=strcat(x_code,x_bin);<br>            <span class="hljs-comment">%传输</span><br>            BER = <span class="hljs-number">1e-5</span>;  <span class="hljs-comment">% 误比特率</span><br>            y_code=bsc(x_code,BER);<br>            <span class="hljs-comment">%译码</span><br>            y_bin=extractAfter(y_code,<span class="hljs-number">1</span>);<br>            <span class="hljs-keyword">if</span>(TYPE==<span class="hljs-number">0</span>) <span class="hljs-comment">%自然码把对称码按位反转</span><br>                y_bin=flip(y_bin);<br>            <span class="hljs-keyword">end</span><br>            y_level=bin2dec(y_bin);<br>            y_signal(<span class="hljs-built_in">j</span>)=y_level .* delta + <span class="hljs-number">0.5</span>*delta;<br>            <span class="hljs-keyword">if</span>(y_code(<span class="hljs-number">1</span>)==<span class="hljs-string">&#x27;0&#x27;</span>) <br>                 y_signal(<span class="hljs-built_in">j</span>) = y_signal(<span class="hljs-built_in">j</span>) * <span class="hljs-number">-1</span>;<br>            <span class="hljs-keyword">end</span><br>        <span class="hljs-keyword">end</span><br>        error = y_signal - x;<br>        P_error = sum(error .* error) / x_num;<br>        SNR(<span class="hljs-built_in">i</span>)=P_in(<span class="hljs-built_in">i</span>) / P_error;<br>    <span class="hljs-keyword">end</span><br>    SNRs=SNR;<br><span class="hljs-keyword">end</span><br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">y</span> = <span class="hljs-title">bsc</span><span class="hljs-params">(x, BER)</span></span><br>    <span class="hljs-comment">% 二进制对称信道传输</span><br>    <span class="hljs-comment">% 输入：</span><br>    <span class="hljs-comment">%   x：输入比特序列（0或1向量）</span><br>    <span class="hljs-comment">%   BER：误比特率</span><br>    <span class="hljs-comment">% 输出：</span><br>    <span class="hljs-comment">%   y：输出比特序列（0或1向量）</span><br>    s=<span class="hljs-built_in">size</span>(x);<br>    y=<span class="hljs-built_in">zeros</span>(<span class="hljs-built_in">size</span>(x));<br>    y=char(y);<br>    <span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span> = <span class="hljs-number">1</span>:s(<span class="hljs-number">2</span>)<br>        flag=<span class="hljs-built_in">rand</span>();<br>        <span class="hljs-keyword">if</span>(flag&gt;BER)<br>            y(<span class="hljs-built_in">i</span>)=x(<span class="hljs-built_in">i</span>);<br>        <span class="hljs-keyword">else</span><br>            temp=[<span class="hljs-string">&#x27;1&#x27;</span>,<span class="hljs-string">&#x27;0&#x27;</span>];<br>            y(<span class="hljs-built_in">i</span>)=temp((x(<span class="hljs-built_in">i</span>)==<span class="hljs-string">&#x27;0&#x27;</span>)+<span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">y</span> = <span class="hljs-title">flip</span> <span class="hljs-params">(x)</span></span><br>    <span class="hljs-comment">%把01字符串序列反转</span><br>    <span class="hljs-comment">%输入：</span><br>    <span class="hljs-comment">%   x：原序列</span><br>    <span class="hljs-comment">%输出：</span><br>    <span class="hljs-comment">%   y：反转序列</span><br>    L=<span class="hljs-built_in">length</span>(x);<br>    y=x;<br>    <span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span> = <span class="hljs-number">1</span>:L<br>        <span class="hljs-keyword">if</span> x(<span class="hljs-built_in">i</span>)==<span class="hljs-string">&#x27;1&#x27;</span><br>            y(<span class="hljs-built_in">i</span>)=<span class="hljs-string">&#x27;0&#x27;</span>;<br>        <span class="hljs-keyword">else</span><br>            y(<span class="hljs-built_in">i</span>)=<span class="hljs-string">&#x27;1&#x27;</span>;<br>        <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+<h2 id="matlab作业四数字信号基带传输">Matlab作业四：数字信号基带传输</h2>
+<ol type="1">
+<li><p>用计算机画出升余弦滤波器时域、频域曲线；以及根升余弦滤波器时域、频域曲线。参数自定。</p></li>
+<li><p>试用matlab仿真单极性非归零码、双极性非归零码的误码率，并将其误码率曲线绘制在一张图中。输入信噪比（x轴）变化范围为0:1:15dB，绘图函数<code>semilogy</code>，每个信噪比统计误码率时仿真的点数为1e5。（注：基本方法是随机产生1e5个二进制比特，然后进行码型映射，再给码型叠加噪声（按照信噪比计算噪声功率），最后进行判决，统计误码率）。</p></li>
+</ol>
+<h3 id="实验结果-3">实验结果</h3>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305232242272.jpg" srcset="/img/loading.gif" lazyload alt="滤波器" /><figcaption aria-hidden="true">滤波器</figcaption>
+</figure>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305232243276.jpg" srcset="/img/loading.gif" lazyload alt="误码率" /><figcaption aria-hidden="true">误码率</figcaption>
+</figure>
+<h3 id="实验代码-3">实验代码</h3>
+<h4 id="滤波器实验">滤波器实验</h4>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><code class="hljs matlab">clear all;<br>Fs = <span class="hljs-number">100</span>;<br>Ts = <span class="hljs-number">0.1</span>;<br>t = <span class="hljs-number">-5</span>*Ts:<span class="hljs-number">1</span>/Fs:<span class="hljs-number">5</span>*Ts;<br><br><span class="hljs-built_in">beta</span> = <span class="hljs-number">0.5</span>; <span class="hljs-comment">%升余弦滤波器参数</span><br><br>sinc_t=sinc(t/Ts)/Ts; <span class="hljs-comment">%系数</span><br>rc_tnum=<span class="hljs-built_in">cos</span>(<span class="hljs-built_in">pi</span>*<span class="hljs-built_in">beta</span>*t/Ts); <span class="hljs-comment">%分子</span><br>rc_tden=<span class="hljs-number">1</span>-(<span class="hljs-number">2</span>*<span class="hljs-built_in">beta</span>*t/Ts).^<span class="hljs-number">2</span>; <span class="hljs-comment">%分母</span><br>pn=<span class="hljs-built_in">find</span>(<span class="hljs-built_in">abs</span>(rc_tden)&lt;<span class="hljs-number">1e-8</span>); <span class="hljs-comment">%除以零特判</span><br>rc_tden(pn) = <span class="hljs-built_in">inf</span>;<br>rc_t = rc_tnum./rc_tden;<br>gt = sinc_t .* rc_t;<br>subplot(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>);<br><span class="hljs-built_in">plot</span>(t,gt);<br>xlabel(<span class="hljs-string">&#x27;时间&#x27;</span>);<br>ylabel(<span class="hljs-string">&#x27;h(t)&#x27;</span>);<br>title(<span class="hljs-string">&#x27;升余弦滤波器时域波形&#x27;</span>);<br><br>[f,sf]=T2F(t,gt);<br>subplot(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>);<br><span class="hljs-built_in">plot</span>(f,<span class="hljs-built_in">abs</span>(sf));<br>xlabel(<span class="hljs-string">&#x27;频率&#x27;</span>);<br>ylabel(<span class="hljs-string">&#x27;H(w)&#x27;</span>);<br>title(<span class="hljs-string">&#x27;升余弦滤波器频域波形&#x27;</span>);<br><br>sf2=<span class="hljs-built_in">sqrt</span>(<span class="hljs-built_in">abs</span>(sf)) .* <span class="hljs-built_in">exp</span>(<span class="hljs-built_in">i</span>*<span class="hljs-built_in">angle</span>(sf));<br>[t2,st2]=F2T(f,sf2);<br>subplot(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>);<br><span class="hljs-built_in">plot</span>(t2,st2);<br>xlabel(<span class="hljs-string">&#x27;时间&#x27;</span>);<br>ylabel(<span class="hljs-string">&#x27;h(t)&#x27;</span>);<br>title(<span class="hljs-string">&#x27;根升余弦滤波器时域波形&#x27;</span>);<br><br><br>subplot(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span>);<br><span class="hljs-built_in">plot</span>(f,<span class="hljs-built_in">abs</span>(sf2));<br>xlabel(<span class="hljs-string">&#x27;频率&#x27;</span>);<br>ylabel(<span class="hljs-string">&#x27;H(w)&#x27;</span>);<br>title(<span class="hljs-string">&#x27;根升余弦滤波器频域波形&#x27;</span>);<br><br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">[f,sf]</span> = <span class="hljs-title">T2F</span><span class="hljs-params">(t,st)</span></span><br><span class="hljs-comment">%   时域转频域</span><br><span class="hljs-comment">%   输入：</span><br><span class="hljs-comment">%       t：时间</span><br><span class="hljs-comment">%       st：时间函数</span><br><span class="hljs-comment">%   输出：</span><br><span class="hljs-comment">%      f：频率</span><br><span class="hljs-comment">%      sf：频率函数</span><br>    <br>    dt=t(<span class="hljs-number">2</span>)-t(<span class="hljs-number">1</span>);<br>    T=t(<span class="hljs-keyword">end</span>)-t(<span class="hljs-number">1</span>);<br>    df=<span class="hljs-number">1.0</span>/T;<br>    N=<span class="hljs-built_in">length</span>(st);<br>    f=((-N/<span class="hljs-number">2</span>) * df):df:(((N/<span class="hljs-number">2</span>)*df)-df);<br>    sf = fft(st);<br>    sf=T/N*fftshift(sf);<br><span class="hljs-keyword">end</span><br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">[t,st]</span> = <span class="hljs-title">F2T</span><span class="hljs-params">(f,sf)</span></span><br>    df=f(<span class="hljs-number">2</span>)-f(<span class="hljs-number">1</span>);<br>    Fmx=(f(<span class="hljs-keyword">end</span>)-f(<span class="hljs-number">1</span>)+df);<br>    dt=<span class="hljs-number">1</span>/Fmx;<br>    N=<span class="hljs-built_in">length</span>(sf);<br>    T=dt*N;<br>    t=-T/<span class="hljs-number">2</span>:dt:T/<span class="hljs-number">2</span>-dt;<br>    sff=ifftshift(sf);<br>    st=Fmx*ifft(sff);<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+<h4 id="误码率实验">误码率实验</h4>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-comment">% 仿真参数设置</span><br>SNR_dB = <span class="hljs-number">0</span>:<span class="hljs-number">1</span>:<span class="hljs-number">15</span>;     <span class="hljs-comment">% 信噪比范围（dB）</span><br>numBits = <span class="hljs-number">1e5</span>;       <span class="hljs-comment">% 仿真比特数</span><br><br>BER_NRZ = <span class="hljs-built_in">zeros</span>(<span class="hljs-built_in">size</span>(SNR_dB));<br>BER_RZ = <span class="hljs-built_in">zeros</span>(<span class="hljs-built_in">size</span>(SNR_dB));<br><br><span class="hljs-comment">% 随机产生比特序列</span><br>bits = randi([<span class="hljs-number">0</span>, <span class="hljs-number">1</span>], <span class="hljs-number">1</span>, numBits);<br><br><span class="hljs-comment">% 进行误码率仿真</span><br><span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span> = <span class="hljs-number">1</span>:<span class="hljs-built_in">length</span>(SNR_dB)<br>    <span class="hljs-comment">% 生成高斯噪声</span><br>    noisePower = <span class="hljs-number">10</span>^(-SNR_dB(<span class="hljs-built_in">i</span>)/<span class="hljs-number">10</span>);   <span class="hljs-comment">% 噪声功率</span><br>    noise = <span class="hljs-built_in">sqrt</span>(noisePower) * <span class="hljs-built_in">randn</span>(<span class="hljs-number">1</span>, numBits);<br>    <br>    <span class="hljs-comment">% 单极性非归零码</span><br>    signal_NRZ = bits;     <br>    receivedSignal_NRZ = signal_NRZ + noise;<br>    <span class="hljs-comment">% 判决</span><br>    decodedBits_NRZ = receivedSignal_NRZ &gt;= <span class="hljs-number">0</span>;<br>    <span class="hljs-comment">% 误码率</span><br>    BER_NRZ(<span class="hljs-built_in">i</span>) = sum(bits ~= decodedBits_NRZ) / numBits;<br>    <br>    <span class="hljs-comment">% 双极性非归零码</span><br>    signal_RZ = <span class="hljs-number">2</span>*bits - <span class="hljs-number">1</span>;   <br>    receivedSignal_RZ = signal_RZ + noise;<br>    <span class="hljs-comment">% 判决</span><br>    decodedBits_RZ = receivedSignal_RZ &gt;= <span class="hljs-number">0</span>;<br>    <span class="hljs-comment">% 统计误码率</span><br>    BER_RZ(<span class="hljs-built_in">i</span>) = sum(bits ~= decodedBits_RZ) / numBits;<br><span class="hljs-keyword">end</span><br><br><span class="hljs-comment">% 绘制误码率曲线</span><br>semilogy(SNR_dB, BER_NRZ, <span class="hljs-string">&#x27;b-o&#x27;</span>, <span class="hljs-string">&#x27;LineWidth&#x27;</span>, <span class="hljs-number">2</span>);<br><span class="hljs-built_in">hold</span> on;<br>semilogy(SNR_dB, BER_RZ, <span class="hljs-string">&#x27;r-*&#x27;</span>, <span class="hljs-string">&#x27;LineWidth&#x27;</span>, <span class="hljs-number">2</span>);<br><span class="hljs-built_in">hold</span> off;<br><br>xlabel(<span class="hljs-string">&#x27;信噪比 (dB)&#x27;</span>);<br>ylabel(<span class="hljs-string">&#x27;误码率&#x27;</span>);<br>title(<span class="hljs-string">&#x27;单极性非归零码（NRZ）与双极性非归零码（RZ）误码率曲线&#x27;</span>);<br><span class="hljs-built_in">legend</span>(<span class="hljs-string">&#x27;NRZ&#x27;</span>, <span class="hljs-string">&#x27;RZ&#x27;</span>);<br>grid on;<br></code></pre></td></tr></table></figure>
+<h2 id="上机实验二pcm-编码调制的-matlab-实现">上机实验二：PCM 编码调制的 MATLAB 实现</h2>
+<p>设模拟信号<span class="math inline">\(x(t)=0.1\cos(0.15t)+1.5\sin (2.5t)+0.5\cos(4t)\)</span>，选取适当的抽样频率（需要满足无失真采样要求）。</p>
+<ol type="1">
+<li>采用均匀量化，量化层数为各自学号的后四位mod（4）+4（例如学号为 19835412，后四位5412除以4求余为0，再加4为4），请设计均匀量化编码程序。</li>
+<li>采用非均匀量化，设计A律13折线法的PCM编码程序</li>
+</ol>
+<p>要求输出：</p>
+<ol type="1">
+<li>原始输入信号</li>
+<li>抽样后信号</li>
+<li>量化输出信号</li>
+<li>编码结果</li>
+</ol>
+<h3 id="实验结果-4">实验结果</h3>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202304121656595.jpg" srcset="/img/loading.gif" lazyload alt="均匀量化" /><figcaption aria-hidden="true">均匀量化</figcaption>
+</figure>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202304121656059.jpg" srcset="/img/loading.gif" lazyload alt="A律13折线量化" /><figcaption aria-hidden="true">A律13折线量化</figcaption>
+</figure>
+<h3 id="实验代码-4">实验代码</h3>
+<h4 id="均匀量化">均匀量化</h4>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><code class="hljs matlab">dt=<span class="hljs-number">0.01</span>;<br>t=[<span class="hljs-number">0</span>:dt:<span class="hljs-number">20</span>];<br>xt=<span class="hljs-number">0.1</span>.*<span class="hljs-built_in">cos</span>(<span class="hljs-number">0.15</span>.*t)+<span class="hljs-number">1.5</span>.*<span class="hljs-built_in">sin</span>(<span class="hljs-number">2.5</span>.*t)+<span class="hljs-number">0.5</span>.*<span class="hljs-built_in">cos</span>(<span class="hljs-number">4.</span>*t);<br>subplot(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>);<br><span class="hljs-built_in">plot</span>(t,xt);<br>title(<span class="hljs-string">&quot;均匀量化原始输入信号&quot;</span>);<br><br><span class="hljs-comment">%抽样</span><br>fs=<span class="hljs-number">4</span>;<br>sdt=<span class="hljs-number">1</span>/fs;<br>t1=[<span class="hljs-number">0</span>:sdt:<span class="hljs-number">20</span>];<br>xt1=<span class="hljs-number">0.1</span>.*<span class="hljs-built_in">cos</span>(<span class="hljs-number">0.15</span>.*t1)+<span class="hljs-number">1.5</span>.*<span class="hljs-built_in">sin</span>(<span class="hljs-number">2.5</span>.*t1)+<span class="hljs-number">0.5</span>.*<span class="hljs-built_in">cos</span>(<span class="hljs-number">4.</span>*t1);<br>subplot(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>);<br>stem(t1,xt1,<span class="hljs-string">&#x27;.&#x27;</span>);<br>title(<span class="hljs-string">&quot;均匀量化抽样后信号&quot;</span>);<br><br><span class="hljs-comment">%量化</span><br>N=<span class="hljs-built_in">mod</span>(<span class="hljs-number">5412</span>,<span class="hljs-number">4</span>)+<span class="hljs-number">4</span>; <span class="hljs-comment">%量化层数 为学号后四位%4+4</span><br>a=<span class="hljs-number">2.1</span>; <span class="hljs-comment">%幅度最大值</span><br>reg=[-a,a];<br>delta=(<span class="hljs-number">2</span>*a/N);<br>x_qt=xt1;<br>bit=<span class="hljs-built_in">ceil</span>(<span class="hljs-built_in">log2</span>(N));<br>code=<span class="hljs-string">&#x27;&#x27;</span>;<br>L=<span class="hljs-built_in">length</span>(t1);<br><span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span> = <span class="hljs-number">1</span>:L<br>    <span class="hljs-keyword">for</span> <span class="hljs-built_in">j</span> = <span class="hljs-number">0</span>:N<br>        low=-a+<span class="hljs-built_in">j</span>*delta;<br>        high=low+delta;<br>        <span class="hljs-keyword">if</span> (low&lt;=xt1(<span class="hljs-built_in">i</span>) &amp;&amp; xt1(<span class="hljs-built_in">i</span>)&lt;=high)<br>            x_qt(<span class="hljs-built_in">i</span>)=low+delta/<span class="hljs-number">2</span>;<br>            code=strcat(code,dec2bin(<span class="hljs-built_in">j</span>,bit));<br>        <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br>subplot(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>);<br>stem(t1,x_qt,<span class="hljs-string">&#x27;.&#x27;</span>);<br>title(<span class="hljs-string">&quot;均匀量化输出信号&quot;</span>);<br>code<br><br>code_in_num=<span class="hljs-built_in">zeros</span>(bit*L);<br><span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span> = <span class="hljs-number">1</span>:bit*L<br>    <span class="hljs-keyword">if</span>(code(<span class="hljs-built_in">i</span>)==<span class="hljs-string">&#x27;0&#x27;</span>)<br>        code_in_num(<span class="hljs-built_in">i</span>)=<span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">if</span>(code(<span class="hljs-built_in">i</span>)==<span class="hljs-string">&#x27;1&#x27;</span>)<br>        code_in_num(<span class="hljs-built_in">i</span>)=<span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br>subplot(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span>);<br>stem(<span class="hljs-number">1</span>:bit*L,code_in_num,<span class="hljs-string">&#x27;.&#x27;</span>);<br>title(<span class="hljs-string">&quot;均匀量化输出编码&quot;</span>);<br></code></pre></td></tr></table></figure>
+<h4 id="非均匀量化">非均匀量化</h4>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><code class="hljs matlab">dt=<span class="hljs-number">0.01</span>;<br>t=[<span class="hljs-number">0</span>:dt:<span class="hljs-number">10</span>];<br>xt=<span class="hljs-number">0.1</span>.*<span class="hljs-built_in">cos</span>(<span class="hljs-number">0.15</span>.*t)+<span class="hljs-number">1.5</span>.*<span class="hljs-built_in">sin</span>(<span class="hljs-number">2.5</span>.*t)+<span class="hljs-number">0.5</span>.*<span class="hljs-built_in">cos</span>(<span class="hljs-number">4.</span>*t);<br>subplot(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>);<br><span class="hljs-built_in">plot</span>(t,xt);<br>title(<span class="hljs-string">&quot;A律13折线原始输入信号&quot;</span>);<br><br>fs=<span class="hljs-number">4</span>;<br>sdt=<span class="hljs-number">1</span>/fs;<br>t1=[<span class="hljs-number">0</span>:sdt:<span class="hljs-number">20</span>];<br>xt1=<span class="hljs-number">0.1</span>.*<span class="hljs-built_in">cos</span>(<span class="hljs-number">0.15</span>.*t1)+<span class="hljs-number">1.5</span>.*<span class="hljs-built_in">sin</span>(<span class="hljs-number">2.5</span>.*t1)+<span class="hljs-number">0.5</span>.*<span class="hljs-built_in">cos</span>(<span class="hljs-number">4.</span>*t1);<br>subplot(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>);<br>stem(t1,xt1,<span class="hljs-string">&#x27;.&#x27;</span>);<br>title(<span class="hljs-string">&quot;A律13折线抽样后信号&quot;</span>);<br><br>code=<span class="hljs-string">&#x27;&#x27;</span>;<br>a=<span class="hljs-number">2.1</span>;<br>L=<span class="hljs-built_in">length</span>(xt1);<br>x_qt=<span class="hljs-built_in">zeros</span>(L);<br><span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span> = <span class="hljs-number">1</span>:L<br>    codei=<span class="hljs-string">&#x27;&#x27;</span>;<br>    flag=<span class="hljs-number">0</span>;<br>    x=<span class="hljs-built_in">floor</span>(xt1(<span class="hljs-built_in">i</span>)/a*<span class="hljs-number">2048</span>);<br>    <span class="hljs-keyword">if</span>(x&gt;<span class="hljs-number">0</span>)<br>        codei=strcat(codei,<span class="hljs-string">&#x27;1&#x27;</span>);<span class="hljs-comment">%符号码</span><br>        flag=<span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">else</span><br>        codei=strcat(codei,<span class="hljs-string">&#x27;0&#x27;</span>);<br>        x=-x;<br>        flag=<span class="hljs-number">-1</span>;<br>    <span class="hljs-keyword">end</span><br>    <br>    start_level=[<span class="hljs-number">0</span>,<span class="hljs-number">16</span>,<span class="hljs-number">32</span>,<span class="hljs-number">64</span>,<span class="hljs-number">128</span>,<span class="hljs-number">256</span>,<span class="hljs-number">512</span>,<span class="hljs-number">1024</span>,<span class="hljs-number">2048</span>]; <span class="hljs-comment">%段落码电平范围</span><br>    interval   =[<span class="hljs-number">1</span>,<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">8</span>,  <span class="hljs-number">16</span>, <span class="hljs-number">32</span>, <span class="hljs-number">64</span>]; <span class="hljs-comment">%量化间隔</span><br>    <span class="hljs-keyword">for</span> <span class="hljs-built_in">j</span> = <span class="hljs-number">1</span>:(<span class="hljs-built_in">length</span>(start_level)<span class="hljs-number">-1</span>)<br>        <span class="hljs-keyword">if</span>(start_level(<span class="hljs-built_in">j</span>)&lt;x &amp;&amp; x&lt;=start_level(<span class="hljs-built_in">j</span>+<span class="hljs-number">1</span>))<br>            codei=strcat(codei,dec2bin(<span class="hljs-built_in">j</span>,<span class="hljs-number">3</span>));<span class="hljs-comment">%段落码</span><br>            temp=<span class="hljs-built_in">floor</span>( ( x-start_level(<span class="hljs-built_in">j</span>) )/interval(<span class="hljs-built_in">j</span>) );<br>            codei=strcat(codei,dec2bin(temp,<span class="hljs-number">4</span>));<span class="hljs-comment">%段内码</span><br>            x_qt(<span class="hljs-built_in">i</span>)=flag*(start_level(<span class="hljs-built_in">j</span>)+interval(<span class="hljs-built_in">j</span>)*(temp+<span class="hljs-number">0.5</span>))*(a/<span class="hljs-number">2048</span>);<br>            <span class="hljs-comment">%恢复量化电平</span><br>            <span class="hljs-keyword">break</span>;<br>        <span class="hljs-keyword">end</span>   <br>    <span class="hljs-keyword">end</span><br>    code=strcat(code,codei);<br><span class="hljs-keyword">end</span><br><br>subplot(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>);<br>stem(t1,x_qt,<span class="hljs-string">&#x27;.&#x27;</span>);<br>title(<span class="hljs-string">&quot;A律13折线量化输出信号&quot;</span>);<br><br>bit=<span class="hljs-number">8</span>;<br>code_in_num=<span class="hljs-built_in">zeros</span>(bit*L);<br><span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span> = <span class="hljs-number">1</span>:bit*L<br>    <span class="hljs-keyword">if</span>(code(<span class="hljs-built_in">i</span>)==<span class="hljs-string">&#x27;0&#x27;</span>)<br>        code_in_num(<span class="hljs-built_in">i</span>)=<span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">if</span>(code(<span class="hljs-built_in">i</span>)==<span class="hljs-string">&#x27;1&#x27;</span>)<br>        code_in_num(<span class="hljs-built_in">i</span>)=<span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br>subplot(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span>);<br>stem(<span class="hljs-number">1</span>:bit*L,code_in_num,<span class="hljs-string">&#x27;.&#x27;</span>);<br>title(<span class="hljs-string">&quot;均匀量化输出编码&quot;</span>);<br></code></pre></td></tr></table></figure>
+<h2 id="仿真实验资料">仿真实验资料</h2>
+<p><a target="_blank" rel="noopener" href="https://docsdown.oss-cn-beijing.aliyuncs.com/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86%E8%99%9A%E6%8B%9F%E4%BB%BF%E7%9C%9F%E5%AE%9E%E9%AA%8C.zip">通信原理虚拟仿真资料下载</a></p>
+<p>提醒一下哈，这个软件很逆天，你直接双击这个文件是打不开的，得先到那个专用的网站里打开实验，然后等软件弹出，再在软件里面通过“打开文件”的方式才能打开这个文件。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/">#通信原理</a>
+      
+        <a href="/tags/matlab/">#matlab</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>通信原理Matlab软件作业</div>
+      <div>https://suzumiyaakizuki.github.io/2023/06/30/通信原理Matlab软件作业/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>SuzumiyaAkizuki</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年6月30日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/06/30/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" title="数字图像处理实验报告">
+                        <span class="hidden-mobile">数字图像处理实验报告</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.7.2/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"48fb14f9689ae0d11307","clientSecret":"091ab25a88e87bfd9d9d40d97d1d0d932e694059","repo":"SuzumiyaAkizuki.github.io","owner":"SuzumiyaAkizuki","admin":["SuzumiyaAkizuki"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: 'e76fdfd81a8764abd3789525cc9c83da'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       Powered by: <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
