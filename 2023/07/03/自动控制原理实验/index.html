@@ -1,0 +1,1296 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <link rel="icon" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="SuzumiyaAkizuki">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="这实验挺神秘的其实，有好多地方我都感觉不太对劲，但是鉴于成绩还可以，还是放出来给大家参考一下。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自动控制原理实验">
+<meta property="og:url" content="https://suzumiyaakizuki.github.io/2023/07/03/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86%E5%AE%9E%E9%AA%8C/index.html">
+<meta property="og:site_name" content="凉宫秋月的文艺部">
+<meta property="og:description" content="这实验挺神秘的其实，有好多地方我都感觉不太对劲，但是鉴于成绩还可以，还是放出来给大家参考一下。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202307032008533.png">
+<meta property="article:published_time" content="2023-07-03T11:04:15.000Z">
+<meta property="article:modified_time" content="2023-07-03T12:10:11.720Z">
+<meta property="article:author" content="SuzumiyaAkizuki">
+<meta property="article:tag" content="自控">
+<meta property="article:tag" content="Matlab">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202307032008533.png">
+  
+  
+  
+  <title>自动控制原理实验 - 凉宫秋月的文艺部</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"suzumiyaakizuki.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":"G-J01HK5TZ0Y","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"QGqf9VPGTa96KerO0JvDW3Ld-gzGzoHsz","app_key":"RhwwUaYq4lMo1tCJwcQTWdRp","server_url":"https://qgqf9vpg.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.google-analytics.com/analytics.js', function() {
+          window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
+          ga.l = +new Date;
+          ga('create', 'G-J01HK5TZ0Y', 'auto');
+          ga('send', 'pageview');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>凉宫秋月的文艺部</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友情链接
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202307032008533.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="自动控制原理实验"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        SuzumiyaAkizuki
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-07-03 19:04" pubdate>
+          2023年7月3日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          10k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          21 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">自动控制原理实验</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>这实验挺神秘的其实，有好多地方我都感觉不太对劲，但是鉴于成绩还可以，还是放出来给大家参考一下。</p>
+<span id="more"></span>
+<h2 id="实验一一二阶系统的电子模拟及时域响应的动态测试">实验一：一、二阶系统的电子模拟及时域响应的动态测试</h2>
+<h3 id="实验目的">实验目的</h3>
+<ol type="1">
+<li><p>了解一、二阶系统阶跃响应及其性能指标与系统参数之间的关系。</p></li>
+<li><p>学习单位阶跃响应性能指标的测试方法。</p></li>
+</ol>
+<h3 id="实验内容">实验内容</h3>
+<ol type="1">
+<li>建立一阶系统的模型，观测并记录时间常数<span class="math inline">\(T\)</span>不同时的单位阶跃响应曲线，测定其调整时间(即过渡过程时间) <span class="math inline">\(t_s\)</span>。</li>
+<li>建立二阶系统的数学模型，观测并记录不同阻尼比ζ时的单位阶跃响应曲线，测定其超调量<span class="math inline">\(M_p\)</span>及过渡过程时间<span class="math inline">\(t_s\)</span>。</li>
+</ol>
+<h3 id="实验原理">实验原理</h3>
+<ol type="1">
+<li><p>一阶系统系统传递函数为：<span class="math inline">\(T(s)=K/(Ts+1)\)</span>。在实验当中始终取<span class="math inline">\(K=1\)</span>，取不同的时间常数<span class="math inline">\(T\)</span>分别为：<span class="math inline">\(0.25,0.5,1.0\)</span>。记录不同时间常数下单位阶跃响应曲线，测量并纪录其过渡过程时间<span class="math inline">\(t_s\)</span>，给出在时间常数不同时理论计算和实测的<span class="math inline">\(t_s\)</span>以及相应的阶跃响应曲线。</p></li>
+<li><p>二阶系统系统传递函数为： <span class="math display">\[
+T(s)=\frac{\omega_n^2}{s^2+2\xi\omega_ns+\omega_n^2}
+\]</span></p>
+<p>在实验中始终取<span class="math inline">\(\omega_n=1\)</span>弧度/秒，<span class="math inline">\(\xi\)</span>取不同的值、分别为：<span class="math inline">\(0.25,0.5,0.707,1.0\)</span>，观察并画出相应的单位阶跃响应曲线，测量超调量<span class="math inline">\(M_p\)</span>，计算过渡过程时间<span class="math inline">\(t_s\)</span>。</p></li>
+</ol>
+<h3 id="实验结果和代码">实验结果和代码</h3>
+<h4 id="一阶系统">一阶系统</h4>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202307031914649.jpg" srcset="/img/loading.gif" lazyload alt="一阶系统图像" /><figcaption aria-hidden="true">一阶系统图像</figcaption>
+</figure>
+<table>
+<thead>
+<tr class="header">
+<th>T</th>
+<th>Ts理论</th>
+<th>Ts实测</th>
+<th>误差</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.25</td>
+<td>0.75</td>
+<td>0.749</td>
+<td>0.13%</td>
+</tr>
+<tr class="even">
+<td>0.5</td>
+<td>0.15</td>
+<td>0.15</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>3</td>
+<td>3</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>误差产生的原因可能有A/D、D/A转换可能会有分辨力约束及量化精度引入的误差。一阶系统的阶跃输入响应是时间的单调函数，其理论的稳态误差为0。而瞬态响应的主要参数是其时间常数<span class="math inline">\(T\)</span>，<span class="math inline">\(T\)</span>越小，上升过程越快，调节时间越短，系统稳定就越迅速。仿真实验的结果与理论分析基本吻合。</p>
+<p>实验代码为：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs matlab">K=<span class="hljs-number">1</span>;<br>t=<span class="hljs-number">0</span>:<span class="hljs-number">0.1</span>:<span class="hljs-number">10</span>;<br>Tss=[<span class="hljs-number">0.25</span>,<span class="hljs-number">0.5</span>,<span class="hljs-number">1</span>];<br><span class="hljs-keyword">for</span> Ts = xis<br>    sys=tf(K,[Ts,<span class="hljs-number">1</span>]);<br>    u=stepfun(t,<span class="hljs-number">0</span>);<br>    step(sys);<span class="hljs-built_in">hold</span> on;<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+<h4 id="二阶系统">二阶系统</h4>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202304060023976.jpg" srcset="/img/loading.gif" lazyload alt="二阶阶跃响应" /><figcaption aria-hidden="true">二阶阶跃响应</figcaption>
+</figure>
+<p>图中蓝色-橙色-黄色-紫色线条依次是<span class="math inline">\(\xi\)</span>为<span class="math inline">\(0.25,0.5,0.707,1\)</span>时的单位阶跃响应。</p>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(\xi\)</span></th>
+<th><span class="math inline">\(Mp\)</span>理论（%）</th>
+<th><span class="math inline">\(Mp\)</span>实测（%）</th>
+<th><span class="math inline">\(t_s\)</span>理论</th>
+<th><span class="math inline">\(t_s\)</span>实测</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.25</td>
+<td>44.4</td>
+<td>44.3</td>
+<td>12</td>
+<td>10.8</td>
+</tr>
+<tr class="even">
+<td>0.5</td>
+<td>16.3</td>
+<td>16.3</td>
+<td>6</td>
+<td>5.29</td>
+</tr>
+<tr class="odd">
+<td>0.707</td>
+<td>4.32</td>
+<td>4.33</td>
+<td>4.24</td>
+<td>2.93</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>3</td>
+<td>4.74</td>
+</tr>
+</tbody>
+</table>
+<p>对于二阶系统，其阶跃响应主要由阻尼比<span class="math inline">\(\xi\)</span>及无阻尼自然频率<span class="math inline">\(\omega_n\)</span>决定。随着阻尼比增大，阶跃响应由欠阻尼过渡到临界阻尼再到过阻尼。欠阻尼状态下，阻尼比<span class="math inline">\(\xi\)</span>越大，超调量<span class="math inline">\(M_p\)</span>越小，平稳性越好，而调整时间<span class="math inline">\(T_s\)</span>也随之减短。在阻尼比<span class="math inline">\(\xi=0.707\)</span>时，超调量和调整时间都较小，可以认为是比较理想的瞬态响应，称为准最佳系统。当阻尼比增大到1时，阶跃响应成为单调的上升过程，类似于一阶系统。</p>
+<p>实验代码：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs matlab">omega=<span class="hljs-number">1</span>;<br>t=<span class="hljs-number">0</span>:<span class="hljs-number">0.1</span>:<span class="hljs-number">10</span>;<br>xis=[<span class="hljs-number">0.25</span>,<span class="hljs-number">0.5</span>,<span class="hljs-number">0.707</span>,<span class="hljs-number">1</span>];<br><span class="hljs-keyword">for</span> xi = xis<br>    sys=tf(omega*omega,[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>*xi*omega,omega*omega]);<br>    u=stepfun(t,<span class="hljs-number">0</span>);<br>    step(sys);<span class="hljs-built_in">hold</span> on;<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+<h2 id="实验二频率响应测试">实验二：频率响应测试</h2>
+<h3 id="实验目的-1">实验目的</h3>
+<ol type="1">
+<li><p>掌握频率特性的测试原理及方法</p></li>
+<li><p>学习根据所测定出的系统的频率特性，确定系统传递函数的方法。</p></li>
+</ol>
+<h3 id="实验内容-1">实验内容</h3>
+<ol type="1">
+<li><p>测定给定环节的频率特性。</p></li>
+<li><p>系统传递函数为： <span class="math display">\[
+G(s)=\frac{200}{s^2+10s+200}
+\]</span> 或 <span class="math display">\[
+G(s)=\frac{500}{s^2+10s+500}
+\]</span> 若正弦输入信号为<span class="math inline">\(U_i(t)=A_1\sin(\omega t)\)</span>，则当输出达到稳态时，其输出信号为<span class="math inline">\(U_o(t)=A_2 \sin (\omega t+\psi)\)</span> 。改变输入信号频率<span class="math inline">\(f_i=\frac \omega{2\pi}\)</span>值，便可测得二组和<span class="math inline">\(\frac{A_2}{A_1}\)</span>随<span class="math inline">\(f\)</span>（或<span class="math inline">\(\omega\)</span>）变化的数值，这个变化规律就是系统的幅频特性和相频特性。</p></li>
+</ol>
+<h3 id="实验原理-1">实验原理</h3>
+<ol type="1">
+<li><p>幅频特性即测量输入与输出信号幅值<span class="math inline">\(A_1\)</span>和<span class="math inline">\(A_2\)</span>，并计算比值</p></li>
+<li><p>实验采用“李沙育图形” 法进行相频特性的测试。以下简单介绍一下这种测试方法的原 理。设有两个正弦信号 <span class="math inline">\(X(\omega t)=X_m \sin (\omega t)\)</span> 和 <span class="math inline">\(Y(\omega t)=Y_m \sin (\omega t+\psi)\)</span>, 若以 <span class="math inline">\(X(t)\)</span> 为横轴, <span class="math inline">\(Y(t)\)</span> 为纵轴, 而以 <span class="math inline">\(\omega\)</span> 作为参变量, 则随着 <span class="math inline">\(\omega t\)</span> 的变化, <span class="math inline">\(X(t)\)</span> 和 <span class="math inline">\(Y(t)\)</span> 所确定的点的轨迹, 将在 <span class="math inline">\(X-Y\)</span> 平面上描绘 出一条封闭的曲线, 这个图形在物理学上称为“李沙育图形”（或李萨如图形）, 如下图所示。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202307031927247.png" srcset="/img/loading.gif" lazyload alt="李沙育图形" /><figcaption aria-hidden="true">李沙育图形</figcaption>
+</figure></li>
+<li><p>相位差角 <span class="math inline">\(\psi\)</span> 的求法: 对于 <span class="math inline">\(X(\omega t)=X_m \sin (\omega t)\)</span> 及 <span class="math inline">\(Y(\omega t)=Y_m \sin (\omega t+\psi)\)</span>, 当 <span class="math inline">\(\omega t=0\)</span> 时, 有 <span class="math inline">\(X(0)=0\)</span>; <span class="math inline">\(Y(0)=Y_m \sin (\psi)\)</span> 。即 <span class="math inline">\(\psi=\arcsin \frac{Y(0)}{Y_m}\)</span>, 显然仅当 <span class="math inline">\(0 \leq \psi \leq \frac{\pi}{2}\)</span> 时, 该式才是成立的。</p></li>
+</ol>
+<p>提示1：根据实验内容，自行安排实验步骤，根据需要可以对表2.1适当修改。</p>
+<p>提示2：简单起见，可以将某次测试结果作为参考完成报告，见下表</p>
+<table>
+
+<thead>
+<tr class="header">
+<th></th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(f\)</span>(Hz)</td>
+<td>0.477</td>
+<td>0.796</td>
+<td>1.114</td>
+<td>1.432</td>
+<td>1.751</td>
+<td>2.069</td>
+<td>2.387</td>
+<td>2.865</td>
+<td>3.979</td>
+<td>4.775</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\omega\)</span>(rad/s)</td>
+<td>3.000</td>
+<td>5.000</td>
+<td>7.000</td>
+<td>9.000</td>
+<td>11.000</td>
+<td>13.000</td>
+<td>15.000</td>
+<td>18.000</td>
+<td>25.000</td>
+<td>30.000</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(A_2/A_1\)</span></td>
+<td>1.035</td>
+<td>1.108</td>
+<td>1.216</td>
+<td>1.362</td>
+<td>1.453</td>
+<td>1.428</td>
+<td>1.421</td>
+<td>1.211</td>
+<td>0.820</td>
+<td>0.369</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(Y(0)/Y(m)\)</span></td>
+<td>0.198</td>
+<td>0.300</td>
+<td>0.466</td>
+<td>0.663</td>
+<td>0.894</td>
+<td>0.999</td>
+<td>0.996</td>
+<td>0.976</td>
+<td>0.741</td>
+<td>0.370</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\psi(0)\)</span></td>
+<td>-11.430</td>
+<td>-17.436</td>
+<td>-27.761</td>
+<td>-41.546</td>
+<td>-63.382</td>
+<td>-86.967</td>
+<td>-94.808</td>
+<td>-102.564</td>
+<td>-132.177</td>
+<td>-158.256</td>
+</tr>
+</tbody>
+</table>
+<h3 id="实验结果">实验结果</h3>
+<h4 id="绘制李萨如图像">绘制李萨如图像</h4>
+<p>取传递函数为 <span class="math display">\[
+G(s)=\frac {200}{s^2+10s+200}
+\]</span> 分别取<span class="math inline">\(\omega=3,9,15,30\)</span>，绘制李萨如图像：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202307031929309.jpeg" srcset="/img/loading.gif" lazyload alt="李萨如图像" /><figcaption aria-hidden="true">李萨如图像</figcaption>
+</figure>
+<p>代码如下：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs matlab">t=<span class="hljs-number">0</span>:<span class="hljs-number">0.001</span>:<span class="hljs-number">1000</span>;<br>f=<span class="hljs-number">3</span>;<br>x=<span class="hljs-built_in">sin</span>(f.*t);<br>sys = tf(<span class="hljs-number">200</span>, [<span class="hljs-number">1</span> <span class="hljs-number">10</span> <span class="hljs-number">200</span>]);<br>y = lsim(sys, x, t);<br>subplot(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>);<br><span class="hljs-built_in">plot</span>(x,y);<br><br>f=<span class="hljs-number">9</span>;<br>x=<span class="hljs-built_in">sin</span>(f.*t);<br>sys = tf(<span class="hljs-number">200</span>, [<span class="hljs-number">1</span> <span class="hljs-number">10</span> <span class="hljs-number">200</span>]);<br>y = lsim(sys, x, t);<br>subplot(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>);<br><span class="hljs-built_in">plot</span>(x,y);<br><br>f=<span class="hljs-number">15</span>;<br>x=<span class="hljs-built_in">sin</span>(f.*t);<br>sys = tf(<span class="hljs-number">200</span>, [<span class="hljs-number">1</span> <span class="hljs-number">10</span> <span class="hljs-number">200</span>]);<br>y = lsim(sys, x, t);<br>subplot(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>);<br><span class="hljs-built_in">plot</span>(x,y);<br><br>f=<span class="hljs-number">30</span>;<br>x=<span class="hljs-built_in">sin</span>(f.*t);<br>sys = tf(<span class="hljs-number">200</span>, [<span class="hljs-number">1</span> <span class="hljs-number">10</span> <span class="hljs-number">200</span>]);<br>y = lsim(sys, x, t);<br>subplot(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span>);<br><span class="hljs-built_in">plot</span>(x,y);<br></code></pre></td></tr></table></figure>
+<h4 id="利用表格确定传递函数">利用表格确定传递函数</h4>
+<p>设传递函数为 <span class="math display">\[
+G_0(\omega)=\frac{\omega_n^2}{s^2+2 \zeta \omega_n s+\omega_n^2}=\frac{1}{\sqrt{\left(1-\frac{\omega^2}{\omega_n^2}\right)^2+4 \zeta^2 \frac{\omega^2}{\omega_n^2}}} \exp \left(-\operatorname{arctg} \frac{2 \zeta \frac{\omega}{\omega_n}}{1-\frac{\omega^2}{\omega_n^2}}\right)
+\]</span> 假设传递函数是<span class="math inline">\(G(s)=\frac {200}{s^2+10s+200}\)</span>，理论上<span class="math inline">\(\omega_n=\sqrt{200}=14.14\)</span>时相移恰为-90°，实验测得的结果与理论基本一致。现在把<span class="math inline">\(\omega_n=14\)</span>代入，对于十个数据点计算<span class="math inline">\(\zeta\)</span>，有：</p>
+<table>
+
+<thead>
+<tr class="header">
+<th></th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\zeta\)</span></td>
+<td>0.355701</td>
+<td>0.323482</td>
+<td>0.337327</td>
+<td>0.343293</td>
+<td>0.364031</td>
+<td>0.369706</td>
+<td>0.321067</td>
+<td>0.196532049</td>
+<td>/</td>
+<td>/</td>
+</tr>
+</tbody>
+</table>
+<p>有效数据的平均值为0.326，因此，计算出的传递函数为： <span class="math display">\[
+G(s)=\frac {196}{s^2+9.128s+196}
+\]</span> 实验测的的结果与理论基本吻合，但仍存在一定的误差，可能由下面的因素引起：</p>
+<ol type="1">
+<li><p>A/D、D/A转换时存在转换及量化误差；</p></li>
+<li><p>在MATLAB输出的李沙育图形上读取<span class="math inline">\(Y_0\)</span>和<span class="math inline">\(Y_m\)</span>时存在读数误差。<span class="math inline">\(\omega_n\)</span>附近的正椭圆一定程度上依靠主观判断。</p></li>
+<li><p>测量数据时有读数偏差</p></li>
+</ol>
+<h2 id="实验三控制系统串联校正">实验三：控制系统串联校正</h2>
+<h3 id="实验目的-2">实验目的</h3>
+<ol type="1">
+<li><p>了解和掌握串联校正的分析和设计方法。</p></li>
+<li><p>研究串联校正环节对系统稳定性及过渡过程的影响。</p></li>
+</ol>
+<h3 id="实验内容-2">实验内容</h3>
+<ol type="1">
+<li><p>设计串联超前校正，验证和分析校正装置对系统稳定性及过渡过程的影响。</p></li>
+<li><p>设计串联滞后校正，验证和分析校正装置对系统稳定性及过渡过程的影响。</p></li>
+</ol>
+<h3 id="实验原理-2">实验原理</h3>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202307031936227.png" srcset="/img/loading.gif" lazyload alt="系统结构图" /><figcaption aria-hidden="true">系统结构图</figcaption>
+</figure>
+<ol type="1">
+<li>系统结构图如上图所示, 校正装置 (环节) (传递函数为 <span class="math inline">\(G_c(s)\)</span> ) 串联在系统的 前向通道中, <span class="math inline">\(G_0(s)\)</span> 为末加矫正时原系统前向通道传递函数, 在本次实验中设定 <span class="math inline">\(G_0(s)=\frac{4}{s(s+1)}, H(s)=1\)</span>, 实验应用 MATLAB 软件实现。</li>
+<li>末加矫正时, <span class="math inline">\(G_c(s)=1\)</span> 。</li>
+<li>加串联超前校正时, <span class="math inline">\(G_c(s)=\frac{a T s+1}{T s+1},(a&gt;1)\)</span> 。在实验中, 给定 <span class="math inline">\(a=2.44, T=0.26\)</span>, 则 <span class="math inline">\(G_c(s)=\frac{0.63 s+1}{0.26 s+1}\)</span>, 计算系统性能指标参量, 分析校正环节对系统稳定性及过渡 过程的影响。</li>
+<li>加串联滞后校正时, <span class="math inline">\(G_c(s)=\frac{b T s+1}{T s+1},(0&lt;\mathrm{b}&lt;1)\)</span> 。在实验中, 给定 <span class="math inline">\(b=0.12, T=83.33\)</span>, 则 <span class="math inline">\(G_c(s)=\frac{10 s+1}{83.33 s+1}\)</span>, 计算系统性能指标参量, 分析校正环节对系统稳定性及过渡过程的影响。</li>
+</ol>
+<h3 id="实验结果-1">实验结果</h3>
+<p>阶跃响应图：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305252210614.jpg" srcset="/img/loading.gif" lazyload alt="三系统阶跃响应图" /><figcaption aria-hidden="true">三系统阶跃响应图</figcaption>
+</figure>
+<p>有：</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>超调量Mp/%</th>
+<th>建立时间/s</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>原系统</td>
+<td>44%</td>
+<td>5.48</td>
+</tr>
+<tr class="even">
+<td>超前校正</td>
+<td>23%</td>
+<td>1.90</td>
+</tr>
+<tr class="odd">
+<td>滞后校正</td>
+<td>20%</td>
+<td>13.37</td>
+</tr>
+</tbody>
+</table>
+<p>波特图：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305252210441.jpg" srcset="/img/loading.gif" lazyload alt="波特图" /><figcaption aria-hidden="true">波特图</figcaption>
+</figure>
+<p>经计算，有：</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>截止频率/rad</th>
+<th>稳定裕度/°</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>原系统</td>
+<td>1.88</td>
+<td>28</td>
+</tr>
+<tr class="even">
+<td>超前校正</td>
+<td>2.38</td>
+<td>47.4</td>
+</tr>
+<tr class="odd">
+<td>滞后校正</td>
+<td>0.45</td>
+<td>54.8</td>
+</tr>
+</tbody>
+</table>
+<p>由上述数据可以看出，进行了串联超前校正后，系统的调整时间<span class="math inline">\(ts\)</span>减小，系统响应的快速性改善；超调量<span class="math inline">\(Mp\)</span>降低，系统阻尼较大；系统的裕度增大，系统稳定性增强。进行了串联滞后校正后，系统的调整时间<span class="math inline">\(ts\)</span>增大，快速性减弱；但是系统超调量<span class="math inline">\(Mp\)</span>减小；提高了稳定裕量，稳定性增强，抑制高频干扰的能力改善。</p>
+<p>实验代码如下：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs matlab">clear;close all;<br><br>G0 = tf(<span class="hljs-number">4</span>,[<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>]);<br>G_lead = tf([<span class="hljs-number">0.63</span>,<span class="hljs-number">1</span>],[<span class="hljs-number">0.26</span>,<span class="hljs-number">1</span>]); <span class="hljs-comment">%超前校正</span><br>G_lag = tf([<span class="hljs-number">10</span>,<span class="hljs-number">1</span>],[<span class="hljs-number">83.33</span>,<span class="hljs-number">1</span>]); <span class="hljs-comment">%滞后校正</span><br><br><span class="hljs-comment">%计算闭环传递函数</span><br>sys1_cl = G0/(<span class="hljs-number">1</span>+G0);<br>sys_lead_cl = (G0 * G_lead)/(<span class="hljs-number">1</span>+G0 * G_lead);<br>sys_lag_cl = (G0 * G_lag)/(<span class="hljs-number">1</span>+G0 * G_lag);<br><br><span class="hljs-built_in">figure</span>(<span class="hljs-number">1</span>);<br>step(sys1_cl);<span class="hljs-built_in">hold</span> on;<br>step(sys_lead_cl);<span class="hljs-built_in">hold</span> on;<br>step(sys_lag_cl);<span class="hljs-built_in">hold</span> on;<br><span class="hljs-built_in">legend</span>(<span class="hljs-string">&#x27;原系统&#x27;</span>,<span class="hljs-string">&#x27;超前校正&#x27;</span>,<span class="hljs-string">&#x27;滞后校正&#x27;</span>);<br><br><span class="hljs-comment">%计算开环传递函数</span><br>sys1_ol = G0;<br>sys_lead_ol= G0 * G_lead;<br>sys_lag_ol = G0 * G_lag;<br><br><span class="hljs-built_in">figure</span>(<span class="hljs-number">2</span>);<br>bode(sys1_ol);<span class="hljs-built_in">hold</span> on;<br>bode(sys_lead_ol);<span class="hljs-built_in">hold</span> on;<br>bode(sys_lag_ol);<span class="hljs-built_in">hold</span> on;<br><span class="hljs-built_in">legend</span>(<span class="hljs-string">&#x27;原系统&#x27;</span>,<span class="hljs-string">&#x27;超前校正&#x27;</span>,<span class="hljs-string">&#x27;滞后校正&#x27;</span>);<br></code></pre></td></tr></table></figure>
+<h2 id="实验四采样控制系统研究">实验四：采样控制系统研究</h2>
+<h3 id="实验目的-3">实验目的</h3>
+<ol type="1">
+<li><p>了解信号的采样与恢复的原理及其过程，并验证香农定理。</p></li>
+<li><p>掌握采样系统的瞬态响应与极点分布的对应关系。</p></li>
+</ol>
+<h3 id="实验原理-3">实验原理</h3>
+<ol type="1">
+<li><p>采样：把连续信号转换成离散信号的过程叫采样。</p></li>
+<li><p>采样定理：如果选择的采样角频率 <span class="math inline">\(\omega_s\)</span>, 满足 <span class="math inline">\(\omega_s \geq 2 \omega_{\max }\)</span> 条件 ( <span class="math inline">\(\omega_{\max }\)</span> 为连续信号频谱的上限频率), 那 么经采样所获得的脉冲序列可以通过理想的低通滤波器无失真地恢复原连续信号。</p></li>
+<li><p>信号的复现: 零阶保持器是将采样信号转换成连续信号的元件, 是一个低通滤波器。其传递函数: <span class="math inline">\(\frac{1-e^{-T_s}}{s}\)</span>;</p></li>
+<li><p>采样系统的极点分布对瞬态响应的影响: Z 平面内的极点分布在单位圆的不同位置, 其对应的瞬态分量是不同的。</p></li>
+</ol>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202307031948590.png" srcset="/img/loading.gif" lazyload alt="image-20230703194816495" /><figcaption aria-hidden="true">image-20230703194816495</figcaption>
+</figure>
+<h3 id="实验内容-3">实验内容</h3>
+<p>在下图中, <span class="math inline">\(D(z)=U(z) / E(z)=1\)</span>, 系统被控对象脉冲传递函数为: <span class="math display">\[
+G(z)=\frac{Y(z)}{U(z)}=Z\left[\frac{1-e^{-T s}}{s} \frac{4}{s+1}\right]=\frac{4\left(1-e^{-T}\right)}{z-e^{-T}}
+\]</span> 系统闭环脉冲传递函数为: <span class="math display">\[
+\Phi(z)=\frac{G_w(z)}{1+G_w(z)}
+\]</span> 1. 改变采频率 <span class="math inline">\(T=0.01 s, 0.2 s, 0.5 s, 0.6 \mathrm{~s}\)</span>, 用 MATLAB 画出系统在阶跃信号作用下的过渡过程。</p>
+<ol start="2" type="1">
+<li>在Z平面内讨论，当采样周期T变化时对系统稳定性的影响。</li>
+</ol>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202307031949836.png" srcset="/img/loading.gif" lazyload alt="系统示意图" /><figcaption aria-hidden="true">系统示意图</figcaption>
+</figure>
+<h3 id="实验结果-2">实验结果</h3>
+<p>采样周期<span class="math inline">\(T=0.01,0.2,0.5,0.6s\)</span>时对应的响应图如下：</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202306162101027.jpg" srcset="/img/loading.gif" lazyload /></p>
+<p>可以看出，当<span class="math inline">\(T=0.01,0.2\)</span>时，阶跃响应单调收敛，系统稳定。</p>
+<p>当<span class="math inline">\(T=0.5s\)</span>时，阶跃响应震荡收敛，系统稳定。</p>
+<p>当<span class="math inline">\(T=0.6s\)</span>时，阶跃响应震荡发散，系统不稳定。</p>
+<p>系统闭环脉冲传递函数为： <span class="math display">\[
+\phi(z)=\frac{4-4e^{-T}}{z+4-5e^{-T}}
+\]</span> 特征根为 <span class="math display">\[
+z=5e^{-T}-4
+\]</span> 系统稳定的条件为<span class="math inline">\(|z|&lt;1\)</span>，即<span class="math inline">\(T&lt;0.51\)</span>。故当<span class="math inline">\(T=0.01,0.2,0.5s\)</span>时，系统是稳定的，而<span class="math inline">\(T=0.6s\)</span>时，系统是不稳定的。</p>
+<p>根据分析可得：当闭环特征根位于单位圆内的正半轴上时，阶跃响应单调收敛，系统稳定；当闭环特征根位于单位圆内的负半轴上时，阶跃响应振荡收敛，系统稳定；当闭环特征根位于单位圆外时，阶跃响应发散，系统不稳定</p>
+<p>在这个实验中，通过对具有开环传递函数的离散系统进行阶跃响应的分析，我得到了以下几点收获：</p>
+<ol type="1">
+<li><p>离散系统稳定性条件：通过分析<span class="math inline">\(z\)</span>域稳定条件<span class="math inline">\(|z|&lt;1\)</span>，我们可以确定系统的稳定性范围。</p></li>
+<li><p>采样时间对系统稳定性的影响：实验中使用了不同的采样时间T，观察到对应的阶跃响应特性。通过实验结果，我们发现只有当T满足一定条件时，系统才是稳定的。这进一步强调了合适的采样时间选择对系统稳定性的重要性。</p></li>
+</ol>
+<p>这个实验让我深入理解了离散控制系统的稳定性条件和阶跃响应特性。通过对离散系统的实验验证，加深了我对离散控制理论的理解和应用，同时也学习了Matlab的使用技巧。</p>
+<p>实验代码：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-comment">% 采样时间T分别为0.01秒，0.2秒，0.5秒，0.6秒</span><br>Ts = [<span class="hljs-number">0.01</span>, <span class="hljs-number">0.2</span>, <span class="hljs-number">0.5</span>, <span class="hljs-number">0.6</span>];<br><span class="hljs-built_in">i</span>=<span class="hljs-number">1</span>;<br><span class="hljs-keyword">for</span> T = Ts<br>    syms z<br>    G = (<span class="hljs-number">4</span>*(<span class="hljs-number">1</span>-<span class="hljs-built_in">exp</span>(-T))/(z-<span class="hljs-built_in">exp</span>(-T)) );<br>    Phi = G/(<span class="hljs-number">1</span>+G);<br>    U = z/(z<span class="hljs-number">-1</span>);<br>    Y = U*Phi;<br>    y = iztrans(Y);<br>    fy = matlabFunction(y);<br>    t = <span class="hljs-number">0</span>:T:<span class="hljs-number">10</span>;<br>    n = t./T;<br>    y1=fy(n);<br>    y2=<span class="hljs-built_in">ones</span>(<span class="hljs-built_in">size</span>(n));<br>    subplot(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-built_in">i</span>);<br>    <span class="hljs-built_in">plot</span>(t,y1,t,y2);<br>    <span class="hljs-built_in">legend</span>(<span class="hljs-string">&#x27;响应&#x27;</span>,<span class="hljs-string">&#x27;激励&#x27;</span>);<br>    xlabel(<span class="hljs-string">&#x27;时间/s&#x27;</span>);ylabel(<span class="hljs-string">&#x27;响应&#x27;</span>);<br>    title(<span class="hljs-string">&quot;采样频率为T=&quot;</span>+num2str(T)+<span class="hljs-string">&quot;s时的响应&quot;</span>);<br>    <span class="hljs-built_in">i</span>=<span class="hljs-built_in">i</span>+<span class="hljs-number">1</span>;<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+<h2 id="实验五状态反馈与状态观测器">实验五：状态反馈与状态观测器</h2>
+<h3 id="实验目的-4">实验目的</h3>
+<ol type="1">
+<li><p>掌握用状态反馈进行极点配置的方法。</p></li>
+<li><p>了解带有状态观测器的状态反馈系统。</p></li>
+</ol>
+<h3 id="实验原理-4">实验原理</h3>
+<p>闭环系统的动态性能与系统的特征根密切相关，在状态空间的分析中可利用状态反馈来配置系统的闭环极点。这种校正手段能提供更多的校正信息，在形成最优控制率、抑制或消除扰动影响、实现系统解耦等方面获得广泛应用。在改善与提高系统性能时不增加系统零、极点，所以不改变系统阶数，实现方便。</p>
+<p>考虑如下图所示的磁悬浮控制系统。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202307031953356.png" srcset="/img/loading.gif" lazyload alt="磁悬浮控制系统" /><figcaption aria-hidden="true">磁悬浮控制系统</figcaption>
+</figure>
+<p>根据牛顿力学定律和回路电压定律, 可列写系统微分方程为: <span class="math display">\[
+\begin{gathered}
+M \ddot{y}=M g-K \frac{i^2}{y} &amp;(1)\\
+V=L \dot{i}+i R &amp;(2)
+\end{gathered}
+\]</span> 其中 <span class="math inline">\(y\)</span> 和 <span class="math inline">\(M\)</span> 是小球的垂直位置和质量, <span class="math inline">\(g\)</span> 为重力加速度, <span class="math inline">\(K\)</span> 为反映磁力大小的常数, <span class="math inline">\(i 、 V\)</span> 、 <span class="math inline">\(R\)</span> 和 <span class="math inline">\(L\)</span> 分别是回路电流、电压、电阻和电感。</p>
+<p>式 (1) 为非线性微分方程, 需要对其进行线性化处理。假设小球的期望平衡点为 <span class="math inline">\(y_0\)</span>, 在 平衡点上小球保持静止, 其位置 <span class="math inline">\(y\)</span> 的各阶导数为零, 由式 (1) 可得对应的平衡电流为 <span class="math inline">\(i_0=\sqrt{\frac{M g}{K} y_0}\)</span>, 其对应的平衡电压为 <span class="math inline">\(V_0=i_0 R\)</span> 。在 <span class="math inline">\(\left(y_0, i_0\right)\)</span> 处对式 (1) 进行泰勒线性近似, 即: <span class="math display">\[
+M \ddot{y} \approx M g-\frac{K i_0^2}{y_0}-\left.\frac{2 K i}{y}\right|_{i_0, y_0} \Delta_i+\left.\frac{K i^2}{y^2}\right|_{i_0, y_0} \Delta_y \quad(3)
+\]</span> 其中 <span class="math inline">\(\Delta_i=i-i_0, \Delta_y=y-y_0\)</span> 。进一步定义 <span class="math inline">\(\Delta_V=V-V_0\)</span>, 可由式 (2) 和 (3) 得到: <span class="math display">\[
+\begin{gathered}
+M \ddot{\Delta}_y-\frac{K i_0^2}{y_0^2} \Delta_y+\frac{2 K i_0}{y_0} \Delta_i \approx 0 &amp;(4)\\
+\Delta_V=L \dot{\Delta}_i+R \Delta_i &amp;(5)
+\end{gathered}
+\]</span> 由此, 我们可以在期望平衡点 <span class="math inline">\(y_0\)</span> 附近, 采用线性控制方法进行系统设计, 其中控制变量 是在 <span class="math inline">\(V_0\)</span> 基础上的电压调节量 <span class="math inline">\(\Delta_V\)</span>, 输出变量是实际位置偏离期望平衡点 <span class="math inline">\(y_0\)</span> 的距离 <span class="math inline">\(\Delta_y\)</span> 。</p>
+<h3 id="实验内容-4">实验内容</h3>
+<p>仿真中的参数取值如下表所示。</p>
+<table>
+<thead>
+<tr class="header">
+<th>变量</th>
+<th>参数</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(y_0\)</span></td>
+<td>0.01 m</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(M\)</span></td>
+<td>0.15 kg</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(g\)</span></td>
+<td>9.81 <span class="math inline">\(m/s^2\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(K\)</span></td>
+<td>0.0001</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(R\)</span></td>
+<td>1 <span class="math inline">\(\Omega\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(L\)</span></td>
+<td>1<span class="math inline">\(H\)</span></td>
+</tr>
+</tbody>
+</table>
+<h4 id="建立状态模型">建立状态模型</h4>
+<p>针对式 (4) 和 (5), 选择状态变量为 <span class="math inline">\(\mathrm{x}=\left[\begin{array}{lll}\Delta_y &amp; \Delta_y &amp; \Delta_i\end{array}\right]^T\)</span>, 输入变量为 <span class="math inline">\(\Delta_V\)</span>, 输出变量为 <span class="math inline">\(\Delta_\nu\)</span>, 列写状态方程和输出方程。</p>
+<p>状态方程： <span class="math display">\[
+x=Ax+Bu
+\]</span> 输出方程： <span class="math display">\[
+y=Cx+D
+\]</span> 由题中所给的<span class="math inline">\(\mathbf x=[\Delta_y,\dot{\Delta}_y,\Delta_i]^T\)</span>，且 <span class="math display">\[
+M \ddot{\Delta}_y-\frac{K i_0^2}{y_0^2} \Delta_y+\frac{2 K i_0}{y_0} \Delta_i \approx 0
+\]</span></p>
+<p><span class="math display">\[
+\Delta _v=L\dot{\Delta}+R\Delta_i
+\]</span></p>
+<p>得： <span class="math display">\[
+A=\left[\begin{array}{ccc}
+0 &amp; 1 &amp; 0 \\
+\frac{K \times i_0^2}{M \times y_0^2} &amp; 0 &amp; -\frac{2 \times K \times i_0}{M \times y_0} \\
+0 &amp; 0 &amp; -\frac{R}{L}
+\end{array}\right]
+\]</span></p>
+<p><span class="math display">\[
+B=[0,0,1]^T,C=[1,0,0],D=0
+\]</span></p>
+<p>编程计算：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs matlab">y0=<span class="hljs-number">0.01</span>;<br>M=<span class="hljs-number">0.15</span>;<br>g=<span class="hljs-number">9.81</span>;<br>K=<span class="hljs-number">0.0001</span>;<br>R=<span class="hljs-number">1</span>;<br>L=<span class="hljs-number">1</span>;<br>i0=<span class="hljs-built_in">sqrt</span>(M*g*y0/K);<br>A=[ <span class="hljs-number">0</span>               <span class="hljs-number">1</span>  <span class="hljs-number">0</span>;<br>    K*i0^<span class="hljs-number">2</span>/(M*y0^<span class="hljs-number">2</span>) <span class="hljs-number">0</span> <span class="hljs-number">-2</span>*K*i0/(M*y0);<br>    <span class="hljs-number">0</span>               <span class="hljs-number">0</span> -R/L]<br>B=[<span class="hljs-number">0</span>;<span class="hljs-number">0</span>;<span class="hljs-number">1</span>/L];<br>C=[<span class="hljs-number">1</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span>];<br>D=<span class="hljs-number">0</span>;<br></code></pre></td></tr></table></figure>
+<p>得：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">A</span> =<br><br>         <span class="hljs-attribute">0</span>    <span class="hljs-number">1</span>.<span class="hljs-number">0000</span>         <span class="hljs-number">0</span><br>  <span class="hljs-attribute">981</span>.<span class="hljs-number">0000</span>         <span class="hljs-number">0</span>   -<span class="hljs-number">1</span>.<span class="hljs-number">6174</span><br>         <span class="hljs-attribute">0</span>         <span class="hljs-number">0</span>   -<span class="hljs-number">1</span>.<span class="hljs-number">0000</span><br></code></pre></td></tr></table></figure>
+<h4 id="绘制输出曲线">绘制输出曲线</h4>
+<p>将系统控制电压设为<span class="math inline">\(V_0\)</span>（即<span class="math inline">\(\Delta_v\)</span>和<span class="math inline">\(\Delta_i\)</span>初值为0）、用手将小球置于偏离预设位置0.01米处（即初值<span class="math inline">\(\Delta_y\)</span>为0.01），绘制系统输出曲线（即松手后小球相对预设位置的偏移量），并根据曲线说明系统稳定性？（提示：可使用lsim命令绘制输出曲线）</p>
+<p>把<span class="math inline">\(\Delta_v,\Delta_i\)</span>初值设为零，<span class="math inline">\(\Delta_y\)</span>初值设为<span class="math inline">\(1\)</span>，绘制系统输出曲线：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202307031959393.jpeg" srcset="/img/loading.gif" lazyload alt="系统输出曲线" /><figcaption aria-hidden="true">系统输出曲线</figcaption>
+</figure>
+<p>代码为：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-comment">%上一部分的代码</span><br>x0 = [<span class="hljs-number">0.01</span>;<span class="hljs-number">0</span>;<span class="hljs-number">0</span>];     <span class="hljs-comment">%初始状态</span><br>t = <span class="hljs-number">0</span>:<span class="hljs-number">0.001</span>:<span class="hljs-number">1</span>;<br>u = <span class="hljs-built_in">zeros</span>(<span class="hljs-built_in">size</span>(t));  <span class="hljs-comment">%零输入</span><br>sys = ss(A,B,C,D);<br>[y,t,x] = lsim(sys,u,t,x0);<br><span class="hljs-built_in">figure</span>(<span class="hljs-number">1</span>);<br><span class="hljs-built_in">plot</span>(t,y);<br>xlabel(<span class="hljs-string">&#x27;t(s)&#x27;</span>);<br>ylabel(<span class="hljs-string">&#x27;y(m)&#x27;</span>);<br>title(<span class="hljs-string">&#x27;原系统输出曲线&#x27;</span>);<br></code></pre></td></tr></table></figure>
+<h4 id="可控性分析">可控性分析</h4>
+<p>可以利用<code>ctrb</code>函数求解可控矩阵，有：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab">rank(ctrb(A,B))<br></code></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs abnf"><span class="hljs-attribute">ans</span> <span class="hljs-operator">=</span><br><br>     <span class="hljs-number">3</span><br></code></pre></td></tr></table></figure>
+<p>系统可控。</p>
+<h4 id="极点配置">极点配置</h4>
+<p>如果系统可控，假设所有状态变量可测定（即可测出小球的位置、速度和电流），参考输入为<span class="math inline">\(r=0.001m\)</span>，采用状态反馈方法进行系统设计，如下图所示，给出状态反馈向量？系统要求：调节时间小于0.5秒、超调小于5%。（提示：可使用place或acker进行极点配置）。考虑与实验内容2相同的初始状态，绘制系统输出曲线，并验证：</p>
+<ol type="1">
+<li>是否满足设计要求？</li>
+<li>小球能否稳定在参考位置处，测定稳态误差并分析原因？</li>
+</ol>
+<p>对于该三阶系统，设置一个极点远离虚轴，将系统简化为一个二阶系统。由于要求调节时间小于0.5s，超调量小于5%，故将超调量设为4%，由 <span class="math display">\[
+M_p=e^{-\frac{\pi\xi}{\sqrt{1-\xi^2}}}
+\]</span> 可求得<span class="math inline">\(\xi=1/\sqrt 2\)</span>。设置<span class="math inline">\(\omega_n=35\sqrt 2\)</span>，则<span class="math inline">\(t_s=0.114s\)</span>。</p>
+<p>进行状态反馈后，用<code>place</code>函数进行极点配置，得到 <span class="math display">\[
+K=[-2.16e6,-4.54e4,1069]
+\]</span> 并在参考输入为<span class="math inline">\(r=0.001m\)</span>得到新的偏移量输出曲线如下:</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202307032001124.jpeg" srcset="/img/loading.gif" lazyload /></p>
+<p>代码如下：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-comment">%上一部分的代码</span><br>damp = <span class="hljs-number">1</span>/<span class="hljs-built_in">sqrt</span>(<span class="hljs-number">2</span>);<br>wn = <span class="hljs-number">35</span>*<span class="hljs-built_in">sqrt</span>(<span class="hljs-number">2</span>);              <br>p1 = -damp*wn+wn*<span class="hljs-built_in">sqrt</span>(<span class="hljs-number">1</span>-damp^<span class="hljs-number">2</span>)*<span class="hljs-number">1</span><span class="hljs-built_in">i</span>;  <br>p2 = -damp*wn-wn*<span class="hljs-built_in">sqrt</span>(<span class="hljs-number">1</span>-damp^<span class="hljs-number">2</span>)*<span class="hljs-number">1</span><span class="hljs-built_in">i</span>;    <br>p3 = <span class="hljs-number">-1000</span>;<br>K = place(A,B,[p1 p2 p3]);    <span class="hljs-comment">%状态反馈向量</span><br>r = <span class="hljs-number">0.001</span>*<span class="hljs-built_in">ones</span>(<span class="hljs-built_in">size</span>(t));<br>sys_c = ss(A-B*K,B,C,<span class="hljs-number">0</span>);<br><span class="hljs-built_in">figure</span>(<span class="hljs-number">2</span>);<br>lsim(sys_c,r,t,x0);<br>title(<span class="hljs-string">&#x27;极点配置后系统输出曲线&#x27;</span>);<br></code></pre></td></tr></table></figure>
+<figure>
+<img src="" srcset="/img/loading.gif" lazyload alt="image-20230703200824021" /><figcaption aria-hidden="true">image-20230703200824021</figcaption>
+</figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E8%87%AA%E6%8E%A7/">#自控</a>
+      
+        <a href="/tags/Matlab/">#Matlab</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>自动控制原理实验</div>
+      <div>https://suzumiyaakizuki.github.io/2023/07/03/自动控制原理实验/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>SuzumiyaAkizuki</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年7月3日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/06/30/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86Matlab%E8%BD%AF%E4%BB%B6%E4%BD%9C%E4%B8%9A/" title="通信原理Matlab软件作业">
+                        <span class="hidden-mobile">通信原理Matlab软件作业</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.7.2/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"48fb14f9689ae0d11307","clientSecret":"091ab25a88e87bfd9d9d40d97d1d0d932e694059","repo":"SuzumiyaAkizuki.github.io","owner":"SuzumiyaAkizuki","admin":["SuzumiyaAkizuki"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '4002f26d27ff79fbbe57c780efe26771'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       Powered by: <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
