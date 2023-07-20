@@ -959,13 +959,6 @@
   </url>
   
   <url>
-    <loc>https://suzumiyaakizuki.github.io/tags/Matlab/</loc>
-    <lastmod>2023-07-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://suzumiyaakizuki.github.io/tags/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/</loc>
     <lastmod>2023-07-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -974,6 +967,13 @@
   
   <url>
     <loc>https://suzumiyaakizuki.github.io/tags/matlab/</loc>
+    <lastmod>2023-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://suzumiyaakizuki.github.io/tags/Matlab/</loc>
     <lastmod>2023-07-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
