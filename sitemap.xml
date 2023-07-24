@@ -833,13 +833,6 @@
   </url>
   
   <url>
-    <loc>https://suzumiyaakizuki.github.io/tags/%E6%95%B0%E7%94%B5/</loc>
-    <lastmod>2023-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://suzumiyaakizuki.github.io/tags/Verilog/</loc>
     <lastmod>2023-07-24</lastmod>
     <changefreq>weekly</changefreq>
@@ -847,7 +840,7 @@
   </url>
   
   <url>
-    <loc>https://suzumiyaakizuki.github.io/tags/C/</loc>
+    <loc>https://suzumiyaakizuki.github.io/tags/%E6%95%B0%E7%94%B5/</loc>
     <lastmod>2023-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -862,6 +855,13 @@
   
   <url>
     <loc>https://suzumiyaakizuki.github.io/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/</loc>
+    <lastmod>2023-07-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://suzumiyaakizuki.github.io/tags/C/</loc>
     <lastmod>2023-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
