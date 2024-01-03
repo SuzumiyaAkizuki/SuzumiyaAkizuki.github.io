@@ -1,0 +1,841 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <link rel="icon" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="SuzumiyaAkizuki">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="输入不定个数字符时，不要通过换行符&#39;&#39;判断结尾 有的同学在做E4-B《从十进制数到2421码》时，使用while((c &#x3D; getchar()) !&#x3D; &#39;\n&#39;)语句来实现不定个数字符输入，但提交上OJ会发现结果为TLE（超时）。这是因为OJ是通过读取测试点输入文件的方式实现输入的，题目中并没有规定以换行符&#39;\n&#39;作为输入的结尾，那么输入文件的最后就不一定会有&#39;\n&#39;，当代码始终读不到&#39;\n&#39;时">
+<meta property="og:type" content="article">
+<meta property="og:title" content="程序设计基础第四周答疑要点整理">
+<meta property="og:url" content="https://suzumiyaakizuki.github.io/2023/10/18/C4-E4%E7%AD%94%E7%96%91%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/index.html">
+<meta property="og:site_name" content="凉宫秋月的文艺部">
+<meta property="og:description" content="输入不定个数字符时，不要通过换行符&#39;&#39;判断结尾 有的同学在做E4-B《从十进制数到2421码》时，使用while((c &#x3D; getchar()) !&#x3D; &#39;\n&#39;)语句来实现不定个数字符输入，但提交上OJ会发现结果为TLE（超时）。这是因为OJ是通过读取测试点输入文件的方式实现输入的，题目中并没有规定以换行符&#39;\n&#39;作为输入的结尾，那么输入文件的最后就不一定会有&#39;\n&#39;，当代码始终读不到&#39;\n&#39;时">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202401031036119.png">
+<meta property="article:published_time" content="2023-10-18T02:25:25.000Z">
+<meta property="article:modified_time" content="2024-01-03T02:39:51.577Z">
+<meta property="article:author" content="SuzumiyaAkizuki">
+<meta property="article:tag" content="C语言">
+<meta property="article:tag" content="程序设计基础">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202401031036119.png">
+  
+  
+  
+  <title>程序设计基础第四周答疑要点整理 - 凉宫秋月的文艺部</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"suzumiyaakizuki.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":"G-J01HK5TZ0Y","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"QGqf9VPGTa96KerO0JvDW3Ld-gzGzoHsz","app_key":"RhwwUaYq4lMo1tCJwcQTWdRp","server_url":"https://qgqf9vpg.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.google-analytics.com/analytics.js', function() {
+          window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
+          ga.l = +new Date;
+          ga('create', 'G-J01HK5TZ0Y', 'auto');
+          ga('send', 'pageview');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>凉宫秋月的文艺部</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友情链接
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202401031036119.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="程序设计基础第四周答疑要点整理"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        SuzumiyaAkizuki
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-10-18 10:25" pubdate>
+          2023年10月18日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          7 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">程序设计基础第四周答疑要点整理</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="输入不定个数字符时不要通过换行符判断结尾">输入不定个数字符时，不要通过换行符''判断结尾</h2>
+<p>有的同学在做<code>E4-B</code>《从十进制数到2421码》时，使用<code>while((c = getchar()) != '\n')</code>语句来实现不定个数字符输入，但提交上OJ会发现结果为<code>TLE</code>（超时）。这是因为OJ是通过读取测试点输入文件的方式实现输入的，<strong>题目中并没有规定以换行符<code>'\n'</code>作为输入的结尾</strong>，那么输入文件的最后就不一定会有<code>'\n'</code>，当代码始终读不到<code>'\n'</code>时，就会一直循环执行循环体代码块，导致超时。</p>
+<p>正确的做法是使用<code>while ((c = getchar()) != EOF)</code>或<code>while (scanf("%c", &amp;c) !=EOF)</code>。</p>
+<h2 id="不定组输入时怎么在本地调试">不定组输入时怎么在本地调试</h2>
+<p>当题目中要求不定组数据输入时，常用读入方式为<code>while (scanf()!=EOF)&#123;&#125;</code>（其中<code>scanf</code>函数的括号里需要根据读入内容填入合适的格式字符串和变量序列），此时本地调试中如果要输出最终的结果，需要我们<strong>手动输入文件结束符</strong>表示输入结束，输入方式为<strong>在最后一行数据后输入回车，在下一行行首先按住<code>ctrl</code>键，再按下<code>Z</code>键，此时程序运行控制台中显示输入了<code>^Z</code>，然后再次输入回车，将上述内容送入自己编写的程序</strong>，这样就可以起到控制台输入文件结束符的作用。以<code>C4-E</code>《真实命中率》的样例输入为例：</p>
+<p>输入样例数据操作展示：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202401031038082.png" srcset="/img/loading.gif" lazyload alt="image-20240103103822987" /><figcaption aria-hidden="true">image-20240103103822987</figcaption>
+</figure>
+<p>注意：此时输入控制台的最后一行为<strong>一个控制字符<code>ctrl Z</code></strong>，是通过<strong>先按住<code>ctrl</code>键然后按下<code>Z</code>键的方式输入</strong>的，而<strong>不是<code>^</code>与<code>Z</code>两个字符</strong></p>
+<p>结束输入后，在<code>ctrl Z</code>后按下回车，输出结果：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202401031038238.png" srcset="/img/loading.gif" lazyload alt="image-20240103103833175" /><figcaption aria-hidden="true">image-20240103103833175</figcaption>
+</figure>
+<h2 id="百分数字面值不存在要写成小数">百分数字面值不存在，要写成小数</h2>
+<p>不存在形如<code>x%</code>的百分数字面值，应当使用百分数对应的浮点数字面值。</p>
+<p>也就是说，没有这样的写法：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">double</span> x=<span class="hljs-number">10</span>%;<br></code></pre></td></tr></table></figure>
+<p>如需要用<code>10%</code>时应当使用<code>0.1</code>，即：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">double</span> x=<span class="hljs-number">0.1</span>;<br></code></pre></td></tr></table></figure>
+<h2 id="不要以变量作为数组的大小">不要以变量作为数组的大小</h2>
+<p>固定大小的数组在声明时，可以通过赋值的方式直接初始化，例如：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">int</span> a1[<span class="hljs-number">100</span>]=&#123;&#125;;	<span class="hljs-comment">//a1是大小为100的int数组，通过赋值将数组中每个位置初始化为0</span><br><span class="hljs-type">int</span> a2[<span class="hljs-number">100</span>]=&#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>&#125;;	<span class="hljs-comment">//a2是大小为100的int数组，通过赋值将数组中前三个位置分别初始化为1,2,3，后面自动填充0</span><br></code></pre></td></tr></table></figure>
+<p>有些同学使用变量作为数组长度，并且试图像上面一样初始化：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">int</span> n;<br><span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;n);<br><span class="hljs-type">int</span> a[n]=&#123;&#125;;<br></code></pre></td></tr></table></figure>
+<p>但是他们发现本地上可以运行，但是提交到OJ上显示编译失败，这是为什么呢？</p>
+<p>事实上，编译失败的提示信息是：</p>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ceylon">[Error] <span class="hljs-keyword">variable</span>-sized <span class="hljs-keyword">object</span> may not be initialized<br></code></pre></td></tr></table></figure>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202401031038839.png" srcset="/img/loading.gif" lazyload alt="image-20240103103846754" /><figcaption aria-hidden="true">image-20240103103846754</figcaption>
+</figure>
+<p>本地可以编译，但是提交上去却不通过，可能的原因是本地代码文件在新建后保存时<strong>默认为<code>cpp</code>类型，代码语法为C++</strong>，也就是说本地运行的代码实际上是C++代码。判断方式是查看当前打开代码文件的后缀名，若为<code>.c</code>则表示这个文件是C语言代码文件，若为<code>.cpp</code>则表示这个文件是C++语言代码文件：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202401031038314.png" srcset="/img/loading.gif" lazyload alt="image-20240103103859246" /><figcaption aria-hidden="true">image-20240103103859246</figcaption>
+</figure>
+<p>为了避免出现代码本地编译运行正常而OJ上<code>CE</code>的问题，这里<strong>要求</strong>大家在新建代码文件并保存时必须将<strong>后缀名改为<code>.c</code></strong>，这样就可以在本地编译运行代码时发现上述问题。如下图所示，在“保存类型”一栏中选择<code>C source files(*.c)</code>选项后保存：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202401031039080.png" srcset="/img/loading.gif" lazyload alt="image-20240103103907975" /><figcaption aria-hidden="true">image-20240103103907975</figcaption>
+</figure>
+<p>另外，<strong>强烈不建议</strong>在声明数组时以变量作为数组的大小。即：数组的长度必须要在程序开始运行之前确定。</p>
+<p>建议根据数据范围上限，直接声明一个一定满足题目所有要求的<strong>固定大小数组</strong>，然后根据其他输入数据的范围使用这个数组的一部分或全部位置。</p>
+<h2 id="switch-case语句的一些问题"><code>switch-case</code>语句的一些问题</h2>
+<p><code>switch-case</code>结构中，当被<code>switch</code>语句判断的变量满足某个<code>case</code>分支的条件时就会使代码运行进入该分支。但<strong>与<code>if</code>不同</strong>的是：在该<code>case</code>分支中的语句执行完后，如果没有<code>break</code>语句来跳出<code>switch-case</code>结构，那么会继续执行后面<code>case</code>分支中的语句。举例如下：</p>
+<p>带<code>break</code>的<code>switch-case</code>结构及其执行结果：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202401031039226.png" srcset="/img/loading.gif" lazyload alt="image-20240103103919115" /><figcaption aria-hidden="true">image-20240103103919115</figcaption>
+</figure>
+<p>不带<code>break</code>的<code>switch-case</code>结构及其执行结果：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202401031039729.png" srcset="/img/loading.gif" lazyload alt="image-20240103103929640" /><figcaption aria-hidden="true">image-20240103103929640</figcaption>
+</figure>
+<p>因此，我们建议：<code>switch</code>中的 <code>case</code>和 <code>default</code>必须以 <code>break</code>终止，如果存在极特殊的情况需要共用 <code>case</code> ，<strong>必须</strong>加以明确注释。</p>
+<p>另外还发现有人在<code>case</code>里面用<code>continue</code>的，没有这样的用法，也不允许出现。</p>
+<h2 id="整除运算和模运算的一点性质">整除运算和模运算的一点性质</h2>
+<p>C99标准规定，整型除法的结果<strong>向0取整</strong>，也就是说，当对应实数除法的结果为正时，整除结果为实数除法结果向下取整，当对应实数除法的结果为负时，整除结果为实数除法结果向上取整。例如：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span>, <span class="hljs-number">5</span> / <span class="hljs-number">3</span>);	<span class="hljs-comment">//输出结果为1</span><br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span>, <span class="hljs-number">-5</span> / <span class="hljs-number">3</span>);	<span class="hljs-comment">//输出结果为-1，而不是-2</span><br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span>, <span class="hljs-number">5</span> / <span class="hljs-number">-3</span>);	<span class="hljs-comment">//输出结果为-1</span><br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span>, <span class="hljs-number">-5</span> / <span class="hljs-number">-3</span>);	<span class="hljs-comment">//输出结果为1</span><br></code></pre></td></tr></table></figure>
+<p>模运算的两个运算数<strong>只能是整型变量</strong>，当整型变量<code>a,b</code>都为正数时，模运算<code>a % b</code>的<strong>结果范围为<code>0 ~ b-1</code></strong></p>
+<p>执行模运算时<strong>需要考虑待取模的数的符号</strong>。模运算<code>a % b</code>的结果并不总是非负的，当取模结果不为0时，<strong>结果的符号取决于<code>a</code> 的符号</strong>，<strong>结果的绝对值为：<code>a</code>的绝对值 对 <code>b</code>的绝对值 取模的值</strong>。例如：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span>, <span class="hljs-number">5</span> % <span class="hljs-number">3</span>);    <span class="hljs-comment">//输出结果为2</span><br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span>, <span class="hljs-number">-5</span> % <span class="hljs-number">3</span>);    <span class="hljs-comment">//输出结果为-2</span><br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span>, <span class="hljs-number">5</span> % <span class="hljs-number">-3</span>);    <span class="hljs-comment">//输出结果为2</span><br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span>, <span class="hljs-number">-5</span> % <span class="hljs-number">-3</span>);    <span class="hljs-comment">//输出结果为-2</span><br></code></pre></td></tr></table></figure>
+<h2 id="unsigned-int类型变量使用的一个隐蔽问题"><code>unsigned int</code>类型变量使用的一个隐蔽问题</h2>
+<p><code>unsigned int</code>类型变量表示无符号整型，有的同学会认为当确保不会存入负数的时候就可以使用该类型，事实上这是不合适的。因为当<code>unsigned int</code>类型变量被用作和<code>int</code>类型变量比较时，会隐式地将<code>int</code>变量中存的数转换为<code>unsigned int</code>类型，当参与比较的<code>int</code>类型变量原本保存的值为负数时，这步转换会导致运行结果与预期完全不符，且很难发现问题所在。当对<code>unsinged int</code>类型变量的值进行修改时，如果该变量的新值为负数，同样会产生问题。例如：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">unsigned</span> <span class="hljs-type">int</span> i;<br><span class="hljs-keyword">for</span> (i = <span class="hljs-number">5</span>; i &gt;= <span class="hljs-number">0</span>; i--)&#123;<br>    ...<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>上面的代码会运行6次循环就结束吗？错了！事实上上面的代码是一个<strong>无限循环</strong>。因为<code>unsigned int</code>变量能表示的值中<strong>不存在负数</strong>，当<code>i == 0</code>时执行<code>i--</code>时，<code>i</code>变量空间中存储的二进制比特位会变成<code>-1</code>的补码形式，而由于变量<code>i</code>为<code>unsigned int</code>类型，此时变量<code>i</code>的值事实上是<code>unsigned int</code>类型变量所能表示的最大值。<strong>所以<code>i &gt;= 0</code>条件将永远满足</strong>，循环也将永远执行下去。</p>
+<p>下面的代码输出了<code>unsigned int</code>类型的<code>0</code>减去<code>1</code>后得到的值的十进制与十六进制形式，也证实了上述情况：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202401031039058.png" srcset="/img/loading.gif" lazyload alt="image-20240103103947968" /><figcaption aria-hidden="true">image-20240103103947968</figcaption>
+</figure>
+<p>综上所述：使用<code>unsigned int</code>类型变量时，需要慎重考虑变量可能的范围。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/C%E8%AF%AD%E8%A8%80/">#C语言</a>
+      
+        <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/">#程序设计基础</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>程序设计基础第四周答疑要点整理</div>
+      <div>https://suzumiyaakizuki.github.io/2023/10/18/C4-E4答疑要点整理/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>SuzumiyaAkizuki</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年10月18日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/11/02/C5-E6%E7%AD%94%E7%96%91%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/" title="程序设计基础第五~六周答疑要点整理">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">程序设计基础第五~六周答疑要点整理</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/10/12/C3-E3%E7%AD%94%E7%96%91%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/" title="程序设计基础第三周答疑要点整理">
+                        <span class="hidden-mobile">程序设计基础第三周答疑要点整理</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.7.2/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"48fb14f9689ae0d11307","clientSecret":"091ab25a88e87bfd9d9d40d97d1d0d932e694059","repo":"SuzumiyaAkizuki.github.io","owner":"SuzumiyaAkizuki","admin":["SuzumiyaAkizuki"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '0753af94fac5de53eb71078936c81cff'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       Powered by: <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

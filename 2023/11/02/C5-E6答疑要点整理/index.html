@@ -1,0 +1,805 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <link rel="icon" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="SuzumiyaAkizuki">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="函数的return语句的意义：表示函数结束 对一个函数来说，当执行到return语句的时候，表示这个函数要直接结束，返回到函数外面调用这个函数的地方继续运行。即使return套在多重循环里，而循环可能还剩很多趟要跑，也会直接“撒手不管”，不会去执行执行顺序在return后面的语句。 关于函数单向传参问题 有些同学想使用如下函数将传入函数的两个局部变量的值交换，是一种很常见的错误写法： 12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="程序设计基础第五~六周答疑要点整理">
+<meta property="og:url" content="https://suzumiyaakizuki.github.io/2023/11/02/C5-E6%E7%AD%94%E7%96%91%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/index.html">
+<meta property="og:site_name" content="凉宫秋月的文艺部">
+<meta property="og:description" content="函数的return语句的意义：表示函数结束 对一个函数来说，当执行到return语句的时候，表示这个函数要直接结束，返回到函数外面调用这个函数的地方继续运行。即使return套在多重循环里，而循环可能还剩很多趟要跑，也会直接“撒手不管”，不会去执行执行顺序在return后面的语句。 关于函数单向传参问题 有些同学想使用如下函数将传入函数的两个局部变量的值交换，是一种很常见的错误写法： 12">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202401031041133.png">
+<meta property="article:published_time" content="2023-11-02T02:25:25.000Z">
+<meta property="article:modified_time" content="2024-01-03T02:42:05.635Z">
+<meta property="article:author" content="SuzumiyaAkizuki">
+<meta property="article:tag" content="C语言">
+<meta property="article:tag" content="程序设计基础">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202401031041133.png">
+  
+  
+  
+  <title>程序设计基础第五~六周答疑要点整理 - 凉宫秋月的文艺部</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"suzumiyaakizuki.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":"G-J01HK5TZ0Y","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"QGqf9VPGTa96KerO0JvDW3Ld-gzGzoHsz","app_key":"RhwwUaYq4lMo1tCJwcQTWdRp","server_url":"https://qgqf9vpg.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.google-analytics.com/analytics.js', function() {
+          window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
+          ga.l = +new Date;
+          ga('create', 'G-J01HK5TZ0Y', 'auto');
+          ga('send', 'pageview');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>凉宫秋月的文艺部</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友情链接
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202401031041133.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="程序设计基础第五~六周答疑要点整理"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        SuzumiyaAkizuki
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-11-02 10:25" pubdate>
+          2023年11月2日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          7 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">程序设计基础第五~六周答疑要点整理</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="函数的return语句的意义表示函数结束">函数的<code>return</code>语句的意义：表示函数结束</h2>
+<p>对一个函数来说，当执行到<code>return</code>语句的时候，表示这个函数要直接结束，返回到函数外面调用这个函数的地方继续运行。即使<code>return</code>套在多重循环里，而循环可能还剩很多趟要跑，也会直接“撒手不管”，不会去执行<strong>执行顺序在<code>return</code>后面</strong>的语句。</p>
+<h2 id="关于函数单向传参问题">关于函数单向传参问题</h2>
+<p>有些同学想使用如下函数将传入函数的两个<strong>局部变量</strong>的值交换，是一种很常见的错误写法：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">//错误写法</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">swap</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span>&#123;<br>    <span class="hljs-type">int</span> tmp = a;<br>    a = b;<br>    b = tmp;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>大家在学习函数的时候都知道，函数传参是<strong>单向</strong>的。函数在被调用时，会在内存中开辟一块自己的内存空间。此时，作为函数参数的变量，它们的值会被相应地拷贝一份，存在属于函数自己的内存空间中。当在函数内“交换”变量<code>a</code>和<code>b</code>的时候，事实上是把函数自己的内存空间中保存的<code>a</code>、<code>b</code>变量值的一个<strong>副本</strong>进行了交换，而外面真正的变量<code>a</code>和<code>b</code>的值并没有受到影响。</p>
+<p>如果需要通过在函数中的操作修改外部变量的值，一种可选的方法是使用<strong>全局变量</strong>。此时，因为函数可以直接访问全局变量，所以不需要将全局变量的值作为参数传入函数：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">int</span> a, b;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">swap</span><span class="hljs-params">()</span>&#123;	<span class="hljs-comment">//函数内可以直接访问全局变量a和b</span><br>    <span class="hljs-type">int</span> tmp = a;<br>    a = b;<br>    b = tmp;<br>&#125;<br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d&quot;</span>, &amp;a, &amp;b);<br>    swap();	<span class="hljs-comment">//swap函数调用结束后，全局变量a和b的值发生了交换</span><br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>另外一种方法是将待交换变量的<strong>指针</strong>作为函数参数传入函数，下次课学过指针后会有详细讲解。</p>
+<h2 id="字符串字面值和字符字面值的区别">字符串字面值和字符字面值的区别</h2>
+<p>字符字面值是由一对<strong>单引号<code>''</code></strong>括起来的<strong>单个字符</strong>（转义字符的反斜杠<code>\</code>和后面的字符合起来算作一个字符），一个字符字面值存在一个字节（<code>char</code>）的内存空间中。</p>
+<p>字符串字面值是由一对<strong>双引号<code>""</code></strong>括起来的任意个字符，在内存中，字符串中的每个字符都各自存在一个字节（<code>char</code>）的内存空间中，这些字节按字符在字符串中的顺序连续排列，最后以一个存有结束符<code>'\0'</code>的字节作为结尾。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">char</span> c1 = <span class="hljs-string">&#x27;a&#x27;</span>;	<span class="hljs-comment">//c1是一个字符，存入的值是字符字面量&#x27;a&#x27;</span><br><span class="hljs-type">char</span> str1[] = <span class="hljs-string">&quot;a&quot;</span>;	<span class="hljs-comment">//str1是一个长度为1的字符串，str1[0]为&#x27;a&#x27;，str1[1]为结束符&#x27;\0&#x27;</span><br><span class="hljs-type">char</span> str2[] = <span class="hljs-string">&quot;this is a string&quot;</span>;	<span class="hljs-comment">//一个合法的字符串</span><br><span class="hljs-type">char</span> c2 = <span class="hljs-string">&#x27;this is a string&#x27;</span>;	<span class="hljs-comment">//错误写法！单引号不能用来括住多个字符</span><br><span class="hljs-type">char</span> c3 = <span class="hljs-string">&#x27;\n&#x27;</span>;	<span class="hljs-comment">//正确写法，c3是一个字符，存入的值是换行符&#x27;\n&#x27;</span><br></code></pre></td></tr></table></figure>
+<h2 id="字符串在数组中的存储">字符串在数组中的存储</h2>
+<p>当使用<code>scanf("%s", str);</code>或<code>gets(str);</code>读取长度为<code>len</code>的字符串，并存入字符数组<code>str</code>时，字符串中的字符在数组中存储的下标范围是<code>0 ~ len-1</code>，下标为<code>len</code>的位置上则是一个标识字符串结束位置的<code>'\0'</code>。在遍历字符串时需要注意下标范围。</p>
+<p>与此同时，也需要注意：字符串里的<code>'\0'</code>也是需要一个位置来存储的。所以声明数组时，请适量地把长度开大一点。</p>
+<h2 id="字符数组的推荐初始化方法">字符数组的推荐初始化方法</h2>
+<p>在声明字符数组时，推荐将字符数组的各位置初始化为全<code>0</code>：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">char</span> str[<span class="hljs-number">100</span>] = &#123;&#125;;<br></code></pre></td></tr></table></figure>
+<p>初始化为全<code>0</code>后，字符数组的每个位置上的字符都是<code>'\0'</code>，即标识字符串结束的字符。万一遇到需要自己手动给字符数组的某个位置赋值<code>'\0'</code>、标识字符串的结尾但是不小心忘记了的情况，也能使字符串能够结尾。</p>
+<h2 id="字符串操作函数的传入参数">字符串操作函数的传入参数</h2>
+<p><code>strcpy</code>、<code>strcat</code>、<code>strcmp</code>、<code>strlen</code>、<code>strstr</code>等诸多字符串操作函数，当需要对一维字符数组执行操作时，需要传入这些函数的参数是<strong>数组名。</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">char</span> a[<span class="hljs-number">105</span>] = &#123;&#125;, b[<span class="hljs-number">105</span>] = &#123;&#125;;<br><span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%s%s&quot;</span>, a, b);<br><span class="hljs-built_in">strcpy</span>(a, b);	<span class="hljs-comment">//正确</span><br><span class="hljs-built_in">strcpy</span>(a[<span class="hljs-number">105</span>], b[<span class="hljs-number">105</span>]);	<span class="hljs-comment">//错误，a[105]和b[105]是访问数组a,b中下标为105的位置上的单个字符值，且访问操作发生了越界</span><br></code></pre></td></tr></table></figure>
+<p>事实上，传入的参数需要是指向一维<code>char</code>数组的指针类型，下次课学到指针后会有详细讲解。</p>
+<h2 id="遍历字符串时一个常见的易超时写法">遍历字符串时一个常见的易超时写法</h2>
+<p>在需要遍历字符串的题目中，经常出现一种比较典型的写法：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">char</span> str[<span class="hljs-number">100</span>] = &#123;&#125;;<br><span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%s&quot;</span>, str);<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">strlen</span>(str); i++)&#123;<br>    <span class="hljs-comment">//...</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>当不会在循环中修改字符串<code>str</code>的长度时，这种写法的效率是十分低的。</p>
+<p>因为由<code>for</code>循环中语句的执行顺序可知：每跑完一趟循环，都要去执行<code>for</code>后面括号里中间的判断条件<code>i &lt; strlen(str)</code>，来判断循环要继续还是结束。而<code>strlen</code>是通过遍历字符数组，寻找第一次出现的<code>'\0'</code>结束符来计算字符串长度的。当字符串长度固定时，<code>strlen</code>函数返回的值也是固定的值。如果每次循环都要重新计算一次这个值，那就要白白地多遍历字符串<code>strlen(str)</code>趟，显然是不必要的操作。</p>
+<p>因此，可以在遍历字符串前，先声明一个变量待存字符串的长度，使用一次<code>strlen</code>函数计算长度并存入变量中，然后在遍历字符串时，使用这个变量的值作为循环的判断条件。这样就能减少不必要的操作，提高代码效率：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">char</span> str[<span class="hljs-number">100</span>] = &#123;&#125;;<br><span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%s&quot;</span>, str);<br><span class="hljs-type">int</span> len = <span class="hljs-built_in">strlen</span>(str);<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; len; i++)&#123;<br>    <span class="hljs-comment">//...</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>当然，如果字符串<code>str</code>的长度在每次循环中都可能发生变化时，使用<code>i &lt; strlen(str)</code>作为判断条件就没什么问题了。</p>
+<h2 id="逻辑表达式的短路求值性质在访问字符数组中的应用">逻辑表达式的短路求值性质在访问字符数组中的应用</h2>
+<p>我们知道：逻辑表达式具有<strong>短路求值</strong>的性质。逻辑表达式从左往右执行，对两个以逻辑与运算<code>&amp;&amp;</code>连接的关系语句，当左面的关系语句为假（值为<code>0</code>）时，右面的关系语句不需要计算，可以直接得出整个逻辑表达式为假（值为<code>0</code>）的结果。</p>
+<p>因此，当要在一个<code>if</code>条件里使用逻辑与运算<code>&amp;&amp;</code>，实现 判断数组下标是否越界、在不越界时取出该下标位置中的元素判断该元素是否满足某条件 时，最好将判断下标是否越界的关系语句写在左面。这样，当下标越界时左面的语句值为假，就不会执行右面的语句访问越界的位置，有助于培养大家对访问数组前先检查下标是否越界的好习惯：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">char</span> str[<span class="hljs-number">100</span>] = &#123;&#125;;<br><span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%s&quot;</span>, str);<br><span class="hljs-type">int</span> len = <span class="hljs-built_in">strlen</span>(str);<br><span class="hljs-type">int</span> i = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">if</span> ((<span class="hljs-number">0</span>&lt;=i&amp;&amp;i&lt;len) &amp;&amp; str[i]&gt;=<span class="hljs-string">&#x27;A&#x27;</span>)&#123;<br>    <span class="hljs-comment">//将</span><br>    <span class="hljs-comment">//...</span><br>&#125;<br><br></code></pre></td></tr></table></figure>
+<hr />
+<p>作者：逐月的游星、梁秋月</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/C%E8%AF%AD%E8%A8%80/">#C语言</a>
+      
+        <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/">#程序设计基础</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>程序设计基础第五~六周答疑要点整理</div>
+      <div>https://suzumiyaakizuki.github.io/2023/11/02/C5-E6答疑要点整理/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>SuzumiyaAkizuki</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年11月2日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/10/18/C4-E4%E7%AD%94%E7%96%91%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/" title="程序设计基础第四周答疑要点整理">
+                        <span class="hidden-mobile">程序设计基础第四周答疑要点整理</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.7.2/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"48fb14f9689ae0d11307","clientSecret":"091ab25a88e87bfd9d9d40d97d1d0d932e694059","repo":"SuzumiyaAkizuki.github.io","owner":"SuzumiyaAkizuki","admin":["SuzumiyaAkizuki"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '2caa0f9c192be11d8a8843b9956133ea'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       Powered by: <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
