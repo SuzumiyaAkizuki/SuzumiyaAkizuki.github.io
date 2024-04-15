@@ -1,0 +1,813 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <link rel="icon" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="SuzumiyaAkizuki">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="这个事儿很复杂啊，尤其是对于我这种很不会和“环境”打交道的人来说，今天捣鼓了半天终于捣鼓明白了，所以写个文章记录一下。 所用到的软件有Matlab 2019A和Visual Studio 2022.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用matlabAPPDesigner制作软件、调用外部库并打包">
+<meta property="og:url" content="https://suzumiyaakizuki.github.io/2024/04/15/%E7%94%A8matlab%20APP%20designer%E5%88%B6%E4%BD%9C%E8%BD%AF%E4%BB%B6%E3%80%81%E8%B0%83%E7%94%A8%E5%A4%96%E9%83%A8%E5%BA%93%E5%B9%B6%E6%89%93%E5%8C%85/index.html">
+<meta property="og:site_name" content="凉宫秋月的文艺部">
+<meta property="og:description" content="这个事儿很复杂啊，尤其是对于我这种很不会和“环境”打交道的人来说，今天捣鼓了半天终于捣鼓明白了，所以写个文章记录一下。 所用到的软件有Matlab 2019A和Visual Studio 2022.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202404151817361.png">
+<meta property="article:published_time" content="2024-04-15T10:13:06.000Z">
+<meta property="article:modified_time" content="2024-04-15T10:20:56.759Z">
+<meta property="article:author" content="SuzumiyaAkizuki">
+<meta property="article:tag" content="Matlab">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202404151817361.png">
+  
+  
+  
+  <title>用matlabAPPDesigner制作软件、调用外部库并打包 - 凉宫秋月的文艺部</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"suzumiyaakizuki.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":"G-J01HK5TZ0Y","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"QGqf9VPGTa96KerO0JvDW3Ld-gzGzoHsz","app_key":"RhwwUaYq4lMo1tCJwcQTWdRp","server_url":"https://qgqf9vpg.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.google-analytics.com/analytics.js', function() {
+          window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
+          ga.l = +new Date;
+          ga('create', 'G-J01HK5TZ0Y', 'auto');
+          ga('send', 'pageview');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>凉宫秋月的文艺部</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友情链接
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202404151817361.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="用matlabAPPDesigner制作软件、调用外部库并打包"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        SuzumiyaAkizuki
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-04-15 18:13" pubdate>
+          2024年4月15日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          8 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">用matlabAPPDesigner制作软件、调用外部库并打包</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>这个事儿很复杂啊，尤其是对于我这种很不会和“环境”打交道的人来说，今天捣鼓了半天终于捣鼓明白了，所以写个文章记录一下。</p>
+<p>所用到的软件有Matlab 2019A和Visual Studio 2022.</p>
+<span id="more"></span>
+<h2 id="编写c语言代码编译为.dll库">编写C语言代码，编译为<code>.dll</code>库</h2>
+<p>在VS2022中新建项目，选择“Windows桌面向导”</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202404151717267.png" srcset="/img/loading.gif" lazyload alt="image-20240415171656059" /><figcaption aria-hidden="true">image-20240415171656059</figcaption>
+</figure>
+<p>给项目起个名字，选择“动态链接库”，并选择“空项目”</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202404151718173.png" srcset="/img/loading.gif" lazyload alt="image-20240415171819074" /><figcaption aria-hidden="true">image-20240415171819074</figcaption>
+</figure>
+<p>在“源文件”和“头文件”中创建文件</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202404151719419.png" srcset="/img/loading.gif" lazyload alt="image-20240415171928365" /><figcaption aria-hidden="true">image-20240415171928365</figcaption>
+</figure>
+<p>两个文件的内容如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//dlltest.cpp</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;dlltest.h&quot;</span></span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">add_dll</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">return</span> a + b;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">sub_dll</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">return</span> a - b;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//dlltest.h</span><br><span class="hljs-meta">#<span class="hljs-keyword">ifdef</span> __cplusplus</span><br><span class="hljs-keyword">extern</span> <span class="hljs-string">&quot;C&quot;</span><br>&#123;<br><span class="hljs-meta">#<span class="hljs-keyword">endif</span>	</span><br>	<span class="hljs-type">int</span> __declspec(dllexport) <span class="hljs-built_in">add_dll</span>(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b);<br><span class="hljs-meta">#<span class="hljs-keyword">ifdef</span> __cplusplus</span><br>&#125;<br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">ifdef</span> __cplusplus</span><br><span class="hljs-keyword">extern</span> <span class="hljs-string">&quot;C&quot;</span><br>&#123;<br><span class="hljs-meta">#<span class="hljs-keyword">endif</span>	</span><br>	<span class="hljs-type">int</span> __declspec(dllexport) <span class="hljs-built_in">sub_dll</span>(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b);<br><span class="hljs-meta">#<span class="hljs-keyword">ifdef</span> __cplusplus</span><br>&#125;<br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br><br></code></pre></td></tr></table></figure>
+<p>注意：<code>.h</code>文件必须严格按照上面的格式书写，否则编译完成以后，在 Matlab 中调用时会出现“calllib 找不到方法”的错误。</p>
+<p>写完代码以后，点击“生成/生成dlltest”</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202404151721941.png" srcset="/img/loading.gif" lazyload alt="image-20240415172115882" /><figcaption aria-hidden="true">image-20240415172115882</figcaption>
+</figure>
+<p>在对应路径找到 <code>dlltest.dll</code> 文件</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202404151721035.png" srcset="/img/loading.gif" lazyload alt="image-20240415172158982" /><figcaption aria-hidden="true">image-20240415172158982</figcaption>
+</figure>
+<p>然后保存<code>dlltest.dll</code>文件和<code>dlltest.h</code>文件，这是我们未来要使用到的文件。</p>
+<h2 id="编写matlab测试代码调用-.dll-库">编写Matlab测试代码，调用 <code>.dll</code> 库</h2>
+<p>在写Matlab代码之前，先需要完成一些基本的配置，也就是安装<code>mex</code>。</p>
+<p>首先，下载这两个文件<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="https://blog.csdn.net/m0_51546637/article/details/126325136">[1]</span></a></sup>：</p>
+<p><a target="_blank" rel="noopener" href="https://docsdown.oss-cn-beijing.aliyuncs.com/msvcpp2022.xml">msvcpp2022.xml</a></p>
+<p><a target="_blank" rel="noopener" href="https://docsdown.oss-cn-beijing.aliyuncs.com/msvc2022.xml">msvc2022.xml</a></p>
+<p>然后把它放到Matlab的安装目录<code>…\MATLAB\R2019a\bin\win64\mexopts</code>里面。</p>
+<p>在Matlab中运行代码 <code>mex -setup -v</code>，最终看到</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs awk">MEX 配置为使用 <span class="hljs-string">&#x27;Microsoft Visual C++ 2022 (C)&#x27;</span> 以进行 C 语言编译。<br>警告: MATLAB C 和 Fortran API 已更改，现可支持<br>	 包含 <span class="hljs-number">2</span>^<span class="hljs-number">32</span>-<span class="hljs-number">1</span> 个以上元素的 MATLAB 变量。您需要<br>	 更新代码以利用新的 API。<br>	 您可以在以下网址找到更多的相关信息:<br>	 https:<span class="hljs-regexp">//</span>www.mathworks.com<span class="hljs-regexp">/help/m</span>atlab<span class="hljs-regexp">/matlab_external/u</span>pgrading-mex-files-to-use-<span class="hljs-number">64</span>-bit-api.html。<br><br>要选择不同的语言，请从以下选项中选择一种命令:<br> mex -setup C++ <br> mex -setup FORTRAN<br></code></pre></td></tr></table></figure>
+<p>就算成功，然后点击 <code>mex -setup C++</code>，就行了。</p>
+<p>新建文件夹，把之前得到的<code>dlltest.dll</code>文件和<code>dlltest.h</code>文件复制进去，然后新建 Matlab 脚本，内容如下：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs matlab">slib_name = <span class="hljs-string">&#x27;dlltest&#x27;</span>; <span class="hljs-comment">%库名，不要加路径和后缀</span><br>shead_name = <span class="hljs-string">&#x27;dlltest.h&#x27;</span>; <span class="hljs-comment">%头文件名</span><br>sfunc_name = <span class="hljs-string">&#x27;add_dll&#x27;</span>; <span class="hljs-comment">%函数名</span><br><span class="hljs-keyword">if</span> not(libisloaded(slib_name)) <span class="hljs-comment">%判断此库是否已经被引用</span><br>    loadlibrary(slib_name, shead_name);<br>    libfunctions(slib_name,<span class="hljs-string">&#x27;-full&#x27;</span>); <span class="hljs-comment">%显示库中的所有函数</span><br><span class="hljs-keyword">end</span><br>a=<span class="hljs-number">1</span>;<br>b=<span class="hljs-number">2</span>;<br><span class="hljs-comment">%calllib函数调用库，使用的方法为：</span><br><span class="hljs-comment">%calllib(库名，头文件名，函数名，函数参数1，函数参数2...)</span><br>calllib(slib_name,sfunc_name,a,b)<br></code></pre></td></tr></table></figure>
+<p>运行脚本，输出</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">类 lib.dlltest 的方法:<br><br><span class="hljs-built_in">int32</span> add<span class="hljs-constructor">_dll(<span class="hljs-params">int32</span>, <span class="hljs-params">int32</span>)</span><br><span class="hljs-built_in">int32</span> sub<span class="hljs-constructor">_dll(<span class="hljs-params">int32</span>, <span class="hljs-params">int32</span>)</span><br><br><br><br>ans =<br><br>     <span class="hljs-number">3</span><br></code></pre></td></tr></table></figure>
+<p>说明你已经成功实现在 Matlab 中调用 <code>.dll</code> 库。</p>
+<h2 id="使用app-designer创建软件">使用App designer创建软件</h2>
+<p>首先简单画个UI界面，大概就这样：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202404151739714.png" srcset="/img/loading.gif" lazyload alt="image-20240415173905647" /><figcaption aria-hidden="true">image-20240415173905647</figcaption>
+</figure>
+<p>其中有三个回调函数、一个全局属性需要写，代码如下：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-comment">%全局属性</span><br><span class="hljs-keyword">properties</span> (Access = private)<br>    slib_name = <span class="hljs-string">&#x27;dlltest&#x27;</span>;<br>    shead_name = <span class="hljs-string">&#x27;dlltest.h&#x27;</span>;<br>    sfuc_add=<span class="hljs-string">&#x27;add_dll&#x27;</span>;<br>    sfuc_sub=<span class="hljs-string">&#x27;sub_dll&#x27;</span>;<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-comment">%按钮add回调函数</span><br> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addButtonPushed</span><span class="hljs-params">(app, event)</span></span><br>     s1=string(app.EditField.Value)<br>     s2=string(app.EditField2.Value)<br>     app.EditField3.Value=double(calllib(app.slib_name,...<br>     app.sfuc_add,str2num(s1),str2num(s2)));<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-comment">% 按钮sub回调函数</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">subButtonPushed</span><span class="hljs-params">(app, event)</span></span><br>    s1=string(app.EditField.Value)<br>    s2=string(app.EditField2.Value)<br>    app.EditField3.Value=double(calllib(app.slib_name,...<br>    app.sfuc_sub,str2num(s1),str2num(s2)));<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-comment">% 按钮初始化回调函数</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ButtonPushed</span><span class="hljs-params">(app, event)</span></span><br>    <span class="hljs-keyword">if</span> not(libisloaded(app.slib_name))<br>        loadlibrary(app.slib_name,app.shead_name);<br>        libfunctions(app.slib_name,<span class="hljs-string">&#x27;-full&#x27;</span>);<br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+<p>然后点运行，应该就可以出现想要的效果了。但是这时候我们打包APP时，发现即使把<code>dlltest.dll</code>文件和<code>dlltest.h</code>文件打包进去了，出来的<code>.exe</code>文件还是没有办法运行。这是因为我们需要修改一下<code>loadlibrary</code>函数的写法。</p>
+<p>退出并重新打开 Matlab ，然后不要进行任何操作，在你的工作文件夹中运行<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="https://ww2.mathworks.cn/help/compiler/matlab-library-loading.html">[2]</span></a></sup></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab">loadlibrary(<span class="hljs-string">&#x27;dlltest&#x27;</span>, <span class="hljs-string">&#x27;dlltest.h&#x27;</span>, <span class="hljs-string">&#x27;mfilename&#x27;</span>, <span class="hljs-string">&#x27;mylibrarymfile&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<p>然后你的文件夹中会多出一些文件：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202404151748213.png" srcset="/img/loading.gif" lazyload alt="image-20240415174850140" /><figcaption aria-hidden="true">image-20240415174850140</figcaption>
+</figure>
+<p>然后，把你的<code>loadlibrary</code>函数的写法都修改成：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab">loadlibrary(app.slib_name, @mylibrarymfile);<br></code></pre></td></tr></table></figure>
+<p>然后，点击共享/独立桌面APP</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202404151751214.png" srcset="/img/loading.gif" lazyload alt="image-20240415175120148" /><figcaption aria-hidden="true">image-20240415175120148</figcaption>
+</figure>
+<p>名字什么的自己填，关键是这里：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202404151752707.png" srcset="/img/loading.gif" lazyload alt="image-20240415175205628" /><figcaption aria-hidden="true">image-20240415175205628</figcaption>
+</figure>
+<p>在 Files required for your application to run 中，把所有和<code>dlltest</code>有关的文件，以及最后生成的<code>mylibrartmfil.m</code>全部丢进去，然后选择 Create log file 创建日志（日志非必须，只是方便你查错而已）。</p>
+<p>然后选择”Runtime included in package“，检查后点击”Package“。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202404151753448.png" srcset="/img/loading.gif" lazyload alt="image-20240415175326391" /><figcaption aria-hidden="true">image-20240415175326391</figcaption>
+</figure>
+<p>它会生成一段时间，你可以休息一下。生成完毕后，在<code>\工作文件夹\app1\for_redistribution</code>中找到用于共享的安装包。顺便一提，你可以在 <code>\工作文件夹\app1\for_redistribution_files_only</code> 里面预览安装后的效果。</p>
+<hr />
+<section class="footnotes">
+<div class="footnote-list">
+<ol>
+<li>
+<span id="fn:1" class="footnote-text"><span>https://blog.csdn.net/m0_51546637/article/details/126325136 <a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩︎</a></span></span>
+</li>
+<li>
+<span id="fn:2" class="footnote-text"><span>https://ww2.mathworks.cn/help/compiler/matlab-library-loading.html <a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩︎</a></span></span>
+</li>
+</ol>
+</div>
+</section>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Matlab/">#Matlab</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>用matlabAPPDesigner制作软件、调用外部库并打包</div>
+      <div>https://suzumiyaakizuki.github.io/2024/04/15/用matlab APP designer制作软件、调用外部库并打包/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>SuzumiyaAkizuki</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年4月15日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/11/17/debug%20%E6%A3%80%E6%9F%A5%E5%8D%95/" title="debug检查单">
+                        <span class="hidden-mobile">debug检查单</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.7.2/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"48fb14f9689ae0d11307","clientSecret":"091ab25a88e87bfd9d9d40d97d1d0d932e694059","repo":"SuzumiyaAkizuki.github.io","owner":"SuzumiyaAkizuki","admin":["SuzumiyaAkizuki"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: 'bf0fd56b72a876eb3b380acbc0fe06b5'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       Powered by: <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
