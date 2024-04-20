@@ -939,6 +939,13 @@
   </url>
   
   <url>
+    <loc>https://suzumiyaakizuki.github.io/tags/DSP/</loc>
+    <lastmod>2024-04-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://suzumiyaakizuki.github.io/tags/Verilog/</loc>
     <lastmod>2024-04-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -953,20 +960,6 @@
   </url>
   
   <url>
-    <loc>https://suzumiyaakizuki.github.io/tags/DSP/</loc>
-    <lastmod>2024-04-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://suzumiyaakizuki.github.io/tags/C/</loc>
-    <lastmod>2024-04-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://suzumiyaakizuki.github.io/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/</loc>
     <lastmod>2024-04-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -975,6 +968,13 @@
   
   <url>
     <loc>https://suzumiyaakizuki.github.io/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/</loc>
+    <lastmod>2024-04-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://suzumiyaakizuki.github.io/tags/C/</loc>
     <lastmod>2024-04-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1030,13 +1030,6 @@
   </url>
   
   <url>
-    <loc>https://suzumiyaakizuki.github.io/tags/%E6%8A%BD%E8%B1%A1%E4%BB%A3%E6%95%B0/</loc>
-    <lastmod>2024-04-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://suzumiyaakizuki.github.io/tags/%E7%A7%91%E5%B9%BB/</loc>
     <lastmod>2024-04-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -1045,6 +1038,13 @@
   
   <url>
     <loc>https://suzumiyaakizuki.github.io/tags/%E5%90%8C%E4%BA%BA/</loc>
+    <lastmod>2024-04-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://suzumiyaakizuki.github.io/tags/%E6%8A%BD%E8%B1%A1%E4%BB%A3%E6%95%B0/</loc>
     <lastmod>2024-04-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
