@@ -1,0 +1,1258 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <link rel="icon" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="SuzumiyaAkizuki">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="出于某种原因，我需要在2024年使用CentOS7，而且还要给它自带的gcc升级。网上的教程们，比如这个，多数要用到yum命令在线下载，但是CentOS7的软件源在2024年早就被关停了，我在网上找了好多镜像，也没有结果，总是报这个错： 1234567891011121314151617181920212223242526272829303132333435Could not retrieve">
+<meta property="og:type" content="article">
+<meta property="og:title" content="怎么在2024年给CentOS7的gcc升级">
+<meta property="og:url" content="https://suzumiyaakizuki.github.io/2024/08/15/%E6%80%8E%E4%B9%88%E5%9C%A82024%E5%B9%B4%E7%BB%99CentOS7%E7%9A%84gcc%E5%8D%87%E7%BA%A7/index.html">
+<meta property="og:site_name" content="凉宫秋月的文艺部">
+<meta property="og:description" content="出于某种原因，我需要在2024年使用CentOS7，而且还要给它自带的gcc升级。网上的教程们，比如这个，多数要用到yum命令在线下载，但是CentOS7的软件源在2024年早就被关停了，我在网上找了好多镜像，也没有结果，总是报这个错： 1234567891011121314151617181920212223242526272829303132333435Could not retrieve">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202408151709549.png">
+<meta property="article:published_time" content="2024-08-15T08:57:15.000Z">
+<meta property="article:modified_time" content="2024-08-15T09:09:25.057Z">
+<meta property="article:author" content="SuzumiyaAkizuki">
+<meta property="article:tag" content="编程">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202408151709549.png">
+  
+  
+  
+  <title>怎么在2024年给CentOS7的gcc升级 - 凉宫秋月的文艺部</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"suzumiyaakizuki.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"#"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":"G-J01HK5TZ0Y","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"QGqf9VPGTa96KerO0JvDW3Ld-gzGzoHsz","app_key":"RhwwUaYq4lMo1tCJwcQTWdRp","server_url":"https://qgqf9vpg.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.google-analytics.com/analytics.js', function() {
+          window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
+          ga.l = +new Date;
+          ga('create', 'G-J01HK5TZ0Y', 'auto');
+          ga('send', 'pageview');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>凉宫秋月的文艺部</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友情链接
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202408151709549.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="怎么在2024年给CentOS7的gcc升级"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        SuzumiyaAkizuki
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-08-15 16:57" pubdate>
+          2024年8月15日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          6 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-right: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="技术"
+        id="heading-a95dd3e179418be1ecd2a719a22db70e" role="tab" data-toggle="collapse" href="#collapse-a95dd3e179418be1ecd2a719a22db70e"
+        aria-expanded="true"
+      >
+        技术
+        <span class="list-group-count">(47)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-a95dd3e179418be1ecd2a719a22db70e"
+           role="tabpanel" aria-labelledby="heading-a95dd3e179418be1ecd2a719a22db70e">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2022/05/10/%E4%BF%A1%E5%8F%B7%E6%8A%A5%E5%91%8A2/" title="信号与系统实验2：信号的矩形脉冲抽样与恢复"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">信号与系统实验2：信号的矩形脉冲抽样与恢复</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/05/18/%E5%85%B3%E4%BA%8E%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E5%92%8C%E7%B3%BB%E7%BB%9F%E6%A1%86%E5%9B%BE%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/" title="关于微分方程和系统框图的那些事"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">关于微分方程和系统框图的那些事</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/05/21/%E5%85%B3%E4%BA%8E%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A2%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/" title="关于拉普拉斯变换的那些事"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">关于拉普拉斯变换的那些事</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/06/07/%E6%A8%A1%E7%94%B5%E6%8A%A5%E5%91%8A1/" title="电子电路实验报告1：共射放大器和射极跟随器"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">电子电路实验报告1：共射放大器和射极跟随器</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/06/07/%E6%A8%A1%E7%94%B5%E6%8A%A5%E5%91%8A2/" title="电子电路实验报告2：差分放大电路仿真与分析"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">电子电路实验报告2：差分放大电路仿真与分析</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/06/14/%E6%A8%A1%E7%94%B5%E6%8A%A5%E5%91%8A3/" title="电子电路实验报告3：集成运放实验1"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">电子电路实验报告3：集成运放实验1</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/06/14/%E6%A8%A1%E7%94%B5%E6%8A%A5%E5%91%8A4/" title="电子电路实验报告4：集成运放实验2"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">电子电路实验报告4：集成运放实验2</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/06/15/%E5%85%B3%E4%BA%8E%E5%B9%B3%E9%9D%A2%E7%94%B5%E7%A3%81%E6%B3%A2%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/" title="关于平面电磁波的那些事"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">关于平面电磁波的那些事</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/06/16/%E4%BF%A1%E5%8F%B7%E5%A4%A7%E4%BD%9C%E4%B8%9A/" title="信号与系统课程设计：频分复用系统设计"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">信号与系统课程设计：频分复用系统设计</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/06/20/%E5%85%B3%E4%BA%8E%E7%94%B5%E7%A3%81%E5%9C%BA%E7%9A%84%E8%83%BD%E9%87%8F%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/" title="关于电磁场的能量的那些事"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">关于电磁场的能量的那些事</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/06/21/%E5%85%B3%E4%BA%8E%E7%94%B5%E7%A3%81%E5%9C%BA%E8%BE%90%E5%B0%84%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/" title="关于电磁场辐射的那些事"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">关于电磁场辐射的那些事</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/06/22/%E4%BF%A1%E5%8F%B7%E6%8A%A5%E5%91%8A3/" title="信号与系统实验3：离散时间系统特性分析"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">信号与系统实验3：离散时间系统特性分析</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/06/27/%E5%85%B3%E4%BA%8E%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/" title="关于傅里叶变换的那些事"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">关于傅里叶变换的那些事</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/07/01/%E5%87%89%E5%AE%AB%E7%A7%8B%E6%9C%88/" title="关于分离变量法和物质极化的那些事"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">关于分离变量法和物质极化的那些事</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/07/03/%E5%85%B3%E4%BA%8E%E7%A6%BB%E6%95%A3%E7%B3%BB%E7%BB%9F%E5%92%8CZ%E5%8F%98%E6%8D%A2%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/" title="关于离散系统和Z变换的那些事"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">关于离散系统和Z变换的那些事</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/10/08/verilog1-10/" title="Vlab Verilog OJ 做题记录(1-10)"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Vlab Verilog OJ 做题记录(1-10)</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/10/10/verilog10-20/" title="Vlab Verilog OJ 做题记录(10-20)"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Vlab Verilog OJ 做题记录(10-20)</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/10/19/Verilog21-30/" title="Vlab Verilog OJ 做题记录(21-30)"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Vlab Verilog OJ 做题记录(21-30)</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/10/26/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%E5%89%8D%E5%9B%9B%E7%AB%A0%E7%AC%94%E8%AE%B0/" title="数字信号处理·变换之章"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">数字信号处理·变换之章</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/11/07/%E5%BE%AE%E6%B3%A2%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" title="微波技术·波之章"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">微波技术·波之章</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/11/16/%E6%95%B0%E5%AD%97%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="数字电路·逻辑之章"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">数字电路·逻辑之章</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/12/08/DSP2/" title="数字信号处理·系统之章"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">数字信号处理·系统之章</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/12/08/DSP3/" title="数字信号处理·傅里叶之章"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">数字信号处理·傅里叶之章</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/12/17/%E5%BE%AE%E6%B3%A2%C2%B7%E8%B7%AF%E4%B9%8B%E7%AB%A0/" title="微波技术·路之章"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">微波技术·路之章</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/12/22/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%C2%B7%E6%A8%A1%E6%8B%9F%E4%B9%8B%E7%AB%A0/" title="数字电路·模拟之章"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">数字电路·模拟之章</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/12/22/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%C2%B7%E7%BB%84%E5%90%88%E4%B8%8E%E6%97%B6%E5%BA%8F%E4%B9%8B%E7%AB%A0/" title="数字电路·组合与时序之章"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">数字电路·组合与时序之章</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/12/24/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%C2%B7%E6%BB%A4%E6%B3%A2%E5%99%A8%E4%B9%8B%E7%AB%A0/" title="数字信号处理·滤波器之章"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">数字信号处理·滤波器之章</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2023/05/16/%E6%A8%A1%E6%8B%9F%E8%B0%83%E5%88%B6/" title="通信原理· 调制之章"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">通信原理· 调制之章</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2023/05/18/%E4%BF%A1%E6%81%AF%E8%AE%BA%E7%AC%94%E8%AE%B0/" title="信息论笔记"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">信息论笔记</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2023/05/20/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/" title="自动控制原理笔记（时域分析）"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">自动控制原理笔记（时域分析）</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2023/05/21/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86%EF%BC%88%E8%BD%A8%E8%BF%B9%E5%88%86%E6%9E%90%EF%BC%89/" title="自动控制原理（轨迹分析）"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">自动控制原理（轨迹分析）</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2023/05/23/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86%C2%B7%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%9F%BA%E5%B8%A6%E4%BC%A0%E8%BE%93/" title="通信原理·数字信号基带传输"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">通信原理·数字信号基带传输</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2023/05/26/%E4%BF%A1%E6%81%AF%E8%AE%BA%E7%AC%94%E8%AE%B0%C2%B7%E4%BF%A1%E9%81%93%E5%92%8C%E7%BC%96%E7%A0%81/" title="信息论笔记·信道和编码"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">信息论笔记·信道和编码</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2023/06/09/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0%C2%B7%E6%95%B0%E5%AD%97%E9%80%9A%E4%BF%A1/" title="通信原理笔记·数字通信"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">通信原理笔记·数字通信</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2023/06/17/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86%C2%B7%E9%87%87%E6%A0%B7%E7%B3%BB%E7%BB%9F%E5%92%8C%E7%8A%B6%E6%80%81%E7%A9%BA%E9%97%B4/" title="自动控制原理·采样系统和状态空间"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">自动控制原理·采样系统和状态空间</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2023/06/30/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" title="数字图像处理实验报告"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">数字图像处理实验报告</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2023/06/30/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86Matlab%E8%BD%AF%E4%BB%B6%E4%BD%9C%E4%B8%9A/" title="通信原理Matlab软件作业"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">通信原理Matlab软件作业</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2023/07/03/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86%E5%AE%9E%E9%AA%8C/" title="自动控制原理实验"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">自动控制原理实验</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2023/09/27/C2-E2%E7%AD%94%E7%96%91%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/" title="程序设计基础第二周答疑要点整理"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">程序设计基础第二周答疑要点整理</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2023/10/06/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80%E7%AC%AC%E4%B8%80%E5%91%A8%E7%AD%94%E7%96%91%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/" title="程序设计基础第一周答疑要点整理"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">程序设计基础第一周答疑要点整理</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2023/10/07/%E6%88%91%E4%BC%9A%E8%87%AA%E5%B7%B1Debug/" title="我会自己Debug"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">我会自己Debug</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2023/10/12/C3-E3%E7%AD%94%E7%96%91%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/" title="程序设计基础第三周答疑要点整理"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">程序设计基础第三周答疑要点整理</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2023/10/18/C4-E4%E7%AD%94%E7%96%91%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/" title="程序设计基础第四周答疑要点整理"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">程序设计基础第四周答疑要点整理</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2023/11/02/C5-E6%E7%AD%94%E7%96%91%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/" title="程序设计基础第五~六周答疑要点整理"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">程序设计基础第五~六周答疑要点整理</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2023/11/17/debug%20%E6%A3%80%E6%9F%A5%E5%8D%95/" title="debug检查单"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">debug检查单</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2024/04/15/%E7%94%A8matlab%20APP%20designer%E5%88%B6%E4%BD%9C%E8%BD%AF%E4%BB%B6%E3%80%81%E8%B0%83%E7%94%A8%E5%A4%96%E9%83%A8%E5%BA%93%E5%B9%B6%E6%89%93%E5%8C%85/" title="用matlabAPPDesigner制作软件、调用外部库并打包"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">用matlabAPPDesigner制作软件、调用外部库并打包</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2024/08/15/%E6%80%8E%E4%B9%88%E5%9C%A82024%E5%B9%B4%E7%BB%99CentOS7%E7%9A%84gcc%E5%8D%87%E7%BA%A7/" title="怎么在2024年给CentOS7的gcc升级"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">怎么在2024年给CentOS7的gcc升级</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">怎么在2024年给CentOS7的gcc升级</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>出于某种原因，我需要在2024年使用CentOS7，而且还要给它自带的gcc升级。网上的教程们，比如<a target="_blank" rel="noopener" href="https://www.cnblogs.com/shadowmurloc-blog/p/18060565">这个</a>，多数要用到<code>yum</code>命令在线下载，但是CentOS7的软件源在2024年早就被关停了，我在网上找了好多镜像，也没有结果，总是报这个错：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs bash">Could not retrieve mirrorlist http://mirrorlist.centos.org?<span class="hljs-built_in">arch</span>=x86_64&amp;release=7&amp;repo=sclo-rh error was<br>14: curl<span class="hljs-comment">#6 - &quot;Could not resolve host: mirrorlist.centos.org; 未知的错误&quot;</span><br><br><br> One of the configured repositories failed (未知),<br> and yum doesn<span class="hljs-string">&#x27;t have enough cached data to continue. At this point the only</span><br><span class="hljs-string"> safe thing yum can do is fail. There are a few ways to work &quot;fix&quot; this:</span><br><span class="hljs-string"></span><br><span class="hljs-string">     1. Contact the upstream for the repository and get them to fix the problem.</span><br><span class="hljs-string"></span><br><span class="hljs-string">     2. Reconfigure the baseurl/etc. for the repository, to point to a working</span><br><span class="hljs-string">        upstream. This is most often useful if you are using a newer</span><br><span class="hljs-string">        distribution release than is supported by the repository (and the</span><br><span class="hljs-string">        packages for the previous distribution release still work).</span><br><span class="hljs-string"></span><br><span class="hljs-string">     3. Run the command with the repository temporarily disabled</span><br><span class="hljs-string">            yum --disablerepo=&lt;repoid&gt; ...</span><br><span class="hljs-string"></span><br><span class="hljs-string">     4. Disable the repository permanently, so yum won&#x27;</span>t use it by default. Yum<br>        will <span class="hljs-keyword">then</span> just ignore the repository until you permanently <span class="hljs-built_in">enable</span> it<br>        again or use --enablerepo <span class="hljs-keyword">for</span> temporary usage:<br><br>            yum-config-manager --<span class="hljs-built_in">disable</span> &lt;repoid&gt;<br>        or<br>            subscription-manager repos --<span class="hljs-built_in">disable</span>=&lt;repoid&gt;<br><br>     5. Configure the failing repository to be skipped, <span class="hljs-keyword">if</span> it is unavailable.<br>        Note that yum will try to contact the repo. when it runs most commands,<br>        so will have to try and fail each time (and thus. yum will be be much<br>        slower). If it is a very temporary problem though, this is often a <span class="hljs-built_in">nice</span><br>        compromise:<br><br>            yum-config-manager --save --<span class="hljs-built_in">setopt</span>=&lt;repoid&gt;.skip_if_unavailable=<span class="hljs-literal">true</span><br><br>Cannot find a valid baseurl <span class="hljs-keyword">for</span> repo: centos-sclo-rh/x86_64<br></code></pre></td></tr></table></figure>
+<p>于是我不得不在不使用<code>yum</code>的情况下安装gcc。</p>
+<p>首先，获取软件包。在<a target="_blank" rel="noopener" href="https://ftp.gnu.org/gnu/gcc/">gcc的官网</a>上选择你需要的版本。注意，如果你选择了太新的版本，有编译不通过的可能。在这里，我选择的是<a target="_blank" rel="noopener" href="https://ftp.gnu.org/gnu/gcc/gcc-6.1.0/">gcc-6.1.0</a>。</p>
+<p>选择好了以后，下载所需的软件包，<code>.tar.gz</code>格式即可。当然，你也可以在准备保存下载文件的文件夹处打开终端，输入命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget http://ftp.gnu.org/gnu/gcc/gcc-6.1.0/gcc-6.1.0.tar.gz<br></code></pre></td></tr></table></figure>
+<p>然后使用<code>tar</code>命令解压：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">tar -xzvf gcc-6.1.0.tar.gz<br></code></pre></td></tr></table></figure>
+<p>解压完成后进入解压得到的文件夹</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> gcc-6.1.0<br></code></pre></td></tr></table></figure>
+<p>用脚本安装依赖</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">./contrib/download_prerequisites<br></code></pre></td></tr></table></figure>
+<p>建立并进入一个用来编译的文件夹</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> gcc-build-6.1.0<br><span class="hljs-built_in">cd</span> gcc-build-6.1.0<br></code></pre></td></tr></table></figure>
+<p>初始化编译设置，生成makefile文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">../configure -enable-checking=release -enable-languages=c,c++ -disable-multilib<br></code></pre></td></tr></table></figure>
+<p>开始编译。这一步耗时会非常长，我在虚拟机上用了6个小时。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">make<br></code></pre></td></tr></table></figure>
+<p>安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">make install<br></code></pre></td></tr></table></figure>
+<p>重启电脑，检查gcc版本：</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">gcc <span class="hljs-comment">--version</span><br></code></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">gcc (GCC) 6.1.0<br>Copyright © 2016 Free Software Foundation, Inc.<br>本程序是自由软件；请参看源代码的版权声明。本软件没有任何担保；<br>包括没有适销性和某一专用目的下的适用性担保。<br></code></pre></td></tr></table></figure>
+<p>说明你更新好了。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%BC%96%E7%A8%8B/">#编程</a>
+      
+        <a href="/tags/linux/">#linux</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>怎么在2024年给CentOS7的gcc升级</div>
+      <div>https://suzumiyaakizuki.github.io/2024/08/15/怎么在2024年给CentOS7的gcc升级/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>SuzumiyaAkizuki</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年8月15日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/08/06/%E6%88%91%E6%98%AF%E6%80%8E%E4%B9%88%E5%AD%A6%E4%BC%9A%E8%87%AA%E8%A1%8C%E8%BD%A6%E7%9A%84/" title="我是怎么学会自行车的">
+                        <span class="hidden-mobile">我是怎么学会自行车的</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.7.2/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"48fb14f9689ae0d11307","clientSecret":"091ab25a88e87bfd9d9d40d97d1d0d932e694059","repo":"SuzumiyaAkizuki.github.io","owner":"SuzumiyaAkizuki","admin":["SuzumiyaAkizuki"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '6fa503d7eac6ca23bf03de3d58954ae3'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       Powered by: <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br> Copyright © 2019 - 2024 凉宫秋月. All Rights Reserved. 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
