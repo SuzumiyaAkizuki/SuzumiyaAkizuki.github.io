@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202404151817361.png">
 <meta property="article:published_time" content="2024-04-15T10:13:06.000Z">
-<meta property="article:modified_time" content="2024-06-21T14:49:24.103Z">
+<meta property="article:modified_time" content="2024-09-02T10:24:38.868Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="Matlab">
 <meta name="twitter:card" content="summary_large_image">
@@ -267,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7.9k 字
+          8k 字
         
       </span>
     
@@ -856,6 +856,7 @@
 <p>然后点运行，应该就可以出现想要的效果了。但是这时候我们打包APP时，发现即使把<code>dlltest.dll</code>文件和<code>dlltest.h</code>文件打包进去了，出来的<code>.exe</code>文件还是没有办法运行。这是因为我们需要修改一下<code>loadlibrary</code>函数的写法。</p>
 <p>退出并重新打开 Matlab ，然后不要进行任何操作，在你的工作文件夹中运行<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="https://ww2.mathworks.cn/help/compiler/matlab-library-loading.html">[2]</span></a></sup></p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab">loadlibrary(<span class="hljs-string">&#x27;dlltest&#x27;</span>, <span class="hljs-string">&#x27;dlltest.h&#x27;</span>, <span class="hljs-string">&#x27;mfilename&#x27;</span>, <span class="hljs-string">&#x27;mylibrarymfile&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<p>这里面的<code>mfilename</code>是不能调整的，<code>mylibrarymfile</code>是可以自定义的。</p>
 <p>然后你的文件夹中会多出一些文件：</p>
 <figure>
 <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202404151748213.png" srcset="/img/loading.gif" lazyload alt="image-20240415174850140" /><figcaption aria-hidden="true">image-20240415174850140</figcaption>
