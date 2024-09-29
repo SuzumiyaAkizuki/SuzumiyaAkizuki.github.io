@@ -1159,14 +1159,14 @@
   </url>
   
   <url>
-    <loc>https://suzumiyaakizuki.github.io/tags/%E6%8A%BD%E8%B1%A1%E4%BB%A3%E6%95%B0/</loc>
+    <loc>https://suzumiyaakizuki.github.io/tags/%E7%94%9F%E6%B4%BB/</loc>
     <lastmod>2024-09-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://suzumiyaakizuki.github.io/tags/%E7%94%9F%E6%B4%BB/</loc>
+    <loc>https://suzumiyaakizuki.github.io/tags/%E6%8A%BD%E8%B1%A1%E4%BB%A3%E6%95%B0/</loc>
     <lastmod>2024-09-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1187,14 +1187,14 @@
   </url>
   
   <url>
-    <loc>https://suzumiyaakizuki.github.io/tags/Matlab/</loc>
+    <loc>https://suzumiyaakizuki.github.io/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/</loc>
     <lastmod>2024-09-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://suzumiyaakizuki.github.io/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/</loc>
+    <loc>https://suzumiyaakizuki.github.io/tags/Matlab/</loc>
     <lastmod>2024-09-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1222,13 +1222,6 @@
   </url>
   
   <url>
-    <loc>https://suzumiyaakizuki.github.io/tags/%E5%9B%9E%E5%BF%86/</loc>
-    <lastmod>2024-09-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://suzumiyaakizuki.github.io/tags/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/</loc>
     <lastmod>2024-09-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -1237,6 +1230,13 @@
   
   <url>
     <loc>https://suzumiyaakizuki.github.io/tags/matlab/</loc>
+    <lastmod>2024-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://suzumiyaakizuki.github.io/tags/%E5%9B%9E%E5%BF%86/</loc>
     <lastmod>2024-09-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
