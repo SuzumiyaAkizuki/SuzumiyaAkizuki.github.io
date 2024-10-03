@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202410032251555.png">
 <meta property="article:published_time" content="2024-10-03T08:19:00.000Z">
-<meta property="article:modified_time" content="2024-10-03T14:56:26.693Z">
+<meta property="article:modified_time" content="2024-10-03T15:06:17.552Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="最优化">
 <meta name="twitter:card" content="summary_large_image">
@@ -636,7 +636,7 @@ C=\sum_{i=1}^I \beta_iC_i=\{\beta_1 x_1+\beta_2 x_2+\cdots +\beta_Ix_I,x_i\in C_
 <p>例如： <span class="math display">\[
 M=\{x\in R^n\mid Ax=b\}\\\\
 L=\{x\in R^n\mid Ax=0\}
-\]</span> <span class="math inline">\(\alpha\)</span> 为 <span class="math inline">\(Ax=b\)</span> 的任意一个特解。<span class="math inline">\(\dim M=n-\rank A\)</span>。所以说，一般来说可以用一个非齐次线性方程组<span class="math inline">\(Ax=b\)</span>的解集来表示仿射集。</p></li>
+\]</span> <span class="math inline">\(\alpha\)</span> 为 <span class="math inline">\(Ax=b\)</span> 的任意一个特解。<span class="math inline">\(\dim M=n-\text{rank} A\)</span>。所以说，一般来说可以用一个非齐次线性方程组<span class="math inline">\(Ax=b\)</span>的解集来表示仿射集。</p></li>
 <li><p>【球体】<span class="math inline">\(H=\{x\in \mathbb R^n\mid ||x-\alpha||\leq r\}\)</span>，其中<span class="math inline">\(||\cdot||\)</span>是范数，<span class="math inline">\(\alpha\in\mathbb R^n,r\in \mathbb R\)</span>.</p></li>
 <li><p>【椭球体】<span class="math inline">\(H=\{x\in \mathbb R^n\mid x^TEx\leq r\}\)</span>，其中<span class="math inline">\(E\)</span>是对称正定矩阵，<span class="math inline">\(r\geq 0\)</span>。</p>
 <blockquote>
@@ -671,7 +671,7 @@ E_i=\begin{pmatrix}
 <p>内部是包含在<span class="math inline">\(X\)</span>中的最大开集。</p>
 <p>但是有时候，对于一个凸集，其内部是空集。比如在<span class="math inline">\(R^3\)</span>中的平面。此时，无法用内点来对<span class="math inline">\(X\)</span>进行分析，但是就直观来看，<span class="math inline">\(X\)</span>并不是一个很「空」的集合。这时候需要定义「相对内部」，也就是在<span class="math inline">\(X\)</span>的仿射包中定义<span class="math inline">\(X\)</span>的内部。例如，在<span class="math inline">\(R^3\)</span>中有一个集合<span class="math inline">\(X\)</span>，它是一个圆形。那么它的仿射包就是包含这个圆形的二维平面。在<span class="math inline">\(R^3\)</span>中，这个圆形集合的内部是空集。但是如果只在仿射包中看，这个圆形集合的内部就不是空集了。从仿射包看的所谓「内部」，就是「相对内部」。</p>
 <p>对于集合<span class="math inline">\(X\in \mathbb R^n\)</span>，其仿射包为<span class="math inline">\(M\)</span>，定义相对内部： <span class="math display">\[
-\text{ri }X=\left\{x\in X\mid \exist r_x&gt;0 s.t.\{y\in M\mid ||y-x||_2&lt;r_x)\subseteq  X\} \right\}
+\text{ri }X=\left\{x\in X\mid \exists r_x&gt;0 s.t.\{y\in M\mid ||y-x||_2&lt;r_x)\subseteq  X\} \right\}
 \]</span> 看这个可能很晕。其实就是说，在<span class="math inline">\(X\)</span>中存在一些点，它们满足一个条件，这个条件就是「在<span class="math inline">\(M\)</span>中存在以这些点为中心的球包含于<span class="math inline">\(X\)</span>」。我们把这些点的集合称为<span class="math inline">\(X\)</span>的相对内部。相对内部和内部的区别，就是把「球」所存在的空间，从<span class="math inline">\(\mathbb R^n\)</span>变成了<span class="math inline">\(X\)</span>的仿射包。</p>
 <h4 id="组合和包">组合和包</h4>
 <p>点<span class="math inline">\(x_1\cdots x_k\in \mathbb R^n\)</span>的<strong>凸组合</strong>指的是： <span class="math display">\[
