@@ -16,24 +16,24 @@
   <meta name="author" content="SuzumiyaAkizuki">
   <meta name="keywords" content="">
   
-    <meta name="description" content="你说得对，但是《数字信号处理》是电子信息工程学院独立开设的一门核心专业课，课程发生在一个被称作D221的幻想世界，在这里，被神选中的序列将被授予“傅里叶变换”，导引频域分解之力。玩家将扮演一位名为“DSP”的神秘角色，在自由的系统中邂逅性格各异、能力独特的信号们，和他们一起分析频谱，找回失散的频段——同时，逐步发掘“线性系统”的真相。">
+    <meta name="description" content="[toc]  凸性 集合 凸集 【定义】集合\(C\subseteq \mathbb R^n\)凸，指的是\(\forall x_0,x_1\in C,\forall \theta\in [0,1],(1-\theta)x_0+\theta x_1\in C\)。 其中，「\((1-\theta)x_0+\theta x_1\)」指的是「\(x_1,x_0\)两点连接成的线段」，这是一">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数字信号处理·系统之章">
-<meta property="og:url" content="https://suzumiyaakizuki.github.io/2022/12/08/DSP2/index.html">
+<meta property="og:title" content="最优化笔记">
+<meta property="og:url" content="https://suzumiyaakizuki.github.io/2024/10/03/%E6%9C%80%E4%BC%98%E5%8C%96/index.html">
 <meta property="og:site_name" content="凉宫秋月的文艺部">
-<meta property="og:description" content="你说得对，但是《数字信号处理》是电子信息工程学院独立开设的一门核心专业课，课程发生在一个被称作D221的幻想世界，在这里，被神选中的序列将被授予“傅里叶变换”，导引频域分解之力。玩家将扮演一位名为“DSP”的神秘角色，在自由的系统中邂逅性格各异、能力独特的信号们，和他们一起分析频谱，找回失散的频段——同时，逐步发掘“线性系统”的真相。">
+<meta property="og:description" content="[toc]  凸性 集合 凸集 【定义】集合\(C\subseteq \mathbb R^n\)凸，指的是\(\forall x_0,x_1\in C,\forall \theta\in [0,1],(1-\theta)x_0+\theta x_1\in C\)。 其中，「\((1-\theta)x_0+\theta x_1\)」指的是「\(x_1,x_0\)两点连接成的线段」，这是一">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212082301321.jpg">
-<meta property="article:published_time" content="2022-12-08T07:26:18.000Z">
-<meta property="article:modified_time" content="2024-09-13T16:16:50.035Z">
+<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202410032251555.png">
+<meta property="article:published_time" content="2024-10-03T08:19:00.000Z">
+<meta property="article:modified_time" content="2024-10-03T14:56:26.693Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
-<meta property="article:tag" content="DSP">
+<meta property="article:tag" content="最优化">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212082301321.jpg">
+<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202410032251555.png">
   
   
   
-  <title>数字信号处理·系统之章 - 凉宫秋月的文艺部</title>
+  <title>最优化笔记 - 凉宫秋月的文艺部</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -233,13 +233,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212082301321.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202410032251555.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="数字信号处理·系统之章"></span>
+            <span id="subtitle" data-typed-text="最优化笔记"></span>
           
         </div>
 
@@ -255,8 +255,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-12-08 15:26" pubdate>
-          2022年12月8日 下午
+        <time datetime="2024-10-03 16:19" pubdate>
+          2024年10月3日 下午
         </time>
       </span>
     
@@ -267,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7.2k 字
+          5.5k 字
         
       </span>
     
@@ -278,7 +278,7 @@
         
         
         
-          18 分钟
+          14 分钟
         
       </span>
     
@@ -356,7 +356,7 @@
       
         <a href="/2024/10/03/%E6%9C%80%E4%BC%98%E5%8C%96/" title="最优化笔记"
            class="list-group-item list-group-item-action
-           ">
+           active">
           <span class="category-post">最优化笔记</span>
         </a>
       
@@ -482,7 +482,7 @@
       
         <a href="/2022/12/08/DSP2/" title="数字信号处理·系统之章"
            class="list-group-item list-group-item-action
-           active">
+           ">
           <span class="category-post">数字信号处理·系统之章</span>
         </a>
       
@@ -605,184 +605,173 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">数字信号处理·系统之章</h1>
+            <h1 style="display: none">最优化笔记</h1>
             
             
               <div class="markdown-body">
                 
-                <p>你说得对，但是《数字信号处理》是电子信息工程学院独立开设的一门核心专业课，课程发生在一个被称作D221的幻想世界，在这里，被神选中的序列将被授予“傅里叶变换”，导引频域分解之力。玩家将扮演一位名为“DSP”的神秘角色，在自由的系统中邂逅性格各异、能力独特的信号们，和他们一起分析频谱，找回失散的频段——同时，逐步发掘“线性系统”的真相。</p>
-<span id="more"></span>
-<h2 id="离散系统变换域分析">离散系统变换域分析</h2>
-<p>表示LTI系统有很多方法，我们常用三种：</p>
-<ul>
-<li>单位脉冲响应 <span class="math inline">\(h[n]\)</span></li>
-<li>单位脉冲响应的频谱密度函数（DTFT） <span class="math inline">\(H(e^{j\omega})\)</span></li>
-<li>系统函数（单位脉冲响应的Z变换） <span class="math inline">\(H(z)\)</span></li>
-</ul>
-<h3 id="lti系统的频域表示">LTI系统的频域表示</h3>
-<h4 id="特征函数和频率响应">特征函数和频率响应</h4>
-<p>对于LTI系统，对于某些输入序列，输出序列是输入序列和某个复常数的乘积。这样的输入序列叫做特征函数，复常数叫做系统的特征值。</p>
-<p>由于输入序列为<span class="math inline">\(x[n]=e^{j\omega n}\)</span>时，有 <span class="math display">\[
-y[n]=x[n]*h[n]=\sum_{k=-\infty}^\infty e^{j\omega(n-k)}h[k]=e^{j\omega n}H(e^{j\omega})
-\]</span> 所以LTI系统的其中一个特征函数就是<span class="math inline">\(x[n]=e^{j\omega n}\)</span>（事实上，所有的指数型函数，例如<span class="math inline">\(5^n\)</span>等，都是特征函数，而且，指数型函数和指数型函数的有限项乘积也是特征函数，但是形容<span class="math inline">\(e^{j\omega n}u[n]\)</span>这种就不行），其对应的特征值为<span class="math inline">\(H(e^{j\omega})\)</span>。</p>
-<p>而且，由傅里叶变换，我们知道：序列<span class="math inline">\(x[n]\)</span>往往可以表示为<span class="math inline">\(e^{j\omega n}\)</span>的线性组合，即<span class="math inline">\(x[n]=\frac{1}{2\pi}\int_{-\pi}^\pi X(e^{j\omega})e^{j\omega n}d\omega\)</span>。于是，我们将其中的每一项乘以对应的特征值，就得到了输出<span class="math inline">\(y[n]=\frac{1}{2\pi}\int_{-\pi}^\pi X(e^{j\omega})H(e^{j\omega})e^{j\omega n}d\omega\)</span>。于是我们得到了： <span class="math display">\[
-Y(e^{j\omega})=X(e^{j\omega})H(e^{j\omega})
-\]</span> 如果LTI系统的相频响应满足<span class="math inline">\(\angle H(e^{j\omega})=-\omega n_d\)</span>，那么称这样的系统为线性相位系统。线性相位系统对所有频率分量<span class="math inline">\(e^{j\omega n}\)</span>造成的延迟均为<span class="math inline">\(n_d\)</span>。一般来说，我们用群延时衡量相位变化对信号的影响，有： <span class="math display">\[
-\tau(\omega)=-\frac{d}{d\omega}\angle H(e^{j\omega})
-\]</span> 如果群延时不是常数，那么会造成输出信号的失真，这称为色散。</p>
-<h4 id="lti系统的z变换分析">LTI系统的Z变换分析</h4>
-<p>对于以下差分方程表示的系统： <span class="math display">\[
-y[n]=\sum_{k=1}^N a_ky[n-k]+\sum_{k=0}^Mb[k]x[n-k]
-\]</span> 在有初始松弛条件（零状态）时，是因果LTI系统。其系统函数为： <span class="math display">\[
-H(z)=\frac{Y(z)}{X(z)}=\frac{\sum_{k=0}^M b_kz^{-k}}{1-\sum_{k=1}^N a_kz^{-k}}
-\]</span> 也可以把它表示为因式的形式： <span class="math display">\[
-H(z)=\frac{b_0}{a_0}\frac{\prod_{m=1}^M(1-c_mz^{-1})}{\prod_{n=1}^N (1-d_nz^{-1})}
-\]</span> 关于系统的因果和稳定性，有如下结论：</p>
-<ul>
-<li>LTI系统是因果的 等价于 <span class="math inline">\(H(z)\)</span>的收敛域包含无穷远点</li>
-<li>LTI系统是稳定的 等价于<span class="math inline">\(H(z)\)</span>在单位圆上是收敛的</li>
-</ul>
-<p>关于系统的零极点和幅频响应的关系，有如下结论：</p>
-<ul>
-<li>对于单零点系统，零点为<span class="math inline">\(c\)</span>，当<span class="math inline">\(\omega=\theta_c\)</span>时，幅频响应是极小值，零点越靠近单位圆，幅频响应的极小值越小，当零点在单位圆上时，这个极小值为<span class="math inline">\(0\)</span>(如果采用对数坐标则为负无穷)</li>
-<li>对于单极点系统，极点为<span class="math inline">\(d\)</span>，当<span class="math inline">\(\omega=\theta_d\)</span>时，幅频响应是极大值，极点越靠近单位圆，幅频响应的极大值越大，当极点在单位圆上时，这个极大值为正无穷。极点在单位圆上或单位圆外，则系统不稳定。</li>
-</ul>
-<h4 id="有理系统的全通分解">有理系统的全通分解</h4>
-<ul>
-<li><p>幅频特性相同的系统</p>
-<p>若有一个有理实系统，把其中的若干个零点或极点用它的共轭倒数代替，新系统的幅频响应和原来的系统相同。于是，如果设计好一个系统的幅频特性，一定存在符合要求的因果稳定LTI系统，其极点都在单位圆内。</p></li>
-<li><p>全通系统</p>
-<p>全通指的是<span class="math inline">\(|H(e^{j\omega})|\equiv1\)</span>的系统，仅有相频特性随频率变化而变化。全通系统的零极点相对单位圆是镜像共轭成对的。也就是说：如果<span class="math inline">\(a_i\)</span>是系统的零点，那么<span class="math inline">\((a_i^*)^{-1}\)</span>，即<span class="math inline">\(a_i\)</span>的共轭的倒数，定是全通系统的极点。而且，对于有理实系数系统来说，零点和极点本身也是共轭成对的，即如果<span class="math inline">\(b_i\)</span>是零点或极点，那么它的共轭一定也是零点或极点。</p>
-<p>全通系统具有以下性质：</p>
-<ul>
-<li><p>相位特性随频率单调下降，即 <span class="math display">\[
-\frac{\rm d\theta(\omega)}{\rm d\omega}&lt;0
-\]</span></p></li>
-<li><p>输入信号<span class="math inline">\(x[n]\)</span>和输出信号<span class="math inline">\(y[n]\)</span>的能量相同，即 <span class="math display">\[
-\sum_{n=-\infty}^\infty\lvert x[n]\rvert^2=\sum_{n=-\infty}^\infty\lvert y[n]\rvert^2
-\]</span></p></li>
-<li><p>当频率<span class="math inline">\(\omega\)</span>从<span class="math inline">\(0\)</span>变化到<span class="math inline">\(\pi\)</span>时，<span class="math inline">\(N\)</span>阶全通系统的相位改变为<span class="math inline">\(N\pi\)</span></p></li>
-</ul>
-<p>全通系统的应用主要在作相位均衡器，或者通过级联全通系统的方法提高系统的稳定性。</p></li>
-<li><p>最小相位系统</p>
-<p>对于一个离散时间因果稳定系统，它的极点都在单位圆内。如果在此基础上，零点也都在单位圆内，那么这样的系统叫做最小相位系统<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="也就是说最小相位系统的意思就是零极点都在单位圆内。">[3]</span></a></sup>；如果零点全在单位圆外，叫最大相位系统；如果零点在单位圆内外都有，叫混合相位系统。</p>
-<p>最小相位系统有以下性质：</p>
-<ul>
-<li>在所有幅频响应相同的因果稳定系统中，最小相位系统的相位延迟最小</li>
-<li>在所有幅频响应相同的实系数因果稳定系统中，最小相位系统的群延时最小</li>
-<li>最小相位系统的逆系统也是最小相位系统</li>
-</ul>
-<blockquote>
-<p>【例】因果序列<span class="math inline">\(x[n]\)</span>的<span class="math inline">\(z\)</span>变换为 <span class="math display">\[
-X(z)=\frac{\left(1-\frac 12 z^{-1}\right)\left(1-\frac 14 z^{-1}\right)\left(1-\frac 15 z\right)}{\left(1-\frac 16 z\right)}
-\]</span> 又已知<span class="math inline">\(\alpha^nx[n]\)</span>是一个最小相位系统，求<span class="math inline">\(\alpha\)</span>的范围。</p>
-<p>【解】只有不在单位圆内的有一个零点<span class="math inline">\(5\)</span>和一个极点<span class="math inline">\(6\)</span>。记<span class="math inline">\(y[n]=\alpha^nx[n]\)</span>，则有 <span class="math display">\[
-Y(z)=\sum_{n=-\infty}^\infty\alpha^nx[n]z^{-n}=X\left(\frac z\alpha\right)
-\]</span> 如果<span class="math inline">\(a_i\)</span>是<span class="math inline">\(X(z)\)</span>的零点或极点，那么<span class="math inline">\(a_i\cdot\alpha\)</span>就是<span class="math inline">\(Y(z)\)</span>的零点或极点。为了让<span class="math inline">\(Y(z)\)</span>的所有零极点都在单位圆内，只需调整<span class="math inline">\(\alpha\)</span>，让<span class="math inline">\(6\alpha\)</span>在单位圆内即可。于是有： <span class="math display">\[
-\alpha&lt;\frac 16
-\]</span></p>
-</blockquote></li>
-<li><p>有理系统的全通分解</p>
-<p>任何有理系统函数都可以分解为最小相位系统<span class="math inline">\(H_{min}(z)\)</span>和全通系统<span class="math inline">\(H_{ap}(z)\)</span>级联的形式。假设系统仅有一个单位圆外的零点<span class="math inline">\((c^*)^{-1}\)</span>，即： <span class="math display">\[
-H(z)=H_1(z)(z^{-1}-c^*)
-\]</span> 则<span class="math inline">\(H_1\)</span>的零极点都在单位圆内，是最小相位系统。上式可以进一步表示为： <span class="math display">\[
-H(z)=H_1(z)(z^{-1}-c^*)\frac{1-cz^{-1}}{1-cz^{-1}}=H_1(z)(1-cz^{-1})\frac{z^{-1}-c^*}{1-cz^{-1}}
-\]</span> 其中<span class="math inline">\(\frac{z^{-1}-c^*}{1-cz^{-1}}\)</span>的零点是<span class="math inline">\((c^*)^{-1}\)</span>，极点是<span class="math inline">\(c\)</span>，互为共轭倒数，是全通系统，记作<span class="math inline">\(H_{ap}(z)\)</span>。因为<span class="math inline">\(|z|&lt;1\)</span>，其余部分是最小相位系统，记作<span class="math inline">\(H_{min}(z)\)</span>，于是分解完成。</p>
-<p>上述过程的实质是在单位圆外零点<span class="math inline">\((c^*)^{-1}\)</span>的共轭倒数<span class="math inline">\(c\)</span>的位置放置了一个零点和一个极点。<span class="math inline">\(c\)</span>上的极点和<span class="math inline">\((c^*)^{-1}\)</span>这个零点一起构成了全通系统；<span class="math inline">\(c\)</span>上的极点和原来系统的其它零极点构成了最小相位系统。</p>
-<blockquote>
-<p>【例】把以下系统分解成全通系统和最小相位系统的级联 <span class="math display">\[
-H(z)=\frac{1-3z^{-1}}{1+\frac 12 z^{-1}}
-\]</span> 【解】该系统有<span class="math inline">\(z=-1/2\)</span>的极点和<span class="math inline">\(z=3\)</span>的零点。即<span class="math inline">\((c^*)^{-1}=3\)</span>，得<span class="math inline">\(c=1/3\)</span>。则有： <span class="math display">\[
-\begin{align}
-H(z)&amp;=\frac{-3}{1+\frac 12 z^{-1}}\left(z^{-1}-\frac 13\right)\\
-&amp;=-3\left(\frac{1-\frac 13z^{-1}}{1+\frac 12 z^{-1}}\right)\left(\frac{z^{-1}-\frac 13}{1-\frac 13z^{-1}}\right)
-\end{align}
-\]</span> 于是： <span class="math display">\[
-H_{min}(z)=-3\left(\frac{1-\frac 13z^{-1}}{1+\frac 12 z^{-1}}\right)
-\]</span></p>
-<p><span class="math display">\[
-H_{ap}(z)=\left(\frac{z^{-1}-\frac 13}{1-\frac 13z^{-1}}\right)
-\]</span></p>
-</blockquote></li>
-</ul>
-<h4 id="广义线性相位系统">广义线性相位系统</h4>
-<p>我们之前所说的经典频响是这样的： <span class="math display">\[
-H(e^{j\omega})=|H(e^{j\omega})|e^{j\angle H(e^{j\omega})}
-\]</span> 这时<span class="math inline">\(|H|\)</span>叫经典幅频响应，<span class="math inline">\(\angle H\)</span>叫经典相频响应.但是现在我们引入广义响应： <span class="math display">\[
-H(e^{j\omega})=A(e^{j\omega})e^{j\varphi(\omega)}
-\]</span> 这时候，<span class="math inline">\(A\)</span>叫做“广义幅频响应”，而<span class="math inline">\(\varphi\)</span>叫做“广义相频响应”。请注意“经典”和“广义”的不同：经典幅频响应永远是正的，而广义相频响应可以是负的。因此，广义相频响应和经典相频响应，在<span class="math inline">\(A\)</span>变成负数的时候，会有一个<span class="math inline">\(\pi\)</span>的差距。</p>
-<p>所谓的线性相位的意思是，系统对不同频率的正弦信号所产生的相移和正弦信号的频率呈线性关系。即： <span class="math display">\[
-\angle H(e^{j\omega})=-\alpha \omega
-\]</span> 那么广义线性相位的意思就是，给这个加上一个常数，变成 <span class="math display">\[
-\angle H(e^{j\omega})=\beta-\alpha \omega
-\]</span> 经过一番数学推导，相频响应满足上面式子的系统的单位脉冲响应满足以下等式： <span class="math display">\[
-\sum_{n=-\infty}^\infty h[n]\sin(\omega(n-\alpha)+\beta)=0
-\]</span> 满足上面式子的情况的两组解如下：</p>
-<ul>
-<li><span class="math inline">\(\beta=0\)</span>或<span class="math inline">\(\pi\)</span>，<span class="math inline">\(2\alpha=M\in \mathbb N\)</span>，<span class="math inline">\(h[2\alpha-n]=h[n]\)</span></li>
-<li><span class="math inline">\(\beta=\pi/2\)</span>或<span class="math inline">\(3\pi/2\)</span>，<span class="math inline">\(2\alpha=M\in \mathbb N\)</span>，<span class="math inline">\(h[2\alpha-n]=-h[n]\)</span></li>
-</ul>
-<p>于是，我们可以分出四种广义线性相位系统。</p>
-<ul>
-<li><p>第I类广义线性相位系统</p>
-<p>该类系统满足<span class="math inline">\(h[M-n]=h[n]\)</span>，即<span class="math inline">\(h[n]\)</span>关于<span class="math inline">\(M/2\)</span>偶对称，而且<span class="math inline">\(M\)</span>是偶数。第I类的<span class="math inline">\(\beta=0,\pi\)</span>。所以相频响应是过原点的直线，斜率是<span class="math inline">\(-M/2\)</span>，群延时是<span class="math inline">\(M/2\)</span>。</p>
-<p>这类系统的广义幅频响应<span class="math inline">\(A(e^{j\omega})\)</span>关于<span class="math inline">\(\omega=m\pi,m\in \mathbb Z\)</span>偶对称，可用作各种滤波器。</p></li>
-<li><p>第II类广义线性相位系统</p>
-<p>该类系统满足<span class="math inline">\(h[M-n]=h[n]\)</span>，即<span class="math inline">\(h[n]\)</span>关于<span class="math inline">\(M/2\)</span>偶对称，而且<span class="math inline">\(M\)</span>是奇数。第II类的<span class="math inline">\(\beta=0,\pi\)</span>。所以相频响应是过原点的直线，斜率是<span class="math inline">\(-M/2\)</span>，群延时是<span class="math inline">\(M/2\)</span>。</p>
-<p>这类系统的广义幅频响应<span class="math inline">\(A(e^{j\omega})\)</span>关于<span class="math inline">\(\omega=2m\pi,m\in \mathbb Z\)</span>偶对称，关于<span class="math inline">\(\omega=(2m+1)\pi,m\in \mathbb Z\)</span>奇对称，幅度函数在<span class="math inline">\(\pi\)</span>时为零，不适合作高通、带阻滤波器。</p></li>
-<li><p>第III类广义线性相位系统</p>
-<p>该类系统满足<span class="math inline">\(h[M-n]=-h[n]\)</span>，即<span class="math inline">\(h[n]\)</span>关于<span class="math inline">\(M/2\)</span>奇对称，而且<span class="math inline">\(M\)</span>是偶数。第III类的<span class="math inline">\(\beta=\pi/2,3\pi/2\)</span>。所以相频响应是不过原点的直线（过<span class="math inline">\((0,\pi/2)\)</span>或<span class="math inline">\((0,3\pi/2)\)</span>），斜率是<span class="math inline">\(-M/2\)</span>，群延时是<span class="math inline">\(M/2\)</span>。</p>
-<p>这类系统的广义幅频响应<span class="math inline">\(A(e^{j\omega})\)</span>关于<span class="math inline">\(\omega=m\pi,m\in \mathbb Z\)</span>奇对称，只适合作带通滤波器。</p></li>
-<li><p>第IV类广义线性相位系统</p>
-<p>该类系统满足<span class="math inline">\(h[M-n]=-h[n]\)</span>，即<span class="math inline">\(h[n]\)</span>关于<span class="math inline">\(M/2\)</span>奇对称，而且<span class="math inline">\(M\)</span>是奇数。第IV类的<span class="math inline">\(\beta=\pi/2,3\pi/2\)</span>。所以相频响应是不过原点的直线，斜率是<span class="math inline">\(-M/2\)</span>，群延时是<span class="math inline">\(M/2\)</span>。</p>
-<p>这类系统的广义幅频响应<span class="math inline">\(A(e^{j\omega})\)</span>关于<span class="math inline">\(\omega=2m\pi,m\in \mathbb Z\)</span>奇对称，关于<span class="math inline">\(\omega=(2m+1)\pi,m\in \mathbb Z\)</span>偶对称，幅度函数在<span class="math inline">\(\pi\)</span>时为零，不适合作低通、带通滤波器。</p></li>
-</ul>
-<p>由于第3、4类广义线性系统的相移特性，可以作希尔伯特变换器使用。</p>
-<p>对于广义线性系统而言，如果<span class="math inline">\(z_0\)</span>是系统的零点，那么<span class="math inline">\(z_0^{-1},z_0^*,(z_0^*)^{-1}\)</span>也是系统的零点。第2、3类的零点一定包含-1，第3、4类的零点一定包含1.</p>
-<h2 id="信号的采样和重建">信号的采样和重建</h2>
-<h3 id="连续信号的理想采样">连续信号的理想采样</h3>
-<p>设原连续信号为<span class="math inline">\(x_c(t)\)</span>，用来采样的理想冲击串为<span class="math inline">\(s(t)\)</span>，采样得的连续采样信号为<span class="math inline">\(x_s(t)\)</span>，采样得的离散时间序列为<span class="math inline">\(x[n]\)</span>。其中采样用的理想冲击串的周期为<span class="math inline">\(T_s\)</span>。</p>
-<h4 id="x_s和x_c的关系"><span class="math inline">\(X_s\)</span>和<span class="math inline">\(X_c\)</span>的关系</h4>
-<p>这一部分是《信号与系统》的内容，这里只简单提一下。</p>
-<p>首先我们知道，冲击串的傅里叶变换还是冲击串，即： <span class="math display">\[
-S(j\Omega)=\frac{2\pi}{T_s}\sum_{k=-\infty}^{\infty}\delta(\Omega-k\Omega_s)
-\]</span> 由傅里叶变换的乘积性质，有： <span class="math display">\[
-X_s(j\Omega)=\frac 1 {T_s}\sum_{k=-\infty}^\infty X_c(j\Omega-jk\Omega_s)
-\]</span> 即：<span class="math inline">\(x_s(t)\)</span>的频谱<span class="math inline">\(X_s(j\Omega)\)</span>是连续时间信号<span class="math inline">\(x_c(t)\)</span>的频谱<span class="math inline">\(X_c(j\Omega)\)</span>以采样周期<span class="math inline">\(\Omega_s=2\pi/T_s\)</span>的周期延拓，并以<span class="math inline">\(\frac 1{T_s}\)</span>加权的结果。所以，为了不使得频域混叠，需满足<span class="math inline">\(\Omega_s&gt;2\Omega_N\)</span>，其中<span class="math inline">\(\Omega_N\)</span>是原信号所含有的最高频分量的频率。</p>
-<h4 id="xejomega和x_cjomega的关系"><span class="math inline">\(X(e^{j\omega})\)</span>和<span class="math inline">\(X_c(j\Omega)\)</span>的关系</h4>
-<p>有： <span class="math display">\[
-X_s(j\Omega)=\sum_{n=-\infty}^{\infty}x[n]e^{-j\Omega nT_s}
-\]</span> 令<span class="math inline">\(\omega=\Omega T_s\)</span>，有： <span class="math display">\[
-X_s\left(j\frac{\omega}{T_s}\right)=\sum_{n=-\infty}^\infty x[n]e^{-j\omega n}
-\]</span></p>
-<p>可以发现：使用<span class="math inline">\(1/T_s\)</span>对<span class="math inline">\(X_c(j\Omega)\)</span>加权且频率按<span class="math inline">\(\Omega=\omega/T_s\)</span>尺度变换，得到函数<span class="math inline">\(X_c(j\omega/T_s)/T_s\)</span>，将其以<span class="math inline">\(2\pi\)</span>为周期进行延拓，得离散序列<span class="math inline">\(x[n]\)</span>频谱<span class="math inline">\(X(e^{j\omega})\)</span>.</p>
-<h3 id="连续信号的理想重建">连续信号的理想重建</h3>
-<p>重建系统的示意图如下：</p>
-<figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211301039578.png" srcset="/img/loading.gif" lazyload alt="连续信号重建系统" /><figcaption aria-hidden="true">连续信号重建系统</figcaption>
-</figure>
-<p>先把离散时间信号序列<span class="math inline">\(y[n]\)</span>转化为连续时间信号<span class="math inline">\(y_s(t)\)</span>，然后让<span class="math inline">\(y_s(t)\)</span>经过截止频率为<span class="math inline">\(\pi/T_s\)</span>，幅度<span class="math inline">\(T_s\)</span>的低通滤波器，得到重建信号<span class="math inline">\(y_r(t)\)</span>。</p>
-<p>即： <span class="math display">\[
-H_r(j\Omega)=\begin{cases}
-T_s, &amp;|\Omega|&lt;\frac{\Omega_s}{2}\\
-0 , &amp;\text{others}
-\end{cases}
-\]</span></p>
-<figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211301112181.png" srcset="/img/loading.gif" lazyload alt="重建过程" /><figcaption aria-hidden="true">重建过程</figcaption>
-</figure>
-<h3 id="余弦信号的采样">余弦信号的采样</h3>
-<p>这一段没有什么新东西，主要内容是以对余弦信号采样举例来让人直观感受“频域混叠”的存在，尤其是在采样频率<span class="math inline">\(\Omega_s=2\Omega_0\)</span>时，可能会出现各种情况：当<span class="math inline">\(\varphi=0\)</span>时，才能恢复原信号；当其它情况时，都不能恢复原信号，极端时刻，甚至采样值全部为0，不包含任何信息。</p>
+                <p>[toc]</p>
 <hr />
-<section class="footnotes">
-<div class="footnote-list">
-<ol>
-<li>
-<span id="fn:3" class="footnote-text"><span>也就是说最小相位系统的意思就是零极点都在单位圆内。 <a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩︎</a></span></span>
-</li>
+<h2 id="凸性">凸性</h2>
+<h3 id="集合">集合</h3>
+<h4 id="凸集">凸集</h4>
+<p>【定义】集合<span class="math inline">\(C\subseteq \mathbb R^n\)</span>凸，指的是<span class="math inline">\(\forall x_0,x_1\in C,\forall \theta\in [0,1],(1-\theta)x_0+\theta x_1\in C\)</span>。</p>
+<p>其中，「<span class="math inline">\((1-\theta)x_0+\theta x_1\)</span>」指的是「<span class="math inline">\(x_1,x_0\)</span>两点连接成的线段」，这是一个常用的表述技巧。那么，凸集的定义的人话版本，就是「一个集合中任意两点连接成的线段，也在集合中」。</p>
+<p>对于一些凸集 <span class="math inline">\(\{C_i\}_{i\in I}\)</span>，以下运算的结果仍然是凸集，这样的运算叫「保凸运算」：</p>
+<ol type="1">
+<li><p>【交】<span class="math inline">\(C=\cup_{i\in I}C_i\)</span>是凸集。即：任意个凸集的交集是凸集。这里的「任意个」可以是不可数无穷个。</p></li>
+<li><p>【直积】<span class="math inline">\(C=C_1\times C_2=\{(\boldsymbol {x_1,x_2})\mid \boldsymbol x_1\in C_1,\boldsymbol x_2\in C_2\}\)</span> 是<span class="math inline">\(\mathbb R^{n_1+n_2}\)</span>上的凸集。</p></li>
+<li><p>【加权和】如果 <span class="math inline">\(C_i\)</span> 都是<span class="math inline">\(\mathbb R^n\)</span>上的凸集，<span class="math inline">\(\beta\in \mathbb R\)</span>，那么 <span class="math display">\[
+C=\sum_{i=1}^I \beta_iC_i=\{\beta_1 x_1+\beta_2 x_2+\cdots +\beta_Ix_I,x_i\in C_i\}
+\]</span> 是凸集。</p></li>
+<li><p>【仿射】如果<span class="math inline">\(C\)</span>是<span class="math inline">\(\mathbb R^n\)</span>上的凸集，<span class="math inline">\(A\in \mathbb R^{m\times n},b\in \mathbb R^m\)</span>，则<span class="math inline">\(D=\{Ax+b,x\in C\}\)</span>是凸集。其实，所谓仿射，也就是线性变换再加上一个平移。</p></li>
 </ol>
-</div>
-</section>
+<p>有一些比较常见的凸集，需要知道他们的表示方法：</p>
+<ol type="1">
+<li><p>【超平面】<span class="math inline">\(H=\{x\in \mathbb R^n\mid w^Tx=b\}\)</span>，其中<span class="math inline">\(w\in \mathbb R^n,b\in \mathbb R\)</span>。称<span class="math inline">\(w\)</span>为超平面的法向量。</p></li>
+<li><p>【半空间】<span class="math inline">\(H=\{x\in \mathbb R^n\mid w^Tx\geq b\}\)</span>，也就是一个超平面把空间分成两个半空间（以及超平面自身）</p></li>
+<li><p>【多面体】<span class="math inline">\(H=\{x\in \mathbb R^n\mid Ax\leq b\}\)</span>，也就是有限多个半空间的交集。</p></li>
+<li><p>【子空间】<span class="math inline">\(L\in \mathbb R^n,\forall x,y\in L,\alpha x+\beta y\in L\)</span>.这个和高代里面的子空间是一个意思，也就是元素的线性组合仍在子空间中。</p></li>
+<li><p>【仿射集/线性流形/仿射子空间】对于子空间<span class="math inline">\(L\)</span>，存在<span class="math inline">\(\alpha\in\mathbb R^n\)</span>，<span class="math inline">\(M=\alpha+L\)</span>，则<span class="math inline">\(M\)</span>是仿射集。称<span class="math inline">\(L\)</span>的线性维数为<span class="math inline">\(M\)</span>的仿射维数，记作<span class="math inline">\(\dim M\)</span>。其实就是说，子空间不是必须要通过<span class="math inline">\(0\)</span>点吗，那么把子空间平移了以后，它不通过<span class="math inline">\(0\)</span>点了，虽然不再是子空间了，但是仍然是线性的，也是凸集。</p>
+<p>例如： <span class="math display">\[
+M=\{x\in R^n\mid Ax=b\}\\\\
+L=\{x\in R^n\mid Ax=0\}
+\]</span> <span class="math inline">\(\alpha\)</span> 为 <span class="math inline">\(Ax=b\)</span> 的任意一个特解。<span class="math inline">\(\dim M=n-\rank A\)</span>。所以说，一般来说可以用一个非齐次线性方程组<span class="math inline">\(Ax=b\)</span>的解集来表示仿射集。</p></li>
+<li><p>【球体】<span class="math inline">\(H=\{x\in \mathbb R^n\mid ||x-\alpha||\leq r\}\)</span>，其中<span class="math inline">\(||\cdot||\)</span>是范数，<span class="math inline">\(\alpha\in\mathbb R^n,r\in \mathbb R\)</span>.</p></li>
+<li><p>【椭球体】<span class="math inline">\(H=\{x\in \mathbb R^n\mid x^TEx\leq r\}\)</span>，其中<span class="math inline">\(E\)</span>是对称正定矩阵，<span class="math inline">\(r\geq 0\)</span>。</p>
+<blockquote>
+<p>例如：<span class="math inline">\(S=\{x\in \mathbb R^2\mid x_1^2+ix_1x_2+i^2x_2^2\leq 1\}\)</span></p>
+<p>令 <span class="math display">\[
+E_i=\begin{pmatrix}
+1 &amp; \dfrac i2\\
+\dfrac i2 &amp; i^2
+\end{pmatrix}
+\]</span> 则<span class="math inline">\(E_i\)</span>是对称正定矩阵，且<span class="math inline">\(S=\{x\in \mathbb R^2\mid x^TE_xx\leq 1\}\)</span>，故<span class="math inline">\(S\)</span>是凸集。</p>
+</blockquote></li>
+<li><p>【凸函数的下水平集】<span class="math inline">\(H=\{x\in S\mid f(x)\leq \alpha\}\)</span>，其中<span class="math inline">\(f\)</span>是凸函数，<span class="math inline">\(S\)</span>是凸集，<span class="math inline">\(\alpha\in R\)</span></p></li>
+</ol>
+<p>还有一类特殊的集合，叫做「锥」。</p>
+<p>【定义】称<span class="math inline">\(K\in \mathbb R^n\)</span>为「锥形的」，当且仅当<span class="math inline">\(\forall x\in K,\forall \alpha&gt;0,\alpha x\in K\)</span>。如果<span class="math inline">\(K\)</span>还是凸集，称<span class="math inline">\(K\)</span>为「锥」。</p>
+<p>常见的锥有：</p>
+<ol type="1">
+<li>【第一卦限】<span class="math inline">\(K=\{x\in \mathbb R^n\mid \forall i,x_i&gt;0\}\)</span></li>
+<li>【二阶锥】<span class="math inline">\(K=\{x\in \mathbb R^n\mid x_n\geq\sqrt{\sum_{i=1}^{n-1} x_i^2}\}\)</span></li>
+<li>【对称矩阵、半正定矩阵、正定矩阵】</li>
+</ol>
+<h4 id="集合的内部和闭包">集合的内部和闭包</h4>
+<p>集合的闭包记作<span class="math inline">\(cl X\)</span>，指的是集合中的点列的极限的集合。</p>
+<blockquote>
+<p>例如：对于集合<span class="math inline">\(x&gt;0\)</span>，点列<span class="math inline">\(1/n\)</span>，其极限为<span class="math inline">\(\lim_{n\to \infty} \dfrac 1n=0\)</span>，所以<span class="math inline">\(0\)</span>在集合<span class="math inline">\(X\)</span>的闭包中。</p>
+</blockquote>
+<p>闭包是包含<span class="math inline">\(X\)</span>的最小闭集。</p>
+<p>集合的内部记作<span class="math inline">\(\text{int} X\)</span>，指的是集合中，存在以其为中心的球体也在集合中的点构成的集合。</p>
+<blockquote>
+<p>例如：对于集合<span class="math inline">\(x&gt;0\)</span>，对于点<span class="math inline">\(0\)</span>，无论半径<span class="math inline">\(r\)</span>取何值，球体中的一点<span class="math inline">\(r\)</span>总是大于<span class="math inline">\(0\)</span>，从而不在集合中，所以<span class="math inline">\(0\)</span>不在<span class="math inline">\(X\)</span>的内部。</p>
+</blockquote>
+<p>内部是包含在<span class="math inline">\(X\)</span>中的最大开集。</p>
+<p>但是有时候，对于一个凸集，其内部是空集。比如在<span class="math inline">\(R^3\)</span>中的平面。此时，无法用内点来对<span class="math inline">\(X\)</span>进行分析，但是就直观来看，<span class="math inline">\(X\)</span>并不是一个很「空」的集合。这时候需要定义「相对内部」，也就是在<span class="math inline">\(X\)</span>的仿射包中定义<span class="math inline">\(X\)</span>的内部。例如，在<span class="math inline">\(R^3\)</span>中有一个集合<span class="math inline">\(X\)</span>，它是一个圆形。那么它的仿射包就是包含这个圆形的二维平面。在<span class="math inline">\(R^3\)</span>中，这个圆形集合的内部是空集。但是如果只在仿射包中看，这个圆形集合的内部就不是空集了。从仿射包看的所谓「内部」，就是「相对内部」。</p>
+<p>对于集合<span class="math inline">\(X\in \mathbb R^n\)</span>，其仿射包为<span class="math inline">\(M\)</span>，定义相对内部： <span class="math display">\[
+\text{ri }X=\left\{x\in X\mid \exist r_x&gt;0 s.t.\{y\in M\mid ||y-x||_2&lt;r_x)\subseteq  X\} \right\}
+\]</span> 看这个可能很晕。其实就是说，在<span class="math inline">\(X\)</span>中存在一些点，它们满足一个条件，这个条件就是「在<span class="math inline">\(M\)</span>中存在以这些点为中心的球包含于<span class="math inline">\(X\)</span>」。我们把这些点的集合称为<span class="math inline">\(X\)</span>的相对内部。相对内部和内部的区别，就是把「球」所存在的空间，从<span class="math inline">\(\mathbb R^n\)</span>变成了<span class="math inline">\(X\)</span>的仿射包。</p>
+<h4 id="组合和包">组合和包</h4>
+<p>点<span class="math inline">\(x_1\cdots x_k\in \mathbb R^n\)</span>的<strong>凸组合</strong>指的是： <span class="math display">\[
+\sum_{i=1}^k \theta_i x_i
+\]</span> 其中<span class="math inline">\(\theta&gt;0,\sum \theta=1\)</span>。有没有发现这个定义特别像前面「凸集定义」的一部分。在二维空间中，凸组合可以看作经过两个点的线段。所以凸集的定义也可以表示为：<span class="math inline">\(C\)</span>中的点的凸组合也都属于<span class="math inline">\(C\)</span>，那么<span class="math inline">\(C\)</span>是凸集。</p>
+<p>如果集合<span class="math inline">\(X\)</span>不是凸集，那么称包含<span class="math inline">\(X\)</span>的最小凸集<span class="math inline">\(C\)</span>为<span class="math inline">\(X\)</span>的凸包，记作<span class="math inline">\(C=\text{conv} X\)</span>。可以证明： <span class="math display">\[
+\text{conv} X=\left\{\sum_{i=1}^k\theta_ix_i\mid k\in \mathbb Z_{++}，x_i\in X,\sum_{i=1}^k\theta_i=1\right\}
+\]</span> 看着很复杂，其实就是<span class="math inline">\(X\)</span>中的任意有限个点的凸组合的集合。</p>
+<p>点<span class="math inline">\(x_1\cdots x_k\in \mathbb R^n\)</span>的<strong>仿射组合</strong>指的是： <span class="math display">\[
+\sum_{i=1}^k \theta_i x_i
+\]</span> 其中<span class="math inline">\(\sum \theta=1\)</span>.相比于「凸组合」，「仿射组合」只是删去了「<span class="math inline">\(\theta&gt;0\)</span>」的条件。在二维空间中，仿射组合相当于经过两个点的直线。</p>
+<p>对于仿射包的定义和生成，也和凸包类似。仿射包记作<span class="math inline">\(C=\text{aff} X\)</span>。</p>
+<p>通过仿射包，可以定义任意集合的维数。对于任意非空集合<span class="math inline">\(X\in \mathbb R^n\)</span>，称其仿射包<span class="math inline">\(\text {aff}X\)</span>的仿射维数是<span class="math inline">\(X\)</span>的仿射维数，记作<span class="math inline">\(\dim X\)</span>。</p>
+<p>点<span class="math inline">\(x_1\cdots x_k\in \mathbb R^n\)</span>的<strong>锥组合</strong>指的是： <span class="math display">\[
+\sum_{i=1}^k \theta_i x_i
+\]</span> 其中<span class="math inline">\(\theta&gt;0\)</span>.相比于「凸组合」，「锥组合」只是删去了「<span class="math inline">\(\sum\theta=1\)</span>」的条件。在二维空间中，锥组合相当于经过两个点的射线。</p>
+<p>对于锥包的定义和生成，也和凸包类似。锥包记作<span class="math inline">\(C=\text{cone} X\)</span>。</p>
+<p>可以总结一下：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">组合类型</th>
+<th style="text-align: center;">系数限制</th>
+<th style="text-align: center;">集合名称</th>
+<th style="text-align: center;">样例</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">线性组合</td>
+<td style="text-align: center;">无限制</td>
+<td style="text-align: center;">向量子空间</td>
+<td style="text-align: center;"><span class="math inline">\(\mathbb R^n\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">仿射组合</td>
+<td style="text-align: center;"><span class="math inline">\(\sum \theta=1\)</span></td>
+<td style="text-align: center;">仿射集/线性流形/仿射子空间</td>
+<td style="text-align: center;">仿射超平面</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">锥组合</td>
+<td style="text-align: center;"><span class="math inline">\(\theta&gt;0\)</span></td>
+<td style="text-align: center;">锥</td>
+<td style="text-align: center;">第一卦限</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">凸组合</td>
+<td style="text-align: center;"><span class="math inline">\(\theta&gt;0,\sum \theta=1\)</span></td>
+<td style="text-align: center;">凸集</td>
+<td style="text-align: center;">单纯形</td>
+</tr>
+</tbody>
+</table>
+<h3 id="凸函数">凸函数</h3>
+<h4 id="梯度和海森矩阵">梯度和海森矩阵</h4>
+<p>这俩东西后面有用。</p>
+<p>梯度： <span class="math display">\[
+\nabla f(\boldsymbol{x})=\left[\begin{array}{c}
+\frac{\partial f}{\partial x_1} \\
+\vdots \\
+\frac{\partial f}{\partial x_n}
+\end{array}\right]
+\]</span> 海森矩阵： <span class="math display">\[
+\nabla^2 f(\boldsymbol{x})=\left[\begin{array}{ccc}
+\frac{\partial^2 f}{\partial x_1^2} &amp; \cdots &amp; \frac{\partial^2 f}{\partial x_n \partial x_1} \\
+\vdots &amp; \ddots &amp; \vdots \\
+\frac{\partial^2 f}{\partial x_1 \partial x_n} &amp; \cdots &amp; \frac{\partial^2 f}{\partial x_n^2}
+\end{array}\right]
+\]</span> 简单理解，梯度就是一阶导，海森矩阵就是二阶导（曲率）。</p>
+<h4 id="凸函数-1">凸函数</h4>
+<p>对于凸集<span class="math inline">\(S\)</span>上的函数<span class="math inline">\(f\)</span>，如果： <span class="math display">\[
+f(\theta x_0+(1-\theta)x_1)\leq \theta f(x_0)+(1-\theta)f(x_1)
+\]</span> 其实就是：函数线上的两点之间的连线，一定在函数线以上。</p>
+<p>凸函数的性质有：</p>
+<ol type="1">
+<li><p>函数<span class="math inline">\(f\)</span>在凸集<span class="math inline">\(S\)</span>上是凸函数，等价于其上镜图是凸集。 <span class="math display">\[
+\text{epi} f=\{(x,r)\in S\times \mathbb R\mid r\geq f(x)\}
+\]</span></p></li>
+<li><p>函数<span class="math inline">\(f\)</span>在凸集<span class="math inline">\(S\)</span>上是凸函数，则有Jensen不等式： <span class="math display">\[
+f\left(\frac{\sum_{i=1}^m \alpha_i \boldsymbol{x}_{\boldsymbol{i}}}{\sum_{s=1}^m \alpha_s}\right) \leq \frac{\sum_{i=1}^m \alpha_i f\left(\boldsymbol{x}_{\boldsymbol{i}}\right)}{\sum_{s=1}^m \alpha_s}
+\]</span> 其中<span class="math inline">\(x_i\in S,\alpha&gt;0\)</span>。</p>
+<blockquote>
+<p>证明：令 <span class="math display">\[
+\theta_i=\frac{\alpha_i}{\sum_{i=1}^m \alpha_i}
+\]</span> 因为<span class="math inline">\(f\)</span>是凸函数，所以其上镜图是凸集，所以其上镜图上的点的凸组合是在上镜图里，有： <span class="math display">\[
+\begin{align}
+&amp;\sum_{i=1}^m\theta_i(x_i,f(x_i))\in \text{epi} f\\
+&amp;\to \left(\sum_{i=1}^m \theta x_i,\sum_{i=1}^m \theta_i f(x_i)\right)\in \text{epi} f\\
+&amp;\to f\left(\sum_{i=1}^m \theta_i x_i\right)\leq \sum_{i=1}^m \theta_i f(x_i)
+\end{align}
+\]</span></p>
+</blockquote></li>
+<li><p>函数<span class="math inline">\(f\)</span>在<span class="math inline">\(\mathbb R^n\)</span>上凸，当且仅当，<span class="math inline">\(\forall x_0\in \mathbb R^n,\forall d\in \mathbb R^n,\phi(\alpha)=f(x_0+\alpha d)\)</span>关于<span class="math inline">\(\alpha\)</span>在<span class="math inline">\(\mathbb R\)</span>上凸。</p></li>
+<li><p>函数<span class="math inline">\(f\)</span>在凸集<span class="math inline">\(S\)</span>上是凸函数，则其在<span class="math inline">\(S\)</span>的相对内部上连续。</p></li>
+<li><p>函数<span class="math inline">\(f\)</span>一阶偏导连续，那么它在凸集<span class="math inline">\(S\)</span>上是凸函数，当且仅当 <span class="math display">\[
+f(y)\geq f(x)+\nabla f(x)^T(y-x),\forall xy\in S
+\]</span></p></li>
+<li><p>函数<span class="math inline">\(f\)</span>二阶偏导连续，那么它在内部非空的凸集<span class="math inline">\(S\)</span>上是凸函数，当且仅当<span class="math inline">\(\nabla ^2f(x)\)</span>半正定。</p></li>
+</ol>
 
                 
               </div>
@@ -816,7 +805,7 @@ T_s, &amp;|\Omega|&lt;\frac{\Omega_s}{2}\\
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/DSP/">#DSP</a>
+        <a href="/tags/%E6%9C%80%E4%BC%98%E5%8C%96/">#最优化</a>
       
     </div>
   
@@ -828,8 +817,8 @@ T_s, &amp;|\Omega|&lt;\frac{\Omega_s}{2}\\
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>数字信号处理·系统之章</div>
-      <div>https://suzumiyaakizuki.github.io/2022/12/08/DSP2/</div>
+      <div>最优化笔记</div>
+      <div>https://suzumiyaakizuki.github.io/2024/10/03/最优化/</div>
     </div>
     <div class="license-meta">
       
@@ -841,7 +830,7 @@ T_s, &amp;|\Omega|&lt;\frac{\Omega_s}{2}\\
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年12月8日</div>
+          <div>2024年10月3日</div>
         </div>
       
       
@@ -877,18 +866,12 @@ T_s, &amp;|\Omega|&lt;\frac{\Omega_s}{2}\\
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/12/08/DSP3/" title="数字信号处理·傅里叶之章">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">数字信号处理·傅里叶之章</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/12/04/%E5%AE%9E%E5%8F%98%E6%B3%9B%E5%87%BD/" title="实变泛函·实变函数之章">
-                        <span class="hidden-mobile">实变泛函·实变函数之章</span>
+                      <a href="/2024/08/15/%E6%80%8E%E4%B9%88%E5%9C%A82024%E5%B9%B4%E7%BB%99CentOS7%E7%9A%84gcc%E5%8D%87%E7%BA%A7/" title="怎么在2024年给CentOS7的gcc升级">
+                        <span class="hidden-mobile">怎么在2024年给CentOS7的gcc升级</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -909,7 +892,7 @@ T_s, &amp;|\Omega|&lt;\frac{\Omega_s}{2}\\
         var options = Object.assign(
           {"clientID":"48fb14f9689ae0d11307","clientSecret":"091ab25a88e87bfd9d9d40d97d1d0d932e694059","repo":"SuzumiyaAkizuki.github.io","owner":"SuzumiyaAkizuki","admin":["SuzumiyaAkizuki"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
           {
-            id: '0825c0979e564df9140d10c847f46c8a'
+            id: '97b6e9ae510225ae6e7d64b81f99aed6'
           }
         )
         var gitalk = new Gitalk(options);
