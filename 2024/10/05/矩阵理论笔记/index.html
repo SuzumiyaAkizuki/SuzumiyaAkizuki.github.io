@@ -16,24 +16,24 @@
   <meta name="author" content="SuzumiyaAkizuki">
   <meta name="keywords" content="">
   
-    <meta name="description" content="控制系统基础知识 在本节，将对自动控制原理中的一些基础概念给出定义，以方便后续的讨论。 控制系统的性能要求 自动控制系统的目标是使得被控量按照指定规律变化。系统受到外加信号作用之后，被控量随着时间变化并趋于一定规律的全过程被称为系统的动态特性。 系统的稳定性指的是系统进入稳态或者恢复工作状态的能力，即瞬态响应是否会随着时间的延续而趋向于0。系统的平稳性指的是当系统稳定时，要求\(c(t)\">
+    <meta name="description" content="[toc]  线性空间引论 这一部分其实基本就高代的内容，复习一下。 非齐次线性方程组的解法 这个必须得会吧。为了防止遗忘，还是写一下。 对于非齐次线性方程组 \[ Ax&#x3D;b \] 其解是由一个特解和齐次线性方程组\(Ax&#x3D;0\)的通解组成的。接下来通过一个例子展示方程组的解法。  【例】 求 \[ \left\{\begin{array}{l}x_1-x_2+2 x_3-">
 <meta property="og:type" content="article">
-<meta property="og:title" content="自动控制原理笔记（时域分析）">
-<meta property="og:url" content="https://suzumiyaakizuki.github.io/2023/05/20/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/index.html">
+<meta property="og:title" content="矩阵理论笔记">
+<meta property="og:url" content="https://suzumiyaakizuki.github.io/2024/10/05/%E7%9F%A9%E9%98%B5%E7%90%86%E8%AE%BA%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="凉宫秋月的文艺部">
-<meta property="og:description" content="控制系统基础知识 在本节，将对自动控制原理中的一些基础概念给出定义，以方便后续的讨论。 控制系统的性能要求 自动控制系统的目标是使得被控量按照指定规律变化。系统受到外加信号作用之后，被控量随着时间变化并趋于一定规律的全过程被称为系统的动态特性。 系统的稳定性指的是系统进入稳态或者恢复工作状态的能力，即瞬态响应是否会随着时间的延续而趋向于0。系统的平稳性指的是当系统稳定时，要求\(c(t)\">
+<meta property="og:description" content="[toc]  线性空间引论 这一部分其实基本就高代的内容，复习一下。 非齐次线性方程组的解法 这个必须得会吧。为了防止遗忘，还是写一下。 对于非齐次线性方程组 \[ Ax&#x3D;b \] 其解是由一个特解和齐次线性方程组\(Ax&#x3D;0\)的通解组成的。接下来通过一个例子展示方程组的解法。  【例】 求 \[ \left\{\begin{array}{l}x_1-x_2+2 x_3-">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305201032821.png">
-<meta property="article:published_time" content="2023-05-20T02:40:45.000Z">
-<meta property="article:modified_time" content="2024-09-13T16:15:08.548Z">
+<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202410052359787.png">
+<meta property="article:published_time" content="2024-10-05T06:38:32.000Z">
+<meta property="article:modified_time" content="2024-10-05T15:59:16.089Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
-<meta property="article:tag" content="自控">
+<meta property="article:tag" content="矩阵理论">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305201032821.png">
+<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202410052359787.png">
   
   
   
-  <title>自动控制原理笔记（时域分析） - 凉宫秋月的文艺部</title>
+  <title>矩阵理论笔记 - 凉宫秋月的文艺部</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -233,13 +233,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305201032821.png') no-repeat center center; background-size: cover;">
+     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202410052359787.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="自动控制原理笔记（时域分析）"></span>
+            <span id="subtitle" data-typed-text="矩阵理论笔记"></span>
           
         </div>
 
@@ -255,8 +255,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-05-20 10:40" pubdate>
-          2023年5月20日 上午
+        <time datetime="2024-10-05 14:38" pubdate>
+          2024年10月5日 下午
         </time>
       </span>
     
@@ -267,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.8k 字
+          8.6k 字
         
       </span>
     
@@ -278,7 +278,7 @@
         
         
         
-          12 分钟
+          22 分钟
         
       </span>
     
@@ -356,7 +356,7 @@
       
         <a href="/2024/10/05/%E7%9F%A9%E9%98%B5%E7%90%86%E8%AE%BA%E7%AC%94%E8%AE%B0/" title="矩阵理论笔记"
            class="list-group-item list-group-item-action
-           ">
+           active">
           <span class="category-post">矩阵理论笔记</span>
         </a>
       
@@ -419,7 +419,7 @@
       
         <a href="/2023/05/20/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/" title="自动控制原理笔记（时域分析）"
            class="list-group-item list-group-item-action
-           active">
+           ">
           <span class="category-post">自动控制原理笔记（时域分析）</span>
         </a>
       
@@ -614,236 +614,270 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">自动控制原理笔记（时域分析）</h1>
+            <h1 style="display: none">矩阵理论笔记</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="控制系统基础知识">控制系统基础知识</h2>
-<p>在本节，将对自动控制原理中的一些基础概念给出定义，以方便后续的讨论。</p>
-<h3 id="控制系统的性能要求">控制系统的性能要求</h3>
-<p>自动控制系统的目标是使得被控量按照指定规律变化。系统受到外加信号作用之后，被控量随着时间变化并趋于一定规律的全过程被称为系统的动态特性。</p>
-<p>系统的<strong>稳定性</strong>指的是系统进入稳态或者恢复工作状态的能力，即瞬态响应是否会随着时间的延续而趋向于0。系统的<strong>平稳性</strong>指的是当系统稳定时，要求<span class="math inline">\(c(t)\)</span>即输出信号的振荡小，在时域分析中通常用超调量<span class="math inline">\(M_p\)</span>表示。系统的“<strong>快速</strong>”指的是动态过程（即瞬态响应）持续的时间长短。系统的<strong>准确度</strong>指的是过渡到新的平衡状态后最终保持的精度。</p>
-<h3 id="控制系统的数学模型">控制系统的数学模型</h3>
-<p>控制系统通常用微分（差分）方程、方框图等形式表示。一个一般的闭环系统的方框图为：</p>
-<figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305112045896.png" srcset="/img/loading.gif" lazyload alt="闭环系统方框图" /><figcaption aria-hidden="true">闭环系统方框图</figcaption>
-</figure>
-<p>其中<span class="math inline">\(G(s)\)</span>称为前向传递函数，<span class="math inline">\(G(s)H(s)\)</span>称为开环传递函数，当<span class="math inline">\(H(s)=1\)</span>时，开环传递函数和前向传递函数相等。而 <span class="math display">\[
-T(s)=\frac {C(s)}{R(s)}=\frac{G(s)}{1+G(s)H(s)}
-\]</span> 称为闭环传递函数，它也是整个闭环系统的传递函数。</p>
-<p>对于一般的控制系统，其控制元件的数学模型都是由几种简单的因子或者典型单元结构组成的，常称为“典型环节”。常见的典型环节有：</p>
-<ol type="1">
-<li><p>放大环节</p>
-<p>微分方程为 <span class="math display">\[
-y(t)=Kx(t)
-\]</span> 传递函数为 <span class="math display">\[
-G(s)=K
-\]</span></p></li>
-<li><p>惯性环节</p>
-<p>微分方程为 <span class="math display">\[
-T\frac{dy(t)}{dt}+y(t)=x(t)
-\]</span> 传递函数为 <span class="math display">\[
-G(s)=\frac{1}{Ts+1}
-\]</span> 其中<span class="math inline">\(T\)</span>叫做时间常数，典型的惯性环节是RC网络。</p></li>
-<li><p>一阶微分环节</p>
-<p>微分方程为 <span class="math display">\[
-y(t)=\tau \frac {dx(t)}{dt}+x(t)
-\]</span> 传递函数为 <span class="math display">\[
-G(s)=\tau s +1
-\]</span></p></li>
-<li><p>积分环节</p>
-<p>微分方程为 <span class="math display">\[
-\frac{dy(t)}{dt}=x(t)
-\]</span> 传递函数为 <span class="math display">\[
-G(s)=\frac 1s
-\]</span></p></li>
-<li><p>理想微分环节</p>
-<p>微分方程为 <span class="math display">\[
-y(t)=\frac{dx(t)}{dt}
-\]</span> 传递函数为 <span class="math display">\[
-G(s)=s
-\]</span></p></li>
-</ol>
-<p>此外，还有震荡环节、二阶微分环节等。</p>
-<h2 id="时域分析法">时域分析法</h2>
-<p>在时域分析法中，往往选择典型的初始状态（零状态，即<span class="math inline">\(t=0-\)</span>时，<span class="math inline">\(c(t)\)</span>的任意阶导数为零），典型的输入信号（如阶跃、斜坡、加速度、冲击、正弦信号），求出典型的时间响应，然后考察系统的性能。</p>
-<h3 id="一阶系统时域分析">一阶系统时域分析</h3>
-<p>一个典型的闭环一阶系统的框图如下：</p>
-<figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305112112739.png" srcset="/img/loading.gif" lazyload alt="一阶系统" /><figcaption aria-hidden="true">一阶系统</figcaption>
-</figure>
-<p>其闭环传递函数为 <span class="math display">\[
-T(s)=\frac{1}{\frac 1Ks+1}=\frac{1}{Ts+1}
-\]</span> 在<span class="math inline">\(-K=-1/T\)</span>处有一个极点。</p>
-<p>其单位阶跃响应为： <span class="math display">\[
-c(t)=\left(1-e^{-\frac 1T t}\right)u(t)
-\]</span> 其时域性能只由一个参数决定，即<span class="math inline">\(-1/T\)</span>，其中<span class="math inline">\(T\)</span>也叫时间常数，它表示系统响应达到稳态值的<span class="math inline">\(63.2\%\)</span>所需的时间。时间常数越小，系统的速度越快。其调整时间一般取<span class="math inline">\(t_s=3T(5\%\Delta)\)</span>或<span class="math inline">\(t_s=4T(2\%\Delta)\)</span>，稳态误差为零。</p>
-<p>其单位斜坡响应为 <span class="math display">\[
-c(t)=(t-T)+Te^{-t/T}
-\]</span> 所以具有稳态误差，为<span class="math inline">\(T\)</span>。</p>
-<h3 id="二阶系统时域分析">二阶系统时域分析</h3>
-<p>一个典型的二阶系统如下：</p>
-<figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305112126058.png" srcset="/img/loading.gif" lazyload alt="二阶系统" /><figcaption aria-hidden="true">二阶系统</figcaption>
-</figure>
-<p>其闭环传递函数为 <span class="math display">\[
-T(s)=\frac{K}{Ts^2+s+K}
-\]</span> “标准形式”为： <span class="math display">\[
-T(s)=\frac{\omega_n^2}{s^2+2 \xi \omega_n s+\omega_n^2}=\frac{\omega_n^2}{\left(s-s_1\right)\left(s-s_2\right)}
-\]</span> 之所以要写成看起来这么复杂的样子，是因为其中的参数<span class="math inline">\(\xi,\omega_n\)</span>等有其物理意义。其中<span class="math inline">\(\omega_n=\sqrt{K/T}\)</span>叫做“无阻尼振荡频率”，<span class="math inline">\(\xi =1/(2\sqrt{KT})\)</span>叫做“阻尼比”。阻尼比决定了系统阶跃响应的模式。</p>
-<ol type="1">
-<li><p>欠阻尼系统（<span class="math inline">\(\xi \in (0,1)\)</span>）</p>
-<p>两个极点<span class="math inline">\(s_1,s_2\)</span>互为共轭复根。阻尼自然频率<span class="math inline">\(\omega_d=\omega_n\sqrt{1-\xi^2}\)</span>。欠阻尼系统的阶跃响应时域波形大概是这个样子：</p>
-<figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202305112143198.png" srcset="/img/loading.gif" lazyload alt="欠阻尼阶跃响应" /><figcaption aria-hidden="true">欠阻尼阶跃响应</figcaption>
-</figure></li>
-</ol>
-<p>可以看到里面有很多参数。下面介绍几个比较重要的</p>
+                <p>[toc]</p>
+<hr />
+<h2 id="线性空间引论">线性空间引论</h2>
+<p>这一部分其实基本就高代的内容，复习一下。</p>
+<h3 id="非齐次线性方程组的解法">非齐次线性方程组的解法</h3>
+<p>这个必须得会吧。为了防止遗忘，还是写一下。</p>
+<p>对于非齐次线性方程组 <span class="math display">\[
+Ax=b
+\]</span> 其解是由一个特解和齐次线性方程组<span class="math inline">\(Ax=0\)</span>的通解组成的。接下来通过一个例子展示方程组的解法。</p>
+<blockquote>
+<p>【例】 求</p>
+<p><span class="math display">\[
+\left\{\begin{array}{l}x_1-x_2+2 x_3-2 x_4=0 \\ 2 x_1-x_2-x_3+x_4=1 \\ 3 x_1-2 x_2+x_3-x_4=1\end{array}\right.
+\]</span></p>
+<p>的通解。 【解】首先写出增广矩阵，也就是系数矩阵右边加上<span class="math inline">\(b\)</span>这一列。 <span class="math display">\[
+\bar{A}=\left(\begin{array}{ccccc}1 &amp; -1 &amp; 2 &amp; -2 &amp; 0 \\ 2 &amp; -1 &amp; -1 &amp; 1 &amp; 1 \\ 3 &amp; -2 &amp; 1 &amp; -1 &amp; 1\end{array}\right) \rightarrow\left(\begin{array}{ccccc}1 &amp; 0 &amp; -3 &amp; 3 &amp; 1 \\ 0 &amp; 1 &amp; -5 &amp; 5 &amp; 1 \\ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0\end{array}\right)
+\]</span> 因此 <span class="math display">\[
+r(\bar{A})=r(A)=2&lt;4
+\]</span> 移项，得方程组的一般解为 <span class="math display">\[
+\left\{\begin{array}{l}
+x_1=1+3 x_3-3 x_4 \\ 
+x_2=1+5 x_3-5 x_4 \\ 
+x_3=x_3 \\ 
+x_4=x_4\quad
+\end{array}\right.
+\]</span></p>
+<p>即： <span class="math display">\[
+\left(\begin{array}{l}
+x_1 \\
+x_2 \\
+x_3 \\
+x_4
+\end{array}\right)=\left(\begin{array}{l}
+1 \\
+1 \\
+0 \\
+0
+\end{array}\right)+x_3\left(\begin{array}{l}
+3 \\
+5 \\
+1 \\
+0
+\end{array}\right)+x_4\left(\begin{array}{c}
+-3 \\
+-5 \\
+0 \\
+1
+\end{array}\right)
+\]</span></p>
+<p>则取 <span class="math inline">\(\eta_0=(1,1,0,0)^T\)</span> 为一个特解。</p>
+<p><span class="math inline">\(\xi_1=(3,5,1,0)^T, \xi_2=(-3,-5,0,1)^T\)</span> 为导出组的一个基础解系, 从而方程组的通解为</p>
+<p>$=_0+k_1 _1+k_2 _2 <span class="math inline">\(，(\)</span>k_1, k_2$ 为任意常数 )</p>
+</blockquote>
+<h3 id="线性空间和线性子空间">线性空间和线性子空间</h3>
+<p>一般学习线性代数只会学习到向量空间，而不会学习线性空间，所以笔记从线性空间开始写。线性空间是向量空间的推广，为此需要首先定义两个概念：</p>
+<p>【数域】数集<span class="math inline">\(F\)</span>中任意两个元素经过四则运算后的结果仍然在<span class="math inline">\(F\)</span>中，称<span class="math inline">\(F\)</span>为一个数域。</p>
+<p>常见的数域有：</p>
 <ul>
-<li><p>上升时间<span class="math inline">\(t_r\)</span></p>
-<p>指的是从稳态值的<span class="math inline">\(10\%\)</span>上升到<span class="math inline">\(90\%\)</span>所需的时间。有： <span class="math display">\[
-t_r=\frac{\pi-\beta}{\omega_d}
-\]</span></p></li>
-<li><p>峰值时间<span class="math inline">\(t_p\)</span></p>
-<p>指的是系统达到最大值所需的时间。有： <span class="math display">\[
-t_p=\frac \pi {\omega_d}
-\]</span></p></li>
-<li><p>最大超调量<span class="math inline">\(M_p\)</span></p>
-<p>指的是响应峰值和稳态值之间的归一化差值。有： <span class="math display">\[
-M_p=\frac{c(t_p)-c(\infty)}{c(\infty)}=e^{-\frac{\pi \xi}{\sqrt{1-\xi^2}}}
-\]</span></p></li>
-<li><p>调节时间<span class="math inline">\(t_s\)</span></p>
-<p>调节时间指的是满足： <span class="math display">\[
-\forall t&gt;t_s,|c(t)-c(\infty)|\leq \Delta c(\infty)
-\]</span> 的最小<span class="math inline">\(t_s\)</span>。有： <span class="math display">\[
-t_s= \begin{cases}\frac{4}{\xi \omega_n} &amp; 2 \% \Delta \\ \frac{3}{\xi \omega_n} &amp; 5 \% \Delta\end{cases}
-\]</span></p></li>
+<li>有理数 <span class="math inline">\(\mathbb Q\)</span></li>
+<li>实数<span class="math inline">\(\mathbb R\)</span></li>
+<li>复数<span class="math inline">\(\mathbb C\)</span></li>
+<li>扩域，例如<span class="math inline">\(\mathbb Q(\sqrt 3)=\{a+b\sqrt 3,ab\in \mathbb Q\}\)</span></li>
 </ul>
-<ol start="2" type="1">
-<li><p>过阻尼系统（<span class="math inline">\(\xi &gt;1\)</span>）和临界阻尼系统（<span class="math inline">\(\xi=1\)</span>）</p>
-<p>这两种情况下，<span class="math inline">\(c(t)\)</span>是单调上升过程，系统近似为一阶系统，单位阶跃响应近似表示为： <span class="math display">\[
-c(t)=1-\exp [-(\xi -\sqrt{\xi ^2-1})\omega_n t]
-\]</span></p></li>
-</ol>
-<h3 id="稳定性分析">稳定性分析</h3>
-<p><span class="math inline">\(H(s)\)</span>的极点如果全部位于左半平面，则系统稳定。当虚轴存在一阶零点时，称为边界稳定或者震荡稳定；当右半平面有极点，或者虚轴上有高阶极点时，称系统不稳定。</p>
-<ol type="1">
-<li><p>首先基于<span class="math inline">\(H(s)=N/D\)</span>的阶次进行分析。其中<span class="math inline">\(N\)</span>是<span class="math inline">\(m\)</span>阶多项式，<span class="math inline">\(D\)</span>是<span class="math inline">\(n\)</span>阶多项式。</p>
-<p>如果<span class="math inline">\(m&gt;n\)</span>，系统一定存在一个无穷远点处的极点。基于这个事实，有以下系统稳定的必要条件：</p>
-<ol type="1">
-<li><span class="math inline">\(m\leq n\)</span>是系统稳定的必要条件</li>
-<li><span class="math inline">\(m&gt;n+1\)</span>时，系统一定不稳定</li>
-</ol></li>
-<li><p>基于分母多项式（也叫特征多项式）的根的分布判别</p>
-<ol type="1">
-<li><p>必要条件</p>
-<ol type="1">
-<li><span class="math inline">\(D(s)\)</span>的所有系数都同号</li>
-<li><span class="math inline">\(D(s)\)</span>不缺项，或者缺全部的奇次或偶次项</li>
-</ol>
-<p>上面两个条件是必要条件，只要任一条件不被满足，系统就不是稳定的。但是即使全部满足，系统也不一定稳定。例如： <span class="math display">\[
-D(s)=2s^3+s^2+3s+9
-\]</span></p></li>
-<li><p>劳斯判据</p>
-<p>劳斯判据就是列劳斯表，然后看第一列是不是全同号。劳斯表是这样列的：</p>
-<p>前两行，第一行从前往后是<span class="math inline">\(a_n,a_{n-2},a_{n-4},\cdots\)</span>，直到下标小于<span class="math inline">\(0\)</span>；第二行，是<span class="math inline">\(a_{n-1},a_{n-3},\cdots\)</span>，直到下标小于<span class="math inline">\(0\)</span>。设劳斯表第<span class="math inline">\(i\)</span>行第<span class="math inline">\(j\)</span>列的元素是<span class="math inline">\(m_{ij}\)</span>，在第三行之后，有： <span class="math display">\[
-m_{ij}=-\frac{1} {m_{i-1,1} }\begin{vmatrix}
-m_{i-2,1} &amp; m_{i-2,j+1}\\
-m_{i-1,1} &amp; m_{i-1,j+1}\\
-\end{vmatrix}
-\]</span> 单看这些下标可能还比较抽象。实际上就是说，第三行以后的劳斯表的元素都是一个二阶行列式的相反数除以它上一行的第一个数。这个二阶行列式的左侧一列是它上一行和上上一行的第一个数，右侧一列从上一行和上上一行的第二个数开始，随着当前要算的这个元素在自己的行中向右移动而向右移动。</p>
-<p>在计算过程中，可能会出现两种特殊情况。</p>
-<p>其一是某一行的第一个数是零，但其余各项不全为零。这时候只需要把它用一个很小的正数<span class="math inline">\(\epsilon\)</span>代替然后继续算就行。</p>
-<p>其二是某一行的所有数都是零，这代表着系统可能存在互为相反数的实根，或者共轭虚根，或者关于原点对称的共轭复根。这时可以把全零行的上一行的系数构造一个辅助多项式（最高次是行号，然后每个系数降2次），对其求导，并把求导结果带入全零行，然后继续算。需要注意：辅助多项式的根也是原方程的根。</p></li>
-</ol></li>
-</ol>
-<h3 id="稳态误差分析">稳态误差分析</h3>
-<p>如果输入信号<span class="math inline">\(r(t)\)</span>和输出信号<span class="math inline">\(c(t)\)</span>是同量纲、同数量级的，那么系统误差定义为： <span class="math display">\[
-e(t)=r(t)-c(t)
-\]</span> 但是实际上这并不可能，因为很多系统都是用电压输入，而输出的被控量很可能是温度，速度等物理量。这就需要用一个传感器把被控量转换为和输入量同量纲同数量级的量，并放在反馈支路。此时系统误差定义为： <span class="math display">\[
-e(t)=r(t)-b(t)
-\]</span> 为计算稳态误差，考虑终值定理（使用条件：<span class="math inline">\(E(s)\)</span>极点都在<span class="math inline">\(s\)</span>左半平面），有： <span class="math display">\[
-\lim _{t\to \infty}e(t)=e_s=\lim_{s\to 0}sE(s)=\lim _{s \rightarrow 0} s \cdot \frac{R(s)}{1+G(s) H(s)}
-\]</span> 注意到，系统稳态误差和输入信号以及开环传递函数<span class="math inline">\(G(s)H(s)\)</span>有关。稳态误差仅对稳定系统才有意义。</p>
-<p>系统开环传递函数一般为： <span class="math display">\[
-G(s) H(s)=\frac{K\left(\tau_1 s+1\right) \cdots\left(\tau_2^2 s^2+2 \xi \tau_2 s+1\right) \cdots}{s^N\left(T_1 s+1\right) \cdots\left(T_2^2 s^2+2 \xi T_2 s+1\right) \cdots}
-\]</span> 注意：这里的系数<span class="math inline">\(K\)</span>的提出是为了把后面的每一项的常数项都设置为<span class="math inline">\(1\)</span>，称为系统的开环放大倍数。分母里的<span class="math inline">\(s^N\)</span>的指数<span class="math inline">\(N\)</span>表示系统开环串联的积分环节的个数，决定了系统的型别，即“<span class="math inline">\(N\)</span>型系统”</p>
-<p>接下来就输入信号和系统型别来讨论稳态误差：</p>
-<ol type="1">
-<li><p>输入<span class="math inline">\(R(s)=1/s\)</span></p>
-<p>此时有： <span class="math display">\[
-e_{ss}=\lim _{\mathrm{s} \rightarrow 0} \frac{1}{1+G(s) H(s)}=\frac{1}{1+\lim _{\mathrm{s} \rightarrow 0} G(s) H(s)}=\frac{1}{1+K_p}
-\]</span> 其中<span class="math inline">\(K_p=\lim _{s\to 0}G(s)H(s)\)</span>称为阶跃误差系数，也叫静态位置误差系数。</p>
+<p>【加群】在非空集合<span class="math inline">\(V\)</span>上定义一种代数运算,称之为<strong>加法</strong>（记为“<span class="math inline">\(+\)</span>” ）,使得<span class="math inline">\(\forall ab\in V\)</span>都有中唯一元素<span class="math inline">\(a+b\)</span>与之对应,该元素称为<span class="math inline">\(a\)</span>与<span class="math inline">\(b\)</span>的和，且满足如下性质</p>
 <ul>
-<li>0型系统：<span class="math inline">\(K_p=K,e_{ss}=1/(1+K)\)</span></li>
-<li><span class="math inline">\(0\)</span>型以上系统：<span class="math inline">\(K_p=\infty,e_{ss}=0\)</span></li>
-</ul></li>
-<li><p>输入<span class="math inline">\(R(s)=1/s^2\)</span></p>
-<p>此时有： <span class="math display">\[
-e_{s r}=\lim _{s \rightarrow 0} \frac{1}{s+s G(s) H(s)}=\frac{1}{\lim _{s \rightarrow 0} s G(s) H(s)}=\frac{1}{K_v}
-\]</span> <span class="math inline">\(K_v\)</span>叫做斜坡误差系数，也叫静态速度误差系数。</p></li>
+<li>交换律：<span class="math inline">\(a+b=b+a\)</span></li>
+<li>结合律：<span class="math inline">\((a+b)+c=a+(b+c)\)</span></li>
+<li>存在零：<span class="math inline">\(\exists \theta\in V,s.t.\forall a\in V,a+\theta=a\)</span></li>
+<li>存在负元：<span class="math inline">\(\forall a\in V,\exists -a\in V,s.t.a+(-a)=\theta\)</span></li>
+</ul>
+<p>称<span class="math inline">\((V,+)\)</span>构成一个加群。</p>
+<p>于是，可以将向量空间推广为线性空间：</p>
+<p>【线性空间】 设 <span class="math inline">\((V,+)\)</span> 是一个加群, <span class="math inline">\(F\)</span> 是一个数域. 定义了 <span class="math inline">\(F\)</span> 中的数与 <span class="math inline">\(V\)</span> 中元素的一种代数运算, 称为数乘, 使得 <span class="math inline">\(\forall \lambda \in F, \boldsymbol{\alpha} \in V\)</span>, 有 <span class="math inline">\(V\)</span> 中唯一元素 <span class="math inline">\(\lambda \alpha\)</span> 与之对应, <span class="math inline">\(\lambda \alpha\)</span> 称为 <span class="math inline">\(\lambda\)</span> 与 <span class="math inline">\(\alpha\)</span> 的积, 且满足以下性质:</p>
+<ul>
+<li><p><span class="math inline">\(\lambda(\boldsymbol{\alpha}+\boldsymbol{\beta})=\lambda \boldsymbol{\alpha}+\lambda \boldsymbol{\beta}\)</span></p></li>
+<li><p>$ (+) =+$</p></li>
+<li><p>$ ()=() $</p></li>
+<li><p>$ 1 =$</p></li>
+</ul>
+<p>此时，称<span class="math inline">\(V\)</span>为数域<span class="math inline">\(F\)</span>上的线性空间。此时，<span class="math inline">\(V\)</span>中的元素称为「向量」，<span class="math inline">\(F\)</span>中的元素称为「标量」。特别的，如果<span class="math inline">\(F\)</span>是实数域或者复数域，称<span class="math inline">\(V\)</span>为实线性空间或者复线性空间。</p>
+<p>可能向量空间给人一种既定观念，就是向量一定是由标量组合而成的，但是其实并不是这样。考虑正弦函数集合： <span class="math display">\[
+S=\{a\sin(x+b),a,b\in \mathbb R\}
+\]</span> 和数域<span class="math inline">\(\mathbb R\)</span>，很显然<span class="math inline">\(S\)</span>在<span class="math inline">\(\mathbb R\)</span>上构成一个线性空间。此时这些正弦函数就是向量，标量仍然是普通的实数。可能很难说「正弦函数」这个东西是由实数组合而成的吧。</p>
+<p>常见的线性空间有：</p>
+<ul>
+<li>向量空间</li>
+<li>矩阵空间，<span class="math inline">\(V\)</span> 是复数域上所有<span class="math inline">\(m\times n\)</span>矩阵构成的集合。</li>
+<li>一元多项式，<span class="math inline">\(V=P_n(x)=\{\sum_{i=0}^n a_ix^i\mid a_i\in \mathbb C\}\)</span></li>
+<li>设<span class="math inline">\(A\in \mathbb C^{m\times n},x\in \mathbb C^n\)</span>，则<span class="math inline">\(Ax=0\)</span>的解集构成线性空间。</li>
+<li>定义在<span class="math inline">\([a,b]\)</span>上的全体多项式、全体可微函数、全体连续函数、全体可积函数、全体实函数，都是<span class="math inline">\(\mathbb R\)</span>上的线性空间。</li>
+</ul>
+<p>在线性空间上有：</p>
+<ul>
+<li><p>零向量唯一</p></li>
+<li><p>任意向量的负向量存在且唯一</p></li>
+<li><p><span class="math inline">\(\forall k\in F,\alpha\in V\)</span> <span class="math display">\[
+0\alpha=\theta,(-1)\alpha=-\alpha,k\theta=\theta
+\]</span></p></li>
+<li><p><span class="math inline">\(k\alpha=\theta\to k=0 \or a=\theta\)</span></p></li>
+</ul>
+<p>【线性子空间】设<span class="math inline">\(V\)</span>是<span class="math inline">\(F\)</span>上的线性空间,<span class="math inline">\(V\)</span>是<span class="math inline">\(W\)</span>的非空子集.若<span class="math inline">\(W\)</span>的向量关于<span class="math inline">\(V\)</span>的加法和数乘运算也构成<span class="math inline">\(F\)</span>上的线性空间,则称<span class="math inline">\(W\)</span>是<span class="math inline">\(V\)</span>的子空间。</p>
+<p>例如，平面<span class="math inline">\(xOy\)</span>是三维空间<span class="math inline">\(\mathbb R^3\)</span>的一个线性子空间。但是不能说，<span class="math inline">\(\mathbb R^2\)</span>是<span class="math inline">\(\mathbb R^3\)</span>的线性子空间，因为前者的元素是二维向量，后者的元素是三维向量，二维向量并不是三维向量的子集。可以说，<span class="math inline">\(W=\{(a_1,a_2,0)^T,a_1,a_2\in \mathbb R\}\)</span>是<span class="math inline">\(\mathbb R^3\)</span>的子空间。</p>
+<p>对于子空间的判别，以下三个命题等价：</p>
+<ul>
+<li><span class="math inline">\(W\)</span>是<span class="math inline">\(V\)</span>的子空间</li>
+<li><span class="math inline">\(\forall k\in F,a\in W,ka\in W\)</span>且<span class="math inline">\(\forall a,b\in W,a+b\in W\)</span></li>
+<li><span class="math inline">\(\forall k,l\in F,a,b\in W,ka+lb\in W\)</span></li>
+</ul>
+<p>其实，在实操中，判定子空间，一般首先看<span class="math inline">\(W\)</span>中是否含有零元素。如果不含，那么一定不是子空间。如果包含，再验证第三个命题。</p>
+<p>如果<span class="math inline">\(W_1,W_2\)</span>都是数域<span class="math inline">\(F\)</span>上<span class="math inline">\(V\)</span>的子空间，那么它们的交与和也是<span class="math inline">\(V\)</span>的子空间。其中集合交的定义是显然的，集合的和指的是： <span class="math display">\[
+W_1+W_2=\{\alpha_1+\alpha_2\mid \alpha_1\in W_1,\alpha_2\in W_2\}
+\]</span> 而且，交空间是包含于<span class="math inline">\(W_1,W_2\)</span>的最大子空间，和空间是包含了<span class="math inline">\(W_1,W_2\)</span>的最小子空间。两个子空间的并，不一定是子空间。</p>
+<p>对于矩阵<span class="math inline">\(A\in C^{m\times n}\)</span>来说，有两个相当重要的子空间：</p>
+<p>【矩阵零空间】齐次线性方程组<span class="math inline">\(Ax=0\)</span>的解集，记作<span class="math inline">\(N(A)\)</span></p>
+<p>【矩阵列空间】<span class="math inline">\(A\)</span>的列的所有线性组合构成的集合，记作<span class="math inline">\(R(A)\)</span>。列空间也叫做值空间，是因为当且仅当<span class="math inline">\(b\in R(A)\)</span>时，方程<span class="math inline">\(Ax=b\)</span>才是有解的。</p>
+<h3 id="基和坐标">基和坐标</h3>
+<p>首先回顾一下线性相关和线性无关的概念，因为和线代里面的没啥区别，所以不重复写了。</p>
+<p>【极大线性无关组与秩】设 <span class="math inline">\(\boldsymbol{\alpha}_1, \cdots, \boldsymbol{\alpha}_n\)</span> 是线性空间 <span class="math inline">\(V\)</span> 的一组向量. 若 <span class="math inline">\(\boldsymbol{\alpha}_1, \cdots, \boldsymbol{\alpha}_n\)</span> 中存在 <span class="math inline">\(r\)</span> 个线性无关的向量 <span class="math inline">\(\boldsymbol{\alpha}_{i_1}, \cdots, \boldsymbol{\alpha}_{i_r}\)</span>, 并且 <span class="math inline">\(\boldsymbol{\alpha}_1, \cdots, \boldsymbol{\alpha}_n\)</span> 中任一向量均可由向量组 <span class="math inline">\(\boldsymbol{\alpha}_{i_1}, \cdots, \boldsymbol{\alpha}_{i_r}\)</span> 线性表示, 则称向量组 <span class="math inline">\(\boldsymbol{\alpha}_{i_1}, \cdots, \boldsymbol{\alpha}_{i_r}\)</span> 为向量组 <span class="math inline">\(\boldsymbol{\alpha}_1, \cdots, \boldsymbol{\alpha}_n\)</span> 的极大线性无关组,数 <span class="math inline">\(r\)</span> 称为向量组 <span class="math inline">\(\boldsymbol{\alpha}_1, \cdots, \boldsymbol{\alpha}_n\)</span> 的秩, 记为</p>
+<p><span class="math display">\[
+\operatorname{rank}\left[\boldsymbol{\alpha}_1, \cdots, \boldsymbol{\alpha}_n\right]=r
+\]</span> 向量组中的任一向量都可由极大线性无关组唯一表示。</p>
+<p>由极大线性无关组，可以定义线性空间的基：</p>
+<p>【基】设<span class="math inline">\(V\)</span>是数域<span class="math inline">\(F\)</span>上的线性空间，<span class="math inline">\(\{\alpha_1\cdots\alpha_n\}\)</span>是<span class="math inline">\(V\)</span>里的一组向量，而且</p>
+<ol type="1">
+<li><span class="math inline">\(\{\alpha_1\cdots\alpha_n\}\)</span>线性无关</li>
+<li><span class="math inline">\(V\)</span>中所有向量都可以由<span class="math inline">\(\{\alpha_1\cdots\alpha_n\}\)</span>线性表示</li>
 </ol>
-<table>
-<thead>
-<tr class="header">
-<th>系统型别</th>
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(K_v\)</span></td>
-<td><span class="math inline">\(0\)</span></td>
-<td><span class="math inline">\(K\)</span></td>
-<td><span class="math inline">\(\infty\)</span></td>
-<td><span class="math inline">\(\infty\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(e_{sr}\)</span></td>
-<td><span class="math inline">\(\infty\)</span></td>
-<td><span class="math inline">\(1/K\)</span></td>
-<td><span class="math inline">\(0\)</span></td>
-<td><span class="math inline">\(0\)</span></td>
-</tr>
-</tbody>
-</table>
-<ol start="3" type="1">
-<li><p>输入<span class="math inline">\(R(s)=1/s^3\)</span></p>
-<p>此时有： <span class="math display">\[
-e_{s p}=\lim _{s \rightarrow 0} \frac{1}{s^2+s^2 G(s) H(s)}=\frac{1}{\lim _{s \rightarrow 0} s^2 G(s) H(s)}=\frac{1}{K_a}
-\]</span> <span class="math inline">\(K_a\)</span>叫做抛物线误差系数，也叫静态加速度误差系数。</p></li>
+<p>那么说<span class="math inline">\(\{\alpha_1\cdots\alpha_n\}\)</span>是<span class="math inline">\(V\)</span>的一组基。事实上，<span class="math inline">\(V\)</span>中所有向量可以由基唯一表示，这叫唯一表示定理。</p>
+<p>定义了基，其目的就是唯一表示其它的向量。这种表示的方法叫做坐标：</p>
+<p>【坐标】 设 <span class="math inline">\(x_1, \cdots, x_n\)</span> 是数域 <span class="math inline">\(F\)</span> 上线性空间 <span class="math inline">\(V\)</span> 的一组基, 对任意向量 <span class="math inline">\(x \in V\)</span>, 令</p>
+<p><span class="math display">\[
+\boldsymbol{x}=\sum_{i=1}^n \alpha_i \boldsymbol{x}_i=\left[\boldsymbol{x}_1, \cdots, \boldsymbol{x}_n\right]\left[\begin{array}{c}
+\alpha_1 \\
+\vdots \\
+\alpha_n
+\end{array}\right]
+\]</span></p>
+<p>称有序数组 <span class="math inline">\(\left[\alpha_1, \cdots, \alpha_n\right]^T \in F^n\)</span> 是 <span class="math inline">\(x\)</span> 在基 <span class="math inline">\(x_1, \cdots, x_n\)</span> 下的坐标，它由 <span class="math inline">\(x\)</span> 与基 <span class="math inline">\(x_1, \cdots, x_n\)</span> 唯一确定.</p>
+<p>对于两个不同的基，存在过渡矩阵：</p>
+<p>【过渡矩阵】 设 <span class="math inline">\(x_1, \cdots, x_n\)</span> 和 <span class="math inline">\(y_1, \cdots, y_n\)</span> 是数域 <span class="math inline">\(F\)</span> 上线性空间 <span class="math inline">\(V\)</span> 的两组基, 令</p>
+<p><span class="math display">\[
+\boldsymbol{y}_i=a_{1 i} \boldsymbol{x}_1+\cdots+a_{n i} \boldsymbol{x}_n=\left[\boldsymbol{x}_1, \cdots, \boldsymbol{x}_n\right]\left[\begin{array}{c}
+a_{1 i} \\
+\vdots \\
+a_{n i}
+\end{array}\right]
+\]</span></p>
+<p>引入矩阵表示:</p>
+<p><span class="math display">\[
+\left[y_1, \cdots, y_n\right]=\left[x_1, \cdots, x_n\right] A
+\]</span></p>
+<p>其中 <span class="math inline">\(A=\left(a_{i j}\right) \in F^{n \times n}\)</span>, 称 <span class="math inline">\(A\)</span> 是由基 <span class="math inline">\(\boldsymbol {x_1, \cdots, x_n}\)</span> 到基 <span class="math inline">\(\boldsymbol{y}_1, \cdots, \boldsymbol{y}_n\)</span> 的过渡矩阵（或变换矩阵）.</p>
+<p>对于<span class="math inline">\(V\)</span>中的任意向量<span class="math inline">\(x\)</span>，设其在基<span class="math inline">\(\{x_1\cdots x_n\}\)</span>中的坐标为<span class="math inline">\(\{\alpha_1\cdots \alpha_n\}\)</span>，在基<span class="math inline">\(\{y_1\cdots y_n\}\)</span>中的坐标为<span class="math inline">\(\{\beta_1\cdots \beta_n\}\)</span>，则有： <span class="math display">\[
+\left[\begin{array}{c}
+\beta_1 \\
+\vdots \\
+\beta_n
+\end{array}\right]=A^{-1}\left[\begin{array}{c}
+\alpha_1 \\
+\vdots \\
+\alpha_n
+\end{array}\right] \text { 或 }\left[\begin{array}{c}
+\alpha_1 \\
+\vdots \\
+\alpha_n
+\end{array}\right]=A\left[\begin{array}{c}
+\beta_1 \\
+\vdots \\
+\beta_n
+\end{array}\right]
+\]</span> 【维数】 在线性空间 <span class="math inline">\(V\)</span> 中, 不同线性无关组中向量个数最大者叫作 <span class="math inline">\(V\)</span> 的维数, 记为 <span class="math inline">\(\operatorname{dim} V\)</span>. 当 <span class="math inline">\(\operatorname{dim} V&lt;\infty\)</span>, 称 <span class="math inline">\(V\)</span> 为有限维空间, 否则称为无限维空间, 记 <span class="math inline">\(\operatorname{dim} V=\infty\)</span>。其实，<span class="math inline">\(\dim V=n\)</span>等价于<span class="math inline">\(V\)</span>的任意一个基的向量个数为<span class="math inline">\(n\)</span>。</p>
+<blockquote>
+<p>例：空间<span class="math inline">\(\mathbb C\)</span>在数域<span class="math inline">\(\mathbb C\)</span>和<span class="math inline">\(\mathbb R\)</span>上的维数分别是多少？</p>
+<p>解：在<span class="math inline">\(\mathbb R\)</span>上，向量组<span class="math inline">\(\{1,i\}\)</span>是<span class="math inline">\(\mathbb C\)</span>的一组基，所以维数是2。在<span class="math inline">\(\mathbb C\)</span>上，向量<span class="math inline">\(1\)</span>和<span class="math inline">\(i\)</span>线性相关,且任一复数均可由<span class="math inline">\(1\)</span>或<span class="math inline">\(i\)</span>线性表示.故向量组<span class="math inline">\(1\)</span>和<span class="math inline">\(i\)</span>分别构成<span class="math inline">\(\mathbb C\)</span>的一组基,即定义在<span class="math inline">\(\mathbb C\)</span>上的线性空间<span class="math inline">\(\mathbb C\)</span>的维数为<span class="math inline">\(1\)</span> .</p>
+</blockquote>
+<p>有维数定理：设<span class="math inline">\(W_1,W_2\)</span>是<span class="math inline">\(V\)</span>的两个子空间，则： <span class="math display">\[
+\dim (W_1+W_2)=\dim W_1+\dim W_2-\dim(W_1\cap W_2)
+\]</span></p>
+<h3 id="内积空间">内积空间</h3>
+<p>在线性空间上，额外定义对于两个向量<span class="math inline">\(\alpha,\beta\)</span>的内积运算，内积运算的结果是数域<span class="math inline">\(F\)</span>中的一个数，且满足：</p>
+<ol type="1">
+<li>共轭对称性: <span class="math inline">\((x, y)=\overline{(y, x)}\)</span>;</li>
+<li>可加性: <span class="math inline">\((x+y, z)=(x, z)+(y, z)\)</span>;</li>
+<li>齐次性: <span class="math inline">\((k \boldsymbol{x}, \boldsymbol{y})=k(\boldsymbol{x}, \boldsymbol{y})\)</span>;</li>
+<li>正定性: <span class="math inline">\((x, x) \geq 0\)</span>, 当且仅当 <span class="math inline">\(x=\theta\)</span> 时等号成立.</li>
 </ol>
-<table>
-<thead>
-<tr class="header">
-<th>系统型别</th>
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(K_a\)</span></td>
-<td><span class="math inline">\(0\)</span></td>
-<td><span class="math inline">\(0\)</span></td>
-<td><span class="math inline">\(K\)</span></td>
-<td><span class="math inline">\(\infty\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(e_{sp}\)</span></td>
-<td><span class="math inline">\(\infty\)</span></td>
-<td><span class="math inline">\(\infty\)</span></td>
-<td><span class="math inline">\(1/K\)</span></td>
-<td><span class="math inline">\(0\)</span></td>
-</tr>
-</tbody>
-</table>
+<p>此时可以称<span class="math inline">\(V\)</span>是一个<strong>内积空间</strong>。有限维的实内积空间叫欧几里得空间，有限维的复内积空间叫酉空间。</p>
+<p>注意，齐次性只对第一个向量成立。对于第二个向量，有共轭齐次性： <span class="math display">\[
+(x,ky)=\bar k (x,y)
+\]</span> 考虑<span class="math inline">\(\mathbb C^n\)</span>中的向量<span class="math inline">\(x,y\)</span>，定义运算<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="其中的$y^H$是共轭转置的意思，也就是说$y^H=\bar y^T$">[1]</span></a></sup>： <span class="math display">\[
+(x,y)=y^HAx
+\]</span> 那么，<span class="math inline">\(A\)</span>需要满足什么条件，才能使得这个运算成为内积呢？</p>
+<p>由内积定义中的共轭对称性，有<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="这个推导有两点可能需要解释。第一，因为它的结果是个1*1的矩阵，所以共轭可以写作共轭转置。第二，$(AB)^H=B^HA^H$​。">[2]</span></a></sup>： <span class="math display">\[
+\begin{align}
+y^HAx&amp;=\overline{x^HAy}\\
+&amp;=(x^HAy)^H\\
+&amp;=y^H(x^HA)^H\\
+&amp;=y^HA^Hx
+\end{align}
+\]</span> 所以有： <span class="math display">\[
+A=A^H
+\]</span> 我们将满足<span class="math inline">\(A=A^H\)</span>的矩阵称为<strong>Hermite矩阵</strong>。此外，还需补充正定性： <span class="math display">\[
+x^HAx\geq 0
+\]</span></p>
+<p>将<span class="math inline">\(f(x)=x^HAx\)</span>称为二次型，<span class="math inline">\(A\)</span>为<span class="math inline">\(f(x)\)</span>的矩阵，如果<span class="math inline">\(f(x)\geq0\)</span>且等号仅在<span class="math inline">\(x=\theta\)</span>取得，称<span class="math inline">\(A\)</span>为<strong>正定矩阵</strong>，<span class="math inline">\(f(x)\)</span>为正定二次型。</p>
+<p>【度量矩阵】 设 <span class="math inline">\(\epsilon_1, \cdots, \epsilon_n\)</span> 是内积空间 <span class="math inline">\(V\)</span> 中的一组基, 称 <span class="math inline">\(n\)</span> 阶矩阵</p>
+<p><span class="math display">\[
+A=\left(\left(\epsilon_i, \epsilon_j\right)\right)_{n \times n}=\left[\begin{array}{cccc}
+\left(\epsilon_1, \epsilon_1\right) &amp; \left(\epsilon_1, \epsilon_2\right) &amp; \ldots &amp; \left(\epsilon_1, \epsilon_n\right) \\
+\left(\epsilon_2, \epsilon_1\right) &amp; \left(\epsilon_2, \epsilon_2\right) &amp; \ldots &amp; \left(\epsilon_2, \epsilon_n\right) \\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots \\
+\left(\epsilon_n, \epsilon_1\right) &amp; \left(\epsilon_n, \epsilon_2\right) &amp; \ldots &amp; \left(\epsilon_n, \epsilon_n\right)
+\end{array}\right]
+\]</span></p>
+<p>为 <span class="math inline">\(V\)</span> 关于基 <span class="math inline">\(\epsilon_1, \cdots, \epsilon_n\)</span> 的度量矩阵 (或Gram矩阵),常记为 <span class="math inline">\(G\left(\epsilon_1, \cdots, \epsilon_n\right)\)</span>。度量矩阵和基是一一对应的。</p>
+<p>如果<span class="math inline">\(x,y\in V\)</span>，且其在基 <span class="math inline">\(\epsilon_1, \cdots, \epsilon_n\)</span>下的坐标分别是<span class="math inline">\([\xi_1\cdots\xi n]^T\)</span>和<span class="math inline">\([\eta_1\cdots\eta_n]^T\)</span>，则有： <span class="math display">\[
+(x,y)=\eta^HG^H\left(\epsilon_1, \cdots, \epsilon_n\right)\xi
+\]</span> 显然，度量矩阵是正定Hermite矩阵。</p>
+<p>在内积空间中，可以定义一个向量的长度： <span class="math display">\[
+||x||=\sqrt{(x,x)}
+\]</span> 长度具有以下的性质：</p>
+<ol type="1">
+<li><p>齐次：<span class="math inline">\(||kx||=k||x||\)</span></p></li>
+<li><p>正定：不再解释了</p></li>
+<li><p>平行四边形法则： <span class="math display">\[
+\|x+y\|^2+\|x-y\|^2=2\left(\|x\|^2+\|y\|^2\right)
+\]</span></p></li>
+<li><p>三角不等式（三角形两边之和大于第三边） <span class="math display">\[
+\|x+y\|\leq\|x\|+\|y\|
+\]</span></p></li>
+<li><p>Cauchy-Schwarz不等式（余弦定理） <span class="math display">\[
+\|x\|\cdot\|y\|\geq|(x,y)|
+\]</span> 定义两个向量之间的夹角为： <span class="math display">\[
+\alpha=&lt;x,y&gt;=\arccos \frac{(x,y)}{\|x\|\|y\|}\in[0,\pi]
+\]</span></p></li>
+</ol>
+<p>由内积和夹角，可以引出正交的概念：</p>
+<p>【正交】对于内积空间<span class="math inline">\(V\)</span>中的两个向量，如果有<span class="math inline">\((x,y)=0\)</span>，称这两个向量正交。一组互相垂直的向量组称为正交向量组，单位向量构成的正交向量组称为标准正交向量组。在<span class="math inline">\(n\)</span>维内积空间中，由<span class="math inline">\(n\)</span>​个向量组成的正交向量组称为正交基，由单位向量组成的正交基称为标准正交基。</p>
+<p>向量正交于集合，指的是对于线性空间<span class="math inline">\(V\)</span>中的一个向量<span class="math inline">\(x\)</span>和子集<span class="math inline">\(W\)</span>，<span class="math inline">\(x\)</span>正交于<span class="math inline">\(W\)</span>中的任何一个向量，那么称<span class="math inline">\(x\)</span>正交于集合<span class="math inline">\(W\)</span>。</p>
+<p>集合正交于集合，指的是线性空间中的两个集合，其中任意两个向量都相互正交。</p>
+<blockquote>
+<p>注意：集合正交于集合并不简单地等同于集合垂直于集合。考虑到3维欧氏空间中的两个相互垂直的平面，它们并不相互正交（因为两个集合的交集上任意两向量共线）。</p>
+</blockquote>
+<p>【正交补】设<span class="math inline">\(W\)</span>是线性空间<span class="math inline">\(V\)</span>的子空间，那么所有和<span class="math inline">\(W\)</span>正交的向量构成的集合称为<span class="math inline">\(W\)</span>的正交补。正交补一定是线性子空间。 <span class="math display">\[
+W^\perp=\{x\in V\mid x\perp W\}
+\]</span></p>
+<hr />
+<section class="footnotes">
+<div class="footnote-list">
+<ol>
+<li>
+<span id="fn:1" class="footnote-text"><span>其中的<span class="math inline">(y^H)</span>是共轭转置的意思，也就是说<span class="math inline">(y<sup>H=y</sup>T)</span> <a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩︎</a></span></span>
+</li>
+<li>
+<span id="fn:2" class="footnote-text"><span>这个推导有两点可能需要解释。第一，因为它的结果是个1*1的矩阵，所以共轭可以写作共轭转置。第二，<span class="math inline">((AB)<sup>H=B</sup>HA^H)</span>​。 <a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩︎</a></span></span>
+</li>
+</ol>
+</div>
+</section>
 
                 
               </div>
@@ -877,7 +911,7 @@ e_{s p}=\lim _{s \rightarrow 0} \frac{1}{s^2+s^2 G(s) H(s)}=\frac{1}{\lim _{s \r
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E8%87%AA%E6%8E%A7/">#自控</a>
+        <a href="/tags/%E7%9F%A9%E9%98%B5%E7%90%86%E8%AE%BA/">#矩阵理论</a>
       
     </div>
   
@@ -889,8 +923,8 @@ e_{s p}=\lim _{s \rightarrow 0} \frac{1}{s^2+s^2 G(s) H(s)}=\frac{1}{\lim _{s \r
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>自动控制原理笔记（时域分析）</div>
-      <div>https://suzumiyaakizuki.github.io/2023/05/20/自动控制原理/</div>
+      <div>矩阵理论笔记</div>
+      <div>https://suzumiyaakizuki.github.io/2024/10/05/矩阵理论笔记/</div>
     </div>
     <div class="license-meta">
       
@@ -902,7 +936,7 @@ e_{s p}=\lim _{s \rightarrow 0} \frac{1}{s^2+s^2 G(s) H(s)}=\frac{1}{\lim _{s \r
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年5月20日</div>
+          <div>2024年10月5日</div>
         </div>
       
       
@@ -938,18 +972,12 @@ e_{s p}=\lim _{s \rightarrow 0} \frac{1}{s^2+s^2 G(s) H(s)}=\frac{1}{\lim _{s \r
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/05/21/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86%EF%BC%88%E8%BD%A8%E8%BF%B9%E5%88%86%E6%9E%90%EF%BC%89/" title="自动控制原理（轨迹分析）">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">自动控制原理（轨迹分析）</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/05/18/%E4%BF%A1%E6%81%AF%E8%AE%BA%E7%AC%94%E8%AE%B0/" title="信息论笔记">
-                        <span class="hidden-mobile">信息论笔记</span>
+                      <a href="/2024/10/03/%E6%9C%80%E4%BC%98%E5%8C%96/" title="最优化笔记">
+                        <span class="hidden-mobile">最优化笔记</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -970,7 +998,7 @@ e_{s p}=\lim _{s \rightarrow 0} \frac{1}{s^2+s^2 G(s) H(s)}=\frac{1}{\lim _{s \r
         var options = Object.assign(
           {"clientID":"48fb14f9689ae0d11307","clientSecret":"091ab25a88e87bfd9d9d40d97d1d0d932e694059","repo":"SuzumiyaAkizuki.github.io","owner":"SuzumiyaAkizuki","admin":["SuzumiyaAkizuki"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
           {
-            id: '3b12d796df3fa95afed2bd85c487c8cd'
+            id: '1aa01abdfb507a5958b12a11b7cf8138'
           }
         )
         var gitalk = new Gitalk(options);
