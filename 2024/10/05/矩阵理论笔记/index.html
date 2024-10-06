@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202410052359787.png">
 <meta property="article:published_time" content="2024-10-05T06:38:32.000Z">
-<meta property="article:modified_time" content="2024-10-05T16:08:10.181Z">
+<meta property="article:modified_time" content="2024-10-06T07:03:25.778Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="矩阵理论">
 <meta name="twitter:card" content="summary_large_image">
@@ -267,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          8.6k 字
+          9.4k 字
         
       </span>
     
@@ -278,7 +278,7 @@
         
         
         
-          22 分钟
+          24 分钟
         
       </span>
     
@@ -867,6 +867,42 @@ A=\left(\left(\epsilon_i, \epsilon_j\right)\right)_{n \times n}=\left[\begin{arr
 <p>【正交补】设<span class="math inline">\(W\)</span>是线性空间<span class="math inline">\(V\)</span>的子空间，那么所有和<span class="math inline">\(W\)</span>正交的向量构成的集合称为<span class="math inline">\(W\)</span>的正交补。正交补一定是线性子空间。 <span class="math display">\[
 W^\perp=\{x\in V\mid x\perp W\}
 \]</span></p>
+<p>对于正交补，有： <span class="math display">\[
+W+W^\perp =V
+\]</span></p>
+<h3 id="直和与投影">直和与投影</h3>
+<p>【直和与正交直和】 设 <span class="math inline">\(W_1\)</span> 与 <span class="math inline">\(W_2\)</span> 是线性空间 <span class="math inline">\(V\)</span> 的子空间，若和空间 <span class="math inline">\(W_1+W_2\)</span> 中任意向量均唯一地表示成 <span class="math inline">\(W_1\)</span> 中的一个向量和 <span class="math inline">\(W_2\)</span> 中的一个向量之和， 则称 <span class="math inline">\(W_1+W_2\)</span> 是 <span class="math inline">\(W_1\)</span> 与 <span class="math inline">\(W_2\)</span> 的直和， 记为 <span class="math inline">\(W_1 \dot{+} W_2\)</span>。</p>
+<p>特别的, 若 <span class="math inline">\(V=W_1 \dot{+} W_2\)</span>, 则称表达式 <span class="math inline">\(V=W_1 \dot{+} W_2\)</span> 为直和分解.</p>
+<p>进一步, 若 <span class="math inline">\(W_1 \perp W_2\)</span>, 则称直和 <span class="math inline">\(W_1 \dot{+} W_2\)</span> 是 <span class="math inline">\(W_1\)</span> 与 <span class="math inline">\(W_2\)</span>的正交直和, 记为 <span class="math inline">\(W_1 \oplus W_2\)</span>。</p>
+<p>其实，若 <span class="math inline">\(W_1 \perp W_2\)</span>，则<span class="math inline">\(W_1+W_2=W_1 \oplus W_2\)</span>.</p>
+<blockquote>
+<p>【例】在立体直角坐标系中，<span class="math inline">\(W_1=xOy,W_2=yOz\)</span>，那么<span class="math inline">\(W_1+W_2\)</span>是直和吗？</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202410061052487.png" srcset="/img/loading.gif" lazyload alt="image-20241006105251194" /><figcaption aria-hidden="true">image-20241006105251194</figcaption>
+</figure>
+<p>【解】不是，因为 <span class="math display">\[
+\left[\begin{array}{l}
+0 \\
+1 \\
+0
+\end{array}\right]=\left[\begin{array}{c}
+0 \\
+\mu+1 \\
+0
+\end{array}\right]+\left[\begin{array}{c}
+0 \\
+-\mu \\
+0
+\end{array}\right]
+\]</span> 所以分解不唯一。</p>
+</blockquote>
+<p>为了判断一个和是不是直和，有以下四个等价命题：</p>
+<ol type="1">
+<li><span class="math inline">\(W_1\)</span>+<span class="math inline">\(W_2\)</span>是直和</li>
+<li><span class="math inline">\(W_1+W_2\)</span>中零元素表示方法唯一</li>
+<li><span class="math inline">\(W_1\cap W_2=\theta\)</span></li>
+<li><span class="math inline">\(\dim (W_1+W_2)=\dim W_1+\dim W_2\)</span></li>
+</ol>
 <hr />
 <section class="footnotes">
 <div class="footnote-list">
