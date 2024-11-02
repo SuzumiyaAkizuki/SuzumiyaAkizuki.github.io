@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202410052359787.png">
 <meta property="article:published_time" content="2024-10-05T06:38:32.000Z">
-<meta property="article:modified_time" content="2024-10-26T02:02:23.760Z">
+<meta property="article:modified_time" content="2024-11-02T12:56:02.882Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="矩阵理论">
 <meta name="twitter:card" content="summary_large_image">
@@ -267,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          9.5k 字
+          16k 字
         
       </span>
     
@@ -278,7 +278,7 @@
         
         
         
-          24 分钟
+          40 分钟
         
       </span>
     
@@ -906,12 +906,152 @@ W+W^\perp =V
 </ol>
 <h3 id="mooc第一章答案">MOOC第一章答案</h3>
 <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">A A C D <span class="hljs-keyword">B</span><br><span class="hljs-keyword"></span><span class="hljs-keyword">B </span><span class="hljs-keyword">B </span><span class="hljs-keyword">B </span>C <span class="hljs-keyword">B </span><br><span class="hljs-keyword">B </span><span class="hljs-keyword">BCD </span>CD ABC ABC<br>ABD AD AC <span class="hljs-keyword">BCD </span>C<br><span class="hljs-keyword">BC </span>ABCD <span class="hljs-number">110</span><br><span class="hljs-number">11111</span><br><span class="hljs-number">11101</span><br><span class="hljs-number">11100</span><br><span class="hljs-number">01000</span><br><span class="hljs-number">11001</span><br><span class="hljs-number">10111</span><br><span class="hljs-number">1011</span><br></code></pre></td></tr></table></figure>
+<h2 id="矩阵和线性映射">矩阵和线性映射</h2>
+<h3 id="映射和线性映射">映射和线性映射</h3>
+<p>【单射和满射】对于映射<span class="math inline">\(f:V\to W\)</span>，如果有<span class="math inline">\(\forall x_1,x_2\in V,x_1\neq x_2\to f(x_1)\neq f(x_2)\)</span>，那么<span class="math inline">\(f\)</span>是一个<strong>单射</strong>。<em>也就是说，不同的元素一定被映射为不同的像。</em>如果有<span class="math inline">\(\forall y\in W,\exists x\in V,f(x)=y\)</span>，那么<span class="math inline">\(f\)</span>是一个满射。<em>也就是说，像集里的每个元素都能被取到。</em>如果既是单射又是满射，那么<span class="math inline">\(f\)</span>是双射。<em>也就是说，每个<span class="math inline">\(x\in V\)</span>都有且仅有一个<span class="math inline">\(f(x)\in W\)</span>与其对应。</em></p>
+<blockquote>
+<p>考察实数域<span class="math inline">\(R\to R\)</span>上的函数<span class="math inline">\(f(x)=2x\)</span>和<span class="math inline">\(g(x)=x^2\)</span>。因为<span class="math inline">\(g(1)=g(-2)\)</span>，所以<span class="math inline">\(g\)</span>不是单射；因为<span class="math inline">\(g(x)=-1\)</span>无解，所以<span class="math inline">\(g(x)\)</span>不是满射。<span class="math inline">\(f(x)\)</span>既是单射又是满射，所以<span class="math inline">\(f(x)\)</span>是双射。</p>
+</blockquote>
+<p>【线性映射】如果对于映射<span class="math inline">\(T:V\to W\)</span>和数域<span class="math inline">\(F\)</span>（其中<span class="math inline">\(V,W\)</span>是<span class="math inline">\(F\)</span>上线性空间）满足两条线性性质，称<span class="math inline">\(T\)</span>为<span class="math inline">\(F\)</span>上的线性映射。如果<span class="math inline">\(W=V\)</span>，称为线性变换。</p>
+<ol type="1">
+<li>可加性：<span class="math inline">\(T(x+y)=T(x)+T(y)\)</span></li>
+<li>齐次性：<span class="math inline">\(\forall \lambda\in F,T(\lambda x)=\lambda T(x)\)</span></li>
+</ol>
+<blockquote>
+<p>【例】对于在其自身上<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="意思就是，线性空间的「数域」也是那个集合Q(√3)">[2]</span></a></sup>的线性空间<span class="math inline">\(Q(\sqrt 3)\)</span>上的映射： <span class="math display">\[
+T(x+y\sqrt 3)=x
+\]</span> 不是线性映射。因为<span class="math inline">\(T(\sqrt 3\times \sqrt 3)=3\neq \sqrt 3T(\sqrt 3)\)</span></p>
+</blockquote>
+<p>关于线性映射，有以下推论：</p>
+<ol type="1">
+<li><p>保持原点不动：<span class="math inline">\(T(\theta)=\theta&#39;\)</span></p></li>
+<li><p>如果<span class="math inline">\(\{\alpha \}\)</span>是<span class="math inline">\(V\)</span>中一组线性<strong>相关</strong>向量，那么<span class="math inline">\(\{T(\alpha)\}\)</span>也是<span class="math inline">\(W\)</span>中一组线性<strong>相关</strong>向量</p></li>
+<li><p>如果<span class="math inline">\(\{T(\alpha) \}\)</span>是<span class="math inline">\(W\)</span>中一组线性<strong>无关</strong>向量，那么<span class="math inline">\(\{\alpha\}\)</span>也是<span class="math inline">\(V\)</span>中一组线性<strong>无关</strong>向量</p></li>
+<li><p>当且仅当<span class="math inline">\(T\)</span>是单射，如果<span class="math inline">\(\{\alpha \}\)</span>是<span class="math inline">\(V\)</span>中一组线性<strong>无关</strong>向量，那么<span class="math inline">\(\{T(\alpha)\}\)</span>也是<span class="math inline">\(W\)</span>中一组线性<strong>无关</strong>向量</p>
+<blockquote>
+<p>如果<span class="math inline">\(W,V\)</span>维数相同，那么此时<span class="math inline">\(V\)</span>中一组基的像是<span class="math inline">\(W\)</span>中的一组基，<span class="math inline">\(T\)</span>是双射</p>
+</blockquote></li>
+</ol>
+<p>与矩阵相似地，定义线性映射<span class="math inline">\(T:V\to W\)</span>的零空间和值空间：</p>
+<ol type="1">
+<li>零空间：<span class="math inline">\(N(T)=\{x\in V\mid T(x)=\theta\}\)</span>，即使得像为原点的<span class="math inline">\(x\)</span>的值的集合。它的维数叫做<span class="math inline">\(T\)</span>的「亏」。</li>
+<li>值空间：<span class="math inline">\(R(T)=\{y\in W\mid y=T(x),x\in V\}\)</span>，即<span class="math inline">\(T\)</span>的实际取值范围。它的维数叫做<span class="math inline">\(T\)</span>的「秩」。</li>
+</ol>
+<p>【亏加秩定理】线性映射的亏和秩之和等于其定义域空间的维数。 <span class="math display">\[
+\dim N(T)+\dim R(T)=\dim V
+\]</span></p>
+<h3 id="矩阵与同构">矩阵与同构</h3>
+<p>【线性映射的矩阵】设 <span class="math inline">\(V\)</span> 和 <span class="math inline">\(W\)</span> 是数域 <span class="math inline">\(F\)</span> 上的线性空间, <span class="math inline">\(\varepsilon_1, \cdots, \varepsilon_n\)</span> 和 <span class="math inline">\(\boldsymbol{\eta}_1, \cdots, \boldsymbol{\eta}_m\)</span> 分别是 <span class="math inline">\(V\)</span> 和 <span class="math inline">\(W\)</span> 的基，且 <span class="math inline">\(T \in\)</span> <span class="math inline">\(\mathcal{L}(V, W)\)</span>. 因此 <span class="math inline">\(T\left(\boldsymbol{\varepsilon}_i\right)\)</span> 可由基 <span class="math inline">\(\boldsymbol{\eta}_1, \cdots, \boldsymbol{\eta}_m\)</span> 线性表示，即 <span class="math display">\[
+\begin{gathered}
+\left\{\begin{array}{c}
+T\left(\boldsymbol{\varepsilon}_1\right)=a_{11} \boldsymbol{\eta}_1+a_{21} \boldsymbol{\eta}_2+\cdots+a_{m 1} \boldsymbol{\eta}_m \\
+T\left(\boldsymbol{\varepsilon}_2\right)=a_{12} \boldsymbol{\eta}_1+a_{22} \boldsymbol{\eta}_2+\cdots+a_{m 2} \boldsymbol{\eta}_m \\
+T\left(\boldsymbol{\varepsilon}_n\right)=a_{1 n} \boldsymbol{\eta}_1+a_{2 n} \boldsymbol{\eta}_2+\cdots+a_{m n} \boldsymbol{\eta}_m
+\end{array}\right. \\
+T\left(\boldsymbol{\varepsilon}_1, \cdots, \boldsymbol{\varepsilon}_n\right) \triangleq\left[T\left(\boldsymbol{\varepsilon}_1\right), \cdots, T\left(\boldsymbol{\varepsilon}_n\right)\right]=\left[\boldsymbol{\eta}_1, \cdots, \boldsymbol{\eta}_m\right] A
+\end{gathered}
+\]</span> 其中 <span class="math display">\[
+A=\left[\begin{array}{cccc}a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1 n} \\ a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2 n} \\ \vdots &amp; \vdots &amp; \vdots &amp; \vdots \\ a_{m 1} &amp; a_{m 2} &amp; \cdots &amp; a_{m n}\end{array}\right] \in F^{m \times n}
+\]</span> 称为 <span class="math inline">\(T\)</span> 在 <span class="math inline">\(V\)</span> 的基 <span class="math inline">\(\varepsilon_1, \cdots, \varepsilon_n\)</span> 和 <span class="math inline">\(W\)</span> 的基 <span class="math inline">\(\boldsymbol{\eta}_1, \cdots, \boldsymbol{\eta}_m\)</span> 下的矩阵.</p>
+<p>简单理解：线性映射的矩阵，就是<span class="math inline">\(V\)</span>中的基的像在<span class="math inline">\(W\)</span>的基下的坐标，依次写成纵列，然后拼接起来。</p>
+<p>当线性空间<span class="math inline">\(V\)</span>和<span class="math inline">\(W\)</span>的基确定后，矩阵<span class="math inline">\(A\)</span>和线性映射<span class="math inline">\(T\)</span>唯一确定。即：有且仅有一个矩阵使得线性映射是<span class="math inline">\(T\)</span>，也有且仅有一个线性映射使得矩阵是<span class="math inline">\(A\)</span>。</p>
+<p>【同构】设<span class="math inline">\(V,W\)</span>是<span class="math inline">\(F\)</span>上的线性空间，如果有一个既是双射又是线性映射的映射<span class="math inline">\(f:V\to W\)</span>，那么称<span class="math inline">\(V\)</span>和<span class="math inline">\(W\)</span>同构，<span class="math inline">\(f\)</span>是同构映射。同构映射一定可逆，而且其逆映射也是同构映射。</p>
+<blockquote>
+<p>所谓的「同构」，其实就是「一样」，「一回事」的意思。</p>
+</blockquote>
+<p>两个线性空间同构，当且仅当其维数相等。</p>
+<p>【同一个线性映射在不同基下的矩阵的关系】<span class="math inline">\(\operatorname{dim} V=n, \varepsilon_1, \cdots, \boldsymbol{\varepsilon}_n\)</span> 和 <span class="math inline">\(\varepsilon_1^{\prime}, \cdots, \boldsymbol{\varepsilon}_n^{\prime}\)</span> 是 <span class="math inline">\(V\)</span> 的两组基,</p>
+<p><span class="math display">\[
+\left[\varepsilon_1^{\prime}, \cdots, \boldsymbol{\varepsilon}_n^{\prime}\right]=\left[\varepsilon_1, \cdots, \varepsilon_n\right] Q
+\]</span></p>
+<p><span class="math inline">\(\operatorname{dim} W=m, \boldsymbol{\eta}_1, \cdots, \boldsymbol{\eta}_m\)</span> 和 <span class="math inline">\(\boldsymbol{\eta}_1^{\prime}, \cdots, \boldsymbol{\eta}_m^{\prime}\)</span> 是 <span class="math inline">\(W\)</span> 的两组基,</p>
+<p><span class="math display">\[
+\left[\boldsymbol{\eta}_1^{\prime}, \cdots, \boldsymbol{\eta}_m^{\prime}\right]=\left[\boldsymbol{\eta}_1, \cdots, \boldsymbol{\eta}_m\right] P 
+\]</span></p>
+<p>设 <span class="math inline">\(T \in \mathcal{L}(V, W)\)</span> ， <span class="math display">\[
+\boldsymbol{T}\left(\boldsymbol{\varepsilon}_1, \cdots, \boldsymbol{\varepsilon}_n\right)=\left[\boldsymbol{\eta}_1, \cdots, \boldsymbol{\eta}_m\right] A
+\]</span></p>
+<p><span class="math display">\[
+\boldsymbol{T}\left(\boldsymbol{\varepsilon}_1^{\prime}, \cdots, \boldsymbol{\varepsilon}_n^{\prime}\right)=\left[\boldsymbol{\eta}_1^{\prime}, \cdots, \boldsymbol{\eta}_m^{\prime}\right] B
+\]</span></p>
+<p>则 <span class="math inline">\(B=P^{-1} A Q\)</span>。即：矩阵<span class="math inline">\(A\)</span>可以通过有限次初等变换变成矩阵<span class="math inline">\(B\)</span>，两矩阵相抵（等价）。</p>
+<p>特别的，如果线性映射是变换，即<span class="math inline">\(V=W\)</span>，那么有： <span class="math display">\[
+B=P^{-1}AP
+\]</span> 也就是<span class="math inline">\(A\)</span>和<span class="math inline">\(B\)</span>相似。可以看出，矩阵相似其实就是矩阵等价的特殊情况。</p>
+<h3 id="特征值和特征向量">特征值和特征向量</h3>
+<p>【线性变换的特征值和特征向量】设线性变换 <span class="math inline">\(T \in L(V)\)</span> ，若存在 <span class="math inline">\(\lambda_0 \in F\)</span> 及 <span class="math inline">\(V\)</span> 的<strong>非零向量</strong> <span class="math inline">\(\xi\)</span> 使得</p>
+<p><span class="math display">\[
+T \xi=\lambda_0 \xi,
+\]</span></p>
+<p>则称 <span class="math inline">\(\lambda_0\)</span> 是 <span class="math inline">\(T\)</span> 的一个特征值, 称 <span class="math inline">\(\xi\)</span> 为 <span class="math inline">\(T\)</span> 的属于特征值 <span class="math inline">\(\lambda_0\)</span> 的一个特征向量。</p>
+<p>需要注意：</p>
+<ol type="1">
+<li><p>从几何上来看，就是线性变换作用于特征向量后，仍然保持共线</p></li>
+<li><p>属于同一个特征值的特征向量的线性组合也是属于这个特征值的特征向量</p></li>
+<li><p>如果特征向量是线性变换零空间里的非零向量，那么其特征值是0</p></li>
+<li><p>设 <span class="math inline">\(T\)</span>是线性变换，<span class="math inline">\(\xi_1, \cdots, \xi_n\)</span> 是 <span class="math inline">\(V\)</span> 的一组基, 且<span class="math inline">\(T \xi_i=\lambda_i \xi_i(i=1, \cdots, n)\)</span>, 则 <span class="math inline">\(T\)</span> 在基 <span class="math inline">\(\xi_1, \cdots, \xi_n\)</span> 下的矩阵为对角阵</p></li>
+</ol>
+<p>【矩阵的特征值和特征向量】设 <span class="math inline">\(A \in F^{n \times n}, \lambda\)</span> 为一文字, 矩阵 <span class="math inline">\(\lambda I-A\)</span> 称为 <span class="math inline">\(A\)</span> 的特征矩阵, 其行列式 <span class="math inline">\(|\lambda I-A|\)</span> 称为 <span class="math inline">\(A\)</span> 的特征多项式, 方程 <span class="math inline">\(|\lambda I-A|=0\)</span> 的根称为 <span class="math inline">\(A\)</span> 的特征值（或特征根）. 方程 <span class="math inline">\((\lambda I-A) \boldsymbol{\alpha}=0\)</span> 的非零解向量 <span class="math inline">\(\boldsymbol{\alpha}\)</span> 称为属于特征值 <span class="math inline">\(\lambda\)</span>的特征向量。</p>
+<p><span class="math inline">\(\lambda\)</span> 是线性变换<span class="math inline">\(T\)</span>的特征值，当且仅当它是<span class="math inline">\(T\)</span>的任意一个矩阵的特征值，属于同一<strong>线性变换</strong>的各个矩阵的特征值完全相同。</p>
+<p>由定义可以知道，矩阵的特征值是一个一元<span class="math inline">\(n\)</span>次方程式的根。这个根的重数是特征值的<strong>代数重数</strong>。</p>
+<p>一个矩阵的特征值之和等于其对角线上元素之和，这个和也叫做矩阵的「迹」，记作<span class="math inline">\(tr(A)\)</span>。</p>
+<p>【特征子空间】矩阵的属于某个特征值<span class="math inline">\(\lambda\)</span>的全体特征值再加上零向量，构成一个线性空间，叫做属于特征值<span class="math inline">\(\lambda\)</span>的特征子空间，记作 <span class="math display">\[
+E(\lambda)=\{x\in C^n\mid Ax=\lambda x\}
+\]</span> 特征子空间的维数是特征值的几何重数。几何重数不会超过代数重数。</p>
+<p>如果所有特征值的几何重数等于代数重数，则矩阵可以相似对角化，即：<span class="math inline">\(B=P^{-1}AP\)</span>，其中<span class="math inline">\(B\)</span>是对角矩阵。</p>
+<h2 id="酉变换和酉矩阵">酉变换和酉矩阵</h2>
+<p>酉变换是实数域中的正交变换推广到复数域中的结果。</p>
+<p>【正交变换和酉变换】若欧氏(酉)空间中的线性变换 <span class="math inline">\(T\)</span> 保持向量的内积不变，即</p>
+<p><span class="math display">\[
+(T(x), T(y))=(x, y), \forall x, y \in V
+\]</span></p>
+<p>称 <span class="math inline">\(T\)</span> 为正交(酉)变换。</p>
+<p>【正交矩阵和酉矩阵】如果<span class="math inline">\(n\)</span>阶实方阵满足<span class="math inline">\(AA^T=A^TA\)</span>，称为正交矩阵；如果<span class="math inline">\(n\)</span>阶复方阵满足<span class="math inline">\(AA^H=A^HA\)</span>，称为酉矩阵。</p>
+<p>标准正交基经过酉变换以后仍然是标准正交基，而且酉变换在标准正交基下的矩阵是酉矩阵。</p>
+<p>酉矩阵的行列式的模是<span class="math inline">\(1\)</span>，所有特征值的模也是<span class="math inline">\(1\)</span>。</p>
+<p>矩阵是酉矩阵的充要条件是它的<span class="math inline">\(n\)</span>个列向量构成标准正交基。</p>
+<h3 id="幂等矩阵">幂等矩阵</h3>
+<p>这个书里面并没有，但是慕课作业里面有很多相关的内容，所以整理一下。</p>
+<p>幂等矩阵指的是满足<span class="math inline">\(A=A^2\)</span>的矩阵。从几何上看，幂等矩阵代表了一种投影变换，因为投影一次（<span class="math inline">\(Ax\)</span>）和投影两次（<span class="math inline">\(A^2x\)</span>）的结果一样。一个典型的幂等矩阵是： <span class="math display">\[
+A=\begin{pmatrix}
+1 &amp;0 &amp;0\\
+0 &amp;1 &amp;0\\
+0 &amp;0 &amp;0
+\end{pmatrix}
+\]</span> 它就是把三维坐标投影到前两个维度构成的平面上的投影变换。</p>
+<p>关于幂等矩阵<span class="math inline">\(P\)</span>的性质，有：</p>
+<ol type="1">
+<li><p><span class="math inline">\(N(P)=R(I-P),R(P)=N(I-P)\)</span></p>
+<p>证明：注意到幂等矩阵的定义等价为<span class="math inline">\(P(I-P)=0\)</span>。设<span class="math inline">\(x\in N(P)\)</span>，即<span class="math inline">\(Px=0\)</span>，则<span class="math inline">\(x=x-Px=(I-P)x\)</span>，则<span class="math inline">\(x\in R(I-P)\)</span>。</p>
+<p>若<span class="math inline">\(x\in R(I-P)\)</span>，即<span class="math inline">\((I-P)y=x\)</span>，故<span class="math inline">\(Px=P(I-P)y=0\)</span>。</p>
+<p>因为<span class="math inline">\((I-P)(I-P)=I^2-2P+P^2=I-P\)</span>，所以<span class="math inline">\(I-P\)</span>也是幂等矩阵，故第二部分证毕。</p>
+<blockquote>
+<p><span class="math inline">\(P-I\)</span>不是幂等矩阵，因为<span class="math inline">\((P-I)^2=P^2-2P+I^2=I-P\)</span>。</p>
+</blockquote></li>
+<li><p><span class="math inline">\(R(P)\cap N(P)=\theta\)</span></p>
+<p>证明：设<span class="math inline">\(x\in R(P)\cap N(P)\)</span>，则有<span class="math inline">\(x=Py,x=(I-P)z\)</span>，有<span class="math inline">\(z=Py+Pz\)</span>，两边同时乘以<span class="math inline">\(P\)</span>：<span class="math inline">\(Pz=Py+Pz\)</span>，则<span class="math inline">\(x=Py=0\)</span></p></li>
+<li><p><span class="math inline">\(\rank P=\dim N(I-P)\)</span></p>
+<p>由第一条性质易得</p></li>
+<li><p><span class="math inline">\(\rank P+\rank (I-P)=n\)</span></p>
+<p>亏加秩定理：<span class="math inline">\(\dim R(P)+\dim C(P)=\dim R(P)+\dim R(I-P)=n\)</span></p></li>
+<li><p>可对角化为<span class="math inline">\(\text{diag}\{1,1\cdots 1,0,0,\cdots,0\}\)</span></p>
+<p>考虑任意一个特征值，有<span class="math inline">\(Px=\lambda x\)</span>，则<span class="math inline">\(P^2x=\lambda^2x\)</span>，但是<span class="math inline">\(P^2=P\)</span>，故<span class="math inline">\(\lambda^2=\lambda\)</span>，<span class="math inline">\(\lambda=0 \text{or}1\)</span>。</p>
+<p>其中，如果特征值为<span class="math inline">\(1\)</span>，其特征子空间是<span class="math inline">\(N(P-I)\)</span>，如果特征值为<span class="math inline">\(0\)</span>，其特征子空间是<span class="math inline">\(N(P)\)</span>.</p>
+<p>这两个特征子空间的基底合并以后可以生成<span class="math inline">\(R^n\)</span>。</p></li>
+<li><p><span class="math inline">\(\rank P=\tr P\)</span></p>
+<p>特征值<span class="math inline">\(1\)</span>的代数重数。</p></li>
+</ol>
+<h3 id="mooc第二章答案">MOOC第二章答案</h3>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">D</span> C ACD BC BD<br><span class="hljs-attribute">AB</span> <span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">1</span><br><span class="hljs-attribute">1</span> BD <span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">1</span><br><span class="hljs-attribute">1</span> <span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">0</span><br><span class="hljs-attribute">1</span> <span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">1</span><br><span class="hljs-attribute">1</span> <span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">1</span><br><span class="hljs-attribute">0</span> <span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">0</span> <span class="hljs-number">1</span><br><span class="hljs-attribute">0</span> <span class="hljs-number">1</span> B A A B<br></code></pre></td></tr></table></figure>
 <hr />
 <section class="footnotes">
 <div class="footnote-list">
 <ol>
 <li>
 <span id="fn:1" class="footnote-text"><span>其中的<span class="math inline">(y^H)</span>是共轭转置的意思，也就是说<span class="math inline">(y<sup>H=y</sup>T)</span> <a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩︎</a></span></span>
+</li>
+<li>
+<span id="fn:2" class="footnote-text"><span>意思就是，线性空间的「数域」也是那个集合Q(√3) <a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩︎</a></span></span>
 </li>
 </ol>
 </div>
