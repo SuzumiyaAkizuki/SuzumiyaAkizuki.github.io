@@ -16,25 +16,24 @@
   <meta name="author" content="SuzumiyaAkizuki">
   <meta name="keywords" content="">
   
-    <meta name="description" content="关于pow函数 math.h里的pow函数虽然确实可以计算次幂，但它的参数和返回值均为 double 类型，当题目中需要计算整数的整数次幂时，建议使用循环累乘的朴素方法，即： 123456int a, x; &#x2F;&#x2F;计算a的x次方int ans &#x3D; 1;for (int i &#x3D; 1; i &lt;&#x3D; x; ++i) &amp;#123;	ans &#x3D; ans * a;&amp;#125;&#x2F;&#x2F;ans 是a的x次方">
+    <meta name="description" content="在合成孔径雷达（以下简称SAR）的波位设计中，经常会遇到一个叫做「斑马图」（或者「菱形图」）的东西，它大概长这样：  image-20241110173408561  斑马图的横轴是脉冲重复频率，纵轴一般是入射角或者距星下点地面距离。其中有两组曲线，分别表示了星下点回波的干扰和发射信号盲区。对于发射和接收公用一个天线的星载 SAR 系统，由于在任何时刻空中同时有发射脉冲、星下点脉冲和回波必">
 <meta property="og:type" content="article">
-<meta property="og:title" content="程序设计基础第三周答疑要点整理">
-<meta property="og:url" content="https://suzumiyaakizuki.github.io/2023/10/12/C3-E3%E7%AD%94%E7%96%91%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/index.html">
+<meta property="og:title" content="合成孔径雷达的「斑马图」到底是怎么回事">
+<meta property="og:url" content="https://suzumiyaakizuki.github.io/2024/11/10/%E5%90%88%E6%88%90%E5%AD%94%E5%BE%84%E9%9B%B7%E8%BE%BE%E7%9A%84%E3%80%8C%E6%96%91%E9%A9%AC%E5%9B%BE%E3%80%8D%E5%88%B0%E5%BA%95%E6%98%AF%E6%80%8E%E4%B9%88%E5%9B%9E%E4%BA%8B/index.html">
 <meta property="og:site_name" content="凉宫秋月的文艺部">
-<meta property="og:description" content="关于pow函数 math.h里的pow函数虽然确实可以计算次幂，但它的参数和返回值均为 double 类型，当题目中需要计算整数的整数次幂时，建议使用循环累乘的朴素方法，即： 123456int a, x; &#x2F;&#x2F;计算a的x次方int ans &#x3D; 1;for (int i &#x3D; 1; i &lt;&#x3D; x; ++i) &amp;#123;	ans &#x3D; ans * a;&amp;#125;&#x2F;&#x2F;ans 是a的x次方">
+<meta property="og:description" content="在合成孔径雷达（以下简称SAR）的波位设计中，经常会遇到一个叫做「斑马图」（或者「菱形图」）的东西，它大概长这样：  image-20241110173408561  斑马图的横轴是脉冲重复频率，纵轴一般是入射角或者距星下点地面距离。其中有两组曲线，分别表示了星下点回波的干扰和发射信号盲区。对于发射和接收公用一个天线的星载 SAR 系统，由于在任何时刻空中同时有发射脉冲、星下点脉冲和回波必">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202401031035398.png">
-<meta property="article:published_time" content="2023-10-12T02:25:25.000Z">
-<meta property="article:modified_time" content="2024-01-03T02:40:14.773Z">
+<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202411102122015.png">
+<meta property="article:published_time" content="2024-11-10T09:29:29.000Z">
+<meta property="article:modified_time" content="2024-11-10T13:23:40.102Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
-<meta property="article:tag" content="C语言">
-<meta property="article:tag" content="程序设计基础">
+<meta property="article:tag" content="SAR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202401031035398.png">
+<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202411102122015.png">
   
   
   
-  <title>程序设计基础第三周答疑要点整理 - 凉宫秋月的文艺部</title>
+  <title>合成孔径雷达的「斑马图」到底是怎么回事 - 凉宫秋月的文艺部</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -234,13 +233,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202401031035398.png') no-repeat center center; background-size: cover;">
+     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202411102122015.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="程序设计基础第三周答疑要点整理"></span>
+            <span id="subtitle" data-typed-text="合成孔径雷达的「斑马图」到底是怎么回事"></span>
           
         </div>
 
@@ -256,8 +255,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-10-12 10:25" pubdate>
-          2023年10月12日 上午
+        <time datetime="2024-11-10 17:29" pubdate>
+          2024年11月10日 下午
         </time>
       </span>
     
@@ -268,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          626 字
+          3.4k 字
         
       </span>
     
@@ -279,7 +278,7 @@
         
         
         
-          2 分钟
+          9 分钟
         
       </span>
     
@@ -357,7 +356,7 @@
       
         <a href="/2024/11/10/%E5%90%88%E6%88%90%E5%AD%94%E5%BE%84%E9%9B%B7%E8%BE%BE%E7%9A%84%E3%80%8C%E6%96%91%E9%A9%AC%E5%9B%BE%E3%80%8D%E5%88%B0%E5%BA%95%E6%98%AF%E6%80%8E%E4%B9%88%E5%9B%9E%E4%BA%8B/" title="合成孔径雷达的「斑马图」到底是怎么回事"
            class="list-group-item list-group-item-action
-           ">
+           active">
           <span class="category-post">合成孔径雷达的「斑马图」到底是怎么回事</span>
         </a>
       
@@ -411,7 +410,7 @@
       
         <a href="/2023/10/12/C3-E3%E7%AD%94%E7%96%91%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/" title="程序设计基础第三周答疑要点整理"
            class="list-group-item list-group-item-action
-           active">
+           ">
           <span class="category-post">程序设计基础第三周答疑要点整理</span>
         </a>
       
@@ -480,23 +479,106 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">程序设计基础第三周答疑要点整理</h1>
+            <h1 style="display: none">合成孔径雷达的「斑马图」到底是怎么回事</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="关于pow函数">关于<code>pow</code>函数</h2>
-<p><code>math.h</code>里的<code>pow</code>函数虽然确实可以计算次幂，但它的参数和返回值均为 <strong>double</strong> 类型，当题目中需要<strong>计算整数的整数次幂</strong>时，<strong>建议使用循环累乘</strong>的朴素方法，即：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">int</span> a, x; <span class="hljs-comment">//计算a的x次方</span><br><span class="hljs-type">int</span> ans = <span class="hljs-number">1</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= x; ++i) &#123;<br>	ans = ans * a;<br>&#125;<br><span class="hljs-comment">//ans 是a的x次方</span><br></code></pre></td></tr></table></figure>
-<p>或者<a target="_blank" rel="noopener" href="https://oi-wiki.org/math/binary-exponentiation/">快速幂算法</a>（目前不作要求，有兴趣的同学可以自行学习）。</p>
-<h2 id="关于优先级">关于优先级</h2>
-<p>在混用位运算符和四则运算符、比较运算符时需要注意算符的<strong>优先级</strong>问题</p>
-<p>例如条件语句 <code>if (x&amp;y == 0)</code> ，由于<strong>比较运算符的优先级高于位运算符</strong>，括号中的条件实际是<strong>将比较语句 <code>y == 0</code> 的结果计算出来</strong>（若满足则值为1，否则为0），然后<strong>使用这个结果再与 <code>x</code> 执行与运算 <code>&amp;</code></strong>，而<strong>不是</strong>先计算了 <code>x&amp;y</code> 的结果再与<code>0</code>作比较。</p>
-<p>如果你按照《C1-E1答疑要点整理》中所说的打开了“显示全部警告信息（<code>-Wall</code>）”，那么就会看到如下的警告信息：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">[警告] suggest parentheses around comparison in operand of &#x27;&amp;&#x27; [-Wparentheses]<br></code></pre></td></tr></table></figure>
-<p>各种算符优先级划分记忆起来可能有些困难，推荐的做法是<strong>使用括号将想要先执行的运算步骤单独包括起来</strong>，这样就可以要求这步运算具有更高的优先级，例如 <code>if ((x &amp; y) == 0)</code> 。简而言之，你记不住优先级没关系，只要会加括号就行了。</p>
-<hr />
-<p>作者：逐月的游星、梁秋月</p>
+                <p>在合成孔径雷达（以下简称SAR）的波位设计中，经常会遇到一个叫做「斑马图」（或者「菱形图」）的东西，它大概长这样：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202411101734786.png" srcset="/img/loading.gif" lazyload alt="image-20241110173408561" /><figcaption aria-hidden="true">image-20241110173408561</figcaption>
+</figure>
+<p>斑马图的横轴是脉冲重复频率，纵轴一般是入射角或者距星下点地面距离。其中有两组曲线，分别表示了星下点回波的干扰和发射信号盲区。对于发射和接收公用一个天线的星载 SAR 系统，由于在任何时刻空中同时有发射脉冲、星下点脉冲和回波必须对 PRF 加以限制，使发射脉冲、星下点脉冲不落在回波窗之中。只有当脉冲重复频率和星下点地面距离的选择在图里的「大菱形区域」里，SAR才能正常工作。如何选择脉冲重复频率或者星下点地面距离，就是所谓的「波位设计」。</p>
+<p>我接触到的很多教材都对这个东西的绘制语焉不详，所以在这里我写一下怎么画。画斑马图的关键是几何关系：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202411101748589.png" srcset="/img/loading.gif" lazyload alt="image-20241110174855700" /><figcaption aria-hidden="true">image-20241110174855700</figcaption>
+</figure>
+<p>在这个图中，以点<span class="math inline">\(A\)</span>为圆心的圆形表示地球，点<span class="math inline">\(C\)</span>表示SAR卫星，点<span class="math inline">\(B\)</span>表示目标，点<span class="math inline">\(D\)</span>表示SAR卫星和地心的连线，也就是星下点。其它长度和角度的名称如下：</p>
+<ul>
+<li><span class="math inline">\(R_e\)</span>：即线段<span class="math inline">\(DA\)</span>的长度，地球半径，已知</li>
+<li><span class="math inline">\(R_p\)</span>：即线段<span class="math inline">\(BA\)</span>的长度，也是地球半径，已知</li>
+<li><span class="math inline">\(R_s\)</span>：圆弧<span class="math inline">\(DB\)</span>的长度，地距</li>
+<li><span class="math inline">\(R\)</span>：线段<span class="math inline">\(CB\)</span>的长度，斜距</li>
+<li><span class="math inline">\(H\)</span>：线段<span class="math inline">\(CD\)</span>的长度，卫星高度，已知</li>
+<li><span class="math inline">\(\alpha\)</span>：<span class="math inline">\(\angle DCB\)</span>，视角</li>
+<li><span class="math inline">\(\theta\)</span>：<span class="math inline">\(180\degree-\angle{CBA}\)</span>，入射角</li>
+<li><span class="math inline">\(\gamma\)</span>：<span class="math inline">\(\angle{DAB}\)</span>，地心角，显然有：<span class="math inline">\(\gamma=\theta-\alpha\)</span></li>
+</ul>
+<p>对于一个SAR系统，要绘制其斑马图，还要知道脉冲宽度<span class="math inline">\(\tau\)</span>、斑马图横坐标的范围（最大最小脉冲重复频率）、最大最小中心视角。</p>
+<h2 id="绘制发射信号干扰带的斑马图">绘制发射信号干扰带的斑马图</h2>
+<ol type="1">
+<li><p>计算其前后沿回波时间：</p>
+<p>假设总共要画<span class="math inline">\(m\)</span>个曲线，现在正在画第<span class="math inline">\(j\)</span>个，当前正在看的脉冲重复频率为<span class="math inline">\(f_{PRF}\)</span>，有 <span class="math display">\[
+T_{e_1}=\frac{j}{f_{PRF}}-(\tau+T_g)\\\\
+T_{e_1}=\frac{j}{f_{PRF}}+(\tau+T_g)
+\]</span> 这里面的<span class="math inline">\(T_g\)</span>叫做「保护时间带」，我还不太确定这是什么，好像是一种类似于冗余的东西，取<span class="math inline">\(0\)</span>也没关系。</p></li>
+<li><p>计算对应的最大最小斜距： <span class="math display">\[
+R_{\min}=T_{e_1}\frac c2=\left(\frac{j}{f_{PRF}}-(\tau+T_g)\right)\cdot\frac c2\\\\
+R_{\max}=T_{e_2}\frac c2=\left(\frac{j}{f_{PRF}}+(\tau+T_g)\right)\cdot\frac c2
+\]</span></p></li>
+<li><p>计算对应的最大最小视角：</p>
+<p>即解三角形<span class="math inline">\(CBA\)</span>，对<span class="math inline">\(\alpha\)</span>应用余弦定理： <span class="math display">\[
+\alpha=\arccos\left(\frac{R^2+(R_e+H)^2-R_p^2}{2R(R_e+H)}\right)
+\]</span> 有： <span class="math display">\[
+\alpha_{\max}=\arccos\left(\frac{R_\max^2+(R_e+H)^2-R_p^2}{2R_\max(R_e+H)}\right)\\\\
+\alpha_{\min}=\arccos\left(\frac{R_\min^2+(R_e+H)^2-R_p^2}{2R_\min(R_e+H)}\right)
+\]</span></p></li>
+<li><p>计算对应的最大最小入射角：</p>
+<p>即解三角形<span class="math inline">\(CBA\)</span>，求解<span class="math inline">\(\theta\)</span>。</p>
+<p>由余弦定理： <span class="math display">\[
+\angle CBA=\arccos\left(\frac{R_p^2+R^2-(R_e+H)^2}{2R_pR}\right)
+\]</span> 有： <span class="math display">\[
+\theta_{\max}=180\degree-\arccos\left(\frac{R_p^2+R_{\max}^2-(R_e+H)^2}{2R_pR_{\max}}\right)\\\\
+\theta_{\min}=180\degree-\arccos\left(\frac{R_p^2+R_{\min}^2-(R_e+H)^2}{2R_pR_{\min}}\right)
+\]</span></p></li>
+<li><p>计算最大最小地距：</p>
+<p>由圆弧<span class="math inline">\(DB\)</span>，得：<span class="math inline">\(R_s=\gamma R_e=(\theta-\alpha)R_e\)</span>。有： <span class="math display">\[
+R_{s_\max}=(\theta_\max-\alpha_\max)R_e\\\\
+R_{s_\min}=(\theta_\min-\alpha_\min)R_e
+\]</span></p></li>
+</ol>
+<p>由上面的推导，可以看出，<span class="math inline">\(R_{s\min}\)</span>和<span class="math inline">\(R_{s\max}\)</span>总的来说是<span class="math inline">\(j\)</span>和<span class="math inline">\(f_{PRF}\)</span>的函数。在计算时，我们写一个双重循环，外层循环遍历<span class="math inline">\(f_{PRF}\)</span>，内层循环遍历<span class="math inline">\(j\)</span>，然后算出<span class="math inline">\(R_{s\max},R_{s\min}\)</span>并画图就行了。</p>
+<p>现在的问题是：<span class="math inline">\(j\)</span>怎么取值？首先明确<span class="math inline">\(j\)</span>是正整数。如果<span class="math inline">\(j\)</span>取得太小，会让三角形无解（表现为<span class="math inline">\(\arccos\)</span>函数算出来不是实数）。如果<span class="math inline">\(j\)</span>取得太大，会让画出来的曲线没有意义（在图上不显示）。书上说： <span class="math display">\[
+j_{\min}=\lfloor{T_{e\min}\cdot f_{PRF\min}}\rfloor\\\\
+j_{\max}=\lfloor{T_{e\max}\cdot f_{PRF\max}}\rfloor
+\]</span> 其中，<span class="math inline">\(T_e\)</span>是所选择区域的最近/远斜距对应的回波时间，<span class="math inline">\(f_{PRF}\)</span>是所选择的最小/大可能脉冲重复频率。在这里，<span class="math inline">\(f_{PRF}\)</span>的最大最小值很容易理解，已经被给定了。但是<span class="math inline">\(T_e\)</span>需要计算，因为给定的是最小/大中心视角。</p>
+<p>回到前面的几何关系：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202411101748589.png" srcset="/img/loading.gif" lazyload alt="image-20241110174855700" /><figcaption aria-hidden="true">image-20241110174855700</figcaption>
+</figure>
+<p>也就是说，解三角形<span class="math inline">\(CBA\)</span>，给定<span class="math inline">\(CA,AB,\alpha\)</span>，求解<span class="math inline">\(CB\)</span>。注意在数学里这个三角形似乎并不唯一确定（有两个解），但是在我们这里显然只需要取<span class="math inline">\(\angle CBA\)</span>是钝角的那个解。</p>
+<p>过<span class="math inline">\(A\)</span>作直线<span class="math inline">\(CB\)</span>的垂线交于点<span class="math inline">\(E\)</span>：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202411102107191.png" srcset="/img/loading.gif" lazyload alt="image-20241110210718722" /><figcaption aria-hidden="true">image-20241110210718722</figcaption>
+</figure>
+<p>则有： <span class="math display">\[
+AE=(Re+H)\sin\alpha
+\]</span></p>
+<p>于是 <span class="math display">\[
+\angle BAE=\arccos\left(\frac{AE}{R_p}\right)=\arccos\left(\frac{(Re+H)\sin\alpha}{R_p}\right)
+\]</span> 则 <span class="math display">\[
+\gamma=\frac \pi2-\alpha-\angle BAE=\frac \pi2-\alpha-\arccos\left(\frac{(Re+H)\sin\alpha}{R_p}\right)
+\]</span> 由正弦定理 <span class="math display">\[
+\frac{R_p}{\sin \alpha}=\frac{R_s}{\sin \gamma}
+\]</span> 有 <span class="math display">\[
+Rs=\frac{\sin \gamma R_p}{\sin \alpha}
+\]</span> 则 <span class="math display">\[
+T_e=\frac {2R_s}{c}
+\]</span> 其中<span class="math inline">\(c\)</span>是光速。这样一来，我们就把<span class="math inline">\(T_e\)</span>表示成了<span class="math inline">\(\alpha\)</span>的函数： <span class="math display">\[
+T_e=\frac {2}{c} \frac{\sin\left(\frac \pi2-\alpha-\arccos\left(\frac{(Re+H)\sin\alpha}{R_p}\right)\right)R_p}{\sin \alpha}
+\]</span></p>
+<h2 id="绘制星下点回波区的斑马图">绘制星下点回波区的斑马图</h2>
+<p>首先，计算前后沿回波时间 <span class="math display">\[
+T_\min=\frac {2h}c+\frac i {f_{PRF}}-(\tau+T_g)\\\\
+T_\max=\frac {2h}c+\frac i {f_{PRF}}+(\tau+T_g)
+\]</span></p>
+<p>后面的计算和上一部分的完全一样。</p>
+<p>关于<span class="math inline">\(i\)</span>的取值，有： <span class="math display">\[
+i_\min=j_\min-\lfloor (T_{nad}+\tau+2T_g)f_{PRF\min}\rfloor\\\\
+i_\max=j_\max-\lfloor T_{nad}f_{PRF\min}\rfloor
+\]</span> 其中 <span class="math display">\[
+T_{nad}=\frac{2h}c-T_g
+\]</span> 称为「保护时间带」。</p>
 
                 
               </div>
@@ -530,9 +612,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/C%E8%AF%AD%E8%A8%80/">#C语言</a>
-      
-        <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/">#程序设计基础</a>
+        <a href="/tags/SAR/">#SAR</a>
       
     </div>
   
@@ -544,8 +624,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>程序设计基础第三周答疑要点整理</div>
-      <div>https://suzumiyaakizuki.github.io/2023/10/12/C3-E3答疑要点整理/</div>
+      <div>合成孔径雷达的「斑马图」到底是怎么回事</div>
+      <div>https://suzumiyaakizuki.github.io/2024/11/10/合成孔径雷达的「斑马图」到底是怎么回事/</div>
     </div>
     <div class="license-meta">
       
@@ -557,7 +637,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年10月12日</div>
+          <div>2024年11月10日</div>
         </div>
       
       
@@ -593,18 +673,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/10/18/C4-E4%E7%AD%94%E7%96%91%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/" title="程序设计基础第四周答疑要点整理">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">程序设计基础第四周答疑要点整理</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/10/07/%E6%88%91%E4%BC%9A%E8%87%AA%E5%B7%B1Debug/" title="我会自己Debug">
-                        <span class="hidden-mobile">我会自己Debug</span>
+                      <a href="/2024/10/08/%E9%94%BB%E7%82%BC202409/" title="ヤマノススメ！2024年9月！">
+                        <span class="hidden-mobile">ヤマノススメ！2024年9月！</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -625,7 +699,7 @@
         var options = Object.assign(
           {"clientID":"48fb14f9689ae0d11307","clientSecret":"091ab25a88e87bfd9d9d40d97d1d0d932e694059","repo":"SuzumiyaAkizuki.github.io","owner":"SuzumiyaAkizuki","admin":["SuzumiyaAkizuki"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
           {
-            id: 'f7a4bc7eff9cc6e554bb38e13892ab0d'
+            id: '74317bed143dfa894acfbd6f5f97ce12'
           }
         )
         var gitalk = new Gitalk(options);
