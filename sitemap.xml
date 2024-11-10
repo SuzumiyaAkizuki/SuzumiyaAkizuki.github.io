@@ -1083,6 +1083,13 @@
   </url>
   
   <url>
+    <loc>https://suzumiyaakizuki.github.io/tags/DSP/</loc>
+    <lastmod>2024-11-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://suzumiyaakizuki.github.io/tags/Verilog/</loc>
     <lastmod>2024-11-10</lastmod>
     <changefreq>weekly</changefreq>
@@ -1097,7 +1104,7 @@
   </url>
   
   <url>
-    <loc>https://suzumiyaakizuki.github.io/tags/DSP/</loc>
+    <loc>https://suzumiyaakizuki.github.io/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/</loc>
     <lastmod>2024-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1105,13 +1112,6 @@
   
   <url>
     <loc>https://suzumiyaakizuki.github.io/tags/C/</loc>
-    <lastmod>2024-11-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://suzumiyaakizuki.github.io/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/</loc>
     <lastmod>2024-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1139,14 +1139,14 @@
   </url>
   
   <url>
-    <loc>https://suzumiyaakizuki.github.io/tags/SAR/</loc>
+    <loc>https://suzumiyaakizuki.github.io/tags/%E5%91%A8%E8%AE%B0/</loc>
     <lastmod>2024-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://suzumiyaakizuki.github.io/tags/%E5%91%A8%E8%AE%B0/</loc>
+    <loc>https://suzumiyaakizuki.github.io/tags/SAR/</loc>
     <lastmod>2024-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1251,13 +1251,6 @@
   </url>
   
   <url>
-    <loc>https://suzumiyaakizuki.github.io/tags/%E7%9F%A9%E9%98%B5%E7%90%86%E8%AE%BA/</loc>
-    <lastmod>2024-11-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://suzumiyaakizuki.github.io/tags/%E6%97%85%E6%B8%B8%E6%94%BB%E7%95%A5/</loc>
     <lastmod>2024-11-10</lastmod>
     <changefreq>weekly</changefreq>
@@ -1266,6 +1259,13 @@
   
   <url>
     <loc>https://suzumiyaakizuki.github.io/tags/%E6%97%A5%E6%9C%AC/</loc>
+    <lastmod>2024-11-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://suzumiyaakizuki.github.io/tags/%E7%9F%A9%E9%98%B5%E7%90%86%E8%AE%BA/</loc>
     <lastmod>2024-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1323,14 +1323,14 @@
   </url>
   
   <url>
-    <loc>https://suzumiyaakizuki.github.io/categories/%E5%AE%9E%E9%AA%8C/</loc>
+    <loc>https://suzumiyaakizuki.github.io/categories/%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2024-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://suzumiyaakizuki.github.io/categories/%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://suzumiyaakizuki.github.io/categories/%E5%AE%9E%E9%AA%8C/</loc>
     <lastmod>2024-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
