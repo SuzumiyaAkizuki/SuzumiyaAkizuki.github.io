@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202411102122015.png">
 <meta property="article:published_time" content="2024-11-10T09:29:29.000Z">
-<meta property="article:modified_time" content="2024-11-10T13:23:40.102Z">
+<meta property="article:modified_time" content="2024-11-10T13:30:12.319Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="SAR">
 <meta name="twitter:card" content="summary_large_image">
@@ -267,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.4k 字
+          3.6k 字
         
       </span>
     
@@ -501,7 +501,7 @@
 <li><span class="math inline">\(R\)</span>：线段<span class="math inline">\(CB\)</span>的长度，斜距</li>
 <li><span class="math inline">\(H\)</span>：线段<span class="math inline">\(CD\)</span>的长度，卫星高度，已知</li>
 <li><span class="math inline">\(\alpha\)</span>：<span class="math inline">\(\angle DCB\)</span>，视角</li>
-<li><span class="math inline">\(\theta\)</span>：<span class="math inline">\(180\degree-\angle{CBA}\)</span>，入射角</li>
+<li><span class="math inline">\(\theta\)</span>：<span class="math inline">\(\pi-\angle{CBA}\)</span>，入射角</li>
 <li><span class="math inline">\(\gamma\)</span>：<span class="math inline">\(\angle{DAB}\)</span>，地心角，显然有：<span class="math inline">\(\gamma=\theta-\alpha\)</span></li>
 </ul>
 <p>对于一个SAR系统，要绘制其斑马图，还要知道脉冲宽度<span class="math inline">\(\tau\)</span>、斑马图横坐标的范围（最大最小脉冲重复频率）、最大最小中心视角。</p>
@@ -509,38 +509,50 @@
 <ol type="1">
 <li><p>计算其前后沿回波时间：</p>
 <p>假设总共要画<span class="math inline">\(m\)</span>个曲线，现在正在画第<span class="math inline">\(j\)</span>个，当前正在看的脉冲重复频率为<span class="math inline">\(f_{PRF}\)</span>，有 <span class="math display">\[
+\begin{align}
 T_{e_1}=\frac{j}{f_{PRF}}-(\tau+T_g)\\\\
 T_{e_1}=\frac{j}{f_{PRF}}+(\tau+T_g)
+\end{align}
 \]</span> 这里面的<span class="math inline">\(T_g\)</span>叫做「保护时间带」，我还不太确定这是什么，好像是一种类似于冗余的东西，取<span class="math inline">\(0\)</span>也没关系。</p></li>
 <li><p>计算对应的最大最小斜距： <span class="math display">\[
+\begin{align}
 R_{\min}=T_{e_1}\frac c2=\left(\frac{j}{f_{PRF}}-(\tau+T_g)\right)\cdot\frac c2\\\\
 R_{\max}=T_{e_2}\frac c2=\left(\frac{j}{f_{PRF}}+(\tau+T_g)\right)\cdot\frac c2
+\end{align}
 \]</span></p></li>
 <li><p>计算对应的最大最小视角：</p>
 <p>即解三角形<span class="math inline">\(CBA\)</span>，对<span class="math inline">\(\alpha\)</span>应用余弦定理： <span class="math display">\[
 \alpha=\arccos\left(\frac{R^2+(R_e+H)^2-R_p^2}{2R(R_e+H)}\right)
 \]</span> 有： <span class="math display">\[
+\begin{align}
 \alpha_{\max}=\arccos\left(\frac{R_\max^2+(R_e+H)^2-R_p^2}{2R_\max(R_e+H)}\right)\\\\
 \alpha_{\min}=\arccos\left(\frac{R_\min^2+(R_e+H)^2-R_p^2}{2R_\min(R_e+H)}\right)
+\end{align}
 \]</span></p></li>
 <li><p>计算对应的最大最小入射角：</p>
 <p>即解三角形<span class="math inline">\(CBA\)</span>，求解<span class="math inline">\(\theta\)</span>。</p>
 <p>由余弦定理： <span class="math display">\[
 \angle CBA=\arccos\left(\frac{R_p^2+R^2-(R_e+H)^2}{2R_pR}\right)
 \]</span> 有： <span class="math display">\[
-\theta_{\max}=180\degree-\arccos\left(\frac{R_p^2+R_{\max}^2-(R_e+H)^2}{2R_pR_{\max}}\right)\\\\
-\theta_{\min}=180\degree-\arccos\left(\frac{R_p^2+R_{\min}^2-(R_e+H)^2}{2R_pR_{\min}}\right)
+\begin{align}
+\theta_{\max}=\pi-\arccos\left(\frac{R_p^2+R_{\max}^2-(R_e+H)^2}{2R_pR_{\max}}\right)\\\\
+\theta_{\min}=\pi-\arccos\left(\frac{R_p^2+R_{\min}^2-(R_e+H)^2}{2R_pR_{\min}}\right)
+\end{align}
 \]</span></p></li>
 <li><p>计算最大最小地距：</p>
 <p>由圆弧<span class="math inline">\(DB\)</span>，得：<span class="math inline">\(R_s=\gamma R_e=(\theta-\alpha)R_e\)</span>。有： <span class="math display">\[
+\begin{align}
 R_{s_\max}=(\theta_\max-\alpha_\max)R_e\\\\
 R_{s_\min}=(\theta_\min-\alpha_\min)R_e
+\end{align}
 \]</span></p></li>
 </ol>
 <p>由上面的推导，可以看出，<span class="math inline">\(R_{s\min}\)</span>和<span class="math inline">\(R_{s\max}\)</span>总的来说是<span class="math inline">\(j\)</span>和<span class="math inline">\(f_{PRF}\)</span>的函数。在计算时，我们写一个双重循环，外层循环遍历<span class="math inline">\(f_{PRF}\)</span>，内层循环遍历<span class="math inline">\(j\)</span>，然后算出<span class="math inline">\(R_{s\max},R_{s\min}\)</span>并画图就行了。</p>
 <p>现在的问题是：<span class="math inline">\(j\)</span>怎么取值？首先明确<span class="math inline">\(j\)</span>是正整数。如果<span class="math inline">\(j\)</span>取得太小，会让三角形无解（表现为<span class="math inline">\(\arccos\)</span>函数算出来不是实数）。如果<span class="math inline">\(j\)</span>取得太大，会让画出来的曲线没有意义（在图上不显示）。书上说： <span class="math display">\[
+\begin{align}
 j_{\min}=\lfloor{T_{e\min}\cdot f_{PRF\min}}\rfloor\\\\
 j_{\max}=\lfloor{T_{e\max}\cdot f_{PRF\max}}\rfloor
+\end{align}
 \]</span> 其中，<span class="math inline">\(T_e\)</span>是所选择区域的最近/远斜距对应的回波时间，<span class="math inline">\(f_{PRF}\)</span>是所选择的最小/大可能脉冲重复频率。在这里，<span class="math inline">\(f_{PRF}\)</span>的最大最小值很容易理解，已经被给定了。但是<span class="math inline">\(T_e\)</span>需要计算，因为给定的是最小/大中心视角。</p>
 <p>回到前面的几何关系：</p>
 <figure>
@@ -569,13 +581,17 @@ T_e=\frac {2}{c} \frac{\sin\left(\frac \pi2-\alpha-\arccos\left(\frac{(Re+H)\sin
 \]</span></p>
 <h2 id="绘制星下点回波区的斑马图">绘制星下点回波区的斑马图</h2>
 <p>首先，计算前后沿回波时间 <span class="math display">\[
+\begin{align}
 T_\min=\frac {2h}c+\frac i {f_{PRF}}-(\tau+T_g)\\\\
 T_\max=\frac {2h}c+\frac i {f_{PRF}}+(\tau+T_g)
+\end{align}
 \]</span></p>
 <p>后面的计算和上一部分的完全一样。</p>
 <p>关于<span class="math inline">\(i\)</span>的取值，有： <span class="math display">\[
+\begin{align}
 i_\min=j_\min-\lfloor (T_{nad}+\tau+2T_g)f_{PRF\min}\rfloor\\\\
 i_\max=j_\max-\lfloor T_{nad}f_{PRF\min}\rfloor
+\end{align}
 \]</span> 其中 <span class="math display">\[
 T_{nad}=\frac{2h}c-T_g
 \]</span> 称为「保护时间带」。</p>
