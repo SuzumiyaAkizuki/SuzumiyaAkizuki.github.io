@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202410052359787.png">
 <meta property="article:published_time" content="2024-10-05T06:38:32.000Z">
-<meta property="article:modified_time" content="2024-11-10T07:50:47.211Z">
+<meta property="article:modified_time" content="2024-11-22T14:52:26.873Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="矩阵理论">
 <meta name="twitter:card" content="summary_large_image">
@@ -267,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          19k 字
+          21k 字
         
       </span>
     
@@ -278,7 +278,7 @@
         
         
         
-          47 分钟
+          52 分钟
         
       </span>
     
@@ -1150,6 +1150,63 @@ B=\left[\begin{array}{ll}
 0 &amp; 0
 \end{array}\right]=Q R
 \]</span> 所以 <span class="math inline">\(A \in \mathbb{C}_n^{m \times n}\)</span> 可分解为 <span class="math inline">\(A=U R\)</span>, 其中, <span class="math inline">\(U\)</span> 是 <span class="math inline">\(m\)</span>阶酉矩阵, <span class="math inline">\(R=\left[\begin{array}{c}R_1 \\ 0\end{array}\right]_{m \times n}, R_1\)</span> 为正线上三角阵, <span class="math inline">\(n \leq m\)</span>.</p>
+<h2 id="schur分解和矩阵多项式">Schur分解和矩阵多项式</h2>
+<p>【Schur引理】任意复方阵 <span class="math inline">\(A\)</span> 相似于上三角阵，即存在可逆矩阵<span class="math inline">\(P\)</span>使得<span class="math inline">\(\Lambda=P^{-1}AP\)</span>，且<span class="math inline">\(\Lambda\)</span>的对角元素是<span class="math inline">\(A\)</span>的特征值。进一步，任意复方阵 <span class="math inline">\(A\)</span> 酉相似于上三角阵 <span class="math inline">\(\Lambda\)</span>, 即存在酉矩阵 <span class="math inline">\(U\)</span> 使得 <span class="math inline">\(U^H A U=\Lambda\)</span> 为上三角阵。</p>
+<p>【矩阵多项式】 设 <span class="math inline">\(A \in \mathbb{C}^{n \times n}\)</span>, 定义数域 <span class="math inline">\(\mathbb{C}\)</span> 上的多项式</p>
+<p><span class="math display">\[
+\varphi(\lambda)=a_n \lambda^n+a_{n-1} \lambda^{n-1}+\cdots+a_1 \lambda+a_0,
+\]</span></p>
+<p>式中, <span class="math inline">\(a_i \in \mathbb{C}, i=0,1, \cdots, n\)</span>. 则</p>
+<p><span class="math display">\[
+\varphi(A)=a_n A^n+a_{n-1} A^{n-1}+\cdots+a_1 A+a_0 I
+\]</span></p>
+<p>称为矩阵多项式。</p>
+<p>其实矩阵多项式就是把普通多项式的变量变成了一个矩阵。</p>
+<p>我们可以利用Schur引理来研究矩阵多项式的性质，例如：</p>
+<p>【定理】设复矩阵<span class="math inline">\(A\)</span>的特征值为<span class="math inline">\(\lambda_1\cdots\lambda_n\)</span>，<span class="math inline">\(\phi(\lambda)\)</span>是任意多项式，那么<span class="math inline">\(\phi(A)\)</span>的特征值是<span class="math inline">\(\phi(\lambda_1)\cdots\phi(\lambda_n)\)</span>。</p>
+<blockquote>
+<p>【证明】：存在一个酉矩阵<span class="math inline">\(U\)</span>，使得 <span class="math display">\[
+U^HAU=\Lambda
+\]</span> 其中<span class="math inline">\(\Lambda\)</span>是上三角阵，其对角线元素是<span class="math inline">\(A\)</span>的特征值。注意到： <span class="math display">\[
+\phi(A)=\phi(U\Lambda U^H)=U\phi(\Lambda)U^H
+\]</span> 其中上三角阵<span class="math inline">\(\phi(\Lambda)\)</span>的对角线元素是<span class="math inline">\(\phi(\lambda_1)\cdots\phi(\lambda_n)\)</span>，由于<span class="math inline">\(\phi(A)\)</span>酉相似于<span class="math inline">\(\phi(\Lambda)\)</span>，所以它们有相同的特征值，证毕。</p>
+</blockquote>
+<p>【Hamilton-Cayley定理】设<span class="math inline">\(f_A(\lambda)=|\lambda I-A|\)</span>是<span class="math inline">\(A\)</span>的特征多项式，那么<span class="math inline">\(f_A(A)=O\)</span></p>
+<blockquote>
+<p>【证明】：<span class="math inline">\(f_A(\lambda)\)</span>可以表示为： <span class="math display">\[
+f_A(\lambda)=\prod_{i=1}^n(\lambda-\lambda_i)
+\]</span> 则又shur引理，有<span class="math inline">\(P^{-1}AP=\Lambda\)</span>，<span class="math inline">\(f_A(A)\)</span>可以表示为： <span class="math display">\[
+f_A(P\Lambda P^{-1})=P\prod_{i=1}^n(\Lambda-\lambda_1I)P^{-1}
+\]</span> 因为上三角阵相乘，对角线元素相乘，所以中间的累乘式结果是<span class="math inline">\(O\)</span>，证毕。</p>
+</blockquote>
+<p>接下来介绍关于矩阵的几个重要多项式：</p>
+<p>【零化多项式】如果多项式<span class="math inline">\(f(\lambda)\)</span>满足<span class="math inline">\(f(A)=O\)</span>，称其为矩阵<span class="math inline">\(A\)</span>的零化多项式。</p>
+<blockquote>
+<p>不难发现，矩阵的特征多项式就是一个典型的零化多项式。</p>
+</blockquote>
+<p>【最小多项式】矩阵的零化多项式中，最小次数且最高次项系数为<span class="math inline">\(1\)</span>的多项式称为最小多项式，记作<span class="math inline">\(m_A(\lambda)\)</span>。</p>
+<blockquote>
+<p>矩阵的特征多项式不一定是最小多项式。例如二阶单位矩阵，其特征多项式是<span class="math inline">\((\lambda-1)^2\)</span>，但是最小多项式是<span class="math inline">\((\lambda-1)\)</span>。</p>
+</blockquote>
+<p>关于最小多项式，有以下结论：</p>
+<ol type="1">
+<li>矩阵的最小多项式唯一，而且可以整除任何零化多项式</li>
+<li>矩阵的最小多项式的根与特征多项式相同（不计重数）</li>
+</ol>
+<h2 id="对角化分解">对角化分解</h2>
+<p>【定义：单纯矩阵】如果<span class="math inline">\(n\)</span>阶复方阵相似于对角矩阵<span class="math inline">\(\Lambda\)</span>，即存在<span class="math inline">\(n\)</span>阶可逆矩阵<span class="math inline">\(P\)</span>，使得 <span class="math display">\[
+P^{-1}AP=\Lambda
+\]</span> 则称<span class="math inline">\(A\)</span>是单纯矩阵，也叫可对角化矩阵。</p>
+<p>关于单纯矩阵，以下命题等价：</p>
+<ol type="1">
+<li><span class="math inline">\(A\)</span>是单纯矩阵</li>
+<li><span class="math inline">\(A\)</span>有<span class="math inline">\(n\)</span>个线性无关的特征向量</li>
+<li>特征值<span class="math inline">\(\lambda_i,i=1\cdots m\)</span>的代数重数等于几何重数</li>
+<li><span class="math inline">\(\sum_{i=1}^m \dim E(\lambda_i)=n\)</span></li>
+<li>最小多项式无重根</li>
+</ol>
+<h2 id="mooc第三章答案">MOOC第三章答案</h2>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs mathematica"><span class="hljs-built_in">C</span> <span class="hljs-built_in">C</span> <span class="hljs-variable">CD</span> <span class="hljs-variable">A</span> <span class="hljs-variable">B</span><br><span class="hljs-variable">B</span> <span class="hljs-built_in">D</span> <span class="hljs-variable">A</span> <span class="hljs-variable">ACD</span> <span class="hljs-variable">ABCD</span><br><span class="hljs-variable">AC</span> <span class="hljs-variable">CD</span> <span class="hljs-built_in">C</span> <span class="hljs-variable">B</span> <span class="hljs-built_in">D</span><br><span class="hljs-built_in">D</span> <span class="hljs-number">1</span> <span class="hljs-built_in">C</span> <span class="hljs-variable">B</span> <span class="hljs-built_in">D</span><br><span class="hljs-built_in">C</span> <span class="hljs-built_in">C</span> <span class="hljs-built_in">C</span> <span class="hljs-built_in">D</span> <span class="hljs-variable">A</span><br><span class="hljs-variable">B</span> <span class="hljs-variable">ABC</span> <span class="hljs-variable">ABCD</span> <span class="hljs-variable">BC</span> <span class="hljs-variable">AD</span><br><span class="hljs-variable">ABCD</span> <span class="hljs-variable">BC</span> <span class="hljs-variable">AD</span> <span class="hljs-variable">ABC</span> <span class="hljs-number">1</span><br><span class="hljs-number">00111</span><br><span class="hljs-number">11111</span><br><span class="hljs-number">01101</span><br><span class="hljs-number">11111</span><br><span class="hljs-number">10111</span><br><span class="hljs-number">00111</span><br><span class="hljs-number">10111</span><br><span class="hljs-number">01111</span><br><span class="hljs-number">0</span> <span class="hljs-variable">ABCD</span> <span class="hljs-number">111</span><br><span class="hljs-number">1111</span> <span class="hljs-variable">BC</span><br><span class="hljs-number">11</span><br></code></pre></td></tr></table></figure>
 <hr />
 <section class="footnotes">
 <div class="footnote-list">
