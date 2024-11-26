@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202410052359787.png">
 <meta property="article:published_time" content="2024-10-05T06:38:32.000Z">
-<meta property="article:modified_time" content="2024-11-22T14:52:26.873Z">
+<meta property="article:modified_time" content="2024-11-26T09:12:29.752Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="矩阵理论">
 <meta name="twitter:card" content="summary_large_image">
@@ -267,7 +267,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          21k 字
+          22k 字
         
       </span>
     
@@ -278,7 +278,7 @@
         
         
         
-          52 分钟
+          55 分钟
         
       </span>
     
@@ -1150,7 +1150,7 @@ B=\left[\begin{array}{ll}
 0 &amp; 0
 \end{array}\right]=Q R
 \]</span> 所以 <span class="math inline">\(A \in \mathbb{C}_n^{m \times n}\)</span> 可分解为 <span class="math inline">\(A=U R\)</span>, 其中, <span class="math inline">\(U\)</span> 是 <span class="math inline">\(m\)</span>阶酉矩阵, <span class="math inline">\(R=\left[\begin{array}{c}R_1 \\ 0\end{array}\right]_{m \times n}, R_1\)</span> 为正线上三角阵, <span class="math inline">\(n \leq m\)</span>.</p>
-<h2 id="schur分解和矩阵多项式">Schur分解和矩阵多项式</h2>
+<h3 id="schur分解和矩阵多项式">Schur分解和矩阵多项式</h3>
 <p>【Schur引理】任意复方阵 <span class="math inline">\(A\)</span> 相似于上三角阵，即存在可逆矩阵<span class="math inline">\(P\)</span>使得<span class="math inline">\(\Lambda=P^{-1}AP\)</span>，且<span class="math inline">\(\Lambda\)</span>的对角元素是<span class="math inline">\(A\)</span>的特征值。进一步，任意复方阵 <span class="math inline">\(A\)</span> 酉相似于上三角阵 <span class="math inline">\(\Lambda\)</span>, 即存在酉矩阵 <span class="math inline">\(U\)</span> 使得 <span class="math inline">\(U^H A U=\Lambda\)</span> 为上三角阵。</p>
 <p>【矩阵多项式】 设 <span class="math inline">\(A \in \mathbb{C}^{n \times n}\)</span>, 定义数域 <span class="math inline">\(\mathbb{C}\)</span> 上的多项式</p>
 <p><span class="math display">\[
@@ -1193,10 +1193,10 @@ f_A(P\Lambda P^{-1})=P\prod_{i=1}^n(\Lambda-\lambda_1I)P^{-1}
 <li>矩阵的最小多项式唯一，而且可以整除任何零化多项式</li>
 <li>矩阵的最小多项式的根与特征多项式相同（不计重数）</li>
 </ol>
-<h2 id="对角化分解">对角化分解</h2>
+<h3 id="对角化分解">对角化分解</h3>
 <p>【定义：单纯矩阵】如果<span class="math inline">\(n\)</span>阶复方阵相似于对角矩阵<span class="math inline">\(\Lambda\)</span>，即存在<span class="math inline">\(n\)</span>阶可逆矩阵<span class="math inline">\(P\)</span>，使得 <span class="math display">\[
 P^{-1}AP=\Lambda
-\]</span> 则称<span class="math inline">\(A\)</span>是单纯矩阵，也叫可对角化矩阵。</p>
+\]</span> 则称<span class="math inline">\(A\)</span>​是单纯矩阵，也叫可对角化矩阵。单纯阵的定义式就是单纯阵的对角化分解式，它实际上是Schur分解的一种特殊形式（Schur分解是「上三角阵」，对角化分解是「对角矩阵」）。</p>
 <p>关于单纯矩阵，以下命题等价：</p>
 <ol type="1">
 <li><span class="math inline">\(A\)</span>是单纯矩阵</li>
@@ -1205,7 +1205,42 @@ P^{-1}AP=\Lambda
 <li><span class="math inline">\(\sum_{i=1}^m \dim E(\lambda_i)=n\)</span></li>
 <li>最小多项式无重根</li>
 </ol>
-<h2 id="mooc第三章答案">MOOC第三章答案</h2>
+<p>关于单纯矩阵，还有两个充分而不必要条件：</p>
+<ol type="1">
+<li>如果复方阵的零化多项式无重根，那么它是单纯矩阵</li>
+<li>如果<span class="math inline">\(n\)</span>阶复方阵有<span class="math inline">\(n\)</span>个互异的特征值，那么它是单纯矩阵</li>
+</ol>
+<blockquote>
+<p>【例】之前分析过的<a target="_blank" rel="noopener" href="https://blog.sakizuki.site/2024/10/05/%E7%9F%A9%E9%98%B5%E7%90%86%E8%AE%BA%E7%AC%94%E8%AE%B0/#%E5%B9%82%E7%AD%89%E7%9F%A9%E9%98%B5">幂等矩阵</a>是单纯矩阵吗？</p>
+<p>【解】幂等矩阵是满足<span class="math inline">\(A^2=A\)</span>的矩阵，显然<span class="math inline">\(g(\lambda)=\lambda^2-\lambda\)</span>是它的一个零化多项式，无重根，所以<span class="math inline">\(A\)</span>是单纯矩阵。</p>
+</blockquote>
+<p>【酉相似对角化】如果<span class="math inline">\(n\)</span>阶复方阵<span class="math inline">\(A\)</span>酉相似于对角矩阵<span class="math inline">\(\Lambda\)</span>，即存在<span class="math inline">\(n\)</span>阶酉矩阵，使得<span class="math inline">\(U^HAU=\Lambda\)</span>，那么称<span class="math inline">\(A\)</span>是可酉相似对角化的。</p>
+<p>设矩阵<span class="math inline">\(A\in \C^{n\times n}\)</span>，那么<span class="math inline">\(A\)</span>是Hermit矩阵（<span class="math inline">\(A=A^H\)</span>）当且仅当<span class="math inline">\(A\)</span>的所有特征值<span class="math inline">\(\lambda_1\cdots \lambda_n\)</span>是实数，而且存在酉矩阵<span class="math inline">\(U\)</span>，使得<span class="math inline">\(U^HAU=\text{diag}\{\lambda_1\cdots \lambda_n\}\)</span>.</p>
+<p>求Hermite矩阵<span class="math inline">\(A\)</span>酉相似于对角阵的步骤如下:</p>
+<ol type="1">
+<li>求出<span class="math inline">\(A\)</span>所有的相异特征值和重数</li>
+<li>对于每个特征值，求<span class="math inline">\((\lambda I-A)x=0\)</span>的基础解系，并将其单位正交化</li>
+<li>由标准正交特征向量生成酉矩阵<span class="math inline">\(Q\)</span>，则<span class="math inline">\(Q^HAQ\)</span>是酉矩阵</li>
+</ol>
+<p>【正规矩阵】设<span class="math inline">\(A\in \C^{n\times n}\)</span>，则满足<span class="math inline">\(AA^H=A^HA\)</span>的矩阵称为正规矩阵。</p>
+<p>复方阵<span class="math inline">\(A\)</span>是正规矩阵，和<span class="math inline">\(A\)</span>酉相似于对角阵等价。</p>
+<p>关于正规矩阵，有：</p>
+<ol type="1">
+<li><p>复方阵 <span class="math inline">\(A\)</span> 是正规矩阵当且仅当 <span class="math inline">\(A\)</span> 有 <span class="math inline">\(n\)</span> 个特征向量构成 <span class="math inline">\(\mathbb{C}^n\)</span> 空间的一组标准正交基，且属于 <span class="math inline">\(A\)</span> 的不同特征值的特征向量正交.</p></li>
+<li><p><span class="math inline">\(n\)</span> 阶实方阵 <span class="math inline">\(A\)</span> 是正交矩阵当且仅当 <span class="math inline">\(A\)</span> 的所有特征值的模值为 1 , 且存在酉矩阵 <span class="math inline">\(U\)</span> 使得</p></li>
+</ol>
+<p><span class="math display">\[
+   U^H A U=\operatorname{diag}\left(\lambda_1, \cdots, \lambda_n\right)
+   \]</span></p>
+<p>其中 <span class="math inline">\(\lambda_1, \cdots, \lambda_n\)</span> 是 <span class="math inline">\(A\)</span> 的 <span class="math inline">\(n\)</span> 个特征值.</p>
+<ol start="3" type="1">
+<li><span class="math inline">\(n\)</span> 阶复方阵 <span class="math inline">\(A\)</span> 是酉矩阵当且仅当 <span class="math inline">\(A\)</span> 的所有特征值的模值为 1 , 且存在酉矩阵 <span class="math inline">\(U\)</span> 使得</li>
+</ol>
+<p><span class="math display">\[
+   U^H A U=\operatorname{diag}\left(\lambda_1, \cdots, \lambda_n\right)
+   \]</span></p>
+<p>其中 <span class="math inline">\(\lambda_1, \cdots, \lambda_n\)</span> 是 <span class="math inline">\(A\)</span> 的 <span class="math inline">\(n\)</span> 个特征值.</p>
+<h3 id="mooc第三章答案">MOOC第三章答案</h3>
 <figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs mathematica"><span class="hljs-built_in">C</span> <span class="hljs-built_in">C</span> <span class="hljs-variable">CD</span> <span class="hljs-variable">A</span> <span class="hljs-variable">B</span><br><span class="hljs-variable">B</span> <span class="hljs-built_in">D</span> <span class="hljs-variable">A</span> <span class="hljs-variable">ACD</span> <span class="hljs-variable">ABCD</span><br><span class="hljs-variable">AC</span> <span class="hljs-variable">CD</span> <span class="hljs-built_in">C</span> <span class="hljs-variable">B</span> <span class="hljs-built_in">D</span><br><span class="hljs-built_in">D</span> <span class="hljs-number">1</span> <span class="hljs-built_in">C</span> <span class="hljs-variable">B</span> <span class="hljs-built_in">D</span><br><span class="hljs-built_in">C</span> <span class="hljs-built_in">C</span> <span class="hljs-built_in">C</span> <span class="hljs-built_in">D</span> <span class="hljs-variable">A</span><br><span class="hljs-variable">B</span> <span class="hljs-variable">ABC</span> <span class="hljs-variable">ABCD</span> <span class="hljs-variable">BC</span> <span class="hljs-variable">AD</span><br><span class="hljs-variable">ABCD</span> <span class="hljs-variable">BC</span> <span class="hljs-variable">AD</span> <span class="hljs-variable">ABC</span> <span class="hljs-number">1</span><br><span class="hljs-number">00111</span><br><span class="hljs-number">11111</span><br><span class="hljs-number">01101</span><br><span class="hljs-number">11111</span><br><span class="hljs-number">10111</span><br><span class="hljs-number">00111</span><br><span class="hljs-number">10111</span><br><span class="hljs-number">01111</span><br><span class="hljs-number">0</span> <span class="hljs-variable">ABCD</span> <span class="hljs-number">111</span><br><span class="hljs-number">1111</span> <span class="hljs-variable">BC</span><br><span class="hljs-number">11</span><br></code></pre></td></tr></table></figure>
 <hr />
 <section class="footnotes">
