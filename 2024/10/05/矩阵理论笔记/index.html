@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202410052359787.png">
 <meta property="article:published_time" content="2024-10-05T06:38:32.000Z">
-<meta property="article:modified_time" content="2024-11-26T09:12:29.752Z">
+<meta property="article:modified_time" content="2024-12-22T13:49:52.126Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="矩阵理论">
 <meta name="twitter:card" content="summary_large_image">
@@ -280,7 +280,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          22k 字
+          26k 字
         
       </span>
     
@@ -291,7 +291,7 @@
         
         
         
-          55 分钟
+          65 分钟
         
       </span>
     
@@ -1193,11 +1193,11 @@ U^HAU=\Lambda
 \phi(A)=\phi(U\Lambda U^H)=U\phi(\Lambda)U^H
 \]</span> 其中上三角阵<span class="math inline">\(\phi(\Lambda)\)</span>的对角线元素是<span class="math inline">\(\phi(\lambda_1)\cdots\phi(\lambda_n)\)</span>，由于<span class="math inline">\(\phi(A)\)</span>酉相似于<span class="math inline">\(\phi(\Lambda)\)</span>，所以它们有相同的特征值，证毕。</p>
 </blockquote>
-<p>【Hamilton-Cayley定理】设<span class="math inline">\(f_A(\lambda)=|\lambda I-A|\)</span>是<span class="math inline">\(A\)</span>的特征多项式，那么<span class="math inline">\(f_A(A)=O\)</span></p>
+<p>【Hamilton-Cayley定理】设<span class="math inline">\(f_A(\lambda)=|\lambda I-A|\)</span>是<span class="math inline">\(A\)</span>的特征多项式，那么<span class="math inline">\(f_A(A)=O\)</span>。即：矩阵是自己的特征多项式的根。</p>
 <blockquote>
 <p>【证明】：<span class="math inline">\(f_A(\lambda)\)</span>可以表示为： <span class="math display">\[
 f_A(\lambda)=\prod_{i=1}^n(\lambda-\lambda_i)
-\]</span> 则又shur引理，有<span class="math inline">\(P^{-1}AP=\Lambda\)</span>，<span class="math inline">\(f_A(A)\)</span>可以表示为： <span class="math display">\[
+\]</span> 则由shur引理，有<span class="math inline">\(P^{-1}AP=\Lambda\)</span>，<span class="math inline">\(f_A(A)\)</span>可以表示为： <span class="math display">\[
 f_A(P\Lambda P^{-1})=P\prod_{i=1}^n(\Lambda-\lambda_1I)P^{-1}
 \]</span> 因为上三角阵相乘，对角线元素相乘，所以中间的累乘式结果是<span class="math inline">\(O\)</span>，证毕。</p>
 </blockquote>
@@ -1215,7 +1215,22 @@ f_A(P\Lambda P^{-1})=P\prod_{i=1}^n(\Lambda-\lambda_1I)P^{-1}
 <li>矩阵的最小多项式唯一，而且可以整除任何零化多项式</li>
 <li>矩阵的最小多项式的根与特征多项式相同（不计重数）</li>
 </ol>
-<h3 id="对角化分解">对角化分解</h3>
+<p>据此，可以知道一个求矩阵的最小多项式的方法，就是先求它的特征多项式，并写成根的分解的形式，然后将每一项的次数置为<span class="math inline">\(1\)</span>，验证是否是零化多项式，如果不是， 就挨个提高次数，直到发现一个零化多项式为止。</p>
+<blockquote>
+<p>【例】求最小多项式： <span class="math display">\[
+\begin{bmatrix}
+3 &amp; -3 &amp; 2\\
+-1 &amp; 5 &amp;-2\\
+-1 &amp; 3 &amp; 0\\
+\end{bmatrix}
+\]</span> 【解】矩阵的特征多项式为： <span class="math display">\[
+(\lambda-2)^2(\lambda-4)
+\]</span> 因此最小多项式可能是<span class="math inline">\((\lambda-2)(\lambda-4)\)</span>或者<span class="math inline">\((\lambda-2)^2(\lambda-4)\)</span></p>
+<p>验证第一个，有： <span class="math display">\[
+(A-2I)(A-4I)=O
+\]</span> 因此最小多项式是<span class="math inline">\((\lambda-2)(\lambda-4)\)</span>。</p>
+</blockquote>
+<h3 id="对角化分解不考">对角化分解（不考）</h3>
 <p>【定义：单纯矩阵】如果<span class="math inline">\(n\)</span>阶复方阵相似于对角矩阵<span class="math inline">\(\Lambda\)</span>，即存在<span class="math inline">\(n\)</span>阶可逆矩阵<span class="math inline">\(P\)</span>，使得 <span class="math display">\[
 P^{-1}AP=\Lambda
 \]</span> 则称<span class="math inline">\(A\)</span>​是单纯矩阵，也叫可对角化矩阵。单纯阵的定义式就是单纯阵的对角化分解式，它实际上是Schur分解的一种特殊形式（Schur分解是「上三角阵」，对角化分解是「对角矩阵」）。</p>
@@ -1262,6 +1277,159 @@ P^{-1}AP=\Lambda
    U^H A U=\operatorname{diag}\left(\lambda_1, \cdots, \lambda_n\right)
    \]</span></p>
 <p>其中 <span class="math inline">\(\lambda_1, \cdots, \lambda_n\)</span> 是 <span class="math inline">\(A\)</span> 的 <span class="math inline">\(n\)</span> 个特征值.</p>
+<h3 id="若当标准型">若当标准型</h3>
+<h4 id="lambda矩阵与三个重要因子"><span class="math inline">\(\lambda\)</span>矩阵与三个重要因子</h4>
+<p>【<span class="math inline">\(\lambda\)</span>矩阵】如果矩阵<span class="math inline">\(A\)</span>的元素都是<span class="math inline">\(\lambda\)</span>多项式，那么矩阵<span class="math inline">\(A\)</span>称为<span class="math inline">\(\lambda\)</span>矩阵。</p>
+<p>例如，我们经常见到的特征矩阵<span class="math inline">\(\lambda I-A\)</span>就是一个典型的<span class="math inline">\(\lambda\)</span>矩阵。</p>
+<p><span class="math inline">\(\lambda\)</span>矩阵的的秩定义为其非零子式的最大阶数。<span class="math inline">\(\lambda\)</span>矩阵可逆，等价于其行列式<span class="math inline">\(|A(\lambda)|\)</span>是非零的<strong>常数</strong>。</p>
+<p><span class="math inline">\(\lambda\)</span>矩阵也可以进行初等行列变换，即：</p>
+<ol type="1">
+<li>交换行/列顺序</li>
+<li>给某一行/列乘以非零常数</li>
+<li>给某一行/列乘以一个<span class="math inline">\(\lambda\)</span>多项式然后加到另一行/列上。</li>
+</ol>
+<p>若<span class="math inline">\(A(\lambda)\)</span>经过有限次初等变换变为<span class="math inline">\(B(\lambda)\)</span>，称这两个矩阵相抵。与数字矩阵不同的是，秩相同的<span class="math inline">\(\lambda\)</span>矩阵不一定相抵。<span class="math inline">\(\lambda\)</span>矩阵如果要相抵，除了秩相同以外，还要有相同的各阶行列式因子。</p>
+<p>【行列式因子】一个矩阵的<span class="math inline">\(k\)</span>阶行列式因子定义为其全部<span class="math inline">\(k\)</span>阶子式的首<span class="math inline">\(1\)</span>最大公因子，记为<span class="math inline">\(D_k(\lambda)\)</span>。</p>
+<p>【不变因子】不变因子可以通过下面的形式计算： <span class="math display">\[
+d_1=D_1,d_2=\frac {D_2}{D_1},\cdots,d_n=\frac{D_n}{D_{n-1}}
+\]</span> 【初等因子】把每个不变因子分解成一次因式的幂的乘积形式，所有这些一次因式的幂的集合（相同的必须按出现次数重复计算）称为矩阵的初等因子组。</p>
+<blockquote>
+<p>【例】求矩阵 <span class="math display">\[
+\begin{bmatrix}
+\lambda+1 &amp; 2 &amp; -6\\
+1 &amp; \lambda &amp; -3\\
+1 &amp; 1 &amp; \lambda-4\\
+\end{bmatrix}
+\]</span> 的各阶行列式因子、初等因子和不变因子</p>
+<p>【解】<strong>先求行列式因子：</strong></p>
+<p>三阶行列式因子： <span class="math display">\[
+\begin{vmatrix}
+\lambda+1 &amp; 2 &amp; -6\\
+1 &amp; \lambda &amp; -3\\
+1 &amp; 1 &amp; \lambda-4\\
+\end{vmatrix}=(\lambda-1)^3
+\]</span> 二阶行列式因子：</p>
+<p>求矩阵的9个子式的最大公因式，例如： <span class="math display">\[
+\begin{vmatrix}
+\lambda+1 &amp; 2 \\
+1 &amp; \lambda\\
+\end{vmatrix}=(\lambda-1)(\lambda+2)
+\]</span></p>
+<p><span class="math display">\[
+\begin{vmatrix}
+2 &amp; -6 \\
+\lambda &amp;-3\\
+\end{vmatrix}=6(\lambda-1)
+\]</span></p>
+<p>等等。最终算出来最大公因式是<span class="math inline">\((\lambda-1)\)</span>。</p>
+<p>一阶行列式因子：</p>
+<p>即所有元素的最大公因式：<span class="math inline">\(1\)</span></p>
+<p><strong>求初等因子：</strong> <span class="math display">\[
+d_1=D_1=1
+\]</span></p>
+<p><span class="math display">\[
+d_2=\frac{D_2}{D_1}=\lambda-1
+\]</span></p>
+<p><span class="math display">\[
+d_3=\frac{D_3}{D_2}=(\lambda-1)^2
+\]</span></p>
+<p><strong>求不变因子：</strong> <span class="math display">\[
+(\lambda-1),(\lambda-1)^2
+\]</span></p>
+</blockquote>
+<h4 id="史密斯标准型">史密斯标准型</h4>
+<p>一个<span class="math inline">\(\lambda\)</span>矩阵的史密斯标准型为： <span class="math display">\[
+A(\lambda)=\left(\begin{array}{llllll}
+d_1(\lambda) &amp; &amp; &amp; &amp; &amp; &amp; \\
+&amp; d_2(\lambda) &amp; &amp; &amp; &amp; &amp; \\
+&amp; &amp; \ddots &amp; &amp; &amp; &amp;\\
+&amp; &amp; &amp; d_r(\lambda) &amp; &amp; &amp; \\
+&amp; &amp; &amp; &amp; 0 &amp; &amp;\\
+&amp; &amp; &amp; &amp; &amp; \ddots &amp; \\
+&amp; &amp; &amp; &amp; &amp; &amp;0
+\end{array}\right)
+\]</span> 其中<span class="math inline">\(d(\lambda)\)</span>是矩阵的初等因子。</p>
+<p>史密斯标准型的求法是：</p>
+<ol type="1">
+<li><p>确定原矩阵的一阶行列式因子</p></li>
+<li><p>通过初等变换，把原矩阵的左上角元素变成<span class="math inline">\(d_1=D_1\)</span></p></li>
+<li><p>通过初等变换，把原矩阵的第一行、第一列除了第一个以外的元素都变成<span class="math inline">\(0\)</span>，此时矩阵为： <span class="math display">\[
+\begin{bmatrix}
+d_1 &amp;0\\
+0 &amp;B_1(\lambda)
+\end{bmatrix}
+\]</span></p></li>
+<li><p>对<span class="math inline">\(B_1(\lambda)\)</span>递归进行前三步。</p></li>
+</ol>
+<blockquote>
+<p>【例】求史密斯标准型： <span class="math display">\[
+\left(\begin{array}{ccc}
+-\lambda+1 &amp; 2 \lambda-1 &amp; \lambda \\
+\lambda &amp; \lambda^2 &amp; -\lambda \\
+\lambda^2+1 &amp; \lambda^2+\lambda-1 &amp; -\lambda^2
+\end{array}\right)
+\]</span> 【解】</p>
+<p>计算一阶行列式因子<span class="math inline">\(D_1=1\)</span>，则： <span class="math display">\[
+\begin{align}
+A(\lambda)=&amp;\left(\begin{array}{ccc}
+-\lambda+1 &amp; 2 \lambda-1 &amp; \lambda \\
+\lambda &amp; \lambda^2 &amp; -\lambda \\
+\lambda^2+1 &amp; \lambda^2+\lambda-1 &amp; -\lambda^2
+\end{array}\right) \\
+\stackrel{C_3+C_1}{\simeq}&amp;\left(\begin{array}{ccc}
+1 &amp; 2 \lambda-1 &amp; \lambda \\
+0 &amp; \lambda^2 &amp; -\lambda \\
+1 &amp; \lambda^2+\lambda-1 &amp; -\lambda^2
+\end{array}\right)\\
+\stackrel{-R_1+R_3}{\simeq}&amp;\left(\begin{array}{ccc}
+1 &amp; 2 \lambda-1 &amp; \lambda \\
+0 &amp; \lambda^2 &amp; -\lambda \\
+0 &amp; \lambda^2-\lambda &amp; -\lambda^2-\lambda
+\end{array}\right)\\
+\stackrel{}{\simeq}&amp;\left(\begin{array}{c|cc}
+1 &amp; 0 &amp; 0 \\
+\hline 0 &amp; \lambda^2 &amp; -\lambda \\
+0 &amp; \lambda^2-\lambda &amp; -\lambda^2-\lambda
+\end{array}\right)
+\end{align}
+\]</span> 计算右下方子矩阵的一阶行列式因子：<span class="math inline">\(\lambda\)</span> <span class="math display">\[
+\begin{align}
+&amp;\left(\begin{array}{c|cc}
+1 &amp; 0 &amp; 0 \\
+\hline 0 &amp; \lambda^2 &amp; -\lambda \\
+0 &amp; \lambda^2-\lambda &amp; -\lambda^2-\lambda
+\end{array}\right)\\
+\stackrel{C_2\leftrightarrow C_3}{\simeq} &amp;\left(\begin{array}{ccc}
+1 &amp; 0 &amp; 0 \\
+0 &amp; -\lambda &amp; \lambda^2 \\
+0 &amp; -\lambda^2-\lambda &amp; \lambda^2-\lambda
+\end{array}\right)\\
+\stackrel{-R_2}{\simeq} &amp;\left(\begin{array}{ccc}
+1 &amp; 0 &amp; 0 \\
+0 &amp; \lambda &amp; -\lambda^2 \\
+0 &amp; -\lambda^2-\lambda &amp; \lambda^2-\lambda
+\end{array}\right)\\
+\stackrel{(\lambda+1)R_2+R_3}{\simeq} &amp;\left(\begin{array}{ccc}
+1 &amp; 0 &amp; 0 \\
+0 &amp; \lambda &amp; -\lambda^2 \\
+0 &amp; 0 &amp; -\lambda^3-\lambda
+\end{array}\right)\\
+\stackrel{\lambda C_2+C_3}{\simeq} &amp;\left(\begin{array}{ccc}
+1 &amp; 0 &amp; 0 \\
+0 &amp; \lambda &amp; 0 \\
+0 &amp; 0 &amp; -\lambda^3-\lambda
+\end{array}\right)\\
+\stackrel{-R_3}{\simeq} &amp;\left(\begin{array}{ccc}
+1 &amp; 0 &amp; 0 \\
+0 &amp; \lambda &amp; 0 \\
+0 &amp; 0 &amp; \lambda^3+\lambda
+\end{array}\right)\\
+\end{align}
+\]</span></p>
+</blockquote>
+<h4 id="若当标准型的求法">若当标准型的求法</h4>
+<p>假如矩阵有一个不变因子是<span class="math inline">\((\lambda-k)^n\)</span>，那么它对应一个<span class="math inline">\(n\)</span>阶，主对角线元素为<span class="math inline">\(k\)</span>，主对角线上一行元素为<span class="math inline">\(1\)</span>的若当块。</p>
+<p>对于矩阵<span class="math inline">\(A\)</span>的特征矩阵<span class="math inline">\(\lambda I-A\)</span>的不变因子组，它们对应的若当块以任意顺序组合，就是矩阵的若当标准型。</p>
 <h3 id="mooc第三章答案">MOOC第三章答案</h3>
 <figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs mathematica"><span class="hljs-built_in">C</span> <span class="hljs-built_in">C</span> <span class="hljs-variable">CD</span> <span class="hljs-variable">A</span> <span class="hljs-variable">B</span><br><span class="hljs-variable">B</span> <span class="hljs-built_in">D</span> <span class="hljs-variable">A</span> <span class="hljs-variable">ACD</span> <span class="hljs-variable">ABCD</span><br><span class="hljs-variable">AC</span> <span class="hljs-variable">CD</span> <span class="hljs-built_in">C</span> <span class="hljs-variable">B</span> <span class="hljs-built_in">D</span><br><span class="hljs-built_in">D</span> <span class="hljs-number">1</span> <span class="hljs-built_in">C</span> <span class="hljs-variable">B</span> <span class="hljs-built_in">D</span><br><span class="hljs-built_in">C</span> <span class="hljs-built_in">C</span> <span class="hljs-built_in">C</span> <span class="hljs-built_in">D</span> <span class="hljs-variable">A</span><br><span class="hljs-variable">B</span> <span class="hljs-variable">ABC</span> <span class="hljs-variable">ABCD</span> <span class="hljs-variable">BC</span> <span class="hljs-variable">AD</span><br><span class="hljs-variable">ABCD</span> <span class="hljs-variable">BC</span> <span class="hljs-variable">AD</span> <span class="hljs-variable">ABC</span> <span class="hljs-number">1</span><br><span class="hljs-number">00111</span><br><span class="hljs-number">11111</span><br><span class="hljs-number">01101</span><br><span class="hljs-number">11111</span><br><span class="hljs-number">10111</span><br><span class="hljs-number">00111</span><br><span class="hljs-number">10111</span><br><span class="hljs-number">01111</span><br><span class="hljs-number">0</span> <span class="hljs-variable">ABCD</span> <span class="hljs-number">111</span><br><span class="hljs-number">1111</span> <span class="hljs-variable">BC</span><br><span class="hljs-number">11</span><br></code></pre></td></tr></table></figure>
 <hr />
