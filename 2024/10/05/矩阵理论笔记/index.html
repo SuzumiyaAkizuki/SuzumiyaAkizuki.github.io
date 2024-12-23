@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202410052359787.png">
 <meta property="article:published_time" content="2024-10-05T06:38:32.000Z">
-<meta property="article:modified_time" content="2024-12-22T13:49:52.126Z">
+<meta property="article:modified_time" content="2024-12-23T15:25:53.419Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="矩阵理论">
 <meta name="twitter:card" content="summary_large_image">
@@ -280,7 +280,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          26k 字
+          28k 字
         
       </span>
     
@@ -291,7 +291,7 @@
         
         
         
-          65 分钟
+          70 分钟
         
       </span>
     
@@ -1432,6 +1432,66 @@ A(\lambda)=&amp;\left(\begin{array}{ccc}
 <p>对于矩阵<span class="math inline">\(A\)</span>的特征矩阵<span class="math inline">\(\lambda I-A\)</span>的不变因子组，它们对应的若当块以任意顺序组合，就是矩阵的若当标准型。</p>
 <h3 id="mooc第三章答案">MOOC第三章答案</h3>
 <figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs mathematica"><span class="hljs-built_in">C</span> <span class="hljs-built_in">C</span> <span class="hljs-variable">CD</span> <span class="hljs-variable">A</span> <span class="hljs-variable">B</span><br><span class="hljs-variable">B</span> <span class="hljs-built_in">D</span> <span class="hljs-variable">A</span> <span class="hljs-variable">ACD</span> <span class="hljs-variable">ABCD</span><br><span class="hljs-variable">AC</span> <span class="hljs-variable">CD</span> <span class="hljs-built_in">C</span> <span class="hljs-variable">B</span> <span class="hljs-built_in">D</span><br><span class="hljs-built_in">D</span> <span class="hljs-number">1</span> <span class="hljs-built_in">C</span> <span class="hljs-variable">B</span> <span class="hljs-built_in">D</span><br><span class="hljs-built_in">C</span> <span class="hljs-built_in">C</span> <span class="hljs-built_in">C</span> <span class="hljs-built_in">D</span> <span class="hljs-variable">A</span><br><span class="hljs-variable">B</span> <span class="hljs-variable">ABC</span> <span class="hljs-variable">ABCD</span> <span class="hljs-variable">BC</span> <span class="hljs-variable">AD</span><br><span class="hljs-variable">ABCD</span> <span class="hljs-variable">BC</span> <span class="hljs-variable">AD</span> <span class="hljs-variable">ABC</span> <span class="hljs-number">1</span><br><span class="hljs-number">00111</span><br><span class="hljs-number">11111</span><br><span class="hljs-number">01101</span><br><span class="hljs-number">11111</span><br><span class="hljs-number">10111</span><br><span class="hljs-number">00111</span><br><span class="hljs-number">10111</span><br><span class="hljs-number">01111</span><br><span class="hljs-number">0</span> <span class="hljs-variable">ABCD</span> <span class="hljs-number">111</span><br><span class="hljs-number">1111</span> <span class="hljs-variable">BC</span><br><span class="hljs-number">11</span><br></code></pre></td></tr></table></figure>
+<h2 id="矩阵分析">矩阵分析</h2>
+<h3 id="向量范数">向量范数</h3>
+<p>【向量范数】设<span class="math inline">\(V\)</span>是数域<span class="math inline">\(F\)</span>上的线性空间，<span class="math inline">\(\|x\|\)</span>是<span class="math inline">\(x\in V\)</span>的实值函数，如果满足：</p>
+<ol type="1">
+<li>正定：<span class="math inline">\(\|x\|\geq 0\)</span>且当且仅当<span class="math inline">\(x=\theta\)</span>时，<span class="math inline">\(\|x\|=0\)</span></li>
+<li>齐次：<span class="math inline">\(\forall k\in F,\|kx\|=k\|x\|\)</span></li>
+<li>三角不等式：<span class="math inline">\(\forall x,y\in V,\|x+y\|\leq \|x\|+\|y\|\)</span></li>
+</ol>
+<p>称其为向量的范数，称这个线性空间为赋范线性空间。</p>
+<p>有以下三种常用的范数：</p>
+<ol type="1">
+<li><span class="math inline">\(\|x\|_1=\sum_i |x_i|\)</span>，即所有元素的绝对值之和</li>
+<li><span class="math inline">\(\|x\|_\infty=\max_i |x_i|\)</span>，即所有元素的绝对值中的最大值</li>
+<li><span class="math inline">\(\|x\|_2=\sqrt {\sum_i |x_i|^2}\)</span>，即我们日常使用的「欧氏距离」</li>
+<li><span class="math inline">\(\|x\|_p=\left(\sum _i |x_i|^p\right)^{\frac 1p}\)</span>，其中<span class="math inline">\(p\in [1,\infty]\)</span>，上面三个范数都是它的特殊情况。</li>
+</ol>
+<blockquote>
+<p>问：内积空间是赋范线性空间吗？</p>
+<p>答：是的，不仅如此，内积空间所定义的距离还满足「平行四边形法则」。</p>
+</blockquote>
+<p>【范数等价】对于两个向量范数<span class="math inline">\(\|x\|_\alpha\)</span>和<span class="math inline">\(\|x\|_\beta\)</span>，如果有： <span class="math display">\[
+k_1\|x\|_\beta\leq \|x\|_\alpha \leq k_2\|x\|_\beta
+\]</span> 那么称这两个范数等价。范数等价满足等价的性质，即传递性、自反性和对称性。</p>
+<p>事实上，有限维线性空间的所有范数都是等价的。</p>
+<h3 id="矩阵范数">矩阵范数</h3>
+<p>【矩阵的向量范数】对于定义在<span class="math inline">\(\mathbb C^{m\times n}\)</span>上的矩阵<span class="math inline">\(A\)</span>，如果满足：</p>
+<ol type="1">
+<li>正定：<span class="math inline">\(\|A\|\geq 0\)</span>且当且仅当<span class="math inline">\(A=O\)</span>时，<span class="math inline">\(\|A\|=0\)</span></li>
+<li>齐次：<span class="math inline">\(\forall k\in F,\|kA\|=k\|A\|\)</span></li>
+<li>三角不等式：<span class="math inline">\(\forall A,B\in \mathbb C^{m\times n},\|A+B\|\leq \|A\|+\|B\|\)</span></li>
+</ol>
+<p>称其为<strong>矩阵的向量范数</strong>。这其实就是把矩阵”拉直“看成向量。如果要考虑真正的矩阵，就要满足第四条性质：</p>
+<ol start="4" type="1">
+<li>矩阵乘法相容性：<span class="math inline">\(\forall A,B\in \mathbb C^{m\times n},\|A+B\|\leq \|AB\|\)</span></li>
+</ol>
+<p>则称其为<strong>矩阵范数</strong>。</p>
+<p>【向量范数与矩阵范数相容】 若对 <span class="math inline">\(A \in\)</span> <span class="math inline">\(\mathbb{C}^{m \times n}\)</span> 和 <span class="math inline">\(\boldsymbol{x} \in \mathbb{C}^n\)</span>, 向量范数 <span class="math inline">\(\|x\|_v\)</span> 与矩阵范数 <span class="math inline">\(\|A\|_m\)</span> 满足</p>
+<p><span class="math display">\[
+\|A x\|_v \leq\|A\|_m\|x\|_v
+\]</span></p>
+<p>则称向量范数 <span class="math inline">\(\|x\|_v\)</span> 与矩阵范数 <span class="math inline">\(\|A\|_m\)</span> 相容.</p>
+<p>给定一个<span class="math inline">\(\mathbb{C}^{n\times n}\)</span>的矩阵范数<span class="math inline">\(\|A\|_m\)</span>，一定会对应一个<span class="math inline">\(\mathbb{C}^n\)</span>的向量范数与之相容。这是显然的：<span class="math inline">\(\|x\|_v=\|x\alpha^T\|_m\)</span>，其中<span class="math inline">\(\alpha\)</span>是任意非零向量。证明相容性，有： <span class="math display">\[
+\|A x\|_v=\left\|A x \alpha^T\right\|_m \leq\|A\|_m\left\|x \alpha^T\right\|_m=\|A\|_m\|x\|_v
+\]</span> 已知向量范数，其实也有矩阵范数与之对应且相容，不过这个没有那么显然：</p>
+<p>【算子范数/诱导范数】 设 <span class="math inline">\(\|x\|_v\)</span> 是 <span class="math inline">\(\mathbb{C}^n\)</span> 上的一个向量范数, 对任意 <span class="math inline">\(A \in \mathbb{C}^{m \times n}\)</span> ，定义 <span class="math display">\[
+\|A\|=\max _{\|\boldsymbol{x}\|_v=1}\|A \boldsymbol{x}\|_v
+\]</span></p>
+<p>则 <span class="math inline">\(\|A\|\)</span> 是一个与 <span class="math inline">\(\|x\|_v\)</span> 相容的矩阵范数, 称其是从属于向量范数 <span class="math inline">\(\|\cdot\|_v\)</span> 的算子范数或由向量范数 <span class="math inline">\(\|\cdot\|_v\)</span> 诱导的矩阵范数。</p>
+<p>对于向量范数<span class="math inline">\(\|x\|_1,\|x\|_\infty,\|x\|_2\)</span>，有诱导范数<span class="math inline">\(\|A\|_1,\|A\|_\infty,\|A\|_2\)</span>，它们分别称为列和范数、行和范数和谱范数。</p>
+<ol type="1">
+<li><p>列和范数：每一列的元素绝对值之和的最大值： <span class="math display">\[
+\|A\|_1=\max _{1 \leq j \leq n} \sum_{i=1}^m\left|a_{i j}\right|
+\]</span></p></li>
+<li><p>行和范数：每一行的元素绝对值之和的最大值： <span class="math display">\[
+\|A\|_{\infty}=\max _{1 \leq i \leq m} \sum_{j=1}^n\left|a_{i j}\right|,(
+\]</span></p></li>
+<li><p>谱范数： <span class="math display">\[
+\|A\|_2=\sqrt{\lambda_{\text {max }}\left(A^H A\right)}=\sigma_{\text {max }}(A)
+\]</span></p></li>
+</ol>
 <hr />
 <section class="footnotes">
 <div class="footnote-list">
