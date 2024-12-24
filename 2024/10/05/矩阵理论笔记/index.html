@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202410052359787.png">
 <meta property="article:published_time" content="2024-10-05T06:38:32.000Z">
-<meta property="article:modified_time" content="2024-12-23T15:25:53.419Z">
+<meta property="article:modified_time" content="2024-12-24T07:55:24.376Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="矩阵理论">
 <meta name="twitter:card" content="summary_large_image">
@@ -280,7 +280,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          28k 字
+          31k 字
         
       </span>
     
@@ -291,7 +291,7 @@
         
         
         
-          70 分钟
+          78 分钟
         
       </span>
     
@@ -1230,7 +1230,7 @@ f_A(P\Lambda P^{-1})=P\prod_{i=1}^n(\Lambda-\lambda_1I)P^{-1}
 (A-2I)(A-4I)=O
 \]</span> 因此最小多项式是<span class="math inline">\((\lambda-2)(\lambda-4)\)</span>。</p>
 </blockquote>
-<h3 id="对角化分解不考">对角化分解（不考）</h3>
+<h3 id="对角化分解">对角化分解</h3>
 <p>【定义：单纯矩阵】如果<span class="math inline">\(n\)</span>阶复方阵相似于对角矩阵<span class="math inline">\(\Lambda\)</span>，即存在<span class="math inline">\(n\)</span>阶可逆矩阵<span class="math inline">\(P\)</span>，使得 <span class="math display">\[
 P^{-1}AP=\Lambda
 \]</span> 则称<span class="math inline">\(A\)</span>​是单纯矩阵，也叫可对角化矩阵。单纯阵的定义式就是单纯阵的对角化分解式，它实际上是Schur分解的一种特殊形式（Schur分解是「上三角阵」，对角化分解是「对角矩阵」）。</p>
@@ -1492,6 +1492,101 @@ k_1\|x\|_\beta\leq \|x\|_\alpha \leq k_2\|x\|_\beta
 \|A\|_2=\sqrt{\lambda_{\text {max }}\left(A^H A\right)}=\sigma_{\text {max }}(A)
 \]</span></p></li>
 </ol>
+<h3 id="矩阵特征值的估计">矩阵特征值的估计</h3>
+<p>【谱和谱半径】对于复方阵<span class="math inline">\(A\in \mathbb C^{n\times n}\)</span>，其所有特征值的集合<span class="math inline">\(S_p(A)\)</span>叫做这个矩阵的谱，其中模最大的特征值叫做这个矩阵的谱半径。</p>
+<blockquote>
+<p>谱半径本身不是范数（不满足正定性中的「范数为0等价于矩阵为<span class="math inline">\(O\)</span>」），而且它不大于任何一个矩阵范数。</p>
+</blockquote>
+<p>【盖尔圆盘】对于<span class="math inline">\(A\in \mathbb C^{n\times n}\)</span>，每一行来说，以它的主对角线上的那个元素为圆心，其它所有元素的模之和为半径的圆及其内部，叫做这个矩阵的盖尔圆盘。用数学公式来说，就是： <span class="math display">\[
+\delta_i=\sum_{j=1,j\neq i}^n |a_{ij}|,i=1\cdots n
+\]</span> 定义盖尔圆盘 <span class="math display">\[
+G_i=\{z\in \mathbb C\mid\ |z-a_{ii}|\leq \delta_i\}
+\]</span> 【盖尔圆盘定理】矩阵的所有特征值都在矩阵的所有盖尔圆盘的并集之内。</p>
+<blockquote>
+<p>因为<span class="math inline">\(A\)</span>与<span class="math inline">\(A^T\)</span>有相同的特征值集合，所以实际上矩阵的所有特征值要落在<span class="math inline">\(A\)</span>和<span class="math inline">\(A^T\)</span>的所有盖尔圆盘的并集之内。</p>
+</blockquote>
+<p>如果<span class="math inline">\(A\)</span>的其中<span class="math inline">\(k\)</span>个盖尔圆盘是并集形成一个联通的区域（相切也算），且该区域和其余圆盘都不相交，那么这个区域里面恰好有<span class="math inline">\(k\)</span>个特征值。那么，孤立的盖尔圆盘里面有且只有一个特征值。如果矩阵有<span class="math inline">\(k\)</span>个独立的盖尔圆盘，那么它至少有<span class="math inline">\(k\)</span>个互异的实特征值。如果所有盖尔圆盘互不相交，那么矩阵是单纯矩阵。</p>
+<p>如果原点不在任何盖尔圆盘内，矩阵就不是奇异矩阵。</p>
+<blockquote>
+<p>【例】证明下面的矩阵至少有两个实特征值 <span class="math display">\[
+A=\left[\begin{array}{cccc}
+9 &amp; 1 &amp; -2 &amp; 1 \\
+0 &amp; 8 &amp; 1 &amp; 1 \\
+-1 &amp; 0 &amp; 4 &amp; 0 \\
+1 &amp; 0 &amp; 0 &amp; 1
+\end{array}\right]
+\]</span> 【解】矩阵的四个盖尔圆为： <span class="math display">\[
+\begin{aligned}
+&amp; G_1:|z-9| \leq 4  \\
+&amp; G_2:|z-8| \leq 2  \\
+&amp; G_3:|z-4| \leq 1  \\
+&amp; G_4:|z-1| \leq 1 
+\end{aligned}
+\]</span> <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202412241039310.png" srcset="/img/loading.gif" lazyload alt="image-20241224102739574" /></p>
+<p>在紫色的圆里，有一个实特征值。矩阵是<span class="math inline">\(4\)</span>阶矩阵，所以有四个特征值。因为复特征值都是成对出现的，所以最多只能有一对复特征值，所以至少有两个实特征值。</p>
+</blockquote>
+<h3 id="矩阵幂级数">矩阵幂级数</h3>
+<p>要讨论幂级数，就要先讨论收敛。要讨论矩阵，就要先讨论向量。</p>
+<p>【向量按范数收敛】 <span class="math inline">\(\left(V,\|\cdot\|_\alpha\right)\)</span> 是 <span class="math inline">\(n\)</span>维赋范线性空间， <span class="math inline">\(x_1, x_2, \cdots, x_k, \cdots\)</span> 是 <span class="math inline">\(V\)</span> 中一个向量序列, 记为 <span class="math inline">\(\left\{\boldsymbol{x}_k\right\}\)</span>. 若存在 <span class="math inline">\(V\)</span> 的向量 <span class="math inline">\(\boldsymbol{x}\)</span> 满足</p>
+<p><span class="math display">\[
+\lim _{k \rightarrow \infty}\left\|x_k-x\right\|_\alpha=0
+\]</span></p>
+<p>则称向量序列 <span class="math inline">\(\left\{x_k\right\}\)</span> 按范数 <span class="math inline">\(\|\cdot\|_\alpha\)</span> 收玫于 <span class="math inline">\(x\)</span>, 记作</p>
+<p><span class="math display">\[
+\lim _{k \rightarrow \infty} x_k=x \text { 或 } x_k \xrightarrow{\alpha} x
+\]</span> 因为有限维线性空间中所有范数都是等价的，所以只要向量按某种范数收敛，它就按所有范数收敛。</p>
+<p>【向量按坐标收敛】设 <span class="math inline">\(\left(V,\|\cdot\|_\alpha\right)\)</span> 是 <span class="math inline">\(n\)</span>维赋范线性空间, <span class="math inline">\(\boldsymbol{\epsilon}_1, \cdots, \boldsymbol{\epsilon}_n\)</span> 是 <span class="math inline">\(V\)</span> 中一组基, <span class="math inline">\(\left\{\boldsymbol{x}_k\right\}\)</span> 是 <span class="math inline">\(V\)</span>中一个向量序列，并记向量序列 <span class="math inline">\(\left\{x_k\right\}\)</span> 中的任一向量 <span class="math inline">\(\boldsymbol{x}_k\)</span> 在 <span class="math inline">\(\epsilon_1, \cdots, \epsilon_n\)</span> 下坐标为</p>
+<p><span class="math display">\[
+\xi_k=\left[\xi_1^{(k)}, \cdots, \xi_n^{(k)}\right]^T \in F^n
+\]</span></p>
+<p>若存在 <span class="math inline">\(V\)</span> 的向量 <span class="math inline">\(\boldsymbol{x}\)</span> 满足 <span class="math inline">\(\lim _{k \rightarrow \infty} \xi_i^{(k)}=\xi_i, i=1, \cdots, n\)</span>则称向量序列 <span class="math inline">\(\left\{x_k\right\}\)</span> 按坐标收敛于向量 <span class="math inline">\(x\)</span>, 其中 <span class="math inline">\(\xi\)</span> 是向量 <span class="math inline">\(\boldsymbol{x}\)</span> 在基 <span class="math inline">\(\epsilon_1, \cdots, \epsilon_n\)</span> 下坐标.</p>
+<p>事实上，这些收敛的定义都是相互等价的：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202412241527786.png" srcset="/img/loading.gif" lazyload alt="image-20241224152720210" /><figcaption aria-hidden="true">image-20241224152720210</figcaption>
+</figure>
+<p>矩阵的收敛和上面的一样，只需要把范数改成矩阵范数就行了。</p>
+<p>【矩阵幂级数】设<span class="math inline">\(A\in \mathbb C^{n\times n}\)</span>，则定义矩阵级数 <span class="math display">\[
+\sum_{k=0}^\infty a_kA^k
+\]</span> 其中<span class="math inline">\(A^0=I\)</span>为矩阵幂级数。</p>
+<p>关于其收敛性，有：设普通幂级数<span class="math inline">\(\sum_{k=0}^\infty a_kx^k\)</span>的收敛半径为<span class="math inline">\(R\)</span>，则</p>
+<ol type="1">
+<li><span class="math inline">\(\rho(A)&lt; R\)</span>，矩阵幂级数<span class="math inline">\(\sum_{k=0}^\infty a_kA^k\)</span>绝对收敛</li>
+<li><span class="math inline">\(\rho(A)&gt;R\)</span>，矩阵幂级数<span class="math inline">\(\sum_{k=0}^\infty a_kA^k\)</span>发散</li>
+</ol>
+<p>其中<span class="math inline">\(\rho(A)\)</span>是矩阵的谱半径，即特征值的绝对值的最大值。</p>
+<p>回顾：计算普通幂级数的收敛半径：</p>
+<p><span class="math display">\[
+R=\frac 1\rho
+\]</span></p>
+<p><span class="math display">\[
+\rho=\lim_{k\to \infty}\left|\frac{a_{k+1}}{a_k}\right|
+\]</span></p>
+<blockquote>
+<p>【例】判断矩阵幂级数的收敛性，如果收敛，求其和。 <span class="math display">\[
+\sum_{k=0}^{+\infty}\left(\begin{array}{ll}
+0.1 &amp; 0.7 \\
+0.3 &amp; 0.6
+\end{array}\right)^k
+\]</span> 【解】矩阵幂级数中，有：<span class="math inline">\(a_k=1\)</span>，因此普通幂级数 <span class="math display">\[
+\sum_{k=0}^\infty a_kx^k
+\]</span> 的收敛半径为<span class="math inline">\(1\)</span>。</p>
+<p>矩阵的谱半径为 <span class="math display">\[
+\rho(A)=\frac{0.7+\sqrt{1.09}}{2}&lt;1
+\]</span> 因此收敛。</p>
+<p>求和： <span class="math display">\[
+\begin{align}
+S&amp;=I+A+A^2+A^3+\cdots\\
+AS&amp;=A+A^2+A^3+\cdots
+\end{align}
+\]</span> 相减，有： <span class="math display">\[
+(I-A)S=I
+\]</span> 即 <span class="math display">\[
+S=(I-A)^{-1}=\frac{2}{3}\left(\begin{array}{ll}
+4 &amp; 7 \\
+3 &amp; 9
+\end{array}\right)
+\]</span></p>
+</blockquote>
 <hr />
 <section class="footnotes">
 <div class="footnote-list">
