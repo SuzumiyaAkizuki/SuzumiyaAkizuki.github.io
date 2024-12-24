@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202410052359787.png">
 <meta property="article:published_time" content="2024-10-05T06:38:32.000Z">
-<meta property="article:modified_time" content="2024-12-24T08:01:13.435Z">
+<meta property="article:modified_time" content="2024-12-24T08:25:19.844Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="矩阵理论">
 <meta name="twitter:card" content="summary_large_image">
@@ -280,7 +280,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          31k 字
+          33k 字
         
       </span>
     
@@ -291,7 +291,7 @@
         
         
         
-          78 分钟
+          83 分钟
         
       </span>
     
@@ -1486,7 +1486,7 @@ k_1\|x\|_\beta\leq \|x\|_\alpha \leq k_2\|x\|_\beta
 \|A\|_1=\max _{1 \leq j \leq n} \sum_{i=1}^m\left|a_{i j}\right|
 \]</span></p></li>
 <li><p>行和范数：每一行的元素绝对值之和的最大值： <span class="math display">\[
-\|A\|_{\infty}=\max _{1 \leq i \leq m} \sum_{j=1}^n\left|a_{i j}\right|,(
+\|A\|_{\infty}=\max _{1 \leq i \leq m} \sum_{j=1}^n\left|a_{i j}\right|
 \]</span></p></li>
 <li><p>谱范数： <span class="math display">\[
 \|A\|_2=\sqrt{\lambda_{\text {max }}\left(A^H A\right)}=\sigma_{\text {max }}(A)
@@ -1586,6 +1586,76 @@ S=(I-A)^{-1}=\frac{2}{3}\left(\begin{array}{ll}
 3 &amp; 9
 \end{array}\right)
 \]</span></p>
+</blockquote>
+<h3 id="矩阵函数">矩阵函数</h3>
+<p>如果把收敛的矩阵幂级数写成函数的形式，就是矩阵函数： <span class="math display">\[
+f(A)=\sum_{k=0}^\infty a_kA^k
+\]</span> 若矩阵函数 <span class="math inline">\(f(A)\)</span> 的自变量由矩阵 <span class="math inline">\(A\)</span>换成 <span class="math inline">\(A t\)</span>, 其中 <span class="math inline">\(t\)</span> 为标量参数, 则有矩阵函数表达式为</p>
+<p><span class="math display">\[
+f(A t)=\sum_{m=0}^{\infty} c_m(A t)^m=\sum_{m=0}^{\infty} c_m t^m A^m,|t| \rho(A)&lt;r
+\]</span></p>
+<p>称之为含参矩阵函数。</p>
+<p>尽管矩阵函数看起来好像是无穷级数，但是因为矩阵有个最小多项式，所以它总是可以表示成有限个矩阵次幂的线性组合。即：</p>
+<p>设矩阵 <span class="math inline">\(A \in \mathbb{C}^{n \times n}\)</span> 的最小多项式次数为 <span class="math inline">\(l\)</span>, 幂级数 <span class="math inline">\(f(z)=\sum_{m=0}^{\infty} c_m z^m\)</span> 的收玫半径为 <span class="math inline">\(r\)</span>. 若 <span class="math inline">\(\rho(A)&lt;r\)</span>,定义矩阵函数 <span class="math inline">\(f(A)\)</span>, 则必存在唯一的 <span class="math inline">\((l-1)\)</span> 次矩阵多项式 <span class="math inline">\(p(A)=\beta_0 I+\beta_1 A+\cdots+\beta_{l-1} A^{l-1}\)</span> 使得 <span class="math inline">\(f(A)=p(A)\)</span>.</p>
+<p>现在，就是要求出这个有限和<span class="math inline">\(p(A)\)</span>。</p>
+<p>【复函数的谱上给定】如果对于复函数<span class="math inline">\(f(z)\)</span>和矩阵<span class="math inline">\(A\)</span>，如果对于<span class="math inline">\(A\)</span>的代数重数为<span class="math inline">\(n\)</span>的特征值<span class="math inline">\(\lambda\)</span>，<span class="math inline">\(f(\lambda)\)</span>和<span class="math inline">\(f(z)\)</span>在<span class="math inline">\(\lambda\)</span>处的<span class="math inline">\(1\sim n\)</span>阶导数都有界，那么称复函数在矩阵的谱上给定。</p>
+<p>【谱上一致】设复方阵 <span class="math inline">\(A\)</span> 的最小多项式为 <span class="math inline">\(m_A(\lambda)=\left(\lambda-\lambda_1\right)^{n_1}\left(\lambda-\lambda_2\right)^{n_2} \cdots\left(\lambda-\lambda_S\right)^{n_S}\)</span>, <span class="math inline">\(\operatorname{deg}\left(m_A(\lambda)\right)=l\)</span>. 若函数 <span class="math inline">\(f(\lambda)\)</span> 和 <span class="math inline">\(p(\lambda)\)</span> 在谱上给定且满足</p>
+<p><span class="math display">\[
+\left\{\begin{array}{rl}
+f\left(\lambda_i\right) &amp; =p\left(\lambda_i\right) \\
+f^{\prime}\left(\lambda_i\right) &amp; =p^{\prime}\left(\lambda_i\right) \\
+&amp; \vdots \\
+f^{\left(n_i-1\right)}\left(\lambda_i\right) &amp; =p^{\left(n_i-1\right)}\left(\lambda_i\right)
+\end{array}, i=1, \cdots, s\right.
+\]</span></p>
+<p>则称函数 <span class="math inline">\(f(\lambda)\)</span> 和 <span class="math inline">\(p(\lambda)\)</span> 在矩阵 <span class="math inline">\(A\)</span> 的谱上一致。</p>
+<p><strong><span class="math inline">\(f(z)\)</span>和<span class="math inline">\(p(z)\)</span>在矩阵<span class="math inline">\(A\)</span>的谱上一致是<span class="math inline">\(f(A)=p(A)\)</span>的充要条件。</strong></p>
+<p>由此，可以利用谱上一致法计算矩阵函数，操作步骤为：</p>
+<ol type="1">
+<li><p>计算矩阵的最小多项式，假设最小多项式是<span class="math inline">\(m\)</span>次</p></li>
+<li><p>待定系数法，设 <span class="math display">\[
+f(At)=a_0(t)+a_1(t)A+\cdots+a_{m-1}A^{m-1}
+\]</span></p></li>
+<li><p>把矩阵的各个特征值依次带入上面的方程（代入<span class="math inline">\(A\)</span>的位置），得到方程组。如果特征值不够用，就对上面的方程两边求导，再代入，直到能求出<span class="math inline">\(a\)</span>的唯一解。</p></li>
+</ol>
+<blockquote>
+<p>【例题】计算<span class="math inline">\(e^{At}\)</span>，其中： <span class="math display">\[
+A=\left(\begin{array}{ccc}
+-2 &amp; 1 &amp; 3 \\
+0 &amp; -3 &amp; 0 \\
+0 &amp; 2 &amp; -2
+\end{array}\right)
+\]</span> 【解】首先计算<span class="math inline">\(A\)</span>的特征多项式： <span class="math display">\[
+(\lambda+2)^3(\lambda+3)
+\]</span> 验证： <span class="math display">\[
+(A+2I)(A+3I)\neq O
+\]</span></p>
+<p><span class="math display">\[
+(A+2I)^2(A+3I)=O
+\]</span></p>
+<p>故最小多项式为3次。</p>
+<p>设： <span class="math display">\[
+e^{At}=a_0(t)+a_1(t)A+a_2(t)A^2
+\]</span> 把特征值代入<span class="math inline">\(A\)</span>的位置，有： <span class="math display">\[
+\begin{cases}
+e^{-2t}=a_0-2a_1+4a_2\\
+e^{-3t}=a_0-3a_1+9a_2
+\end{cases}
+\]</span> 发现方程不够，对原方程求导： <span class="math display">\[
+te^{\lambda t}=a_1+2a_2\lambda
+\]</span> 代入，得到最终方程组： <span class="math display">\[
+\left\{\begin{array}{l}
+e^{-2 t}=a_0-2 a_1+4 a_2 \\
+e^{-3 t}=a_0-3 a_1+9 a_2 \\
+t e^{-2 t}=a_1-4 a_2
+\end{array}\right.
+\]</span> 解得： <span class="math display">\[
+\begin{cases}
+&amp; a_0=(6 t-3) e^{-2 t}+4 e^{-3 t} \\
+&amp; a_1=(5 t-4) e^{-2 t}+4 e^{-3 t} \\
+&amp; a_2=(t-1) e^{-2 t}+e^{-3 t}
+\end{cases}
+\]</span> 后略。</p>
 </blockquote>
 <hr />
 <section class="footnotes">
