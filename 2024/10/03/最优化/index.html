@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202410032251555.png">
 <meta property="article:published_time" content="2024-10-03T08:19:00.000Z">
-<meta property="article:modified_time" content="2024-11-27T09:03:07.843Z">
+<meta property="article:modified_time" content="2024-12-27T13:49:11.264Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="最优化">
 <meta name="twitter:card" content="summary_large_image">
@@ -280,7 +280,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          18k 字
+          22k 字
         
       </span>
     
@@ -291,7 +291,7 @@
         
         
         
-          46 分钟
+          55 分钟
         
       </span>
     
@@ -1050,6 +1050,104 @@ f^{\prime}(\boldsymbol{x} ; \boldsymbol{d})=\max _{\boldsymbol{g} \in \partial f
 <li>则 <span class="math inline">\(\boldsymbol{x}_*\)</span> 是 <span class="math inline">\(f\)</span> 的极小点当且仅当 <span class="math inline">\(0 \in \partial f\left(\boldsymbol{x}_*\right)\)</span>.</li>
 <li>设 <span class="math inline">\(C \subseteq \mathbb{R}^n\)</span> 是非空凸集，则 <span class="math inline">\(x_*\)</span> 是 <span class="math inline">\(f\)</span> 在 <span class="math inline">\(C\)</span> 上的极小点的充分条件是：存在 <span class="math inline">\(\boldsymbol{u} \in \partial f\left(\boldsymbol{x}_*\right)\)</span> 使得 <span class="math inline">\(-\boldsymbol{u} \in N_C\left(\boldsymbol{x}_*\right)\)</span> 。如果ri <span class="math inline">\((\operatorname{dom} f)\)</span> 与 ri <span class="math inline">\(C\)</span> 相交, 或者当 <span class="math inline">\(C\)</span> 是多面体时 ri( <span class="math inline">\(\operatorname{dom} f)\)</span> 与C相交, 该条件是必要的.</li>
 </ol>
+<h2 id="约束优化问题kkt条件">约束优化问题（KKT条件）</h2>
+<p>考虑有如下格式的优化问题： <span class="math display">\[
+\begin{align}
+\text{minimize}\ \ &amp;f(x)\\
+\text{s.t.}\ \ &amp;h_i(x)=0,i=1,\cdots,m\\
+&amp;g_i(x)\leq 0,i=1,\cdots,l\\
+\end{align}
+\]</span> 其中，所有的<span class="math inline">\(f,g_i,h_i\)</span>都是可微的。</p>
+<blockquote>
+<p>把常用的不可微分函数转变为可微分函数的技巧：</p>
+<ol type="1">
+<li><p><span class="math inline">\(\max\{f,g\}\leq 0\to f\leq0\)</span>且<span class="math inline">\(g\leq 0\)</span></p></li>
+<li><p><span class="math inline">\(\min\{f,g\}\geq 0 \to f\geq 0\)</span>且<span class="math inline">\(g\geq 0\)</span></p></li>
+<li><p><span class="math inline">\(|f|=\max\{-f,f\}\)</span></p></li>
+</ol>
+</blockquote>
+<p>假如<span class="math inline">\(x*\)</span>是问题的局部最优解，而且在<span class="math inline">\(x*\)</span>处满足某个「适当的条件」，则存在<span class="math inline">\(\lambda,\mu\)</span>使得： <span class="math display">\[
+\begin{align}
+\nabla f(x^*)+\sum_{i=1}^m \lambda_i \nabla h_i(x^*)+\sum_{i=1}^l \mu_i\nabla g_i(x^*)&amp;=0\\
+\lambda_i&amp;\geq 0\\
+g_i(x^*)&amp;\leq 0\\
+h_i(x^*)&amp;= 0\\
+\lambda_ig_i(x^*)&amp;=0
+\end{align}
+\]</span> 这一组条件被称为KKT条件。为了对KKT条件建立一个直观印象，有：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202412271616157.png" srcset="/img/loading.gif" lazyload alt="image-20241227161650142" /><figcaption aria-hidden="true">image-20241227161650142</figcaption>
+</figure>
+<p>考虑如图所示的二维平面优化问题。红色的曲线是三个约束函数<span class="math inline">\(g_i(x)\leq0\)</span>的<span class="math inline">\(0\)</span>等值线，绿色虚线是<span class="math inline">\(f(x)\)</span>等值线，在最左边这个点取到最小值。那么，在这个点，观察三条蓝色的向量。可以发现，<span class="math inline">\(-\nabla f\)</span>即<span class="math inline">\(f\)</span>的负梯度应当是<span class="math inline">\(\nabla g_1,\nabla g_2\)</span>的线性组合，而且组合系数都是正数。这就是KKT条件的第一条式子的来历。我们发现，<span class="math inline">\(g_3(x)\leq0\)</span>这个条件目前并没有「起作用」，所以它的梯度对应的线性组合系数是零。KKT条件的第五条式子，即 <span class="math display">\[
+\lambda_ig_i(x^*)=0
+\]</span> 正是在标记哪些条件在「起作用」。如果起作用了，那么<span class="math inline">\(\lambda_i\neq 0,g_i(x^*)=0\)</span>；否则，如果没起作用，那么<span class="math inline">\(g_i(x^*)\neq0\)</span>，此时有<span class="math inline">\(\lambda_i=0\)</span>。我们管「起作用」了的约束条件叫做「积极约束」。用记号： <span class="math display">\[
+A(x^*)=\{j\mid g_j(x^*)=0,j=1,\cdots,l\}
+\]</span> 表示积极约束（的标号）的集合。</p>
+<p>KKT条件是「一阶必要条件」，即凡是局部最优解都满足KKT条件，但是满足KKT条件的不一定是局部最优解。</p>
+<blockquote>
+<p>简单介绍一下证明KKT条件的思路：</p>
+<ol type="1">
+<li><p>如果<span class="math inline">\(x^*\)</span>是局部最优解，那么<span class="math inline">\(D(x^*)\cap T(x^*)=\empty\)</span>。其中，<span class="math inline">\(D,T\)</span>都是一些方向的集合。</p>
+<p><span class="math inline">\(D\)</span>是使得目标函数下降的方向的集合，即和目标函数的梯度的内积小于零： <span class="math display">\[
+D(x^*)=\{d\mid \nabla f(x^*)d\leq 0\}
+\]</span> <span class="math inline">\(T\)</span>是「切向锥」,即从<span class="math inline">\(x^*\)</span>开始，往哪些方向稍微挪动一点，不会离开可行域的范围： <span class="math display">\[
+T(x^*)=\left\{\alpha d\mid \alpha&gt;0,d=\lim_{k\to \infty}\frac{x_k-x^*}{\|x_k-x^*\|}\mid x_k\to x^*\right\}
+\]</span></p></li>
+<li><p>因为<span class="math inline">\(T\)</span>很难求，所以另外定义一个「看起来像可行的方向的集合」 <span class="math display">\[
+F_1(x^*)=\{d\mid \nabla g_i(x)^Td\leq 0,\nabla h_j(x)^Td=0\mid i\in A(x^*) ,j=1,\cdots,l\}
+\]</span> 构造它的方法是「排除显然不可能的方向」，例如，让<span class="math inline">\(g_i(x)\)</span>上升的方向（<span class="math inline">\(\nabla g_i(x)^T&gt;0\)</span>）以及让<span class="math inline">\(h_i(x)\)</span>变化的方向<span class="math inline">\(\nabla h_i(x)^Td\neq 0\)</span></p></li>
+<li><p>在某些「适当的条件」下，有<span class="math inline">\(T(x^*)=F_1(x^*)\)</span>。此时，有： <span class="math display">\[
+D(x^*)\cap F_1(x^*)=0
+\]</span> 这其实是KKT条件的某种等价表述。</p></li>
+</ol>
+</blockquote>
+<p>之前提到的那个「适当的条件」叫做「约束品性」，常见的约束品性有：</p>
+<ol type="1">
+<li>正则性：设点<span class="math inline">\(x^*\)</span>满足<span class="math inline">\(h(x^*)=0,g(x^*)\leq 0\)</span>，对于<span class="math inline">\(x^*\)</span>处的所有<span class="math inline">\(h\)</span>和积极约束<span class="math inline">\(g\)</span>，如果梯度向量<span class="math inline">\(\nabla h_1(x^*),\cdots,\nabla h_n(x^*),\nabla g_j(x^*),j\in A(x^*)\)</span>是线性无关的，称<span class="math inline">\(x^*\)</span>是约束<span class="math inline">\(h(x^*)=0,g(x^*)\leq 0\)</span>的正则点。如果<span class="math inline">\(x^*\)</span>是局部最优解而且是正则点，那么KKT条件成立。</li>
+</ol>
+<p>如果满足：</p>
+<ol type="1">
+<li><span class="math inline">\(f,g_i\)</span>都是凸函数</li>
+<li><span class="math inline">\(h_i\)</span>是线性函数</li>
+</ol>
+<p>那么，原问题是凸问题，而且KKT点就是全局最优点。</p>
+<p>现在的问题是，这两个条件实在是太强了，有没有弱一点的条件，也能说明KKT点是最优点？</p>
+<h3 id="二阶必要条件">二阶必要条件</h3>
+<p>假设对于KKT点<span class="math inline">\(x^*\)</span>： <span class="math display">\[
+\begin{align}
+\nabla f(x^*)+\sum_{i=1}^m \lambda_i \nabla h_i(x^*)+\sum_{i=1}^l \mu_i\nabla g_i(x^*)&amp;=0\\
+\lambda_i&amp;\geq 0\\
+g_i(x^*)&amp;\leq 0\\
+h_i(x^*)&amp;= 0\\
+\lambda_ig_i(x^*)&amp;=0
+\end{align}
+\]</span> 考虑一个函数： <span class="math display">\[
+L(x,\lambda,\mu)=f(x)+\sum_{i=1}^m \lambda_ig_i(x)+\sum_{i=1}^l \mu_ih_i(x)
+\]</span> 注意，因为满足了KKT条件，所以这个函数里面只有<span class="math inline">\(x\)</span>是变量，<span class="math inline">\(\lambda,\mu\)</span>都是常量。这个函数<span class="math inline">\(L(x)\)</span>有什么性质？</p>
+<ol type="1">
+<li><span class="math inline">\(\nabla L(x^*)=0\)</span>。这就是KKT条件的第一条</li>
+<li><span class="math inline">\(L(x^*)=f(x^*)\)</span>。因为KKT条件的第五条，所以第二项是零；因为KKT条件的第四条，所以第三项是零。</li>
+<li><span class="math inline">\(\forall x\in S,L(x)\leq f(x)\)</span>，其中<span class="math inline">\(S\)</span>是原问题的可行解集。因为在可行解集里总有<span class="math inline">\(\sum_{i=1}^m \lambda_ig_i(x)\leq 0\)</span>。</li>
+</ol>
+<p>由2和3知：如果<span class="math inline">\(x^*\)</span>的<span class="math inline">\(L(x)\)</span>的最优解（最小值），那么<span class="math inline">\(x^*\)</span>是原问题的最优解。</p>
+<p>对于无约束问题<span class="math inline">\(\text{minimize}\ \ L(x)\)</span>，其二阶条件有：</p>
+<ol type="1">
+<li><span class="math inline">\(\nabla^2L(x)\)</span>半正定，那么<span class="math inline">\(x^*\)</span>是原问题的全局最优解</li>
+<li><span class="math inline">\(\nabla ^2L(x)\)</span>在<span class="math inline">\(S\)</span>中的一个<span class="math inline">\(x^*\)</span>的邻域里半正定，那么<span class="math inline">\(x^*\)</span>是原问题的局部最优解</li>
+<li><span class="math inline">\(\nabla^2L(x^*)\)</span>正定，那么<span class="math inline">\(x^*\)</span>是原问题的严格局部最优解。</li>
+</ol>
+<p>接下来重点考虑第三项。正定，也就是说有二次型： <span class="math display">\[
+d^T\nabla^2L(x^*)d&gt;0,\forall d
+\]</span> 那么这个条件能不能再弱一点呢？这个二次型或许不需要对任何<span class="math inline">\(d\)</span>都正定。回忆证明KKT条件时用的的<span class="math inline">\(F_1(x^*)\)</span>集合，它是「看起来像可行的方向的集合」。只要<span class="math inline">\(d\)</span>看起来不是可行方向，那么就可以不考虑这个<span class="math inline">\(d\)</span>。于是，有： <span class="math display">\[
+d^T\nabla^2L(x^*)d&gt;0,d\in F_1(x^*)
+\]</span> 那么这个条件能不能再弱一点呢？对于大于<span class="math inline">\(0\)</span>的<span class="math inline">\(\lambda_i,i\in A(x^*)\)</span>，如果<span class="math inline">\(\nabla g_i(x^*)^Td&lt; 0\)</span>，则<span class="math inline">\(x*\)</span>沿着<span class="math inline">\(d\)</span>移动，会导致<span class="math inline">\(g_i(x)\)</span>小于零，而这意味着目标函数的值上升。定义 <span class="math display">\[
+F_2(x^*)=\{d\mid \nabla g_i(x)^Td= 0,\nabla h_j(x)^Td=0\mid i\in A^+(x^*) ,j=1,\cdots,l\}
+\]</span> 其中， <span class="math display">\[
+A^+(x^*)=\{j\mid g_j(x^*)=0,\lambda_j\neq0,j=1,\cdots,l\}
+\]</span> 二阶必要条件的最终表述为：</p>
+<p>假如<span class="math inline">\(x^*\)</span>满足KKT条件，<span class="math inline">\(\lambda,\mu\)</span>为相应的乘子， <span class="math display">\[
+L(x,\lambda,\mu)=f(x)+\sum_{i=1}^m \lambda_ig_i(x)+\sum_{i=1}^l \mu_ih_i(x)
+\]</span> <span class="math inline">\(\nabla L(x^*)=0\)</span>，若<span class="math inline">\(d^T\nabla^2L(x^*)d&gt;0,\forall x\in F_2(x^*)\)</span>，则<span class="math inline">\(x^*\)</span>是原问题的严格最优解。</p>
 
                 
               </div>
