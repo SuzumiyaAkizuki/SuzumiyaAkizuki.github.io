@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202410052359787.png">
 <meta property="article:published_time" content="2024-10-05T06:38:32.000Z">
-<meta property="article:modified_time" content="2024-12-25T13:25:04.889Z">
+<meta property="article:modified_time" content="2024-12-27T05:04:35.740Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="矩阵理论">
 <meta name="twitter:card" content="summary_large_image">
@@ -280,7 +280,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          38k 字
+          42k 字
         
       </span>
     
@@ -291,7 +291,7 @@
         
         
         
-          95 分钟
+          106 分钟
         
       </span>
     
@@ -1369,6 +1369,7 @@ P^{-1}AP=\Lambda
 <p>复方阵<span class="math inline">\(A\)</span>是正规矩阵，和<span class="math inline">\(A\)</span>酉相似于对角阵等价。</p>
 <p>关于正规矩阵，有：</p>
 <ol type="1">
+<li><p>显然：正规矩阵的单纯矩阵的加强版。</p></li>
 <li><p>复方阵 <span class="math inline">\(A\)</span> 是正规矩阵当且仅当 <span class="math inline">\(A\)</span> 有 <span class="math inline">\(n\)</span> 个特征向量构成 <span class="math inline">\(\mathbb{C}^n\)</span> 空间的一组标准正交基，且属于 <span class="math inline">\(A\)</span> 的不同特征值的特征向量正交.</p></li>
 <li><p><span class="math inline">\(n\)</span> 阶实方阵 <span class="math inline">\(A\)</span> 是正交矩阵当且仅当 <span class="math inline">\(A\)</span> 的所有特征值的模值为 1 , 且存在酉矩阵 <span class="math inline">\(U\)</span> 使得</p></li>
 </ol>
@@ -1376,14 +1377,144 @@ P^{-1}AP=\Lambda
    U^H A U=\operatorname{diag}\left(\lambda_1, \cdots, \lambda_n\right)
    \]</span></p>
 <p>其中 <span class="math inline">\(\lambda_1, \cdots, \lambda_n\)</span> 是 <span class="math inline">\(A\)</span> 的 <span class="math inline">\(n\)</span> 个特征值.</p>
-<ol start="3" type="1">
+<ol start="4" type="1">
 <li><span class="math inline">\(n\)</span> 阶复方阵 <span class="math inline">\(A\)</span> 是酉矩阵当且仅当 <span class="math inline">\(A\)</span> 的所有特征值的模值为 1 , 且存在酉矩阵 <span class="math inline">\(U\)</span> 使得</li>
 </ol>
 <p><span class="math display">\[
    U^H A U=\operatorname{diag}\left(\lambda_1, \cdots, \lambda_n\right)
    \]</span></p>
 <p>其中 <span class="math inline">\(\lambda_1, \cdots, \lambda_n\)</span> 是 <span class="math inline">\(A\)</span> 的 <span class="math inline">\(n\)</span> 个特征值.</p>
+<h3 id="谱分解">谱分解</h3>
+<p>接下来进一步研究单纯矩阵和正规矩阵的性质。</p>
+<h4 id="单纯矩阵谱分解">单纯矩阵谱分解</h4>
+<p>单纯矩阵<span class="math inline">\(A\in \mathbb C^{n\times n}\)</span>可以写成一系列幂等矩阵的加权和的形式，其中的权是<span class="math inline">\(A\)</span>的特征值： <span class="math display">\[
+A=\sum_{i=1}^n\lambda_iA_i
+\]</span></p>
+<blockquote>
+<p>【证明】：</p>
+<p>因为<span class="math inline">\(A\)</span>是单纯矩阵，有： <span class="math display">\[
+A=P\times \text{diag}\{\lambda_1,\cdots,\lambda_n\}\times P^{-1}
+\]</span> 把<span class="math inline">\(P,P^{-1}\)</span>按行列进行分块，有： <span class="math display">\[
+P=\left(v_1, v_2, \cdots, v_n\right), P^{-1}=\left(\begin{array}{c}
+\omega_1^T \\
+\omega_2^T \\
+\vdots \\
+\omega_n^T
+\end{array}\right)
+\]</span> 在这里，<span class="math inline">\(v_i\)</span>其实就是属于<span class="math inline">\(\lambda_i\)</span>的特征向量。</p>
+<p>则有： <span class="math display">\[
+A=\sum_{i=1}^n v_i\lambda_iw_i^T=\sum_{i=1}^n\lambda_iA_i
+\]</span> 其中 <span class="math display">\[
+A_i=v_iw_i^T
+\]</span> 下证<span class="math inline">\(A_i\)</span>是幂等矩阵。由<span class="math inline">\(P^{-1}P=I\)</span>，有： <span class="math display">\[
+w_i^Tv_i=1
+\]</span> 则有： <span class="math display">\[
+A_i^2=(v_iw_i^T)(v_iw_i^T)=v_i(w_i^Tv_i)w_i^T=v_iw_i^T=A_i
+\]</span> 证毕。</p>
+<p>其实，可用同样的方法证明：<span class="math inline">\(A_iA_j=O(i\neq j)\)</span>。</p>
+</blockquote>
+<p>进一步的，如果更一般的情况，即有<span class="math inline">\(m&lt;n\)</span>个特征值，其中<span class="math inline">\(d_i\)</span>是特征值<span class="math inline">\(\lambda_i\)</span>的重数， 有： <span class="math display">\[
+A=\sum_{i=1}^m \lambda_iE_i
+\]</span> 其中 <span class="math display">\[
+E_i=\sum_{j=1}^{d_i} \alpha _{ij}\beta^{H}_{ij}
+\]</span> 其中，<span class="math inline">\(\alpha_{ij}\)</span>是第<span class="math inline">\(i\)</span>个特征值的第<span class="math inline">\(j\)</span>个特征向量，<span class="math inline">\(\beta_{ij}\)</span>可由<span class="math inline">\(P^{-1}\)</span>求出</p>
+<blockquote>
+<p>【例】计算谱分解： <span class="math display">\[
+\boldsymbol{A}=\left[\begin{array}{rrr}
+4 &amp; 6 &amp; 0 \\
+-3 &amp; -5 &amp; 0 \\
+-3 &amp; -6 &amp; 1
+\end{array}\right]
+\]</span> 【解】先计算特征值： <span class="math display">\[
+\lambda_1=\lambda_2=1,\lambda_3=-2
+\]</span> 对应的特征向量为： <span class="math display">\[
+\boldsymbol{\alpha}_1=[2,-1,0]^{\mathrm{T}}, \quad \boldsymbol{\alpha}_2=[0,0,1]^{\mathrm{T}}, \quad \boldsymbol{\alpha}_3=[-1,1,1]^{\mathrm{T}}
+\]</span> 则有： <span class="math display">\[
+\boldsymbol{P}=\left[\begin{array}{rrr}
+2 &amp; 0 &amp; -1 \\
+-1 &amp; 0 &amp; 1 \\
+0 &amp; 1 &amp; 1
+\end{array}\right], \quad \boldsymbol{P}^{-1}=\left[\begin{array}{rrr}
+1 &amp; 1 &amp; 0 \\
+-1 &amp; -2 &amp; 1 \\
+1 &amp; 2 &amp; 0
+\end{array}\right]
+\]</span> 则： <span class="math display">\[
+\boldsymbol{\beta}_1=[1,1,0]^{\mathrm{T}}, \boldsymbol{\beta}_2=[-1,-2,1]^{\mathrm{T}}, \boldsymbol{\beta}_3=[1,2,0]^{\mathrm{T}} .
+\]</span> 由定义： <span class="math display">\[
+\begin{aligned}
+&amp; \boldsymbol{E}_1=\boldsymbol{\alpha}_1 \boldsymbol{\beta}_1^{\mathrm{H}}+\boldsymbol{\alpha}_2 \boldsymbol{\beta}_2^{\mathrm{H}}=\left[\begin{array}{rrr}
+2 &amp; 2 &amp; 0 \\
+-1 &amp; -1 &amp; 0 \\
+-1 &amp; -2 &amp; 1
+\end{array}\right] \\
+&amp; \boldsymbol{E}_2=\boldsymbol{\alpha}_3 \boldsymbol{\beta}_3^{\mathrm{H}}=\left[\begin{array}{rrr}
+-1 &amp; -2 &amp; 0 \\
+1 &amp; 2 &amp; 0 \\
+1 &amp; 2 &amp; 0
+\end{array}\right]
+\end{aligned}
+\]</span></p>
+</blockquote>
+<p>关于单纯矩阵的谱分解，有性质：</p>
+<ol type="1">
+<li><span class="math inline">\(E_i=E^2_i\)</span></li>
+<li><span class="math inline">\(E_iE_j=O(i\neq j)\)</span></li>
+<li><span class="math inline">\(E_iA=AE_i=\lambda_iE_i\)</span></li>
+<li><span class="math inline">\(\sum_{i=1}^mE_i=I\)</span></li>
+<li>集合<span class="math inline">\(\{E_i\}\)</span>唯一</li>
+</ol>
+<p>有推论：</p>
+<p>若<span class="math inline">\(f(\lambda)\)</span>是一个多项式，有： <span class="math display">\[
+f(A)=\sum_{i=1}^m f(\lambda_i)E_i
+\]</span> 进一步，若设<span class="math inline">\(f_i(\lambda)=\prod_{l=1,l\neq i}^m (\lambda-\lambda_l)\)</span>，则有： <span class="math display">\[
+E_i=\frac{\prod_{l=1,l\neq i}^{m} (A-\lambda_lI)}{\prod_{l=1,l\neq i}^{m} (\lambda_i-\lambda_l)}
+\]</span></p>
+<blockquote>
+<p>例】计算谱分解： <span class="math display">\[
+\boldsymbol{A}=\left[\begin{array}{rrr}
+4 &amp; 6 &amp; 0 \\
+-3 &amp; -5 &amp; 0 \\
+-3 &amp; -6 &amp; 1
+\end{array}\right]
+\]</span> 【解】先计算特征值： <span class="math display">\[
+\lambda_1=\lambda_2=1,\lambda_3=-2
+\]</span> 定义 <span class="math inline">\(f_1(\lambda)=\lambda+2, f_2(\lambda)=\lambda-1\)</span>, 则</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \boldsymbol{E}_1=\frac{1}{f_1\left(\lambda_1\right)} f_1(\boldsymbol{A})=\left[\begin{array}{rrr}
+2 &amp; 2 &amp; 0 \\
+-1 &amp; -1 &amp; 0 \\
+-1 &amp; -2 &amp; 1
+\end{array}\right] \\
+&amp; \boldsymbol{E}_2=\frac{1}{f_2\left(\lambda_2\right)} f_2(\boldsymbol{A})=\left[\begin{array}{rrr}
+-1 &amp; -2 &amp; 0 \\
+1 &amp; 2 &amp; 0 \\
+1 &amp; 2 &amp; 0
+\end{array}\right]
+\end{aligned}
+\]</span></p>
+</blockquote>
+<h4 id="正规矩阵的谱分解">正规矩阵的谱分解</h4>
+<p>正规矩阵是单纯矩阵的特殊情况。在正规矩阵的谱分解中，<span class="math inline">\(E_i\)</span>都是正交矩阵。而且有： <span class="math display">\[
+E_i=\sum_{k=1}^{d_i} u_{ik}u_{ik}^H
+\]</span> 其中<span class="math inline">\(u_i\)</span>是属于<span class="math inline">\(\lambda_i\)</span>的单位正交的特征向量们。</p>
+<blockquote>
+<p>【例】求正规矩阵的谱分解 <span class="math display">\[
+\boldsymbol{A}=\left[\begin{array}{rrrr}0 &amp; 1 &amp; 1 &amp; -1 \\ 1 &amp; 0 &amp; -1 &amp; 1 \\ 1 &amp; -1 &amp; 0 &amp; 1 \\ -1 &amp; 1 &amp; 1 &amp; 0\end{array}\right]
+\]</span> 【解】计算矩阵 <span class="math inline">\(\boldsymbol{A}\)</span> 的特征值与特征向量, 分别为: <span class="math inline">\(\lambda_1=\lambda_2=\lambda_3=1\)</span> ，<span class="math inline">\(\boldsymbol{\beta}_1=[1,1,0,0]^{\mathrm{T}}, \boldsymbol{\beta}_2=[1,0,1,0]^{\mathrm{T}}, \boldsymbol{\beta}_3=[-1,0,0,1]^{\mathrm{T}} ; \lambda_4=-3, \boldsymbol{\beta}_4=[1,-1,-1,1]^{\mathrm{T}}\)</span>.</p>
+<p>将 <span class="math inline">\(\boldsymbol{\beta}_1, \boldsymbol{\beta}_2\)</span> 和 <span class="math inline">\(\boldsymbol{\beta}_3\)</span> 单位正交化, 并将 <span class="math inline">\(\boldsymbol{\beta}_4\)</span> 单位化, 得 <span class="math display">\[
+\begin{gathered}
+\boldsymbol{\alpha}_1=\left[\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}, 0,0\right]^{\mathrm{T}} \\
+\boldsymbol{\alpha}_2=\left[\frac{1}{\sqrt{6}},-\frac{1}{\sqrt{6}}, \frac{2}{\sqrt{6}}, 0\right]^{\mathrm{T}} \\
+\boldsymbol{\alpha}_3=\left[-\frac{1}{\sqrt{12}}, \frac{1}{\sqrt{12}}, \frac{1}{\sqrt{12}}, \frac{3}{\sqrt{12}}\right]^{\mathrm{T}} \\
+\cdot \boldsymbol{\alpha}_4=\left[\frac{1}{2},-\frac{1}{2},-\frac{1}{2}, \frac{1}{2}\right]^{\mathrm{T}}
+\end{gathered}
+\]</span></p>
+<p>定义 <span class="math inline">\(\boldsymbol{E}_1=\boldsymbol{\alpha}_1 \boldsymbol{\alpha}_1^{\mathrm{H}}+\boldsymbol{\alpha}_2 \boldsymbol{\alpha}_2^{\mathrm{H}}+\boldsymbol{\alpha}_3 \boldsymbol{\alpha}_3^{\mathrm{H}}, \boldsymbol{E}_2=\boldsymbol{\alpha}_1 \boldsymbol{\alpha}_4^{\mathrm{H}}\)</span>, 则 <span class="math inline">\(\boldsymbol{A}=\boldsymbol{E}_1-3 \boldsymbol{E}_2\)</span> 是 <span class="math inline">\(\boldsymbol{A}\)</span> 的谱分解式。</p>
+</blockquote>
 <h3 id="若当标准型">若当标准型</h3>
+<p>接下来讨论不单纯的矩阵，也就是不能相似对角化的矩阵，如果非要把它相似对角化会怎样。</p>
 <h4 id="lambda矩阵与三个重要因子"><span class="math inline">\(\lambda\)</span>矩阵与三个重要因子</h4>
 <p>【<span class="math inline">\(\lambda\)</span>矩阵】如果矩阵<span class="math inline">\(A\)</span>的元素都是<span class="math inline">\(\lambda\)</span>多项式，那么矩阵<span class="math inline">\(A\)</span>称为<span class="math inline">\(\lambda\)</span>矩阵。</p>
 <p>例如，我们经常见到的特征矩阵<span class="math inline">\(\lambda I-A\)</span>就是一个典型的<span class="math inline">\(\lambda\)</span>矩阵。</p>
