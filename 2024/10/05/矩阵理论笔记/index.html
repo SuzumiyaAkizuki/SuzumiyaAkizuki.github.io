@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202410052359787.png">
 <meta property="article:published_time" content="2024-10-05T06:38:32.000Z">
-<meta property="article:modified_time" content="2024-12-28T04:44:57.729Z">
+<meta property="article:modified_time" content="2024-12-28T04:58:29.277Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="矩阵理论">
 <meta name="twitter:card" content="summary_large_image">
@@ -280,7 +280,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          42k 字
+          43k 字
         
       </span>
     
@@ -291,7 +291,7 @@
         
         
         
-          106 分钟
+          107 分钟
         
       </span>
     
@@ -704,7 +704,7 @@ x_4
 <li>有理数 <span class="math inline">\(\mathbb Q\)</span></li>
 <li>实数<span class="math inline">\(\mathbb R\)</span></li>
 <li>复数<span class="math inline">\(\mathbb C\)</span></li>
-<li>扩域，例如<span class="math inline">\(\mathbb Q(\sqrt 3)=\{a+b\sqrt 3,ab\in \mathbb Q\}\)</span></li>
+<li>扩域，例如<span class="math inline">\(\mathbb Q(\sqrt 3)=\{a+b\sqrt 3\mid a,b\in \mathbb Q\}\)</span></li>
 </ul>
 <p>【加群】在非空集合<span class="math inline">\(V\)</span>上定义一种代数运算,称之为<strong>加法</strong>（记为“<span class="math inline">\(+\)</span>” ）,使得<span class="math inline">\(\forall ab\in V\)</span>都有中唯一元素<span class="math inline">\(a+b\)</span>与之对应,该元素称为<span class="math inline">\(a\)</span>与<span class="math inline">\(b\)</span>的和，且满足如下性质</p>
 <ul>
@@ -842,7 +842,7 @@ y^HAx&amp;=\overline{x^HAy}\\
 &amp;=y^H(x^HA)^H\\
 &amp;=y^HA^Hx
 \end{align}
-\]</span> &gt; 这个推导有两点可能需要解释。第一，因为它的结果是个1*1的矩阵，所以共轭可以写作共轭转置。第二，<span class="math inline">\((AB)^H=B^HA^H\)</span></p>
+\]</span> 这个推导有两点可能需要解释。第一，因为它的结果是个1*1的矩阵，所以共轭可以写作共轭转置。第二，<span class="math inline">\((AB)^H=B^HA^H\)</span></p>
 <p>所以有： <span class="math display">\[
 A=A^H
 \]</span> 我们将满足<span class="math inline">\(A=A^H\)</span>的矩阵称为<strong>Hermite矩阵</strong>。此外，还需补充正定性： <span class="math display">\[
@@ -1014,7 +1014,7 @@ A=\left[\begin{array}{cccc}a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1 n} \\ a_{
 <p>简单理解：线性映射的矩阵，就是<span class="math inline">\(V\)</span>中的基的像在<span class="math inline">\(W\)</span>的基下的坐标，依次写成纵列，然后拼接起来。</p>
 <p>当线性空间<span class="math inline">\(V\)</span>和<span class="math inline">\(W\)</span>的基确定后，矩阵<span class="math inline">\(A\)</span>和线性映射<span class="math inline">\(T\)</span>唯一确定。即：有且仅有一个矩阵使得线性映射是<span class="math inline">\(T\)</span>，也有且仅有一个线性映射使得矩阵是<span class="math inline">\(A\)</span>。</p>
 <blockquote>
-<p>【例】已知多项式空间 <span class="math inline">\(P_3[t]\)</span> （即以<span class="math inline">\(t\)</span>为变量的三阶多项式空间）的子空间 <span class="math inline">\(W=\operatorname{span}\left\{f_1(t), f_2(t), f_3(t), f_4(t)\right\}\)</span>,其中 <span class="math inline">\(f_1(t)=1+t^3, f_2(t)=t+t^2, \quad f_3(t)=1+t^2, \quad f_4(t)=t+t^3\)</span>.</p>
+<p>【例】已知多项式空间 <span class="math inline">\(P_3[t]\)</span> （即以<span class="math inline">\(t\)</span>为变量的三次多项式空间）的子空间 <span class="math inline">\(W=\operatorname{span}\left\{f_1(t), f_2(t), f_3(t), f_4(t)\right\}\)</span>,其中 <span class="math inline">\(f_1(t)=1+t^3, f_2(t)=t+t^2, \quad f_3(t)=1+t^2, \quad f_4(t)=t+t^3\)</span>.</p>
 <ol type="1">
 <li>求子空间 <span class="math inline">\(W\)</span> 的一个基;</li>
 <li>对于 <span class="math inline">\(W\)</span> 中的多项式 <span class="math inline">\(f(t)=a_0+a_1 t+a_2 t^2+a_3 t^3\)</span>, 定义线性变换</li>
@@ -1028,7 +1028,7 @@ T[f(t)]=\left(a_0+a_1-a_2-a_3\right)+a_1 t+\left(a_2-a_3\right) t^2+\left(a_0+2 
 <li><p>注意到：<span class="math inline">\(f_4=f_1+f_2-f_3\)</span>，因此一组基为<span class="math inline">\(\{f_1,f_2,f_3\}\)</span></p></li>
 <li><p>计算基象组：</p>
 <p><span class="math inline">\(T[f_1]=-t^2+t^3=f_1-f_3,T[f_2]=t+t^2=f_2,T[f_3]=t^2-t^3=-f_1+f_3\)</span></p>
-<p>因此，矩阵为： <span class="math display">\[
+<p>因此，矩阵为把基象组依次写成纵列然后拼起来： <span class="math display">\[
 \left[\begin{array}{rrr}
 1 &amp; 0 &amp; -1 \\
 0 &amp; 1 &amp; 0 \\
@@ -1078,7 +1078,7 @@ T \xi=\lambda_0 \xi,
 <p>由定义可以知道，矩阵的特征值是一个一元<span class="math inline">\(n\)</span>次方程式的根。这个根的重数是特征值的<strong>代数重数</strong>。因此，一个<span class="math inline">\(n\times n\)</span>的矩阵的所有特征值的重数之和是<span class="math inline">\(n\)</span>。有时，我们也说「一个<span class="math inline">\(n\)</span>阶方阵有<span class="math inline">\(n\)</span>个特征值」，注意这里的「个」是要计算重数的。</p>
 <p>一个矩阵的特征值之和等于其对角线上元素之和，这个和也叫做矩阵的「迹」，记作<span class="math inline">\(tr(A)\)</span>。</p>
 <blockquote>
-<p>【例】已知<span class="math inline">\(a=(a_1,\cdots,a_n)^T,b=(b_1,\cdots,b_n)^T\)</span>，求<span class="math inline">\(A=ab\)</span>的特征多项式。</p>
+<p>【例】已知<span class="math inline">\(a=(a_1,\cdots,a_n)^T,b=(b_1,\cdots,b_n)^T\)</span>，求<span class="math inline">\(A=ab\)</span>的特征多项式，并求<span class="math inline">\(|A|\)</span>。</p>
 <p>【解】显然，<span class="math inline">\(A_{ij}=a_ib_j\)</span>，因此<span class="math inline">\(A\)</span>是一个秩为<span class="math inline">\(1\)</span>的矩阵（每一行都是向量<span class="math inline">\(b\)</span>乘以标量倍）。那么，考虑齐次线性方程组 <span class="math display">\[
 Ax=0
 \]</span> 它的基础解系是<span class="math inline">\(n-1\)</span>维的，即矩阵的零空间是<span class="math inline">\(n-1\)</span>维的。从特征方程的角度来看，<span class="math inline">\(Ax=0\)</span>代表<span class="math inline">\(0\)</span>为矩阵<span class="math inline">\(A\)</span>的其一特征值，那么其特征值为<span class="math inline">\(0\)</span>的线性无关的特征向量的个数为<span class="math inline">\(N-1\)</span>，又特征值的代数重数不会少于几何重数，所以<span class="math inline">\(0\)</span>至少为<span class="math inline">\(N-1\)</span>重特征值。</p>
@@ -1086,6 +1086,12 @@ Ax=0
 \lambda^{n-1}(\lambda-x)
 \]</span> 因为<span class="math inline">\(A\)</span>的特征值等于其对角线元素之和，所以 <span class="math display">\[
 x=\sum_{i=1}^n a_ib_i
+\]</span></p>
+<p>关于<span class="math inline">\(|A|\)</span>，有： <span class="math display">\[
+|A|=\begin{cases}
+0,&amp;n&gt;1\\
+a_1b_1,&amp;n=1
+\end{cases}
 \]</span></p>
 </blockquote>
 <p>【特征子空间】矩阵的属于某个特征值<span class="math inline">\(\lambda\)</span>的全体特征值再加上零向量，构成一个线性空间，叫做属于特征值<span class="math inline">\(\lambda\)</span>的特征子空间，记作 <span class="math display">\[
@@ -1358,14 +1364,14 @@ P^{-1}AP=\Lambda
 <p>【解】幂等矩阵是满足<span class="math inline">\(A^2=A\)</span>的矩阵，显然<span class="math inline">\(g(\lambda)=\lambda^2-\lambda\)</span>是它的一个零化多项式，无重根，所以<span class="math inline">\(A\)</span>是单纯矩阵。</p>
 </blockquote>
 <p>【酉相似对角化】如果<span class="math inline">\(n\)</span>阶复方阵<span class="math inline">\(A\)</span>酉相似于对角矩阵<span class="math inline">\(\Lambda\)</span>，即存在<span class="math inline">\(n\)</span>阶酉矩阵，使得<span class="math inline">\(U^HAU=\Lambda\)</span>，那么称<span class="math inline">\(A\)</span>是可酉相似对角化的。</p>
-<p>设矩阵<span class="math inline">\(A\in \C^{n\times n}\)</span>，那么<span class="math inline">\(A\)</span>是Hermit矩阵（<span class="math inline">\(A=A^H\)</span>）当且仅当<span class="math inline">\(A\)</span>的所有特征值<span class="math inline">\(\lambda_1\cdots \lambda_n\)</span>是实数，而且存在酉矩阵<span class="math inline">\(U\)</span>，使得<span class="math inline">\(U^HAU=\text{diag}\{\lambda_1\cdots \lambda_n\}\)</span>.</p>
+<p>设矩阵<span class="math inline">\(A\in \mathbb{C}^{n\times n}\)</span>，那么<span class="math inline">\(A\)</span>是Hermit矩阵（<span class="math inline">\(A=A^H\)</span>）当且仅当<span class="math inline">\(A\)</span>的所有特征值<span class="math inline">\(\lambda_1\cdots \lambda_n\)</span>是实数，而且存在酉矩阵<span class="math inline">\(U\)</span>，使得<span class="math inline">\(U^HAU=\text{diag}\{\lambda_1\cdots \lambda_n\}\)</span>.</p>
 <p>求Hermite矩阵<span class="math inline">\(A\)</span>酉相似于对角阵的步骤如下:</p>
 <ol type="1">
 <li>求出<span class="math inline">\(A\)</span>所有的相异特征值和重数</li>
 <li>对于每个特征值，求<span class="math inline">\((\lambda I-A)x=0\)</span>的基础解系，并将其单位正交化</li>
 <li>由标准正交特征向量生成酉矩阵<span class="math inline">\(Q\)</span>，则<span class="math inline">\(Q^HAQ\)</span>是酉矩阵</li>
 </ol>
-<p>【正规矩阵】设<span class="math inline">\(A\in \C^{n\times n}\)</span>，则满足<span class="math inline">\(AA^H=A^HA\)</span>的矩阵称为正规矩阵。</p>
+<p>【正规矩阵】设<span class="math inline">\(A\in \mathbb{C}^{n\times n}\)</span>，则满足<span class="math inline">\(AA^H=A^HA\)</span>的矩阵称为正规矩阵。</p>
 <p>复方阵<span class="math inline">\(A\)</span>是正规矩阵，和<span class="math inline">\(A\)</span>酉相似于对角阵等价。</p>
 <p>关于正规矩阵，有：</p>
 <ol type="1">
@@ -1796,7 +1802,7 @@ k_1\|x\|_\beta\leq \|x\|_\alpha \leq k_2\|x\|_\beta
 \]</span></p></li>
 </ol>
 <h3 id="矩阵特征值的估计">矩阵特征值的估计</h3>
-<p>【谱和谱半径】对于复方阵<span class="math inline">\(A\in \mathbb C^{n\times n}\)</span>，其所有特征值的集合<span class="math inline">\(S_p(A)\)</span>叫做这个矩阵的谱，其中模最大的特征值叫做这个矩阵的谱半径。</p>
+<p>【谱和谱半径】对于复方阵<span class="math inline">\(A\in \mathbb C^{n\times n}\)</span>，其所有特征值的集合<span class="math inline">\(S_p(A)\)</span>叫做这个矩阵的谱，其中特征值最大的模叫做这个矩阵的谱半径。</p>
 <blockquote>
 <p>谱半径本身不是范数（不满足正定性中的「范数为0等价于矩阵为<span class="math inline">\(O\)</span>」），而且它不大于任何一个矩阵范数。</p>
 </blockquote>
