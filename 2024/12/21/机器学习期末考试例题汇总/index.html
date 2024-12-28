@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202412211419341.png">
 <meta property="article:published_time" content="2024-12-21T02:56:50.000Z">
-<meta property="article:modified_time" content="2024-12-28T07:21:38.462Z">
+<meta property="article:modified_time" content="2024-12-28T08:29:56.570Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary_large_image">
@@ -280,7 +280,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          17k 字
+          20k 字
         
       </span>
     
@@ -291,7 +291,7 @@
         
         
         
-          42 分钟
+          51 分钟
         
       </span>
     
@@ -921,7 +921,7 @@ J=\sum_{n=1}^N \sum_{k=1}^K r_{n k}\left\|\boldsymbol{x}_n-\mu_k\right\|^2
 <p>【解答】似然函数为： <span class="math display">\[
 \ln p(\mathbf{X} \mid \boldsymbol{\pi}, \boldsymbol{\mu}, \boldsymbol{\Sigma})=\sum_{n=1}^N \ln \left\{\sum_{k=1}^K \pi_k \mathcal{N}\left(\mathbf{x}_n \mid \boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k\right)\right\}
 \]</span> 其中，<span class="math inline">\(\mathcal{N}\left(\mathbf{x}_n \mid \boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k\right)\)</span>是已知参数为<span class="math inline">\(\mu_k,\Sigma_k\)</span>时的正态分布概率密度函数（以<span class="math inline">\(x_n\)</span>为自变量）。</p>
-<p>设<span class="math inline">\(\gamma_{nk}\)</span>为样本<span class="math inline">\(n\)</span>服从第<span class="math inline">\(k\)</span>个高斯分布的后验概率，即： <span class="math display">\[
+<p>设<span class="math inline">\(\gamma(z_{nk})\)</span>为样本<span class="math inline">\(n\)</span>服从第<span class="math inline">\(k\)</span>个高斯分布的后验概率，即： <span class="math display">\[
 \gamma\left(z_{n k}\right)=\frac{\pi_k \mathcal{N}\left(\mathbf{x}_n \mid \mu_k, \Sigma_k\right)}{\sum_j \pi_j \mathcal{N}\left(\mathbf{x}_n \mid \mu_j, \Sigma_j\right)}
 \]</span> 将似然函数对<span class="math inline">\(\mu_k,\Sigma_k,\pi_k\)</span>分别求导，得到： <span class="math display">\[
 \begin{gathered}
@@ -1190,6 +1190,59 @@ a_{k}=\sum_{k}w_{kj}h(a_{j})
 \]</span> 其中<span class="math inline">\(\sigma\)</span>是Sigmoid函数，即 <span class="math display">\[
 \sigma(x)=\frac 1{1+e^{-x}}
 \]</span></p>
+<p>【例题1】包含一层隐藏层的前馈神经网络如图所示, 其中给定训练集 <span class="math inline">\(D=\left\{\left(x_1, t_1\right),\left(x_2, t_2\right), \cdots,\left(x_N, t_N\right)\right\}, x_i \in \mathbb{R}^D, t_i \in \mathbb{R}^K\)</span> 。隐藏层激活函数为 <span class="math inline">\(\mathrm{h}(\mathrm{x})\)</span>, 输出层激活函数为 <span class="math inline">\(\sigma(\mathrm{x})\)</span> 。 <span class="math inline">\(y_n\)</span> 表示第<span class="math inline">\(n\)</span>个样本 <span class="math inline">\(x_n\)</span> 对应的神经网络输出向量, <span class="math inline">\(y_n=\left[y_{n 1}, \cdots, y_{n k}, \cdots, y_{n K}\right]^T\)</span>, 准则函数为 <span class="math inline">\(E_n(\mathrm{w})=\frac{1}{2} \sum_{\mathrm{k}=1}^{\mathrm{K}}\left\{\mathrm{y}_{\mathrm{nk}}-\mathrm{t}_{\mathrm{nk}}\right\}^2\)</span> 。网络包含$ D $个输入神经元, $K <span class="math inline">\(个输出神经元, 以及\)</span> M$个隐层神经元。试推导反向传播算法中对每一层权值参数（ <span class="math inline">\(\omega_{m d}^{(1)}\)</span> 与 <span class="math inline">\(\omega_{k m}^{(2)}\)</span> ) 的更新</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202412281544407.png" srcset="/img/loading.gif" lazyload alt="image-20241228154357203" style="zoom:50%;" /></p>
+<p>【解答1】先推导前向传播： <span class="math display">\[
+\begin{align}
+a_m&amp;=\sum_{d=1}^D x_dw_{md}^{(1)}\\
+z_m&amp;=h(a_m)\\
+a_k&amp;=\sum_{m=0}^Mz_mw_{km}^{(2)}\\
+y_nk&amp;=\sigma(a_k)
+\end{align}
+\]</span> 对输出层： <span class="math display">\[
+\begin{align}
+\delta_k&amp;=\frac{\partial E_n}{\partial a_k}\\
+&amp;=\frac{\partial E_n}{\partial y_{nk}}\frac{\partial y_{nk}}{a_k}\\
+&amp;=(y_{nk}-t_{nk})\sigma&#39;(a_k)
+\end{align}
+\]</span> 对隐藏层： <span class="math display">\[
+\begin{align}
+\delta_m&amp;=\frac{\partial E_n}{\partial a_m}\\
+&amp;=\frac{\partial E_n}{\partial a_k}\frac{\partial a_k}{\partial a_m}
+\end{align}
+\]</span> 其中， <span class="math display">\[
+a_k=\sum h(a_m)w_{km}^{(2)}
+\]</span> 则有： <span class="math display">\[
+\begin{align}
+\delta_m&amp;=\frac{\partial E_n}{\partial a_m}\\
+&amp;=\frac{\partial E_n}{\partial a_k}\frac{\partial a_k}{\partial a_m}\\
+&amp;=h&#39;(a_m)\sum_{k}\delta_kw_{km}^{(2)}
+\end{align}
+\]</span> 则权值更新公式为： <span class="math display">\[
+\begin{aligned}
+&amp; \frac{\partial E_n}{\partial \omega_{k m}^{(2)}}=\delta_k \cdot \frac{\partial a_k}{\partial \omega_{k m}^{(2)}}=z_m \cdot\left(y_{n k}-t_{n k}\right) \cdot \sigma^{\prime}\left(a_k\right) \\
+&amp; \frac{\partial E_n}{\partial \omega_{m d}^{(1)}}=\delta_m \cdot \frac{\partial a_m}{\partial \omega_{m d}^{(1)}}=x_d \cdot h^{\prime}\left(a_m\right) \sum_k \delta_k \cdot \omega_{k m}^{(2)}
+\end{aligned}
+\]</span> 【例题2】考虑只有一个神经元的多层神经网络, 其中 <span class="math inline">\(x_{i+1}=\sigma\left(z_i\right)=\)</span> <span class="math inline">\(\sigma\left(w_i x_i+b_i\right)(i \in[1,4]), C=\operatorname{Loss}\left(x_5\right), \sigma\)</span> 表示 sigmoid 函数 <span class="math inline">\(f(x)=1 /(1+\)</span> <span class="math inline">\(\left.e^{-x}\right)\)</span>, 且 <span class="math inline">\(\left|w_i\right|&lt;1\)</span> 。假设已知 <span class="math inline">\(\frac{\partial C}{\partial b_5}\)</span>, 推导 <span class="math inline">\(\frac{\partial C}{\partial b_i}(i \in[1,4])\)</span>, 并阐述当神经网络层数过深时, 梯度消失的原因。</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202412281622074.png" srcset="/img/loading.gif" lazyload alt="image-20241228162218891" /><figcaption aria-hidden="true">image-20241228162218891</figcaption>
+</figure>
+<p>【解答2】</p>
+<ol type="1">
+<li><p><span class="math inline">\(i=4\)</span>时，有：<span class="math inline">\(x_5=\sigma(z_5),z_5=w_4x_4+b_4\)</span>，因此： <span class="math display">\[
+\frac{\partial {C}}{\partial {b}_4}=\frac{\partial {C}}{\partial {x}_5} \frac{\partial {x}_5}{\partial {z}_4} \frac{\partial {z}_4}{\partial {b}_4}=\frac{\partial {C}}{\partial {x}_5} \sigma^{\prime}\left({z}_4\right)
+\]</span></p></li>
+<li><p><span class="math inline">\(i=3\)</span>时，有：<span class="math inline">\(x_4=\sigma(z_4),z_4=w_3x_3+b_3\)</span>，则： <span class="math display">\[
+\frac{\partial {C}}{\partial {b}_3}=\frac{\partial {C}}{\partial {x}_5} \frac{\partial {x}_5}{\partial {z}_4} \frac{\partial {z}_4}{\partial {x}_4} \frac{\partial {x}_4}{\partial {z}_3} \frac{\partial {z}_3}{\partial {b}_3}= \frac{\partial {C}}{\partial {x}_5} \sigma^{\prime}\left({z}_4\right) {w}_4 \sigma^{\prime}\left({z}_3\right) 
+\]</span></p></li>
+<li><p><span class="math inline">\(i=2\)</span>时，有：<span class="math inline">\(x_3=\sigma(z_3),z_3=w_2x_2+b_2\)</span>，则： <span class="math display">\[
+\frac{\partial {C}}{\partial {b}_2}=\frac{\partial {C}}{\partial {x}_5} \frac{\partial {x}_5}{\partial {z}_4} \frac{\partial {z}_4}{\partial {x}_4} \frac{\partial {x}_4}{\partial {z}_3} \frac{\partial {z}_3}{\partial {x}_3} \frac{\partial {x}_3}{\partial {z}_2} \frac{\partial {z}_2}{\partial {b}_2}=  \frac{\partial {C}}{\partial {x}_5} \sigma^{\prime}\left({z}_4\right) {w}_4 \sigma^{\prime}\left({z}_3\right) {w}_3 \sigma^{\prime}\left({z}_2\right)
+\]</span></p></li>
+<li><p><span class="math inline">\(i=1\)</span>时，同理，有： <span class="math display">\[
+\frac{\partial {C}}{\partial {b}_1}=\frac{\partial {C}}{\partial {x}_5} \sigma^{\prime}\left({z}_4\right) {w}_4 \sigma^{\prime}\left({z}_3\right) {w}_3 \sigma^{\prime}\left({z}_2\right) {w}_2 \sigma^{\prime}\left({z}_1\right)
+\]</span></p></li>
+</ol>
+<p>由于 <span class="math inline">\(\sigma^{\prime}(z) \leq \frac{1}{4}\)</span> 且 <span class="math inline">\(|w|&lt;1\)</span>, 则当层数过深时, <span class="math inline">\(\frac{\partial C}{\partial b_1}\)</span> 趋于 0 , 则梯度消失</p>
 <h2 id="开放性试题">开放性试题</h2>
 <p>【来源】参考文献1、2、3、4、5</p>
 <p>【讲解】每张卷子的最后一题是开放性试题。</p>
