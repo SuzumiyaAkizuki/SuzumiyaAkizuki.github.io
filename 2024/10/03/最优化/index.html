@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202410032251555.png">
 <meta property="article:published_time" content="2024-10-03T08:19:00.000Z">
-<meta property="article:modified_time" content="2024-12-28T15:11:07.235Z">
+<meta property="article:modified_time" content="2024-12-28T16:10:50.546Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="最优化">
 <meta name="twitter:card" content="summary_large_image">
@@ -280,7 +280,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          22k 字
+          25k 字
         
       </span>
     
@@ -291,7 +291,7 @@
         
         
         
-          55 分钟
+          63 分钟
         
       </span>
     
@@ -1068,7 +1068,7 @@ f^{\prime}(\boldsymbol{x} ; \boldsymbol{d})=\max _{\boldsymbol{g} \in \partial f
 </blockquote>
 <p>假如<span class="math inline">\(x*\)</span>是问题的局部最优解，而且在<span class="math inline">\(x*\)</span>处满足某个「适当的条件」，则存在<span class="math inline">\(\lambda,\mu\)</span>使得： <span class="math display">\[
 \begin{align}
-\nabla f(x^*)+\sum_{i=1}^m \lambda_i \nabla h_i(x^*)+\sum_{i=1}^l \mu_i\nabla g_i(x^*)&amp;=0\\
+\nabla f(x^*)+\sum_{i=1}^m \lambda_i \nabla g_i(x^*)+\sum_{i=1}^l \mu_i\nabla h_i(x^*)&amp;=0\\
 \lambda_i&amp;\geq 0\\
 g_i(x^*)&amp;\leq 0\\
 h_i(x^*)&amp;= 0\\
@@ -1115,7 +1115,7 @@ D(x^*)\cap F_1(x^*)=0
 <h3 id="二阶必要条件">二阶必要条件</h3>
 <p>假设对于KKT点<span class="math inline">\(x^*\)</span>： <span class="math display">\[
 \begin{align}
-\nabla f(x^*)+\sum_{i=1}^m \lambda_i \nabla h_i(x^*)+\sum_{i=1}^l \mu_i\nabla g_i(x^*)&amp;=0\\
+\nabla f(x^*)+\sum_{i=1}^m \lambda_i \nabla g_i(x^*)+\sum_{i=1}^l \mu_i\nabla h_i(x^*)&amp;=0\\
 \lambda_i&amp;\geq 0\\
 g_i(x^*)&amp;\leq 0\\
 h_i(x^*)&amp;= 0\\
@@ -1149,6 +1149,108 @@ A^+(x^*)=\{j\mid g_j(x^*)=0,\lambda_j\neq0,j=1,\cdots,l\}
 L(x,\lambda,\mu)=f(x)+\sum_{i=1}^m \lambda_ig_i(x)+\sum_{i=1}^l \mu_ih_i(x)
 \]</span> <span class="math inline">\(\nabla L(x^*)=0\)</span>，若<span class="math inline">\(d^T\nabla^2L(x^*)d&gt;0,\forall x\in F_2(x^*)\)</span>，则<span class="math inline">\(x^*\)</span>是原问题的严格最优解。</p>
 <h3 id="对偶问题">对偶问题</h3>
+<p>考虑一般的约束问题<span class="math inline">\((P)\)</span>: <span class="math display">\[
+\begin{align}
+\text{minimize}\ \ &amp;f(x)\\
+\text{s.t.}\ \ &amp;h_i(x)=0,i=1,\cdots,m\\
+&amp;g_i(x)\leq 0,i=1,\cdots,l\\
+&amp;x\in X
+\end{align}
+\]</span> 记录可行集，即满足所有约束条件的集合为<span class="math inline">\(S\)</span>。</p>
+<p>如果<span class="math inline">\((P)\)</span>问题比较难于求解，例如<span class="math inline">\((P)\)</span>是非凸问题，我们试图寻找一个和<span class="math inline">\((P)\)</span>关系紧密，又比较简单的问题<span class="math inline">\((D)\)</span>。</p>
+<p>引入拉格朗日函数： <span class="math display">\[
+L(x,\lambda,\mu)=f(x)+\sum_{i=1}^m \lambda_ig_i(x)+\sum_{i=1}^l \mu_ih_i(x)
+\]</span> 和对偶函数，即在集合约束满足的前提下对拉格朗日函数求最小值： <span class="math display">\[
+d(\lambda,\mu)=\min_{x\in X}\left\{f(x)+\sum_{i=1}^m \lambda_ig_i(x)+\sum_{i=1}^l \mu_ih_i(x)\right\}
+\]</span> 给一组<span class="math inline">\(\lambda,\mu\)</span>，在<span class="math inline">\(X\)</span>里面就有一个<span class="math inline">\(L(x,\lambda,\mu)\)</span>的最小值；给另一组<span class="math inline">\(\lambda,\mu\)</span>，就会对应另一个最小值，这样一来，我们把这个最小值写成<span class="math inline">\(\lambda,\mu\)</span>的函数<span class="math inline">\(d(\lambda,\mu)\)</span>。接下来研究 <span class="math inline">\(d\)</span> 函数的特征，有： <span class="math display">\[
+\begin{align}
+\forall \lambda,\mu,\lambda&gt;0,d(\lambda,\mu)&amp;=\min_{x\in X}\left\{f(x)+\sum_{i=1}^m \lambda_ig_i(x)+\sum_{i=1}^l \mu_ih_i(x)\right\}\\
+&amp;\leq \min_{x\in S}\left\{f(x)+\sum_{i=1}^m \lambda_ig_i(x)+\sum_{i=1}^l \mu_ih_i(x)\right\}\\
+&amp; \leq \min_{x\in S}\left\{f(x)\right\}=v(P)
+\end{align}
+\]</span> 其中，<span class="math inline">\(v(P)\)</span>表示<span class="math inline">\((P)\)</span>问题的最优值，即<span class="math inline">\((P)\)</span>问题最优值的下界。由此，我们可以说，<span class="math inline">\(d(\lambda,\mu)\)</span>是对<span class="math inline">\((P)\)</span>问题的下界的估计。对下界的估计必然是越大越好，于是，有： <span class="math display">\[
+\begin{align}
+\text{maximize}\ \ &amp;d(\lambda,\mu)\\
+\text{s.t.}\ \ &amp;\lambda_i\geq 0,i=1,\cdots ,m
+\end{align}
+\]</span> 我们把这个问题叫做「对偶问题」，记作<span class="math inline">\((D)\)</span>。接下来分析一下对偶问题和原问题的关系。对偶问题可以写作： <span class="math display">\[
+\max_{\lambda\geq 0,\mu}\min_{x\in X}L(x,\lambda,\mu)
+\]</span> 如果我们把两个求最值换一下顺序： <span class="math display">\[
+\min_{x\in X}\max_{\lambda\geq 0,\mu}L(x,\lambda,\mu)
+\]</span> 其中，<span class="math inline">\(\max_{\lambda&gt;0,\mu}L(x,\lambda,\mu)\)</span>是很容易取到正无穷的。因为如果<span class="math inline">\(g(x)&gt;0\)</span>，因为<span class="math inline">\(\lambda\)</span>无上界，所以可以取到正无穷。如果<span class="math inline">\(h(x)\neq0\)</span>，因为<span class="math inline">\(\mu\)</span>无上下界，所以也可以取到正无穷。那么有： <span class="math display">\[
+\max_{\lambda&gt;0,\mu}L(x,\lambda,\mu)=\begin{cases}
+f(x),&amp;g_i(x)\leq 0,h_i(x)=0\\
++\infty,&amp;\text{otherwise}
+\end{cases}
+\]</span> 然后求外层的最小值，显然我们不关心正无穷的情况，那么有： <span class="math display">\[
+\begin{align}
+\text{minimize}\ \ &amp;f(x)\\
+\text{s.t.}\ \ &amp;h_i(x)=0,i=1,\cdots,m\\
+&amp;g_i(x)\leq 0,i=1,\cdots,l\\
+&amp;x\in X
+\end{align}
+\]</span> 我们发现，这就是原问题<span class="math inline">\((P)\)</span>。</p>
+<p>接下来，讨论一下对偶问题的几何解释。<span class="math inline">\(x\)</span>为点<span class="math inline">\((y,z)\)</span>。<span class="math inline">\(f(x)=x_1=z\)</span>，即取向量的第一个分量；<span class="math inline">\(g(x)=x_2=y\)</span>，即取坐标的第二个分类。考虑原问题： <span class="math display">\[
+\begin{align}
+\text{minimize}\ \ &amp;z\\
+\text{s.t.}\ \ &amp;y\leq 0\\
+&amp;(y,z)\in G
+\end{align}
+\]</span> 那么有： <span class="math display">\[
+d(\lambda)=\min_{(y,z)\in G}\{z+\lambda y\}
+\]</span> 对偶问题为： <span class="math display">\[
+\begin{align}
+\text{maximize}\ \ &amp;d(\lambda)\\
+\text{s.t.}\ \ &amp;\lambda\geq 0
+\end{align}
+\]</span> <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202412282343286.png" srcset="/img/loading.gif" lazyload alt="image-20241228234339606" /></p>
+<p>如图所示是原问题的解。红色阴影区域即原问题的可行区域，绿色的点就是原问题的最优解。</p>
+<p>那么已知<span class="math inline">\(\lambda\)</span>，如何求<span class="math inline">\(d(\lambda)\)</span>？假如说，有<span class="math inline">\(d(\lambda)=\alpha\)</span>，那么有直线： <span class="math display">\[
+z+\lambda y=\alpha
+\]</span> 我们尽可能地把直线往下移动，而且让其至少有一部分在<span class="math inline">\(G\)</span>以内，</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202412282345224.png" srcset="/img/loading.gif" lazyload alt="image-20241228234458195" /><figcaption aria-hidden="true">image-20241228234458195</figcaption>
+</figure>
+<p>蓝色圆圈处的点就是已知<span class="math inline">\(\lambda\)</span>时的<span class="math inline">\(d(\lambda)\)</span>。</p>
+<p>现在，我们要改变<span class="math inline">\(\lambda\)</span>，求<span class="math inline">\(\lambda&gt;0\)</span>时的<span class="math inline">\(d(\lambda)\)</span>最大值，有：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202412282348286.png" srcset="/img/loading.gif" lazyload alt="image-20241228234840079" /><figcaption aria-hidden="true">image-20241228234840079</figcaption>
+</figure>
+<p>图中，浅蓝色的直线表示了不同<span class="math inline">\(\lambda\)</span>时<span class="math inline">\(d(\lambda)\)</span>的计算过程。最终，<span class="math inline">\(d(\lambda)\)</span>在深蓝色直线处取得最大值，我们发现它刚好是<span class="math inline">\(v(P)\)</span>，即有：<span class="math inline">\(v(D)=v(P)\)</span>。</p>
+<p>那么这是巧合吗，是否永远有<span class="math inline">\(v(D)=v(P)\)</span>呢？很遗憾，这是巧合。这是因为我们的<span class="math inline">\(G\)</span>集合刚好是一个性质特别特别好的集合。如果它长得丑一点，比如：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202412290002904.png" srcset="/img/loading.gif" lazyload alt="image-20241229000227829" /><figcaption aria-hidden="true">image-20241229000227829</figcaption>
+</figure>
+<p>如图所示是原问题的解。红色阴影区域即原问题的可行区域，绿色的点就是原问题的最优解。</p>
+<p>接下来在这个附近变化<span class="math inline">\(\lambda\)</span>，观察一下对偶问题的解。浅蓝色直线<span class="math inline">\(1\)</span>是<span class="math inline">\(\lambda\)</span>过小的情况，自不必说；深蓝色直线是最优解的情况。这时如果有人问，如果继续增大<span class="math inline">\(\lambda\)</span>，那么不会和<span class="math inline">\(z\)</span>轴交在更高的地方吗？这里我画出了继续增大<span class="math inline">\(\lambda\)</span>的灰色直线，我们发现，这时，它和<span class="math inline">\(z\)</span>轴的交点并不是<span class="math inline">\(d(\lambda)\)</span>（请复习<span class="math inline">\(d(\lambda)\)</span>的计算方法），而与他平行的下面那条蓝色直线<span class="math inline">\(2\)</span>才是和<span class="math inline">\(d(\lambda)\)</span>对应的真正的直线。</p>
+<p>我们可以发现： <span class="math display">\[
+v(D)\leq v(P)
+\]</span></p>
+<p>考虑线性规划问题： <span class="math display">\[
+\begin{align}
+\text{minimize}\ \ &amp;c^Tx\\
+\text{s.t.}\ \ &amp;Ax=b\\
+&amp;-x\leq 0\\
+&amp;x\in \mathbb R^n
+\end{align}
+\]</span></p>
+<p><span class="math display">\[
+L(x,\mu)=c^Tx+\mu^T(b-Ax)
+\]</span></p>
+<p><span class="math display">\[
+d(\mu)=\min_{x\geq0}\{(c-A^T\mu)^Tx+b^T\mu\}
+\]</span></p>
+<p>有： <span class="math display">\[
+d(\mu)=\begin{cases}
+b^T\mu,&amp;c-A^T\mu\geq 0\\
+-\infty,&amp;\text{otherwise}
+\end{cases}
+\]</span> 对偶问题为： <span class="math display">\[
+\begin{align}
+\text{maximize}\ \ &amp;b^T\mu\\
+\text{s.t.}\ \ &amp;A^T\mu\leq c
+\end{align}
+\]</span></p>
 
                 
               </div>
