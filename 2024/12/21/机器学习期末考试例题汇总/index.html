@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202412211419341.png">
 <meta property="article:published_time" content="2024-12-21T02:56:50.000Z">
-<meta property="article:modified_time" content="2024-12-22T14:08:29.016Z">
+<meta property="article:modified_time" content="2024-12-28T07:21:38.462Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary_large_image">
@@ -280,7 +280,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          15k 字
+          17k 字
         
       </span>
     
@@ -291,7 +291,7 @@
         
         
         
-          39 分钟
+          42 分钟
         
       </span>
     
@@ -917,6 +917,26 @@ J=\sum_{n=1}^N \sum_{k=1}^K r_{n k}\left\|\boldsymbol{x}_n-\mu_k\right\|^2
 <p>GMM能够捕捉数据的多峰特性, 即数据集中可能存在多个簇, 每个簇的分布可以用一个高斯分布来描述。GMM广泛应用于聚类分析、图像分割、语音识别、数据降维等领域。</p>
 <h3 id="em算法">EM算法</h3>
 <p>EM算法是一种分步迭代优化算法, 适用于包含隐变量的极大似然估计问题。在高斯混合问题中, EM算法通过迭代更新隐变量 <span class="math inline">\(z_n\)</span> 的估计值和GMM的模型参数，使得对数似然函数逐步逼近最大值。通过计算 <span class="math inline">\(z_n\)</span> 的估计值, 可以消除隐变量的影响, 去掉 <span class="math inline">\(\ln\)</span> 函数中的求和项 具体地，EM算法包含两个步骤。E-step：固定GMM的模型参数, 计算隐变量 <span class="math inline">\(z_n\)</span> 的估计值, 即样本属于每个高斯分布的后验概率；M-step：已知隐变量 <span class="math inline">\(z_n\)</span> 的估计值，通过极大似然估计更新GMM的模型参数</p>
+<p>【例题】从<span class="math inline">\(K\)</span>个单高斯模型中采样，得到观测数据<span class="math inline">\(\{x_,\cdots,x_n\}\)</span>。其中第<span class="math inline">\(k\)</span>个单高斯模型服从分布<span class="math inline">\(N(\mu_k,\Sigma_k)\)</span>，<span class="math inline">\(\pi_k\)</span>表示观测数据属于第<span class="math inline">\(k\)</span> 个子模型的概率。请说出如何利用 EM 算法估计混合高斯模型参数，并说明得到的结果是否一定为最优解，若是，请简述理由，若不是，请简述可行的优化方法。</p>
+<p>【解答】似然函数为： <span class="math display">\[
+\ln p(\mathbf{X} \mid \boldsymbol{\pi}, \boldsymbol{\mu}, \boldsymbol{\Sigma})=\sum_{n=1}^N \ln \left\{\sum_{k=1}^K \pi_k \mathcal{N}\left(\mathbf{x}_n \mid \boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k\right)\right\}
+\]</span> 其中，<span class="math inline">\(\mathcal{N}\left(\mathbf{x}_n \mid \boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k\right)\)</span>是已知参数为<span class="math inline">\(\mu_k,\Sigma_k\)</span>时的正态分布概率密度函数（以<span class="math inline">\(x_n\)</span>为自变量）。</p>
+<p>设<span class="math inline">\(\gamma_{nk}\)</span>为样本<span class="math inline">\(n\)</span>服从第<span class="math inline">\(k\)</span>个高斯分布的后验概率，即： <span class="math display">\[
+\gamma\left(z_{n k}\right)=\frac{\pi_k \mathcal{N}\left(\mathbf{x}_n \mid \mu_k, \Sigma_k\right)}{\sum_j \pi_j \mathcal{N}\left(\mathbf{x}_n \mid \mu_j, \Sigma_j\right)}
+\]</span> 将似然函数对<span class="math inline">\(\mu_k,\Sigma_k,\pi_k\)</span>分别求导，得到： <span class="math display">\[
+\begin{gathered}
+\boldsymbol{\mu}_k=\frac{1}{N_k} \sum_{n=1}^N \gamma\left(z_{n k}\right) \mathbf{x}_n \\
+N_k=\sum_{n=1}^N \gamma\left(z_{n k}\right) \\
+\boldsymbol{\Sigma}_k=\frac{1}{N_k} \sum_{n=1}^N \gamma\left(z_{n k}\right)\left(\mathbf{x}_n-\boldsymbol{\mu}_k\right)\left(\mathbf{x}_n-\boldsymbol{\mu}_k\right)^T \\
+\pi_k=\frac{N_k}{N}
+\end{gathered}
+\]</span> 则利用 EM 算法：</p>
+<ol type="1">
+<li>初始化<span class="math inline">\(\mu_k,\Sigma_k,\pi_k\)</span></li>
+<li>E step:计算<span class="math inline">\(\gamma(z_{nk})\)</span></li>
+<li>M step:更新<span class="math inline">\(\mu_k,\Sigma_k,\pi_k\)</span></li>
+</ol>
+<p>最终不一定是最优解。可以初始化几次不同的参数进行迭代，取结果最好的那次。</p>
 <h2 id="集成学习">集成学习</h2>
 <p>【来源】参考文献1、2、5</p>
 <p>【讲解】只考过一种题。</p>
