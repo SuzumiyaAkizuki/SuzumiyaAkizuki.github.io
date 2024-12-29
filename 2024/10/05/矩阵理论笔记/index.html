@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202410052359787.png">
 <meta property="article:published_time" content="2024-10-05T06:38:32.000Z">
-<meta property="article:modified_time" content="2024-12-29T05:08:38.407Z">
+<meta property="article:modified_time" content="2024-12-29T15:27:57.804Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="矩阵理论">
 <meta name="twitter:card" content="summary_large_image">
@@ -280,7 +280,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          43k 字
+          44k 字
         
       </span>
     
@@ -291,7 +291,7 @@
         
         
         
-          107 分钟
+          109 分钟
         
       </span>
     
@@ -1105,10 +1105,30 @@ E(\lambda)=\{x\in C^n\mid Ax=\lambda x\}
 (T(x), T(y))=(x, y), \forall x, y \in V
 \]</span></p>
 <p>称 <span class="math inline">\(T\)</span> 为正交(酉)变换。</p>
-<p>【正交矩阵和酉矩阵】如果<span class="math inline">\(n\)</span>阶实方阵满足<span class="math inline">\(AA^T=A^TA\)</span>，称为正交矩阵；如果<span class="math inline">\(n\)</span>阶复方阵满足<span class="math inline">\(AA^H=A^HA\)</span>，称为酉矩阵。</p>
-<p>标准正交基经过酉变换以后仍然是标准正交基，而且酉变换在标准正交基下的矩阵是酉矩阵。</p>
+<p>【正交矩阵和酉矩阵】如果<span class="math inline">\(n\)</span>阶实方阵满足<span class="math inline">\(AA^T=I\)</span>或者<span class="math inline">\(A^TA=I\)</span>，称为正交矩阵；如果<span class="math inline">\(n\)</span>阶复方阵满足<span class="math inline">\(AA^H=I\)</span>或者<span class="math inline">\(A^HA=I\)</span>，称为酉矩阵。</p>
+<p>标准正交基经过酉变换以后仍然是标准正交基，而且酉变换在标准正交基下的矩阵是酉矩阵。正交/酉变换的核心特征是「保持长度不变」。</p>
 <p>酉矩阵的行列式的模是<span class="math inline">\(1\)</span>，所有特征值的模也是<span class="math inline">\(1\)</span>。</p>
 <p>矩阵是酉矩阵的充要条件是它的<span class="math inline">\(n\)</span>个列向量构成标准正交基。</p>
+<p>常见的酉矩阵有初等旋转矩阵和反射矩阵。</p>
+<p>其中，初等旋转矩阵记为<span class="math inline">\(T(i,j,\varphi)\)</span>，它的形式是，先写出一个<span class="math inline">\(n\)</span>阶单位阵，然后把矩阵 <span class="math display">\[
+\left[\begin{array}{cc}\cos \varphi &amp; -\sin \varphi \\ \sin \varphi &amp; \cos \varphi\end{array}\right]
+\]</span> 放到第<span class="math inline">\(i,j\)</span>行<span class="math inline">\(i,j\)</span>列，最后变成这样： <span class="math display">\[
+T(i, j)=\left(\begin{array}{ccccccccccc}
+1 &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; \\
+&amp; \ddots &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; \\
+&amp; &amp; 1 &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; \\
+&amp; &amp; &amp; \cos \varphi &amp; 0 &amp; \cdots &amp; 0 &amp; \sin \varphi &amp; &amp; &amp; \\
+&amp; &amp; &amp; 0 &amp; 1 &amp; &amp; &amp; 0 &amp; &amp; &amp; \\
+&amp; &amp; &amp; \vdots &amp; &amp; \ddots &amp; &amp; \vdots &amp; &amp; &amp; \\
+&amp; &amp; &amp; 0 &amp; &amp; &amp; 1 &amp; 0 &amp; &amp; &amp; \\
+&amp; &amp; &amp; -\sin \varphi &amp; 0 &amp; \cdots &amp; 0 &amp; \cos \varphi &amp; &amp; &amp; \\
+&amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; 1 &amp; &amp; \\
+&amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; \ddots &amp; \\
+&amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; 1
+\end{array}\right)
+\]</span> 初等反射矩阵表示了把向量用 以<span class="math inline">\(w\)</span>作为法向量的超平面 作为镜面反射的变换。有： <span class="math display">\[
+H=I-2ww^H
+\]</span></p>
 <h3 id="幂等矩阵">幂等矩阵</h3>
 <p>这个书里面并没有，但是慕课作业里面有很多相关的内容，所以整理一下。</p>
 <p>幂等矩阵指的是满足<span class="math inline">\(A=A^2\)</span>的矩阵。从几何上看，幂等矩阵代表了一种投影变换，因为投影一次（<span class="math inline">\(Ax\)</span>）和投影两次（<span class="math inline">\(A^2x\)</span>）的结果一样。一个典型的幂等矩阵是： <span class="math display">\[
