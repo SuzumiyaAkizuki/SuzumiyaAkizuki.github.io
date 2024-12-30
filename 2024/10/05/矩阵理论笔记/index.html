@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202410052359787.png">
 <meta property="article:published_time" content="2024-10-05T06:38:32.000Z">
-<meta property="article:modified_time" content="2024-12-30T10:01:36.213Z">
+<meta property="article:modified_time" content="2024-12-30T10:39:06.526Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="矩阵理论">
 <meta name="twitter:card" content="summary_large_image">
@@ -280,7 +280,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          44k 字
+          46k 字
         
       </span>
     
@@ -291,7 +291,7 @@
         
         
         
-          110 分钟
+          114 分钟
         
       </span>
     
@@ -827,6 +827,77 @@ a_{n i}
 <p>有维数定理：设<span class="math inline">\(W_1,W_2\)</span>是<span class="math inline">\(V\)</span>的两个子空间，则： <span class="math display">\[
 \dim (W_1+W_2)=\dim W_1+\dim W_2-\dim(W_1\cap W_2)
 \]</span></p>
+<blockquote>
+<p>【例】设 <span class="math inline">\(W_1=\operatorname{span}\left\{\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2\right\} \quad W_2=\operatorname{span}\left\{\boldsymbol{\beta}_1, \boldsymbol{\beta}_2\right\}\)</span>, 求 <span class="math inline">\(\left(W_1+W_2\right)\)</span> 及 <span class="math inline">\(\left(W_1 \cap W_2\right)\)</span>的维数，其中 <span class="math inline">\(\boldsymbol{\alpha}_1=(1,2,1,0), \boldsymbol{\alpha}_2=(-1,1,1,1), \quad \boldsymbol{\beta}_1=(2,-1,0,1), \quad \boldsymbol{\beta}_2=(1,-1,3,7)\)</span> 。</p>
+<p>【解1】</p>
+<p>要求<span class="math inline">\(W_1+W_2\)</span>的维数，即求<span class="math inline">\(\boldsymbol{\alpha_1,\alpha_2,\beta_2,\beta_2}\)</span>四个向量张成的空间的维数。有： <span class="math display">\[
+\left[\boldsymbol{\alpha}_1^T, \boldsymbol{\alpha}_2^T, \boldsymbol{\beta}_1^T, \boldsymbol{\beta}_2{ }^T\right]=\left[\begin{array}{cccc}
+1 &amp; -1 &amp; 2 &amp; 1 \\
+2 &amp; 1 &amp; -1 &amp; -1 \\
+1 &amp; 1 &amp; 0 &amp; 3 \\
+0 &amp; 1 &amp; 1 &amp; 7
+\end{array}\right]
+\]</span> 对其进行初等行变换，有： <span class="math display">\[
+\left[\begin{array}{cccc}
+1 &amp; 0 &amp; 0 &amp; -1 \\
+0 &amp; 1 &amp; 0 &amp; 4 \\
+0 &amp; 0 &amp; 1 &amp; 3 \\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{array}\right]
+\]</span> 这个矩阵的秩是<span class="math inline">\(3\)</span>，所以<span class="math inline">\(\dim (W_1+W_2)=3\)</span>。</p>
+<p>设<span class="math inline">\(\boldsymbol{x}\in W_1\cap W_2\)</span>，则有： <span class="math display">\[
+\boldsymbol{x}=k_1\boldsymbol{\alpha}_1+k_2\boldsymbol{\alpha}_2=l_1\boldsymbol{\beta}_1+l_2\boldsymbol{\beta}_2
+\]</span> 即： <span class="math display">\[
+\begin{align}
+k_1-k_2&amp;=2l_1+l_2\\
+2k_1+k_2&amp;=-l_1-l_2\\
+k_1+k_2&amp;=0l_1+3l_2\\
+0k_1+k_2&amp;=l_1+7l_2\\
+\end{align}
+\]</span> 移项并化简，有： <span class="math display">\[
+\begin{bmatrix}
+1&amp;-1&amp;-2&amp;-1\\
+2&amp;1&amp;1&amp;1\\
+1&amp;1&amp;0&amp;-3\\
+0&amp;1&amp;-1&amp;-7
+\end{bmatrix}\begin{bmatrix}
+k_1\\
+k_2\\
+l_1\\
+l_2
+\end{bmatrix}=O
+\]</span> 化简，有： <span class="math display">\[
+\begin{bmatrix}
+1&amp;-1&amp;-2&amp;-1\\
+0&amp;1&amp;-1&amp;-7\\
+0&amp;0&amp;1&amp;3\\
+0&amp;0&amp;0&amp;0
+\end{bmatrix}\begin{bmatrix}
+k_1\\
+k_2\\
+l_1\\
+l_2
+\end{bmatrix}=O
+\]</span></p>
+<p>左边的矩阵的秩是<span class="math inline">\(3\)</span>，所以解是一维的。具体一点，有： <span class="math display">\[
+\begin{cases}
+k_1&amp;=-l_2 \\
+k_2&amp;=4 l_2 \\
+l_1&amp;=-3 l_2
+\end{cases}
+\]</span> 代入，有： <span class="math display">\[
+\boldsymbol{x}=l_2\begin{bmatrix}
+-5\\
+2\\
+3\\
+4
+\end{bmatrix}
+\]</span> 所以，<span class="math inline">\(\dim(W_1\cap W_2)=1\)</span></p>
+<p>【解2】</p>
+<p>显然，<span class="math inline">\(\dim W_1=\dim W_2=2\)</span>，由维数定理： <span class="math display">\[
+\dim (W_1+W_2)=\dim W_1+\dim W_2-\dim(W_1\cap W_2)
+\]</span> 只需像上面那样求出<span class="math inline">\(\dim (W_1\cap W_2)\)</span>即可，无需算两个矩阵的秩。</p>
+</blockquote>
 <h3 id="内积空间">内积空间</h3>
 <p>在线性空间上，额外定义对于两个向量<span class="math inline">\(\alpha,\beta\)</span>的内积运算，内积运算的结果是数域<span class="math inline">\(F\)</span>中的一个数，且满足：</p>
 <ol type="1">
