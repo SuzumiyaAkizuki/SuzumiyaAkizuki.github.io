@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202410052359787.png">
 <meta property="article:published_time" content="2024-10-05T06:38:32.000Z">
-<meta property="article:modified_time" content="2025-01-01T05:33:52.794Z">
+<meta property="article:modified_time" content="2025-01-01T07:01:29.598Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="矩阵理论">
 <meta name="twitter:card" content="summary_large_image">
@@ -291,7 +291,7 @@
         
         
         
-          126 分钟
+          125 分钟
         
       </span>
     
@@ -1155,13 +1155,13 @@ T \xi=\lambda_0 \xi,
 <p>由定义可以知道，矩阵的特征值是一个一元<span class="math inline">\(n\)</span>次方程式的根。这个根的重数是特征值的<strong>代数重数</strong>。因此，一个<span class="math inline">\(n\times n\)</span>的矩阵的所有特征值的重数之和是<span class="math inline">\(n\)</span>。有时，我们也说「一个<span class="math inline">\(n\)</span>阶方阵有<span class="math inline">\(n\)</span>个特征值」，注意这里的「个」是要计算重数的。</p>
 <p>一个矩阵的特征值之和等于其对角线上元素之和，这个和也叫做矩阵的「迹」，记作<span class="math inline">\(tr(A)\)</span>。</p>
 <blockquote>
-<p>【例】已知<span class="math inline">\(a=(a_1,\cdots,a_n)^T,b=(b_1,\cdots,b_n)^T\)</span>，求<span class="math inline">\(A=ab\)</span>的特征多项式，并求<span class="math inline">\(|A|\)</span>。</p>
+<p>【例】已知<span class="math inline">\(a=(a_1,\cdots,a_n)^T,b=(b_1,\cdots,b_n)\)</span>，求<span class="math inline">\(A=ab\)</span>的特征多项式，并求<span class="math inline">\(|A|\)</span>。</p>
 <p>【解】显然，<span class="math inline">\(A_{ij}=a_ib_j\)</span>，因此<span class="math inline">\(A\)</span>是一个秩为<span class="math inline">\(1\)</span>的矩阵（每一行都是向量<span class="math inline">\(b\)</span>乘以标量倍）。那么，考虑齐次线性方程组 <span class="math display">\[
 Ax=0
 \]</span> 它的基础解系是<span class="math inline">\(n-1\)</span>维的，即矩阵的零空间是<span class="math inline">\(n-1\)</span>维的。从特征方程的角度来看，<span class="math inline">\(Ax=0\)</span>代表<span class="math inline">\(0\)</span>为矩阵<span class="math inline">\(A\)</span>的其一特征值，那么其特征值为<span class="math inline">\(0\)</span>的线性无关的特征向量的个数为<span class="math inline">\(N-1\)</span>，又特征值的代数重数不会少于几何重数，所以<span class="math inline">\(0\)</span>至少为<span class="math inline">\(N-1\)</span>重特征值。</p>
 <p>所以<span class="math inline">\(A\)</span>只有一个非零特征值。所以矩阵的特征多项式具有如下的形式： <span class="math display">\[
 \lambda^{n-1}(\lambda-x)
-\]</span> 因为<span class="math inline">\(A\)</span>的特征值等于其对角线元素之和，所以 <span class="math display">\[
+\]</span> 因为<span class="math inline">\(A\)</span>的特征值之和等于其对角线元素之和，所以 <span class="math display">\[
 x=\sum_{i=1}^n a_ib_i
 \]</span></p>
 <p>关于<span class="math inline">\(|A|\)</span>，有： <span class="math display">\[
@@ -1361,28 +1361,24 @@ O &amp;\tilde{H_n}
 \]</span></p></li>
 </ol>
 <blockquote>
-<p>【例】计算QR分解： <span class="math display">\[
+【例】计算QR分解： <span class="math display">\[
 A &amp; =\left(\begin{array}{lll}
 0 &amp; 4 &amp; 1 \\
 1 &amp; 1 &amp; 1 \\
 0 &amp; 3 &amp; 2
 \end{array}\right)
-\]</span> 【解】 <span class="math display">\[
+\]</span> 【解】 $$ <span class="math display">\[\begin{align}
+
 a_1 &amp; =\left(\begin{array}{l}
 0 \\
 1 \\
 0
 \end{array}\right), \alpha_1=1 \\
-\]</span></p>
-<p><span class="math display">\[
 u_1 &amp; =\frac{a_1-\alpha_1 \cdot e_1}{\| a_1-\alpha_1 e_1 \|}=\frac{1}{\sqrt{2}}\left(\begin{array}{c}
 -1 \\
 1 \\
 0
 \end{array}\right) \\
-\]</span></p>
-<p><span class="math display">\[
-\begin{align}
 H_1 &amp; =I-2 u_1 u_1^T \\
 &amp; =I-2 \cdot\left(\frac{1}{\sqrt{2}}\right)^2 \cdot\left(\begin{array}{c}
 -1 \\
@@ -1396,11 +1392,6 @@ H_1 &amp; =I-2 u_1 u_1^T \\
 1 &amp; 0 &amp; 0 \\
 0 &amp; 0 &amp; 1
 \end{array}\right) \\
-\end{align}
-\]</span></p>
-$$
-<span class="math display">\[\begin{aligned}
-
 
 
 H_1 A_1 &amp; =\left(\begin{array}{lll}
@@ -1417,11 +1408,11 @@ H_1 A_1 &amp; =\left(\begin{array}{lll}
 0 &amp; 4 &amp; 1 \\
 0 &amp; 3 &amp; 2
 \end{array}\right)
-\end{aligned}\]</span>
-<p>$$</p>
-<p>则： <span class="math display">\[
-A_2=\left(\begin{array}{ll}4 &amp; 1 \\ 3&amp;2\end{array}\right)
-\]</span></p>
+\end{align}\]</span> <span class="math display">\[
+则：
+\]</span> A_2=(
+<span class="math display">\[\begin{array}{ll}4 &amp; 1 \\ 3&amp;2\end{array}\]</span>
+<p>) $$</p>
 <p><span class="math display">\[
 \begin{aligned}
 a_2 &amp; =\binom{4}{3} \quad \alpha_2=5 \\
