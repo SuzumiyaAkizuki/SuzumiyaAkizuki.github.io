@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202501052202211.png">
 <meta property="article:published_time" content="2025-01-05T06:50:19.000Z">
-<meta property="article:modified_time" content="2025-01-05T14:08:22.378Z">
+<meta property="article:modified_time" content="2025-01-06T04:52:23.100Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="随机过程">
 <meta name="twitter:card" content="summary_large_image">
@@ -280,7 +280,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          11k 字
+          12k 字
         
       </span>
     
@@ -291,7 +291,7 @@
         
         
         
-          28 分钟
+          29 分钟
         
       </span>
     
@@ -717,11 +717,29 @@ F(t_1,t_2\cdots t_n)=F(t_1+\tau,t_2+\tau,\cdots,t_n+\tau)
 <p>一般来说，严平稳和宽平稳<strong>不能互相推出（即，一个严平稳过程也不一定是宽平稳过程）</strong>，但是在高斯随机过程中，二者等价。以下主要讨论宽平稳过程。</p>
 <p>平稳随机过程的相关函数<span class="math inline">\(R_x(\tau)\)</span>有以下性质：</p>
 <ol type="1">
-<li><span class="math inline">\(R_x(\tau)=R_{\bar x}(-\tau)\)</span>。如果过程是实过程，那么<span class="math inline">\(R_x(\tau)\)</span>是偶函数。</li>
-<li><span class="math inline">\(|R_x(\tau)|\leq R_x(0)=\psi_x^2\)</span></li>
-<li><span class="math inline">\(R_x(\infty)=m_x^2\)</span></li>
-<li><span class="math inline">\(R_{xy}(\tau)=R_{\bar yx}(-\tau)\)</span></li>
+<li><p><span class="math inline">\(R_x(\tau)=R_{\bar x}(-\tau)\)</span>。如果过程是实过程，那么<span class="math inline">\(R_x(\tau)\)</span>是偶函数。</p>
+<p>证明： <span class="math display">\[
+R(\tau)=E[x(t)x(t-\tau)]=E[x(t-\tau)x(t)]=R(-\tau)
+\]</span></p></li>
+<li><p><span class="math inline">\(|R_x(\tau)|\leq R_x(0)=\psi_x^2\)</span></p>
+<p>证明： <span class="math display">\[
+\begin{align}
+&amp; E[(x(t)\pm x(t-\tau))^2]=E[x^2(t)\pm 2x(t)x(t-\tau)+x^2(t-\tau)]\geq 0\\
+&amp; \to 2R(0)\pm 2R(\tau)\geq 0\\
+&amp; \to |R(\tau)|\leq R(0)
+\end{align}
+\]</span></p></li>
+<li><p><span class="math inline">\(R_x(\infty)=m_x^2\)</span></p></li>
+<li><p><span class="math inline">\(R_{xy}(\tau)=R_{\bar yx}(-\tau)\)</span></p></li>
 </ol>
+<h3 id="相关系数和相关时间">相关系数和相关时间</h3>
+<p>这是和自相关函数紧密关联的两个参数。</p>
+<p>相关系数定义为： <span class="math display">\[
+r_x(\tau)=\frac{R_x(\tau)-m_x^2}{\sigma_x^2}
+\]</span> 它除去起伏量强度的影响，确切表示了关联程度。</p>
+<p>相关时间定义为： <span class="math display">\[
+\tau_0=\frac{1}{r_x(0)}\int_{0}^\infty r_x(\tau)d\tau
+\]</span> 相关时间越小，随机过程随时间变化越激烈。</p>
 <h4 id="时间平均和各态历经">时间平均和各态历经</h4>
 <p>只有平稳随机过程才讨论时间平均、时间自相关和各态历经性。</p>
 <p>随机过程的时间平均定义为： <span class="math display">\[
