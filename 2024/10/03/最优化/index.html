@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202410032251555.png">
 <meta property="article:published_time" content="2024-10-03T08:19:00.000Z">
-<meta property="article:modified_time" content="2025-01-07T09:11:58.710Z">
+<meta property="article:modified_time" content="2025-01-07T14:50:07.042Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="最优化">
 <meta name="twitter:card" content="summary_large_image">
@@ -280,7 +280,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          27k 字
+          31k 字
         
       </span>
     
@@ -291,7 +291,7 @@
         
         
         
-          67 分钟
+          77 分钟
         
       </span>
     
@@ -1232,55 +1232,8 @@ f(x),&amp;g_i(x)\leq 0,h_i(x)=0\\
 &amp;x\in X
 \end{align}
 \]</span> 我们发现，这就是原问题<span class="math inline">\((P)\)</span>。</p>
-<p>接下来，讨论一下对偶问题的几何解释。<span class="math inline">\(x\)</span>为点<span class="math inline">\((y,z)\)</span>。<span class="math inline">\(f(x)=x_1=z\)</span>，即取向量的第一个分量；<span class="math inline">\(g(x)=x_2=y\)</span>，即取坐标的第二个分类。考虑原问题： <span class="math display">\[
-\begin{align}
-\text{minimize}\ \ &amp;z\\
-\text{s.t.}\ \ &amp;y\leq 0\\
-&amp;(y,z)\in G
-\end{align}
-\]</span> 那么有： <span class="math display">\[
-d(\lambda)=\min_{(y,z)\in G}\{z+\lambda y\}
-\]</span> 对偶问题为： <span class="math display">\[
-\begin{align}
-\text{maximize}\ \ &amp;d(\lambda)\\
-\text{s.t.}\ \ &amp;\lambda\geq 0
-\end{align}
-\]</span> <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202412282343286.png" srcset="/img/loading.gif" lazyload alt="image-20241228234339606" /></p>
-<p>如图所示是原问题的解。红色阴影区域即原问题的可行区域，绿色的点就是原问题的最优解。</p>
-<p>那么已知<span class="math inline">\(\lambda\)</span>，如何求<span class="math inline">\(d(\lambda)\)</span>？假如说，有<span class="math inline">\(d(\lambda)=\alpha\)</span>，那么有直线： <span class="math display">\[
-z+\lambda y=\alpha
-\]</span> 我们尽可能地把直线往下移动，而且让其至少有一部分在<span class="math inline">\(G\)</span>以内，</p>
-<figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202412282345224.png" srcset="/img/loading.gif" lazyload alt="image-20241228234458195" /><figcaption aria-hidden="true">image-20241228234458195</figcaption>
-</figure>
-<p>蓝色圆圈处的点就是已知<span class="math inline">\(\lambda\)</span>时的<span class="math inline">\(d(\lambda)\)</span>。</p>
-<p>现在，我们要改变<span class="math inline">\(\lambda\)</span>，求<span class="math inline">\(\lambda&gt;0\)</span>时的<span class="math inline">\(d(\lambda)\)</span>最大值，有：</p>
-<figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202412282348286.png" srcset="/img/loading.gif" lazyload alt="image-20241228234840079" /><figcaption aria-hidden="true">image-20241228234840079</figcaption>
-</figure>
-<p>图中，浅蓝色的直线表示了不同<span class="math inline">\(\lambda\)</span>时<span class="math inline">\(d(\lambda)\)</span>的计算过程。最终，<span class="math inline">\(d(\lambda)\)</span>在深蓝色直线处取得最大值，我们发现它刚好是<span class="math inline">\(v(P)\)</span>，即有：<span class="math inline">\(v(D)=v(P)\)</span>。</p>
-<p>那么这是巧合吗，是否永远有<span class="math inline">\(v(D)=v(P)\)</span>呢？很遗憾，这是巧合。这是因为我们的<span class="math inline">\(G\)</span>集合刚好是一个性质特别特别好的集合。如果它长得丑一点，比如：</p>
-<figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202412290002904.png" srcset="/img/loading.gif" lazyload alt="image-20241229000227829" /><figcaption aria-hidden="true">image-20241229000227829</figcaption>
-</figure>
-<p>如图所示是原问题的解。红色阴影区域即原问题的可行区域，绿色的点就是原问题的最优解。</p>
-<p>接下来在这个附近变化<span class="math inline">\(\lambda\)</span>，观察一下对偶问题的解。浅蓝色直线<span class="math inline">\(1\)</span>是<span class="math inline">\(\lambda\)</span>过小的情况，自不必说；深蓝色直线是最优解的情况。这时如果有人问，如果继续增大<span class="math inline">\(\lambda\)</span>，那么不会和<span class="math inline">\(z\)</span>轴交在更高的地方吗？这里我画出了继续增大<span class="math inline">\(\lambda\)</span>的灰色直线，我们发现，这时，它和<span class="math inline">\(z\)</span>轴的交点并不是<span class="math inline">\(d(\lambda)\)</span>（请复习<span class="math inline">\(d(\lambda)\)</span>的计算方法），而与他平行的下面那条蓝色直线<span class="math inline">\(2\)</span>才是和<span class="math inline">\(d(\lambda)\)</span>对应的真正的直线。</p>
-<p>我们可以发现： <span class="math display">\[
-v(D)\leq v(P)
-\]</span></p>
-<p>这个结论叫<strong>「弱对偶定理」</strong>。关于<span class="math inline">\(v(D)=v(P)\)</span>的条件，有如下充分条件：</p>
-<ol type="1">
-<li>原问题是凸问题：即<span class="math inline">\(f(x),g(x)\)</span>是凸函数、<span class="math inline">\(h(x)\)</span>是线性函数、<span class="math inline">\(G\)</span>是凸集</li>
-<li>（Slater条件）在集合约束<span class="math inline">\(X\)</span>的内部存在一点<span class="math inline">\(x\)</span>，使得<span class="math inline">\(\forall ij,g_i(x)&lt;0,h_j(x)=0\)</span>，或：</li>
-<li>（松弛Slater条件）在集合约束<span class="math inline">\(X\)</span>的相对内部中存在一点<span class="math inline">\(x\)</span>，使得对所有非仿射的<span class="math inline">\(g\)</span>有<span class="math inline">\(g(x)&lt;0\)</span>，对所有仿射的<span class="math inline">\(g\)</span>有<span class="math inline">\(g(x)\leq 0\)</span>，且<span class="math inline">\(h_j(x)=0\)</span>.</li>
-</ol>
-<p>为了理解这个条件，观察下面的两个图像：</p>
-<figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202501071244345.png" srcset="/img/loading.gif" lazyload alt="image-20250107124403015" /><figcaption aria-hidden="true">image-20250107124403015</figcaption>
-</figure>
-<p>（a）图中虽然满足第一个条件（问题是凸问题），但是不满足第二个条件，这样的话，其对偶问题无解。</p>
-<p>（b）图中虽然不满足第一个条件（<span class="math inline">\(G\)</span>不是凸集），但仍然是强对偶的，这说明了上述的条件只是充分条件，而非必要条件。</p>
-<p>考虑线性规划问题： <span class="math display">\[
+<blockquote>
+<p>【例】考虑线性规划问题： <span class="math display">\[
 \begin{align}
 \text{minimize}\ \ &amp;c^Tx\\
 \text{s.t.}\ \ &amp;Ax=b\\
@@ -1305,6 +1258,176 @@ b^T\mu,&amp;c-A^T\mu\geq 0\\
 \text{s.t.}\ \ &amp;A^T\mu\leq c
 \end{align}
 \]</span></p>
+</blockquote>
+<p>接下来，讨论一下对偶问题的几何解释。<span class="math inline">\(x\)</span>为点<span class="math inline">\((y,z)\)</span>。<span class="math inline">\(f(x)=x_1=z\)</span>，即取向量的第一个分量；<span class="math inline">\(g(x)=x_2=y\)</span>，即取坐标的第二个分类。考虑原问题： <span class="math display">\[
+\begin{align}
+\text{minimize}\ \ &amp;z\\
+\text{s.t.}\ \ &amp;y\leq 0\\
+&amp;(y,z)\in G
+\end{align}
+\]</span> 那么有： <span class="math display">\[
+d(\lambda)=\min_{(y,z)\in G}\{z+\lambda y\}
+\]</span> 对偶问题为： <span class="math display">\[
+\begin{align}
+\text{maximize}\ \ &amp;d(\lambda)\\
+\text{s.t.}\ \ &amp;\lambda\geq 0
+\end{align}
+\]</span> <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202412282343286.png" srcset="/img/loading.gif" lazyload alt="image-20241228234339606" style="zoom:50%;" /></p>
+<p>如图所示是原问题的解。红色阴影区域即原问题的可行区域，绿色的点就是原问题的最优解。</p>
+<p>那么已知<span class="math inline">\(\lambda\)</span>，如何求<span class="math inline">\(d(\lambda)\)</span>？假如说，有<span class="math inline">\(d(\lambda)=\alpha\)</span>，那么有直线： <span class="math display">\[
+z+\lambda y=\alpha
+\]</span> 我们尽可能地把直线往下移动，而且让其至少有一部分在<span class="math inline">\(G\)</span>以内，</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202412282345224.png" srcset="/img/loading.gif" lazyload alt="image-20241228234458195" style="zoom:50%;" /></p>
+<p>蓝色圆圈处的点就是已知<span class="math inline">\(\lambda\)</span>时的<span class="math inline">\(d(\lambda)\)</span>。</p>
+<p>现在，我们要改变<span class="math inline">\(\lambda\)</span>，求<span class="math inline">\(\lambda&gt;0\)</span>时的<span class="math inline">\(d(\lambda)\)</span>最大值，有：</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202412282348286.png" srcset="/img/loading.gif" lazyload alt="image-20241228234840079" style="zoom:50%;" /></p>
+<p>图中，浅蓝色的直线表示了不同<span class="math inline">\(\lambda\)</span>时<span class="math inline">\(d(\lambda)\)</span>的计算过程。最终，<span class="math inline">\(d(\lambda)\)</span>在深蓝色直线处取得最大值，我们发现它刚好是<span class="math inline">\(v(P)\)</span>，即有：<span class="math inline">\(v(D)=v(P)\)</span>。</p>
+<p>那么这是巧合吗，是否永远有<span class="math inline">\(v(D)=v(P)\)</span>呢？很遗憾，这是巧合。这是因为我们的<span class="math inline">\(G\)</span>集合刚好是一个性质特别特别好的集合。如果它长得丑一点，比如：</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202412290002904.png" srcset="/img/loading.gif" lazyload alt="image-20241229000227829" style="zoom:50%;" /></p>
+<p>如图所示是原问题的解。红色阴影区域即原问题的可行区域，绿色的点就是原问题的最优解。</p>
+<p>接下来在这个附近变化<span class="math inline">\(\lambda\)</span>，观察一下对偶问题的解。浅蓝色直线<span class="math inline">\(1\)</span>是<span class="math inline">\(\lambda\)</span>过小的情况，自不必说；深蓝色直线是最优解的情况。这时如果有人问，如果继续增大<span class="math inline">\(\lambda\)</span>，那么不会和<span class="math inline">\(z\)</span>轴交在更高的地方吗？这里我画出了继续增大<span class="math inline">\(\lambda\)</span>的灰色直线，我们发现，这时，它和<span class="math inline">\(z\)</span>轴的交点并不是<span class="math inline">\(d(\lambda)\)</span>（请复习<span class="math inline">\(d(\lambda)\)</span>的计算方法），而与他平行的下面那条蓝色直线<span class="math inline">\(2\)</span>才是和<span class="math inline">\(d(\lambda)\)</span>对应的真正的直线。</p>
+<p>我们可以发现： <span class="math display">\[
+v(D)\leq v(P)
+\]</span></p>
+<p>这个结论叫<strong>「弱对偶定理」</strong>。关于<span class="math inline">\(v(D)=v(P)\)</span>的条件，有如下充分条件：</p>
+<ol type="1">
+<li>原问题是凸问题：即<span class="math inline">\(f(x),g(x)\)</span>是凸函数、<span class="math inline">\(h(x)\)</span>是线性函数、<span class="math inline">\(G\)</span>是凸集</li>
+<li>（Slater条件）在集合约束<span class="math inline">\(X\)</span>的内部存在一点<span class="math inline">\(x\)</span>，使得<span class="math inline">\(\forall ij,g_i(x)&lt;0,h_j(x)=0\)</span>，或：</li>
+<li>（松弛Slater条件）在集合约束<span class="math inline">\(X\)</span>的相对内部中存在一点<span class="math inline">\(x\)</span>，使得对所有非仿射的<span class="math inline">\(g\)</span>有<span class="math inline">\(g(x)&lt;0\)</span>，对所有仿射的<span class="math inline">\(g\)</span>有<span class="math inline">\(g(x)\leq 0\)</span>，且<span class="math inline">\(h_j(x)=0\)</span>.</li>
+</ol>
+<p>为了理解这个条件，观察下面的两个图像：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202501071244345.png" srcset="/img/loading.gif" lazyload alt="image-20250107124403015" /><figcaption aria-hidden="true">image-20250107124403015</figcaption>
+</figure>
+<p>（a）图中虽然满足第一个条件（问题是凸问题），但是不满足第二个条件，这样的话，其对偶问题无解。</p>
+<p>（b）图中虽然不满足第一个条件（<span class="math inline">\(G\)</span>不是凸集），但仍然是强对偶的，这说明了上述的条件只是充分条件，而非必要条件。</p>
+<h3 id="罚函数法">罚函数法</h3>
+<p>对于只有等式约束的优化问题： <span class="math display">\[
+\begin{align}
+\text{minimize} \ \ &amp;f(x)\\
+s.t. \ \ &amp;h_i(x)=0
+\end{align}
+\]</span> 如果约束函数<span class="math inline">\(h(x)\)</span>是非线性函数，会导致求解的困难。这时，我们考虑把约束优化问题转换为无约束优化问题。主要思路是给目标函数增加一个和约束有关的惩罚项，当<span class="math inline">\(x\)</span>离可行点越远，惩罚项就越大。</p>
+<p>一个直观的想法是增加二次惩罚项，则问题变成： <span class="math display">\[
+\min f(x)+\frac \sigma 2 \sum_{i=1}^n h_i(x)^2
+\]</span> 这个无约束优化问题的解是约束优化问题的下界。假设这个无约束优化问题的最小值是<span class="math inline">\(\theta(\sigma)\)</span>。显然，<span class="math inline">\(\theta(\sigma)\)</span>是关于<span class="math inline">\(\sigma\)</span>的单调递增函数。</p>
+<p>记罚函数项目为<span class="math inline">\(P(x)\)</span>，产生的无约束优化问题的目标函数为<span class="math inline">\(q(x,\sigma)\)</span>。</p>
+<blockquote>
+<p>【例】利用罚函数法求解： <span class="math display">\[
+\begin{align}
+\text{minimize}\ \ &amp;x_1+x_2\\
+s.t.\ \ &amp; x_2-x_1^2=0
+\end{align}
+\]</span> 对应的无约束优化问题为： <span class="math display">\[
+\min x_1+x_2+\sigma(x_2-x_1^2)^2
+\]</span> 求其一阶必要条件，即<span class="math inline">\(\nabla f(x)=0\)</span>，有： <span class="math display">\[
+\begin{cases}
+\dfrac{\partial q(x)}{\partial x_1}=1+2\sigma(x_2-x_1^2)(-2x_1)=0\\
+\dfrac{\partial q(x)}{\partial x_2}=1+2\sigma(x_2-x_1^2)=0\\
+\end{cases}
+\]</span> 解得 <span class="math display">\[
+\begin{cases}
+x_1=-\dfrac {1}{2}\\
+x_2=\dfrac{1}{4}-\dfrac{1}{2\sigma}
+\end{cases}
+\]</span> 经验证，其海森矩阵是正定矩阵。将<span class="math inline">\(\sigma\to \infty\)</span>，有： <span class="math display">\[
+\begin{cases}
+x_1=-\dfrac {1}{2}\\
+x_2=\dfrac{1}{4}
+\end{cases}
+\]</span></p>
+</blockquote>
+<p>可以看出，由罚函数法得到原问题的关键步骤就是<span class="math inline">\(\sigma\to \infty\)</span>。</p>
+<p>用计算机计算的算法一般如下：</p>
+<ol type="1">
+<li><p>取初始迭代点<span class="math inline">\(x_0\)</span>，初始参数<span class="math inline">\(\sigma_1&gt;0\)</span>，终止条件<span class="math inline">\(\epsilon\)</span>为一较小正数，迭代计数器<span class="math inline">\(k=0\)</span>，更新倍数<span class="math inline">\(\beta\in [4,10]\)</span></p></li>
+<li><p>以<span class="math inline">\(x_{k-1}\)</span>为初始点，计算无约束优化问题： <span class="math display">\[
+\min f(x)+\sigma_kP(x)
+\]</span> 得到解<span class="math inline">\(x_k\)</span></p></li>
+<li><p>如果<span class="math inline">\(\sigma_kP(x)\leq \epsilon\)</span>，说明惩罚项已经足够小，算法终止。</p></li>
+<li><p>更新<span class="math inline">\(\sigma_{k+1}=\beta \sigma_k,k=k+1\)</span>，转第2步</p></li>
+</ol>
+<p>假如步骤2每次都可以得到无约束优化问题的全局最优解，那么这个算法有以下的性质：</p>
+<p>【性质1】对于迭代形成的点列<span class="math inline">\(\{x_k\}\)</span>，有</p>
+<ol type="1">
+<li>无约束优化问题目标函数序列<span class="math inline">\(\{q(x_k,\sigma_k)\}\)</span>单调递增</li>
+<li>罚函数序列<span class="math inline">\(\{P(x_k)\}\)</span>（在常用的二次罚函数情况下，也可以写成<span class="math inline">\(\{h(x_k)^Th(x_k)\}\)</span>）单调递减</li>
+<li>约束优化问题目标函数序列<span class="math inline">\(\{f(x_k)\}\)</span>单调递增</li>
+</ol>
+<p>【性质2】点列<span class="math inline">\(\{x_k\}\)</span>的任意一个聚点都是约束优化问题的全局最优解。</p>
+<p>【性质3】现在无需步骤2每次都可以得到无约束优化问题的全局最优解，只需要得到平稳点，即<span class="math inline">\(\nabla _xq(x_k,\sigma_k)=0\)</span>，产生点列<span class="math inline">\(\{x_k\}\)</span>，其聚点为<span class="math inline">\(\bar x\)</span>，假设<span class="math inline">\(\nabla h_i(\bar x)\)</span>线性无关，那么<span class="math inline">\(\bar x\)</span>是约束优化问题的KKT点。</p>
+<p>对于一般的约束优化问题： <span class="math display">\[
+\begin{align}
+\text{minimize}\ \ &amp;f(x)\\
+\text{s.t.}\ \ &amp;h_i(x)=0,i=1,\cdots,m\\
+&amp;g_i(x)\leq 0,i=1,\cdots,l\\
+&amp;x \in X
+\end{align}
+\]</span> 可以定义罚函数为： <span class="math display">\[
+P(x)=\sum_{i=1}^l \left[\max \{g_i(x),0\}\right]^2+\sum_{i=1}^m h^2_i(x)
+\]</span></p>
+<h3 id="乘子法">乘子法</h3>
+<p>在罚函数法的运算中，为了收敛，有时<span class="math inline">\(\sigma\)</span>会取到非常大的值，这对数值计算来说是不利的。为什么会出现这样的现象呢？我们考虑真正意义上的收敛的情况，即<span class="math inline">\(P(x)=0\)</span>时。此时，对无约束优化问题： <span class="math display">\[
+\min f(x)+\sigma_k\sum_{i=1}^m h_i^2(x)
+\]</span> 所求解出来的点一定满足一阶条件，即<span class="math inline">\(\nabla q(x,\sigma_k)=0\)</span>，即： <span class="math display">\[
+\nabla f(x)+2\sigma_k\sum_{i=1}^mh_i(x)\nabla h(x)=0
+\]</span> 因为<span class="math inline">\(P(x)=\sum_{i=1}^m h_i^2(x)=0\)</span>，所以后项为零，则有： <span class="math display">\[
+\nabla f(x)=0
+\]</span> 对比一般约束优化问题的KKT条件： <span class="math display">\[
+\nabla f(x)+\sum_{i=1}^m\mu_i\nabla h_i(x)=0
+\]</span> 可以发现，为了罚函数法收敛，我们提了一个比KKT条件强得多的要求（即<span class="math inline">\(\nabla f(x)=0\)</span>），这在绝大多数的约束优化问题中都是不现实的。因此，我们可以做一个「妥协」，即放松这个最终的条件，以期待罚函数法有更好的收敛性能。</p>
+<p>考虑增广拉格朗日函数： <span class="math display">\[
+L_c(x,\mu)=f(x)+\mu_k^Th(x)+\sigma \sum_{i=1}^m h_i^2(x)
+\]</span> 利用增广拉格朗日函数求解的计算机算法步骤如下：</p>
+<ol type="1">
+<li><p>取初始迭代点<span class="math inline">\(x_0\)</span>，初始参数<span class="math inline">\(\sigma_1&gt;0,\mu_1&gt;0\)</span>，终止条件<span class="math inline">\(\epsilon\)</span>为一较小正数，迭代计数器<span class="math inline">\(k=0\)</span>，更新倍数<span class="math inline">\(\beta\in [4,10]\)</span></p></li>
+<li><p>以<span class="math inline">\(x_{k-1}\)</span>为初始点，计算无约束优化问题： <span class="math display">\[
+\min L_c(x,\mu):=f(x)+\mu_k^Th(x)+\sigma \sum_{i=1}^m h_i^2(x)
+\]</span> 得到解<span class="math inline">\(x_k\)</span></p></li>
+<li><p>如果<span class="math inline">\(\sigma \sum_{i=1}^m h_i^2(x)\)</span>，说明惩罚项已经足够小，算法终止。</p></li>
+<li><p>更新<span class="math inline">\(\sigma_{k+1}=\beta \sigma_k,\mu_{k+1}=?,k=k+1\)</span>，转第2步.</p></li>
+</ol>
+<p>算法的核心问题是如何更新<span class="math inline">\(\mu\)</span>。我们的最终目标是在收敛时满足KKT条件，即 <span class="math display">\[
+\nabla f(x)+\sum_{i=1}^m\mu_i\nabla h_i(x)=0
+\]</span> 在算法第2步，得到<span class="math inline">\(\nabla_x L_c(x,\mu)=0\)</span>，即： <span class="math display">\[
+\nabla f(x_k)+\sum_{i=1}^m \mu_{i,k}\nabla h_i(x_k)+2\sigma_k\sum_{i=1}^m h_i(x_k)\nabla h_i(x_k)=0
+\]</span> 整理一下，有： <span class="math display">\[
+\nabla f(x_k)+\left(\sum_{i=1}^m \mu_{i,k}+2\sigma_k\sum_{i=1}^m h_i(x_k)\right)\nabla h_i(x_k)=0
+\]</span> 对比它和KKT条件，很容易想到： <span class="math display">\[
+\mu_{i,k+1}= \mu_{i,k}+2\sigma_kh_i(x_k)
+\]</span> 写成向量形式，就是： <span class="math display">\[
+\mu_{k+1}=\mu_k+2\sigma_kh(x(\mu_k))
+\]</span> 有定理：假如<span class="math inline">\(x^*\in \text{int} X\)</span>且满足二阶充分条件，则存在<span class="math inline">\(\bar \sigma\)</span>使得对任意<span class="math inline">\(\sigma&gt;\bar \sigma\)</span>，<span class="math inline">\(x^*\)</span>是<span class="math inline">\(L_c(x,\mu^*)\)</span>在<span class="math inline">\(X\)</span>上的严格局部极小点。</p>
+<h3 id="障碍法内点法">障碍法(内点法)</h3>
+<p>障碍法(也称内点法)，用所谓的“障碍函数”代替不等式约束，并将它加到优化问题的目标函数中。如果一个集合存在内部，而且可以从内部逼近任何边界点，我们称这样的集合为「稳健的」。</p>
+<p>假设约束优化问题的可行域<span class="math inline">\(S\)</span>是稳健的，其内部为<span class="math inline">\(\text{int} S\)</span>，定义障碍函数<span class="math inline">\(B:\text{int}S\to R\)</span>，满足：</p>
+<ol type="1">
+<li>连续</li>
+<li>随着<span class="math inline">\(x\)</span>趋向于<span class="math inline">\(S\)</span>的边界，<span class="math inline">\(B(x)\)</span>趋向于正无穷</li>
+</ol>
+<p>称<span class="math inline">\(B(x)\)</span>是<span class="math inline">\(S\)</span>的障碍函数。常用的障碍函数有： <span class="math display">\[
+B(x)=-\sum_i \ln(-g_i(x))
+\]</span></p>
+<p><span class="math display">\[
+B(x)=-\sum_i\frac 1{g_i(x)}
+\]</span></p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202501072047368.svg" srcset="/img/loading.gif" lazyload alt="g从负半轴趋向于0，B趋向于无穷大" /><figcaption aria-hidden="true">g从负半轴趋向于0，B趋向于无穷大</figcaption>
+</figure>
+<p>约束<span class="math inline">\(g_i(x)\leq 0\)</span>要求<span class="math inline">\(g_i(x)\)</span>是负数。当<span class="math inline">\(g_i(x)\)</span>越来越靠近<span class="math inline">\(0\)</span>，即<span class="math inline">\(x\)</span>越来越靠近边界时，<span class="math inline">\(B(g(x))\)</span>趋向于无穷大。以下默认讨论对数障碍函数。</p>
+<p>与之相关的一个概念叫解析中心，它是问题： <span class="math display">\[
+\min_{x\in \text{int} S}-\sum_i \ln(-g_i(x))
+\]</span> 的最优解。</p>
+<p>将约束优化问题改写为： <span class="math display">\[
+\min f(x)+\mu B(x)
+\]</span> 因为目标函数在<span class="math inline">\(S\)</span>的边界处的值接近无穷大，所以适用于无约束优化问题的迭代下降法等方法可以用来求解这个问题。</p>
+<p>在<span class="math inline">\(\mu\)</span>越来越小时，函数的图像越「尖锐」</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202501072115534.png" srcset="/img/loading.gif" lazyload alt="image-20250107211549090" /><figcaption aria-hidden="true">image-20250107211549090</figcaption>
+</figure>
+<p>因此，构造一个越来越小，趋向于0的正数<span class="math inline">\(\mu_k\)</span>序列，找到序列<span class="math inline">\(x_k\)</span>使得： <span class="math display">\[
+x_k\in \arg\max_{x\in \text{int}S}f_{\mu_k}(x)
+\]</span> 就是一种可行的算法。这称为「原始内点法」。这个序列<span class="math inline">\(x_k\)</span>的每个聚点都是原始约束优化问题的全局极小点。</p>
 
                 
               </div>
