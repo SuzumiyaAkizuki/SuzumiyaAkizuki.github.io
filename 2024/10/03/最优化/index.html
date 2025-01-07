@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202410032251555.png">
 <meta property="article:published_time" content="2024-10-03T08:19:00.000Z">
-<meta property="article:modified_time" content="2024-12-28T16:10:50.546Z">
+<meta property="article:modified_time" content="2025-01-07T07:23:55.631Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="最优化">
 <meta name="twitter:card" content="summary_large_image">
@@ -280,7 +280,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          25k 字
+          26k 字
         
       </span>
     
@@ -291,7 +291,7 @@
         
         
         
-          63 分钟
+          66 分钟
         
       </span>
     
@@ -1065,8 +1065,9 @@ f^{\prime}(\boldsymbol{x} ; \boldsymbol{d})=\max _{\boldsymbol{g} \in \partial f
 \text{minimize}\ \ &amp;f(x)\\
 \text{s.t.}\ \ &amp;h_i(x)=0,i=1,\cdots,m\\
 &amp;g_i(x)\leq 0,i=1,\cdots,l\\
+&amp;x \in X
 \end{align}
-\]</span> 其中，所有的<span class="math inline">\(f,g_i,h_i\)</span>都是可微的。</p>
+\]</span> 其中，所有的<span class="math inline">\(f,g_i,h_i\)</span>都是可微的。<span class="math inline">\(h_i(x)\)</span>称为等式约束、<span class="math inline">\(g_i(x)\)</span>称为不等式约束、<span class="math inline">\(X\)</span>称为集合约束。</p>
 <blockquote>
 <p>把常用的不可微分函数转变为可微分函数的技巧：</p>
 <ol type="1">
@@ -1112,7 +1113,12 @@ D(x^*)\cap F_1(x^*)=0
 </blockquote>
 <p>之前提到的那个「适当的条件」叫做「约束品性」，常见的约束品性有：</p>
 <ol type="1">
-<li>正则性：设点<span class="math inline">\(x^*\)</span>满足<span class="math inline">\(h(x^*)=0,g(x^*)\leq 0\)</span>，对于<span class="math inline">\(x^*\)</span>处的所有<span class="math inline">\(h\)</span>和积极约束<span class="math inline">\(g\)</span>，如果梯度向量<span class="math inline">\(\nabla h_1(x^*),\cdots,\nabla h_n(x^*),\nabla g_j(x^*),j\in A(x^*)\)</span>是线性无关的，称<span class="math inline">\(x^*\)</span>是约束<span class="math inline">\(h(x^*)=0,g(x^*)\leq 0\)</span>的正则点。如果<span class="math inline">\(x^*\)</span>是局部最优解而且是正则点，那么KKT条件成立。</li>
+<li><p>正则性（线性无关约束品性，LICQ）：设点<span class="math inline">\(x^*\)</span>满足<span class="math inline">\(h(x^*)=0,g(x^*)\leq 0\)</span>，对于<span class="math inline">\(x^*\)</span>处的所有<span class="math inline">\(h\)</span>和积极约束<span class="math inline">\(g\)</span>，如果梯度向量<span class="math inline">\(\nabla h_1(x^*),\cdots,\nabla h_n(x^*),\nabla g_j(x^*),j\in A(x^*)\)</span>是线性无关的，称<span class="math inline">\(x^*\)</span>是约束<span class="math inline">\(h(x^*)=0,g(x^*)\leq 0\)</span>的正则点。如果<span class="math inline">\(x^*\)</span>是局部最优解而且是正则点，那么KKT条件成立。</p></li>
+<li><p>Slater条件。若Salter条件成立，原问题的最优解是KKT点，相应的乘子是对偶问题的最优解。</p></li>
+<li><p>MFCQ：如果<span class="math inline">\(x*\)</span>是集合约束<span class="math inline">\(X\)</span>的内点且是局部极小点、<span class="math inline">\(f,g,h\)</span>都是一阶连续函数、如果梯度<span class="math inline">\(\nabla h_1(x^*),\cdots,\nabla h_n(x^*)\)</span>线性无关，且存在向量<span class="math inline">\(d\)</span>使得 <span class="math display">\[
+\nabla h_i(x^*)^Td=0,\nabla g_j(x^*)^Td&lt;0,\forall ij
+\]</span> 则<span class="math inline">\(x^*\)</span> 满足MFCQ。</p></li>
+<li><p>线性CQ：如果<span class="math inline">\(x*\)</span>是集合约束<span class="math inline">\(X\)</span>的内点且是局部极小点，<span class="math inline">\(f,g\)</span>都是一阶连续函数，如果<span class="math inline">\(h\)</span>是仿射函数、<span class="math inline">\(g_j\)</span>都是凸函数，那么<span class="math inline">\(x*\)</span>满足KKT条件。</p></li>
 </ol>
 <p>如果满足：</p>
 <ol type="1">
@@ -1182,7 +1188,8 @@ d(\lambda,\mu)=\min_{x\in X}\left\{f(x)+\sum_{i=1}^m \lambda_ig_i(x)+\sum_{i=1}^
 \text{maximize}\ \ &amp;d(\lambda,\mu)\\
 \text{s.t.}\ \ &amp;\lambda_i\geq 0,i=1,\cdots ,m
 \end{align}
-\]</span> 我们把这个问题叫做「对偶问题」，记作<span class="math inline">\((D)\)</span>。接下来分析一下对偶问题和原问题的关系。对偶问题可以写作： <span class="math display">\[
+\]</span></p>
+<p>我们把这个问题叫做「对偶问题」，记作<span class="math inline">\((D)\)</span>。因为对偶函数<span class="math inline">\(d\)</span>一定是一个凹函数，所以极大化凹函数的对偶问题一定是一个凸问题。接下来分析一下对偶问题和原问题的关系。对偶问题可以写作： <span class="math display">\[
 \max_{\lambda\geq 0,\mu}\min_{x\in X}L(x,\lambda,\mu)
 \]</span> 如果我们把两个求最值换一下顺序： <span class="math display">\[
 \min_{x\in X}\max_{\lambda\geq 0,\mu}L(x,\lambda,\mu)
@@ -1235,6 +1242,18 @@ z+\lambda y=\alpha
 <p>我们可以发现： <span class="math display">\[
 v(D)\leq v(P)
 \]</span></p>
+<p>这个结论叫<strong>「弱对偶定理」</strong>。关于<span class="math inline">\(v(D)=v(P)\)</span>的条件，有如下充分条件：</p>
+<ol type="1">
+<li>原问题是凸问题：即<span class="math inline">\(f(x),g(x)\)</span>是凸函数、<span class="math inline">\(h(x)\)</span>是线性函数、<span class="math inline">\(G\)</span>是凸集</li>
+<li>（Slater条件）在可行域中存在一点<span class="math inline">\(x\)</span>，使得<span class="math inline">\(\forall ij,g_i(x)&lt;0,h_j(x)=0\)</span>，或：</li>
+<li>（松弛Slater条件）在可行域的相对内部中存在一点<span class="math inline">\(x\)</span>，使得对所有非仿射的<span class="math inline">\(g\)</span>有<span class="math inline">\(g(x)&lt;0\)</span>，对所有仿射的<span class="math inline">\(g\)</span>有<span class="math inline">\(g(x)\leq 0\)</span>，且<span class="math inline">\(h_j(x)=0\)</span>.</li>
+</ol>
+<p>为了理解这个条件，观察下面的两个图像：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202501071244345.png" srcset="/img/loading.gif" lazyload alt="image-20250107124403015" /><figcaption aria-hidden="true">image-20250107124403015</figcaption>
+</figure>
+<p>（a）图中虽然满足第一个条件（问题是凸问题），但是不满足第二个条件，这样的话，其对偶问题无解。</p>
+<p>（b）图中虽然不满足第一个条件（<span class="math inline">\(G\)</span>不是凸集），但仍然是强对偶的，这说明了上述的条件只是充分条件，而非必要条件。</p>
 <p>考虑线性规划问题： <span class="math display">\[
 \begin{align}
 \text{minimize}\ \ &amp;c^Tx\\
