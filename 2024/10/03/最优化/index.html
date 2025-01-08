@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202410032251555.png">
 <meta property="article:published_time" content="2024-10-03T08:19:00.000Z">
-<meta property="article:modified_time" content="2025-01-07T14:50:07.042Z">
+<meta property="article:modified_time" content="2025-01-08T03:57:59.224Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="最优化">
 <meta name="twitter:card" content="summary_large_image">
@@ -280,7 +280,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          31k 字
+          34k 字
         
       </span>
     
@@ -291,7 +291,7 @@
         
         
         
-          77 分钟
+          85 分钟
         
       </span>
     
@@ -1020,6 +1020,96 @@ d_k=-M_k\nabla f(x_k)
 <p>【定义：<span class="math inline">\(G-\)</span>正交/共轭】已知对称正定矩阵<span class="math inline">\(G\)</span>，定义两个向量的<span class="math inline">\(G-\)</span>内积： <span class="math display">\[
 \langle\boldsymbol{u}, \boldsymbol{v}\rangle_G=\boldsymbol{u}^T \boldsymbol{G} \boldsymbol{v}
 \]</span> 如果两个向量的<span class="math inline">\(G-\)</span>内积为<span class="math inline">\(0\)</span>，则称其为<span class="math inline">\(G-\)</span>正交或者<span class="math inline">\(G-\)</span>共轭向量。</p>
+<p>共轭方向法的提出是为了求解正定的非齐次线性方程组： <span class="math display">\[
+Gx=b
+\]</span> 其等价于下面的优化问题： <span class="math display">\[
+\arg\min \frac 12 x^TGx-b^Tx
+\]</span> 求解的步骤如下：</p>
+<p>给定初始点<span class="math inline">\(x_0\)</span>和共轭方向<span class="math inline">\(\{d_0,d_1\cdots,d_{n-1}\}\)</span>，令： <span class="math display">\[
+x_{k+1}=x_k+\alpha_kd_k
+\]</span> 其中， <span class="math display">\[
+\begin{align}
+\alpha_k=\arg\min\phi(\alpha):= f(x_k+\alpha d_k)
+\end{align}
+\]</span> 即求解： <span class="math display">\[
+\phi&#39;(\alpha)=0
+\]</span> 有： <span class="math display">\[
+\begin{align}
+\phi&#39;(\alpha)&amp;=\nabla f(x_k+\alpha d_k)^Td_k\\
+&amp;=(G(x_k+\alpha d_k)+c)^Td^k\\
+&amp;=(Gx_k+c)^Td_k+\alpha d_k^TGd_k
+\end{align}
+\]</span> 那么有： <span class="math display">\[
+\alpha=-\frac{(Gx_k+c)^Td_k}{d_k^TGd_k}=-\frac{\nabla f(x_k)^Td_k}{d_k^TGd_k}
+\]</span> 将共轭方向组写成矩阵：<span class="math inline">\(S=\{d_0,\cdots,d_{n-1}\}\)</span>那么有：</p>
+<ol type="1">
+<li><span class="math inline">\(S\)</span>可逆（因为<span class="math inline">\(d\)</span>是线性无关组）</li>
+<li><span class="math inline">\(S^TGS\)</span>是对角矩阵，对角线元素是<span class="math inline">\(d_i^TQd_i\)</span>，其余是零（因为<span class="math inline">\(d\)</span>是共轭方向组）</li>
+<li><span class="math inline">\(I=S^{-1}\{d_0,\cdots,d_n\}\)</span>，即<span class="math inline">\(S^{-1}d_i=e_i\)</span>，其中<span class="math inline">\(e_i\)</span>是第<span class="math inline">\(i\)</span>个分量为一，其余分量是零的单位坐标向量</li>
+</ol>
+<p>设： <span class="math display">\[
+x=S\hat x,\ \hat x=S^{-1}x
+\]</span> 则有： <span class="math display">\[
+\hat f(\hat x)=\frac 12 \hat xS^TGS\hat x+(S^Tc)^T\hat x
+\]</span> 因为<span class="math inline">\(S^TGS\)</span>是对角阵，所以这是一个变量可分离的二次函数。</p>
+<p>考虑迭代出的最终<span class="math inline">\(x\)</span>： <span class="math display">\[
+\begin{align}
+x^*&amp;=x_0+\alpha_0d_0+\alpha_1d_1+\cdots+\alpha_{n-1}d_{n-1}\\
+\hat x^*&amp;=S^{-1}x_0+\alpha_0S^{-1}d_0+\alpha_1S^{-1}d_1+\cdots+\alpha_{n-1}S^{-1}d_{n-1}\\
+&amp;=S^{-1}s_0+\alpha_0e_0+\alpha_1e_1+\cdots+\alpha_{n-1}e_{n-1}
+\end{align}
+\]</span> 即：在<span class="math inline">\(x\)</span>空间的共轭方向法，实际上就是在<span class="math inline">\(\hat x\)</span>空间按坐标轴搜索，而且在<span class="math inline">\(\hat x\)</span>空间的<span class="math inline">\(\hat f\)</span>函数是变量可分离的二次函数。于是，点列<span class="math inline">\(\{x_k\}\)</span>有如下特征：</p>
+<ol type="1">
+<li><span class="math inline">\(\nabla f(x_k)^Td_i=0,i=1,\cdots,k-1\)</span></li>
+<li><span class="math inline">\(x_k=\arg\min \left\{\dfrac 12x^TGx+c^Tx,x\in X^k\right\}\)</span>，其中，<span class="math inline">\(X^k\)</span>是共轭方向组的前<span class="math inline">\(k\)</span>个向量张成的线性子空间，平移<span class="math inline">\(x_0\)</span>后得到的仿射空间。</li>
+</ol>
+<p>共轭方向法的问题是在求解前需要给出共轭方向组。共轭梯度法则是利用梯度构造共轭方向组。共轭梯度法的基本结构如下：</p>
+<ol type="1">
+<li><p>给定初始点<span class="math inline">\(x_0\)</span>，记<span class="math inline">\(d_0=-\nabla f(x_0)\)</span>，开始迭代</p></li>
+<li><p>如果函数梯度已经足够小，即<span class="math inline">\(\|\nabla f(x_k)\|\leq \epsilon\)</span>，终止</p></li>
+<li><p>计算： <span class="math display">\[
+\alpha=-\frac{(Gx_k+c)^Td_k}{d_k^TGd_k}=-\frac{\nabla f(x_k)^Td_k}{d_k^TGd_k}
+\]</span></p></li>
+<li><p>令<span class="math inline">\(x_{k+1}=x_k+\alpha_kd_k\)</span>，计算<span class="math inline">\(d_{k+1}\)</span>，使得它和之前的所有方向都共轭。 <span class="math display">\[
+d_{k+1}=-\nabla f(x_{k+1})+???
+\]</span></p></li>
+</ol>
+<p>现在的问题就是<span class="math inline">\(d_k\)</span>怎么算。可以借助矩阵理论中的施密特正交化方法，容易想到，<span class="math inline">\(???\)</span>其实是在之前的方向的线性组合，即： <span class="math display">\[
+d_{k+1}=-\nabla f(x_{k+1})+\sum_{i=0}^k \beta_id_i
+\]</span> 有： <span class="math display">\[
+\left(-\nabla f(x_{k+1})+\sum_{i=0}^k \beta_id_i\right)^TGd_i=0,\forall i=0,\cdots,k
+\]</span> 因为共轭性，其它项都一定是零，即： <span class="math display">\[
+(-\nabla f(x_{k+1})+\beta_id_i)^TGd_i=0
+\]</span> 有： <span class="math display">\[
+\beta_i=\frac{\nabla f(x_{k+1})Gd_i}{d_i^TGd_i},i=0,\cdots,k
+\]</span> 注意到：<span class="math inline">\(i\neq k\)</span>时，<span class="math inline">\(\beta_i=0\)</span></p>
+<blockquote>
+<p>分析分子<span class="math inline">\(\nabla f(x_{k+1})Gd_i\)</span>，因为<span class="math inline">\(\alpha_id_i=x_{i+1}-x_i\)</span>，有： <span class="math display">\[
+\begin{align}
+Gd_i&amp;=G(x_{i+1}-x_i)\frac 1{\alpha_i}\\
+&amp;=(\nabla f(x_{i+1})-\nabla f(x_i))\frac 1{\alpha_i}
+\end{align}
+\]</span> 代入： <span class="math display">\[
+\nabla f(x_{k+1})Gd_i=\nabla f(x_{k+1})(\nabla f(x_{i+1})-\nabla f(x_i))\frac 1{\alpha_i}
+\]</span> 因为 <span class="math display">\[
+d_{i+1}=-\nabla f(x_{i+1})+\sum_{i=1}^i \beta_j d_j
+\]</span> 所以 <span class="math display">\[
+\nabla f(x_{i+1})=-d_{i+1}+\sum_{i=1}^i \beta_j d_j
+\]</span> 因为<span class="math inline">\(\nabla f(x_k)^Td_i=0,i=1,\cdots,k-1\)</span></p>
+<p>所以<span class="math inline">\(i\neq k\)</span>时，<span class="math inline">\(\beta_i=0\)</span></p>
+</blockquote>
+<p>所以有： <span class="math display">\[
+d_{k+1}=-\nabla f(x_{k+1})+\frac{\nabla f(x_{k+1})Gd_k}{d_k^TGd_k}d_k
+\]</span> 而且，步长公式可以化简为： <span class="math display">\[
+\alpha=-\frac{\nabla f(x_k)^Td_k}{d_k^TGd_k}=\frac{\nabla f(x_k)^T\nabla f(x_k)}{d_k^TGd_k}
+\]</span> 进一步简化<span class="math inline">\(\beta_k\)</span>: $$ <span class="math display">\[\begin{align}
+
+\beta_k&amp;=\frac{\nabla f(x_{k+1})Gd_k}{d_k^TGd_k}\\
+&amp;=\frac 1{\alpha_i} \frac{\nabla f(x_{k+1})(\nabla f(x_{k+1})-\nabla f(x_k))}{d_k^TGd_k}\\
+&amp;=\frac{d_k^TGd_k}{\nabla f(x_k)^T\nabla f(x_k)}\frac{\nabla f(x_{k+1})(\nabla f(x_{k+1})-\nabla f(x_k))}{d_k^TGd_k}\\
+&amp;=\frac{\nabla f(x_{k+1})^T\nabla f(x_{k+1})}{\nabla f(x_{k})^T\nabla f(x_{k})}\\
+
+\end{align}\]</span> $$ 这个简化的目的是排除原问题<span class="math inline">\(\arg\min \frac 12 x^TGx-b^Tx\)</span>的影响，以便适用于任何函数（但是这时<span class="math inline">\(\alpha\)</span>只能改用其它精确线搜索法）</p>
 <p>共轭梯度法的过程如下：</p>
 <figure>
 <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202411271520022.png" srcset="/img/loading.gif" lazyload alt="image-20241127151957560" /><figcaption aria-hidden="true">image-20241127151957560</figcaption>
