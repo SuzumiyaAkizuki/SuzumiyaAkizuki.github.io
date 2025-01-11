@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202412120113885.png">
 <meta property="article:published_time" content="2024-12-11T17:15:29.000Z">
-<meta property="article:modified_time" content="2025-01-11T15:34:50.174Z">
+<meta property="article:modified_time" content="2025-01-11T16:46:42.892Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="Matlab">
 <meta property="article:tag" content="最优化">
@@ -722,6 +722,9 @@ f(\boldsymbol{x})=\frac 1{2m}\|A\boldsymbol{x}-\boldsymbol{b}\|+\alpha \|\boldsy
 <p>运行仿真：</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs Matlab">A0 = <span class="hljs-built_in">randn</span>(n,n);<br>X0 = A0*A0&#x27;;<br>steps=<span class="hljs-built_in">ones</span>(<span class="hljs-number">1</span>,<span class="hljs-number">500</span>)*<span class="hljs-number">0.01</span>;<br>Xs = gradient_descent_xx(n,X0,steps,gradien,@projection);<br><br>ys = arrayfun(@(<span class="hljs-built_in">i</span>) objective(S,Xs(:,(<span class="hljs-built_in">i</span><span class="hljs-number">-1</span>)*n+<span class="hljs-number">1</span>:<span class="hljs-built_in">i</span>*n)), <span class="hljs-number">1</span>:<span class="hljs-number">500</span>);<br>Error_plot(ys,<span class="hljs-string">&#x27;log&#x27;</span>);<br><br></code></pre></td></tr></table></figure>
 <p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202412120111323.png" srcset="/img/loading.gif" lazyload /></p>
+<hr />
+<p>本站的运行成本约为每个月5元人民币，如果您觉得本站有用，欢迎打赏：</p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202501120027592.png" srcset="/img/loading.gif" lazyload alt="image-20250112002710775" style="zoom:50%;" /></p>
 
                 
               </div>
