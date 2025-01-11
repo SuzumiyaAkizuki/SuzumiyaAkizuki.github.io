@@ -1,0 +1,1017 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <link rel="icon" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="SuzumiyaAkizuki">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="注意：  本文是之前的文章《投影梯度下降法（ee227c Lecture4 学习笔记）》的一部分。因为我觉得可能还会有人需要这个方法，为了方便被搜索引擎搜到，所以单独拿出来写一篇文章。如果要下载源码，请点击原文。 本文所描述的方法只适用于有显式数学表达式的函数，自变量可以是标量、向量、矩阵，但是必须有数学表达式。一般的编程函数，比如里面有for循环啊、if啊、递归等，是用不了的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="怎么用 matlab 实现像 python 的 aurograd 一样的自动微分">
+<meta property="og:url" content="https://suzumiyaakizuki.github.io/2025/01/11/%E6%80%8E%E4%B9%88%E7%94%A8matlab%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E6%B1%82%E5%AF%BC/index.html">
+<meta property="og:site_name" content="凉宫秋月的文艺部">
+<meta property="og:description" content="注意：  本文是之前的文章《投影梯度下降法（ee227c Lecture4 学习笔记）》的一部分。因为我觉得可能还会有人需要这个方法，为了方便被搜索引擎搜到，所以单独拿出来写一篇文章。如果要下载源码，请点击原文。 本文所描述的方法只适用于有显式数学表达式的函数，自变量可以是标量、向量、矩阵，但是必须有数学表达式。一般的编程函数，比如里面有for循环啊、if啊、递归等，是用不了的。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202501112313715.png">
+<meta property="article:published_time" content="2025-01-11T14:56:06.000Z">
+<meta property="article:modified_time" content="2025-01-11T15:22:46.878Z">
+<meta property="article:author" content="SuzumiyaAkizuki">
+<meta property="article:tag" content="matlab">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202501112313715.png">
+  
+  
+  
+  <title>怎么用 matlab 实现像 python 的 aurograd 一样的自动微分 - 凉宫秋月的文艺部</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"suzumiyaakizuki.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"#"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":"68566d9bd00b7bf4691d908988e884c5","google":"G-J01HK5TZ0Y","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"QGqf9VPGTa96KerO0JvDW3Ld-gzGzoHsz","app_key":"RhwwUaYq4lMo1tCJwcQTWdRp","server_url":"https://qgqf9vpg.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?68566d9bd00b7bf4691d908988e884c5";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+    <!-- Google Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.google-analytics.com/analytics.js', function() {
+          window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
+          ga.l = +new Date;
+          ga('create', 'G-J01HK5TZ0Y', 'auto');
+          ga('send', 'pageview');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>凉宫秋月的文艺部</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                主页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友情链接
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202501112313715.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="怎么用 matlab 实现像 python 的 aurograd 一样的自动微分"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        SuzumiyaAkizuki
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-01-11 22:56" pubdate>
+          2025年1月11日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          9.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          24 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-right: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="技术"
+        id="heading-a95dd3e179418be1ecd2a719a22db70e" role="tab" data-toggle="collapse" href="#collapse-a95dd3e179418be1ecd2a719a22db70e"
+        aria-expanded="true"
+      >
+        技术
+        <span class="list-group-count">(16)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-a95dd3e179418be1ecd2a719a22db70e"
+           role="tabpanel" aria-labelledby="heading-a95dd3e179418be1ecd2a719a22db70e">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2025/01/11/%E6%80%8E%E4%B9%88%E7%94%A8matlab%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E6%B1%82%E5%AF%BC/" title="怎么用 matlab 实现像 python 的 aurograd 一样的自动微分"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">怎么用 matlab 实现像 python 的 aurograd 一样的自动微分</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2024/12/17/%E4%BD%BF%E7%94%A8Matlab%E8%AE%AD%E7%BB%83%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AE%8C%E6%88%90%E8%A1%A8%E6%83%85%E5%8C%85%E5%88%86%E7%B1%BB%E4%BB%BB%E5%8A%A1/" title="使用Matlab训练卷积神经网络完成表情包分类任务"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">使用Matlab训练卷积神经网络完成表情包分类任务</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2024/12/13/%E9%BB%91%E7%AE%B1%E4%BC%98%E5%8C%96%E4%B8%8E%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" title="黑箱优化与强化学习（EEee227c Lecture20学习笔记）"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">黑箱优化与强化学习（EEee227c Lecture20学习笔记）</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2024/12/12/%E6%8A%95%E5%BD%B1%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95%EF%BC%88ee227c%20Lecture%204%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%89/" title="投影梯度下降法（ee227c Lecture4 学习笔记）"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">投影梯度下降法（ee227c Lecture4 学习笔记）</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2024/11/10/%E5%90%88%E6%88%90%E5%AD%94%E5%BE%84%E9%9B%B7%E8%BE%BE%E7%9A%84%E3%80%8C%E6%96%91%E9%A9%AC%E5%9B%BE%E3%80%8D%E5%88%B0%E5%BA%95%E6%98%AF%E6%80%8E%E4%B9%88%E5%9B%9E%E4%BA%8B/" title="合成孔径雷达的「斑马图」到底是怎么回事"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">合成孔径雷达的「斑马图」到底是怎么回事</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2024/08/15/%E6%80%8E%E4%B9%88%E5%9C%A82024%E5%B9%B4%E7%BB%99CentOS7%E7%9A%84gcc%E5%8D%87%E7%BA%A7/" title="怎么在2024年给CentOS7的gcc升级"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">怎么在2024年给CentOS7的gcc升级</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2024/04/15/%E7%94%A8matlab%20APP%20designer%E5%88%B6%E4%BD%9C%E8%BD%AF%E4%BB%B6%E3%80%81%E8%B0%83%E7%94%A8%E5%A4%96%E9%83%A8%E5%BA%93%E5%B9%B6%E6%89%93%E5%8C%85/" title="用matlabAPPDesigner制作软件、调用外部库并打包"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">用matlabAPPDesigner制作软件、调用外部库并打包</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2023/11/17/debug%20%E6%A3%80%E6%9F%A5%E5%8D%95/" title="debug检查单"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">debug检查单</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2023/11/02/C5-E6%E7%AD%94%E7%96%91%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/" title="程序设计基础第五~六周答疑要点整理"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">程序设计基础第五~六周答疑要点整理</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2023/10/18/C4-E4%E7%AD%94%E7%96%91%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/" title="程序设计基础第四周答疑要点整理"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">程序设计基础第四周答疑要点整理</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2023/10/12/C3-E3%E7%AD%94%E7%96%91%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/" title="程序设计基础第三周答疑要点整理"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">程序设计基础第三周答疑要点整理</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2023/10/07/%E6%88%91%E4%BC%9A%E8%87%AA%E5%B7%B1Debug/" title="我会自己Debug"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">我会自己Debug</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2023/10/06/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80%E7%AC%AC%E4%B8%80%E5%91%A8%E7%AD%94%E7%96%91%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/" title="程序设计基础第一周答疑要点整理"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">程序设计基础第一周答疑要点整理</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2023/09/27/C2-E2%E7%AD%94%E7%96%91%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/" title="程序设计基础第二周答疑要点整理"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">程序设计基础第二周答疑要点整理</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/05/23/%E5%85%B3%E4%BA%8E%E7%94%A8R%E8%AF%AD%E8%A8%80%E8%BF%9B%E8%A1%8C%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E7%9A%84%E4%B9%90%E5%AD%90%E4%BA%8C%E5%88%99/" title="关于用R语言进行方差分析的乐子二则"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">关于用R语言进行方差分析的乐子二则</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/05/16/%E4%B8%80%E7%A7%8D%E5%9F%BA%E4%BA%8E%E7%BA%AFC%E8%AF%AD%E8%A8%80%E7%9A%84%E5%87%BD%E6%95%B0%E7%BB%98%E5%9B%BE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="一种基于纯C语言的函数绘图解决方案"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">一种基于纯C语言的函数绘图解决方案</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">怎么用 matlab 实现像 python 的 aurograd 一样的自动微分</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>注意：</p>
+<ol type="1">
+<li>本文是之前的文章<a target="_blank" rel="noopener" href="https://blog.sakizuki.site/2024/12/12/%E6%8A%95%E5%BD%B1%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95%EF%BC%88ee227c%20lecture%204%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%89/#">《投影梯度下降法（ee227c Lecture4 学习笔记）》</a>的一部分。因为我觉得可能还会有人需要这个方法，为了方便被搜索引擎搜到，所以单独拿出来写一篇文章。如果要下载源码，请点击原文。</li>
+<li>本文所描述的方法只适用于有<strong>显式数学表达式</strong>的函数，<strong>自变量可以是标量、向量、矩阵</strong>，但是必须有数学表达式。一般的编程函数，比如里面有<code>for</code>循环啊、<code>if</code>啊、递归等，是用不了的。</li>
+</ol>
+<span id="more"></span>
+<p>在查文档的时候，发现有<code>gradient</code>、<code>diff2</code>等函数，但是它们都不满足我的需要。在问LLM的时候，LLM给出了这样的回答：</p>
+<figure>
+<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202501112301009.png" srcset="/img/loading.gif" lazyload alt="LLMの胡言乱语" /><figcaption aria-hidden="true">LLMの胡言乱语</figcaption>
+</figure>
+<p>LLM完全理解了我的需要，然后给出了一个完全错误的回答。所以，接下来的内容，就是实现这个图里面的东西。如果你发现图里面的东西不是你想要的，那可以不用看了。</p>
+<p>接下来利用稀疏逆协方差估计的背景介绍一下所用的方法。</p>
+<p>稀疏逆协方差估计是一种统计方法，用于估计变量之间的依赖关系。该方法通过优化一个包含正则化项的目标函数来实现。其优化目标为： <span class="math display">\[
+\min _{X \in \mathbb{R}^{n \times n}, X \succeq 0}\langle S, X\rangle-\log \operatorname{det}(X)+\alpha\|X\|_1
+\]</span> 在这里，我们定义： <span class="math display">\[
+\langle S, X\rangle=\text{tr} (S^\top X)
+\]</span> 和 <span class="math display">\[
+\|X\|_1=\sum_{ij}|X_{ij}|
+\]</span> 在原文中，使用到了<code>python</code>的<code>autograd</code>功能。但是<code>matlab</code>不带有这个功能，为此，我颇下了一番功夫，最终得到一个解决方案。</p>
+<p>这个问题解决起来很棘手，因为函数的参数都是矩阵。如果只用 <code>syms A</code> 指令，生成的只是单个变量。例如：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs matlab">&gt;&gt; syms S X<br>&gt;&gt; sparse_inv_cov_syms = trace(S&#x27; * X) - <span class="hljs-built_in">log</span>(det(X)) + <span class="hljs-number">0.1</span> * sum(<span class="hljs-built_in">abs</span>(X),<span class="hljs-string">&#x27;all&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs matlab">sparse_inv_cov_syms =<br> <br><span class="hljs-built_in">abs</span>(X)/<span class="hljs-number">10</span> - <span class="hljs-built_in">log</span>(X) + X*<span class="hljs-built_in">conj</span>(S)<br></code></pre></td></tr></table></figure>
+<p>这显然不是我们要的结果。这时，我们需要生成矩阵符号：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs matlab">&gt;&gt; n=<span class="hljs-number">5</span><br>&gt;&gt; syms S [n n]<br>&gt;&gt; syms X [n n]<br>&gt;&gt; sparse_inv_cov_syms = trace(S&#x27; * X) - <span class="hljs-built_in">log</span>(det(X)) + <span class="hljs-number">0.1</span> * sum(<span class="hljs-built_in">abs</span>(X),<span class="hljs-string">&#x27;all&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stylus">sparse_inv_cov_syms =<br> <br><span class="hljs-function"><span class="hljs-title">abs</span><span class="hljs-params">(X1_1)</span></span>/<span class="hljs-number">10</span> + <span class="hljs-built_in">abs</span>(X1_2)/<span class="hljs-number">10</span> + <span class="hljs-built_in">abs</span>(X1_3)/<span class="hljs-number">10</span> + <span class="hljs-built_in">abs</span>(X1_4)/<span class="hljs-number">10</span> + <span class="hljs-built_in">abs</span>(X1_5)/<span class="hljs-number">10</span> + <span class="hljs-built_in">abs</span>(X2_1)/<span class="hljs-number">10</span> + ...<br></code></pre></td></tr></table></figure>
+<p>但是此时如果我们直接用<code>matlabFunction</code>函数转换，会得到一个以25个变量为参数的函数：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab">&gt;&gt; <span class="hljs-built_in">ans</span>=matlabFunction(sparse_inv_cov_syms)<br></code></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">ans =<br><br>  包含以下值的 function_handle:<br><br><span class="hljs-meta">    @(<span class="hljs-params">S1_1,S1_2,S1_3,S1_4,S1_5,S2_1,S2_2,S2_3,S2_4,S2_5,S3_1,S3_2,S3_3,S3_4,S3_5,S4_1,S4_2,S4_3,S4_4,S4_5,S5_1,S5_2,S5_3,S5_4,S5_5,X1_1,X1_2,X1_3,X1_4,X1_5,X2_1,X2_2,X2_3,X2_4,X2_5,X3_1,X3_2,X3_3,X3_4,X3_5,X4_1,X4_2,X4_3,X4_4,X4_5,X5_1,X5_2,X5_3,X5_4,X5_5</span>)...</span><br></code></pre></td></tr></table></figure>
+<p>这并不是我们需要的形式。在生成函数时，我们使用<code>Vars</code>字符串，然后把<code>S</code>和<code>X</code>用大括号括起来，这样就行了。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab">&gt;&gt; <span class="hljs-built_in">ans</span>=matlabFunction(sparse_inv_cov_syms,<span class="hljs-string">&quot;Vars&quot;</span>,&#123;S,X&#125;)<br></code></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">ans =<br><br>  包含以下值的 function_handle:<br><br><span class="hljs-meta">    @(<span class="hljs-params">in1,in2</span>)abs(<span class="hljs-params">in2(<span class="hljs-params"><span class="hljs-number">1</span></span>)</span>)./<span class="hljs-number">1.0e+1</span>+abs(<span class="hljs-params">in2(<span class="hljs-params"><span class="hljs-number">6</span></span>)</span>)./<span class="hljs-number">1.0e+1</span>+abs(<span class="hljs-params">in2(<span class="hljs-params"><span class="hljs-number">11</span></span>)</span>)./<span class="hljs-number">1.0e+1</span>+abs(<span class="hljs-params">in2(<span class="hljs-params"><span class="hljs-number">16</span></span>)</span>)./<span class="hljs-number">1.0e+1</span>+abs(<span class="hljs-params">in2(<span class="hljs-params"><span class="hljs-number">21</span></span>)</span>)./<span class="hljs-number">1.0e+1</span>+abs(<span class="hljs-params">in2(<span class="hljs-params"><span class="hljs-number">2</span></span>)</span>)./<span class="hljs-number">1.0e+1</span>+abs(<span class="hljs-params">in2(<span class="hljs-params"><span class="hljs-number">7</span></span>)</span>)./<span class="hljs-number">1.0e+1</span>+abs(<span class="hljs-params">in2(<span class="hljs-params"><span class="hljs-number">12</span></span>)</span>)./<span class="hljs-number">1.0e+1</span>+abs(<span class="hljs-params">in2(<span class="hljs-params"><span class="hljs-number">17</span></span>)</span>)./<span class="hljs-number">1.0e+1</span>+abs(<span class="hljs-params">in2(<span class="hljs-params"><span class="hljs-number">22</span></span>)</span>)./<span class="hljs-number">1.0e+1</span>+abs(<span class="hljs-params">in2(<span class="hljs-params"><span class="hljs-number">3</span></span>)</span>)./<span class="hljs-number">1.0e+1</span>+abs(<span class="hljs-params">in2(<span class="hljs-params"><span class="hljs-number">8</span></span>)</span>)./<span class="hljs-number">1.0e+1</span>+abs(<span class="hljs-params">in2(<span class="hljs-params"><span class="hljs-number">13</span></span>)</span>)./<span class="hljs-number">1.0e+1</span>+abs(<span class="hljs-params">in2(<span class="hljs-params"><span class="hljs-number">18</span></span>)</span>)./<span class="hljs-number">1.0e+1</span>+abs(<span class="hljs-params">in2(<span class="hljs-params"><span class="hljs-number">23</span></span>)</span>)./<span class="hljs-number">1.0e+1</span>+abs(<span class="hljs-params">in2(<span class="hljs-params"><span class="hljs-number">4</span></span>)</span>)./<span class="hljs-number">1.0e+1</span>+abs(<span class="hljs-params">in2(<span class="hljs-params"><span class="hljs-number">9</span></span>)</span>)./<span class="hljs-number">1.0e+1</span>+abs(<span class="hljs-params">in2(<span class="hljs-params"><span class="hljs-number">14</span></span>)</span>)./<span class="hljs-number">1.0e+1</span>+abs(<span class="hljs-params">in2(<span class="hljs-params"><span class="hljs-number">19</span></span>)</span>)./<span class="hljs-number">1.0e+1</span>+abs(<span class="hljs-params">in2(<span class="hljs-params"><span class="hljs-number">24</span></span>)</span>)./<span class="hljs-number">1.0e+1</span>+abs(<span class="hljs-params">in2(<span class="hljs-params"><span class="hljs-number">5</span></span>)</span>)./<span class="hljs-number">1.0e+1</span>+abs(<span class="hljs-params">in2(<span class="hljs-params"><span class="hljs-number">10</span></span>)</span>)./<span class="hljs-number">1.0e+1</span>+abs(<span class="hljs-params">in2(<span class="hljs-params"><span class="hljs-number">15</span></span>)</span>)./<span class="hljs-number">1.0e+1</span>+abs(<span class="hljs-params">in2(<span class="hljs-params"><span class="hljs-number">20</span></span>)</span>)./<span class="hljs-number">1.0e+1</span>+abs(<span class="hljs-params">in2(<span class="hljs-params"><span class="hljs-number">25</span></span>)</span>)./<span class="hljs-number">1.0e+1</span>-log(<span class="hljs-params">in2(<span class="hljs-params"><span class="hljs-number">1</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">7</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">13</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">19</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">25</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">1</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">7</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">13</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">24</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">20</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">1</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">7</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">18</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">14</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">25</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">1</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">7</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">18</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">24</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">15</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">1</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">7</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">23</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">14</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">20</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">1</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">7</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">23</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">19</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">15</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">1</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">12</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">8</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">19</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">25</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">1</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">12</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">8</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">24</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">20</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">1</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">12</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">18</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">9</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">25</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">1</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">12</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">18</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">24</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">10</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">1</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">12</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">23</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">9</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">20</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">1</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">12</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">23</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">19</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">10</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">1</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">17</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">8</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">14</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">25</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">1</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">17</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">8</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">24</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">15</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">1</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">17</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">13</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">9</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">25</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">1</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">17</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">13</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">24</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">10</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">1</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">17</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">23</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">9</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">15</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">1</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">17</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">23</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">14</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">10</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">1</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">22</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">8</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">14</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">20</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">1</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">22</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">8</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">19</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">15</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">1</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">22</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">13</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">9</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">20</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">1</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">22</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">13</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">19</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">10</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">1</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">22</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">18</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">9</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">15</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">1</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">22</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">18</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">14</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">10</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">6</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">2</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">13</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">19</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">25</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">6</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">2</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">13</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">24</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">20</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">6</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">2</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">18</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">14</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">25</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">6</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">2</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">18</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">24</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">15</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">6</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">2</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">23</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">14</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">20</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">6</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">2</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">23</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">19</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">15</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">6</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">12</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">3</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">19</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">25</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">6</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">12</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">3</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">24</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">20</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">6</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">12</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">18</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">4</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">25</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">6</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">12</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">18</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">24</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">5</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">6</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">12</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">23</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">4</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">20</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">6</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">12</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">23</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">19</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">5</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">6</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">17</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">3</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">14</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">25</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">6</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">17</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">3</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">24</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">15</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">6</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">17</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">13</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">4</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">25</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">6</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">17</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">13</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">24</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">5</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">6</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">17</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">23</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">4</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">15</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">6</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">17</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">23</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">14</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">5</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">6</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">22</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">3</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">14</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">20</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">6</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">22</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">3</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">19</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">15</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">6</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">22</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">13</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">4</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">20</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">6</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">22</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">13</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">19</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">5</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">6</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">22</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">18</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">4</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">15</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">6</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">22</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">18</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">14</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">5</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">11</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">2</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">8</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">19</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">25</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">11</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">2</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">8</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">24</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">20</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">11</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">2</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">18</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">9</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">25</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">11</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">2</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">18</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">24</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">10</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">11</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">2</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">23</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">9</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">20</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">11</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">2</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">23</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">19</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">10</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">11</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">7</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">3</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">19</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">25</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">11</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">7</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">3</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">24</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">20</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">11</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">7</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">18</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">4</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">25</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">11</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">7</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">18</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">24</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">5</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">11</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">7</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">23</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">4</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">20</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">11</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">7</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">23</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">19</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">5</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">11</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">17</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">3</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">9</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">25</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">11</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">17</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">3</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">24</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">10</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">11</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">17</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">8</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">4</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">25</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">11</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">17</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">8</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">24</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">5</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">11</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">17</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">23</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">4</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">10</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">11</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">17</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">23</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">9</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">5</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">11</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">22</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">3</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">9</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">20</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">11</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">22</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">3</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">19</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">10</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">11</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">22</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">8</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">4</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">20</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">11</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">22</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">8</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">19</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">5</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">11</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">22</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">18</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">4</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">10</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">11</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">22</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">18</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">9</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">5</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">16</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">2</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">8</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">14</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">25</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">16</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">2</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">8</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">24</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">15</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">16</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">2</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">13</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">9</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">25</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">16</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">2</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">13</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">24</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">10</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">16</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">2</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">23</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">9</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">15</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">16</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">2</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">23</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">14</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">10</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">16</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">7</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">3</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">14</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">25</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">16</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">7</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">3</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">24</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">15</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">16</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">7</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">13</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">4</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">25</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">16</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">7</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">13</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">24</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">5</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">16</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">7</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">23</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">4</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">15</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">16</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">7</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">23</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">14</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">5</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">16</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">12</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">3</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">9</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">25</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">16</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">12</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">3</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">24</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">10</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">16</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">12</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">8</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">4</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">25</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">16</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">12</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">8</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">24</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">5</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">16</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">12</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">23</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">4</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">10</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">16</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">12</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">23</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">9</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">5</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">16</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">22</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">3</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">9</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">15</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">16</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">22</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">3</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">14</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">10</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">16</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">22</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">8</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">4</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">15</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">16</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">22</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">8</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">14</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">5</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">16</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">22</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">13</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">4</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">10</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">16</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">22</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">13</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">9</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">5</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">21</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">2</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">8</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">14</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">20</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">21</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">2</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">8</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">19</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">15</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">21</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">2</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">13</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">9</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">20</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">21</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">2</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">13</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">19</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">10</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">21</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">2</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">18</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">9</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">15</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">21</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">2</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">18</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">14</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">10</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">21</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">7</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">3</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">14</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">20</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">21</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">7</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">3</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">19</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">15</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">21</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">7</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">13</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">4</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">20</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">21</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">7</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">13</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">19</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">5</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">21</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">7</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">18</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">4</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">15</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">21</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">7</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">18</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">14</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">5</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">21</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">12</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">3</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">9</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">20</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">21</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">12</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">3</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">19</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">10</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">21</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">12</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">8</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">4</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">20</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">21</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">12</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">8</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">19</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">5</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">21</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">12</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">18</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">4</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">10</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">21</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">12</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">18</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">9</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">5</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">21</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">17</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">3</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">9</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">15</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">21</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">17</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">3</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">14</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">10</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">21</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">17</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">8</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">4</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">15</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">21</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">17</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">8</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">14</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">5</span></span>)-in2(<span class="hljs-params"><span class="hljs-number">21</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">17</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">13</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">4</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">10</span></span>)+in2(<span class="hljs-params"><span class="hljs-number">21</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">17</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">13</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">9</span></span>).*in2(<span class="hljs-params"><span class="hljs-number">5</span></span>)</span>)+in2(<span class="hljs-params"><span class="hljs-number">1</span></span>).*conj(<span class="hljs-params">in1(<span class="hljs-params"><span class="hljs-number">1</span></span>)</span>)+in2(<span class="hljs-params"><span class="hljs-number">6</span></span>).*conj(<span class="hljs-params">in1(<span class="hljs-params"><span class="hljs-number">6</span></span>)</span>)+in2(<span class="hljs-params"><span class="hljs-number">11</span></span>).*conj(<span class="hljs-params">in1(<span class="hljs-params"><span class="hljs-number">11</span></span>)</span>)+in2(<span class="hljs-params"><span class="hljs-number">16</span></span>).*conj(<span class="hljs-params">in1(<span class="hljs-params"><span class="hljs-number">16</span></span>)</span>)+in2(<span class="hljs-params"><span class="hljs-number">21</span></span>).*conj(<span class="hljs-params">in1(<span class="hljs-params"><span class="hljs-number">21</span></span>)</span>)+in2(<span class="hljs-params"><span class="hljs-number">2</span></span>).*conj(<span class="hljs-params">in1(<span class="hljs-params"><span class="hljs-number">2</span></span>)</span>)+in2(<span class="hljs-params"><span class="hljs-number">7</span></span>).*conj(<span class="hljs-params">in1(<span class="hljs-params"><span class="hljs-number">7</span></span>)</span>)+in2(<span class="hljs-params"><span class="hljs-number">12</span></span>).*conj(<span class="hljs-params">in1(<span class="hljs-params"><span class="hljs-number">12</span></span>)</span>)+in2(<span class="hljs-params"><span class="hljs-number">17</span></span>).*conj(<span class="hljs-params">in1(<span class="hljs-params"><span class="hljs-number">17</span></span>)</span>)+in2(<span class="hljs-params"><span class="hljs-number">22</span></span>).*conj(<span class="hljs-params">in1(<span class="hljs-params"><span class="hljs-number">22</span></span>)</span>)+in2(<span class="hljs-params"><span class="hljs-number">3</span></span>).*conj(<span class="hljs-params">in1(<span class="hljs-params"><span class="hljs-number">3</span></span>)</span>)+in2(<span class="hljs-params"><span class="hljs-number">8</span></span>).*conj(<span class="hljs-params">in1(<span class="hljs-params"><span class="hljs-number">8</span></span>)</span>)+in2(<span class="hljs-params"><span class="hljs-number">13</span></span>).*conj(<span class="hljs-params">in1(<span class="hljs-params"><span class="hljs-number">13</span></span>)</span>)+in2(<span class="hljs-params"><span class="hljs-number">18</span></span>).*conj(<span class="hljs-params">in1(<span class="hljs-params"><span class="hljs-number">18</span></span>)</span>)+in2(<span class="hljs-params"><span class="hljs-number">23</span></span>).*conj(<span class="hljs-params">in1(<span class="hljs-params"><span class="hljs-number">23</span></span>)</span>)+in2(<span class="hljs-params"><span class="hljs-number">4</span></span>).*conj(<span class="hljs-params">in1(<span class="hljs-params"><span class="hljs-number">4</span></span>)</span>)+in2(<span class="hljs-params"><span class="hljs-number">9</span></span>).*conj(<span class="hljs-params">in1(<span class="hljs-params"><span class="hljs-number">9</span></span>)</span>)+in2(<span class="hljs-params"><span class="hljs-number">14</span></span>).*conj(<span class="hljs-params">in1(<span class="hljs-params"><span class="hljs-number">14</span></span>)</span>)+in2(<span class="hljs-params"><span class="hljs-number">19</span></span>).*conj(<span class="hljs-params">in1(<span class="hljs-params"><span class="hljs-number">19</span></span>)</span>)+in2(<span class="hljs-params"><span class="hljs-number">24</span></span>).*conj(<span class="hljs-params">in1(<span class="hljs-params"><span class="hljs-number">24</span></span>)</span>)+in2(<span class="hljs-params"><span class="hljs-number">5</span></span>).*conj(<span class="hljs-params">in1(<span class="hljs-params"><span class="hljs-number">5</span></span>)</span>)+in2(<span class="hljs-params"><span class="hljs-number">10</span></span>).*conj(<span class="hljs-params">in1(<span class="hljs-params"><span class="hljs-number">10</span></span>)</span>)+in2(<span class="hljs-params"><span class="hljs-number">15</span></span>).*conj(<span class="hljs-params">in1(<span class="hljs-params"><span class="hljs-number">15</span></span>)</span>)+in2(<span class="hljs-params"><span class="hljs-number">20</span></span>).*conj(<span class="hljs-params">in1(<span class="hljs-params"><span class="hljs-number">20</span></span>)</span>)+in2(<span class="hljs-params"><span class="hljs-number">25</span></span>).*conj(<span class="hljs-params">in1(<span class="hljs-params"><span class="hljs-number">25</span></span>)</span>)</span><br></code></pre></td></tr></table></figure>
+<p>此时如果想用<code>gradient</code>函数求微分，又会报错：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab">&gt;&gt; g = gradient(sparse_inv_cov_syms,Xsyms)<br></code></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs vim">错误使用 sym/gradient (<span class="hljs-built_in">line</span> <span class="hljs-number">39</span>)<br>Second <span class="hljs-keyword">argument</span> must <span class="hljs-keyword">be</span> <span class="hljs-keyword">a</span> vector of variables.<br></code></pre></td></tr></table></figure>
+<p>既然他说 must be a vector，那就把它向量化：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs matlab">&gt;&gt; Xvec=X(:)<br>&gt;&gt; g = gradient(sparse_inv_cov_syms,Xvec)<br></code></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs matlab">g =<br> <br> <span class="hljs-built_in">conj</span>(Ssyms1_1) + <span class="hljs-built_in">sign</span>(Xsyms1_1)/<span class="hljs-number">10</span> - ......<br> <span class="hljs-built_in">conj</span>(Ssyms2_1) + <span class="hljs-built_in">sign</span>(Xsyms2_1)/<span class="hljs-number">10</span> + ......<br> <span class="hljs-built_in">conj</span>(Ssyms3_1) + <span class="hljs-built_in">sign</span>(Xsyms3_1)/<span class="hljs-number">10</span> - ......<br> <span class="hljs-built_in">conj</span>(Ssyms4_1) + <span class="hljs-built_in">sign</span>(Xsyms4_1)/<span class="hljs-number">10</span> + ......<br> <span class="hljs-built_in">conj</span>(Ssyms5_1) + <span class="hljs-built_in">sign</span>(Xsyms5_1)/<span class="hljs-number">10</span> - ......<br> ......<br></code></pre></td></tr></table></figure>
+<p>成功了。</p>
+<p>所以我先用matlab的符号运算生成了矩阵符号，书写函数以后，将被求导的矩阵转换成向量，用<code>gradient</code>函数进行符号求导，然后再进行一次矩阵向量化的包装，这样一来，基本可以实现<code>autograd</code>自动求导的效果。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-comment">% 定义基本变量</span><br>n = <span class="hljs-number">5</span>;<br>A = <span class="hljs-built_in">randn</span>(n,n);<br>S = A*A&#x27;;<br><br><span class="hljs-comment">% 定义目标函数，这里使用了符号运算</span><br>syms Ssyms <span class="hljs-number">5</span>; <span class="hljs-comment">% 表示生成5x5的矩阵符号</span><br>syms Xsyms <span class="hljs-number">5</span>;<br>sparse_inv_cov_syms = trace(Ssyms&#x27; * Xsyms) - <span class="hljs-built_in">log</span>(det(Xsyms)) + <span class="hljs-number">0.1</span> * sum(<span class="hljs-built_in">abs</span>(Xsyms),<span class="hljs-string">&#x27;all&#x27;</span>); <span class="hljs-comment">% 目标函数</span><br>X_vec=Xsyms(:);<span class="hljs-comment">% 将矩阵 X 向量化，因为后面的gradient函数的第二个参数必须是vector</span><br>sparse_inv_cov_grad_syms = gradient(sparse_inv_cov_syms,X_vec); <span class="hljs-comment">% 微分函数</span><br><br>objective=matlabFunction(sparse_inv_cov_syms,<span class="hljs-string">&quot;Vars&quot;</span>,&#123;Ssyms,Xsyms&#125;); <br>	<span class="hljs-comment">% 将符号函数转换为matlab函数。这里要加&quot;Vars&quot;，并且把两个矩阵符号用大括号括起来</span><br>	<span class="hljs-comment">% 这样生成的matlab函数的参数才是矩阵</span><br>grad=matlabFunction(sparse_inv_cov_grad_syms,<span class="hljs-string">&quot;Vars&quot;</span>,&#123;Ssyms,X_vec&#125;); <br>gradien=@(X) grad(S,X(:)); <span class="hljs-comment">% 用矩阵向量化包装，形成真正的梯度函数</span><br></code></pre></td></tr></table></figure>
+<p>这时，只要运行</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">grad</span><span class="hljs-params">(X)</span></span><br></code></pre></td></tr></table></figure>
+<p>它就会返回函数</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata">sparse_inv_cov_syms = <span class="hljs-built_in">trace</span>(Ssyms&#x27; * Xsyms) - <span class="hljs-built_in">log</span>(<span class="hljs-built_in">det</span>(Xsyms)) + 0.1 * <span class="hljs-built_in">sum</span>(<span class="hljs-built_in">abs</span>(Xsyms),&#x27;all&#x27;);<br></code></pre></td></tr></table></figure>
+<p>也就是 <span class="math display">\[
+ \text{tr}(S^\top X)-\log \operatorname{det}(X)+0.1\|X\|_1
+\]</span> 在矩阵<code>X</code>处的导数。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/matlab/">#matlab</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>怎么用 matlab 实现像 python 的 aurograd 一样的自动微分</div>
+      <div>https://suzumiyaakizuki.github.io/2025/01/11/怎么用matlab实现自动求导/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>SuzumiyaAkizuki</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年1月11日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/01/05/%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="随机过程期末复习笔记">
+                        <span class="hidden-mobile">随机过程期末复习笔记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.7.2/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"48fb14f9689ae0d11307","clientSecret":"091ab25a88e87bfd9d9d40d97d1d0d932e694059","repo":"SuzumiyaAkizuki.github.io","owner":"SuzumiyaAkizuki","admin":["SuzumiyaAkizuki"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: 'c5cd11a71206d125c17a2f4e7bce2335'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       Powered by: <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br> Copyright © 2019 - 2024 凉宫秋月. All Rights Reserved. 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
