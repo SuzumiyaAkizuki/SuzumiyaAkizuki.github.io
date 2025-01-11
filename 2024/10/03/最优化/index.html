@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202410032251555.png">
 <meta property="article:published_time" content="2024-10-03T08:19:00.000Z">
-<meta property="article:modified_time" content="2025-01-09T02:52:43.994Z">
+<meta property="article:modified_time" content="2025-01-11T15:29:09.476Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="最优化">
 <meta name="twitter:card" content="summary_large_image">
@@ -668,8 +668,8 @@ C=\sum_{i=1}^I \beta_iC_i=\{\beta_1 x_1+\beta_2 x_2+\cdots +\beta_Ix_I,x_i\in C_
 </ol>
 <p>有一些比较常见的凸集，需要知道他们的表示方法：</p>
 <ol type="1">
-<li><p>【超平面】<span class="math inline">\(H=\{x\in \mathbb R^n\mid w^Tx=b\}\)</span>，其中<span class="math inline">\(w\in \mathbb R^n,b\in \mathbb R\)</span>。称<span class="math inline">\(w\)</span>为超平面的法向量。</p></li>
-<li><p>【半空间】<span class="math inline">\(H=\{x\in \mathbb R^n\mid w^Tx\geq b\}\)</span>，也就是一个超平面把空间分成两个半空间（以及超平面自身）</p></li>
+<li><p>【超平面】<span class="math inline">\(H=\{x\in \mathbb R^n\mid w^\top x=b\}\)</span>，其中<span class="math inline">\(w\in \mathbb R^n,b\in \mathbb R\)</span>。称<span class="math inline">\(w\)</span>为超平面的法向量。</p></li>
+<li><p>【半空间】<span class="math inline">\(H=\{x\in \mathbb R^n\mid w^\top x\geq b\}\)</span>，也就是一个超平面把空间分成两个半空间（以及超平面自身）</p></li>
 <li><p>【多面体】<span class="math inline">\(H=\{x\in \mathbb R^n\mid Ax\leq b\}\)</span>，也就是有限多个半空间的交集。</p></li>
 <li><p>【子空间】<span class="math inline">\(L\in \mathbb R^n,\forall x,y\in L,\alpha x+\beta y\in L\)</span>.这个和高代里面的子空间是一个意思，也就是元素的线性组合仍在子空间中。</p></li>
 <li><p>【仿射集/线性流形/仿射子空间】对于子空间<span class="math inline">\(L\)</span>，存在<span class="math inline">\(\alpha\in\mathbb R^n\)</span>，<span class="math inline">\(M=\alpha+L\)</span>，则<span class="math inline">\(M\)</span>是仿射集。称<span class="math inline">\(L\)</span>的线性维数为<span class="math inline">\(M\)</span>的仿射维数，记作<span class="math inline">\(\dim M\)</span>。其实就是说，子空间不是必须要通过<span class="math inline">\(0\)</span>点吗，那么把子空间平移了以后，它不通过<span class="math inline">\(0\)</span>点了，虽然不再是子空间了，但是仍然是线性的，也是凸集。</p>
@@ -678,7 +678,7 @@ M=\{x\in R^n\mid Ax=b\}\\\\
 L=\{x\in R^n\mid Ax=0\}
 \]</span> <span class="math inline">\(\alpha\)</span> 为 <span class="math inline">\(Ax=b\)</span> 的任意一个特解。<span class="math inline">\(\dim M=n-\text{rank} A\)</span>。所以说，一般来说可以用一个非齐次线性方程组<span class="math inline">\(Ax=b\)</span>的解集来表示仿射集。</p></li>
 <li><p>【球体】<span class="math inline">\(H=\{x\in \mathbb R^n\mid ||x-\alpha||\leq r\}\)</span>，其中<span class="math inline">\(||\cdot||\)</span>是范数，<span class="math inline">\(\alpha\in\mathbb R^n,r\in \mathbb R\)</span>.</p></li>
-<li><p>【椭球体】<span class="math inline">\(H=\{x\in \mathbb R^n\mid x^TEx\leq r\}\)</span>，其中<span class="math inline">\(E\)</span>是对称正定矩阵，<span class="math inline">\(r\geq 0\)</span>。</p>
+<li><p>【椭球体】<span class="math inline">\(H=\{x\in \mathbb R^n\mid x^\top Ex\leq r\}\)</span>，其中<span class="math inline">\(E\)</span>是对称正定矩阵，<span class="math inline">\(r\geq 0\)</span>。</p>
 <blockquote>
 <p>例如：<span class="math inline">\(S=\{x\in \mathbb R^2\mid x_1^2+ix_1x_2+i^2x_2^2\leq 1\}\)</span></p>
 <p>令 <span class="math display">\[
@@ -686,7 +686,7 @@ E_i=\begin{pmatrix}
 1 &amp; \dfrac i2\\
 \dfrac i2 &amp; i^2
 \end{pmatrix}
-\]</span> 则<span class="math inline">\(E_i\)</span>是对称正定矩阵，且<span class="math inline">\(S=\{x\in \mathbb R^2\mid x^TE_xx\leq 1\}\)</span>，故<span class="math inline">\(S\)</span>是凸集。</p>
+\]</span> 则<span class="math inline">\(E_i\)</span>是对称正定矩阵，且<span class="math inline">\(S=\{x\in \mathbb R^2\mid x^\top E_xx\leq 1\}\)</span>，故<span class="math inline">\(S\)</span>是凸集。</p>
 </blockquote></li>
 <li><p>【凸函数的下水平集】<span class="math inline">\(H=\{x\in S\mid f(x)\leq \alpha\}\)</span>，其中<span class="math inline">\(f\)</span>是凸函数，<span class="math inline">\(S\)</span>是凸集，<span class="math inline">\(\alpha\in R\)</span></p></li>
 </ol>
@@ -794,19 +794,19 @@ E_i=\begin{pmatrix}
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="math inline">\(a^Tx\)</span></td>
+<td><span class="math inline">\(a^\top x\)</span></td>
 <td><span class="math inline">\(a\)</span></td>
 <td><span class="math inline">\(O\)</span></td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(x^TAx\)</span></td>
-<td><span class="math inline">\((A^T+A)x\)</span></td>
-<td><span class="math inline">\(A^T+A\)</span></td>
+<td><span class="math inline">\(x^\top Ax\)</span></td>
+<td><span class="math inline">\((A^\top +A)x\)</span></td>
+<td><span class="math inline">\(A^\top +A\)</span></td>
 </tr>
 <tr class="odd">
-<td><span class="math inline">\(r(x)^Tr(x)\)</span>，其中<span class="math inline">\(r(x)\)</span>是依赖于<span class="math inline">\(x\)</span>的<span class="math inline">\(m\)</span>维向量，<span class="math inline">\(\nabla r(x)^T=A^T\)</span></td>
-<td><span class="math inline">\(2A(x)^Tr(x)\)</span></td>
-<td><span class="math inline">\(2 \sum_{i=1}^m r_i(\boldsymbol{x}) \nabla^2 r_i(\boldsymbol{x})+2 \boldsymbol{A}(\boldsymbol{x})^T \boldsymbol{A}(\boldsymbol{x})\)</span></td>
+<td><span class="math inline">\(r(x)^\top r(x)\)</span>，其中<span class="math inline">\(r(x)\)</span>是依赖于<span class="math inline">\(x\)</span>的<span class="math inline">\(m\)</span>维向量，$r(x)<sup>=A</sup>$</td>
+<td><span class="math inline">\(2A(x)^\top r(x)\)</span></td>
+<td><span class="math inline">\(2 \sum_{i=1}^m r_i(\boldsymbol{x}) \nabla^2 r_i(\boldsymbol{x})+2 \boldsymbol{A}(\boldsymbol{x})^\top \boldsymbol{A}(\boldsymbol{x})\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -836,7 +836,7 @@ f\left(\frac{\sum_{i=1}^m \alpha_i \boldsymbol{x}_{\boldsymbol{i}}}{\sum_{s=1}^m
 <li><p>函数<span class="math inline">\(f\)</span>在<span class="math inline">\(\mathbb R^n\)</span>上凸，当且仅当，<span class="math inline">\(\forall x_0\in \mathbb R^n,\forall d\in \mathbb R^n,\phi(\alpha)=f(x_0+\alpha d)\)</span>关于<span class="math inline">\(\alpha\)</span>在<span class="math inline">\(\mathbb R\)</span>上凸。</p></li>
 <li><p>函数<span class="math inline">\(f\)</span>在凸集<span class="math inline">\(S\)</span>上是凸函数，则其在<span class="math inline">\(S\)</span>的相对内部上连续。如果有界闭集<span class="math inline">\(K\subset \text{ri }S\)</span>，那么<span class="math inline">\(f\)</span>在<span class="math inline">\(K\)</span>上Lipschitz连续（比一致连续更强的连续）。</p></li>
 <li><p>函数<span class="math inline">\(f\)</span>一阶偏导连续，那么它在凸集<span class="math inline">\(S\)</span>上是凸函数，当且仅当 <span class="math display">\[
-f(y)\geq f(x)+\nabla f(x)^T(y-x),\forall xy\in S
+f(y)\geq f(x)+\nabla f(x)^\top (y-x),\forall xy\in S
 \]</span></p></li>
 <li><p>函数<span class="math inline">\(f\)</span>二阶偏导连续，那么它在内部非空的凸集<span class="math inline">\(S\)</span>上是凸函数，当且仅当<span class="math inline">\(\nabla ^2f(x)\)</span>半正定。</p></li>
 <li><p>函数<span class="math inline">\(f\)</span>在凸集<span class="math inline">\(S\)</span>上是凸函数，有：<span class="math inline">\(\forall c\in \mathbb R,\{x\in S\mid c\geq f(x)\}\)</span>是凸集。即：使得<span class="math inline">\(f(x)\)</span>小于一个定值的<span class="math inline">\(x\)</span>的取值范围是凸集，这个范围叫做下水平集。</p></li>
@@ -873,7 +873,7 @@ f(y)\geq f(x)+\nabla f(x)^T(y-x),\forall xy\in S
 <p>【二阶必要条件】设<span class="math inline">\(S\subset R^n\)</span>，<span class="math inline">\(f\)</span>是二阶连续可微的，如果<span class="math inline">\(x*\)</span>是局部极小点，那么对于<span class="math inline">\(x*\)</span>处的任何可行方向<span class="math inline">\(d\)</span>，有：</p>
 <ol type="1">
 <li><span class="math inline">\(\langle \nabla f(x*),d\rangle\geq 0\)</span></li>
-<li>如果<span class="math inline">\(\langle \nabla f(x*),d\rangle= 0\)</span>，则<span class="math inline">\(d^T\nabla^2f(x*)d\geq 0\)</span></li>
+<li>如果<span class="math inline">\(\langle \nabla f(x*),d\rangle= 0\)</span>，则<span class="math inline">\(d^\top \nabla^2f(x*)d\geq 0\)</span></li>
 </ol>
 <p>如果<span class="math inline">\(x*\)</span>是集合的内点，这两个条件就变成</p>
 <ol type="1">
@@ -896,10 +896,10 @@ f(y)\geq f(x)+\nabla f(x)^T(y-x),\forall xy\in S
 <li>置 <span class="math inline">\(\boldsymbol{x}_{k+1}=\boldsymbol{x}_k+\alpha_k \boldsymbol{d}_k\)</span></li>
 </ol>
 <p>不同的线搜索法之所以不同，核心区别在于<span class="math inline">\(\boldsymbol{d}_k\)</span>的选取。具体来说，由函数的二次近似 <span class="math display">\[
-f(x) \approx f\left(\boldsymbol{x}_k\right)+\boldsymbol{g}_k^T\left(\boldsymbol{x}-\boldsymbol{x}_k\right)+\frac{1}{2}\left(\boldsymbol{x}-\boldsymbol{x}_k\right)^T \boldsymbol{B}_k\left(\boldsymbol{x}-\boldsymbol{x}_k\right)
+f(x) \approx f\left(\boldsymbol{x}_k\right)+\boldsymbol{g}_k^\top \left(\boldsymbol{x}-\boldsymbol{x}_k\right)+\frac{1}{2}\left(\boldsymbol{x}-\boldsymbol{x}_k\right)^\top  \boldsymbol{B}_k\left(\boldsymbol{x}-\boldsymbol{x}_k\right)
 \]</span> 只要<span class="math inline">\(\boldsymbol{B}_k\)</span>正定，那么<span class="math inline">\(\boldsymbol{d}_k\)</span>就一定是下降方向。正是不同的<span class="math inline">\(\boldsymbol{B}_k\)</span>导致了不同的搜索方向。</p>
 <p>所谓的<strong>精确线搜索</strong>，指的是精确求解<span class="math inline">\(\min _\alpha \phi(\alpha)=f\left(\boldsymbol{x}_k+\alpha \boldsymbol{d}_k\right)\)</span>。其重要性质为： <span class="math display">\[
-\nabla f(\boldsymbol{x}_{k+1})^T \boldsymbol{d}_k=0
+\nabla f(\boldsymbol{x}_{k+1})^\top  \boldsymbol{d}_k=0
 \]</span> 精确线搜索的运算量经常很大，所以大多数情况下都会用<strong>非精确线搜索</strong>，即不精确求解<span class="math inline">\(\min _\alpha \phi(\alpha)=f\left(\boldsymbol{x}_k+\alpha \boldsymbol{d}_k\right)\)</span>，转而使用别的方法确定<span class="math inline">\(\alpha_k\)</span>。如果<span class="math inline">\(\alpha_k\)</span>的选择不合理，则可能会出现算法无法找到最优解的情况。</p>
 <figure>
 <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202411031912076.png" srcset="/img/loading.gif" lazyload alt="算法无法找到最优解" /><figcaption aria-hidden="true">算法无法找到最优解</figcaption>
@@ -938,7 +938,7 @@ l(\alpha)=\phi(0)+\rho \phi&#39;(0)\alpha
 <ol type="1">
 <li><p>函数值在负梯度方向下降最快</p></li>
 <li><p>极小化函数在<span class="math inline">\(\boldsymbol{x}_k\)</span>附近的二次泰勒展开 <span class="math display">\[
-x_{k+1}=\underset{x\in \mathbb{R}^n}{\arg \min} f\left(\boldsymbol{x}_k\right)+\nabla f\left(\boldsymbol{x}_k\right)^T\left(\boldsymbol{x}-\boldsymbol{x}_k\right)+\frac{1}{2 \alpha_k}\left\|\boldsymbol{x}-\boldsymbol{x}_k\right\|_2^2
+x_{k+1}=\underset{x\in \mathbb{R}^n}{\arg \min} f\left(\boldsymbol{x}_k\right)+\nabla f\left(\boldsymbol{x}_k\right)^\top \left(\boldsymbol{x}-\boldsymbol{x}_k\right)+\frac{1}{2 \alpha_k}\left\|\boldsymbol{x}-\boldsymbol{x}_k\right\|_2^2
 \]</span></p></li>
 </ol>
 <p>梯度下降法有全局收敛性：假设与初始点 <span class="math inline">\(x_0\)</span> 关联的 <span class="math inline">\(f\)</span> 的下水平集</p>
@@ -973,7 +973,7 @@ S=\left\{\boldsymbol{x}: f(\boldsymbol{x}) \leq f\left(\boldsymbol{x}_0\right)\r
 <p>从直观上来说，强凸性是凸性的加强版，它要求函数不仅仅是凸的，还得有一定的曲率（例如：<span class="math inline">\(|x|\)</span>不是强凸函数），这样的曲率保证了函数在全局上有唯一的最优解，一般来说，强凸函数的<span class="math inline">\(l\)</span>越大，函数的「盆地」越深，优化算法收敛的也越快。</p>
 <h4 id="具有lipschitz李普希茨梯度的函数">具有Lipschitz（李普希茨）梯度的函数</h4>
 <p>【二次上界】：设<span class="math inline">\(f\)</span>的梯度是L-Lipschitz的，那么： <span class="math display">\[
-f(\boldsymbol{y}) \leq f(\boldsymbol{x})+\nabla f(\boldsymbol{x})^T(\boldsymbol{y}-\boldsymbol{x})+\frac{L}{2}\|\boldsymbol{y}-\boldsymbol{x}\|^2 \forall \boldsymbol{x}, \boldsymbol{y} \in \mathbb{R}^n .
+f(\boldsymbol{y}) \leq f(\boldsymbol{x})+\nabla f(\boldsymbol{x})^\top (\boldsymbol{y}-\boldsymbol{x})+\frac{L}{2}\|\boldsymbol{y}-\boldsymbol{x}\|^2 \forall \boldsymbol{x}, \boldsymbol{y} \in \mathbb{R}^n .
 \]</span> 如果设<span class="math inline">\(\phi(\alpha)=f(\boldsymbol{x}+a(\boldsymbol{y-x}))\)</span>，则上面的式子可以写作（按项对应）： <span class="math display">\[
 \phi(1)\leq \phi(0)+\phi&#39;(0)+\frac L2\|\boldsymbol{y-x}\|^2
 \]</span> 由二次上界，可以得到关于梯度下降法的两个结论：</p>
@@ -1011,7 +1011,7 @@ f\left(\boldsymbol{x}_k\right)-f\left(\boldsymbol{x}_*\right) \leq \frac{L\left\
 <li>设 <span class="math inline">\(f \in C^1\)</span>. 则 <span class="math inline">\(f\)</span> 在凸集 <span class="math inline">\(S\)</span> 上是1强凸的当且仅当</li>
 </ol>
 <p><span class="math display">\[
-f(\boldsymbol{y}) \geq f(\boldsymbol{x})+\nabla f(\boldsymbol{x})^T(\boldsymbol{y}-\boldsymbol{x})+\frac{l}{2}\|\boldsymbol{y}-\boldsymbol{x}\|^2, \quad \forall \boldsymbol{x}, \boldsymbol{y} \in S .
+f(\boldsymbol{y}) \geq f(\boldsymbol{x})+\nabla f(\boldsymbol{x})^\top (\boldsymbol{y}-\boldsymbol{x})+\frac{l}{2}\|\boldsymbol{y}-\boldsymbol{x}\|^2, \quad \forall \boldsymbol{x}, \boldsymbol{y} \in S .
 \]</span></p>
 <ol start="3" type="1">
 <li>设 <span class="math inline">\(f \in C^2\)</span>. 则 <span class="math inline">\(f\)</span> 在内部非空的凸集 <span class="math inline">\(S\)</span> 上是 <span class="math inline">\(l\)</span>-强凸的当且仅当</li>
@@ -1026,7 +1026,7 @@ f(\boldsymbol{y}) \geq f(\boldsymbol{x})+\nabla f(\boldsymbol{x})^T(\boldsymbol{
 <p>其中 <span class="math inline">\(\kappa=L / l\)</span>.</p>
 <h3 id="牛顿法">牛顿法</h3>
 <p>考虑二次连续可微的函数，对其进行泰勒展开： <span class="math display">\[
-f(x)\approx q_k(x)=f(\boldsymbol{ x_k})+(\boldsymbol{x-x_k})^T\nabla f(\boldsymbol{x_k})+\dfrac 12 (\boldsymbol{x-x_k})^T\nabla^2f(\boldsymbol{x}_k)(\boldsymbol{x-x_k})
+f(x)\approx q_k(x)=f(\boldsymbol{ x_k})+(\boldsymbol{x-x_k})^\top \nabla f(\boldsymbol{x_k})+\dfrac 12 (\boldsymbol{x-x_k})^\top \nabla^2f(\boldsymbol{x}_k)(\boldsymbol{x-x_k})
 \]</span> 当<span class="math inline">\(\nabla^2f(x_k)\)</span>正定时，<span class="math inline">\(q_k\)</span>有唯一极小点。将极小点作为新迭代，由此得到基本牛顿法： <span class="math display">\[
 \boldsymbol{x_{k+1}}=\boldsymbol {x}_k-(\nabla ^2f(\boldsymbol{x}_k))^{-1}\nabla f(\boldsymbol x_k)
 \]</span> 关于牛顿法，有二次收敛定理：假设 <span class="math inline">\(\nabla^2 f(\boldsymbol{x})\)</span> 在 <span class="math inline">\(\mathbb{R}^n\)</span> 上是 <span class="math inline">\(M\)</span>-Lipschitz的，且局部极小点 <span class="math inline">\(x_*\)</span> 处的Hesse矩阵 <span class="math inline">\(\nabla^2 f\left(x_*\right)\)</span> 正定, 即存在 <span class="math inline">\(l&gt;0\)</span> 使得 <span class="math inline">\(\nabla^2 f\left(x_*\right) \geqslant l I\)</span>. 如果初始点 <span class="math inline">\(x_0\)</span> 满足</p>
@@ -1046,12 +1046,12 @@ d_k=-M_k\nabla f(x_k)
 \]</span> 进行线搜索。</p>
 <h3 id="共轭梯度法">共轭梯度法</h3>
 <p>【定义：<span class="math inline">\(G-\)</span>正交/共轭】已知对称正定矩阵<span class="math inline">\(G\)</span>，定义两个向量的<span class="math inline">\(G-\)</span>内积： <span class="math display">\[
-\langle\boldsymbol{u}, \boldsymbol{v}\rangle_G=\boldsymbol{u}^T \boldsymbol{G} \boldsymbol{v}
+\langle\boldsymbol{u}, \boldsymbol{v}\rangle_G=\boldsymbol{u}^\top  \boldsymbol{G} \boldsymbol{v}
 \]</span> 如果两个向量的<span class="math inline">\(G-\)</span>内积为<span class="math inline">\(0\)</span>，则称其为<span class="math inline">\(G-\)</span>正交或者<span class="math inline">\(G-\)</span>共轭向量。</p>
 <p>共轭方向法的提出是为了求解正定的非齐次线性方程组： <span class="math display">\[
 Gx=b
 \]</span> 其等价于下面的优化问题： <span class="math display">\[
-\arg\min \frac 12 x^TGx-b^Tx
+\arg\min \frac 12 x^\top Gx-b^\top x
 \]</span> 求解的步骤如下：</p>
 <p>给定初始点<span class="math inline">\(x_0\)</span>和共轭方向<span class="math inline">\(\{d_0,d_1\cdots,d_{n-1}\}\)</span>，令： <span class="math display">\[
 x_{k+1}=x_k+\alpha_kd_k
@@ -1063,23 +1063,23 @@ x_{k+1}=x_k+\alpha_kd_k
 \phi&#39;(\alpha)=0
 \]</span> 有： <span class="math display">\[
 \begin{align}
-\phi&#39;(\alpha)&amp;=\nabla f(x_k+\alpha d_k)^Td_k\\
-&amp;=(G(x_k+\alpha d_k)+c)^Td^k\\
-&amp;=(Gx_k+c)^Td_k+\alpha d_k^TGd_k
+\phi&#39;(\alpha)&amp;=\nabla f(x_k+\alpha d_k)^\top d_k\\
+&amp;=(G(x_k+\alpha d_k)+c)^\top d^k\\
+&amp;=(Gx_k+c)^\top d_k+\alpha d_k^\top Gd_k
 \end{align}
 \]</span> 那么有： <span class="math display">\[
-\alpha=-\frac{(Gx_k+c)^Td_k}{d_k^TGd_k}=-\frac{\nabla f(x_k)^Td_k}{d_k^TGd_k}
+\alpha=-\frac{(Gx_k+c)^\top d_k}{d_k^\top Gd_k}=-\frac{\nabla f(x_k)^\top d_k}{d_k^\top Gd_k}
 \]</span> 将共轭方向组写成矩阵：<span class="math inline">\(S=\{d_0,\cdots,d_{n-1}\}\)</span>那么有：</p>
 <ol type="1">
 <li><span class="math inline">\(S\)</span>可逆（因为<span class="math inline">\(d\)</span>是线性无关组）</li>
-<li><span class="math inline">\(S^TGS\)</span>是对角矩阵，对角线元素是<span class="math inline">\(d_i^TQd_i\)</span>，其余是零（因为<span class="math inline">\(d\)</span>是共轭方向组）</li>
+<li><span class="math inline">\(S^\top GS\)</span>是对角矩阵，对角线元素是<span class="math inline">\(d_i^\top Qd_i\)</span>，其余是零（因为<span class="math inline">\(d\)</span>是共轭方向组）</li>
 <li><span class="math inline">\(I=S^{-1}\{d_0,\cdots,d_n\}\)</span>，即<span class="math inline">\(S^{-1}d_i=e_i\)</span>，其中<span class="math inline">\(e_i\)</span>是第<span class="math inline">\(i\)</span>个分量为一，其余分量是零的单位坐标向量</li>
 </ol>
 <p>设： <span class="math display">\[
 x=S\hat x,\ \hat x=S^{-1}x
 \]</span> 则有： <span class="math display">\[
-\hat f(\hat x)=\frac 12 \hat xS^TGS\hat x+(S^Tc)^T\hat x
-\]</span> 因为<span class="math inline">\(S^TGS\)</span>是对角阵，所以这是一个变量可分离的二次函数。</p>
+\hat f(\hat x)=\frac 12 \hat xS^\top GS\hat x+(S^\top c)^\top \hat x
+\]</span> 因为<span class="math inline">\(S^\top GS\)</span>是对角阵，所以这是一个变量可分离的二次函数。</p>
 <p>考虑迭代出的最终<span class="math inline">\(x\)</span>： <span class="math display">\[
 \begin{align}
 x^*&amp;=x_0+\alpha_0d_0+\alpha_1d_1+\cdots+\alpha_{n-1}d_{n-1}\\
@@ -1088,15 +1088,15 @@ x^*&amp;=x_0+\alpha_0d_0+\alpha_1d_1+\cdots+\alpha_{n-1}d_{n-1}\\
 \end{align}
 \]</span> 即：在<span class="math inline">\(x\)</span>空间的共轭方向法，实际上就是在<span class="math inline">\(\hat x\)</span>空间按坐标轴搜索，而且在<span class="math inline">\(\hat x\)</span>空间的<span class="math inline">\(\hat f\)</span>函数是变量可分离的二次函数。于是，点列<span class="math inline">\(\{x_k\}\)</span>有如下特征：</p>
 <ol type="1">
-<li><span class="math inline">\(\nabla f(x_k)^Td_i=0,i=1,\cdots,k-1\)</span></li>
-<li><span class="math inline">\(x_k=\arg\min \left\{\dfrac 12x^TGx+c^Tx,x\in X^k\right\}\)</span>，其中，<span class="math inline">\(X^k\)</span>是共轭方向组的前<span class="math inline">\(k\)</span>个向量张成的线性子空间，平移<span class="math inline">\(x_0\)</span>后得到的仿射空间。</li>
+<li><span class="math inline">\(\nabla f(x_k)^\top d_i=0,i=1,\cdots,k-1\)</span></li>
+<li><span class="math inline">\(x_k=\arg\min \left\{\dfrac 12x^\top Gx+c^\top x,x\in X^k\right\}\)</span>，其中，<span class="math inline">\(X^k\)</span>是共轭方向组的前<span class="math inline">\(k\)</span>个向量张成的线性子空间，平移<span class="math inline">\(x_0\)</span>后得到的仿射空间。</li>
 </ol>
 <p>共轭方向法的问题是在求解前需要给出共轭方向组。共轭梯度法则是利用梯度构造共轭方向组。共轭梯度法的基本结构如下：</p>
 <ol type="1">
 <li><p>给定初始点<span class="math inline">\(x_0\)</span>，记<span class="math inline">\(d_0=-\nabla f(x_0)\)</span>，开始迭代</p></li>
 <li><p>如果函数梯度已经足够小，即<span class="math inline">\(\|\nabla f(x_k)\|\leq \epsilon\)</span>，终止</p></li>
 <li><p>计算： <span class="math display">\[
-\alpha=-\frac{(Gx_k+c)^Td_k}{d_k^TGd_k}=-\frac{\nabla f(x_k)^Td_k}{d_k^TGd_k}
+\alpha=-\frac{(Gx_k+c)^\top d_k}{d_k^\top Gd_k}=-\frac{\nabla f(x_k)^\top d_k}{d_k^\top Gd_k}
 \]</span></p></li>
 <li><p>令<span class="math inline">\(x_{k+1}=x_k+\alpha_kd_k\)</span>，计算<span class="math inline">\(d_{k+1}\)</span>，使得它和之前的所有方向都共轭。 <span class="math display">\[
 d_{k+1}=-\nabla f(x_{k+1})+???
@@ -1105,41 +1105,41 @@ d_{k+1}=-\nabla f(x_{k+1})+???
 <p>现在的问题就是<span class="math inline">\(d_k\)</span>怎么算。可以借助矩阵理论中的施密特正交化方法，容易想到，<span class="math inline">\(???\)</span>其实是在之前的方向的线性组合，即： <span class="math display">\[
 d_{k+1}=-\nabla f(x_{k+1})+\sum_{i=0}^k \beta_id_i
 \]</span> 有： <span class="math display">\[
-\left(-\nabla f(x_{k+1})+\sum_{i=0}^k \beta_id_i\right)^TGd_i=0,\forall i=0,\cdots,k
+\left(-\nabla f(x_{k+1})+\sum_{i=0}^k \beta_id_i\right)^\top Gd_i=0,\forall i=0,\cdots,k
 \]</span> 因为共轭性，其它项都一定是零，即： <span class="math display">\[
-(-\nabla f(x_{k+1})+\beta_id_i)^TGd_i=0
+(-\nabla f(x_{k+1})+\beta_id_i)^\top Gd_i=0
 \]</span> 有： <span class="math display">\[
-\beta_i=\frac{\nabla f(x_{k+1})^TGd_i}{d_i^TGd_i},i=0,\cdots,k
+\beta_i=\frac{\nabla f(x_{k+1})^\top Gd_i}{d_i^\top Gd_i},i=0,\cdots,k
 \]</span> 注意到：<span class="math inline">\(i\neq k\)</span>时，<span class="math inline">\(\beta_i=0\)</span></p>
 <blockquote>
-<p>分析分子<span class="math inline">\(\nabla f(x_{k+1})^TGd_i\)</span>，因为<span class="math inline">\(\alpha_id_i=x_{i+1}-x_i\)</span>，有： <span class="math display">\[
+<p>分析分子<span class="math inline">\(\nabla f(x_{k+1})^\top Gd_i\)</span>，因为<span class="math inline">\(\alpha_id_i=x_{i+1}-x_i\)</span>，有： <span class="math display">\[
 \begin{align}
 Gd_i&amp;=G(x_{i+1}-x_i)\frac 1{\alpha_i}\\
 &amp;=(\nabla f(x_{i+1})-\nabla f(x_i))\frac 1{\alpha_i}
 \end{align}
 \]</span> 代入： <span class="math display">\[
-\nabla f(x_{k+1})^TGd_i=\nabla f(x_{k+1})(\nabla f(x_{i+1})-\nabla f(x_i))\frac 1{\alpha_i}
+\nabla f(x_{k+1})^\top Gd_i=\nabla f(x_{k+1})(\nabla f(x_{i+1})-\nabla f(x_i))\frac 1{\alpha_i}
 \]</span> 因为 <span class="math display">\[
 d_{i+1}=-\nabla f(x_{i+1})+\sum_{i=1}^i \beta_j d_j
 \]</span> 所以 <span class="math display">\[
 \nabla f(x_{i+1})=-d_{i+1}+\sum_{i=1}^i \beta_j d_j
-\]</span> 因为<span class="math inline">\(\nabla f(x_k)^Td_i=0,i=1,\cdots,k-1\)</span></p>
+\]</span> 因为<span class="math inline">\(\nabla f(x_k)^\top d_i=0,i=1,\cdots,k-1\)</span></p>
 <p>所以<span class="math inline">\(i\neq k\)</span>时，<span class="math inline">\(\beta_i=0\)</span></p>
 </blockquote>
 <p>所以有： <span class="math display">\[
-d_{k+1}=-\nabla f(x_{k+1})+\frac{\nabla f(x_{k+1})Gd_k}{d_k^TGd_k}d_k
+d_{k+1}=-\nabla f(x_{k+1})+\frac{\nabla f(x_{k+1})Gd_k}{d_k^\top Gd_k}d_k
 \]</span> 而且，步长公式可以化简为： <span class="math display">\[
-\alpha=-\frac{\nabla f(x_k)^Td_k}{d_k^TGd_k}=\frac{\nabla f(x_k)^T\nabla f(x_k)}{d_k^TGd_k}
+\alpha=-\frac{\nabla f(x_k)^\top d_k}{d_k^\top Gd_k}=\frac{\nabla f(x_k)^\top \nabla f(x_k)}{d_k^\top Gd_k}
 \]</span> 进一步简化<span class="math inline">\(\beta_k\)</span>:</p>
 <p><span class="math display">\[
 \begin{align}
-\beta_k&amp;=\frac{\nabla f(x_{k+1})^TGd_k}{d_k^TGd_k}\\
-&amp;=\frac 1{\alpha_i} \frac{\nabla f(x_{k+1})^T(\nabla f(x_{k+1})-\nabla f(x_k))}{d_k^TGd_k}\\
-&amp;=\frac{d_k^TGd_k}{\nabla f(x_k)^T\nabla f(x_k)}\frac{\nabla f(x_{k+1})^T(\nabla f(x_{k+1})-\nabla f(x_k))}{d_k^TGd_k}\\
-&amp;=\frac{\nabla f(x_{k+1})^T\nabla f(x_{k+1})}{\nabla f(x_{k})^T\nabla f(x_{k})}\\
+\beta_k&amp;=\frac{\nabla f(x_{k+1})^\top Gd_k}{d_k^\top Gd_k}\\
+&amp;=\frac 1{\alpha_i} \frac{\nabla f(x_{k+1})^\top (\nabla f(x_{k+1})-\nabla f(x_k))}{d_k^\top Gd_k}\\
+&amp;=\frac{d_k^\top Gd_k}{\nabla f(x_k)^\top \nabla f(x_k)}\frac{\nabla f(x_{k+1})^\top (\nabla f(x_{k+1})-\nabla f(x_k))}{d_k^\top Gd_k}\\
+&amp;=\frac{\nabla f(x_{k+1})^\top \nabla f(x_{k+1})}{\nabla f(x_{k})^\top \nabla f(x_{k})}\\
 \end{align}
 \]</span></p>
-<p>这个简化的目的是排除原问题<span class="math inline">\(\arg\min \frac 12 x^TGx-b^Tx\)</span>的影响，以便适用于任何函数（但是这时<span class="math inline">\(\alpha\)</span>只能改用其它精确线搜索法）</p>
+<p>这个简化的目的是排除原问题<span class="math inline">\(\arg\min \frac 12 x^\top Gx-b^\top x\)</span>的影响，以便适用于任何函数（但是这时<span class="math inline">\(\alpha\)</span>只能改用其它精确线搜索法）</p>
 <p>共轭梯度法的过程如下：</p>
 <figure>
 <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202411271520022.png" srcset="/img/loading.gif" lazyload alt="image-20241127151957560" /><figcaption aria-hidden="true">image-20241127151957560</figcaption>
@@ -1161,16 +1161,16 @@ f(\boldsymbol{x}), &amp; \text { 如果 } \boldsymbol{x} \in S \\
 \]</span> 从这个函数可以看出有效域和定义域的区别，在这里，定义域是<span class="math inline">\(R^n\)</span>，有效域是<span class="math inline">\(S\)</span>。</p>
 <p>【次梯度】称向量 <span class="math inline">\(\boldsymbol{g}\)</span> 是凸函数 <span class="math inline">\(f: \mathbb{R}^n \rightarrow(-\infty,+\infty]\)</span> 在点 <span class="math inline">\(\boldsymbol{x}\)</span> 的次梯度(subgradient), 如果</p>
 <p><span class="math display">\[
-f(\boldsymbol{y}) \geq f(\boldsymbol{x})+\boldsymbol{g}^T(\boldsymbol{y}-\boldsymbol{x}), \quad \forall \boldsymbol{y} \in \mathbb{R}^n .
+f(\boldsymbol{y}) \geq f(\boldsymbol{x})+\boldsymbol{g}^\top (\boldsymbol{y}-\boldsymbol{x}), \quad \forall \boldsymbol{y} \in \mathbb{R}^n .
 \]</span></p>
 <p><span class="math inline">\(f\)</span> 在 <span class="math inline">\(x\)</span> 的次梯度的全体称作 <span class="math inline">\(f\)</span> 在 <span class="math inline">\(x\)</span> 处的次微分(subdifferential),记作 <span class="math inline">\(\partial f(x)\)</span>. 如果 <span class="math inline">\(\partial f(x) \neq \varnothing\)</span>, 称 <span class="math inline">\(f\)</span> 在 <span class="math inline">\(x\)</span> 处次可微 (subdifferentiable).</p>
-<p>其中<span class="math inline">\(h(\boldsymbol{y})=f(\boldsymbol{x})+\boldsymbol{g}^T(\boldsymbol{y}-\boldsymbol{x}), \quad\)</span>是一个关于<span class="math inline">\(\boldsymbol{y}\)</span>的仿射函数，次梯度中不等式的含义，就是这个仿射函数的图像是<span class="math inline">\(f\)</span>上镜图<span class="math inline">\(\text{epi} f\)</span>在点<span class="math inline">\((x,f(x))\)</span>处的非竖直支撑超平面。</p>
+<p>其中<span class="math inline">\(h(\boldsymbol{y})=f(\boldsymbol{x})+\boldsymbol{g}^\top (\boldsymbol{y}-\boldsymbol{x}), \quad\)</span>是一个关于<span class="math inline">\(\boldsymbol{y}\)</span>的仿射函数，次梯度中不等式的含义，就是这个仿射函数的图像是<span class="math inline">\(f\)</span>上镜图<span class="math inline">\(\text{epi} f\)</span>在点<span class="math inline">\((x,f(x))\)</span>处的非竖直支撑超平面。</p>
 <p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202411271553666.png" srcset="/img/loading.gif" lazyload alt="示意图" style="zoom: 67%;" /></p>
 <p>其中<span class="math inline">\(g_1,g_2\)</span>是<span class="math inline">\(f\)</span>在<span class="math inline">\(x_1\)</span>处的次梯度，<span class="math inline">\(g_3\)</span>是<span class="math inline">\(f\)</span>在<span class="math inline">\(x_2\)</span>处的次梯度。</p>
 <p>对于凸函数<span class="math inline">\(f\)</span>，<span class="math inline">\(x\in \text{dom}f\)</span>，如果<span class="math inline">\(f\)</span>在<span class="math inline">\(x\)</span>处可微，那么<span class="math inline">\(\partial f(x)=\{\nabla f(x)\}\)</span>，反之，如果<span class="math inline">\(f\)</span>在<span class="math inline">\(x\)</span>处的次梯度唯一，那么<span class="math inline">\(f\)</span>可微。</p>
 <p>设 <span class="math inline">\(f\)</span> 是凸函数. 那么 <span class="math inline">\(\forall \boldsymbol{x}, \partial f(\boldsymbol{x})\)</span> 是闭凸集. 对于 <span class="math inline">\(\boldsymbol{x} \notin \operatorname{dom} f, \partial f(\boldsymbol{x})=\emptyset\)</span>. 对于 <span class="math inline">\(\boldsymbol{x} \in \operatorname{ri}(\operatorname{dom} f), \partial f(\boldsymbol{x})\)</span> 非空, 这时 <span class="math inline">\(f\)</span> 沿方向 <span class="math inline">\(\boldsymbol{d}\)</span> 的方向导数存在，并且</p>
 <p><span class="math display">\[
-f^{\prime}(\boldsymbol{x} ; \boldsymbol{d})=\max _{\boldsymbol{g} \in \partial f(\boldsymbol{x})} \boldsymbol{d}^T \boldsymbol{g}
+f^{\prime}(\boldsymbol{x} ; \boldsymbol{d})=\max _{\boldsymbol{g} \in \partial f(\boldsymbol{x})} \boldsymbol{d}^\top  \boldsymbol{g}
 \]</span></p>
 <p>最后， <span class="math inline">\(\partial f(\boldsymbol{x})\)</span> 是非空有界闭凸集当且仅当 <span class="math inline">\(\boldsymbol{x} \in \operatorname{int}(\operatorname{dom} f)\)</span>.此时对每个 <span class="math inline">\(d, f^{\prime}(\boldsymbol{x} ; \boldsymbol{d})\)</span> 有限.</p>
 <p><a target="_blank" rel="noopener" href="https://blog.sakizuki.site/2024/10/03/%E6%9C%80%E4%BC%98%E5%8C%96/#%E9%9B%86%E5%90%88%E7%9A%84%E5%86%85%E9%83%A8%E5%92%8C%E9%97%AD%E5%8C%85">如果忘了</a>，这里的<span class="math inline">\(\text{ri}\)</span>是「相对内部」，<span class="math inline">\(\text{int}\)</span>是「内部」。</p>
@@ -1227,8 +1227,8 @@ D(x^*)=\{d\mid \nabla f(x^*)d\leq 0\}
 T(x^*)=\left\{\alpha d\mid \alpha&gt;0,d=\lim_{k\to \infty}\frac{x_k-x^*}{\|x_k-x^*\|}\mid x_k\to x^*\right\}
 \]</span></p></li>
 <li><p>因为<span class="math inline">\(T\)</span>很难求，所以另外定义一个「看起来像可行的方向的集合」 <span class="math display">\[
-F_1(x^*)=\{d\mid \nabla g_i(x)^Td\leq 0,\nabla h_j(x)^Td=0\mid i\in A(x^*) ,j=1,\cdots,l\}
-\]</span> 构造它的方法是「排除显然不可能的方向」，例如，让<span class="math inline">\(g_i(x)\)</span>上升的方向（<span class="math inline">\(\nabla g_i(x)^Td&gt;0\)</span>）以及让<span class="math inline">\(h_i(x)\)</span>变化的方向<span class="math inline">\(\nabla h_i(x)^Td\neq 0\)</span></p></li>
+F_1(x^*)=\{d\mid \nabla g_i(x)^\top d\leq 0,\nabla h_j(x)^\top d=0\mid i\in A(x^*) ,j=1,\cdots,l\}
+\]</span> 构造它的方法是「排除显然不可能的方向」，例如，让<span class="math inline">\(g_i(x)\)</span>上升的方向（<span class="math inline">\(\nabla g_i(x)^\top d&gt;0\)</span>）以及让<span class="math inline">\(h_i(x)\)</span>变化的方向<span class="math inline">\(\nabla h_i(x)^\top d\neq 0\)</span></p></li>
 <li><p>在某些「适当的条件」下，有<span class="math inline">\(T(x^*)=F_1(x^*)\)</span>。此时，有： <span class="math display">\[
 D(x^*)\cap F_1(x^*)=\emptyset
 \]</span> 这其实是KKT条件的某种等价表述。</p></li>
@@ -1239,7 +1239,7 @@ D(x^*)\cap F_1(x^*)=\emptyset
 <li><p>正则性（线性无关约束品性，LICQ）：设点<span class="math inline">\(x^*\)</span>满足<span class="math inline">\(h(x^*)=0,g(x^*)\leq 0\)</span>，对于<span class="math inline">\(x^*\)</span>处的所有<span class="math inline">\(h\)</span>和积极约束<span class="math inline">\(g\)</span>，如果梯度向量<span class="math inline">\(\nabla h_1(x^*),\cdots,\nabla h_n(x^*),\nabla g_j(x^*),j\in A(x^*)\)</span>是线性无关的，称<span class="math inline">\(x^*\)</span>是约束<span class="math inline">\(h(x^*)=0,g(x^*)\leq 0\)</span>的正则点。如果<span class="math inline">\(x^*\)</span>是局部最优解而且是正则点，那么KKT条件成立。</p></li>
 <li><p>Slater条件。若Salter条件成立，原问题的最优解是KKT点，相应的乘子是对偶问题的最优解。</p></li>
 <li><p>MFCQ：如果<span class="math inline">\(x*\)</span>是集合约束<span class="math inline">\(X\)</span>的内点且是局部极小点、<span class="math inline">\(f,g,h\)</span>都是一阶连续函数、如果梯度<span class="math inline">\(\nabla h_1(x^*),\cdots,\nabla h_n(x^*)\)</span>线性无关，且存在向量<span class="math inline">\(d\)</span>使得 <span class="math display">\[
-\nabla h_i(x^*)^Td=0,\nabla g_j(x^*)^Td&lt;0,\forall i=1\sim n,j\in A(x^*)
+\nabla h_i(x^*)^\top d=0,\nabla g_j(x^*)^\top d&lt;0,\forall i=1\sim n,j\in A(x^*)
 \]</span> 则<span class="math inline">\(x^*\)</span> 满足MFCQ。</p></li>
 <li><p>线性CQ：如果<span class="math inline">\(x*\)</span>是集合约束<span class="math inline">\(X\)</span>的内点且是局部极小点，<span class="math inline">\(f,g\)</span>都是一阶连续函数，如果<span class="math inline">\(h\)</span>是仿射函数、<span class="math inline">\(g_j\)</span>都是凸函数，那么<span class="math inline">\(x*\)</span>满足KKT条件。</p></li>
 </ol>
@@ -1275,17 +1275,17 @@ L(x,\lambda,\mu)=f(x)+\sum_{i=1}^m \lambda_ig_i(x)+\sum_{i=1}^l \mu_ih_i(x)
 <li><span class="math inline">\(\nabla^2L(x^*)\)</span>正定，那么<span class="math inline">\(x^*\)</span>是原问题的严格局部最优解。</li>
 </ol>
 <p>接下来重点考虑第三项。正定，也就是说有二次型： <span class="math display">\[
-d^T\nabla^2L(x^*)d&gt;0,\forall d
+d^\top \nabla^2L(x^*)d&gt;0,\forall d
 \]</span> 那么这个条件能不能再弱一点呢？这个二次型或许不需要对任何<span class="math inline">\(d\)</span>都正定。回忆证明KKT条件时用的的<span class="math inline">\(F_1(x^*)\)</span>集合，它是「看起来像可行的方向的集合」。只要<span class="math inline">\(d\)</span>看起来不是可行方向，那么就可以不考虑这个<span class="math inline">\(d\)</span>。于是，有： <span class="math display">\[
-d^T\nabla^2L(x^*)d&gt;0,d\in F_1(x^*)
-\]</span> 那么这个条件能不能再再弱一点呢？对于大于<span class="math inline">\(0\)</span>的<span class="math inline">\(\lambda_i,i\in A(x^*)\)</span>，如果<span class="math inline">\(\nabla g_i(x^*)^Td&lt; 0\)</span>，则<span class="math inline">\(x*\)</span>沿着<span class="math inline">\(d\)</span>移动，会导致<span class="math inline">\(g_i(x)\)</span>小于零，而这意味着目标函数的值上升。定义 <span class="math display">\[
-F_2(x^*)=\{d\mid \nabla g_i(x)^Td= 0,\nabla h_j(x)^Td=0\mid i\in A^+(x^*) ,j=1,\cdots,l\}
+d^\top \nabla^2L(x^*)d&gt;0,d\in F_1(x^*)
+\]</span> 那么这个条件能不能再再弱一点呢？对于大于<span class="math inline">\(0\)</span>的<span class="math inline">\(\lambda_i,i\in A(x^*)\)</span>，如果<span class="math inline">\(\nabla g_i(x^*)^\top d&lt; 0\)</span>，则<span class="math inline">\(x*\)</span>沿着<span class="math inline">\(d\)</span>移动，会导致<span class="math inline">\(g_i(x)\)</span>小于零，而这意味着目标函数的值上升。定义 <span class="math display">\[
+F_2(x^*)=\{d\mid \nabla g_i(x)^\top d= 0,\nabla h_j(x)^\top d=0\mid i\in A^+(x^*) ,j=1,\cdots,l\}
 \]</span> 其中， <span class="math display">\[
 A^+(x^*)=\{j\mid g_j(x^*)=0,\lambda_j\neq0,j=1,\cdots,l\}
 \]</span> 二阶必要条件的最终表述为：</p>
 <p>假如<span class="math inline">\(x^*\)</span>满足KKT条件，<span class="math inline">\(\lambda,\mu\)</span>为相应的乘子， <span class="math display">\[
 L(x,\lambda,\mu)=f(x)+\sum_{i=1}^m \lambda_ig_i(x)+\sum_{i=1}^l \mu_ih_i(x)
-\]</span> <span class="math inline">\(\nabla L(x^*)=0\)</span>，若<span class="math inline">\(d^T\nabla^2L(x^*)d&gt;0,\forall x\in F_2(x^*)\)</span>，则<span class="math inline">\(x^*\)</span>是原问题的严格最优解。</p>
+\]</span> <span class="math inline">\(\nabla L(x^*)=0\)</span>，若<span class="math inline">\(d^\top \nabla^2L(x^*)d&gt;0,\forall x\in F_2(x^*)\)</span>，则<span class="math inline">\(x^*\)</span>是原问题的严格最优解。</p>
 <h3 id="灵敏度分析">灵敏度分析</h3>
 <p>对于一般的约束问题<span class="math inline">\((P)\)</span>，有局部正则点<span class="math inline">\(x^*\)</span>，加入松弛变量<span class="math inline">\((c,d)\)</span>: <span class="math display">\[
 \begin{align}
@@ -1355,27 +1355,27 @@ f(x),&amp;g_i(x)\leq 0,h_i(x)=0\\
 <blockquote>
 <p>【例】考虑线性规划问题： <span class="math display">\[
 \begin{align}
-\text{minimize}\ \ &amp;c^Tx\\
+\text{minimize}\ \ &amp;c^\top x\\
 \text{s.t.}\ \ &amp;Ax=b\\
 &amp;-x\leq 0\\
 &amp;x\in \mathbb R^n
 \end{align}
 \]</span></p>
 <p><span class="math display">\[
-L(x,\mu)=c^Tx+\mu^T(b-Ax)
+L(x,\mu)=c^\top x+\mu^\top (b-Ax)
 \]</span></p>
 <p><span class="math display">\[
-d(\mu)=\min_{x\geq0}\{(c-A^T\mu)^Tx+b^T\mu\}
+d(\mu)=\min_{x\geq0}\{(c-A^\top \mu)^\top x+b^\top \mu\}
 \]</span></p>
 <p>有： <span class="math display">\[
 d(\mu)=\begin{cases}
-b^T\mu,&amp;c-A^T\mu\geq 0\\
+b^\top \mu,&amp;c-A^\top \mu\geq 0\\
 -\infty,&amp;\text{otherwise}
 \end{cases}
 \]</span> 对偶问题为： <span class="math display">\[
 \begin{align}
-\text{maximize}\ \ &amp;b^T\mu\\
-\text{s.t.}\ \ &amp;A^T\mu\leq c
+\text{maximize}\ \ &amp;b^\top \mu\\
+\text{s.t.}\ \ &amp;A^\top \mu\leq c
 \end{align}
 \]</span></p>
 </blockquote>
@@ -1471,7 +1471,7 @@ x_2=\dfrac{1}{4}
 <p>【性质1】对于迭代形成的点列<span class="math inline">\(\{x_k\}\)</span>，有</p>
 <ol type="1">
 <li>无约束优化问题目标函数序列<span class="math inline">\(\{q(x_k,\sigma_k)\}\)</span>单调递增</li>
-<li>罚函数序列<span class="math inline">\(\{P(x_k)\}\)</span>（在常用的二次罚函数情况下，也可以写成<span class="math inline">\(\{h(x_k)^Th(x_k)\}\)</span>）单调递减</li>
+<li>罚函数序列<span class="math inline">\(\{P(x_k)\}\)</span>（在常用的二次罚函数情况下，也可以写成<span class="math inline">\(\{h(x_k)^\top h(x_k)\}\)</span>）单调递减</li>
 <li>约束优化问题目标函数序列<span class="math inline">\(\{f(x_k)\}\)</span>单调递增</li>
 </ol>
 <p>【性质2】点列<span class="math inline">\(\{x_k\}\)</span>的任意一个聚点都是约束优化问题的全局最优解。</p>
@@ -1497,12 +1497,12 @@ P(x)=\sum_{i=1}^l \left[\max \{g_i(x),0\}\right]^2+\sum_{i=1}^m h^2_i(x)
 \nabla f(x)+\sum_{i=1}^m\mu_i\nabla h_i(x)=0
 \]</span> 可以发现，为了罚函数法收敛，我们提了一个比KKT条件强得多的要求（即<span class="math inline">\(\nabla f(x)=0\)</span>），这在绝大多数的约束优化问题中都是不现实的。因此，我们可以做一个「妥协」，即放松这个最终的条件，以期待罚函数法有更好的收敛性能。</p>
 <p>考虑增广拉格朗日函数： <span class="math display">\[
-L_c(x,\mu)=f(x)+\mu_k^Th(x)+\sigma \sum_{i=1}^m h_i^2(x)
+L_c(x,\mu)=f(x)+\mu_k^\top h(x)+\sigma \sum_{i=1}^m h_i^2(x)
 \]</span> 利用增广拉格朗日函数求解的计算机算法步骤如下：</p>
 <ol type="1">
 <li><p>取初始迭代点<span class="math inline">\(x_0\)</span>，初始参数<span class="math inline">\(\sigma_1&gt;0,\mu_1&gt;0\)</span>，终止条件<span class="math inline">\(\epsilon\)</span>为一较小正数，迭代计数器<span class="math inline">\(k=0\)</span>，更新倍数<span class="math inline">\(\beta\in [4,10]\)</span></p></li>
 <li><p>以<span class="math inline">\(x_{k-1}\)</span>为初始点，计算无约束优化问题： <span class="math display">\[
-\min L_c(x,\mu):=f(x)+\mu_k^Th(x)+\sigma \sum_{i=1}^m h_i^2(x)
+\min L_c(x,\mu):=f(x)+\mu_k^\top h(x)+\sigma \sum_{i=1}^m h_i^2(x)
 \]</span> 得到解<span class="math inline">\(x_k\)</span></p></li>
 <li><p>如果<span class="math inline">\(\sigma \sum_{i=1}^m h_i^2(x)\)</span>，说明惩罚项已经足够小，算法终止。</p></li>
 <li><p>更新<span class="math inline">\(\sigma_{k+1}=\beta \sigma_k,\mu_{k+1}=?,k=k+1\)</span>，转第2步.</p></li>
