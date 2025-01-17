@@ -11,6 +11,7 @@
   var defaultColorSchemaAttributeName = 'data-default-color-scheme';
   var colorToggleButtonSelector = '#color-toggle-btn';
   var colorToggleIconSelector = '#color-toggle-icon';
+  var iframeSelector = 'iframe';
 
   function setLS(k, v) {
     try {
@@ -176,6 +177,10 @@
           }
         });
       }
+      if (document.documentElement.getAttribute('data-user-color-scheme')) {
+        var color = getComputedStyle(document.documentElement).getPropertyValue('--navbar-bg-color').trim()
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', color)
+      }
     }
   }
 
@@ -243,6 +248,7 @@
           theme: giscusTheme,
         }
       };
+      // giscus.style.cssText += 'color-scheme: normal;';
       giscus.contentWindow.postMessage({ 'giscus': message }, 'https://giscus.app');
     }
   }
@@ -272,4 +278,9 @@
       }
     }
   });
+
+  Fluid.utils.waitElementLoaded(iframeSelector, function() {
+    applyCustomColorSchemaSettings();
+  });
+  
 })(window, document);
