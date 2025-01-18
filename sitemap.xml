@@ -820,6 +820,13 @@
   </url>
   
   <url>
+    <loc>https://suzumiyaakizuki.github.io/tags/Verilog/</loc>
+    <lastmod>2025-01-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://suzumiyaakizuki.github.io/tags/%E6%95%B0%E7%94%B5/</loc>
     <lastmod>2025-01-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -827,7 +834,14 @@
   </url>
   
   <url>
-    <loc>https://suzumiyaakizuki.github.io/tags/Verilog/</loc>
+    <loc>https://suzumiyaakizuki.github.io/tags/C/</loc>
+    <lastmod>2025-01-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://suzumiyaakizuki.github.io/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/</loc>
     <lastmod>2025-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -848,20 +862,6 @@
   </url>
   
   <url>
-    <loc>https://suzumiyaakizuki.github.io/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/</loc>
-    <lastmod>2025-01-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://suzumiyaakizuki.github.io/tags/C/</loc>
-    <lastmod>2025-01-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://suzumiyaakizuki.github.io/tags/%E4%BF%A1%E6%81%AF%E8%AE%BA/</loc>
     <lastmod>2025-01-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -869,14 +869,14 @@
   </url>
   
   <url>
-    <loc>https://suzumiyaakizuki.github.io/tags/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</loc>
+    <loc>https://suzumiyaakizuki.github.io/tags/%E7%94%B5%E7%A3%81%E5%9C%BA/</loc>
     <lastmod>2025-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://suzumiyaakizuki.github.io/tags/%E7%94%B5%E7%A3%81%E5%9C%BA/</loc>
+    <loc>https://suzumiyaakizuki.github.io/tags/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</loc>
     <lastmod>2025-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -904,6 +904,13 @@
   </url>
   
   <url>
+    <loc>https://suzumiyaakizuki.github.io/tags/%E5%BE%AE%E6%B3%A2/</loc>
+    <lastmod>2025-01-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://suzumiyaakizuki.github.io/tags/%E7%BC%96%E7%A8%8B/</loc>
     <lastmod>2025-01-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -918,7 +925,7 @@
   </url>
   
   <url>
-    <loc>https://suzumiyaakizuki.github.io/tags/%E5%BE%AE%E6%B3%A2/</loc>
+    <loc>https://suzumiyaakizuki.github.io/tags/%E7%94%9F%E6%B4%BB/</loc>
     <lastmod>2025-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -933,13 +940,6 @@
   
   <url>
     <loc>https://suzumiyaakizuki.github.io/tags/%E5%90%8C%E4%BA%BA/</loc>
-    <lastmod>2025-01-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://suzumiyaakizuki.github.io/tags/%E7%94%9F%E6%B4%BB/</loc>
     <lastmod>2025-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1023,14 +1023,14 @@
   </url>
   
   <url>
-    <loc>https://suzumiyaakizuki.github.io/tags/%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B/</loc>
+    <loc>https://suzumiyaakizuki.github.io/tags/%E5%9B%9E%E5%BF%86/</loc>
     <lastmod>2025-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://suzumiyaakizuki.github.io/tags/%E5%9B%9E%E5%BF%86/</loc>
+    <loc>https://suzumiyaakizuki.github.io/tags/%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B/</loc>
     <lastmod>2025-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
