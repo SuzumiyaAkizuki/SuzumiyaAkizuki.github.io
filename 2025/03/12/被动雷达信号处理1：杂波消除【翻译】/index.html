@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202503122120104.png">
 <meta property="article:published_time" content="2025-03-12T07:08:35.000Z">
-<meta property="article:modified_time" content="2025-03-12T13:27:17.596Z">
+<meta property="article:modified_time" content="2025-03-12T13:43:48.658Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="无源雷达">
 <meta name="twitter:card" content="summary_large_image">
@@ -578,15 +578,15 @@ s_{tar}[n] = \sum_{k=0}^{N-1} w_{k} s_{r}[n-d_k] \exp \left(\frac{j2\pi n f_k}{F
 \]</span></p>
 <p>为了消除杂波，文章提出使用自适应滤波技术，通过最小二乘法估计杂波系数 $ b_k $ ，从而重建并减去杂波信号。最小二乘解为：</p>
 <p><span class="math display">\[
-\boldsymbol{\hat{\beta}} = \mathbf{(X^H X)^{-1} X^H y}
+{\hat{\beta}} = \mathbf{(X^H X)^{-1} X^H y}
 \]</span></p>
-<p>其中， $  $ 是由参考信号的延迟副本构成的矩阵， $  $ 是观测信号的样本向量。文章还讨论了在矩阵病态情况下使用提霍诺夫正则化的处理方法，以确保解的稳定性。</p>
+<p>其中， <span class="math inline">\(X\)</span> 是由参考信号的延迟副本构成的矩阵， <span class="math inline">\(y\)</span> 是观测信号的样本向量。文章还讨论了在矩阵病态情况下使用提霍诺夫正则化的处理方法，以确保解的稳定性。</p>
 <p>通过这种方法，可以有效降低杂波信号的影响，提取出被淹没在噪声中的目标回波，为后续的目标检测和分析提供基础。</p>
 <hr />
 <p>这是我在系列文章中关于被动雷达信号处理算法的第一篇。如果你还没有看过，先去主被动雷达页面了解一下这个项目是关于什么的。这篇文章比上一篇更数学化一些，但我会尽量保持直观的解释。</p>
 <p>被动雷达的一个主要挑战是从噪声中提取微弱的目标回波。这种噪声包括直接路径信号泄漏到观测通道以及从静止物体（如山脉和建筑物）的强反射信号。在雷达术语中，这些信号统称为“杂波”。对于被动雷达，杂波信号通常比目标回波强数十倍或数百倍。因此，需要一种杂波消除算法来去除这些信号，以便能够观察到目标回波。</p>
 <p>在深入推导之前，这里有一个概念验证的快速示例。下面的动画展示了如何使用杂波消除算法来提取原本完全被噪声淹没的目标信号（使用真实的被动雷达数据）。应用该算法可使噪声降低近40dB！从噪声中出现的尖峰就是目标回波。</p>
-<p>为了推导杂波消除算法，需要对被动雷达接收到的信号性质做一些假设。我们将参考通道接收到的信号表示为 $ s_r[n] $ ，观测通道接收到的信号表示为 $ s_o[n] $ 。接下来，我们可以将观测通道信号建模为三个部分的总和：所需的目标回波信号 $ s_{tar}[n] $ 、杂波信号 $ s_{cl}[n] $ 和附加噪声项 $ $ 。</p>
+<p>为了推导杂波消除算法，需要对被动雷达接收到的信号性质做一些假设。我们将参考通道接收到的信号表示为 <span class="math inline">\(s_r[n]\)</span> ，观测通道接收到的信号表示为 <span class="math inline">\(s_o[n]\)</span> 。接下来，我们可以将观测通道信号建模为三个部分的总和：所需的目标回波信号 <span class="math inline">\(s_{tar}[n]\)</span> 、杂波信号 <span class="math inline">\(s_{cl}[n]\)</span> 和附加噪声项 <span class="math inline">\(\nu[n]\)</span> 。</p>
 <p><span class="math display">\[
 \begin{equation}
 \displaystyle s_{o}[n] = s_{tar}[n] + s_{cl}[n] + \nu[n]
@@ -598,7 +598,7 @@ s_{tar}[n] = \sum_{k=0}^{N-1} w_{k} s_{r}[n-d_k] \exp \left(\frac{j2\pi n f_k}{F
 \displaystyle s_{cl}[n] = \sum_{k=0}^{M – 1} b_k s_{r}[n-k]
 \end{equation}
 \]</span></p>
-<p>需要注意的是，我们还不知道杂波信号中的系数 $ b_k $ ，因为它们取决于雷达环境中存在的散射物体。然而，如果我们能够使用一些额外信息来找到杂波系数的适当估计值 $ _k $ ，则可以利用它们来重建杂波信号的估计值。然后，可以从观测通道信号中减去估计的杂波信号，以获得目标回波信号的估计值。</p>
+<p>需要注意的是，我们还不知道杂波信号中的系数 $ b_k $ ，因为它们取决于雷达环境中存在的散射物体。然而，如果我们能够使用一些额外信息来找到杂波系数的适当估计值 <span class="math inline">\(\hat{b}_k\)</span> ，则可以利用它们来重建杂波信号的估计值。然后，可以从观测通道信号中减去估计的杂波信号，以获得目标回波信号的估计值。</p>
 <p><span class="math display">\[
 \begin{equation}
 \displaystyle \hat{s}_{tar}[n] = s_o[n] – \hat{s}_{cl}[n] = s_o[n] – \sum_{k=0}^{M – 1} \hat{b}_k s_{r}[n-k]
@@ -613,42 +613,42 @@ s_{tar}[n] = \sum_{k=0}^{N-1} w_{k} s_{r}[n-d_k] \exp \left(\frac{j2\pi n f_k}{F
 \displaystyle s_{tar}[n] = \sum_{k=0}^{N-1} w_{k} s_{r}[n-d_k] \exp \left(\frac{j2\pi n f_k}{F_s} \right)
 \end{equation}
 \]</span></p>
-<p>这个方程看起来很像杂波信号的方程，只是现在总和中的每个元素都乘以了一个多普勒频移项 $ (j2n f_k / F_s) $ 。这给了我们一个关于如何将回波信号与杂波信号分开的提示。首先，回忆不同频率的复指数函数彼此正交。这意味着由于多普勒频移，只要多普勒频移不为零且信号在足够长的时间间隔内测量，目标回波就与参考信号线性无关。相反，<strong>我们假设杂波信号是延迟参考信号副本的线性组合</strong>。换句话说，如果我们能够找到观测通道信号中与延迟参考信号线性相关的所有部分并减去它们，剩下的将只是回波信号。</p>
+<p>这个方程看起来很像杂波信号的方程，只是现在总和中的每个元素都乘以了一个多普勒频移项 <span class="math inline">\(\exp(j2\pi n f_k / F_s)\)</span> 。这给了我们一个关于如何将回波信号与杂波信号分开的提示。首先，回忆不同频率的复指数函数彼此正交。这意味着由于多普勒频移，只要多普勒频移不为零且信号在足够长的时间间隔内测量，目标回波就与参考信号线性无关。相反，<strong>我们假设杂波信号是延迟参考信号副本的线性组合</strong>。换句话说，如果我们能够找到观测通道信号中与延迟参考信号线性相关的所有部分并减去它们，剩下的将只是回波信号。</p>
 <p>用向量空间的概念来重新表述这个想法是很方便的。由于杂波信号由缩放和延迟的参考信号副本组成，<strong>因此可以说它占据了一个向量空间，其基向量是延迟的参考信号副本。我们将这个空间称为杂波空间。</strong>杂波系数 $ b_k $ 是杂波信号在杂波空间中的坐标。回波信号与每个延迟的参考信号副本线性无关，因此它与杂波空间正交。我们可以通过将观测通道信号投影到杂波空间来找到杂波信号。减去杂波信号后，剩下的只有回波信号。</p>
 <p>在被动雷达中可以使用多种不同的自适应滤波算法进行杂波消除。我们使用了一种称为最小二乘滤波器（有时也称为维纳滤波器）的算法。最小二乘滤波器是一种块算法，因为它涉及将输入数据分成许多样本长度的块，并为每个块计算一组滤波器系数。这与基于随机梯度的方法（如最小均方滤波器）形成对比，在后一种方法中，滤波器抽头是使用每个输入样本逐一更新的。这篇论文比较了这两种自适应滤波方案以及几种其他方案在被动雷达杂波消除中的性能。如果你还想了解更多关于自适应滤波的内容，我还强烈推荐西蒙·海金的教科书《自适应滤波理论》。</p>
-<p>最小二乘算法的一个好处是，鉴于上述杂波消除过程的向量空间表述，其推导是直观的。首先，设 $  $ 是一个向量，包含延迟 $ k $ 个样本的参考信号的 $ L $ 个样本，即 $ s_r[n – k] $ 。对于 $ k $ 在0到 $ M $ 之间的向量 $  $ 是杂波空间的基向量。然后，我们可以定义一个矩阵 $  $ ，这是一个 $ L M $ 的矩阵，其列是基向量 $  $ （ $ k $ 在0到 $ M $ 之间）。</p>
-<p>接下来，设 $  $ 是一个长度为 $ M $ 的任意向量。注意， $  $ 与 $  $ 的乘积是一个长度为 $ L $ 的向量。 $  $ 将杂波空间中的任意点（一个长度为 $ M $ 的向量）转换为其在信号空间中的表示（一个长度为 $ L $ 的向量）。然后，设 $  $ 是一个包含观测信号 $ s_o[n] $ 的 $ L $ 个样本的向量。最后，对于任意杂波向量 $  $ ，设 $  $ 表示 $  $ 和 $   $ 之间的残差。</p>
+<p>最小二乘算法的一个好处是，鉴于上述杂波消除过程的向量空间表述，其推导是直观的。首先，设 $ {x_k} $ 是一个向量，包含延迟 $ k $ 个样本的参考信号的 $ L $ 个样本，即 $ s_r[n – k] $ 。对于 $ k $ 在0到 $ M $ 之间的向量 $ {x_k} $ 是杂波空间的基向量。然后，我们可以定义一个矩阵 $ {X} $ ，这是一个 <span class="math inline">\(L\times M\)</span> 的矩阵，其列是基向量 $ {x_k} $ （ $ k $ 在0到 $ M $ 之间）。</p>
+<p>接下来，设 $ {} $ 是一个长度为 $ M $ 的任意向量。注意， $ {X} $ 与 $ {} $ 的乘积是一个长度为 $ L $ 的向量。 $ {X} $ 将杂波空间中的任意点（一个长度为 $ M $ 的向量）转换为其在信号空间中的表示（一个长度为 $ L $ 的向量）。然后，设 $ {y} $ 是一个包含观测信号 $ s_o[n] $ 的 $ L $ 个样本的向量。最后，对于任意杂波向量 <span class="math inline">\({\beta}\)</span> ，设 <span class="math inline">\({\epsilon}\)</span> 表示 $ {y} $ 和 <span class="math inline">\({X}{\beta}\)</span> 之间的残差。</p>
 <p><span class="math display">\[
 \begin{equation}
-\displaystyle \boldsymbol{\epsilon} = \boldsymbol{y} – \boldsymbol{X} \boldsymbol{\beta}
+\displaystyle {\epsilon} = {y} – {X}{\beta}
 \end{equation}
 \]</span></p>
 <p>或者等价地，</p>
 <p><span class="math display">\[
 \begin{equation}
-\displaystyle \boldsymbol{y} = \boldsymbol{X} \boldsymbol{\beta} + \boldsymbol{\epsilon}
+\displaystyle {y} = {X} {\beta} + {\epsilon}
 \end{equation}
 \]</span></p>
-<p>将这个方程与观测通道信号的原始信号模型进行比较，我们看到，如果我们选择正确的杂波向量 $  $ ，那么项 $   $ 就代表杂波信号 $ s_{cl} $ 。 $  $ 则代表剩下的两个项，即 $ s_{tar} + $ 。</p>
-<p>那么，我们如何找到这个最优值 $  $ （我们将称之为 $  $ ）呢？我们希望项 $   $ 能够捕获 $  $ 的最大部分，使得在减去它之后剩下的部分最小。因此，最优的杂波向量 $  $ 可以通过最小化 $  $ 的平方模值得到。对应的最小模长向量 $  $ 就成为我们对目标信号的最佳估计。由于噪声项 $ $ 与参考信号不相关，因此无法去除，但只要它相对于目标信号很小，就可以忽略不计。</p>
+<p>将这个方程与观测通道信号的原始信号模型进行比较，我们看到，如果我们选择正确的杂波向量 $ {}$ ，那么项 <span class="math inline">\({X} {\beta}\)</span> 就代表杂波信号 $ s_{cl} $ 。 <span class="math inline">\({\epsilon}\)</span> 则代表剩下的两个项，即 <span class="math inline">\(s_{tar}+\nu\)</span> 。</p>
+<p>那么，我们如何找到这个最优值 <span class="math inline">\({\beta}\)</span> （我们将称之为 <span class="math inline">\({\hat{\beta}}\)</span> ）呢？我们希望项 <span class="math inline">\({X} {\beta}\)</span> 能够捕获 <span class="math inline">\({y}\)</span> 的最大部分，使得在减去它之后剩下的部分最小。因此，最优的杂波向量 <span class="math inline">\({\hat{\beta}}\)</span> 可以通过最小化 <span class="math inline">\({\epsilon}\)</span> 的平方模值得到。对应的最小模长向量 <span class="math inline">\({\hat{\epsilon}}\)</span> 就成为我们对目标信号的最佳估计。由于噪声项 <span class="math inline">\(\nu\)</span> 与参考信号不相关，因此无法去除，但只要它相对于目标信号很小，就可以忽略不计。</p>
 <p>这令人兴奋，因为它意味着我们已经将问题简化为普通的最小二乘回归。这种类型问题的解决方案是众所周知的，由下式给出</p>
 <p><span class="math display">\[
 \begin{equation}
-\displaystyle \boldsymbol{\hat{\beta}} = \boldsymbol{(X^H X)^{-1} X^H y}
+\displaystyle {\hat{\beta}} = {(X^H X)^{-1} X^H y}
 \end{equation}
 \]</span></p>
-<p>注意，在前面的方程中， $  $ 表示 $  $ 的共轭转置，因为 $  $ 的元素可以是复数。</p>
-<p>在实践中，矩阵 $  $ 有时是病态的（接近奇异），这意味着最小二乘问题的解不是唯一确定的。一种处理方法是使用正则化技术，如提霍诺夫正则化（即 $ L2 $ 正则化，译者注）。使用提霍诺夫正则化的杂波系数向量 $  $ 的修改方程如下，其中 $  $ 是一个 $ M M $ 的矩阵，称为提霍诺夫矩阵。</p>
+<p>注意，在前面的方程中， $ {X^H} $ 表示 $ {X} $ 的共轭转置，因为 $ {X} $ 的元素可以是复数。</p>
+<p>在实践中，矩阵 $ {X^H X} $ 有时是病态的（接近奇异），这意味着最小二乘问题的解不是唯一确定的。一种处理方法是使用正则化技术，如提霍诺夫正则化（即 $ L2 $ 正则化，译者注）。使用提霍诺夫正则化的杂波系数向量 $ {} $ 的修改方程如下，其中 $ {} $ 是一个 $ M M $ 的矩阵，称为提霍诺夫矩阵。</p>
 <p><span class="math display">\[
 \begin{equation}
-\displaystyle \boldsymbol{\hat{\beta}} = (\boldsymbol{X^H X} + \boldsymbol{\Gamma} \boldsymbol{^H} \boldsymbol{\Gamma})^{-1}\boldsymbol{X^H y}
+\displaystyle {\hat{\beta}} = ({X^H X} + {\Gamma} {^H} {\Gamma})^{-1}{X^H y}
 \end{equation}
 \]</span></p>
-<p>对提霍诺夫矩阵的不同选择会导致不同类型的正则化。一个常见的选择是 $  =  $ ，其中 $  $ 是单位矩阵， $ $ 是一个常数。这种选择（相当于 $ L2 $ 正则化）对解向量的平方模长添加了惩罚，以选择模长较小的解。</p>
+<p>对提霍诺夫矩阵的不同选择会导致不同类型的正则化。一个常见的选择是 <span class="math inline">\({\Gamma}=\alpha{I}\)</span> ，其中 <span class="math inline">\({I}\)</span> 是单位矩阵， $$ 是一个常数。这种选择（相当于 $L2 $ 正则化）对解向量的平方模长添加了惩罚，以选择模长较小的解。</p>
 <p>一旦获得了杂波系数向量，恢复目标回波信号就变得简单了：</p>
 <p><span class="math display">\[
 \begin{equation}
-\displaystyle \hat{\boldsymbol{\epsilon}} = \boldsymbol{y} – \boldsymbol{X}\boldsymbol{\hat{\beta}}
+\hat={y}-{X}{\hat{\beta}}
 \end{equation}
 \]</span></p>
 <p>至此，杂波消除过程就完成了！继续阅读这个系列的下一篇，看看回波信号是如何被处理以揭示目标特征的。</p>
@@ -661,7 +661,7 @@ s_{tar}[n] = \sum_{k=0}^{N-1} w_{k} s_{r}[n-d_k] \exp \left(\frac{j2\pi n f_k}{F
 s_{tar}[n] = \sum_{k=0}^{N-1} w_{k} s_{r}[n-d_k] \exp \left(\frac{j2\pi n f_k}{F_s} \right)
 \]</span></p>
 <p>目标检测相当于找出回波信号中存在的延迟值和多普勒频移。</p>
-<p>这可以通过计算<strong>互模糊函数</strong> $ <em>{s_r, s</em>{tar}}(, f) $ 来实现。可以将互模糊函数视为互相关函数的扩展。对两个相似信号进行互相关可以确定它们之间的延迟。互模糊函数类似，但它还能确定信号之间的频率差异。这是通过利用不同频率的正弦波彼此正交的特性来实现的。</p>
+<p>这可以通过计算<strong>互模糊函数</strong> <span class="math inline">\(\chi_{s_r, s_{tar}}(\tau, f)\)</span> 来实现。可以将互模糊函数视为互相关函数的扩展。对两个相似信号进行互相关可以确定它们之间的延迟。互模糊函数类似，但它还能确定信号之间的频率差异。这是通过利用不同频率的正弦波彼此正交的特性来实现的。</p>
 <p><span class="math display">\[
 \chi_{s_1, s_2}(\tau, f) = \sum_{n=0}^{N-1} s_1[n]s_2^*[n – \tau]\exp \left(\frac{-j 2 \pi n f}{F_s} \right)
 \]</span></p>
@@ -691,9 +691,9 @@ g(k, \tau) = \sum_{l=0}^{L-1} s_1(l + kM)s_2^*(l + kM – \tau)
 <h3 id="卡尔曼滤波器基础">卡尔曼滤波器基础</h3>
 <p>卡尔曼滤波器通过维护一个被观测系统的内部动态模型来处理测量噪声问题。在每个时间步，滤波器使用该模型根据系统的前一个状态预测下一个状态，并生成对该预测的不确定性。接下来，获得系统的新测量值，该测量值也有其自身的不确定性。考虑到这些不确定性，卡尔曼滤波器使用预测值和测量值的加权平均值来估计系统的真正状态。</p>
 <h3 id="动态模型的推导">动态模型的推导</h3>
-<p>创建系统动态模型的第一步是定义一个状态向量 $ (k) $ ，它指定了时间 $ k $ 时系统的状态。对于被动雷达目标，我们将使用一个包含4个元素的状态向量，其中包括目标的距离 $ r(k) $ 和多普勒频移 $ f(k) $ 以及这些值的时间导数 $ (k) $ 和 $ (k) $ 。</p>
+<p>创建系统动态模型的第一步是定义一个状态向量 $ {x}(k) $ ，它指定了时间 $ k $ 时系统的状态。对于被动雷达目标，我们将使用一个包含4个元素的状态向量，其中包括目标的距离 $ r(k) $ 和多普勒频移 $ f(k) $ 以及这些值的时间导数 $ (k) $ 和 $ (k) $ 。</p>
 <p><span class="math display">\[
-\boldsymbol{x}(k) = [r(k) \; \dot{r}(k) \; f(k) \; \dot{f}(k)]^T
+{x}(k) = [r(k) \; \dot{r}(k) \; f(k) \; \dot{f}(k)]^T
 \]</span></p>
 <p>现在，我们需要定义转换规则，以指定系统如何从一个状态移动到下一个状态。一个简单的选择是下面显示的“恒定速度”模型。位置值 $ r(k) $ 和 $ f(k) $ 根据它们各自的导数进行更新，而导数保持不变。</p>
 <p><span class="math display">\[
@@ -708,9 +708,9 @@ f(k+1) = f(k) + \dot{f}(k)\Delta t
 <p><span class="math display">\[
 \dot{f}(k+1) = \dot{f}(k)
 \]</span></p>
-<p>通过定义一个状态转移矩阵 $  $ ，我们可以将状态更新方程重写为矩阵乘法的形式。</p>
+<p>通过定义一个状态转移矩阵 $ {F} $ ，我们可以将状态更新方程重写为矩阵乘法的形式。</p>
 <p><span class="math display">\[
-\boldsymbol{x}(k+1) = \boldsymbol{F}\boldsymbol{x}(k), \quad \text{其中} \quad \boldsymbol{F}
+{x}(k+1) = {F}{x}(k), \quad \text{其中} \quad {F}
 =
 \begin{bmatrix}
 1 &amp; \Delta t &amp; 0 &amp; 0 \\
@@ -719,7 +719,7 @@ f(k+1) = f(k) + \dot{f}(k)\Delta t
 0 &amp; 0 &amp; 0 &amp; 1
 \end{bmatrix}
 \]</span></p>
-<p>给定某个初始状态 $ (0) $ ，可以通过应用 $  $ $ k $ 次来获得状态 $ (k) $ 。不难发现，这个特定模型表示一个以恒定速度沿直线在距离 - 多普勒曲面上移动的目标。</p>
+<p>给定某个初始状态 $ {x}(0) $ ，可以通过应用 $ {F} $ $ k $ 次来获得状态 $ {x}(k) $ 。不难发现，这个特定模型表示一个以恒定速度沿直线在距离 - 多普勒曲面上移动的目标。</p>
 <p>虽然恒定速度模型可能对被动雷达跟踪有效，但通过更详细地考虑情况的几何形状，可以推导出更好的模型。需要注意的是，恒定速度模型将目标距离和多普勒频移的动态视为完全独立的：值或它们的导数之间没有相互作用。然而，正如我们将看到的，实际被动雷达目标的距离和多普勒频移值是相关的。</p>
 <figure>
 <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202503121607609.png" srcset="/img/loading.gif" lazyload alt="img" /><figcaption aria-hidden="true">img</figcaption>
@@ -757,7 +757,7 @@ r(k+1) = r(k) + \dot{r}(k)\Delta t = r(k) – \lambda f(k) \Delta t
 \]</span></p>
 <p>新的状态更新模型是通过将这些方程转换为矩阵形式获得的，如下所示。</p>
 <p><span class="math display">\[
-\boldsymbol{x}(k+1) = \boldsymbol{F}\boldsymbol{x}(k), \quad \text{其中} \quad \boldsymbol{F}
+{x}(k+1) = {F}{x}(k), \quad \text{其中} \quad {F}
 =
 \begin{bmatrix}
 1 &amp; 0 &amp; -\lambda \Delta t &amp; 0 \\
