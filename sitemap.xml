@@ -847,20 +847,6 @@
   </url>
   
   <url>
-    <loc>https://suzumiyaakizuki.github.io/tags/Matlab/</loc>
-    <lastmod>2025-04-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://suzumiyaakizuki.github.io/tags/MIMO/</loc>
-    <lastmod>2025-04-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://suzumiyaakizuki.github.io/tags/Verilog/</loc>
     <lastmod>2025-04-10</lastmod>
     <changefreq>weekly</changefreq>
@@ -869,6 +855,20 @@
   
   <url>
     <loc>https://suzumiyaakizuki.github.io/tags/%E6%95%B0%E7%94%B5/</loc>
+    <lastmod>2025-04-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://suzumiyaakizuki.github.io/tags/Matlab/</loc>
+    <lastmod>2025-04-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://suzumiyaakizuki.github.io/tags/MIMO/</loc>
     <lastmod>2025-04-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
