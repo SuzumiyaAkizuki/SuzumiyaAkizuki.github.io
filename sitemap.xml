@@ -867,13 +867,6 @@
   </url>
   
   <url>
-    <loc>https://suzumiyaakizuki.github.io/tags/DSP/</loc>
-    <lastmod>2025-08-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://suzumiyaakizuki.github.io/tags/Matlab/</loc>
     <lastmod>2025-08-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -882,6 +875,13 @@
   
   <url>
     <loc>https://suzumiyaakizuki.github.io/tags/MIMO/</loc>
+    <lastmod>2025-08-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://suzumiyaakizuki.github.io/tags/DSP/</loc>
     <lastmod>2025-08-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -944,6 +944,13 @@
   </url>
   
   <url>
+    <loc>https://suzumiyaakizuki.github.io/tags/SAR/</loc>
+    <lastmod>2025-08-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://suzumiyaakizuki.github.io/tags/%E5%AE%9E%E5%8F%98%E6%B3%9B%E5%87%BD/</loc>
     <lastmod>2025-08-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -952,13 +959,6 @@
   
   <url>
     <loc>https://suzumiyaakizuki.github.io/tags/%E6%95%B0%E5%AD%A6/</loc>
-    <lastmod>2025-08-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://suzumiyaakizuki.github.io/tags/SAR/</loc>
     <lastmod>2025-08-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1042,13 +1042,6 @@
   </url>
   
   <url>
-    <loc>https://suzumiyaakizuki.github.io/tags/%E7%9F%A9%E9%98%B5%E7%90%86%E8%AE%BA/</loc>
-    <lastmod>2025-08-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://suzumiyaakizuki.github.io/tags/%E6%97%85%E6%B8%B8%E6%94%BB%E7%95%A5/</loc>
     <lastmod>2025-08-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -1063,7 +1056,7 @@
   </url>
   
   <url>
-    <loc>https://suzumiyaakizuki.github.io/tags/%E4%BF%84%E7%BD%97%E6%96%AF/</loc>
+    <loc>https://suzumiyaakizuki.github.io/tags/%E7%9F%A9%E9%98%B5%E7%90%86%E8%AE%BA/</loc>
     <lastmod>2025-08-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1071,6 +1064,13 @@
   
   <url>
     <loc>https://suzumiyaakizuki.github.io/tags/%E8%87%AA%E6%8E%A7/</loc>
+    <lastmod>2025-08-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://suzumiyaakizuki.github.io/tags/%E4%BF%84%E7%BD%97%E6%96%AF/</loc>
     <lastmod>2025-08-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
