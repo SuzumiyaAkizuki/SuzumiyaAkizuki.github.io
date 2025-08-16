@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/guan-yu-ping-mian-dian-ci-bo-de-na-xie-shi.jpg">
 <meta property="article:published_time" content="2022-06-15T05:12:06.000Z">
-<meta property="article:modified_time" content="2025-01-20T16:35:30.061Z">
+<meta property="article:modified_time" content="2025-01-20T16:35:30.000Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="电磁场">
 <meta name="twitter:card" content="summary_large_image">
@@ -673,18 +673,28 @@
 <li>TEM波：电场强度和磁场强度矢量在传播方向上的分量为0的电磁波。均匀平面波一定是TEM波，反之不然。例：均匀球面波也是TEM波。</li>
 </ul>
 <h2 id="自由空间平面电磁波的时域解">自由空间平面电磁波的时域解</h2>
-<p>由麦克斯韦方程组的推导，设源量为0，各量不随<span class="math inline">\(x,y\)</span>变化而变化（即等相位面是<span class="math inline">\(xoy\)</span>平面）。</p>
+<p>由麦克斯韦方程组的推导，设源量为0，各量不随<span
+class="math inline">\(x,y\)</span>变化而变化（即等相位面是<span
+class="math inline">\(xoy\)</span>平面）。</p>
 <p>由于 <span class="math display">\[
 \begin{aligned}
 \nabla\cdot \varepsilon_0E=0\\\\
 \nabla\cdot \mu_0H=0
 \end{aligned}
-\]</span> 因此<span class="math inline">\(E,H\)</span>的<span class="math inline">\(z\)</span>分量和<span class="math inline">\(z\)</span>无关。</p>
+\]</span> 因此<span class="math inline">\(E,H\)</span>的<span
+class="math inline">\(z\)</span>分量和<span
+class="math inline">\(z\)</span>无关。</p>
 <p>由于 <span class="math display">\[
 \nabla \times H=\varepsilon \frac{\partial E} {\partial t}
-\]</span> 考虑<span class="math inline">\(i_z\)</span>分量，有： <span class="math display">\[
-\frac{\partial H_y} {\partial x}-\frac{\partial H_z} {\partial y}=\varepsilon _0\frac{\partial E_z} {\partial t}=0
-\]</span> 则<span class="math inline">\(E\)</span>的<span class="math inline">\(z\)</span>分量和时间无关(同理，<span class="math inline">\(H\)</span>也是)。因此<span class="math inline">\(E_z,H_z\)</span>是和时间，空间都没有关系的常数。在讨论时变场时不考虑常量，因此。 <span class="math display">\[
+\]</span> 考虑<span class="math inline">\(i_z\)</span>分量，有： <span
+class="math display">\[
+\frac{\partial H_y} {\partial x}-\frac{\partial H_z} {\partial
+y}=\varepsilon _0\frac{\partial E_z} {\partial t}=0
+\]</span> 则<span class="math inline">\(E\)</span>的<span
+class="math inline">\(z\)</span>分量和时间无关(同理，<span
+class="math inline">\(H\)</span>也是)。因此<span
+class="math inline">\(E_z,H_z\)</span>是和时间，空间都没有关系的常数。在讨论时变场时不考虑常量，因此。
+<span class="math display">\[
 \begin{aligned}
 E(z,t)=i_xE_x(z,t)+i_yE_y(z,t)\\\\
 H(z,t)=i_xH_x(z,t)+i_yH_y(z,t)\\\\
@@ -696,45 +706,59 @@ H(z,t)=i_xH_x(z,t)+i_yH_y(z,t)\\\\
 \end{aligned}
 \]</span> 有 <span class="math display">\[
 \begin{cases}
-\frac{\partial E_y} {\partial z}=\mu_0\frac{\partial H_x} {\partial t}\\\\[2ex]
-\frac{\partial H_x} {\partial z}=\varepsilon_0\frac{\partial E_y} {\partial t}\\\\
+\frac{\partial E_y} {\partial z}=\mu_0\frac{\partial H_x} {\partial
+t}\\\\[2ex]
+\frac{\partial H_x} {\partial z}=\varepsilon_0\frac{\partial E_y}
+{\partial t}\\\\
 \end{cases}
 \]</span> 和 <span class="math display">\[
 \begin{cases}
-\frac{\partial E_x} {\partial z}=-\mu_0\frac{\partial H_y} {\partial t}\\\\[2ex]
-\frac{\partial H_y} {\partial z}=-\varepsilon_0\frac{\partial E_x} {\partial t}\\\\
+\frac{\partial E_x} {\partial z}=-\mu_0\frac{\partial H_y} {\partial
+t}\\\\[2ex]
+\frac{\partial H_y} {\partial z}=-\varepsilon_0\frac{\partial E_x}
+{\partial t}\\\\
 \end{cases}
 \]</span></p>
 <p>一维波动方程（以第二组为例）： <span class="math display">\[
 \begin{aligned}
-\frac{\partial E_x} {\partial z^2}=\mu_0\varepsilon_0\frac{\partial^2 E_x} {\partial t^2}\\\\
-\frac{\partial^2 H_y} {\partial z^2}=\mu_0\varepsilon_0\frac{\partial^2H_y} {\partial t^2}
+\frac{\partial E_x} {\partial z^2}=\mu_0\varepsilon_0\frac{\partial^2
+E_x} {\partial t^2}\\\\
+\frac{\partial^2 H_y} {\partial
+z^2}=\mu_0\varepsilon_0\frac{\partial^2H_y} {\partial t^2}
 \end{aligned}
 \]</span> 写成统一的形式： <span class="math display">\[
-\frac{\partial^2 u} {\partial z^2}=\frac{1} {v^2}\frac{\partial ^u} {\partial t^2}
-\]</span> 它的解实际上是宗量为<span class="math inline">\((z\pm vt)\)</span>的任意二阶可微分函数，即： <span class="math display">\[
+\frac{\partial^2 u} {\partial z^2}=\frac{1} {v^2}\frac{\partial ^u}
+{\partial t^2}
+\]</span> 它的解实际上是宗量为<span class="math inline">\((z\pm
+vt)\)</span>的任意二阶可微分函数，即： <span class="math display">\[
 u=f(z\pm vt)
-\]</span> 那么结合麦克斯韦方程组，在电磁场中，它的解为： <span class="math display">\[
+\]</span> 那么结合麦克斯韦方程组，在电磁场中，它的解为： <span
+class="math display">\[
 \begin{aligned}
 E_x=f_1(z-vt)+f_2(z+vt)=E_x^+ + E_x^-\\\\
-H_y=\sqrt{\frac{\varepsilon_0} {\mu_0} }[f_1(z-vt)-f_2(z+vt)]=H_y^+ + H_y^-
+H_y=\sqrt{\frac{\varepsilon_0} {\mu_0} }[f_1(z-vt)-f_2(z+vt)]=H_y^+ +
+H_y^-
 \end{aligned}
 \]</span> 同理，对1，有： <span class="math display">\[
 \begin{aligned}
 E_y=E_y^+ + E_y^-\\\\
 H_x=H_x^+ + H_x^-
 \end{aligned}
-\]</span> 那么所有沿着<span class="math inline">\(z\)</span>传播的平面波都可以写成上面四个解的线性组合。对于<span class="math inline">\(E\)</span>，有： <span class="math display">\[
+\]</span> 那么所有沿着<span
+class="math inline">\(z\)</span>传播的平面波都可以写成上面四个解的线性组合。对于<span
+class="math inline">\(E\)</span>，有： <span class="math display">\[
 E=i_x(A_1E_x^+ + B_1E_x^-)+i_y(A_2E_y^+ + B_2E_y^-)
 \]</span> 于是，均匀平面波有这些传播特性：</p>
 <ol type="1">
-<li><p>电场方向和磁场方向总和波的传播方向，也就是波印庭矢量的方向垂直，即： <span class="math display">\[
+<li><p>电场方向和磁场方向总和波的传播方向，也就是波印庭矢量的方向垂直，即：
+<span class="math display">\[
 S=E\times H
 \]</span></p></li>
 <li><p>自由空间中，相速度等于光速，有： <span class="math display">\[
 v=c=(\mu_0\varepsilon_0)^{-1/2}
 \]</span></p></li>
-<li><p>空间中任意一点，电场和磁场的波形和相位都相同，而且他们的数值之比是常数，这个比叫空间波阻抗，有： <span class="math display">\[
+<li><p>空间中任意一点，电场和磁场的波形和相位都相同，而且他们的数值之比是常数，这个比叫空间波阻抗，有：
+<span class="math display">\[
 \eta_0=\frac{|E|} {|H|}=\sqrt{\frac{\mu_0} {\varepsilon_0} }=120\pi
 \]</span></p></li>
 <li><p>空间中任意一点，电场和磁场正交</p></li>
@@ -742,30 +766,48 @@ v=c=(\mu_0\varepsilon_0)^{-1/2}
 </ol>
 <p>## 正弦时变场和复数场定律</p>
 <p>对于一个瞬时正弦时变场： <span class="math display">\[
-A(r,t)=i_xA_x(r)\cos\left[\omega t+\theta_x(r)\right]+i_yA_y(r)\cos\left[\omega t+\theta_y(r)\right]+i_zA_z(r)\cos\left[\omega t+\theta_z(r)\right]
-\]</span> 可以借鉴“相量法”的思想，把它写成复矢量形式： <span class="math display">\[
+A(r,t)=i_xA_x(r)\cos\left[\omega
+t+\theta_x(r)\right]+i_yA_y(r)\cos\left[\omega
+t+\theta_y(r)\right]+i_zA_z(r)\cos\left[\omega t+\theta_z(r)\right]
+\]</span> 可以借鉴“相量法”的思想，把它写成复矢量形式： <span
+class="math display">\[
 A(r,t)=\Re[\tilde{A}(r)e^{j\omega t}]
-\]</span> 其中<span class="math inline">\(\tilde{A}(r)\)</span>就是我们所说的正弦量的复表示。有： <span class="math display">\[
+\]</span> 其中<span
+class="math inline">\(\tilde{A}(r)\)</span>就是我们所说的正弦量的复表示。有：
+<span class="math display">\[
 \tilde{A}(r)=i_xA_x(r)\angle\theta_x(r)+i_yA_y(r)\angle\theta_y(r)+i_zA_z(r)\angle\theta_z(r)
-\]</span> 在麦克斯韦方程组中，把对时间求导的<span class="math inline">\(\frac{\partial } {\partial t}\)</span>换成<span class="math inline">\(j\omega\)</span>，把各量换成复矢量表示，就得到了复数场定律。</p>
-<p><strong>简单媒质</strong>中复数场定律如下： <span class="math display">\[
+\]</span> 在麦克斯韦方程组中，把对时间求导的<span
+class="math inline">\(\frac{\partial } {\partial t}\)</span>换成<span
+class="math inline">\(j\omega\)</span>，把各量换成复矢量表示，就得到了复数场定律。</p>
+<p><strong>简单媒质</strong>中复数场定律如下： <span
+class="math display">\[
 \begin{aligned}
-\nabla \times \tilde{E}(\vec{r})&amp;=-j \omega \mu \widetilde{H}(\vec{r}) \\\\
-\nabla \times \widetilde{H}(\vec{r})&amp;=\tilde{J}_{f}(\vec{r})+j \omega \varepsilon \widetilde{E}(\vec{r}) \\\\
-\nabla \cdot \varepsilon \tilde{E}(\vec{r})&amp;=\dot{\rho}_{f}(\vec{r}) \\\\
+\nabla \times \tilde{E}(\vec{r})&amp;=-j \omega \mu
+\widetilde{H}(\vec{r}) \\\\
+\nabla \times \widetilde{H}(\vec{r})&amp;=\tilde{J}_{f}(\vec{r})+j
+\omega \varepsilon \widetilde{E}(\vec{r}) \\\\
+\nabla \cdot \varepsilon \tilde{E}(\vec{r})&amp;=\dot{\rho}_{f}(\vec{r})
+\\\\
 \nabla \cdot \mu \widetilde{H}(\vec{r})&amp;=0 \\\\
-\nabla \cdot \tilde{J}_{f}(\vec{r})&amp;=-j \omega \dot{\rho}_{f}(\vec{r})
+\nabla \cdot \tilde{J}_{f}(\vec{r})&amp;=-j \omega
+\dot{\rho}_{f}(\vec{r})
 \end{aligned}
 \]</span></p>
 <h2 id="正弦均匀平面波">正弦均匀平面波</h2>
-<p>由复数场定律可导出<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>齐次亥姆霍兹方程： <span class="math display">\[
+<p>由复数场定律可导出<a href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a>齐次亥姆霍兹方程： <span
+class="math display">\[
 \begin{aligned}
 \Delta\tilde{E}(r)+\beta^2\tilde{E}(r)=0\\\\
 \Delta\tilde{H}(r)+\beta^2\tilde{H}(r)=0
 \end{aligned}
 \]</span> 其中 <span class="math display">\[
 \beta=\omega\sqrt{\mu\varepsilon}=\frac{2\pi} {\lambda}
-\]</span> 我们知道沿<span class="math inline">\(z\)</span>传播的均匀平面波有两组独立的解<span class="math inline">\(\dot{E}_x-\dot{H}_y\)</span>和<span class="math inline">\(\dot{E}_y-\dot{H}_x\)</span>，只需讨论第一组，有解： <span class="math display">\[
+\]</span> 我们知道沿<span
+class="math inline">\(z\)</span>传播的均匀平面波有两组独立的解<span
+class="math inline">\(\dot{E}_x-\dot{H}_y\)</span>和<span
+class="math inline">\(\dot{E}_y-\dot{H}_x\)</span>，只需讨论第一组，有解：
+<span class="math display">\[
 \dot{E}_x(z)=\dot{E}_{m_1}e^{j\beta z}+\dot{E}_{m_2}e^{ -j\beta z}
 \]</span> 结合 <span class="math display">\[
 \nabla\times\tilde{E}(r)=-j\omega\tilde{H}(r)
@@ -773,10 +815,17 @@ A(r,t)=\Re[\tilde{A}(r)e^{j\omega t}]
 <p>写出对应的时域表达式，有： <span class="math display">\[
 \begin{aligned}
 E_x(z,t)&amp;=\Re[\dot{E}_x(z)e^{j\omega t}]\\\\
-&amp;=|\dot{E}_{m1}|\cos(\omega t+\beta z+\alpha_1)+|\dot{E}_{m2}|\cos(\omega t-\beta z+\alpha_2)\\\\
+&amp;=|\dot{E}_{m1}|\cos(\omega t+\beta
+z+\alpha_1)+|\dot{E}_{m2}|\cos(\omega t-\beta z+\alpha_2)\\\\
 &amp;=|\dot{E}_{m1}|\cos\left[\beta(z+vt)+\alpha_1\right]+|\dot{E}_{m2}|\cos\left[\beta(z-vt)+\alpha_2\right]
 \end{aligned}
-\]</span> 其中<span class="math inline">\(\alpha\)</span>是<span class="math inline">\(\dot{E}_m\)</span>的幅角。于是，各项的物理意义便很明显了：复振幅<span class="math inline">\(\dot{E}_m\)</span>反映了电场在<span class="math inline">\(z=0\)</span>点的初始振幅和相位，而<span class="math inline">\(e^{\pm j\beta z}\)</span>反映了相位随空间位置的变化和波的传播情况。其中<span class="math inline">\(\beta\)</span>称为空间相位常数。</p>
+\]</span> 其中<span class="math inline">\(\alpha\)</span>是<span
+class="math inline">\(\dot{E}_m\)</span>的幅角。于是，各项的物理意义便很明显了：复振幅<span
+class="math inline">\(\dot{E}_m\)</span>反映了电场在<span
+class="math inline">\(z=0\)</span>点的初始振幅和相位，而<span
+class="math inline">\(e^{\pm j\beta
+z}\)</span>反映了相位随空间位置的变化和波的传播情况。其中<span
+class="math inline">\(\beta\)</span>称为空间相位常数。</p>
 <h3 id="复数场极化方向的判断">复数场极化方向的判断</h3>
 <p>电场的极化方向也就是说电场矢量尖端在和电磁场传播方向垂直的平面上划出的轨迹形状。有圆、椭圆、线极化三种。在判断复数场的极化方向时，有以下的操作步骤。</p>
 <p>对于复数场 <span class="math display">\[
@@ -786,36 +835,57 @@ E_x(z,t)&amp;=\Re[\dot{E}_x(z)e^{j\omega t}]\\\\
 \end{aligned}
 \]</span></p>
 <ol type="1">
-<li><p>线极化：以下三条件<strong>任意</strong>满足一项 <span class="math display">\[
+<li><p>线极化：以下三条件<strong>任意</strong>满足一项 <span
+class="math display">\[
 E_R(z)=0,\ E_I(z)=0, E_R(z)//E_I(z)
 \]</span></p></li>
-<li><p>圆极化：<strong>同时</strong>满足以下条件 <span class="math display">\[
+<li><p>圆极化：<strong>同时</strong>满足以下条件 <span
+class="math display">\[
 E_R(z)\cdot E_I(z)=0 ,\ |E_R(z)|=|E_I(z)|
 \]</span></p></li>
 <li><p>椭圆极化：其余情况。</p></li>
 </ol>
-<p>判断左旋还是右旋的方法是：在右手系（即右手从<span class="math inline">\(x\)</span>轴握向<span class="math inline">\(y\)</span>轴，大拇指指向<span class="math inline">\(z+\)</span>方向）中，画出电磁场传播方向（也就是波因亭矢量的方向）、<span class="math inline">\(E_R\)</span>、<span class="math inline">\(E_I\)</span>，然后用右手从<span class="math inline">\(E_I\)</span>向<span class="math inline">\(E_R\)</span>握，如果大拇指指向<span class="math inline">\(S\)</span>，那么就是右旋，否则是左旋。</p>
+<p>判断左旋还是右旋的方法是：在右手系（即右手从<span
+class="math inline">\(x\)</span>轴握向<span
+class="math inline">\(y\)</span>轴，大拇指指向<span
+class="math inline">\(z+\)</span>方向）中，画出电磁场传播方向（也就是波因亭矢量的方向）、<span
+class="math inline">\(E_R\)</span>、<span
+class="math inline">\(E_I\)</span>，然后用右手从<span
+class="math inline">\(E_I\)</span>向<span
+class="math inline">\(E_R\)</span>握，如果大拇指指向<span
+class="math inline">\(S\)</span>，那么就是右旋，否则是左旋。</p>
 <h3 id="空间任意方向电磁场的表达">空间任意方向电磁场的表达</h3>
-<p>前面我们讨论的都是沿着<span class="math inline">\(z\)</span>轴的电磁场。如果指向<span class="math inline">\(i_xa+i_yb+i_zc\)</span>的电磁场，我们就要改变<span class="math inline">\(e\)</span>的指数。有： <span class="math display">\[
+<p>前面我们讨论的都是沿着<span
+class="math inline">\(z\)</span>轴的电磁场。如果指向<span
+class="math inline">\(i_xa+i_yb+i_zc\)</span>的电磁场，我们就要改变<span
+class="math inline">\(e\)</span>的指数。有： <span
+class="math display">\[
 \tilde{E}(r)=\dot{E}_me^{-j(ax+by+cz)}
-\]</span> 这时，<span class="math inline">\(\beta=\sqrt{a^2+b^2+c^2}\)</span>.</p>
+\]</span> 这时，<span
+class="math inline">\(\beta=\sqrt{a^2+b^2+c^2}\)</span>.</p>
 <p>通过例题来感受一下。</p>
 <blockquote>
 <p>【例】已知均匀平面波的电场为 <span class="math display">\[
 E(\boldsymbol{r},t)=10(i_x+2i_y+E_zi_z)\cos(\omega t+3x-y-z)
-\]</span> 求：传播方向（用单位矢量表示），波长，角频率，极化状态，磁场（用复矢量表示）</p>
+\]</span>
+求：传播方向（用单位矢量表示），波长，角频率，极化状态，磁场（用复矢量表示）</p>
 <p>【解】 <span class="math display">\[
 \begin{aligned}
-\tilde{E}(\boldsymbol{r})&amp;=\dot{E}_0e^{-j\boldsymbol{\beta \cdot r} }\\\\
+\tilde{E}(\boldsymbol{r})&amp;=\dot{E}_0e^{-j\boldsymbol{\beta \cdot r}
+}\\\\
 &amp;=10(i_x+2i_y+E_zi_z)e^{-j(-3x+y+z)}\\\\
 \end{aligned}
 \]</span> 波的传播方向： <span class="math display">\[
-\boldsymbol{i}_\beta=\frac{\boldsymbol{\beta} } {|\boldsymbol{\beta}|}=\frac{-3i_x+i_y+i_z} {\sqrt{3^2+1+1} }=\left(\frac{-3} {\sqrt{11} },\frac 1{\sqrt{11} },\frac 1{\sqrt{11} }\right)
+\boldsymbol{i}_\beta=\frac{\boldsymbol{\beta} }
+{|\boldsymbol{\beta}|}=\frac{-3i_x+i_y+i_z} {\sqrt{3^2+1+1}
+}=\left(\frac{-3} {\sqrt{11} },\frac 1{\sqrt{11} },\frac 1{\sqrt{11}
+}\right)
 \]</span> 波长： <span class="math display">\[
 \lambda=\frac{2\pi} {\beta}=\frac{2\pi} {\sqrt{11} }=1.89\text{(m)}
 \]</span> 角频率： <span class="math display">\[
 \omega=\beta c=3\sqrt{11}\times 10^8 \text{(rad/s)}
-\]</span> 由于电场方向和电磁场传播方向应该正交，即： <span class="math display">\[
+\]</span> 由于电场方向和电磁场传播方向应该正交，即： <span
+class="math display">\[
 \boldsymbol{\beta}\cdot \dot{E}_0=0
 \]</span> 则解得<span class="math inline">\(E_z=1\)</span></p>
 <p>由于满足 <span class="math display">\[
@@ -829,108 +899,171 @@ H=\frac 1{\eta_0}i_\beta\times\tilde{E}(r,t)
 <h3 id="复矢量乘积的意义">复矢量乘积的意义</h3>
 <p>容易证明：两个复矢量的共轭叉（点）积的实部的一半等于相应的正弦时变量叉（点）积的时间平均值。</p>
 <p>即： <span class="math display">\[
-\langle\vec{A}(t) \times \vec{B}(t)\rangle=\frac{1} {2} \operatorname{Re}\left(\tilde{A} \times \tilde{B}^{*}\right)
+\langle\vec{A}(t) \times \vec{B}(t)\rangle=\frac{1} {2}
+\operatorname{Re}\left(\tilde{A} \times \tilde{B}^{*}\right)
 \]</span></p>
 <p><span class="math display">\[
-\langle\vec{A}(t) \cdot \vec{B}(t)\rangle=\frac{1} {2} \operatorname{Re}\left(\tilde{A} \cdot \tilde{B}^{*}\right)
+\langle\vec{A}(t) \cdot \vec{B}(t)\rangle=\frac{1} {2}
+\operatorname{Re}\left(\tilde{A} \cdot \tilde{B}^{*}\right)
 \]</span></p>
 <p>证明提示：</p>
 <p>用公式 <span class="math display">\[
-\vec{A}(t)=\frac{1} {2}\left[\tilde{A} e^{j \omega t}+\tilde{A}^{*} e^{-j \omega t}\right]
+\vec{A}(t)=\frac{1} {2}\left[\tilde{A} e^{j \omega t}+\tilde{A}^{*}
+e^{-j \omega t}\right]
 \]</span> 把时变量运算式中的时变量和复矢量关联起来。</p>
 <h3 id="复数坡印廷矢量">复数坡印廷矢量</h3>
 <p>在前面，我们学过时域坡印廷矢量： <span class="math display">\[
 \boldsymbol{S}(\boldsymbol{r},t)=\boldsymbol{E}(\boldsymbol{r},t)\times\boldsymbol{H}(\boldsymbol{r},t)
-\]</span> 将电场，磁场的时域表达式用复数形式来表示，即： <span class="math display">\[
+\]</span> 将电场，磁场的时域表达式用复数形式来表示，即： <span
+class="math display">\[
 \begin{aligned}
-\boldsymbol{E}(\boldsymbol{r},t)=\frac 12[\tilde{E}(r)e^{j\omega t}+\tilde{E}^*(r)e^{-j\omega t}]\\\\
-\boldsymbol{H}(\boldsymbol{r},t)=\frac 12[\tilde{H}(r)e^{j\omega t}+\tilde{H}^*(r)e^{-j\omega t}]
+\boldsymbol{E}(\boldsymbol{r},t)=\frac 12[\tilde{E}(r)e^{j\omega
+t}+\tilde{E}^*(r)e^{-j\omega t}]\\\\
+\boldsymbol{H}(\boldsymbol{r},t)=\frac 12[\tilde{H}(r)e^{j\omega
+t}+\tilde{H}^*(r)e^{-j\omega t}]
 \end{aligned}
 \]</span> 代入： <span class="math display">\[
-\boldsymbol{S}(\boldsymbol{r},t)=\frac 12\Re[\tilde{E}(r)\times \tilde{H}^*(r)]+\frac 12\Re[\tilde{E}(r)\times \tilde{H}^*(r)2^{j2\omega t}]
+\boldsymbol{S}(\boldsymbol{r},t)=\frac 12\Re[\tilde{E}(r)\times
+\tilde{H}^*(r)]+\frac 12\Re[\tilde{E}(r)\times \tilde{H}^*(r)2^{j2\omega
+t}]
 \]</span> 定义复数坡印廷矢量： <span class="math display">\[
 \tilde{S}(r)=\frac 12 \tilde{E}(r)\times\tilde{H}^*(r)
 \]</span> 则有： <span class="math display">\[
-\frac 12\Re[\tilde{E}(r)\times \tilde{H}^*(r)]=\langle S(r,t)\rangle=\Re[\tilde{S}(r)]
-\]</span> 于是，我们可以说：复数坡印廷矢量的实部表示有功功率流密度，虚部可以解释为无功功率流密度。（这里可以类比电路分析中的复功率<span class="math inline">\(\dot{P}=\dot{V}_m\dot{I}_m/2=P+jQ\)</span>）</p>
+\frac 12\Re[\tilde{E}(r)\times \tilde{H}^*(r)]=\langle
+S(r,t)\rangle=\Re[\tilde{S}(r)]
+\]</span>
+于是，我们可以说：复数坡印廷矢量的实部表示有功功率流密度，虚部可以解释为无功功率流密度。（这里可以类比电路分析中的复功率<span
+class="math inline">\(\dot{P}=\dot{V}_m\dot{I}_m/2=P+jQ\)</span>）</p>
 <h3 id="复数坡印廷定理">复数坡印廷定理</h3>
 <p>复数坡印廷定理的微分形式表达式如下： <span class="math display">\[
--\nabla \cdot \tilde{S}(\vec{r})-\frac{1} {2}\left[\tilde{E}(\vec{r}) \cdot \tilde{J}_{S}^{*}(\vec{r})\right]=\frac{1} {2}\left[\tilde{E}(\vec{r}) \cdot \tilde{J}_{d}^{*}(\vec{r})\right]+j 2 \omega\left[\frac{\mu} {4}|\widetilde{H}(\vec{r})|^{2}-\frac{\varepsilon} {4}|\tilde{E}(\vec{r})|^{2}\right]
+-\nabla \cdot \tilde{S}(\vec{r})-\frac{1} {2}\left[\tilde{E}(\vec{r})
+\cdot \tilde{J}_{S}^{*}(\vec{r})\right]=\frac{1}
+{2}\left[\tilde{E}(\vec{r}) \cdot \tilde{J}_{d}^{*}(\vec{r})\right]+j 2
+\omega\left[\frac{\mu}
+{4}|\widetilde{H}(\vec{r})|^{2}-\frac{\varepsilon}
+{4}|\tilde{E}(\vec{r})|^{2}\right]
 \]</span> 为了理解其中各项物理意义，解释如下：</p>
 <ul>
 <li><p>等号左边第二项 <span class="math display">\[
-\Re\left[-\frac 12\tilde{E}(\vec{r}) \cdot \tilde{J}_{S}^{*}(\vec{r})\right]=\langle J_s(r,t)\times E(r,t)\rangle=\langle p_s(r,t)\rangle
+\Re\left[-\frac 12\tilde{E}(\vec{r}) \cdot
+\tilde{J}_{S}^{*}(\vec{r})\right]=\langle J_s(r,t)\times
+E(r,t)\rangle=\langle p_s(r,t)\rangle
 \]</span> 这一项表示电源提供的有功功率</p></li>
 <li><p>等号右边第一项 <span class="math display">\[
-\Re\left[\frac 12\tilde{E}(\vec{r}) \cdot \tilde{J}_{d}^{*}(\vec{r})\right]=\langle p_d(r,t)\rangle
-\]</span> 这一项表示电阻消耗的功率（即焦耳热功率）。注意：因为 <span class="math display">\[
-\frac 12\tilde{E}(\vec{r}) \cdot \tilde{J}_{d}^{*}(\vec{r})=\frac 12\sigma |\tilde{E}(r)|^2
+\Re\left[\frac 12\tilde{E}(\vec{r}) \cdot
+\tilde{J}_{d}^{*}(\vec{r})\right]=\langle p_d(r,t)\rangle
+\]</span> 这一项表示电阻消耗的功率（即焦耳热功率）。注意：因为 <span
+class="math display">\[
+\frac 12\tilde{E}(\vec{r}) \cdot \tilde{J}_{d}^{*}(\vec{r})=\frac
+12\sigma |\tilde{E}(r)|^2
 \]</span> 所以这一项实际上是纯实数。</p></li>
 <li><p>等号右边第二项 <span class="math display">\[
-\frac{\mu} {4}|\widetilde{H}(\vec{r})|^{2}=\langle\frac 12 \mu H(r,t)\cdot H(r,t)\rangle=\langle w_m(r,t)\rangle
-\]</span> 这一项可以理解为电感能量，也是纯实数（乘以前面的系数就是纯虚数了）</p></li>
+\frac{\mu} {4}|\widetilde{H}(\vec{r})|^{2}=\langle\frac 12 \mu
+H(r,t)\cdot H(r,t)\rangle=\langle w_m(r,t)\rangle
+\]</span>
+这一项可以理解为电感能量，也是纯实数（乘以前面的系数就是纯虚数了）</p></li>
 <li><p>等号右边第三项 <span class="math display">\[
-\frac{\varepsilon} {4}|\tilde{E}(\vec{r})|^{2}=\langle\frac 12 \varepsilon E(r,t)\cdot E(r,t)\rangle=\langle w_e(r,t)\rangle
+\frac{\varepsilon} {4}|\tilde{E}(\vec{r})|^{2}=\langle\frac 12
+\varepsilon E(r,t)\cdot E(r,t)\rangle=\langle w_e(r,t)\rangle
 \]</span> 这一项可以理解为电容的能量。</p></li>
 </ul>
 <p>我们把上面那个式子的实部和虚部拆开，有：</p>
 <ul>
 <li><p>实部： <span class="math display">\[
-\langle-\nabla \cdot \vec{S}(\vec{r}, t)\rangle+\left\langle p_{s}(\vec{r}, t)\right\rangle=\left\langle p_{d}(\vec{r}, t)\right\rangle
-\]</span> 电磁场向某点提供的电磁功率密度的时间平均值（有功电磁功率密度）与电源向该点提供的电磁功率密度的时间平均值（有功电磁功率密度）之和，等于该点焦耳热损耗功率密度的时间平均值。</p></li>
+\langle-\nabla \cdot \vec{S}(\vec{r}, t)\rangle+\left\langle
+p_{s}(\vec{r}, t)\right\rangle=\left\langle p_{d}(\vec{r},
+t)\right\rangle
+\]</span>
+电磁场向某点提供的电磁功率密度的时间平均值（有功电磁功率密度）与电源向该点提供的电磁功率密度的时间平均值（有功电磁功率密度）之和，等于该点焦耳热损耗功率密度的时间平均值。</p></li>
 <li><p>虚部 <span class="math display">\[
--\operatorname{Im}[\nabla \cdot \tilde{S}(\vec{r})]+q_{S}(\vec{r})=2 \omega\left[\left\langle w_{m}(\vec{r}, t)\right\rangle-\left\langle w_{e}(\vec{r}, t)\right\rangle\right]
-\]</span> 电磁场和电源向某点提供的无功电磁功率密度等于该点的磁能功率密度时间平均值和电能功率密度时间平均值之差的<span class="math inline">\(2𝜔\)</span>倍</p></li>
+-\operatorname{Im}[\nabla \cdot \tilde{S}(\vec{r})]+q_{S}(\vec{r})=2
+\omega\left[\left\langle w_{m}(\vec{r}, t)\right\rangle-\left\langle
+w_{e}(\vec{r}, t)\right\rangle\right]
+\]</span>
+电磁场和电源向某点提供的无功电磁功率密度等于该点的磁能功率密度时间平均值和电能功率密度时间平均值之差的<span
+class="math inline">\(2𝜔\)</span>倍</p></li>
 </ul>
 <h2 id="平面波在有耗媒质中的传播">平面波在有耗媒质中的传播</h2>
-<p>有耗媒质的根本特征是其电导率<span class="math inline">\(\sigma\)</span>不为零，进而，其中的传导电流<span class="math inline">\(J_d\)</span>不为零。因此，电磁波在其中传播时会产生损耗。特别的，如果电导率很高，以至于成为导体（例如金属），那么电磁波在其中几乎不能传播，只能在表面传播，这叫做“趋肤效应”。电磁波不能在理想导体中传播。</p>
+<p>有耗媒质的根本特征是其电导率<span
+class="math inline">\(\sigma\)</span>不为零，进而，其中的传导电流<span
+class="math inline">\(J_d\)</span>不为零。因此，电磁波在其中传播时会产生损耗。特别的，如果电导率很高，以至于成为导体（例如金属），那么电磁波在其中几乎不能传播，只能在表面传播，这叫做“趋肤效应”。电磁波不能在理想导体中传播。</p>
 <p>考虑复数形式的修正安培环路定律： <span class="math display">\[
 \nabla \times \tilde{H}(r)=\tilde{J}+j\omega \varepsilon\tilde{E}(r)
 \]</span> 将 <span class="math display">\[
 \tilde{J}=\sigma\tilde{E}(r)
 \]</span> 代入，有： <span class="math display">\[
-\nabla \times \tilde{H}(r)=\sigma\tilde{E}(r)+j\omega \varepsilon\tilde{E}(r)=j\omega\left(\frac{\sigma} {j\omega}+\varepsilon\right)\tilde{E}(r)
+\nabla \times \tilde{H}(r)=\sigma\tilde{E}(r)+j\omega
+\varepsilon\tilde{E}(r)=j\omega\left(\frac{\sigma}
+{j\omega}+\varepsilon\right)\tilde{E}(r)
 \]</span> 定义复介电常数： <span class="math display">\[
 \dot{\varepsilon}=\left(\frac{\sigma} {j\omega}+\varepsilon\right)
-\]</span> 用复介电常数替换复麦克斯韦方程组中<strong>所有</strong>的介电常数，就能得到有耗媒质中的场定律。</p>
-<p>需要注意的是，这时候波阻抗也变成了复数，即： <span class="math display">\[
+\]</span>
+用复介电常数替换复麦克斯韦方程组中<strong>所有</strong>的介电常数，就能得到有耗媒质中的场定律。</p>
+<p>需要注意的是，这时候波阻抗也变成了复数，即： <span
+class="math display">\[
 \dot{\eta}=\frac{\mu} {\dot{\varepsilon} }
-\]</span> 仿照前面的过程<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>，导出复亥姆霍兹方程。仿照传播常数(波数)<span class="math inline">\(\beta\)</span>，定义复传播常数 <span class="math display">\[
+\]</span> 仿照前面的过程<a href="#fn2" class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a>，导出复亥姆霍兹方程。仿照传播常数(波数)<span
+class="math inline">\(\beta\)</span>，定义复传播常数 <span
+class="math display">\[
 \dot{k}=\omega\sqrt{\dot{\varepsilon}\mu}=\beta-j\alpha
-\]</span> 那么，在有耗媒质中传播的电磁波的电场和磁场的复表示如下： <span class="math display">\[
+\]</span> 那么，在有耗媒质中传播的电磁波的电场和磁场的复表示如下： <span
+class="math display">\[
 \begin{aligned}
-&amp;\widetilde{E}(r)=\hat{\imath}_{x} \dot{E}_{x 0} e^{-\alpha z} e^{-j \beta z}=\hat{\imath}_{x}\left|\dot{E}_{x 0}\right| e^{j \varphi_{x 0} } e^{-\alpha z} e^{-j \beta z} \\\\
-&amp;\widetilde{H}(r)=\hat{\imath}_{y} \frac{\dot{E}_{x 0} } {\dot{\eta} } e^{-\alpha z} \cdot e^{-j \beta z}=\hat{\imath}_{y}\left|\frac{\dot{E}_{x 0} } {\dot{\eta} }\right| e^{j\left(\varphi_{x 0}-\varphi_{\eta}\right)} e^{-\alpha z} e^{-j \beta z}
+&amp;\widetilde{E}(r)=\hat{\imath}_{x} \dot{E}_{x 0} e^{-\alpha z} e^{-j
+\beta z}=\hat{\imath}_{x}\left|\dot{E}_{x 0}\right| e^{j \varphi_{x 0} }
+e^{-\alpha z} e^{-j \beta z} \\\\
+&amp;\widetilde{H}(r)=\hat{\imath}_{y} \frac{\dot{E}_{x 0} } {\dot{\eta}
+} e^{-\alpha z} \cdot e^{-j \beta
+z}=\hat{\imath}_{y}\left|\frac{\dot{E}_{x 0} } {\dot{\eta} }\right|
+e^{j\left(\varphi_{x 0}-\varphi_{\eta}\right)} e^{-\alpha z} e^{-j \beta
+z}
 \end{aligned}
-\]</span> 这里之所以要特意把<span class="math inline">\(\dot{E}_{x0}\)</span>以及<span class="math inline">\(\dot{E}_{x0}/\dot{\eta}\)</span>拆开成模长-幅角模式来写，是为了体现平面波在有耗媒质中的传播特点。</p>
-<p>在有耗无源简单媒质中传播的均匀平面波是一个沿传播方向衰减的均匀平面波，衰减因子用<span class="math inline">\(\alpha\)</span>表示。电磁波频率越高，衰减因子越大，最终会趋向于 <span class="math display">\[
+\]</span> 这里之所以要特意把<span
+class="math inline">\(\dot{E}_{x0}\)</span>以及<span
+class="math inline">\(\dot{E}_{x0}/\dot{\eta}\)</span>拆开成模长-幅角模式来写，是为了体现平面波在有耗媒质中的传播特点。</p>
+<p>在有耗无源简单媒质中传播的均匀平面波是一个沿传播方向衰减的均匀平面波，衰减因子用<span
+class="math inline">\(\alpha\)</span>表示。电磁波频率越高，衰减因子越大，最终会趋向于
+<span class="math display">\[
 \max \alpha=\frac {\sigma} {2}\sqrt{\frac{\mu} {\varepsilon} }
-\]</span> <strong>且磁场与电场不再同相</strong>。这是因为波阻抗不再是实数。</p>
+\]</span>
+<strong>且磁场与电场不再同相</strong>。这是因为波阻抗不再是实数。</p>
 <h3 id="导体的趋肤效应">导体的趋肤效应</h3>
-<p>导体的电导率<span class="math inline">\(\sigma\)</span>越大，衰减因子也就越大。透入深度表示幅度衰减为<span class="math inline">\(e^{-1}\)</span>的深度，对良导体，其值为： <span class="math display">\[
+<p>导体的电导率<span
+class="math inline">\(\sigma\)</span>越大，衰减因子也就越大。透入深度表示幅度衰减为<span
+class="math inline">\(e^{-1}\)</span>的深度，对良导体，其值为： <span
+class="math display">\[
 \delta=\sqrt{\frac 2{\omega\sigma\mu} }
 \]</span></p>
 <h2 id="平面波的反射和折射">平面波的反射和折射</h2>
 <h3 id="相关概念">相关概念</h3>
 <ul>
-<li><p>入射线：入射波波矢量<span class="math inline">\(\boldsymbol{\beta}_i\)</span>所在的直线</p></li>
+<li><p>入射线：入射波波矢量<span
+class="math inline">\(\boldsymbol{\beta}_i\)</span>所在的直线</p></li>
 <li><p>入射面：同时包含入射线和界面法线的平面</p></li>
 <li><p>入射角：入射线和法线的夹角</p></li>
-<li><p>反射线：反射波波矢量<span class="math inline">\(\boldsymbol{\beta}_r\)</span>所在的直线</p></li>
+<li><p>反射线：反射波波矢量<span
+class="math inline">\(\boldsymbol{\beta}_r\)</span>所在的直线</p></li>
 <li><p>反射面：同时包含反射线和界面法线的平面</p></li>
 <li><p>反射角：反射线和法线的夹角</p></li>
-<li><p>折射线：折射波波矢量<span class="math inline">\(\boldsymbol{\beta}_\tau\)</span>所在的直线</p></li>
+<li><p>折射线：折射波波矢量<span
+class="math inline">\(\boldsymbol{\beta}_\tau\)</span>所在的直线</p></li>
 <li><p>折射角：折射线和界面法线的夹角</p></li>
 <li><p>垂直极化：线极化波的电场和入射面垂直</p></li>
-<li><p>平行极化<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>：线极化波的电场和入射面平行</p></li>
+<li><p>平行极化<a href="#fn3" class="footnote-ref" id="fnref3"
+role="doc-noteref"><sup>3</sup></a>：线极化波的电场和入射面平行</p></li>
 <li><p>媒质的折射指数（折射率）： <span class="math display">\[
 n=\sqrt{\mu_r\varepsilon_r}
-\]</span> 其中<span class="math inline">\(\mu_r,\varepsilon_r\)</span>是相对磁导率和相对介电常数<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>。</p></li>
+\]</span> 其中<span
+class="math inline">\(\mu_r,\varepsilon_r\)</span>是相对磁导率和相对介电常数<a
+href="#fn4" class="footnote-ref" id="fnref4"
+role="doc-noteref"><sup>4</sup></a>。</p></li>
 <li><p>媒质的波数： <span class="math display">\[
 \beta=\omega\sqrt{\mu_1\varepsilon_1}=\beta_0n_1
 \]</span></p></li>
 <li><p>媒质的波阻抗： <span class="math display">\[
-\eta_1=\sqrt{\frac{\mu_1} {\varepsilon_1} }=\eta_0\sqrt{\frac{\mu_{r1} } {\varepsilon_{r1} }}
+\eta_1=\sqrt{\frac{\mu_1} {\varepsilon_1} }=\eta_0\sqrt{\frac{\mu_{r1} }
+{\varepsilon_{r1} }}
 \]</span></p></li>
 <li><p>Snell定律</p>
 <ul>
@@ -938,12 +1071,16 @@ n=\sqrt{\mu_r\varepsilon_r}
 <li>反射角等于入射角</li>
 <li>折射角和入射角的正弦之比等于折射率之比，也等于波数之比和波的传播速度之比。</li>
 </ul></li>
-<li><p>光密（疏）介质：一个媒质的折射指数（折射率）越大，光（电磁波）在其中传播的速度越慢，波数<span class="math inline">\(\beta\)</span>越大，它就越可以被称为光密介质。真空是最疏的介质。</p></li>
+<li><p>光密（疏）介质：一个媒质的折射指数（折射率）越大，光（电磁波）在其中传播的速度越慢，波数<span
+class="math inline">\(\beta\)</span>越大，它就越可以被称为光密介质。真空是最疏的介质。</p></li>
 </ul>
 <h3 id="自由空间和理想导体界面的反射">自由空间和理想导体界面的反射</h3>
 <h4 id="正入射">正入射</h4>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/5711CB1D86975C4E56B6223EE37219FC.png" srcset="/img/loading.gif" lazyload alt="img" /><figcaption aria-hidden="true">img</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/5711CB1D86975C4E56B6223EE37219FC.png" srcset="/img/loading.gif" lazyload
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
 </figure>
 <p>如图所示，入射波为 <span class="math display">\[
 \begin{aligned}
@@ -955,7 +1092,9 @@ n=\sqrt{\mu_r\varepsilon_r}
 \tilde{E}_r(r)=i_x\dot{E}_{r0}e^{j\beta_0z}\\\\
 \tilde{H}_r(r)=i_y\frac{\dot{E}_{r0} } {\eta_0}e^{j\beta_0z}
 \end{aligned}
-\]</span> 下面求<span class="math inline">\(\dot{E}_{r0}\)</span>。由边界条件： <span class="math display">\[
+\]</span> 下面求<span
+class="math inline">\(\dot{E}_{r0}\)</span>。由边界条件： <span
+class="math display">\[
 i_n\times(\tilde{E}_1-\tilde{E}_2)=0
 \]</span> 其中： <span class="math display">\[
 \begin{aligned}
@@ -970,35 +1109,48 @@ i_n&amp;=-i_z
 \tilde{E}_r(r)=-i_x\dot{E}_{i0}e^{j\beta_0z}\\\\
 \tilde{H}_r(r)=-i_y\frac{\dot{E}_{i0} } {\eta_0}e^{j\beta_0z}
 \end{aligned}
-\]</span> 合成波表达式为<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>： <span class="math display">\[
+\]</span> 合成波表达式为<a href="#fn5" class="footnote-ref" id="fnref5"
+role="doc-noteref"><sup>5</sup></a>： <span class="math display">\[
 \begin{aligned}
 \tilde{E}(r)=-2j\cdot i_x \dot{E}_{i0}\sin \beta_0z\\\\
 \tilde{H}(r)=2\cdot i_y\frac{\dot{E}_{i0} } {\eta_0}\cos \beta_0z
 \end{aligned}
-\]</span> 为了研究合成波的性质，我们把它转换到时域： <span class="math display">\[
+\]</span> 为了研究合成波的性质，我们把它转换到时域： <span
+class="math display">\[
 \begin{aligned}
 E(r,t)=i_x\cdot2|\dot{E}_{i0}|(\sin\beta_0z)\sin(\omega t+\varphi)\\\\
-H(r,t)=i_y\cdot\frac{2} {\eta_0}|\dot{E}_{i0}|(\cos\beta_0z)\cos(\omega t+\varphi)
+H(r,t)=i_y\cdot\frac{2} {\eta_0}|\dot{E}_{i0}|(\cos\beta_0z)\cos(\omega
+t+\varphi)
 \end{aligned}
-\]</span> 我们可以看到，这表达了一列驻波。在驻波中电场和磁场有所谓“三个90度”关系，即：</p>
+\]</span>
+我们可以看到，这表达了一列驻波。在驻波中电场和磁场有所谓“三个90度”关系，即：</p>
 <ul>
-<li>电场和磁场在空间分布上的相位差为90度。这说明：电场最强的 <strong>地方</strong> 磁场最弱。</li>
-<li>电场和磁场在时间分布上的相位差为90度。这说明：电场最强的 <strong>时刻</strong> 磁场最弱。</li>
+<li>电场和磁场在空间分布上的相位差为90度。这说明：电场最强的
+<strong>地方</strong> 磁场最弱。</li>
+<li>电场和磁场在时间分布上的相位差为90度。这说明：电场最强的
+<strong>时刻</strong> 磁场最弱。</li>
 <li>电场和磁场在空间方向上相差90度。</li>
 </ul>
 <p>在驻波中，没有能量指向性的传播，只有能量形式的转换。</p>
 <h4 id="斜入射">斜入射</h4>
 <p>首先以垂直极化为例分析问题：</p>
-<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/QQ%E5%9B%BE%E7%89%8720220617223348.png" srcset="/img/loading.gif" lazyload /></p>
-<p><strong>特别注意：不要看着这张图上面画了线，就以为电磁波“只在那条线上存在”，我们这里讨论的是平面波，入射波、反射波都在<span class="math inline">\(z&lt;0\)</span>整个空间上存在，所以可以直接合成，不需要也不应该考虑位置。</strong></p>
+<p><img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/QQ%E5%9B%BE%E7%89%8720220617223348.png" srcset="/img/loading.gif" lazyload /></p>
+<p><strong>特别注意：不要看着这张图上面画了线，就以为电磁波“只在那条线上存在”，我们这里讨论的是平面波，入射波、反射波都在<span
+class="math inline">\(z&lt;0\)</span>整个空间上存在，所以可以直接合成，不需要也不应该考虑位置。</strong></p>
 <p>入射方向： <span class="math display">\[
-\vec{\beta}_{i}=\beta_{0}\left(i_{x} \sin \theta_{i}+i_{z} \cos \theta_{i}\right)
+\vec{\beta}_{i}=\beta_{0}\left(i_{x} \sin \theta_{i}+i_{z} \cos
+\theta_{i}\right)
 \]</span> 反射方向： <span class="math display">\[
-\vec{\beta}_{r}=\beta_{0}\left(i_{x} \sin \theta_{r}-i_{z} \cos \theta_{r}\right)
+\vec{\beta}_{r}=\beta_{0}\left(i_{x} \sin \theta_{r}-i_{z} \cos
+\theta_{r}\right)
 \]</span> 那么，分别有入射场和反射场： <span class="math display">\[
 \begin{aligned}
-\tilde{E}_{i} &amp;=i_{y} \dot{E}_{i 0} e^{-j \vec{\beta}_{i} \cdot \vec{r} }=i_{y} \dot{E}_{i 0} e^{-j \beta_{0}\left(x \sin \theta_{i}+z \cos \theta_{i}\right)} \\\\
-\tilde{E}_{r} &amp;=i_{y} \dot{E}_{r 0} e^{-j \beta_{0}\left(x \sin \theta_{r}-z \cos \theta_{r}\right)}
+\tilde{E}_{i} &amp;=i_{y} \dot{E}_{i 0} e^{-j \vec{\beta}_{i} \cdot
+\vec{r} }=i_{y} \dot{E}_{i 0} e^{-j \beta_{0}\left(x \sin \theta_{i}+z
+\cos \theta_{i}\right)} \\\\
+\tilde{E}_{r} &amp;=i_{y} \dot{E}_{r 0} e^{-j \beta_{0}\left(x \sin
+\theta_{r}-z \cos \theta_{r}\right)}
 \end{aligned}
 \]</span> 由边界条件计算，得： <span class="math display">\[
 \dot{E}_{r0}=-\dot{E}_{i0}
@@ -1006,31 +1158,53 @@ H(r,t)=i_y\cdot\frac{2} {\eta_0}|\dot{E}_{i0}|(\cos\beta_0z)\cos(\omega t+\varph
 $$
 <span class="math display">\[\begin{aligned}
 
-\tilde{E}&amp;=\tilde{E}_{i}+\tilde{E}_{r}=i_{y}\left[\dot{E}_{i 0} e^{-j \beta_{0}(x \sin \theta+z \cos \theta)}-\dot{E}_{i 0} e^{-j \beta_{0}(x \sin \theta-z \cos \theta)}\right]\\\\
-&amp;=i_{y} \dot{E}_{i 0}\left(e^{-j \beta_{0} z \cos \theta}-e^{j \beta_{0} z \cos \theta}\right) e^{-j \beta_{0} x \sin \theta}\\\\
-&amp;=-i_{y} \dot{E}_{i 0} j 2 \sin \left(\beta_{0} z \cos \theta\right) e^{-j \beta_{0} x \sin \theta} 
+\tilde{E}&amp;=\tilde{E}_{i}+\tilde{E}_{r}=i_{y}\left[\dot{E}_{i 0}
+e^{-j \beta_{0}(x \sin \theta+z \cos \theta)}-\dot{E}_{i 0} e^{-j
+\beta_{0}(x \sin \theta-z \cos \theta)}\right]\\\\
+&amp;=i_{y} \dot{E}_{i 0}\left(e^{-j \beta_{0} z \cos \theta}-e^{j
+\beta_{0} z \cos \theta}\right) e^{-j \beta_{0} x \sin \theta}\\\\
+&amp;=-i_{y} \dot{E}_{i 0} j 2 \sin \left(\beta_{0} z \cos \theta\right)
+e^{-j \beta_{0} x \sin \theta}
 
 \end{aligned}\]</span>
 <p>$$</p>
-<p>记 <span class="math inline">\(\beta_0\cos \theta=\beta_z,\beta_0\sin\theta=\beta_x\)</span> ，有：</p>
+<p>记 <span class="math inline">\(\beta_0\cos
+\theta=\beta_z,\beta_0\sin\theta=\beta_x\)</span> ，有：</p>
 <p><span class="math display">\[
-\tilde{E}=-i_{y} 2 j \dot{E}_{i 0} \sin \beta_{z} z \cdot e^{-j \beta_{x} x}
+\tilde{E}=-i_{y} 2 j \dot{E}_{i 0} \sin \beta_{z} z \cdot e^{-j
+\beta_{x} x}
 \]</span></p>
 <p>再由麦克斯韦方程组可求得磁场。</p>
-<p>观察<span class="math inline">\(\tilde{E}\)</span>的表达式，我们发现有以下特点：</p>
+<p>观察<span
+class="math inline">\(\tilde{E}\)</span>的表达式，我们发现有以下特点：</p>
 <ol type="1">
-<li>在<span class="math inline">\(x\)</span>是常数的平面上，<span class="math inline">\(e^{-j\beta_xx}\)</span>是常数，所以<span class="math inline">\(x=C\)</span>是波的等相面。在<span class="math inline">\(x=C\)</span>的平面上，场量按三角函数形式分布，波显示出驻波性质。</li>
-<li>在<span class="math inline">\(z\)</span>是常数的平面上，<span class="math inline">\(\sin \beta_zz\)</span>是常数，波的表达式表现出一般平面波的形式，是行波。而且在等相面上振幅不是常数，是非均匀平面波。</li>
-<li>于是，我们可以发现：合成波只在<span class="math inline">\(x\)</span>方向有能量传输，而在<span class="math inline">\(z\)</span>方向没有。</li>
+<li>在<span class="math inline">\(x\)</span>是常数的平面上，<span
+class="math inline">\(e^{-j\beta_xx}\)</span>是常数，所以<span
+class="math inline">\(x=C\)</span>是波的等相面。在<span
+class="math inline">\(x=C\)</span>的平面上，场量按三角函数形式分布，波显示出驻波性质。</li>
+<li>在<span class="math inline">\(z\)</span>是常数的平面上，<span
+class="math inline">\(\sin
+\beta_zz\)</span>是常数，波的表达式表现出一般平面波的形式，是行波。而且在等相面上振幅不是常数，是非均匀平面波。</li>
+<li>于是，我们可以发现：合成波只在<span
+class="math inline">\(x\)</span>方向有能量传输，而在<span
+class="math inline">\(z\)</span>方向没有。</li>
 </ol>
-<p>正入射时，入射波和反射波的合成波形成了一种特殊的传播方式，我们称之为驻波。 <strong>斜入射时，入射波和反射波的合成波也形成了一种特殊的传播方式，我们称之为导行波。</strong> 这里的电场指向<span class="math inline">\(y\)</span>，和传播方向垂直，我们称之为横电波（TE波）。</p>
+<p>正入射时，入射波和反射波的合成波形成了一种特殊的传播方式，我们称之为驻波。
+<strong>斜入射时，入射波和反射波的合成波也形成了一种特殊的传播方式，我们称之为导行波。</strong>
+这里的电场指向<span
+class="math inline">\(y\)</span>，和传播方向垂直，我们称之为横电波（TE波）。</p>
 <p>导行波的等相面是 <span class="math display">\[
 \omega t-\beta_x x=C
 \]</span> 因此，其相速度为 <span class="math display">\[
 v_p=\frac c {\sin\theta}
-\]</span> 神奇！相速度超过了光速！但是我们都知道光速是无论如何不能超过的，这是怎么回事呢？我们要先理解相速度和群速度。</p>
+\]</span>
+神奇！相速度超过了光速！但是我们都知道光速是无论如何不能超过的，这是怎么回事呢？我们要先理解相速度和群速度。</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/v2-192809449ccca511cddfb1735ed54b8d_720w.gif" srcset="/img/loading.gif" lazyload alt="这个图片只用来说明相速度和群速度的概念" /><figcaption aria-hidden="true">这个图片只用来说明相速度和群速度的概念</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/v2-192809449ccca511cddfb1735ed54b8d_720w.gif" srcset="/img/loading.gif" lazyload
+alt="这个图片只用来说明相速度和群速度的概念" />
+<figcaption
+aria-hidden="true">这个图片只用来说明相速度和群速度的概念</figcaption>
 </figure>
 <ul>
 <li>相速度是等相位面传播的速度，也就是图中红色方块的速度。</li>
@@ -1038,61 +1212,105 @@ v_p=\frac c {\sin\theta}
 </ul>
 <p>我们可以看出，只有群速度是真正的速度。譬如说，我拿着一个激光笔扫过夜空，那么激光笔在云层上反射的光点可能会具有非常非常非常高的速度，那么难道说真的有物体在以这个速度移动吗？不是这样的。相速度只是一种“看起来”的速度，是一个虚假的速度。</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/0F8C440DC9578247F927A8C922F4A842.png" srcset="/img/loading.gif" lazyload alt="img" /><figcaption aria-hidden="true">img</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/0F8C440DC9578247F927A8C922F4A842.png" srcset="/img/loading.gif" lazyload
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
 </figure>
-<p>如图，在这个情景中，黑色的实线和虚线是等相位面，蓝色是相速度，绿色是群速度，红色是光速。这么一说大家应该可以理解了。在一个周期里，导行波过<span class="math inline">\(A\)</span>点的等相位面的相位传到了<span class="math inline">\(C\)</span>点，从<span class="math inline">\(X\)</span>方向看，就像是相位从<span class="math inline">\(B\)</span>移动到了<span class="math inline">\(C\)</span>，而此时能量只是从A移动到了<span class="math inline">\(C’\)</span>。</p>
-<p>在平行极化时，合成波的磁场是横向的，电场是<span class="math inline">\(xOz\)</span>面内的椭圆极化波。合成波依然在<span class="math inline">\(x\)</span>方向表现行波，在<span class="math inline">\(z\)</span>方向表现为驻波。这种波叫横磁波（TM波）。</p>
-<h3 id="在两种理想介质分界面处的反射和折射">在两种理想介质分界面处的反射和折射</h3>
+<p>如图，在这个情景中，黑色的实线和虚线是等相位面，蓝色是相速度，绿色是群速度，红色是光速。这么一说大家应该可以理解了。在一个周期里，导行波过<span
+class="math inline">\(A\)</span>点的等相位面的相位传到了<span
+class="math inline">\(C\)</span>点，从<span
+class="math inline">\(X\)</span>方向看，就像是相位从<span
+class="math inline">\(B\)</span>移动到了<span
+class="math inline">\(C\)</span>，而此时能量只是从A移动到了<span
+class="math inline">\(C’\)</span>。</p>
+<p>在平行极化时，合成波的磁场是横向的，电场是<span
+class="math inline">\(xOz\)</span>面内的椭圆极化波。合成波依然在<span
+class="math inline">\(x\)</span>方向表现行波，在<span
+class="math inline">\(z\)</span>方向表现为驻波。这种波叫横磁波（TM波）。</p>
+<h3
+id="在两种理想介质分界面处的反射和折射">在两种理想介质分界面处的反射和折射</h3>
 <p>这里讨论的是两种均匀、线性、各向同性、无耗理想介质分界面处的反射和折射。</p>
 <h4 id="两种无耗介质交界面的垂直入射">两种无耗介质交界面的垂直入射</h4>
-<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/12414515.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/12414515.png" srcset="/img/loading.gif" lazyload /></p>
 <p>入射波为 <span class="math display">\[
 \begin{aligned}
 \tilde{E}(r)=i_x\dot{E}_{i0}e^{-j\beta_0z}\\\\
 \tilde{H}(r)=i_y\frac{\dot{E}_{i0} } {\eta_0}e^{-j\beta_0z}
 \end{aligned}
-\]</span> 不难写出反射波，折射波的表达式：只需要把入射波中的<span class="math inline">\(E_{i0}\)</span>换成<span class="math inline">\(E_{r0},E_{\tau 0}\)</span>，再注意一下方向就行了，十分的简单。我们的问题现在是：<span class="math inline">\(E_{i0}\)</span>和<span class="math inline">\(E_{r0},E_{\tau 0}\)</span>的关系是？</p>
+\]</span> 不难写出反射波，折射波的表达式：只需要把入射波中的<span
+class="math inline">\(E_{i0}\)</span>换成<span
+class="math inline">\(E_{r0},E_{\tau
+0}\)</span>，再注意一下方向就行了，十分的简单。我们的问题现在是：<span
+class="math inline">\(E_{i0}\)</span>和<span
+class="math inline">\(E_{r0},E_{\tau 0}\)</span>的关系是？</p>
 <p>由边界条件： <span class="math display">\[
 \begin{aligned}
-i_{n} \times\left.\left(\tilde{E}_{1}-\tilde{E}_{2}\right)\right|_{z=0}=0 \quad \\\\
-i_{n} \times\left.\left(\widetilde{H}_{1}-\widetilde{H}_{2}\right)\right|_{z=0}=\tilde{k}_{f}=0
+i_{n}
+\times\left.\left(\tilde{E}_{1}-\tilde{E}_{2}\right)\right|_{z=0}=0
+\quad \\\\
+i_{n}
+\times\left.\left(\widetilde{H}_{1}-\widetilde{H}_{2}\right)\right|_{z=0}=\tilde{k}_{f}=0
 \end{aligned}
 \]</span> 得： <span class="math display">\[
 \left\{\begin{array} {l}
 \dot{E}_{i 0}+\dot{E}_{r 0}=\dot{E}_{\tau 0} \\\\
-\dot{H}_{i 0}-\dot{H}_{r 0}=\dot{H}_{\tau 0} \Rightarrow \frac{\dot{E}_{i 0} } {\eta_{1} }-\frac{\dot{E}_{r 0} } {\eta_{1} }=\frac{\dot{E}_{\tau 0} } {\eta_{2} }
+\dot{H}_{i 0}-\dot{H}_{r 0}=\dot{H}_{\tau 0} \Rightarrow
+\frac{\dot{E}_{i 0} } {\eta_{1} }-\frac{\dot{E}_{r 0} } {\eta_{1}
+}=\frac{\dot{E}_{\tau 0} } {\eta_{2} }
 \end{array}\right.
 \]</span></p>
 <p>于是有反射系数： <span class="math display">\[
-\Gamma=\frac{\dot{E}_{r 0} } {\dot{E}_{i 0} }=\frac{\eta_{2}-\eta_{1} } {\eta_{2}+\eta_{1} }
+\Gamma=\frac{\dot{E}_{r 0} } {\dot{E}_{i 0} }=\frac{\eta_{2}-\eta_{1} }
+{\eta_{2}+\eta_{1} }
 \]</span> 透射系数： <span class="math display">\[
-T=\frac{\dot{E}_{\tau 0} } {\dot{E}_{i 0} }=\frac{2 \eta_{2} } {\eta_{2}+\eta_{1} }
+T=\frac{\dot{E}_{\tau 0} } {\dot{E}_{i 0} }=\frac{2 \eta_{2} }
+{\eta_{2}+\eta_{1} }
 \]</span></p>
 <h4 id="三层介质垂直入射无反射条件">三层介质垂直入射无反射条件</h4>
-<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220617234904444.png" srcset="/img/loading.gif" lazyload /></p>
-<p>一般来说应用场景是：I是空气（真空），III是玻璃，II是增透膜，要求你调整增透膜的<span class="math inline">\(\eta_2\)</span>和厚度。有以下两种情况都能达到目的：</p>
+<p><img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220617234904444.png" srcset="/img/loading.gif" lazyload /></p>
+<p>一般来说应用场景是：I是空气（真空），III是玻璃，II是增透膜，要求你调整增透膜的<span
+class="math inline">\(\eta_2\)</span>和厚度。有以下两种情况都能达到目的：</p>
 <ol type="1">
-<li><span class="math inline">\(\eta_1=\eta_3,d=n\lambda_2/2\)</span></li>
-<li><span class="math inline">\(\eta_2=\sqrt{\eta_1\eta_3},d=(2n+1)\lambda_2/4\)</span></li>
+<li><span
+class="math inline">\(\eta_1=\eta_3,d=n\lambda_2/2\)</span></li>
+<li><span
+class="math inline">\(\eta_2=\sqrt{\eta_1\eta_3},d=(2n+1)\lambda_2/4\)</span></li>
 </ol>
-<p>请注意，这里的波长是在介质2中的波长。电磁场在不同介质中，频率是不会变 ，而波长会变。</p>
+<p>请注意，这里的波长是在介质2中的波长。电磁场在不同介质中，频率是不会变
+，而波长会变。</p>
 <h4 id="斜入射-1">斜入射</h4>
 <p>还是以垂直极化为例：</p>
-<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220617235606731.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220617235606731.png" srcset="/img/loading.gif" lazyload /></p>
 <p>同样，由边界条件计算反射、透射系数，有：</p>
 <p>反射系数： <span class="math display">\[
-\Gamma_{\perp}=\frac{\dot{E}_{r 0} } {\dot{E}_{i 0} }=\frac{\eta_{2} \cos \theta_{1}-\eta_{1} \cos \theta_{2} } {\eta_{2} \cos \theta_{1}+\eta_{1} \cos \theta_{2} }
+\Gamma_{\perp}=\frac{\dot{E}_{r 0} } {\dot{E}_{i 0} }=\frac{\eta_{2}
+\cos \theta_{1}-\eta_{1} \cos \theta_{2} } {\eta_{2} \cos
+\theta_{1}+\eta_{1} \cos \theta_{2} }
 \]</span></p>
 <p>透射系数： <span class="math display">\[
-T_{\perp}=\frac{\dot{E}_{\tau 0} } {\dot{E}_{i 0} }=\frac{2 \eta_{2} \cos \theta_{1} } {\eta_{2} \cos \theta_{1}+\eta_{1} \cos \theta_{2} }
+T_{\perp}=\frac{\dot{E}_{\tau 0} } {\dot{E}_{i 0} }=\frac{2 \eta_{2}
+\cos \theta_{1} } {\eta_{2} \cos \theta_{1}+\eta_{1} \cos \theta_{2} }
 \]</span></p>
 <p>有时候会出现一些神奇的现象：</p>
 <ul>
 <li><p>全反射</p>
-<p>全反射无论是磁介质（<span class="math inline">\(\mu_r\neq 1\)</span>）还是电介质（<span class="math inline">\(\varepsilon_r\neq 1\)</span>）都可以产生。当从光密介质射入光疏介质时，当入射角达到一个临界值<span class="math inline">\(\theta_c\)</span>时，反射线和介质表面重合（反射角是<span class="math inline">\(\pi/2\)</span>），这时称为出现全反射现象，<span class="math inline">\(\theta_c\)</span>是全反射临界角。有： <span class="math display">\[
+<p>全反射无论是磁介质（<span class="math inline">\(\mu_r\neq
+1\)</span>）还是电介质（<span class="math inline">\(\varepsilon_r\neq
+1\)</span>）都可以产生。当从光密介质射入光疏介质时，当入射角达到一个临界值<span
+class="math inline">\(\theta_c\)</span>时，反射线和介质表面重合（反射角是<span
+class="math inline">\(\pi/2\)</span>），这时称为出现全反射现象，<span
+class="math inline">\(\theta_c\)</span>是全反射临界角。有： <span
+class="math display">\[
 \sin \theta_c=\frac{n_2} {n_1}
 \]</span></p></li>
-<li><p>全折射 当入射波垂直极化时，在电介质交界面，不会出现全折射现象，只有磁介质交界面才会出现。无论从疏到密，还是从密到疏，都能发生全折射现象。全折射的临界角<span class="math inline">\(\theta_{P_\perp}\)</span>称为布茹斯特角。有： <span class="math display">\[
+<li><p>全折射
+当入射波垂直极化时，在电介质交界面，不会出现全折射现象，只有磁介质交界面才会出现。无论从疏到密，还是从密到疏，都能发生全折射现象。全折射的临界角<span
+class="math inline">\(\theta_{P_\perp}\)</span>称为布茹斯特角。有：
+<span class="math display">\[
 \theta_{P_\perp}=\sqrt{\frac{\mu_2} {\mu_1+\mu_2} }
 \]</span></p></li>
 </ul>
@@ -1102,28 +1320,58 @@ T_{\perp}=\frac{\dot{E}_{\tau 0} } {\dot{E}_{i 0} }=\frac{2 \eta_{2} \cos \theta
 <figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-symbol">3 </span><span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
 <p>会给出图像</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220618114117442.png" srcset="/img/loading.gif" lazyload alt="全反射现象示意图" /><figcaption aria-hidden="true">全反射现象示意图</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220618114117442.png" srcset="/img/loading.gif" lazyload
+alt="全反射现象示意图" />
+<figcaption aria-hidden="true">全反射现象示意图</figcaption>
 </figure>
 <p>全反射现象十分明显。</p>
 <p>再例如输入</p>
 <figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-symbol">1 </span><span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">3</span><br></code></pre></td></tr></table></figure>
 <p>会给出图像</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220618114215103.png" srcset="/img/loading.gif" lazyload alt="全折射现象示意图" /><figcaption aria-hidden="true">全折射现象示意图</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220618114215103.png" srcset="/img/loading.gif" lazyload
+alt="全折射现象示意图" />
+<figcaption aria-hidden="true">全折射现象示意图</figcaption>
 </figure>
 <p>从疏介质射入密介质，这里发生了全折射。</p>
 <hr />
 <hr />
 <p>本站的运行成本约为每个月5元人民币，如果您觉得本站有用，欢迎打赏：</p>
 <p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202501120027592.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:25%;" /></p>
-<section class="footnotes" role="doc-endnotes">
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p>由于<span class="math inline">\(\nabla\times\tilde{E}(r)=-j\omega\mu\tilde{H}(r)\)</span>，两边取旋度，有<span class="math inline">\(\nabla\times\nabla\times\tilde{E}(r)=-j\omega\mu\nabla \times \tilde{H}(r)\)</span>，代入<span class="math inline">\(\nabla \times \tilde{H}(r)=j\omega\varepsilon\tilde{E}(r)\)</span>，并结合矢量公式<span class="math inline">\(\nabla\times\nabla\times A=\nabla[\nabla \cdot A]-\Delta A\)</span>即可推出。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2" role="doc-endnote"><p>由于<span class="math inline">\(\nabla\times\tilde{E}(r)=-j\omega\mu\tilde{H}(r)\)</span>，两边取旋度，有<span class="math inline">\(\nabla\times\nabla\times\tilde{E}(r)=-j\omega\mu\nabla \times \tilde{H}(r)\)</span>，代入<span class="math inline">\(\nabla \times \tilde{H}(r)=j\omega\varepsilon\tilde{E}(r)\)</span>，并结合矢量公式<span class="math inline">\(\nabla\times\nabla\times A=\nabla[\nabla \cdot A]-\Delta A\)</span>即可推出。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3" role="doc-endnote"><p>椭圆极化波和圆极化波可以分解成两个垂直的线极化波，进而，可以分解成垂直极化和平行极化波。<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4" role="doc-endnote"><p>相对磁导率（介电常数）意思是媒质中的磁导率（介电常数）和真空中的比值。<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5" role="doc-endnote"><p><span class="math inline">\(\sin x=\frac{1} {2j}(e^{jx}-e^{-jx})\)</span>,<span class="math inline">\(\cos x=\frac{1} {2}(e^{jx}+e^{-jx})\)</span><a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>由于<span
+class="math inline">\(\nabla\times\tilde{E}(r)=-j\omega\mu\tilde{H}(r)\)</span>，两边取旋度，有<span
+class="math inline">\(\nabla\times\nabla\times\tilde{E}(r)=-j\omega\mu\nabla
+\times \tilde{H}(r)\)</span>，代入<span class="math inline">\(\nabla
+\times
+\tilde{H}(r)=j\omega\varepsilon\tilde{E}(r)\)</span>，并结合矢量公式<span
+class="math inline">\(\nabla\times\nabla\times A=\nabla[\nabla \cdot
+A]-\Delta A\)</span>即可推出。<a href="#fnref1" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>由于<span
+class="math inline">\(\nabla\times\tilde{E}(r)=-j\omega\mu\tilde{H}(r)\)</span>，两边取旋度，有<span
+class="math inline">\(\nabla\times\nabla\times\tilde{E}(r)=-j\omega\mu\nabla
+\times \tilde{H}(r)\)</span>，代入<span class="math inline">\(\nabla
+\times
+\tilde{H}(r)=j\omega\varepsilon\tilde{E}(r)\)</span>，并结合矢量公式<span
+class="math inline">\(\nabla\times\nabla\times A=\nabla[\nabla \cdot
+A]-\Delta A\)</span>即可推出。<a href="#fnref2" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li
+id="fn3"><p>椭圆极化波和圆极化波可以分解成两个垂直的线极化波，进而，可以分解成垂直极化和平行极化波。<a
+href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li
+id="fn4"><p>相对磁导率（介电常数）意思是媒质中的磁导率（介电常数）和真空中的比值。<a
+href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p><span class="math inline">\(\sin x=\frac{1}
+{2j}(e^{jx}-e^{-jx})\)</span>,<span class="math inline">\(\cos
+x=\frac{1} {2}(e^{jx}+e^{-jx})\)</span><a href="#fnref5"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 

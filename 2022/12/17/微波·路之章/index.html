@@ -19,16 +19,16 @@
   <meta name="author" content="SuzumiyaAkizuki">
   <meta name="keywords" content="">
   
-    <meta name="description" content="微波网络 微波网络研究的对象是微波系统中的“不均匀区”（也叫微波结），如下图所示，可以由左图等效为右图分析问题  微波网络  其基本思想是：把单模波导等效为双导线，把各种微波元件等效为微波网络。 单模波导等效为双导线  等效复功率、电压、电流 如果用电磁场表示的复功率，和用电压电流表示的复功率相等，有： \[ \dot{P}&#x3D;\frac{1}{2} \int_S\left(\d">
+    <meta name="description" content="微波网络 微波网络研究的对象是微波系统中的“不均匀区”（也叫微波结），如下图所示，可以由左图等效为右图分析问题   微波网络  其基本思想是：把单模波导等效为双导线，把各种微波元件等效为微波网络。 单模波导等效为双导线  等效复功率、电压、电流 如果用电磁场表示的复功率，和用电压电流表示的复功率相等，有： \[ \dot{P}&#x3D;\frac{1}{2} \int_S\left(">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微波技术·路之章">
 <meta property="og:url" content="https://suzumiyaakizuki.github.io/2022/12/17/%E5%BE%AE%E6%B3%A2%C2%B7%E8%B7%AF%E4%B9%8B%E7%AB%A0/index.html">
 <meta property="og:site_name" content="凉宫秋月的文艺部">
-<meta property="og:description" content="微波网络 微波网络研究的对象是微波系统中的“不均匀区”（也叫微波结），如下图所示，可以由左图等效为右图分析问题  微波网络  其基本思想是：把单模波导等效为双导线，把各种微波元件等效为微波网络。 单模波导等效为双导线  等效复功率、电压、电流 如果用电磁场表示的复功率，和用电压电流表示的复功率相等，有： \[ \dot{P}&#x3D;\frac{1}{2} \int_S\left(\d">
+<meta property="og:description" content="微波网络 微波网络研究的对象是微波系统中的“不均匀区”（也叫微波结），如下图所示，可以由左图等效为右图分析问题   微波网络  其基本思想是：把单模波导等效为双导线，把各种微波元件等效为微波网络。 单模波导等效为双导线  等效复功率、电压、电流 如果用电磁场表示的复功率，和用电压电流表示的复功率相等，有： \[ \dot{P}&#x3D;\frac{1}{2} \int_S\left(">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212172350080.jpg">
 <meta property="article:published_time" content="2022-12-17T15:06:43.000Z">
-<meta property="article:modified_time" content="2025-01-20T16:35:30.688Z">
+<meta property="article:modified_time" content="2025-01-20T16:35:30.000Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="微波">
 <meta name="twitter:card" content="summary_large_image">
@@ -661,25 +661,38 @@
                 <h2 id="微波网络">微波网络</h2>
 <p>微波网络研究的对象是微波系统中的“不均匀区”（也叫微波结），如下图所示，可以由左图等效为右图分析问题</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212051713899.png" srcset="/img/loading.gif" lazyload alt="微波网络" /><figcaption aria-hidden="true">微波网络</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212051713899.png" srcset="/img/loading.gif" lazyload
+alt="微波网络" />
+<figcaption aria-hidden="true">微波网络</figcaption>
 </figure>
 <p>其基本思想是：把单模波导等效为双导线，把各种微波元件等效为微波网络。</p>
 <h3 id="单模波导等效为双导线">单模波导等效为双导线</h3>
 <ol type="1">
 <li><p>等效复功率、电压、电流</p>
-<p>如果用电磁场表示的复功率，和用电压电流表示的复功率相等，有： <span class="math display">\[
-\dot{P}=\frac{1}{2} \int_S\left(\dot{\vec{E}}_{\mathrm{T}} \times \dot{\vec{H}}_{\mathrm{T}}^*\right) \cdot \hat{i}_z \mathrm{~d} S=\frac{1}{2} \dot{U} \dot{I}^*
+<p>如果用电磁场表示的复功率，和用电压电流表示的复功率相等，有： <span
+class="math display">\[
+\dot{P}=\frac{1}{2} \int_S\left(\dot{\vec{E}}_{\mathrm{T}} \times
+\dot{\vec{H}}_{\mathrm{T}}^*\right) \cdot \hat{i}_z \mathrm{~d}
+S=\frac{1}{2} \dot{U} \dot{I}^*
 \]</span> 将电磁场纵横分离，有： <span class="math display">\[
-\dot{\vec{E}}_{\mathrm{T}}(u, v, z)=\vec{e}_{\mathrm{T}}(u, v) \cdot \dot{U}(z)
+\dot{\vec{E}}_{\mathrm{T}}(u, v, z)=\vec{e}_{\mathrm{T}}(u, v) \cdot
+\dot{U}(z)
 \]</span></p>
 <p><span class="math display">\[
-\dot{\vec{H}}_{\mathrm{T}}(u, v, z)=\vec{h}_{\mathrm{T}}(u, v) \cdot \dot{I}(z)
+\dot{\vec{H}}_{\mathrm{T}}(u, v, z)=\vec{h}_{\mathrm{T}}(u, v) \cdot
+\dot{I}(z)
 \]</span></p>
-<p>其中<span class="math inline">\(e,h\)</span>叫矢量模式函数。满足： <span class="math display">\[
-\int_S\left(\vec{e}_{\mathrm{T}} \times \vec{h}_{\mathrm{T}}\right) \cdot \hat{i}_z \mathrm{~d} S=1
+<p>其中<span class="math inline">\(e,h\)</span>叫矢量模式函数。满足：
+<span class="math display">\[
+\int_S\left(\vec{e}_{\mathrm{T}} \times \vec{h}_{\mathrm{T}}\right)
+\cdot \hat{i}_z \mathrm{~d} S=1
 \]</span></p></li>
 <li><p>等效特性阻抗<span class="math inline">\(Z_0\)</span></p>
-<p>设波导等效特性阻抗<span class="math inline">\(Z_0\)</span>，被等效的波导模式的波阻抗<span class="math inline">\(\eta_w\)</span>，有： <span class="math display">\[
+<p>设波导等效特性阻抗<span
+class="math inline">\(Z_0\)</span>，被等效的波导模式的波阻抗<span
+class="math inline">\(\eta_w\)</span>，有： <span
+class="math display">\[
 \frac{|\vec e_T|}{|\vec h_T|}=\frac{\eta_w}{Z_0}
 \]</span></p></li>
 <li><p>相位常数</p>
@@ -693,62 +706,103 @@
 \dot{U}_i=\sum_{j=1}^n Z_{i j} \dot{I}_j,(i=1,2, \cdots, n)
 \]</span> 得： <span class="math display">\[
 [\dot{\boldsymbol{U}}]=[\boldsymbol{Z}][\dot{\boldsymbol{I}}]
-\]</span> 其中<span class="math inline">\(Z_{ij}\)</span>是比例系数，称为阻抗。<span class="math inline">\(i=j\)</span>时叫自阻抗，否则叫互阻抗。 详细地来说：</p>
+\]</span> 其中<span
+class="math inline">\(Z_{ij}\)</span>是比例系数，称为阻抗。<span
+class="math inline">\(i=j\)</span>时叫自阻抗，否则叫互阻抗。
+详细地来说：</p>
 <ul>
-<li><span class="math inline">\(Z_{ii}\)</span>表示其余端口开路时，端口<span class="math inline">\(i\)</span>的输入阻抗。</li>
-<li><span class="math inline">\(Z_{ij}\)</span>表示端口<span class="math inline">\(i\)</span>开路时，端口<span class="math inline">\(j\)</span>到端口<span class="math inline">\(i\)</span>的转移阻抗。</li>
+<li><span
+class="math inline">\(Z_{ii}\)</span>表示其余端口开路时，端口<span
+class="math inline">\(i\)</span>的输入阻抗。</li>
+<li><span class="math inline">\(Z_{ij}\)</span>表示端口<span
+class="math inline">\(i\)</span>开路时，端口<span
+class="math inline">\(j\)</span>到端口<span
+class="math inline">\(i\)</span>的转移阻抗。</li>
 </ul></li>
 <li><p>导纳参量 <span class="math display">\[
 \dot{I}_i=\sum_{j=1}^n Y_{i j} \dot{U}_j,(i=1,2, \cdots, n)
 \]</span> 即： <span class="math display">\[
 [\dot{\mathbf{I}}]=[\boldsymbol{Y}][\dot{\boldsymbol{U}}]
-\]</span> 其中的<span class="math inline">\([Y]\)</span>就是导纳参量矩阵。其物理意义为：</p>
+\]</span> 其中的<span
+class="math inline">\([Y]\)</span>就是导纳参量矩阵。其物理意义为：</p>
 <ul>
-<li><span class="math inline">\(Y_{ii}\)</span>表示其它端口短路时，端口<span class="math inline">\(i\)</span>的输入导纳。</li>
-<li><span class="math inline">\(Y_{ij}\)</span>表示端口<span class="math inline">\(i\)</span>短路时，端口<span class="math inline">\(j\)</span>到端口<span class="math inline">\(i\)</span>的转移导纳。</li>
+<li><span
+class="math inline">\(Y_{ii}\)</span>表示其它端口短路时，端口<span
+class="math inline">\(i\)</span>的输入导纳。</li>
+<li><span class="math inline">\(Y_{ij}\)</span>表示端口<span
+class="math inline">\(i\)</span>短路时，端口<span
+class="math inline">\(j\)</span>到端口<span
+class="math inline">\(i\)</span>的转移导纳。</li>
 </ul></li>
 </ol>
 <h3 id="归一化参量">归一化参量</h3>
-<p>因为反射系数是一个很直观而且容易测量的量，仿照“传输线理论”，定义归一化阻抗： <span class="math display">\[
+<p>因为反射系数是一个很直观而且容易测量的量，仿照“传输线理论”，定义归一化阻抗：
+<span class="math display">\[
 \bar{Z}=\frac{Z}{Z_0}=\frac{1+\Gamma}{1-\Gamma}
-\]</span> 于是，可以直接导出归一化电压、电流，有： <span class="math display">\[
-\bar{Z}=\frac{Z}{Z_0}=\frac{\dot{U} / \dot{I}}{Z_0}=\frac{\dot{U} / \sqrt{Z_0}}{\dot{I} \sqrt{Z_0}}=\frac{\bar{U}}{\bar{I}}
+\]</span> 于是，可以直接导出归一化电压、电流，有： <span
+class="math display">\[
+\bar{Z}=\frac{Z}{Z_0}=\frac{\dot{U} / \dot{I}}{Z_0}=\frac{\dot{U} /
+\sqrt{Z_0}}{\dot{I} \sqrt{Z_0}}=\frac{\bar{U}}{\bar{I}}
 \]</span> 即： <span class="math display">\[
 \begin{cases}
 \bar U=\dot U/\sqrt{Z_0}\\
 \bar I=\dot I\sqrt{Z_0}
 \end{cases}
-\]</span> 传输线理论中所有关系式都成立，可以应用史密斯圆图.用归一化电压和电流，可以导出归一化阻抗、导纳参量。</p>
+\]</span>
+传输线理论中所有关系式都成立，可以应用史密斯圆图.用归一化电压和电流，可以导出归一化阻抗、导纳参量。</p>
 <h3 id="散射参量">散射参量</h3>
-<p>在传输线理论中，我们学习了入射波和反射波的概念，这是研究散射参量的出发点 。散射参量描述的是进入网络的电压波和离开网络电压波的关系。 定义<span class="math inline">\(a\)</span>为进入网络的归一化电压波，定义<span class="math inline">\(b\)</span>为离开网络的归一化电压波。</p>
+<p>在传输线理论中，我们学习了入射波和反射波的概念，这是研究散射参量的出发点
+。散射参量描述的是进入网络的电压波和离开网络电压波的关系。 定义<span
+class="math inline">\(a\)</span>为进入网络的归一化电压波，定义<span
+class="math inline">\(b\)</span>为离开网络的归一化电压波。</p>
 <p>有： <span class="math display">\[
 \left\{\begin{array}{l}
 a_i=\frac{1}{2}\left(\bar{U}_i+\bar{I}_i\right) \\
 b_i=\frac{1}{2}\left(\bar{U}_i-\bar{I}_i\right)
 \end{array}\right.
 \]</span></p>
-<p>对<span class="math inline">\(n\)</span>端口的微波网络，我们可以把出波表示为入波的响应，也就是线性组合的形式。 <span class="math display">\[
+<p>对<span
+class="math inline">\(n\)</span>端口的微波网络，我们可以把出波表示为入波的响应，也就是线性组合的形式。
+<span class="math display">\[
 b_i=\sum_{j=1}^n S_{i j} a_j(i=1,2 \ldots n)
 \]</span> 即： <span class="math display">\[
 [b]=[S][a]
-\]</span> 其中的<span class="math inline">\([S]\)</span>就是散射参量矩阵。</p>
+\]</span> 其中的<span
+class="math inline">\([S]\)</span>就是散射参量矩阵。</p>
 <p>在讨论散射参量矩阵的物理意义之前，首先要明确端口匹配负载和端口匹配的概念。</p>
-<p>端口接匹配负载的意思是指端口接负载，并且所接的负载和端口传输线匹配，负载的反射波为零，即对该端口的进波为零。如果说第<span class="math inline">\(i\)</span>个端口接匹配负载，则<span class="math inline">\(a_i=0\)</span>.</p>
-<p>端口匹配的意思是，在其它端口接负载的情况下，从该端口看进去的网络本身作为终端等效负载时和端口传输线匹配，网络反射波为零，即端口出波为零，即<span class="math inline">\(b_i=0\)</span>.</p>
-<p>那么<span class="math inline">\([S]\)</span>矩阵的物理意义是：在除了波源所在的第<span class="math inline">\(j\)</span>端口以外的其余各端口均接匹配负载，散射矩阵的非对角线元素<span class="math inline">\(S_{ij}\)</span>是<strong>第<span class="math inline">\(j\)</span>端口到第<span class="math inline">\(i\)</span>端口</strong>（注意是反的）的电压传输系数，其对角线元素<span class="math inline">\(S_{jj}\)</span>是波源所在的第<span class="math inline">\(j\)</span>端口的电压反射系数。</p>
+<p>端口接匹配负载的意思是指端口接负载，并且所接的负载和端口传输线匹配，负载的反射波为零，即对该端口的进波为零。如果说第<span
+class="math inline">\(i\)</span>个端口接匹配负载，则<span
+class="math inline">\(a_i=0\)</span>.</p>
+<p>端口匹配的意思是，在其它端口接负载的情况下，从该端口看进去的网络本身作为终端等效负载时和端口传输线匹配，网络反射波为零，即端口出波为零，即<span
+class="math inline">\(b_i=0\)</span>.</p>
+<p>那么<span
+class="math inline">\([S]\)</span>矩阵的物理意义是：在除了波源所在的第<span
+class="math inline">\(j\)</span>端口以外的其余各端口均接匹配负载，散射矩阵的非对角线元素<span
+class="math inline">\(S_{ij}\)</span>是<strong>第<span
+class="math inline">\(j\)</span>端口到第<span
+class="math inline">\(i\)</span>端口</strong>（注意是反的）的电压传输系数，其对角线元素<span
+class="math inline">\(S_{jj}\)</span>是波源所在的第<span
+class="math inline">\(j\)</span>端口的电压反射系数。</p>
 <h4 id="用散射参量描述网络性质">用散射参量描述网络性质</h4>
 <ol type="1">
 <li><p>互易性</p>
 <p>当微波元件内部为各向同性均匀媒质,即媒质极化、磁化、传导性质与外加场方向无关，进而与电磁波的传播方向无关时,其等效网络的任意两个端口都是可逆的，该网络称为可逆网络或互易网络。</p>
-<p>可以证明，互易网络的<span class="math inline">\(S\)</span>矩阵是转置不变的，即： <span class="math display">\[
+<p>可以证明，互易网络的<span
+class="math inline">\(S\)</span>矩阵是转置不变的，即： <span
+class="math display">\[
 S^T=S
 \]</span></p></li>
 <li><p>无耗性</p>
-<p>无耗网络的<span class="math inline">\(S\)</span>矩阵是酉矩阵<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>，即： <span class="math display">\[
+<p>无耗网络的<span class="math inline">\(S\)</span>矩阵是酉矩阵<a
+href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a>，即： <span class="math display">\[
 S^+S=1
 \]</span></p></li>
 <li><p>对称性</p>
-<p>如果微波网络具有对称性，例如第<span class="math inline">\(i\)</span>端口和第<span class="math inline">\(j\)</span>端口是对称的，那么 <span class="math display">\[
+<p>如果微波网络具有对称性，例如第<span
+class="math inline">\(i\)</span>端口和第<span
+class="math inline">\(j\)</span>端口是对称的，那么 <span
+class="math display">\[
 S_{ii}=S_{jj}
 \]</span></p></li>
 </ol>
@@ -766,9 +820,16 @@ S_{ii}=S_{jj}
 [S]=([1]-[\bar{Y}])([1]+[\bar{Y}])^{-1}
 \]</span></p>
 <h4 id="参考平面移动对s矩阵的影响">参考平面移动对S矩阵的影响</h4>
-<p>对于<span class="math inline">\(n\)</span>端口网络，各端口参考面外移长度为<span class="math inline">\(l_1,l_2\cdots l_n\)</span>时，移动后的<span class="math inline">\(S&#39;\)</span>矩阵和原来的<span class="math inline">\(S\)</span>矩阵的关系为： <span class="math display">\[
+<p>对于<span
+class="math inline">\(n\)</span>端口网络，各端口参考面外移长度为<span
+class="math inline">\(l_1,l_2\cdots l_n\)</span>时，移动后的<span
+class="math inline">\(S&#39;\)</span>矩阵和原来的<span
+class="math inline">\(S\)</span>矩阵的关系为： <span
+class="math display">\[
 S&#39;=PSP
-\]</span> 其中<span class="math inline">\(P\)</span>是一个<span class="math inline">\(n\)</span>阶对角阵，满足： <span class="math display">\[
+\]</span> 其中<span class="math inline">\(P\)</span>是一个<span
+class="math inline">\(n\)</span>阶对角阵，满足： <span
+class="math display">\[
 P_{kk}=e^{-j\beta l_k}
 \]</span></p>
 <h3 id="二端网络">二端网络</h3>
@@ -797,23 +858,50 @@ S^{+}S &amp;=I
 \end{aligned}
 \]</span></p>
 <blockquote>
-<p>这个无耗性是从能量守恒定理出发的。如果我们把这个共轭转置展开，有以下四个式子： <span class="math display">\[
+<p>这个无耗性是从能量守恒定理出发的。如果我们把这个共轭转置展开，有以下四个式子：
+<span class="math display">\[
 \begin{gathered}
-S_{11}^{*} S_{11}+S_{21}^{*} S_{21}=\left|S_{11}\right|^2+\left|S_{21}\right|^2=1 \\
-S_{12}^* S_{12}+S_{22}^{\cdot} S_{22}=\left|S_{12}\right|^2+\left|S_{22}\right|^2=1 \\
+S_{11}^{*} S_{11}+S_{21}^{*}
+S_{21}=\left|S_{11}\right|^2+\left|S_{21}\right|^2=1 \\
+S_{12}^* S_{12}+S_{22}^{\cdot}
+S_{22}=\left|S_{12}\right|^2+\left|S_{22}\right|^2=1 \\
 S_{11}^* S_{12}+S_{21}^* S_{22}=0 \\
 S_{22}^* S_{14}+S_{22}^* S_{21}=0
 \end{gathered}
 \]</span></p>
 </blockquote>
 <blockquote>
-<p>根据 <span class="math inline">\(S\)</span> 参量物理意义有 <span class="math display">\[
+<p>根据 <span class="math inline">\(S\)</span> 参量物理意义有 <span
+class="math display">\[
 \begin{array}{ll}
 \left|S_{11}\right|^2=\left.\frac{\left|b_1\right|^2}{\left|a_1\right|^2}\right|_{a_2=0}=\left.\frac{\left(P^{-}\right)_1}{\left(P^{+}\right)_1}\right|_{a_2=0}  \\
-\left|S_{21}\right|^2=\left.\frac{\left|b_2\right|^2}{\left|a_1\right|^2}\right|_{a_2=0}=\left.\frac{\left(P^{-}\right)_2}{\left(P^{+}\right)_1}\right|_{a_2=0} 
+\left|S_{21}\right|^2=\left.\frac{\left|b_2\right|^2}{\left|a_1\right|^2}\right|_{a_2=0}=\left.\frac{\left(P^{-}\right)_2}{\left(P^{+}\right)_1}\right|_{a_2=0}
 \end{array}
-\]</span> 式中, <span class="math inline">\(\left(P^{-}\right)_1\)</span> 表示端口 1 输出功率大小, <span class="math inline">\(\left(P^{-}\right)_2\)</span> 表示端口 2 输出功率大小, <span class="math inline">\(\left(P^{+}\right)\)</span>，表示端口 1 输人功率大小。 <span class="math inline">\(\left|S_{11}\right|^2\)</span> 表示端口 1 接波源, 端口 2 接匹配负载时, 端口 1 的功率反射系数, <span class="math inline">\(\left|S_{21}\right|^2\)</span> 表示此时从端口 1 到端口 2 的功率传输系数。 式 <span class="math inline">\(\left|S_{11}\right|^2+\left|S_{21}\right|^2=1\)</span> 表示当端口 2 接匹配负载时, 从端口 1 输人的功率分为 两部分：一部分被系统反射 <span class="math inline">\(\left(\left|S_{11}\right|^2\right)\)</span>, 另一部分被系统传输到端口 <span class="math inline">\(2\left(\left|S_{21}\right|^2\right)\)</span> 并被负载吸收。</p>
-<p>式 <span class="math inline">\(\left|S_{12}\right|^2+\left|S_{22}\right|^2=1\)</span> 表示当端口 1 接匹配负载时, 从端口 2 输人的能量分为 两部分： 一部分被系统反射 <span class="math inline">\(\left(\left|S_{22}\right|^2\right)\)</span>, 另一部分被系统传输到端口 <span class="math inline">\(1\left(\left|S_{12}\right|^2\right)\)</span> 并被负载吸收。</p>
+\]</span> 式中, <span
+class="math inline">\(\left(P^{-}\right)_1\)</span> 表示端口 1
+输出功率大小, <span class="math inline">\(\left(P^{-}\right)_2\)</span>
+表示端口 2 输出功率大小, <span
+class="math inline">\(\left(P^{+}\right)\)</span>，表示端口 1
+输人功率大小。 <span
+class="math inline">\(\left|S_{11}\right|^2\)</span> 表示端口 1 接波源,
+端口 2 接匹配负载时, 端口 1 的功率反射系数, <span
+class="math inline">\(\left|S_{21}\right|^2\)</span> 表示此时从端口 1
+到端口 2 的功率传输系数。 式 <span
+class="math inline">\(\left|S_{11}\right|^2+\left|S_{21}\right|^2=1\)</span>
+表示当端口 2 接匹配负载时, 从端口 1 输人的功率分为
+两部分：一部分被系统反射 <span
+class="math inline">\(\left(\left|S_{11}\right|^2\right)\)</span>,
+另一部分被系统传输到端口 <span
+class="math inline">\(2\left(\left|S_{21}\right|^2\right)\)</span>
+并被负载吸收。</p>
+<p>式 <span
+class="math inline">\(\left|S_{12}\right|^2+\left|S_{22}\right|^2=1\)</span>
+表示当端口 1 接匹配负载时, 从端口 2 输人的能量分为 两部分：
+一部分被系统反射 <span
+class="math inline">\(\left(\left|S_{22}\right|^2\right)\)</span>,
+另一部分被系统传输到端口 <span
+class="math inline">\(1\left(\left|S_{12}\right|^2\right)\)</span>
+并被负载吸收。</p>
 </blockquote></li>
 </ul>
 <p>二端口网络中，有：</p>
@@ -823,50 +911,73 @@ S_{22}^* S_{14}+S_{22}^* S_{21}=0
 </ul>
 <h4 id="用散射参量表示网络外特性">用散射参量表示网络外特性</h4>
 <ul>
-<li><p>电压传输系数：输出端口出波和输入端口入波之比 <span class="math display">\[
+<li><p>电压传输系数：输出端口出波和输入端口入波之比 <span
+class="math display">\[
 T=\left.\frac{b_2}{a_1}\right|_{a_2=0}=S_{21}
 \]</span></p></li>
-<li><p>插入衰减：输出端接匹配负载，输入端进波功率和输出端出波功率之比 <span class="math display">\[
+<li><p>插入衰减：输出端接匹配负载，输入端进波功率和输出端出波功率之比
+<span class="math display">\[
 L=\left.\frac{\left(P^*\right)_1}{\left(P^{-}\right)_2}\right|_{a_2=0}=\left.\frac{\left|a_1\right|^2}{\left|b_2\right|^2}\right|_{a_2=0}=\frac{1}{\left|S_{21}\right|^2}=\frac{1}{T^2}
 \]</span> 它可以分解为两项： <span class="math display">\[
-L=\frac{1-\left|S_{11}\right|^2}{\left|S_{21}\right|^2} \cdot \frac{1}{1-\left|S_{11}\right|^2}
-\]</span> 前一项叫吸收衰减，记作<span class="math inline">\(L_a\)</span>，由网络本身引起；后项叫反射衰减，记作<span class="math inline">\(L_r\)</span>，由输入端和外接输入线不匹配引起。</p></li>
-<li><p>插入相移：出端接匹配负载，输入端进波和输出端出波相位差 <span class="math display">\[
+L=\frac{1-\left|S_{11}\right|^2}{\left|S_{21}\right|^2} \cdot
+\frac{1}{1-\left|S_{11}\right|^2}
+\]</span> 前一项叫吸收衰减，记作<span
+class="math inline">\(L_a\)</span>，由网络本身引起；后项叫反射衰减，记作<span
+class="math inline">\(L_r\)</span>，由输入端和外接输入线不匹配引起。</p></li>
+<li><p>插入相移：出端接匹配负载，输入端进波和输出端出波相位差 <span
+class="math display">\[
 \phi=\theta_{21}=\arg T=\arg S_{21}
 \]</span></p></li>
-<li><p>输入驻波比：出端接匹配负载，输入端测得驻波比 <span class="math display">\[
-L=\frac{1}{\left|S_{21}\right|^2}=\frac{1}{1-\left|S_{11}\right|^2}=\frac{(\rho+1)^2}{4 \rho}
+<li><p>输入驻波比：出端接匹配负载，输入端测得驻波比 <span
+class="math display">\[
+L=\frac{1}{\left|S_{21}\right|^2}=\frac{1}{1-\left|S_{11}\right|^2}=\frac{(\rho+1)^2}{4
+\rho}
 \]</span></p></li>
-<li><p>回波损耗：出端接匹配负载，输入端入射波功率和反射波功率之比 <span class="math display">\[
-R L=\left.10 \lg \frac{\left(P^{+}\right)_1}{\left(P^{-}\right)_1}\right|_{a_2=0}=\left.10 \lg \frac{\left|a_1\right|^2}{\left|b_1\right|^2}\right|_{a_2=0}=-20 \lg \left|S_{11}\right|
+<li><p>回波损耗：出端接匹配负载，输入端入射波功率和反射波功率之比 <span
+class="math display">\[
+R L=\left.10 \lg
+\frac{\left(P^{+}\right)_1}{\left(P^{-}\right)_1}\right|_{a_2=0}=\left.10
+\lg \frac{\left|a_1\right|^2}{\left|b_1\right|^2}\right|_{a_2=0}=-20 \lg
+\left|S_{11}\right|
 \]</span></p></li>
 </ul>
 <h4 id="二端口网络的互联">二端口网络的互联</h4>
 <ol type="1">
 <li><p>串联</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212182232843.png" srcset="/img/loading.gif" lazyload alt="二端网络串联" /><figcaption aria-hidden="true">二端网络串联</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212182232843.png" srcset="/img/loading.gif" lazyload
+alt="二端网络串联" />
+<figcaption aria-hidden="true">二端网络串联</figcaption>
 </figure>
 <p>有： <span class="math display">\[
 Z=Z_1+Z_2
 \]</span> 可以类比为电阻（阻抗）串联，阻值相加。</p></li>
 <li><p>并联</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212182235435.png" srcset="/img/loading.gif" lazyload alt="二端网络并联" /><figcaption aria-hidden="true">二端网络并联</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212182235435.png" srcset="/img/loading.gif" lazyload
+alt="二端网络并联" />
+<figcaption aria-hidden="true">二端网络并联</figcaption>
 </figure>
 <p>有： <span class="math display">\[
 Y=Y_1+Y_2
 \]</span> 可以类比导纳并联的电导等于各电导之和</p></li>
 <li><p>级联</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212182237317.png" srcset="/img/loading.gif" lazyload alt="二端网络级联" /><figcaption aria-hidden="true">二端网络级联</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212182237317.png" srcset="/img/loading.gif" lazyload
+alt="二端网络级联" />
+<figcaption aria-hidden="true">二端网络级联</figcaption>
 </figure>
 <p>有 ： <span class="math display">\[
 T=T_1\cdot T_2
 \]</span></p></li>
 </ol>
 <h4 id="转移参量">转移参量</h4>
-<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212182248801.png" srcset="/img/loading.gif" lazyload alt="二端口网络示意图" /> <span class="math display">\[
+<p><img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212182248801.png" srcset="/img/loading.gif" lazyload
+alt="二端口网络示意图" /> <span class="math display">\[
 \left\{\begin{array}{l}
 \dot{U}_1=a \dot{U}_2+b\left(-\dot{I}_2\right) \\
 \dot{I}_1=c \dot{U}_2+d\left(-\dot{I}_2\right)
@@ -885,8 +996,10 @@ c &amp; d
 \dot{U}_2 \\
 -\dot{I}_2
 \end{array}\right]
-\]</span> 其中<span class="math inline">\(A\)</span>称为转移矩阵，其中的各个元素称为转移参量。</p>
-<p>归一化转移参量：把上面式子中的电压电流都换成归一化的，有： <span class="math display">\[
+\]</span> 其中<span
+class="math inline">\(A\)</span>称为转移矩阵，其中的各个元素称为转移参量。</p>
+<p>归一化转移参量：把上面式子中的电压电流都换成归一化的，有： <span
+class="math display">\[
 [\bar{A}]=\left[\begin{array}{cc}
 \bar{a} &amp; \bar{b} \\
 \bar{c} &amp; \bar{d}
@@ -953,7 +1066,10 @@ a=d, &amp; |A|=a d-b c=1
 <ol type="1">
 <li><p>串联阻抗</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212192031951.png" srcset="/img/loading.gif" lazyload alt="串联阻抗" /><figcaption aria-hidden="true">串联阻抗</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212192031951.png" srcset="/img/loading.gif" lazyload
+alt="串联阻抗" />
+<figcaption aria-hidden="true">串联阻抗</figcaption>
 </figure>
 <p>转移矩阵： <span class="math display">\[
 [A]=\left[\begin{array}{ll}
@@ -968,7 +1084,10 @@ Y \sqrt{Z_{01} Z_{02}} &amp; \sqrt{\frac{Z_{01}}{Z_{02}}}
 \]</span></p></li>
 <li><p>不同阻抗的传输线相连</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212192040220.png" srcset="/img/loading.gif" lazyload alt="不同阻抗的传输线相连" /><figcaption aria-hidden="true">不同阻抗的传输线相连</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212192040220.png" srcset="/img/loading.gif" lazyload
+alt="不同阻抗的传输线相连" />
+<figcaption aria-hidden="true">不同阻抗的传输线相连</figcaption>
 </figure>
 <p>转移矩阵： <span class="math display">\[
 [A]=\left[\begin{array}{ll}
@@ -983,7 +1102,10 @@ Y \sqrt{Z_{01} Z_{02}} &amp; \sqrt{\frac{Z_{01}}{Z_{02}}}
 \]</span></p></li>
 <li><p>理想变压器：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212192041717.png" srcset="/img/loading.gif" lazyload alt="理想变压器" /><figcaption aria-hidden="true">理想变压器</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212192041717.png" srcset="/img/loading.gif" lazyload
+alt="理想变压器" />
+<figcaption aria-hidden="true">理想变压器</figcaption>
 </figure>
 <p>转移矩阵： <span class="math display">\[
 [A]=\left[\begin{array}{ll}
@@ -998,7 +1120,10 @@ n^{-1} &amp; 0 \\
 \]</span></p></li>
 <li><p>一段均匀传输线：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212192045931.png" srcset="/img/loading.gif" lazyload alt="均匀传输线" /><figcaption aria-hidden="true">均匀传输线</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212192045931.png" srcset="/img/loading.gif" lazyload
+alt="均匀传输线" />
+<figcaption aria-hidden="true">均匀传输线</figcaption>
 </figure>
 <p>转移矩阵： <span class="math display">\[
 [A]=\left[\begin{array}{cc}
@@ -1015,7 +1140,8 @@ j \sin \beta l &amp; \cos \beta l
 <h3 id="无耗三端口网络">无耗三端口网络</h3>
 <p>具有以下性质：</p>
 <ol type="1">
-<li>无耗互易三端口网络不可能完全匹配。如果端口1、2匹配，那么端口3和网络完全隔离，即<span class="math inline">\(S_{13}=S_{23}=0\)</span></li>
+<li>无耗互易三端口网络不可能完全匹配。如果端口1、2匹配，那么端口3和网络完全隔离，即<span
+class="math inline">\(S_{13}=S_{23}=0\)</span></li>
 <li>任何完全匹配的无耗三端口网络一定是非互易的。</li>
 <li>对称互易无耗的三端口网络，输入驻波比不低于2</li>
 <li>无耗互易三端口网络中任意端口接短路活塞，总可以找到活塞的一个位置，使其它两个端口互相隔离。</li>
@@ -1032,7 +1158,8 @@ j \sin \beta l &amp; \cos \beta l
 <h3 id="一端口元件">一端口元件</h3>
 <ol type="1">
 <li><p>短路负载</p>
-<p>扼流式短路负载的基本原理是：利用传输线的<span class="math inline">\(\lambda/4\)</span>波长阻抗变换特性，把有高频电流流过，需要良好电接触的地方，恰好安排在电压波节点（电流波腹点）处，从而得到等效短路。</p></li>
+<p>扼流式短路负载的基本原理是：利用传输线的<span
+class="math inline">\(\lambda/4\)</span>波长阻抗变换特性，把有高频电流流过，需要良好电接触的地方，恰好安排在电压波节点（电流波腹点）处，从而得到等效短路。</p></li>
 <li><p>匹配负载</p>
 <p>它可以几乎无反射地吸收入射波的全部功率，在传输系统中建立行波状态。</p></li>
 <li><p>失配负载</p>
@@ -1043,9 +1170,13 @@ j \sin \beta l &amp; \cos \beta l
 <li><p>波导接头</p>
 <p>是用来把传输线接在一起的。有平接头、扼流接头等。</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212192224219.png" srcset="/img/loading.gif" lazyload alt="波导接头" /><figcaption aria-hidden="true">波导接头</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212192224219.png" srcset="/img/loading.gif" lazyload
+alt="波导接头" />
+<figcaption aria-hidden="true">波导接头</figcaption>
 </figure>
-<p>扼流接头在连接波导的法兰盘上有一个深为<span class="math inline">\(\lambda_g/4\)</span>的槽，这样可以保证接头处恰好是电流波腹点。</p></li>
+<p>扼流接头在连接波导的法兰盘上有一个深为<span
+class="math inline">\(\lambda_g/4\)</span>的槽，这样可以保证接头处恰好是电流波腹点。</p></li>
 <li><p>拐角、弯曲、扭转元件</p></li>
 <li><p>调配元件</p>
 <p>是一些电抗元件，放在传输线上，产生附加反射，使得传输线匹配。</p>
@@ -1060,10 +1191,13 @@ S=\begin{pmatrix}
 0 &amp; e^{-\alpha t}\\
 e^{-\alpha t} &amp; 0
 \end{pmatrix}
-\]</span> 截止式衰减器：插入一个比较小的传输线，使得电磁场在这一小段里面截止。其特点有：</p>
+\]</span>
+截止式衰减器：插入一个比较小的传输线，使得电磁场在这一小段里面截止。其特点有：</p>
 <ol type="1">
 <li>衰减量dB和距离呈线性关系</li>
-<li>当<span class="math inline">\(\lambda_c&lt;&lt;\lambda\)</span>，衰减系数<span class="math inline">\(\alpha\)</span>很大，移动较小的距离就可以得到很大的衰减量</li>
+<li>当<span
+class="math inline">\(\lambda_c&lt;&lt;\lambda\)</span>，衰减系数<span
+class="math inline">\(\alpha\)</span>很大，移动较小的距离就可以得到很大的衰减量</li>
 <li>衰减是由于反射产生，输入端和输出端严重失配</li>
 </ol>
 <p>还有极化衰减器</p></li>
@@ -1079,10 +1213,13 @@ e^{-j\beta l} &amp; 0
 <hr />
 <p>本站的运行成本约为每个月5元人民币，如果您觉得本站有用，欢迎打赏：</p>
 <p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202501120027592.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:25%;" /></p>
-<section class="footnotes" role="doc-endnotes">
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p>酉矩阵也叫幺正矩阵，即它的共轭转置和它的乘积是单位矩阵。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li
+id="fn1"><p>酉矩阵也叫幺正矩阵，即它的共轭转置和它的乘积是单位矩阵。<a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 

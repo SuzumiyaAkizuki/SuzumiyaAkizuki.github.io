@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/R-happy.jpg">
 <meta property="article:published_time" content="2022-05-23T14:38:13.000Z">
-<meta property="article:modified_time" content="2025-01-20T16:35:30.086Z">
+<meta property="article:modified_time" content="2025-01-20T16:35:30.000Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="数理统计">
 <meta name="twitter:card" content="summary_large_image">
@@ -564,13 +564,22 @@
 <h2 id="方差分析">方差分析</h2>
 <p>要讨论这两则乐子，首先要知道什么是方差分析。</p>
 <h3 id="单变量方差分析">单变量方差分析</h3>
-<p>单因素方差分析可以看成基础统计中两样本<span class="math inline">\(t\)</span>检验的一个推广， 要比较试验观测值的某个因变量（称为“指标”）按照一个分组变量（称为“因素”）分组后， 各组的因变量均值有无显著差异。</p>
-<p>设因素A有p个不同的水平<span class="math inline">\(A_1,A_2,\cdots,A_p\)</span>,在每个水平下，总体<span class="math inline">\(X_i\sim N(\mu_i,\sigma^2)\)</span>,需要检验的是这<span class="math inline">\(p\)</span>个样本的平均值有没有显著差异，即： <span class="math display">\[
+<p>单因素方差分析可以看成基础统计中两样本<span
+class="math inline">\(t\)</span>检验的一个推广，
+要比较试验观测值的某个因变量（称为“指标”）按照一个分组变量（称为“因素”）分组后，
+各组的因变量均值有无显著差异。</p>
+<p>设因素A有p个不同的水平<span
+class="math inline">\(A_1,A_2,\cdots,A_p\)</span>,在每个水平下，总体<span
+class="math inline">\(X_i\sim
+N(\mu_i,\sigma^2)\)</span>,需要检验的是这<span
+class="math inline">\(p\)</span>个样本的平均值有没有显著差异，即： <span
+class="math display">\[
 H_0:\mu_1=\mu_2=\cdots=\mu_p
-\]</span> 一般地，我们在每个水平中抽取<span class="math inline">\(r\)</span>个样本，形成如下的样本表：</p>
+\]</span> 一般地，我们在每个水平中抽取<span
+class="math inline">\(r\)</span>个样本，形成如下的样本表：</p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th><span class="math inline">\(A_1\)</span></th>
 <th><span class="math inline">\(x_{11}\)</span></th>
 <th><span class="math inline">\(x_{12}\)</span></th>
@@ -579,21 +588,21 @@ H_0:\mu_1=\mu_2=\cdots=\mu_p
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><span class="math inline">\(A_2\)</span></td>
 <td><span class="math inline">\(x_{21}\)</span></td>
 <td><span class="math inline">\(x_{22}\)</span></td>
 <td><span class="math inline">\(\cdots\)</span></td>
 <td><span class="math inline">\(x_{2r}\)</span></td>
 </tr>
-<tr class="even">
+<tr>
 <td><span class="math inline">\(\cdots\)</span></td>
 <td></td>
 <td></td>
 <td><span class="math inline">\(\cdots\)</span></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><span class="math inline">\(A_P\)</span></td>
 <td><span class="math inline">\(x_{p1}\)</span></td>
 <td><span class="math inline">\(x_{p2}\)</span></td>
@@ -605,34 +614,34 @@ H_0:\mu_1=\mu_2=\cdots=\mu_p
 <p>【例】：用R语言对下列数据进行方差分析：</p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>A</th>
 <th>B</th>
 <th>C</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>58</td>
 <td>58</td>
 <td>48</td>
 </tr>
-<tr class="even">
+<tr>
 <td>64</td>
 <td>69</td>
 <td>57</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>55</td>
 <td>71</td>
 <td>59</td>
 </tr>
-<tr class="even">
+<tr>
 <td>66</td>
 <td>64</td>
 <td>47</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>67</td>
 <td>68</td>
 <td>49</td>
@@ -642,69 +651,69 @@ H_0:\mu_1=\mu_2=\cdots=\mu_p
 <p>【解】先把表格转换成纵列形式</p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>grp</th>
 <th>y</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>A</td>
 <td>58</td>
 </tr>
-<tr class="even">
+<tr>
 <td>A</td>
 <td>64</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>A</td>
 <td>55</td>
 </tr>
-<tr class="even">
+<tr>
 <td>A</td>
 <td>66</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>A</td>
 <td>67</td>
 </tr>
-<tr class="even">
+<tr>
 <td>B</td>
 <td>58</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>B</td>
 <td>69</td>
 </tr>
-<tr class="even">
+<tr>
 <td>B</td>
 <td>71</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>B</td>
 <td>64</td>
 </tr>
-<tr class="even">
+<tr>
 <td>B</td>
 <td>68</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>C</td>
 <td>48</td>
 </tr>
-<tr class="even">
+<tr>
 <td>C</td>
 <td>57</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>C</td>
 <td>59</td>
 </tr>
-<tr class="even">
+<tr>
 <td>C</td>
 <td>47</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>C</td>
 <td>49</td>
 </tr>
@@ -717,14 +726,18 @@ H_0:\mu_1=\mu_2=\cdots=\mu_p
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs R">mod <span class="hljs-operator">&lt;-</span> aov<span class="hljs-punctuation">(</span>y<span class="hljs-operator">~</span>grp<span class="hljs-punctuation">,</span>data<span class="hljs-punctuation">)</span><br>summary<span class="hljs-punctuation">(</span>mod<span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
 <p>即可输出分析结果，如下：</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs R">            Df Sum Sq Mean Sq <span class="hljs-built_in">F</span> value  Pr<span class="hljs-punctuation">(</span><span class="hljs-operator">&gt;</span><span class="hljs-built_in">F</span><span class="hljs-punctuation">)</span>   <br>grp          <span class="hljs-number">2</span>    <span class="hljs-number">520</span>  <span class="hljs-number">260.00</span>   <span class="hljs-number">9.176</span> <span class="hljs-number">0.00382</span> <span class="hljs-operator">*</span><span class="hljs-operator">*</span><br>Residuals   <span class="hljs-number">12</span>    <span class="hljs-number">340</span>   <span class="hljs-number">28.33</span>                   <br><span class="hljs-operator">-</span><span class="hljs-operator">-</span><span class="hljs-operator">-</span><br>Signif. codes<span class="hljs-operator">:</span>  <span class="hljs-number">0</span> ‘<span class="hljs-operator">*</span><span class="hljs-operator">*</span><span class="hljs-operator">*</span>’ <span class="hljs-number">0.001</span> ‘<span class="hljs-operator">*</span><span class="hljs-operator">*</span>’ <span class="hljs-number">0.01</span> ‘<span class="hljs-operator">*</span>’ <span class="hljs-number">0.05</span> ‘.’ <span class="hljs-number">0.1</span> ‘ ’ <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
-<p>我们看到<code>grp</code>的<span class="math inline">\(P_r\)</span>值有<span class="math inline">\(0.00382&lt;0.05\)</span>，所以可以认为各组之间有显著差异。</p>
+<p>我们看到<code>grp</code>的<span
+class="math inline">\(P_r\)</span>值有<span
+class="math inline">\(0.00382&lt;0.05\)</span>，所以可以认为各组之间有显著差异。</p>
 <h3 id="双变量方差分析">双变量方差分析</h3>
 <p>在实际任务中，影响实验结果的因素可能不止一个，这时就要用到双变量方差分析（或者正交实验）。在两个因素的实验中，不但每一个因素会对结果起作用，而且两个因素联合起来往往也会对结果起作用。如果你不能理解这个结论，不妨设想这样一个例子：工人在工厂工作时，对工人效率的影响因素有工人和机器。如果工人专业技能高、机器运行状况好，那么效率很自然地就会比较高。但是一个资质平平的工人如果对某个状况一般的机器非常熟悉，以至于把这个机器什么时候会出现什么误差都记得滚瓜烂熟，那么把他俩结合起来，也有可能获得很高的效率。</p>
 <p>为了进行双变量方差分析，进行双因素重复性实验，得到的数据表往往是这样给出的：</p>
-<p><img src="https://suzumiyaakizuki.github.io/post-images/1653320029199.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://suzumiyaakizuki.github.io/post-images/1653320029199.png" srcset="/img/loading.gif" lazyload /></p>
 <p>这时，我就美美地开始做题了！</p>
 <h2 id="第一道题">第一道题</h2>
-<p><img src="https://suzumiyaakizuki.github.io/post-images/1653320064532.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://suzumiyaakizuki.github.io/post-images/1653320064532.png" srcset="/img/loading.gif" lazyload /></p>
 <p>我一看这不简单？于是美美列了个表：</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs R">   A B   Y<br><span class="hljs-number">1</span>  <span class="hljs-number">1</span> <span class="hljs-number">1</span>  <span class="hljs-number">95</span><br><span class="hljs-number">2</span>  <span class="hljs-number">2</span> <span class="hljs-number">1</span>  <span class="hljs-number">95</span><br><span class="hljs-number">3</span>  <span class="hljs-number">3</span> <span class="hljs-number">1</span> <span class="hljs-number">106</span><br><span class="hljs-number">4</span>  <span class="hljs-number">4</span> <span class="hljs-number">1</span>  <span class="hljs-number">98</span><br><span class="hljs-number">5</span>  <span class="hljs-number">5</span> <span class="hljs-number">1</span> <span class="hljs-number">102</span><br><span class="hljs-number">6</span>  <span class="hljs-number">6</span> <span class="hljs-number">1</span> <span class="hljs-number">112</span><br><span class="hljs-number">7</span>  <span class="hljs-number">7</span> <span class="hljs-number">1</span> <span class="hljs-number">105</span><br><span class="hljs-number">8</span>  <span class="hljs-number">8</span> <span class="hljs-number">1</span>  <span class="hljs-number">95</span><br><span class="hljs-number">9</span>  <span class="hljs-number">1</span> <span class="hljs-number">2</span>  <span class="hljs-number">95</span><br><span class="hljs-number">10</span> <span class="hljs-number">2</span> <span class="hljs-number">2</span>  <span class="hljs-number">94</span><br><span class="hljs-number">11</span> <span class="hljs-number">3</span> <span class="hljs-number">2</span> <span class="hljs-number">105</span><br><span class="hljs-number">12</span> <span class="hljs-number">4</span> <span class="hljs-number">2</span>  <span class="hljs-number">97</span><br><span class="hljs-number">13</span> <span class="hljs-number">5</span> <span class="hljs-number">2</span>  <span class="hljs-number">98</span><br><span class="hljs-number">14</span> <span class="hljs-number">6</span> <span class="hljs-number">2</span> <span class="hljs-number">112</span><br><span class="hljs-number">15</span> <span class="hljs-number">7</span> <span class="hljs-number">2</span> <span class="hljs-number">103</span><br><span class="hljs-number">16</span> <span class="hljs-number">8</span> <span class="hljs-number">2</span>  <span class="hljs-number">92</span><br><span class="hljs-number">17</span> <span class="hljs-number">1</span> <span class="hljs-number">3</span>  <span class="hljs-number">89</span><br><span class="hljs-number">18</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span>  <span class="hljs-number">88</span><br><span class="hljs-number">19</span> <span class="hljs-number">3</span> <span class="hljs-number">3</span>  <span class="hljs-number">87</span><br><span class="hljs-number">20</span> <span class="hljs-number">4</span> <span class="hljs-number">3</span>  <span class="hljs-number">95</span><br><span class="hljs-number">21</span> <span class="hljs-number">5</span> <span class="hljs-number">3</span>  <span class="hljs-number">97</span><br><span class="hljs-number">22</span> <span class="hljs-number">6</span> <span class="hljs-number">3</span> <span class="hljs-number">101</span><br><span class="hljs-number">23</span> <span class="hljs-number">7</span> <span class="hljs-number">3</span>  <span class="hljs-number">97</span><br><span class="hljs-number">24</span> <span class="hljs-number">8</span> <span class="hljs-number">3</span>  <span class="hljs-number">90</span><br><span class="hljs-number">25</span> <span class="hljs-number">1</span> <span class="hljs-number">4</span>  <span class="hljs-number">83</span><br><span class="hljs-number">26</span> <span class="hljs-number">2</span> <span class="hljs-number">4</span>  <span class="hljs-number">84</span><br><span class="hljs-number">27</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span>  <span class="hljs-number">90</span><br><span class="hljs-number">28</span> <span class="hljs-number">4</span> <span class="hljs-number">4</span>  <span class="hljs-number">90</span><br><span class="hljs-number">29</span> <span class="hljs-number">5</span> <span class="hljs-number">4</span>  <span class="hljs-number">88</span><br><span class="hljs-number">30</span> <span class="hljs-number">6</span> <span class="hljs-number">4</span>  <span class="hljs-number">94</span><br><span class="hljs-number">31</span> <span class="hljs-number">7</span> <span class="hljs-number">4</span>  <span class="hljs-number">88</span><br><span class="hljs-number">32</span> <span class="hljs-number">8</span> <span class="hljs-number">4</span>  <span class="hljs-number">80</span><br></code></pre></td></tr></table></figure>
 <p>读取数据：</p>
@@ -736,52 +749,64 @@ H_0:\mu_1=\mu_2=\cdots=\mu_p
 <p>其中：</p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>项目</th>
 <th>含义</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Df</td>
 <td>自由度</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Sum Sq</td>
 <td>平方和</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Mean Sq</td>
 <td>均方</td>
 </tr>
-<tr class="even">
+<tr>
 <td>F value</td>
 <td>F值</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Pr(&gt;F)</td>
 <td>p值</td>
 </tr>
 </tbody>
 </table>
-<p>哈哈，聪明的你一定看出问题了吧，那就是这俩的自由度都是<span class="math inline">\(1\)</span>，这是怎么会事呢？</p>
-<p>原来是因为我的两个标签<span class="math inline">\(A\)</span>和<span class="math inline">\(B\)</span>都用了数字，而R语言里的数据类型有数字、字符等。它把我们的1，2，3，...当成了一个连续变量，于是就出错了。当然这个问题可以用<code>ac.factor()</code>函数解决，但是我直接把标签换成字母也能解决。</p>
+<p>哈哈，聪明的你一定看出问题了吧，那就是这俩的自由度都是<span
+class="math inline">\(1\)</span>，这是怎么会事呢？</p>
+<p>原来是因为我的两个标签<span class="math inline">\(A\)</span>和<span
+class="math inline">\(B\)</span>都用了数字，而R语言里的数据类型有数字、字符等。它把我们的1，2，3，...当成了一个连续变量，于是就出错了。当然这个问题可以用<code>ac.factor()</code>函数解决，但是我直接把标签换成字母也能解决。</p>
 <p>修改了以后的输出为：</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs R">            Df Sum Sq Mean Sq <span class="hljs-built_in">F</span> value   Pr<span class="hljs-punctuation">(</span><span class="hljs-operator">&gt;</span><span class="hljs-built_in">F</span><span class="hljs-punctuation">)</span>    <br>A            <span class="hljs-number">7</span>  <span class="hljs-number">747.5</span>   <span class="hljs-number">106.8</span>   <span class="hljs-number">12.78</span> <span class="hljs-number">2.62e-06</span> <span class="hljs-operator">*</span><span class="hljs-operator">*</span><span class="hljs-operator">*</span><br>B            <span class="hljs-number">3</span>  <span class="hljs-number">977.3</span>   <span class="hljs-number">325.8</span>   <span class="hljs-number">39.00</span> <span class="hljs-number">9.12e-09</span> <span class="hljs-operator">*</span><span class="hljs-operator">*</span><span class="hljs-operator">*</span><br>Residuals   <span class="hljs-number">21</span>  <span class="hljs-number">175.4</span>     <span class="hljs-number">8.4</span>                     <br><span class="hljs-operator">-</span><span class="hljs-operator">-</span><span class="hljs-operator">-</span><br>Signif. codes<span class="hljs-operator">:</span>  <span class="hljs-number">0</span> ‘<span class="hljs-operator">*</span><span class="hljs-operator">*</span><span class="hljs-operator">*</span>’ <span class="hljs-number">0.001</span> ‘<span class="hljs-operator">*</span><span class="hljs-operator">*</span>’ <span class="hljs-number">0.01</span> ‘<span class="hljs-operator">*</span>’ <span class="hljs-number">0.05</span> ‘.’ <span class="hljs-number">0.1</span> ‘ ’ <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
-<p>这个结果是正确的。我们可以发现<span class="math inline">\(A\)</span>和<span class="math inline">\(B\)</span>都对结果有不可忽视的影响。</p>
+<p>这个结果是正确的。我们可以发现<span
+class="math inline">\(A\)</span>和<span
+class="math inline">\(B\)</span>都对结果有不可忽视的影响。</p>
 <h2 id="第二道题">第二道题</h2>
 <p>三位操作工分别在四台不同的机器上操作了3天，其产量如下表所示：</p>
-<p><img src="https://suzumiyaakizuki.github.io/post-images/1653320084039.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://suzumiyaakizuki.github.io/post-images/1653320084039.png" srcset="/img/loading.gif" lazyload /></p>
 <p>于是我想当然哈，以为三次实验，加一下就好了，于是列了这么个表：</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs R">   A B  Y<br><span class="hljs-number">1</span>  a x <span class="hljs-number">47</span><br><span class="hljs-number">2</span>  b x <span class="hljs-number">51</span><br><span class="hljs-number">3</span>  <span class="hljs-built_in">c</span> x <span class="hljs-number">48</span><br><span class="hljs-number">4</span>  d x <span class="hljs-number">60</span><br><span class="hljs-number">5</span>  a y <span class="hljs-number">54</span><br><span class="hljs-number">6</span>  b y <span class="hljs-number">45</span><br><span class="hljs-number">7</span>  <span class="hljs-built_in">c</span> y <span class="hljs-number">51</span><br><span class="hljs-number">8</span>  d y <span class="hljs-number">48</span><br><span class="hljs-number">9</span>  a z <span class="hljs-number">55</span><br><span class="hljs-number">10</span> b z <span class="hljs-number">63</span><br><span class="hljs-number">11</span> <span class="hljs-built_in">c</span> z <span class="hljs-number">54</span><br><span class="hljs-number">12</span> d z <span class="hljs-number">51</span><br></code></pre></td></tr></table></figure>
 <p>建立模型：</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs R">mod <span class="hljs-operator">&lt;-</span> aov<span class="hljs-punctuation">(</span>Y<span class="hljs-operator">~</span>A<span class="hljs-operator">+</span>B<span class="hljs-operator">+</span>A<span class="hljs-operator">:</span>B<span class="hljs-punctuation">,</span>X<span class="hljs-punctuation">)</span><br>summary<span class="hljs-punctuation">(</span>mod<span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
 <p>输出结果：</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs R">            Df Sum Sq Mean Sq<br>A            <span class="hljs-number">3</span>   <span class="hljs-number">8.25</span>    <span class="hljs-number">2.75</span><br>B            <span class="hljs-number">2</span>  <span class="hljs-number">81.50</span>   <span class="hljs-number">40.75</span><br>A<span class="hljs-operator">:</span>B          <span class="hljs-number">6</span> <span class="hljs-number">220.50</span>   <span class="hljs-number">36.75</span><br></code></pre></td></tr></table></figure>
-<p>根据<span class="math inline">\(F\)</span>值，我们可以看出....欸我<span class="math inline">\(F\)</span>值呢？咋没了？</p>
-<p>这是因为，在”加和“（或者求平均值）的时候，就顺带消除了<span class="math inline">\(A\times B\)</span>的影响。这是因为<span class="math inline">\(A\times B\)</span>的离差平方和为： <span class="math display">\[
-S_{A\times B}=\sum_{i=1}^p\sum_{j=1}^q\sum_{k=1}^r (\bar{x}_{ij\cdot} -\bar{x}_{i\cdot \cdot } - \bar{x}_{\cdot j \cdot } +\bar{x})^2
-\]</span> 对于多次重复实验，应该把它们分拆开，每次都单独算。列表如下：</p>
+<p>根据<span
+class="math inline">\(F\)</span>值，我们可以看出....欸我<span
+class="math inline">\(F\)</span>值呢？咋没了？</p>
+<p>这是因为，在”加和“（或者求平均值）的时候，就顺带消除了<span
+class="math inline">\(A\times B\)</span>的影响。这是因为<span
+class="math inline">\(A\times B\)</span>的离差平方和为： <span
+class="math display">\[
+S_{A\times B}=\sum_{i=1}^p\sum_{j=1}^q\sum_{k=1}^r (\bar{x}_{ij\cdot}
+-\bar{x}_{i\cdot \cdot } - \bar{x}_{\cdot j \cdot } +\bar{x})^2
+\]</span>
+对于多次重复实验，应该把它们分拆开，每次都单独算。列表如下：</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs R">   A B  Y<br><span class="hljs-number">1</span>  a x <span class="hljs-number">15</span><br><span class="hljs-number">2</span>  b x <span class="hljs-number">17</span><br><span class="hljs-number">3</span>  <span class="hljs-built_in">c</span> x <span class="hljs-number">15</span><br><span class="hljs-number">4</span>  d x <span class="hljs-number">18</span><br><span class="hljs-number">5</span>  a y <span class="hljs-number">19</span><br><span class="hljs-number">6</span>  b y <span class="hljs-number">15</span><br><span class="hljs-number">7</span>  <span class="hljs-built_in">c</span> y <span class="hljs-number">18</span><br><span class="hljs-number">8</span>  d y <span class="hljs-number">15</span><br><span class="hljs-number">9</span>  a z <span class="hljs-number">16</span><br><span class="hljs-number">10</span> b z <span class="hljs-number">19</span><br><span class="hljs-number">11</span> <span class="hljs-built_in">c</span> z <span class="hljs-number">18</span><br><span class="hljs-number">12</span> d z <span class="hljs-number">17</span><br><span class="hljs-number">13</span> a x <span class="hljs-number">15</span><br><span class="hljs-number">14</span> b x <span class="hljs-number">17</span><br><span class="hljs-number">15</span> <span class="hljs-built_in">c</span> x <span class="hljs-number">17</span><br><span class="hljs-number">16</span> d x <span class="hljs-number">20</span><br><span class="hljs-number">17</span> a y <span class="hljs-number">19</span><br><span class="hljs-number">18</span> b y <span class="hljs-number">15</span><br><span class="hljs-number">19</span> <span class="hljs-built_in">c</span> y <span class="hljs-number">17</span><br><span class="hljs-number">20</span> d y <span class="hljs-number">16</span><br><span class="hljs-number">21</span> a z <span class="hljs-number">18</span><br><span class="hljs-number">22</span> b z <span class="hljs-number">22</span><br><span class="hljs-number">23</span> <span class="hljs-built_in">c</span> z <span class="hljs-number">18</span><br><span class="hljs-number">24</span> d z <span class="hljs-number">17</span><br><span class="hljs-number">25</span> a x <span class="hljs-number">17</span><br><span class="hljs-number">26</span> b x <span class="hljs-number">17</span><br><span class="hljs-number">27</span> <span class="hljs-built_in">c</span> x <span class="hljs-number">16</span><br><span class="hljs-number">28</span> d x <span class="hljs-number">22</span><br><span class="hljs-number">29</span> a y <span class="hljs-number">16</span><br><span class="hljs-number">30</span> b y <span class="hljs-number">15</span><br><span class="hljs-number">31</span> <span class="hljs-built_in">c</span> y <span class="hljs-number">16</span><br><span class="hljs-number">32</span> d y <span class="hljs-number">17</span><br><span class="hljs-number">33</span> a z <span class="hljs-number">21</span><br><span class="hljs-number">34</span> b z <span class="hljs-number">22</span><br><span class="hljs-number">35</span> <span class="hljs-built_in">c</span> z <span class="hljs-number">18</span><br><span class="hljs-number">36</span> d z <span class="hljs-number">17</span><br></code></pre></td></tr></table></figure>
 <p>建立模型：</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs R">mod <span class="hljs-operator">&lt;-</span> aov<span class="hljs-punctuation">(</span>Y<span class="hljs-operator">~</span>A<span class="hljs-operator">*</span>B<span class="hljs-punctuation">,</span>X<span class="hljs-punctuation">)</span><br>summary<span class="hljs-punctuation">(</span>mod<span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>

@@ -19,16 +19,16 @@
   <meta name="author" content="SuzumiyaAkizuki">
   <meta name="keywords" content="">
   
-    <meta name="description" content="[toc] 准备工作  安装Vivado软件，VSCode软件，VSCode的Verilog插件 在环境变量中加入Vivado的XVlog，以便VSCode检查 在Vivado中新建一个project，除取名和选择路径以外一路Next即可。 来到了以下界面  image-20221008230354388  鼠标选择Constraints，点加号，在弹出的窗口中选择第二个选项，">
+    <meta name="description" content="[toc] 准备工作  安装Vivado软件，VSCode软件，VSCode的Verilog插件 在环境变量中加入Vivado的XVlog，以便VSCode检查 在Vivado中新建一个project，除取名和选择路径以外一路Next即可。 来到了以下界面   image-20221008230354388  鼠标选择Constraints，点加号，在弹出的窗口中选择第二个选">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vlab Verilog OJ 做题记录(1-10)">
 <meta property="og:url" content="https://suzumiyaakizuki.github.io/2022/10/08/verilog1-10/index.html">
 <meta property="og:site_name" content="凉宫秋月的文艺部">
-<meta property="og:description" content="[toc] 准备工作  安装Vivado软件，VSCode软件，VSCode的Verilog插件 在环境变量中加入Vivado的XVlog，以便VSCode检查 在Vivado中新建一个project，除取名和选择路径以外一路Next即可。 来到了以下界面  image-20221008230354388  鼠标选择Constraints，点加号，在弹出的窗口中选择第二个选项，">
+<meta property="og:description" content="[toc] 准备工作  安装Vivado软件，VSCode软件，VSCode的Verilog插件 在环境变量中加入Vivado的XVlog，以便VSCode检查 在Vivado中新建一个project，除取名和选择路径以外一路Next即可。 来到了以下界面   image-20221008230354388  鼠标选择Constraints，点加号，在弹出的窗口中选择第二个选">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210090005819.png">
 <meta property="article:published_time" content="2022-10-08T15:01:08.000Z">
-<meta property="article:modified_time" content="2025-01-20T16:35:31.290Z">
+<meta property="article:modified_time" content="2025-01-20T16:35:30.000Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="Verilog">
 <meta property="article:tag" content="数电">
@@ -532,11 +532,17 @@
 <li><p>在Vivado中新建一个project，除取名和选择路径以外一路Next即可。</p></li>
 <li><p>来到了以下界面</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210082304579.png" srcset="/img/loading.gif" lazyload alt="image-20221008230354388" /><figcaption aria-hidden="true">image-20221008230354388</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210082304579.png" srcset="/img/loading.gif" lazyload
+alt="image-20221008230354388" />
+<figcaption aria-hidden="true">image-20221008230354388</figcaption>
 </figure>
-<p>鼠标选择Constraints，点加号，在弹出的窗口中选择第二个选项，点Next，点Creat File新建一个文件，文件名最好是模块名。</p></li>
-<li><p>点小齿轮（设置），点Text Editor，选择Custom Editor，输入<code>.../Microsoft VS Code/Code.exe -g [file name]</code>，点OK</p></li>
-<li><p>先打开VSCode软件，再双击Vivado Sources/Design Sources里你刚刚新建的.v文件，弹出新VSCode窗口，于是可以开始写代码了。</p></li>
+<p>鼠标选择Constraints，点加号，在弹出的窗口中选择第二个选项，点Next，点Creat
+File新建一个文件，文件名最好是模块名。</p></li>
+<li><p>点小齿轮（设置），点Text Editor，选择Custom
+Editor，输入<code>.../Microsoft VS Code/Code.exe -g [file name]</code>，点OK</p></li>
+<li><p>先打开VSCode软件，再双击Vivado Sources/Design
+Sources里你刚刚新建的.v文件，弹出新VSCode窗口，于是可以开始写代码了。</p></li>
 </ol>
 <h2 id="输出1">输出1</h2>
 <h3 id="题目描述">题目描述</h3>
@@ -557,8 +563,12 @@
 <p>把上题中的<code>1</code>变成<code>0</code>即可，略。</p>
 <h2 id="wire">wire</h2>
 <h3 id="题目描述-1">题目描述</h3>
-<p>wire 是 Verilog 的关键字，用于表征信号类型的，其含义是线网。wire 可理解为物理连线，但又有所不同，因为 Verilog 中的 wire 是有方向的。例如设计一模块，模块名命名为 top_module，输入信号名为 in，输出信号名为 out，使 in 与 out 直连，如下图所示：</p>
-<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210082321013.png" srcset="/img/loading.gif" lazyload /></p>
+<p>wire 是 Verilog 的关键字，用于表征信号类型的，其含义是线网。wire
+可理解为物理连线，但又有所不同，因为 Verilog 中的 wire
+是有方向的。例如设计一模块，模块名命名为 top_module，输入信号名为
+in，输出信号名为 out，使 in 与 out 直连，如下图所示：</p>
+<p><img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210082321013.png" srcset="/img/loading.gif" lazyload /></p>
 <p>请使用 assign 语句将代码补充完整，使其实现上述电路图的功能。</p>
 <h3 id="输入格式-1">输入格式</h3>
 <p>任意</p>
@@ -574,7 +584,8 @@
 <h2 id="多个端口的模块">多个端口的模块</h2>
 <h3 id="题目描述-2">题目描述</h3>
 <p>wire是Verilog的关键字，用于表征信号类型的，其含义是线网，wire可理解为物理连线，但又有所不同，因为verilog中的wire是有方向的，例如设计一模块，模块名命名为top_module，输入信号名为in，输出信号名为out，使in与out直连，如下图所示：</p>
-<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210082332727.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210082332727.png" srcset="/img/loading.gif" lazyload /></p>
 <p>请使用assign语句将代码补充完整，使其实现上述电路图的功能</p>
 <h3 id="输入格式-2">输入格式</h3>
 <p>1 1 1</p>
@@ -598,25 +609,30 @@
 <p>本题的代码为：</p>
 <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> top_module(a,b);<br>    <span class="hljs-keyword">input</span> <span class="hljs-keyword">wire</span> a;<br>    <span class="hljs-keyword">output</span> <span class="hljs-keyword">wire</span> b;<br>    <span class="hljs-keyword">assign</span>  b = ~a;<br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
 <h2 id="与门">与门</h2>
-<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210082342033.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210082342033.png" srcset="/img/loading.gif" lazyload /></p>
 <p>和上一题差别不大</p>
 <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> top_module(a,b,out);<br>    <span class="hljs-keyword">input</span> <span class="hljs-keyword">wire</span> a,b;<br>    <span class="hljs-keyword">output</span> <span class="hljs-keyword">wire</span> out;<br>    <span class="hljs-keyword">assign</span> out=a&amp;b;<br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
 <h2 id="或非门">或非门</h2>
-<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210082343150.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210082343150.png" srcset="/img/loading.gif" lazyload /></p>
 <p>和上一题的差别不大，或非的意思就是先或再非。</p>
 <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> top_module(a,b,out);<br>    <span class="hljs-keyword">input</span> <span class="hljs-keyword">wire</span> a,b;<br>    <span class="hljs-keyword">output</span> <span class="hljs-keyword">wire</span> out;<br>    <span class="hljs-keyword">assign</span> out=~(a|b);<br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
 <h2 id="同或门">同或门</h2>
-<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210082344430.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210082344430.png" srcset="/img/loading.gif" lazyload /></p>
 <p>和上一题差别不大，同或的意思就是俩信号一样就是0，不一样就是1，也就是异或取反。</p>
 <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> top_module(a,b,out);<br>    <span class="hljs-keyword">input</span> <span class="hljs-keyword">wire</span> a,b;<br>    <span class="hljs-keyword">output</span> <span class="hljs-keyword">wire</span> out;<br>    <span class="hljs-keyword">assign</span> out=~(a^b);<br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
 <h2 id="线网型中间信号">线网型中间信号</h2>
 <h3 id="题目描述-4">题目描述</h3>
 <p>之前的verilog模块结构都比较简单，输出信号可直接用输入信号的逻辑表达式表示出来，模块功能稍微复杂时，一般都会用到中间信号，以下图为例，输入信号in经过两个非门后输出到out端口，为了在verilog模块中表示两个非门中间的这跟信号，需要将其定义为线网型（wire）信号，此处我们命名为not_in。</p>
-<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210082345009.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210082345009.png" srcset="/img/loading.gif" lazyload /></p>
 <p>上述模块的verilog代码为：</p>
 <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> top_module (<br>	<span class="hljs-keyword">input</span> in,<br>    <span class="hljs-keyword">output</span> out;<br>);<br>    <span class="hljs-keyword">wire</span> not_in;<br>    <br>    <span class="hljs-keyword">assign</span> out=~not_in;<br>    <span class="hljs-keyword">assign</span> not_in=~in;<br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
 <p>请根据上述示例，完成下图中电路所对应的Verilog模块</p>
-<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210082346567.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210082346567.png" srcset="/img/loading.gif" lazyload /></p>
 <h3 id="输入格式-4">输入格式</h3>
 <p>四个线网型变量a、b、c、d</p>
 <h3 id="输出格式-4">输出格式</h3>
@@ -628,7 +644,9 @@
 <p>根据给出的图，我们很容易写出下面的代码：</p>
 <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-keyword">module</span> top_module(a,b,c,d,out,out_n);<br>    <span class="hljs-keyword">input</span> <span class="hljs-keyword">wire</span> a,b,c,d;<br>    <span class="hljs-keyword">output</span> <span class="hljs-keyword">wire</span> out,out_n;<br>    <span class="hljs-keyword">wire</span> x,y;<br>    <span class="hljs-keyword">assign</span> x = (a&amp;b);<br>    <span class="hljs-keyword">assign</span> y = (c&amp;d);<br>    <span class="hljs-keyword">assign</span> out = x|y;<br>    <span class="hljs-keyword">assign</span> out_n=~(x|y);<br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
 <p>但是有个问题，就是我们不知道这个代码对不对。那么怎么知道我们的代码是怎么运行起来呢？在C语言里，我们一般是编译执行然后在控制台里输入一些数据，看输出是不是符合我们的期待。在Verilog中，我们也要给程序输入一些信号，看输出的信号是否符合我们的期待，但是这个过程比C语言的要复杂一些：我们还要再写一个Verilog代码，它叫做“testbench”。</p>
-<p>首先我们回到Vivado软件，鼠标选择Constraints，点加号，在弹出的窗口中选择第<strong>三</strong>个选项，点Next，点Creat File新建一个文件，文件名最好是“模块名_tb”。这里的“tb”就是"testbench"的意思。然后，在Simulation Source里面就生产力testbench代码。</p>
+<p>首先我们回到Vivado软件，鼠标选择Constraints，点加号，在弹出的窗口中选择第<strong>三</strong>个选项，点Next，点Creat
+File新建一个文件，文件名最好是“模块名_tb”。这里的“tb”就是"testbench"的意思。然后，在Simulation
+Source里面就生产力testbench代码。</p>
 <p>testbench代码的基本结构是这样的：</p>
 <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs verilog"><span class="hljs-meta">`<span class="hljs-keyword">timescale</span> 1ns / 1ps</span><br><span class="hljs-keyword">module</span> 模块名_tb;<br>   <span class="hljs-keyword">reg</span> 输入端口名<span class="hljs-number">1</span>,输入端口名<span class="hljs-number">2</span>,...;<br>   <span class="hljs-keyword">wire</span> 输出端口名<span class="hljs-number">1</span>，输出端口名<span class="hljs-number">2</span>，...;<br>   模块名 模块的示例名(.端口名<span class="hljs-number">1</span>(端口<span class="hljs-number">1</span>),.端口名<span class="hljs-number">2</span>(端口<span class="hljs-number">2</span>),...);<br>   <span class="hljs-keyword">initial</span> <span class="hljs-keyword">begin</span><br>       输入端口<span class="hljs-number">1</span>=值<span class="hljs-number">1_1</span>;输入端口<span class="hljs-number">2</span>=值<span class="hljs-number">1_2</span>;...<br>       #<span class="hljs-number">50</span>;<br>       输入端口<span class="hljs-number">1</span>=值<span class="hljs-number">2_1</span>;输入端口<span class="hljs-number">2</span>=值<span class="hljs-number">2_2</span>;...<br>       #<span class="hljs-number">50</span>;<br>       ...<br>       输入端口<span class="hljs-number">1</span>=值n_1;输入端口<span class="hljs-number">2</span>=值n_2;...<br>       #<span class="hljs-number">50</span>;<br>       <span class="hljs-built_in">$stop</span>;<br>   <span class="hljs-keyword">end</span><br><span class="hljs-keyword">endmodule</span><br></code></pre></td></tr></table></figure>
 <p>这里面有几个我们之前没见过的东西。首先是第一行</p>
@@ -646,11 +664,17 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cstdio&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-type">const</span> <span class="hljs-type">double</span> eps = <span class="hljs-number">1e-11</span>;<br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;输入模块名称:&quot;</span>);<br>	<span class="hljs-type">char</span> s[<span class="hljs-number">100</span>];<br>	<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%s&quot;</span>, s);<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;输入input信号个数：&quot;</span>);<br>	<span class="hljs-type">int</span> NumInput;<br>	<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;NumInput);<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;依次输入input信号名称：&quot;</span>);<br>	string inputSign[<span class="hljs-number">100</span>];<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= NumInput; ++i) &#123;<br>		cin &gt;&gt; inputSign[i];<br>	&#125;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;输入output信号个数：&quot;</span>);<br>	<span class="hljs-type">int</span> NumOutput;<br>	<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;NumOutput);<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;依次输入output信号名称：&quot;</span>);<br>	string outputSign[<span class="hljs-number">100</span>];<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= NumOutput; ++i) &#123;<br>		cin &gt;&gt; outputSign[i];<br>	&#125;<br><br>	cout &lt;&lt; <span class="hljs-string">&quot;`timescale 1ns / 1ps\n&quot;</span>;<br>	cout &lt;&lt; <span class="hljs-string">&quot;module &quot;</span> &lt;&lt; s &lt;&lt; <span class="hljs-string">&quot;_tb;\n&quot;</span>;<br>	cout &lt;&lt; <span class="hljs-string">&quot;   reg &quot;</span>;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= NumInput; ++i)&#123;<br>		cout &lt;&lt; inputSign[i];<br>		<span class="hljs-keyword">if</span>(i!=NumInput) cout&lt;&lt;<span class="hljs-string">&quot;, &quot;</span>;<br>	&#125;<br>	cout &lt;&lt; <span class="hljs-string">&quot;;&quot;</span> &lt;&lt; endl;<br>	cout &lt;&lt; <span class="hljs-string">&quot;   wire &quot;</span>;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= NumOutput; ++i)&#123;<br>		cout &lt;&lt; outputSign[i];<br>		<span class="hljs-keyword">if</span>(i!=NumOutput) cout&lt;&lt;<span class="hljs-string">&quot;, &quot;</span>;<br>	&#125;<br>	cout &lt;&lt; <span class="hljs-string">&quot;;&quot;</span> &lt;&lt; endl;<br>	cout &lt;&lt; <span class="hljs-string">&quot;   &quot;</span> &lt;&lt; s &lt;&lt; <span class="hljs-string">&quot; ul(&quot;</span>;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= NumInput; ++i)<br>		cout &lt;&lt; <span class="hljs-string">&quot;.&quot;</span> &lt;&lt; inputSign[i] &lt;&lt; <span class="hljs-string">&quot;(&quot;</span> &lt;&lt; inputSign[i] &lt;&lt; <span class="hljs-string">&quot;),&quot;</span>;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= NumOutput; ++i) &#123;<br>		cout &lt;&lt; <span class="hljs-string">&quot;.&quot;</span> &lt;&lt; outputSign[i] &lt;&lt; <span class="hljs-string">&quot;(&quot;</span> &lt;&lt; outputSign[i] &lt;&lt; <span class="hljs-string">&quot;)&quot;</span>;<br>		<span class="hljs-keyword">if</span> (i != NumOutput) cout &lt;&lt; <span class="hljs-string">&quot;,&quot;</span>;<br>	&#125;<br>	cout &lt;&lt; <span class="hljs-string">&quot;);&quot;</span> &lt;&lt; endl;<br>	cout &lt;&lt; <span class="hljs-string">&quot;   initial begin&quot;</span> &lt;&lt; endl;<br>	<span class="hljs-type">int</span> pow2in = <span class="hljs-number">1</span> &lt;&lt; NumInput;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt;= pow2in<span class="hljs-number">-1</span>; ++i) &#123;<br>		cout&lt;&lt;<span class="hljs-string">&quot;      &quot;</span>;<br>		<span class="hljs-type">int</span> temp = i, cnt = NumInput;<br>		<span class="hljs-keyword">if</span> (i == <span class="hljs-number">0</span>) &#123;<br>			<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= NumInput; ++j)<br>				cout &lt;&lt; inputSign[j] &lt;&lt; <span class="hljs-string">&quot;=0;&quot;</span>;<br>		&#125; <span class="hljs-keyword">else</span> &#123;<br>			<span class="hljs-keyword">while</span> (temp &amp;&amp; cnt&gt;=<span class="hljs-number">1</span>) &#123;<br>				cout &lt;&lt; inputSign[cnt] &lt;&lt; <span class="hljs-string">&quot;=&quot;</span> &lt;&lt; temp % <span class="hljs-number">2</span> &lt;&lt; <span class="hljs-string">&quot;;&quot;</span>;<br>				temp = temp / <span class="hljs-number">2</span>;<br>				--cnt;<br>			&#125;<br>			<span class="hljs-keyword">if</span>(cnt&gt;=<span class="hljs-number">1</span>)&#123;<br>				<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=cnt;j&gt;=<span class="hljs-number">1</span>;--j)&#123;<br>					cout &lt;&lt; inputSign[j] &lt;&lt; <span class="hljs-string">&quot;=0;&quot;</span>;<br>				&#125;<br>			&#125;<br>		&#125;<br>		cout &lt;&lt;endl&lt;&lt; <span class="hljs-string">&quot;      #50;&quot;</span>&lt;&lt;endl;<br>	&#125;<br>	cout &lt;&lt; <span class="hljs-string">&quot;      $stop;&quot;</span>&lt;&lt;endl;<br>	cout &lt;&lt; <span class="hljs-string">&quot;   end&quot;</span> &lt;&lt; endl;<br>	cout &lt;&lt; <span class="hljs-string">&quot;endmodule&quot;</span> &lt;&lt; endl;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>保存文件，点这个</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210090004442.png" srcset="/img/loading.gif" lazyload alt="image-20221009000446371" /><figcaption aria-hidden="true">image-20221009000446371</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210090004442.png" srcset="/img/loading.gif" lazyload
+alt="image-20221009000446371" />
+<figcaption aria-hidden="true">image-20221009000446371</figcaption>
 </figure>
 <p>Vivado就产生了对应的波形：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210090005315.png" srcset="/img/loading.gif" lazyload alt="image-20221009000506234" /><figcaption aria-hidden="true">image-20221009000506234</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210090005315.png" srcset="/img/loading.gif" lazyload
+alt="image-20221009000506234" />
+<figcaption aria-hidden="true">image-20221009000506234</figcaption>
 </figure>
 <p>我们就能照着这个看自己写的对不对了。</p>
 <hr />

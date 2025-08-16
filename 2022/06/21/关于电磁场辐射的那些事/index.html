@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/illust_75878607_20190724_001705.png">
 <meta property="article:published_time" content="2022-06-20T16:57:46.000Z">
-<meta property="article:modified_time" content="2025-01-20T16:35:30.008Z">
+<meta property="article:modified_time" content="2025-01-20T16:35:30.000Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="电磁场">
 <meta name="twitter:card" content="summary_large_image">
@@ -666,7 +666,12 @@
 <p>这一部分不是重点，我写完其它的再来写。</p>
 <h2 id="时变电偶极子的辐射">时变电偶极子的辐射</h2>
 <h3 id="时变电偶极子">时变电偶极子</h3>
-<p>时变电偶极子是由大小相等、方向相反的两个点电荷<span class="math inline">\(\pm q(t)\)</span>组成的，其中<span class="math inline">\(q(t)\)</span>按正弦形式变化。这两个点电荷间距为<span class="math inline">\(\mathbf{d}s\to 0\)</span>，电偶极子的有效长度（也叫电尺寸）为<span class="math inline">\(\mathbf{d}s/\lambda\)</span>。有时，需要对电偶极子的电尺寸进行检验，看它是不是满足“远小于一”的条件。如果不满足，不应用电偶极子模型分析。</p>
+<p>时变电偶极子是由大小相等、方向相反的两个点电荷<span
+class="math inline">\(\pm q(t)\)</span>组成的，其中<span
+class="math inline">\(q(t)\)</span>按正弦形式变化。这两个点电荷间距为<span
+class="math inline">\(\mathbf{d}s\to
+0\)</span>，电偶极子的有效长度（也叫电尺寸）为<span
+class="math inline">\(\mathbf{d}s/\lambda\)</span>。有时，需要对电偶极子的电尺寸进行检验，看它是不是满足“远小于一”的条件。如果不满足，不应用电偶极子模型分析。</p>
 <p>对于电偶极子之间的电流，有关系式：</p>
 <p><span class="math display">\[
 I(t)=\frac{\mathbf{d}q(t)} {\mathbf{d}t}
@@ -678,23 +683,33 @@ I(t)=\frac{\mathbf{d}q(t)} {\mathbf{d}t}
 <h3 id="全空间电磁场表达式">全空间电磁场表达式</h3>
 <p>磁场：</p>
 <p><span class="math display">\[
-\dot{H}_{\varphi}=-\frac{\dot{I} d s \beta^{2} } {4 \pi} \sin \theta\left[\frac{1} {j \beta r_{s} }+\frac{1} {\left(j \beta r_{s}\right)^{2} }\right] e^{-j \beta r_{s} }
+\dot{H}_{\varphi}=-\frac{\dot{I} d s \beta^{2} } {4 \pi} \sin
+\theta\left[\frac{1} {j \beta r_{s} }+\frac{1} {\left(j \beta
+r_{s}\right)^{2} }\right] e^{-j \beta r_{s} }
 \]</span></p>
 <p>电场</p>
 <p><span class="math display">\[
 \begin{cases}
-&amp;\dot{E}_{r_{s} }=-\frac{\dot{I} d s \beta^{2} \eta 2 \cos \theta} {4 \pi}\left[\frac{1} {\left(j \beta r_{s}\right)^{2} }+\frac{1} {\left(j \beta r_{s}\right)^{3} }\right] e^{-j \beta r_{s} } \\\\
-&amp;\dot{E}_{\theta}=-\frac{\dot{I} d s \beta^{2} \eta \sin \theta} {4 \pi}\left[\frac{1} {j \beta r_{s} }+\frac{1} {\left(j \beta r_{s}\right)^{2} }+\frac{1} {\left(j \beta r_{s}\right)^{3} }\right] e^{-j \beta r_{s} }
+&amp;\dot{E}_{r_{s} }=-\frac{\dot{I} d s \beta^{2} \eta 2 \cos \theta}
+{4 \pi}\left[\frac{1} {\left(j \beta r_{s}\right)^{2} }+\frac{1}
+{\left(j \beta r_{s}\right)^{3} }\right] e^{-j \beta r_{s} } \\\\
+&amp;\dot{E}_{\theta}=-\frac{\dot{I} d s \beta^{2} \eta \sin \theta} {4
+\pi}\left[\frac{1} {j \beta r_{s} }+\frac{1} {\left(j \beta
+r_{s}\right)^{2} }+\frac{1} {\left(j \beta r_{s}\right)^{3} }\right]
+e^{-j \beta r_{s} }
 \end{cases}
 \]</span></p>
 <p>其中，有：</p>
 <p><span class="math display">\[
-\frac{\beta} {\omega \varepsilon}=\frac{1} {c \varepsilon}=\frac{\sqrt{\mu \varepsilon} } {\varepsilon}=\eta
+\frac{\beta} {\omega \varepsilon}=\frac{1} {c
+\varepsilon}=\frac{\sqrt{\mu \varepsilon} } {\varepsilon}=\eta
 \]</span></p>
 <p>这个<span class="math inline">\(\eta\)</span>就是波阻抗。</p>
 <h3 id="时变电偶极子场的讨论">时变电偶极子场的讨论</h3>
 <h4 id="近区场">近区场</h4>
-<p>满足<span class="math inline">\(\beta r_s&lt;&lt;1\)</span>的条件，观察点<span class="math inline">\(P\)</span>离电偶极子比较近，这个区域称为近区。</p>
+<p>满足<span class="math inline">\(\beta
+r_s&lt;&lt;1\)</span>的条件，观察点<span
+class="math inline">\(P\)</span>离电偶极子比较近，这个区域称为近区。</p>
 <p>在近区中，有：</p>
 <p><span class="math display">\[
 (\beta r_s)^{-3}&gt;&gt;(\beta r_s)^{-2}&gt;&gt;(\beta r_s)^{-1}
@@ -703,32 +718,46 @@ I(t)=\frac{\mathbf{d}q(t)} {\mathbf{d}t}
 <p><span class="math display">\[
 e^{-j\beta r_s}=0
 \]</span></p>
-<p>对于磁场，本来<span class="math inline">\(\tilde{H}\)</span>的表达式是：</p>
+<p>对于磁场，本来<span
+class="math inline">\(\tilde{H}\)</span>的表达式是：</p>
 <p><span class="math display">\[
-\dot{H}_{\varphi}=-\frac{\dot{I} d s \beta^{2} } {4 \pi} \sin \theta\left[\frac{1} {j \beta r_{s} }+\frac{1} {\left(j \beta r_{s}\right)^{2} }\right] e^{-j \beta r_{s} }
+\dot{H}_{\varphi}=-\frac{\dot{I} d s \beta^{2} } {4 \pi} \sin
+\theta\left[\frac{1} {j \beta r_{s} }+\frac{1} {\left(j \beta
+r_{s}\right)^{2} }\right] e^{-j \beta r_{s} }
 \]</span></p>
-<p>中括号中第一项省去，后面的<span class="math inline">\(\exp\)</span>项省去，有：</p>
+<p>中括号中第一项省去，后面的<span
+class="math inline">\(\exp\)</span>项省去，有：</p>
 <p><span class="math display">\[
-\dot{H}_{\varphi\text{近} }\approx \frac{\dot{I} d s \sin \theta} {4 \pi r_{s}^{2} }
+\dot{H}_{\varphi\text{近} }\approx \frac{\dot{I} d s \sin \theta} {4 \pi
+r_{s}^{2} }
 \]</span></p>
 <p>同理，对于电场，有：</p>
 <p><span class="math display">\[
-\tilde{E}_{\text{近} }\approx \frac{\dot{I} d s} {4 \pi j \omega \varepsilon} \cdot \frac{1} {r_{s}^{3} }\left[i_{r s} 2 \cos \theta+i_{\theta} \sin \theta\right]
+\tilde{E}_{\text{近} }\approx \frac{\dot{I} d s} {4 \pi j \omega
+\varepsilon} \cdot \frac{1} {r_{s}^{3} }\left[i_{r s} 2 \cos
+\theta+i_{\theta} \sin \theta\right]
 \]</span></p>
 <p>我们观察电场和磁场表达式，容易发现，近区场的主要成分是似静场，也就是近似于静电（磁）场的场。它的复坡印廷矢量是一个纯虚数，于是，这部分的能量不会被辐射出现，好像是被束缚在了近区，因此似静场也叫<strong>“束缚场”</strong>。我们可以说：时变电偶极子近区场的主要成分是束缚场；<strong>但是不可以说：近区场就是束缚场。</strong></p>
 <h4 id="远区场">远区场</h4>
-<p>当<span class="math inline">\(\beta r_s&gt;&gt;1\)</span>时，观察点<span class="math inline">\(P\)</span>离电偶极子很远，这样的区域称为远区。</p>
+<p>当<span class="math inline">\(\beta
+r_s&gt;&gt;1\)</span>时，观察点<span
+class="math inline">\(P\)</span>离电偶极子很远，这样的区域称为远区。</p>
 <p>在远区中，有：</p>
 <p><span class="math display">\[
 (\beta r_s)^{-1}&gt;&gt;(\beta r_s)^{-2}&gt;&gt;(\beta r_s)^{-3}
 \]</span></p>
-<p>对于磁场，本来<span class="math inline">\(\tilde{H}\)</span>的表达式是：</p>
+<p>对于磁场，本来<span
+class="math inline">\(\tilde{H}\)</span>的表达式是：</p>
 <p><span class="math display">\[
-\dot{H}_{\varphi}=-\frac{\dot{I} d s \beta^{2} } {4 \pi} \sin \theta\left[\frac{1} {j \beta r_{s} }+\frac{1} {\left(j \beta r_{s}\right)^{2} }\right] e^{-j \beta r_{s} }
+\dot{H}_{\varphi}=-\frac{\dot{I} d s \beta^{2} } {4 \pi} \sin
+\theta\left[\frac{1} {j \beta r_{s} }+\frac{1} {\left(j \beta
+r_{s}\right)^{2} }\right] e^{-j \beta r_{s} }
 \]</span></p>
 <p>中括号中的第二项省去，有：</p>
 <p><span class="math display">\[
-\dot{H}_{\varphi\text{远} } \approx \frac{i d s \sin \theta} {4 \pi r_{s} } j \beta e^{-j \beta r_{s} }=j \frac{i d s \sin \theta} {2 \lambda r_{s} } e^{-j \beta r_{s} }
+\dot{H}_{\varphi\text{远} } \approx \frac{i d s \sin \theta} {4 \pi
+r_{s} } j \beta e^{-j \beta r_{s} }=j \frac{i d s \sin \theta} {2
+\lambda r_{s} } e^{-j \beta r_{s} }
 \]</span></p>
 <p>很多同学可能不知道这个等号是怎么回事。我来说明一下：</p>
 <p>有波长公式：</p>
@@ -749,21 +778,35 @@ c=\frac 1{\sqrt{\mu\varepsilon} }
 \]</span></p>
 <p>因此：</p>
 <p><span class="math display">\[
-2\lambda\beta=2\cdot\frac{2\pi} {\omega\sqrt{\mu\varepsilon} }\cdot\omega\sqrt{\mu\varepsilon}=4\pi
+2\lambda\beta=2\cdot\frac{2\pi} {\omega\sqrt{\mu\varepsilon}
+}\cdot\omega\sqrt{\mu\varepsilon}=4\pi
 \]</span></p>
 <p>可以看出，掌握电磁场中各个量的代换关系，是非常重要的。</p>
 <p>同理，对于电场，有：</p>
 <p><span class="math display">\[
-\dot{E}_{\theta} \approx j \eta \frac{\dot{I} d s} {2 \lambda r_{s} } \sin \theta e^{-j \beta r_{s} }
+\dot{E}_{\theta} \approx j \eta \frac{\dot{I} d s} {2 \lambda r_{s} }
+\sin \theta e^{-j \beta r_{s} }
 \]</span></p>
 <p>计算坡印廷矢量：</p>
 <p><span class="math display">\[
-\tilde{S}=\frac{1} {2} \tilde{E} \times \widetilde{H}^{*}=i_{r_{s} } \frac{1} {2} \eta\left|\dot{H}_{\varphi}\right|^{2}
+\tilde{S}=\frac{1} {2} \tilde{E} \times \widetilde{H}^{*}=i_{r_{s} }
+\frac{1} {2} \eta\left|\dot{H}_{\varphi}\right|^{2}
 \]</span></p>
-<p>可以看出，在远区，电磁场有一个向外发射的功率流。远区中，电磁场携带的能量会全部辐射出去，因此远区场的 <strong>主要部分</strong> ，也就是和<span class="math inline">\(r_s^{-1}\)</span>成正比的这部分，被称为辐射场。辐射场中电场和磁场同相位，在等相位面上，电磁场振幅按照<span class="math inline">\(\sin \theta\)</span>规律变化，因此辐射波是一个非均匀球面波。</p>
-<p>必须说明的是：辐射场在近区也是存在的，不过十分微弱，不起主导作用。即：近区场也有能量发射的部分，远区场也有能量交换的部分，这里讨论的只是占主导作用的部分。因此 <strong>不能说：近区场就是束缚场，远区场就是辐射场</strong> 。随着<span class="math inline">\(r_s\)</span>的增长，辐射场（即反比于<span class="math inline">\(r_s\)</span>的项）比其它反比于<span class="math inline">\(r_s\)</span>高次方的项减少的慢，因此辐射场渐渐起了主导作用。用一个示意图描述，就是：</p>
+<p>可以看出，在远区，电磁场有一个向外发射的功率流。远区中，电磁场携带的能量会全部辐射出去，因此远区场的
+<strong>主要部分</strong> ，也就是和<span
+class="math inline">\(r_s^{-1}\)</span>成正比的这部分，被称为辐射场。辐射场中电场和磁场同相位，在等相位面上，电磁场振幅按照<span
+class="math inline">\(\sin
+\theta\)</span>规律变化，因此辐射波是一个非均匀球面波。</p>
+<p>必须说明的是：辐射场在近区也是存在的，不过十分微弱，不起主导作用。即：近区场也有能量发射的部分，远区场也有能量交换的部分，这里讨论的只是占主导作用的部分。因此
+<strong>不能说：近区场就是束缚场，远区场就是辐射场</strong> 。随着<span
+class="math inline">\(r_s\)</span>的增长，辐射场（即反比于<span
+class="math inline">\(r_s\)</span>的项）比其它反比于<span
+class="math inline">\(r_s\)</span>高次方的项减少的慢，因此辐射场渐渐起了主导作用。用一个示意图描述，就是：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220620233646037.png" srcset="/img/loading.gif" lazyload alt="image-20220620233646037" /><figcaption aria-hidden="true">image-20220620233646037</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220620233646037.png" srcset="/img/loading.gif" lazyload
+alt="image-20220620233646037" />
+<figcaption aria-hidden="true">image-20220620233646037</figcaption>
 </figure>
 <h4 id="方向性函数">方向性函数</h4>
 <p>方向性函数的定义：</p>
@@ -778,20 +821,30 @@ F(\theta,\varphi)=|\sin \theta|
 <figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mathematica"><span class="hljs-built_in">SphericalPlot3D</span><span class="hljs-punctuation">[</span><br> <span class="hljs-built_in">Abs</span><span class="hljs-punctuation">[</span><span class="hljs-built_in">Sin</span><span class="hljs-punctuation">[</span><span class="hljs-variable">\[Theta]</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">]</span><span class="hljs-operator">,</span> <span class="hljs-punctuation">&#123;</span><span class="hljs-variable">\[Theta]</span><span class="hljs-operator">,</span> <span class="hljs-number">0</span><span class="hljs-operator">,</span> <span class="hljs-built_in">Pi</span><span class="hljs-punctuation">&#125;</span><span class="hljs-operator">,</span> <span class="hljs-punctuation">&#123;</span><span class="hljs-variable">\[Phi]</span><span class="hljs-operator">,</span> <span class="hljs-number">0</span><span class="hljs-operator">,</span> <span class="hljs-number">2</span><span class="hljs-operator">*</span><span class="hljs-built_in">Pi</span><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">]</span><br></code></pre></td></tr></table></figure>
 <p>可以看出它长这样：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220620234231700.png" srcset="/img/loading.gif" lazyload alt="image-20220620234231700" /><figcaption aria-hidden="true">image-20220620234231700</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220620234231700.png" srcset="/img/loading.gif" lazyload
+alt="image-20220620234231700" />
+<figcaption aria-hidden="true">image-20220620234231700</figcaption>
 </figure>
 <p>其E面方向图如下：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220620234857788.png" srcset="/img/loading.gif" lazyload alt="image-20220620234857788" /><figcaption aria-hidden="true">image-20220620234857788</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220620234857788.png" srcset="/img/loading.gif" lazyload
+alt="image-20220620234857788" />
+<figcaption aria-hidden="true">image-20220620234857788</figcaption>
 </figure>
 <p>H面方向图如下：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220620235040126.png" srcset="/img/loading.gif" lazyload alt="image-20220620235040126" /><figcaption aria-hidden="true">image-20220620235040126</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220620235040126.png" srcset="/img/loading.gif" lazyload
+alt="image-20220620235040126" />
+<figcaption aria-hidden="true">image-20220620235040126</figcaption>
 </figure>
 <h4 id="辐射功率和辐射电阻">辐射功率和辐射电阻</h4>
 <p>时变电偶极子的辐射功率为：</p>
 <p><span class="math display">\[
-\dot{P}_r=\oint_A\tilde{S}\mathbf{d}a=\frac \pi 3\eta I^2\left(\frac{ds} {\lambda}\right)^2
+\dot{P}_r=\oint_A\tilde{S}\mathbf{d}a=\frac \pi 3\eta I^2\left(\frac{ds}
+{\lambda}\right)^2
 \]</span></p>
 <p>由</p>
 <p><span class="math display">\[
@@ -803,27 +856,41 @@ R_r=\frac{2\pi} {3}\eta\left(\frac{ds} {\lambda}\right)^2
 \]</span></p>
 <h2 id="时变磁偶极子的辐射">时变磁偶极子的辐射</h2>
 <h3 id="时变磁偶极子">时变磁偶极子</h3>
-<p>时变磁偶极子的模型是一个面积为<span class="math inline">\(a\)</span>，载有电流<span class="math inline">\(I(t)\)</span>的导线环。当导线环的大小远远小于波长时，可以视为一个时变磁偶极子。</p>
+<p>时变磁偶极子的模型是一个面积为<span
+class="math inline">\(a\)</span>，载有电流<span
+class="math inline">\(I(t)\)</span>的导线环。当导线环的大小远远小于波长时，可以视为一个时变磁偶极子。</p>
 <h3 id="电磁对偶原理">电磁对偶原理</h3>
 <p>在讨论时变磁偶极子之前，首先来介绍电磁对偶原理。在之前，曾经提到过对称形式场定律：</p>
 <p><span class="math display">\[
 \begin{cases}
-\nabla \times \boldsymbol{H}=\varepsilon_{0} \frac{\partial \boldsymbol{E} } {\partial t}+\boldsymbol{J} \\\\
+\nabla \times \boldsymbol{H}=\varepsilon_{0} \frac{\partial
+\boldsymbol{E} } {\partial t}+\boldsymbol{J} \\\\
 \nabla \cdot \varepsilon_{0} \boldsymbol{E}=\boldsymbol{\rho} \\\\
 \nabla \cdot \boldsymbol{J}=-\frac{\partial \rho} {\partial t}
 \end{cases}
 \]</span></p>
 <p><span class="math display">\[
 \begin{cases}
-\nabla \times \boldsymbol{E}=-\mu_{0} \frac{\partial \boldsymbol{H} } {\partial t}-\boldsymbol{J}_{\mathrm{M} } \\\\
+\nabla \times \boldsymbol{E}=-\mu_{0} \frac{\partial \boldsymbol{H} }
+{\partial t}-\boldsymbol{J}_{\mathrm{M} } \\\\
 \nabla \cdot \mu_{0} \boldsymbol{E}=\rho_{\mathrm{M} } \\\\
-\nabla \cdot \boldsymbol{J}_{\mathrm{M} }=-\frac{\partial \rho_{\mathrm{M} }} {\partial t}
+\nabla \cdot \boldsymbol{J}_{\mathrm{M} }=-\frac{\partial
+\rho_{\mathrm{M} }} {\partial t}
 \end{cases}
 \]</span></p>
-<p>这两组方程形式完全相同，只是第一个式子的源是电流、电荷；而第二个式子的源是磁流，磁荷。因此，如果一个只含电流、电荷源的系统的解<span class="math inline">\(E_1\)</span>,<span class="math inline">\(H_1\)</span>已经求得，那么对于一个其它完全相同，只是把电流换成磁流，把电荷换成磁荷的新系统，它的解<span class="math inline">\(E_2\)</span>和<span class="math inline">\(H_1\)</span>，<span class="math inline">\(H_2\)</span>和<span class="math inline">\(E_1\)</span>应该有完全一样的形式</p>
+<p>这两组方程形式完全相同，只是第一个式子的源是电流、电荷；而第二个式子的源是磁流，磁荷。因此，如果一个只含电流、电荷源的系统的解<span
+class="math inline">\(E_1\)</span>,<span
+class="math inline">\(H_1\)</span>已经求得，那么对于一个其它完全相同，只是把电流换成磁流，把电荷换成磁荷的新系统，它的解<span
+class="math inline">\(E_2\)</span>和<span
+class="math inline">\(H_1\)</span>，<span
+class="math inline">\(H_2\)</span>和<span
+class="math inline">\(E_1\)</span>应该有完全一样的形式</p>
 <p>不妨对比一般性的两个系统a和b，如下。</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/73D6797EF70B879E8BF95BC4795FE7A4.png" srcset="/img/loading.gif" lazyload alt="img" /><figcaption aria-hidden="true">img</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/73D6797EF70B879E8BF95BC4795FE7A4.png" srcset="/img/loading.gif" lazyload
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
 </figure>
 <p>两个系统有完全相同的区域和边界，只是把电流和磁流，电荷和磁荷调换。那么存在以下的代换关系：</p>
 <p><span class="math display">\[
@@ -838,24 +905,45 @@ J_M &amp;\to-J\\\\
 \mu &amp;\to -\varepsilon
 \end{aligned}
 \]</span></p>
-<p>如果上面系统<span class="math inline">\((a)\)</span>的解<span class="math inline">\(E_a,H_a\)</span>已经求出，按照上面的代换关系，就可以立刻得到系统<span class="math inline">\((b)\)</span>的解。</p>
+<p>如果上面系统<span class="math inline">\((a)\)</span>的解<span
+class="math inline">\(E_a,H_a\)</span>已经求出，按照上面的代换关系，就可以立刻得到系统<span
+class="math inline">\((b)\)</span>的解。</p>
 <h3 id="全空间电磁场表达式-1">全空间电磁场表达式</h3>
-<p>结合上面的电磁对偶关系，对于时变电偶极子式子里面的<span class="math inline">\(\beta/\eta=\omega\varepsilon\)</span>应该代换成<span class="math inline">\(-\beta\eta=-\omega\mu\)</span>,因此<span class="math inline">\(\eta\)</span>代换为<span class="math inline">\(-1/\eta\)</span>,还有关系<span class="math inline">\(\dot{I}ds\to-j\omega\mu\dot{I}a\)</span>，可以直接写出全空间电磁场表达式：</p>
+<p>结合上面的电磁对偶关系，对于时变电偶极子式子里面的<span
+class="math inline">\(\beta/\eta=\omega\varepsilon\)</span>应该代换成<span
+class="math inline">\(-\beta\eta=-\omega\mu\)</span>,因此<span
+class="math inline">\(\eta\)</span>代换为<span
+class="math inline">\(-1/\eta\)</span>,还有关系<span
+class="math inline">\(\dot{I}ds\to-j\omega\mu\dot{I}a\)</span>，可以直接写出全空间电磁场表达式：</p>
 <p><span class="math display">\[
 \begin{aligned}
-&amp;\dot{E}_{\varphi}(\boldsymbol{r})=\frac{j \omega \mu_{0} \dot{I} a \beta_{0}^{2} \sin \theta} {4 \pi}\left[\frac{1} {j \beta_{0} r_{s} }+\frac{1} {\left(j\beta_{0} r_{s}\right)^{2} }\right] e^{-j \beta_{0} r_{s} }  \\\\
-&amp;\dot{H}_{r_{s} }(\boldsymbol{r})=-\frac{j \omega \mu_{0} \dot{I} a \beta_{0}^{2} 2 \cos \theta} {4 \pi \eta_{0} }\left[\frac{1} {\left(j \beta_{0} r_{s}\right)^{2} }+\frac{1} {\left(j \beta_{0} r_{s}\right)^{3} }\right] e^{-j \beta_{0} r_{s} } \\\\
-&amp;\dot{H}_{\theta}(\boldsymbol{r})=-\frac{j \omega \mu_{0} \dot{I} a \beta_{0}^{2} \sin \theta} {4 \pi \eta_{0} }\left[\frac{1} {j \beta_{0} r_{s} }+\frac{1} {\left(j \beta_{s} r_{\omega}\right)^{2} }+\frac{1} {\left(j \beta_{s} r_{0}\right)^{3} }\right] e^{-j\beta_{0} r_{s} } 
+&amp;\dot{E}_{\varphi}(\boldsymbol{r})=\frac{j \omega \mu_{0} \dot{I} a
+\beta_{0}^{2} \sin \theta} {4 \pi}\left[\frac{1} {j \beta_{0} r_{s}
+}+\frac{1} {\left(j\beta_{0} r_{s}\right)^{2} }\right] e^{-j \beta_{0}
+r_{s} }  \\\\
+&amp;\dot{H}_{r_{s} }(\boldsymbol{r})=-\frac{j \omega \mu_{0} \dot{I} a
+\beta_{0}^{2} 2 \cos \theta} {4 \pi \eta_{0} }\left[\frac{1} {\left(j
+\beta_{0} r_{s}\right)^{2} }+\frac{1} {\left(j \beta_{0}
+r_{s}\right)^{3} }\right] e^{-j \beta_{0} r_{s} } \\\\
+&amp;\dot{H}_{\theta}(\boldsymbol{r})=-\frac{j \omega \mu_{0} \dot{I} a
+\beta_{0}^{2} \sin \theta} {4 \pi \eta_{0} }\left[\frac{1} {j \beta_{0}
+r_{s} }+\frac{1} {\left(j \beta_{s} r_{\omega}\right)^{2} }+\frac{1}
+{\left(j \beta_{s} r_{0}\right)^{3} }\right] e^{-j\beta_{0} r_{s} }
 \end{aligned}
 \]</span></p>
 <h3 id="时变磁偶极子场的讨论">时变磁偶极子场的讨论</h3>
 <h4 id="近区场-1">近区场</h4>
-<p>近区场应该保留<span class="math inline">\((\beta r_s)\)</span>的最低次项（也就是<span class="math inline">\(\frac{1} {\beta r_s}\)</span>的最高次项）,删去<span class="math inline">\(e\)</span>的指数项，有：</p>
+<p>近区场应该保留<span class="math inline">\((\beta
+r_s)\)</span>的最低次项（也就是<span class="math inline">\(\frac{1}
+{\beta r_s}\)</span>的最高次项）,删去<span
+class="math inline">\(e\)</span>的指数项，有：</p>
 <p><span class="math display">\[
 E_\varphi\approx\frac{-j\omega\mu_0\dot{I}a\sin \theta} {4\pi r_s^2}
 \]</span></p>
 <p><span class="math display">\[
-H\approx \frac{j\omega\mu_0\dot{I}a} {4\pi j\omega \mu_0}\frac{1} {r_s^3}(i_{rs}2\cos\theta+i_\theta\sin \theta)=\frac{\dot{I}a} {4\pi}\frac{1} {r_s^3}(i_{rs}2\cos\theta+i_\theta\sin \theta)
+H\approx \frac{j\omega\mu_0\dot{I}a} {4\pi j\omega \mu_0}\frac{1}
+{r_s^3}(i_{rs}2\cos\theta+i_\theta\sin \theta)=\frac{\dot{I}a}
+{4\pi}\frac{1} {r_s^3}(i_{rs}2\cos\theta+i_\theta\sin \theta)
 \]</span></p>
 <h4 id="远区场-1">远区场</h4>
 <p><span class="math display">\[
@@ -878,7 +966,8 @@ P_r=\frac{\pi} {3\eta}\frac{\omega^2\mu^2I^2a^2} {\lambda^2}
 <p><span class="math display">\[
 P_r=\frac{4} {3}\pi^3\eta\frac{I^2a^2} {\lambda^2}
 \]</span></p>
-<p>在自由空间中，把<span class="math inline">\(\eta=120\pi\)</span>代入，有：</p>
+<p>在自由空间中，把<span
+class="math inline">\(\eta=120\pi\)</span>代入，有：</p>
 <p><span class="math display">\[
 P_r=160\pi^4\frac{I^2a^2} {\lambda^2}
 \]</span></p>
@@ -894,7 +983,10 @@ R_r=\frac{4\pi^3a^2\eta} {3\lambda^2}
 F(\theta,\varphi)=\frac{\cos(\frac \pi 2\cos \theta)} {\sin \theta}
 \]</span></p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220621114342987.png" srcset="/img/loading.gif" lazyload alt="image-20220621114342987" /><figcaption aria-hidden="true">image-20220621114342987</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220621114342987.png" srcset="/img/loading.gif" lazyload
+alt="image-20220621114342987" />
+<figcaption aria-hidden="true">image-20220621114342987</figcaption>
 </figure>
 <p>它的指向性比交变电偶极子更窄。</p>
 <p>天线长度越大，方向函数的零、极点越多，主向越向轴线靠拢。</p>

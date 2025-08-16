@@ -19,16 +19,16 @@
   <meta name="author" content="SuzumiyaAkizuki">
   <meta name="keywords" content="">
   
-    <meta name="description" content="关于pow函数 math.h里的pow函数虽然确实可以计算次幂，但它的参数和返回值均为 double 类型，当题目中需要计算整数的整数次幂时，建议使用循环累乘的朴素方法，即： 123456int a, x; &#x2F;&#x2F;计算a的x次方int ans &#x3D; 1;for (int i &#x3D; 1; i &lt;&#x3D; x; ++i) &#123;	ans &#x3D; ans * a;&#125;&#x2F;&#x2F;ans 是a的x次方">
+    <meta name="description" content="关于pow函数 math.h里的pow函数虽然确实可以计算次幂，但它的参数和返回值均为 double 类型，当题目中需要计算整数的整数次幂时，建议使用循环累乘的朴素方法，即： 123456int a, x; &#x2F;&#x2F;计算a的x次方int ans &#x3D; 1;for (int i &#x3D; 1; i &lt;&#x3D; x; ++i) &#123;	ans &#x3D; ans * a;&#125;&#x2F;&#x2F;ans 是a的x次方">
 <meta property="og:type" content="article">
 <meta property="og:title" content="程序设计基础第三周答疑要点整理">
 <meta property="og:url" content="https://suzumiyaakizuki.github.io/2023/10/12/C3-E3%E7%AD%94%E7%96%91%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/index.html">
 <meta property="og:site_name" content="凉宫秋月的文艺部">
-<meta property="og:description" content="关于pow函数 math.h里的pow函数虽然确实可以计算次幂，但它的参数和返回值均为 double 类型，当题目中需要计算整数的整数次幂时，建议使用循环累乘的朴素方法，即： 123456int a, x; &#x2F;&#x2F;计算a的x次方int ans &#x3D; 1;for (int i &#x3D; 1; i &lt;&#x3D; x; ++i) &#123;	ans &#x3D; ans * a;&#125;&#x2F;&#x2F;ans 是a的x次方">
+<meta property="og:description" content="关于pow函数 math.h里的pow函数虽然确实可以计算次幂，但它的参数和返回值均为 double 类型，当题目中需要计算整数的整数次幂时，建议使用循环累乘的朴素方法，即： 123456int a, x; &#x2F;&#x2F;计算a的x次方int ans &#x3D; 1;for (int i &#x3D; 1; i &lt;&#x3D; x; ++i) &#123;	ans &#x3D; ans * a;&#125;&#x2F;&#x2F;ans 是a的x次方">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202401031035398.png">
 <meta property="article:published_time" content="2023-10-12T02:25:25.000Z">
-<meta property="article:modified_time" content="2025-01-20T16:35:31.150Z">
+<meta property="article:modified_time" content="2025-01-20T16:35:30.000Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="C语言">
 <meta property="article:tag" content="程序设计基础">
@@ -561,15 +561,26 @@
               <div class="markdown-body">
                 
                 <h2 id="关于pow函数">关于<code>pow</code>函数</h2>
-<p><code>math.h</code>里的<code>pow</code>函数虽然确实可以计算次幂，但它的参数和返回值均为 <strong>double</strong> 类型，当题目中需要<strong>计算整数的整数次幂</strong>时，<strong>建议使用循环累乘</strong>的朴素方法，即：</p>
+<p><code>math.h</code>里的<code>pow</code>函数虽然确实可以计算次幂，但它的参数和返回值均为
+<strong>double</strong>
+类型，当题目中需要<strong>计算整数的整数次幂</strong>时，<strong>建议使用循环累乘</strong>的朴素方法，即：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">int</span> a, x; <span class="hljs-comment">//计算a的x次方</span><br><span class="hljs-type">int</span> ans = <span class="hljs-number">1</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= x; ++i) &#123;<br>	ans = ans * a;<br>&#125;<br><span class="hljs-comment">//ans 是a的x次方</span><br></code></pre></td></tr></table></figure>
-<p>或者<a target="_blank" rel="noopener" href="https://oi-wiki.org/math/binary-exponentiation/">快速幂算法</a>（目前不作要求，有兴趣的同学可以自行学习）。</p>
+<p>或者<a
+target="_blank" rel="noopener" href="https://oi-wiki.org/math/binary-exponentiation/">快速幂算法</a>（目前不作要求，有兴趣的同学可以自行学习）。</p>
 <h2 id="关于优先级">关于优先级</h2>
 <p>在混用位运算符和四则运算符、比较运算符时需要注意算符的<strong>优先级</strong>问题</p>
-<p>例如条件语句 <code>if (x&amp;y == 0)</code> ，由于<strong>比较运算符的优先级高于位运算符</strong>，括号中的条件实际是<strong>将比较语句 <code>y == 0</code> 的结果计算出来</strong>（若满足则值为1，否则为0），然后<strong>使用这个结果再与 <code>x</code> 执行与运算 <code>&amp;</code></strong>，而<strong>不是</strong>先计算了 <code>x&amp;y</code> 的结果再与<code>0</code>作比较。</p>
+<p>例如条件语句 <code>if (x&amp;y == 0)</code>
+，由于<strong>比较运算符的优先级高于位运算符</strong>，括号中的条件实际是<strong>将比较语句
+<code>y == 0</code>
+的结果计算出来</strong>（若满足则值为1，否则为0），然后<strong>使用这个结果再与
+<code>x</code> 执行与运算
+<code>&amp;</code></strong>，而<strong>不是</strong>先计算了
+<code>x&amp;y</code> 的结果再与<code>0</code>作比较。</p>
 <p>如果你按照《C1-E1答疑要点整理》中所说的打开了“显示全部警告信息（<code>-Wall</code>）”，那么就会看到如下的警告信息：</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">[警告] suggest parentheses around comparison in operand of &#x27;&amp;&#x27; [-Wparentheses]<br></code></pre></td></tr></table></figure>
-<p>各种算符优先级划分记忆起来可能有些困难，推荐的做法是<strong>使用括号将想要先执行的运算步骤单独包括起来</strong>，这样就可以要求这步运算具有更高的优先级，例如 <code>if ((x &amp; y) == 0)</code> 。简而言之，你记不住优先级没关系，只要会加括号就行了。</p>
+<p>各种算符优先级划分记忆起来可能有些困难，推荐的做法是<strong>使用括号将想要先执行的运算步骤单独包括起来</strong>，这样就可以要求这步运算具有更高的优先级，例如
+<code>if ((x &amp; y) == 0)</code>
+。简而言之，你记不住优先级没关系，只要会加括号就行了。</p>
 <hr />
 <p>作者：逐月的游星、梁秋月</p>
 <hr />

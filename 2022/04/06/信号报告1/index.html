@@ -19,16 +19,16 @@
   <meta name="author" content="SuzumiyaAkizuki">
   <meta name="keywords" content="">
   
-    <meta name="description" content="这是信号与系统的实验报告。我信号与系统总共就扣了几分，也不知道是期末扣的，还是实验扣的。即使全是实验扣的，这实验也算做的挺好的。于是把报告发出来给大家参考。 这是第一个实验，连续时间系统卷积的数值计算">
+    <meta name="description" content="这是信号与系统的实验报告。我信号与系统总共就扣了几分，也不知道是期末扣的，还是实验扣的。即使全是实验扣的，这实验也算做的挺好的。于是把报告发出来给大家参考。 这是第一个实验，连续时间系统卷积的数值计算">
 <meta property="og:type" content="article">
 <meta property="og:title" content="信号与系统实验1：连续时间系统卷积的数值计算">
 <meta property="og:url" content="https://suzumiyaakizuki.github.io/2022/04/06/%E4%BF%A1%E5%8F%B7%E6%8A%A5%E5%91%8A1/index.html">
 <meta property="og:site_name" content="凉宫秋月的文艺部">
-<meta property="og:description" content="这是信号与系统的实验报告。我信号与系统总共就扣了几分，也不知道是期末扣的，还是实验扣的。即使全是实验扣的，这实验也算做的挺好的。于是把报告发出来给大家参考。 这是第一个实验，连续时间系统卷积的数值计算">
+<meta property="og:description" content="这是信号与系统的实验报告。我信号与系统总共就扣了几分，也不知道是期末扣的，还是实验扣的。即使全是实验扣的，这实验也算做的挺好的。于是把报告发出来给大家参考。 这是第一个实验，连续时间系统卷积的数值计算">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202207091624863.png">
 <meta property="article:published_time" content="2022-04-06T07:40:49.000Z">
-<meta property="article:modified_time" content="2025-01-20T16:35:30.789Z">
+<meta property="article:modified_time" content="2025-01-20T16:35:30.000Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="信号与系统">
 <meta name="twitter:card" content="summary_large_image">
@@ -523,31 +523,51 @@
             
               <div class="markdown-body">
                 
-                <p>这是信号与系统的实验报告。我信号与系统总共就扣了几分，也不知道是期末扣的，还是实验扣的。即使全是实验扣的，这实验也算做的挺好的。于是把报告发出来给大家参考。 这是第一个实验，连续时间系统卷积的数值计算</p>
+                <p>这是信号与系统的实验报告。我信号与系统总共就扣了几分，也不知道是期末扣的，还是实验扣的。即使全是实验扣的，这实验也算做的挺好的。于是把报告发出来给大家参考。
+这是第一个实验，连续时间系统卷积的数值计算</p>
 <span id="more"></span>
 <h2 id="一实验原理">一、实验原理</h2>
 <p>卷积积分不仅可以通过直接积分或查表的方法来求解，还可以用积分的数值计算方法来求解。在线性系统的分析过程中，有时会遇到复杂的激励信号，或者有时只是一组测试数据或曲线，冲激响应也可能出现同样的情况。显然，此时直接计算积分或查表都有困难，而采用近似的数值计算方法可以解决这个问题，求得卷积积分。</p>
-<p>两个信号<span class="math inline">\(f_1(t)\)</span>和<span class="math inline">\(f_2(t)\)</span>的卷积<span class="math inline">\(f_1(t)*f_2(t)\)</span>定义为： <span class="math display">\[
+<p>两个信号<span class="math inline">\(f_1(t)\)</span>和<span
+class="math inline">\(f_2(t)\)</span>的卷积<span
+class="math inline">\(f_1(t)*f_2(t)\)</span>定义为： <span
+class="math display">\[
 f_1(t)*f_2(t)=\int_{-\infty}^{\infty}f_1(t-\tau)f_2(\tau){\bf d}\tau
-\]</span> 在计算卷积积分时，我们通常采取“翻转→平移→相乘→叠加”的方法。</p>
+\]</span>
+在计算卷积积分时，我们通常采取“翻转→平移→相乘→叠加”的方法。</p>
 <ol type="1">
-<li><p>将信号取值离散化，即以 Ts 为周期，对信号取值，得到一系列宽度间隔为 Ts 的矩形脉冲原信号的离散取值点，用所得离散取值点矩形脉冲来表示原来的连续时间信号；</p></li>
-<li><p>将进行卷积的两个信号序列之一反转，与另一信号相乘，并求积分，所得为 t=0 时的卷积积分的值。以 Ts 为单位左右移动反转的信号，与另一信号相乘求积分，求的 t&lt;0 和 t&gt;0 时卷积积分的值；</p></li>
-<li><p>将所得卷积积分值与对应的 t 标在图上，连成一条光滑的曲线，即为所求卷积积分的曲线。</p></li>
+<li><p>将信号取值离散化，即以 Ts
+为周期，对信号取值，得到一系列宽度间隔为 Ts
+的矩形脉冲原信号的离散取值点，用所得离散取值点矩形脉冲来表示原来的连续时间信号；</p></li>
+<li><p>将进行卷积的两个信号序列之一反转，与另一信号相乘，并求积分，所得为
+t=0 时的卷积积分的值。以 Ts
+为单位左右移动反转的信号，与另一信号相乘求积分，求的 t&lt;0 和 t&gt;0
+时卷积积分的值；</p></li>
+<li><p>将所得卷积积分值与对应的 t
+标在图上，连成一条光滑的曲线，即为所求卷积积分的曲线。</p></li>
 </ol>
 <p>上述过程，在形式上，就是用 <span class="math display">\[
 \sum_{\tau=\tau_0}^{\tau_1}f_1(t-\tau)f_2(\tau)\Delta\tau
-\]</span> 来逼近<span class="math inline">\(f_1(t)*f_2(t)\)</span>。其中<span class="math inline">\(\tau_0\)</span>是一个很小的值，<span class="math inline">\(\tau_1\)</span>是一个很大的值，<span class="math inline">\(\Delta \tau\)</span>是每次<span class="math inline">\(\tau\)</span>增加的值。</p>
+\]</span> 来逼近<span
+class="math inline">\(f_1(t)*f_2(t)\)</span>。其中<span
+class="math inline">\(\tau_0\)</span>是一个很小的值，<span
+class="math inline">\(\tau_1\)</span>是一个很大的值，<span
+class="math inline">\(\Delta \tau\)</span>是每次<span
+class="math inline">\(\tau\)</span>增加的值。</p>
 <h2 id="二实验内容">二、实验内容</h2>
 <p><span class="math display">\[
 f_1(t)=u(t+2)-u(t-2)\\
 f_2(t)=t[u(t)-u(t-2)]+(4-t)[u(t-2)-u(t-4)]
 \]</span></p>
-<p>用数值方法计算<span class="math inline">\(f_1*f_2\)</span>，将结果用表格列出，并画出图像。</p>
+<p>用数值方法计算<span
+class="math inline">\(f_1*f_2\)</span>，将结果用表格列出，并画出图像。</p>
 <h2 id="三实验过程">三、实验过程</h2>
 <h3 id="程序框图">1. 程序框图</h3>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202207091624871.png" srcset="/img/loading.gif" lazyload alt="image-20220709162415460" /><figcaption aria-hidden="true">image-20220709162415460</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202207091624871.png" srcset="/img/loading.gif" lazyload
+alt="image-20220709162415460" />
+<figcaption aria-hidden="true">image-20220709162415460</figcaption>
 </figure>
 <h3 id="程序代码">2. 程序代码</h3>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;math.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;ctype.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-type">const</span> <span class="hljs-type">double</span> eps = <span class="hljs-number">1e-11</span>;<br><span class="hljs-type">const</span> <span class="hljs-type">double</span> dt = <span class="hljs-number">0.1</span>;<br><br><span class="hljs-keyword">inline</span> <span class="hljs-type">double</span> <span class="hljs-title function_">u</span><span class="hljs-params">(<span class="hljs-type">double</span> t)</span> &#123;<br>	<span class="hljs-keyword">return</span> (t &gt; <span class="hljs-number">0.0</span>) ? <span class="hljs-number">1.0</span> : <span class="hljs-number">0.0</span>;<br>&#125;<br><br><span class="hljs-keyword">inline</span> <span class="hljs-type">double</span> <span class="hljs-title function_">f1</span><span class="hljs-params">(<span class="hljs-type">double</span> t)</span> &#123;<br>	<span class="hljs-keyword">return</span> u(t + <span class="hljs-number">2</span>) - u(t - <span class="hljs-number">2</span>);<br>&#125;<br><br><span class="hljs-keyword">inline</span> <span class="hljs-type">double</span> <span class="hljs-title function_">f2</span><span class="hljs-params">(<span class="hljs-type">double</span> t)</span> &#123;<br>	<span class="hljs-keyword">return</span> t * <span class="hljs-number">1.0</span> * (u(t) - u(t - <span class="hljs-number">2</span>)) + (<span class="hljs-number">4</span> - t) * <span class="hljs-number">1.0</span> * (u(t - <span class="hljs-number">2</span>) - u(t - <span class="hljs-number">4</span>));<br>&#125;<br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span> &#123;<br>	freopen(<span class="hljs-string">&quot;ans.xls&quot;</span>,<span class="hljs-string">&quot;w+&quot;</span>,<span class="hljs-built_in">stdout</span>);<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">double</span> t = <span class="hljs-number">-2.5</span>; t &lt;= <span class="hljs-number">6.5</span>; t += dt) &#123;<br>		<span class="hljs-type">double</span> ans = <span class="hljs-number">0.0</span>;<br>		<span class="hljs-keyword">for</span> (<span class="hljs-type">double</span> i = <span class="hljs-number">-10.0</span>; i &lt;= <span class="hljs-number">10.0</span>; i += <span class="hljs-number">0.01</span>) &#123;<br>			ans += f1(t - i) * f2(i) * <span class="hljs-number">0.01</span>;<br>		&#125;<br>		<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%.3f\t%.3f\n&quot;</span>, t, ans);<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
@@ -556,7 +576,7 @@ f_2(t)=t[u(t)-u(t-2)]+(4-t)[u(t-2)-u(t-4)]
 <p>其中<span class="math inline">\(g(t)=f_1(t)*f_2(t)\)</span></p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th><span class="math inline">\(t\)</span></th>
 <th><span class="math inline">\(g(t)\)</span></th>
 <th><span class="math inline">\(t\)</span></th>
@@ -564,61 +584,61 @@ f_2(t)=t[u(t)-u(t-2)]+(4-t)[u(t-2)-u(t-4)]
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>-2</td>
 <td>0</td>
 <td>2.1</td>
 <td>3.995</td>
 </tr>
-<tr class="even">
+<tr>
 <td>-1.9</td>
 <td>0.005</td>
 <td>2.2</td>
 <td>3.981</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>-1.8</td>
 <td>0.019</td>
 <td>2.3</td>
 <td>3.957</td>
 </tr>
-<tr class="even">
+<tr>
 <td>-1.7</td>
 <td>0.044</td>
 <td>2.4</td>
 <td>3.922</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>-1.6</td>
 <td>0.078</td>
 <td>2.5</td>
 <td>3.877</td>
 </tr>
-<tr class="even">
+<tr>
 <td>-1.5</td>
 <td>0.123</td>
 <td>2.6</td>
 <td>3.823</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>-1.4</td>
 <td>0.177</td>
 <td>2.7</td>
 <td>3.758</td>
 </tr>
-<tr class="even">
+<tr>
 <td>-1.3</td>
 <td>0.242</td>
 <td>2.8</td>
 <td>3.684</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>-1.2</td>
 <td>0.316</td>
 <td>2.9</td>
 <td>3.599</td>
 </tr>
-<tr class="even">
+<tr>
 <td><span class="math inline">\(\cdots\)</span></td>
 <td><span class="math inline">\(\cdots\)</span></td>
 <td><span class="math inline">\(\cdots\)</span></td>
@@ -627,10 +647,14 @@ f_2(t)=t[u(t)-u(t-2)]+(4-t)[u(t-2)-u(t-4)]
 </tbody>
 </table>
 <p>完整表格下载地址：</p>
-<p><a target="_blank" rel="noopener" href="https://docsdown.oss-cn-beijing.aliyuncs.com/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%AE%9E%E9%AA%8C%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.xls">实验结果</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://docsdown.oss-cn-beijing.aliyuncs.com/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%AE%9E%E9%AA%8C%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.xls">实验结果</a></p>
 <p><strong>绘制图像：</strong></p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202207091624863.png" srcset="/img/loading.gif" lazyload alt="image-20220405220304046" /><figcaption aria-hidden="true">image-20220405220304046</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202207091624863.png" srcset="/img/loading.gif" lazyload
+alt="image-20220405220304046" />
+<figcaption aria-hidden="true">image-20220405220304046</figcaption>
 </figure>
 <p>使用Excel 365软件绘制图像。</p>
 <h2 id="四解析求解和误差分析">四、解析求解和误差分析</h2>
@@ -638,16 +662,22 @@ f_2(t)=t[u(t)-u(t-2)]+(4-t)[u(t-2)-u(t-4)]
 <figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs mathematica"><span class="hljs-variable">f1</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">UnitStep</span><span class="hljs-punctuation">[</span><span class="hljs-variable">t</span> <span class="hljs-operator">+</span> <span class="hljs-number">2</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">-</span> <span class="hljs-built_in">UnitStep</span><span class="hljs-punctuation">[</span><span class="hljs-variable">t</span> <span class="hljs-operator">-</span> <span class="hljs-number">2</span><span class="hljs-punctuation">]</span><span class="hljs-operator">;</span><br><span class="hljs-variable">f2</span> <span class="hljs-operator">=</span> <span class="hljs-variable">t</span><span class="hljs-operator">*</span><span class="hljs-punctuation">(</span><span class="hljs-built_in">UnitStep</span><span class="hljs-punctuation">[</span><span class="hljs-variable">t</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">-</span> <span class="hljs-built_in">UnitStep</span><span class="hljs-punctuation">[</span><span class="hljs-variable">t</span> <span class="hljs-operator">-</span> <span class="hljs-number">2</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span> <span class="hljs-punctuation">(</span><span class="hljs-number">4</span> <span class="hljs-operator">-</span> <span class="hljs-variable">t</span><span class="hljs-punctuation">)</span><span class="hljs-operator">*</span><span class="hljs-punctuation">(</span><span class="hljs-built_in">UnitStep</span><span class="hljs-punctuation">[</span><span class="hljs-variable">t</span> <span class="hljs-operator">-</span> <span class="hljs-number">2</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">-</span> <br>      <span class="hljs-built_in">UnitStep</span><span class="hljs-punctuation">[</span><span class="hljs-variable">t</span> <span class="hljs-operator">-</span> <span class="hljs-number">4</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">)</span><span class="hljs-operator">;</span><br><span class="hljs-variable">g</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">Convolve</span><span class="hljs-punctuation">[</span><span class="hljs-variable">f1</span><span class="hljs-operator">,</span> <span class="hljs-variable">f2</span><span class="hljs-operator">,</span> <span class="hljs-variable">t</span><span class="hljs-operator">,</span> <span class="hljs-variable">\[Tau]</span><span class="hljs-punctuation">]</span><span class="hljs-operator">;</span><br><span class="hljs-built_in">Plot</span><span class="hljs-punctuation">[</span><span class="hljs-variable">g</span><span class="hljs-operator">,</span> <span class="hljs-punctuation">&#123;</span><span class="hljs-variable">\[Tau]</span><span class="hljs-operator">,</span> <span class="hljs-operator">-</span><span class="hljs-number">4</span><span class="hljs-operator">,</span> <span class="hljs-number">8</span><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">]</span><br><span class="hljs-built_in">PiecewiseExpand</span><span class="hljs-punctuation">[</span><span class="hljs-variable">g</span><span class="hljs-punctuation">]</span><br></code></pre></td></tr></table></figure>
 <p>可以得到卷积结果的解析式为： <span class="math display">\[
 g(\tau)=\begin{cases}
- \frac{1}{2} (\tau +2)^2 &amp; -2\leq \tau &lt;0 \\[1.5ex]
- \frac{1}{2} \left(-\tau ^2+4 \tau +4\right) &amp; 0\leq \tau &lt;4 \\[1.5ex]
- \frac{1}{2} \left(\tau ^2-12 \tau +36\right) &amp; 4\leq \tau &lt;6 \\[1.5ex]
- 0 &amp; \text{others}
+\frac{1}{2} (\tau +2)^2 &amp; -2\leq \tau &lt;0 \\[1.5ex]
+\frac{1}{2} \left(-\tau ^2+4 \tau +4\right) &amp; 0\leq \tau &lt;4
+\\[1.5ex]
+\frac{1}{2} \left(\tau ^2-12 \tau +36\right) &amp; 4\leq \tau &lt;6
+\\[1.5ex]
+0 &amp; \text{others}
 \end{cases}
 \]</span> 画出的图像为：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202207091638947.png" srcset="/img/loading.gif" lazyload alt="image-20220709163735914" /><figcaption aria-hidden="true">image-20220709163735914</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202207091638947.png" srcset="/img/loading.gif" lazyload
+alt="image-20220709163735914" />
+<figcaption aria-hidden="true">image-20220709163735914</figcaption>
 </figure>
-<p>将其代入程序，可计算得数值算法的均方误差 <span class="math display">\[
+<p>将其代入程序，可计算得数值算法的均方误差 <span
+class="math display">\[
 \begin{aligned}
 \text{MSE}&amp;=\sum_{i=1}^n[ans_i-g(t_i)]^2\\
 &amp;=0.000029

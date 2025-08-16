@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211162142585.jpg">
 <meta property="article:published_time" content="2022-11-16T06:21:15.000Z">
-<meta property="article:modified_time" content="2025-01-20T16:35:30.516Z">
+<meta property="article:modified_time" content="2025-01-20T16:35:30.000Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="数电">
 <meta name="twitter:card" content="summary_large_image">
@@ -665,21 +665,26 @@
 <h3 id="数制">数制</h3>
 <p>数制指的是数字每一位的构成方法，以及从低位到高位的进位规则。常用的数制有十进制、二进制、八进制、十六进制。</p>
 <p>k进制数字的基本表示方式为： <span class="math display">\[
-(\cdots x_2x_1x_0.x_{-1}x_{-2}\cdots)_k=\sum_{i=-\infty}^{\infty}x_i\times k^i
+(\cdots
+x_2x_1x_0.x_{-1}x_{-2}\cdots)_k=\sum_{i=-\infty}^{\infty}x_i\times k^i
 \]</span></p>
 <h4 id="不同数制的转换方式">不同数制的转换方式</h4>
 <ul>
 <li><p>任意进制到十进制的转换</p>
 <p>直接按上面的式子展开即可。</p>
 <blockquote>
-<p>【例】<span class="math inline">\((8FA.C)_{16}=8\times 16^2+F\times16^1+A\times16^0+C\times16^{-1}=(2298.75)_{10}\)</span></p>
+<p>【例】<span class="math inline">\((8FA.C)_{16}=8\times
+16^2+F\times16^1+A\times16^0+C\times16^{-1}=(2298.75)_{10}\)</span></p>
 </blockquote></li>
 <li><p>十-二转换</p>
 <p>整数部分用除二取余法，小数部分用乘二取整法。这成天写，我不展开了，忘了就随便拿个什么11啊这种数字推一下。</p></li>
 <li><p>二-十六（八）转换</p>
 <p>分组对应法最快。</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211161438587.png" srcset="/img/loading.gif" lazyload alt="进制转换对应表" /><figcaption aria-hidden="true">进制转换对应表</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211161438587.png" srcset="/img/loading.gif" lazyload
+alt="进制转换对应表" />
+<figcaption aria-hidden="true">进制转换对应表</figcaption>
 </figure></li>
 </ul>
 <p>不同进制下四则运算的规则和方法和十进制一致。</p>
@@ -687,17 +692,24 @@
 <ul>
 <li><p>原码</p>
 <p>最高位（最左边的一位）表示正负号，0为+，1为-，其余各位表示数的绝对值。</p>
-<p>表示范围为<span class="math inline">\(-(2^{n-1}-1)\sim (2^{n-1}-1)\)</span>，0的表示不唯一</p></li>
+<p>表示范围为<span class="math inline">\(-(2^{n-1}-1)\sim
+(2^{n-1}-1)\)</span>，0的表示不唯一</p></li>
 <li><p>反码</p>
 <p>正数和原码的规则一样，有符号位和绝对值；负数是它的相反数整体（含符号位）取反，当然也可以理解成，负数的符号位是1，绝对值按位取反。</p>
-<p>表示范围为<span class="math inline">\(-(2^{n-1}-1)\sim (2^{n-1}-1)\)</span>，0的表示不唯一</p></li>
+<p>表示范围为<span class="math inline">\(-(2^{n-1}-1)\sim
+(2^{n-1}-1)\)</span>，0的表示不唯一</p></li>
 <li><p>补码</p>
 <p>正数和原码的规则一样；负数为“反码加一”，即符号位为1，绝对值按位取反，再加一。</p>
-<p>表示范围为<span class="math inline">\(-(2^{n-1})\sim (2^{n-1}-1)\)</span>，0的表示唯一。</p>
+<p>表示范围为<span class="math inline">\(-(2^{n-1})\sim
+(2^{n-1}-1)\)</span>，0的表示唯一。</p>
 <p>补码加减法运算，符号位参与运算，而且应该在相应位数表示的数值范围内进行，进位直接丢弃。</p>
 <blockquote>
 <p>【例】利用补码加法计算39-22</p>
-<p>【解】<span class="math inline">\((39)_{10}=(0|010\ 0111)_{2},(-22)_{10}=(1|110\ 1010)_2\)</span>，两个二进制数相加后为<span class="math inline">\((1\ 0001\ 0001)_2\)</span>，舍弃溢出位，得结果为<span class="math inline">\((0|001\ 0001)_2=(17)_{10}\)</span></p>
+<p>【解】<span class="math inline">\((39)_{10}=(0|010\
+0111)_{2},(-22)_{10}=(1|110\ 1010)_2\)</span>，两个二进制数相加后为<span
+class="math inline">\((1\ 0001\
+0001)_2\)</span>，舍弃溢出位，得结果为<span
+class="math inline">\((0|001\ 0001)_2=(17)_{10}\)</span></p>
 </blockquote>
 <p>补码的运算有模的特性。</p></li>
 </ul>
@@ -708,18 +720,29 @@
 <p>例如：8421码，就是从高位到低位的权依次是8421（和普通二进制一样），它的有效编码是0000<sub>1001，分别代表0</sub>9，其它的是非法码。</p>
 <p>还有其他的编码，比如2421码、余3码、余3循环码等。</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211161527716.png" srcset="/img/loading.gif" lazyload alt="常用BCD码" /><figcaption aria-hidden="true">常用BCD码</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211161527716.png" srcset="/img/loading.gif" lazyload
+alt="常用BCD码" />
+<figcaption aria-hidden="true">常用BCD码</figcaption>
 </figure></li>
 <li><p>格雷码</p>
 <p>格雷码的特性如下：</p>
 <ul>
 <li>单位距离：相邻码字仅有一个位元不同，其它位都相同。</li>
-<li>循环相邻：对于n位循环码，如果从第0个码字开始，最大范围是第<span class="math inline">\((2^n-1)\)</span>个码字，而对<span class="math inline">\((2^n-1)\)</span>的编码一定是<span class="math inline">\(( 2^ {n-1})\)</span>的自然二进制码。</li>
+<li>循环相邻：对于n位循环码，如果从第0个码字开始，最大范围是第<span
+class="math inline">\((2^n-1)\)</span>个码字，而对<span
+class="math inline">\((2^n-1)\)</span>的编码一定是<span
+class="math inline">\(( 2^ {n-1})\)</span>的自然二进制码。</li>
 <li>镜像反射</li>
 </ul></li>
 </ul>
 <h2 id="逻辑代数">逻辑代数</h2>
-<p>逻辑运算的大部分知识已经在“离散数学”课程中讲过了，这里仅进行补充。这里“<span class="math inline">\(\cdot\)</span>”表示与，"<span class="math inline">\(+\)</span>"表示或，<span class="math inline">\(\overline{X}\)</span>表示非，<span class="math inline">\(\oplus\)</span>表示异或，<span class="math inline">\(\odot\)</span>表示异或。</p>
+<p>逻辑运算的大部分知识已经在“离散数学”课程中讲过了，这里仅进行补充。这里“<span
+class="math inline">\(\cdot\)</span>”表示与，"<span
+class="math inline">\(+\)</span>"表示或，<span
+class="math inline">\(\overline{X}\)</span>表示非，<span
+class="math inline">\(\oplus\)</span>表示异或，<span
+class="math inline">\(\odot\)</span>表示异或。</p>
 <h3 id="逻辑函数的两种标准形式">逻辑函数的两种标准形式</h3>
 <p>两种标准形式就是指标准与或表达式（也叫最小项之和，主析取范式），和标准或与表达式（也叫最大项之积，主合取范式）。</p>
 <ul>
@@ -730,7 +753,8 @@ Y&amp;=AB\overline{C}+ABC+\overline{A}BC\\
 &amp;=m_{3}+m_{6}+m_{7}\\
 &amp;=\sum m(3,6,7)
 \end{align}
-\]</span> 这三个形式都是标准与或表达式。<span class="math inline">\(m\)</span>下面的下标由对应的最小项确定（没有取反的项记为1，有取反的项记为1，构成一个二进制串，转换为十进制即可）。</p></li>
+\]</span> 这三个形式都是标准与或表达式。<span
+class="math inline">\(m\)</span>下面的下标由对应的最小项确定（没有取反的项记为1，有取反的项记为1，构成一个二进制串，转换为十进制即可）。</p></li>
 <li><p>标准或与表达式</p>
 <p>形如下面的式子： <span class="math display">\[
 \begin{align}
@@ -747,12 +771,16 @@ Y&amp;=(A+B+C)(A+B+\overline{C})(\overline{A}+B+C)\\
 <ol type="1">
 <li><p>先记住这几个标准格式</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211161607455.png" srcset="/img/loading.gif" lazyload alt="卡诺图" /><figcaption aria-hidden="true">卡诺图</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202211161607455.png" srcset="/img/loading.gif" lazyload
+alt="卡诺图" />
+<figcaption aria-hidden="true">卡诺图</figcaption>
 </figure>
 <p>其实很好记的，横纵坐标就是格雷码的顺序，这也是为了利用单位距离性。</p></li>
 <li><p>在逻辑函数为真的格子上填1，逻辑函数为假的格子填0</p></li>
 <li><p>画卡诺圈（乘积项），合并最小项（1），反复利用互补律化简。卡诺圈的形状可以是日字形，田字形，而且有循环边界条件。</p>
-<p>互补律：<span class="math inline">\(A\overline{A}=0,A+\overline{A}=1\)</span></p>
+<p>互补律：<span
+class="math inline">\(A\overline{A}=0,A+\overline{A}=1\)</span></p>
 <p>画卡诺圈时应该遵循以下原则：</p>
 <ol type="1">
 <li>“1”格不能漏圈</li>
@@ -768,7 +796,8 @@ Y&amp;=(A+B+C)(A+B+\overline{C})(\overline{A}+B+C)\\
 <p>除了我们前面说的最简与或式以外，还有一些常用的形式。</p>
 <ul>
 <li><p>最简或与式</p>
-<p>在画出<span class="math inline">\(Y\)</span>的卡诺图后，合并<span class="math inline">\(0\)</span>方格，求反函数的最简与或表达式，然后使用德摩根公式进行反演变换，得到原函数的最简或与表达式</p>
+<p>在画出<span class="math inline">\(Y\)</span>的卡诺图后，合并<span
+class="math inline">\(0\)</span>方格，求反函数的最简与或表达式，然后使用德摩根公式进行反演变换，得到原函数的最简或与表达式</p>
 <p>德摩根公式： <span class="math display">\[
 \overline{AB}=\overline{A}+\overline{B},\overline{A+B}=\overline{A}\cdot\overline{B}
 \]</span></p>
@@ -786,7 +815,8 @@ Y&amp;=\overline{AB}\cdot\overline{CD}\cdot\overline{B\overline{D}}\\
 <p>先求出最简或与式，对最简或与式求两次反，再对内侧（下面）的反用一次德摩根公式展开。</p>
 <blockquote>
 <p>【例】 <span class="math display">\[
-\overline{\overline{(A+B)(\overline{A}+C)}}\to \overline{\overline{A+B}+\overline{\overline{A}+C}}
+\overline{\overline{(A+B)(\overline{A}+C)}}\to
+\overline{\overline{A+B}+\overline{\overline{A}+C}}
 \]</span></p>
 </blockquote>
 <p>也可以在求出反函数的最简与或表达式的时候，直接对反函数两端求反，再对各个乘积项用德摩根公式</p>
@@ -806,7 +836,8 @@ Y&amp;=\overline{AB}\cdot\overline{CD}\cdot\overline{B\overline{D}}\\
 \begin{aligned}
 Y &amp;={A C+\overline{A} B} \\
 &amp;=\overline{\overline{A C+\overline{A} B}} \\
-&amp;=\overline{\overline{A \cdot C} \cdot \overline{\overline{A} \cdot B}}
+&amp;=\overline{\overline{A \cdot C} \cdot \overline{\overline{A} \cdot
+B}}
 \end{aligned}
 \]</span></p>
 </blockquote></li>
@@ -816,7 +847,8 @@ Y &amp;={A C+\overline{A} B} \\
 <p>【例】 <span class="math display">\[
 \begin{align}
 Y&amp;=A C+\overline{A} B \\
-\overline{Y}&amp;=\overline{A} \cdot \overline{B}+A \cdot \overline{C} \\
+\overline{Y}&amp;=\overline{A} \cdot \overline{B}+A \cdot \overline{C}
+\\
 Y&amp;=\overline{\overline{A} \cdot \overline{B}+A \cdot \overline{C}}
 \end{align}
 \]</span></p>

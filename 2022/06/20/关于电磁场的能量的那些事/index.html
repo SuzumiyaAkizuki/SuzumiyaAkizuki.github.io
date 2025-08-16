@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/illust_76043657_20190815_162520.png">
 <meta property="article:published_time" content="2022-06-20T09:06:01.000Z">
-<meta property="article:modified_time" content="2025-01-20T16:35:29.997Z">
+<meta property="article:modified_time" content="2025-01-20T16:35:28.000Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="电磁场">
 <meta name="twitter:card" content="summary_large_image">
@@ -662,75 +662,124 @@
 <span id="more"></span>
 <hr />
 <h2 id="静电场和静磁场的能量">静电场和静磁场的能量</h2>
-<p>在自由空间的分布电荷系统中，有两种方法计算系统蕴含的静电场能量： <span class="math display">\[
+<p>在自由空间的分布电荷系统中，有两种方法计算系统蕴含的静电场能量：
+<span class="math display">\[
 W_E=\frac 12\iiint_V \varPhi(r)\rho(r) \mathbf{d}V
 \]</span> 和 <span class="math display">\[
-W_E=\iiint_V\frac 12\varepsilon_0\boldsymbol{E}(r)\cdot \boldsymbol{E}(r)\mathbf{d}V
+W_E=\iiint_V\frac 12\varepsilon_0\boldsymbol{E}(r)\cdot
+\boldsymbol{E}(r)\mathbf{d}V
 \]</span> 其中，定义电场能量密度 <span class="math display">\[
-w_E=\frac 12\varepsilon_0\boldsymbol{E}(r)\cdot \boldsymbol{E}(r)=\frac 12 \mu_0 |\boldsymbol{E}(r)|^2\ \ \text{(J/m$^3$)}
-\]</span> 对于点电荷系统来说，原则上不能利用电场能量密度<span class="math inline">\(w_E\)</span>来计算电场能，因为积分不收敛，会得到一个无穷大的结果，此时，只能使用 <span class="math display">\[
+w_E=\frac 12\varepsilon_0\boldsymbol{E}(r)\cdot \boldsymbol{E}(r)=\frac
+12 \mu_0 |\boldsymbol{E}(r)|^2\ \ \text{(J/m$^3$)}
+\]</span> 对于点电荷系统来说，原则上不能利用电场能量密度<span
+class="math inline">\(w_E\)</span>来计算电场能，因为积分不收敛，会得到一个无穷大的结果，此时，只能使用
+<span class="math display">\[
 W_E=\frac 12 \sum_{i=1}^nq_i\varPhi_i
-\]</span> 来计算。其中<span class="math inline">\(\varPhi_i\)</span>是在点电荷<span class="math inline">\(q_i\)</span>的位置上，除去<span class="math inline">\(q_i\)</span>以外的所有其它电荷产生的电势。有： <span class="math display">\[
+\]</span> 来计算。其中<span
+class="math inline">\(\varPhi_i\)</span>是在点电荷<span
+class="math inline">\(q_i\)</span>的位置上，除去<span
+class="math inline">\(q_i\)</span>以外的所有其它电荷产生的电势。有：
+<span class="math display">\[
 \varPhi_i=\sum_{k=1,k\neq i}^n \frac {q_k}{4\pi \varepsilon_0r_{ki}}
-\]</span> 对于自由空间中的电流系统，有磁场能计算公式： <span class="math display">\[
-W_H=\iiint_V \frac 12 \mu_0\boldsymbol{H}(r)\cdot\boldsymbol{H}(r)\mathbf{d}V
+\]</span> 对于自由空间中的电流系统，有磁场能计算公式： <span
+class="math display">\[
+W_H=\iiint_V \frac 12
+\mu_0\boldsymbol{H}(r)\cdot\boldsymbol{H}(r)\mathbf{d}V
 \]</span> 于是可以定义磁能密度： <span class="math display">\[
-w_H=\frac 12 \mu_0\boldsymbol{H}(r)\cdot\boldsymbol{H}(r)=\frac 12 \mu_0 |\boldsymbol{H}(r)|^2\ \  \text{(J/m$^3$)}
+w_H=\frac 12 \mu_0\boldsymbol{H}(r)\cdot\boldsymbol{H}(r)=\frac 12 \mu_0
+|\boldsymbol{H}(r)|^2\ \  \text{(J/m$^3$)}
 \]</span> 当然也有类似电场能的另一个公式： <span class="math display">\[
 W_H=\frac 12\sum_{i=1}^n \Psi_iI_i
-\]</span> 其中<span class="math inline">\(\Psi_i\)</span>表示系统中和线电流回路<span class="math inline">\(C_i\)</span>交链的磁通量。这个公式很少用到。</p>
+\]</span> 其中<span
+class="math inline">\(\Psi_i\)</span>表示系统中和线电流回路<span
+class="math inline">\(C_i\)</span>交链的磁通量。这个公式很少用到。</p>
 <h2 id="坡印廷定理">坡印廷定理</h2>
 <p>坡印廷定理的基本表达式为： <span class="math display">\[
--\nabla \cdot \vec{S}(\vec{r}, t)=p(\vec{r}, t)+\frac{\partial w(\vec{r}, t)}{\partial t}
-\]</span> 其中<span class="math inline">\(S\)</span>是坡印廷矢量，定义为： <span class="math display">\[
+-\nabla \cdot \vec{S}(\vec{r}, t)=p(\vec{r}, t)+\frac{\partial
+w(\vec{r}, t)}{\partial t}
+\]</span> 其中<span
+class="math inline">\(S\)</span>是坡印廷矢量，定义为： <span
+class="math display">\[
 \vec{S}(\vec{r}, t)=\vec{E}(\vec{r}, t) \times \vec{H}(\vec{r}, t)
 \]</span> 其中各项的含义为：</p>
 <ul>
-<li><span class="math inline">\(-\nabla \cdot \vec{S}(\vec{r}, t)\)</span>，即坡印廷矢量的负散度。它表示外界向电磁场中某点所提供的功率流密度。</li>
-<li><span class="math inline">\(p(\vec{r}, t)\)</span>，它表示电磁场对这点的电磁荷提供的电磁功率密度。</li>
-<li><span class="math inline">\(\frac{\partial w(\vec{r}, t)}{\partial t}\)</span>，它表示电磁场在这点蕴含的能量密度的增加率。</li>
+<li><span class="math inline">\(-\nabla \cdot \vec{S}(\vec{r},
+t)\)</span>，即坡印廷矢量的负散度。它表示外界向电磁场中某点所提供的功率流密度。</li>
+<li><span class="math inline">\(p(\vec{r},
+t)\)</span>，它表示电磁场对这点的电磁荷提供的电磁功率密度。</li>
+<li><span class="math inline">\(\frac{\partial w(\vec{r}, t)}{\partial
+t}\)</span>，它表示电磁场在这点蕴含的能量密度的增加率。</li>
 </ul>
 <p>从整体上来说，也就是：外界向一点提供的电磁能必定用于对处在该点的电磁荷做功，和增加电磁场在该点的电磁能。</p>
 <p>在物质中的坡印廷定理有以下形式： <span class="math display">\[
--\nabla \cdot \vec{S}(\vec{r}, t)+p_{s}(\vec{r}, t)=p_{d}(\vec{r}, t)+p_{P}(\vec{r}, t)+p_{M}(\vec{r}, t)+\frac{\partial }{\partial t}[w_E(\vec{r}, t)+w_E(\vec{r}, t)]
+-\nabla \cdot \vec{S}(\vec{r}, t)+p_{s}(\vec{r}, t)=p_{d}(\vec{r},
+t)+p_{P}(\vec{r}, t)+p_{M}(\vec{r}, t)+\frac{\partial }{\partial
+t}[w_E(\vec{r}, t)+w_E(\vec{r}, t)]
 \]</span> 其中：</p>
 <ul>
-<li><p><span class="math inline">\(p_S\)</span>表示电源向电磁场提供的功率。有： <span class="math display">\[
+<li><p><span
+class="math inline">\(p_S\)</span>表示电源向电磁场提供的功率。有： <span
+class="math display">\[
 p_s(\vec{r},t)=-J_s(\vec{r},t)\cdot E(\vec{r},t)
-\]</span> 需要注意这里的符号。符号的意思是如果<span class="math inline">\(J_s(\vec{r},t)\cdot E(\vec{r},t)&gt;0\)</span>，这时候实际上是电磁场给电源充电。</p></li>
-<li><p><span class="math inline">\(p_d\)</span>表示由于物质的电阻性而转化为焦耳热的功率。有： <span class="math display">\[
+\]</span> 需要注意这里的符号。符号的意思是如果<span
+class="math inline">\(J_s(\vec{r},t)\cdot
+E(\vec{r},t)&gt;0\)</span>，这时候实际上是电磁场给电源充电。</p></li>
+<li><p><span
+class="math inline">\(p_d\)</span>表示由于物质的电阻性而转化为焦耳热的功率。有：
+<span class="math display">\[
 p_d(\vec{r},t)=\sigma|\boldsymbol{E}(\vec{r},t)|^2
 \]</span></p></li>
-<li><p><span class="math inline">\(p_P\)</span>表示用来增加物质极化程度的功率。有： <span class="math display">\[
-p_P(\vec{r},t)=\boldsymbol{E}(\vec{r},t)\cdot \frac{\partial \boldsymbol{P}(\vec{r},t)}{\partial t}
-\]</span> 其中<span class="math inline">\(P(\vec{r},t)\)</span>是极化强度，对于简单媒质来说，有： <span class="math display">\[
+<li><p><span
+class="math inline">\(p_P\)</span>表示用来增加物质极化程度的功率。有：
+<span class="math display">\[
+p_P(\vec{r},t)=\boldsymbol{E}(\vec{r},t)\cdot \frac{\partial
+\boldsymbol{P}(\vec{r},t)}{\partial t}
+\]</span> 其中<span
+class="math inline">\(P(\vec{r},t)\)</span>是极化强度，对于简单媒质来说，有：
+<span class="math display">\[
 \boldsymbol{P}(\vec{r},t)=\chi_e\varepsilon_0\boldsymbol{E}(\vec{r},t)
-\]</span> 其中<span class="math inline">\(\chi_e\)</span>是电极化率。</p></li>
-<li><p><span class="math inline">\(p_M\)</span>表示用来增加物质磁化程度的功率。有： <span class="math display">\[
-p_M(\vec{r},t)=\boldsymbol{H}(\vec{r},t)\cdot \mu_0\frac{\partial \boldsymbol{M}(\vec{r},t)}{\partial t}
+\]</span> 其中<span
+class="math inline">\(\chi_e\)</span>是电极化率。</p></li>
+<li><p><span
+class="math inline">\(p_M\)</span>表示用来增加物质磁化程度的功率。有：
+<span class="math display">\[
+p_M(\vec{r},t)=\boldsymbol{H}(\vec{r},t)\cdot \mu_0\frac{\partial
+\boldsymbol{M}(\vec{r},t)}{\partial t}
 \]</span></p></li>
-<li><p>上面四条加起来称为“物质消耗的功率”,也就是坡印廷定理一般表达式的<span class="math inline">\(p(\vec{r},t)\)</span>，特殊地，对于电阻性导体，只存在<span class="math inline">\(p_d\)</span>。</p></li>
-<li><p><span class="math inline">\(w_E,w_H\)</span>表示电磁场的储能。</p></li>
+<li><p>上面四条加起来称为“物质消耗的功率”,也就是坡印廷定理一般表达式的<span
+class="math inline">\(p(\vec{r},t)\)</span>，特殊地，对于电阻性导体，只存在<span
+class="math inline">\(p_d\)</span>。</p></li>
+<li><p><span
+class="math inline">\(w_E,w_H\)</span>表示电磁场的储能。</p></li>
 </ul>
-<p>在做题时，还会遇到一个模型，叫“同轴电缆”，一开始我完全不知道它是啥玩意。其实，“同轴电缆”是一个由两部分导体组成的系统，“内导体”是一个半径为<span class="math inline">\(a\)</span>的圆柱体，“外导体”是一片半径为<span class="math inline">\(b\)</span>的圆柱面，这俩是同心的。制造同轴电缆的导体可能是理想的，也可能不是理想的。在一端的内外导体之间，往往接有圆对称的电压源。</p>
+<p>在做题时，还会遇到一个模型，叫“同轴电缆”，一开始我完全不知道它是啥玩意。其实，“同轴电缆”是一个由两部分导体组成的系统，“内导体”是一个半径为<span
+class="math inline">\(a\)</span>的圆柱体，“外导体”是一片半径为<span
+class="math inline">\(b\)</span>的圆柱面，这俩是同心的。制造同轴电缆的导体可能是理想的，也可能不是理想的。在一端的内外导体之间，往往接有圆对称的电压源。</p>
 <h2 id="物质中的极化能和磁化能">物质中的极化能和磁化能</h2>
 <h3 id="电容器的能量极化能">电容器的能量：极化能</h3>
 <p>对于公式： <span class="math display">\[
-p_P(\vec{r},t)=\boldsymbol{E}(\vec{r},t)\cdot \frac{\partial \boldsymbol{P}(\vec{r},t)}{\partial t}
+p_P(\vec{r},t)=\boldsymbol{E}(\vec{r},t)\cdot \frac{\partial
+\boldsymbol{P}(\vec{r},t)}{\partial t}
 \]</span> 将 <span class="math display">\[
 \boldsymbol{P}(\vec{r},t)=\chi_e\varepsilon_0\boldsymbol{E}(\vec{r},t)
 \]</span> 代入，可推导得： <span class="math display">\[
-p_P(\vec{r},t)=\frac{\partial}{\partial t}\left[\frac 12 \boldsymbol{P}(\vec{r},t)\cdot \boldsymbol{E}(\vec{r},t)\right]
+p_P(\vec{r},t)=\frac{\partial}{\partial t}\left[\frac 12
+\boldsymbol{P}(\vec{r},t)\cdot \boldsymbol{E}(\vec{r},t)\right]
 \]</span> 于是有极化能密度： <span class="math display">\[
-w_P(\vec{r},t)=\frac 12\boldsymbol{P}(\vec{r},t)\cdot \boldsymbol{E}(\vec{r},t)
-\]</span> "极化能"的意思，就是电容器两个导体板子中间夹的那一坨电介质因为要极化所以得到的能量。为了完整讨论电介质的能量，我们还要加上电场的能量，即： <span class="math display">\[
+w_P(\vec{r},t)=\frac 12\boldsymbol{P}(\vec{r},t)\cdot
+\boldsymbol{E}(\vec{r},t)
+\]</span>
+"极化能"的意思，就是电容器两个导体板子中间夹的那一坨电介质因为要极化所以得到的能量。为了完整讨论电介质的能量，我们还要加上电场的能量，即：
+<span class="math display">\[
 w_E(\vec{r},t)=\frac 12 \varepsilon_0|E(\vec{r},t)|^2
 \]</span> 有电能密度： <span class="math display">\[
 \begin{aligned}
 w_e&amp;=w_p+w_E\\
 &amp;=\frac 12E(\vec{r},t)\cdot D(\vec{r},t)
 \end{aligned}
-\]</span> 其中<span class="math inline">\(D(\vec{r},t)\)</span>叫电位移矢量，定义如下： <span class="math display">\[
+\]</span> 其中<span
+class="math inline">\(D(\vec{r},t)\)</span>叫电位移矢量，定义如下：
+<span class="math display">\[
 D=\varepsilon_0E+P=\varepsilon_0E+\chi_e\varepsilon_0E=(1+\chi_e)\varepsilon_0E=\varepsilon_r\varepsilon_0E
 \]</span> 于是： <span class="math display">\[
 w_e=\frac 12 \varepsilon E^2
@@ -740,13 +789,16 @@ W_c=\frac 12 CV^2
 \]</span> 就能求出电容量。</p>
 <h3 id="电感器的能量磁化能">电感器的能量：磁化能</h3>
 <p><span class="math display">\[
-p_M(\vec{r},t)=\boldsymbol{H}(\vec{r},t)\cdot \mu_0\frac{\partial \boldsymbol{M}(\vec{r},t)}{\partial t}
+p_M(\vec{r},t)=\boldsymbol{H}(\vec{r},t)\cdot \mu_0\frac{\partial
+\boldsymbol{M}(\vec{r},t)}{\partial t}
 \]</span></p>
-<p>其中<span class="math inline">\(M\)</span>叫磁化强度，有： <span class="math display">\[
+<p>其中<span class="math inline">\(M\)</span>叫磁化强度，有： <span
+class="math display">\[
 \mu_0M=(\mu-\mu_0)H
 \]</span> 在单值简单介质中，有磁化能密度： <span class="math display">\[
 w_M=\frac 12 \mu_0H(\vec{r},t)\cdot M(\vec{r},t)
-\]</span> 再加上磁场本身的能量，就有磁能密度： <span class="math display">\[
+\]</span> 再加上磁场本身的能量，就有磁能密度： <span
+class="math display">\[
 w_H=\frac 12 B\cdot H=\frac 12 \mu H^2
 \]</span></p>
 <hr />

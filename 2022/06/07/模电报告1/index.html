@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140026369.png">
 <meta property="article:published_time" content="2022-06-07T07:41:25.000Z">
-<meta property="article:modified_time" content="2025-01-20T16:35:30.149Z">
+<meta property="article:modified_time" content="2025-01-20T16:35:30.000Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="电子电路">
 <meta name="twitter:card" content="summary_large_image">
@@ -529,43 +529,50 @@
 <h2 id="共射放大器的分析和设计">共射放大器的分析和设计</h2>
 <h3 id="实验目的">实验目的</h3>
 <ol type="1">
-<li><p>进一步了解 Multisim 的各项功能，熟练掌握其使用方法，为后续课程打好基础。</p></li>
-<li><p>通过使用 Multisim 来仿真电路，测试如图 1 所示的单管共射放大电路的静态工作点、电压放大倍数、输入电阻和输出电阻，并观察静态工作点的变化对输出波形的影响。</p></li>
+<li><p>进一步了解 Multisim
+的各项功能，熟练掌握其使用方法，为后续课程打好基础。</p></li>
+<li><p>通过使用 Multisim 来仿真电路，测试如图 1
+所示的单管共射放大电路的静态工作点、电压放大倍数、输入电阻和输出电阻，并观察静态工作点的变化对输出波形的影响。</p></li>
 <li><p>加深对放大电路工作原理的理解和参数变化对输出波形的影响。</p></li>
 <li><p>观察失真现象，了解其产生的原因。</p></li>
 </ol>
 <h3 id="实验原理图">实验原理图</h3>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140023052.png" srcset="/img/loading.gif" lazyload alt="image-20220530203406386" /><figcaption aria-hidden="true">image-20220530203406386</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140023052.png" srcset="/img/loading.gif" lazyload
+alt="image-20220530203406386" />
+<figcaption aria-hidden="true">image-20220530203406386</figcaption>
 </figure>
 <h3 id="实验内容及仿真数据">实验内容及仿真数据</h3>
-<h4 id="进行直流工作点分析判断工作状态">进行直流工作点分析，判断工作状态</h4>
-<p>用“分析”-“Analyses and simulation”工具中的“直流工作点”分析，得结果如下：</p>
+<h4
+id="进行直流工作点分析判断工作状态">进行直流工作点分析，判断工作状态</h4>
+<p>用“分析”-“Analyses and
+simulation”工具中的“直流工作点”分析，得结果如下：</p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: center;">Variable</th>
 <th style="text-align: center;">Operating point value</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: center;">V(4)-V(5)</td>
 <td style="text-align: center;">6.76596</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;">V(3)-V(5)</td>
 <td style="text-align: center;">0.618865</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;">I(Q1[IB])</td>
 <td style="text-align: center;">6.21E-06</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;">I(Q1[IC])</td>
 <td style="text-align: center;">0.000967</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;">I(Q1[IE])</td>
 <td style="text-align: center;">-0.00097</td>
 </tr>
@@ -581,22 +588,25 @@ I_e=-970\mu\text{A}
 <h4 id="测量输入电阻">测量输入电阻</h4>
 <p>使用万用表器件，测量电路以及测量结果如下：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140023548.png" srcset="/img/loading.gif" lazyload alt="image-20220530205610684" /><figcaption aria-hidden="true">image-20220530205610684</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140023548.png" srcset="/img/loading.gif" lazyload
+alt="image-20220530205610684" />
+<figcaption aria-hidden="true">image-20220530205610684</figcaption>
 </figure>
 <p>有结果：</p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>项目</th>
 <th>值</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><span class="math inline">\(U_i\)</span></td>
 <td>3.794mV</td>
 </tr>
-<tr class="even">
+<tr>
 <td><span class="math inline">\(I_i\)</span></td>
 <td>1.209μA</td>
 </tr>
@@ -608,11 +618,17 @@ R_i&amp;=\frac{U_i}{I_i}\\
 &amp;=\frac{3.794\times10^{-3}}{1.209\times 10^{-6}}\\[1.5ex]
 &amp;=3138.13\ \Omega
 \end{aligned}
-\]</span> 故输入电阻为<span class="math inline">\(3138.13\Omega\)</span>，此时的频率为<span class="math inline">\(1\text{kHz}\)</span></p>
+\]</span> 故输入电阻为<span
+class="math inline">\(3138.13\Omega\)</span>，此时的频率为<span
+class="math inline">\(1\text{kHz}\)</span></p>
 <h4 id="测量输出电阻">测量输出电阻</h4>
-<p>为测量输出电阻，将信号源置<span class="math inline">\(0\)</span>，将负载电阻从电路中取出，换成信号源，用电流表测量输出支路电流。</p>
+<p>为测量输出电阻，将信号源置<span
+class="math inline">\(0\)</span>，将负载电阻从电路中取出，换成信号源，用电流表测量输出支路电流。</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140023934.png" srcset="/img/loading.gif" lazyload alt="image-20220530212159779" /><figcaption aria-hidden="true">image-20220530212159779</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140023934.png" srcset="/img/loading.gif" lazyload
+alt="image-20220530212159779" />
+<figcaption aria-hidden="true">image-20220530212159779</figcaption>
 </figure>
 <p>则有： <span class="math display">\[
 \begin{aligned}
@@ -620,66 +636,102 @@ R_o&amp;=\frac{U_o}{I_o}\\
 &amp;=\frac{10\times10^{-3}}{3.922\times10^{-6}}\\[1.5ex]
 &amp;=2549.71\Omega
 \end{aligned}
-\]</span> 所以输出电阻为<span class="math inline">\(2549.71\Omega\)</span></p>
+\]</span> 所以输出电阻为<span
+class="math inline">\(2549.71\Omega\)</span></p>
 <h4 id="用测量仪表测定幅频相频曲线">用测量仪表测定幅频、相频曲线</h4>
 <p>如图所示，将波特分析仪连入电路：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140023244.png" srcset="/img/loading.gif" lazyload alt="image-20220530214705599" /><figcaption aria-hidden="true">image-20220530214705599</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140023244.png" srcset="/img/loading.gif" lazyload
+alt="image-20220530214705599" />
+<figcaption aria-hidden="true">image-20220530214705599</figcaption>
 </figure>
 <p>选择“幅值”模式，调整范围：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140023987.png" srcset="/img/loading.gif" lazyload alt="image-20220530214736718" /><figcaption aria-hidden="true">image-20220530214736718</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140023987.png" srcset="/img/loading.gif" lazyload
+alt="image-20220530214736718" />
+<figcaption aria-hidden="true">image-20220530214736718</figcaption>
 </figure>
 <p>选择“相位”模式：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140023892.png" srcset="/img/loading.gif" lazyload alt="image-20220530221124547" /><figcaption aria-hidden="true">image-20220530221124547</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140023892.png" srcset="/img/loading.gif" lazyload
+alt="image-20220530221124547" />
+<figcaption aria-hidden="true">image-20220530221124547</figcaption>
 </figure>
 <h4 id="用交流分析测幅频相频曲线">用交流分析测幅频、相频曲线</h4>
-<p>用“分析”-“Analyses and simulation”工具中的“交流分析”，如图设置参数：</p>
+<p>用“分析”-“Analyses and
+simulation”工具中的“交流分析”，如图设置参数：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140023217.png" srcset="/img/loading.gif" lazyload alt="image-20220530221813255" /><figcaption aria-hidden="true">image-20220530221813255</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140023217.png" srcset="/img/loading.gif" lazyload
+alt="image-20220530221813255" />
+<figcaption aria-hidden="true">image-20220530221813255</figcaption>
 </figure>
 <p>将输出设置为<span class="math inline">\(V(6)\)</span>，开始分析：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140023505.png" srcset="/img/loading.gif" lazyload alt="image-20220530221847557" /><figcaption aria-hidden="true">image-20220530221847557</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140023505.png" srcset="/img/loading.gif" lazyload
+alt="image-20220530221847557" />
+<figcaption aria-hidden="true">image-20220530221847557</figcaption>
 </figure>
-<h4 id="分别在5-个频点利用示波器测出输入和输出的关系并仔细观察放大倍数和相位差">分别在5 个频点利用示波器测出输入和输出的关系，并仔细观察放大倍数和相位差</h4>
+<h4
+id="分别在5-个频点利用示波器测出输入和输出的关系并仔细观察放大倍数和相位差">分别在5
+个频点利用示波器测出输入和输出的关系，并仔细观察放大倍数和相位差</h4>
 <p>电路连接方式如图：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140023793.png" srcset="/img/loading.gif" lazyload alt="image-20220530222634242" /><figcaption aria-hidden="true">image-20220530222634242</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140023793.png" srcset="/img/loading.gif" lazyload
+alt="image-20220530222634242" />
+<figcaption aria-hidden="true">image-20220530222634242</figcaption>
 </figure>
 <ol type="1">
 <li>30Hz</li>
 </ol>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140023036.png" srcset="/img/loading.gif" lazyload alt="image-20220530231206151" /><figcaption aria-hidden="true">image-20220530231206151</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140023036.png" srcset="/img/loading.gif" lazyload
+alt="image-20220530231206151" />
+<figcaption aria-hidden="true">image-20220530231206151</figcaption>
 </figure>
-<p>图中<span class="math inline">\(T_1\)</span>，<span class="math inline">\(T_2\)</span>分别对应输入、输出通道的最大值。由<span class="math inline">\(\Delta \varphi=2\pi f(T_2-T_1)\)</span>可知： <span class="math display">\[
+<p>图中<span class="math inline">\(T_1\)</span>，<span
+class="math inline">\(T_2\)</span>分别对应输入、输出通道的最大值。由<span
+class="math inline">\(\Delta \varphi=2\pi f(T_2-T_1)\)</span>可知：
+<span class="math display">\[
    \max V_i=6.620\text{mV} \\
    \max V_o=65.526\text{mV} \\
    \Delta \varphi=51.132\degree
    \]</span></p>
 <ol start="2" type="1">
 <li><p>1kHz</p>
-<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140023485.png" srcset="/img/loading.gif" lazyload alt="image-20220530232304194" /> <span class="math display">\[
+<p><img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140023485.png" srcset="/img/loading.gif" lazyload
+alt="image-20220530232304194" /> <span class="math display">\[
 \max V_i=5.334\text{mV} \\
 \max V_o=238.006\text{mV} \\
 \Delta \varphi=168.75\degree
 \]</span></p></li>
 <li><p>100kHz</p>
-<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140024238.png" srcset="/img/loading.gif" lazyload alt="image-20220530232540514" /> <span class="math display">\[
+<p><img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140024238.png" srcset="/img/loading.gif" lazyload
+alt="image-20220530232540514" /> <span class="math display">\[
 \max V_i=5.282\text{mV} \\
 \max V_o=236.081\text{mV} \\
 \Delta \varphi=181.548\degree
 \]</span></p></li>
 <li><p>4MHz</p>
-<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140024825.png" srcset="/img/loading.gif" lazyload alt="image-20220530233003943" /> <span class="math display">\[
+<p><img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140024825.png" srcset="/img/loading.gif" lazyload
+alt="image-20220530233003943" /> <span class="math display">\[
 \max V_i=1.582\text{mV} \\
 \max V_o=73.091\text{mV} \\
 \Delta \varphi=180\degree
 \]</span></p></li>
 <li><p>100MHz</p>
-<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140024862.png" srcset="/img/loading.gif" lazyload alt="image-20220530233500579" /> <span class="math display">\[
+<p><img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140024862.png" srcset="/img/loading.gif" lazyload
+alt="image-20220530233500579" /> <span class="math display">\[
 \max V_i=193.301\mu\text{V} \\
 \max V_o=2.919\text{mV} \\
 \Delta \varphi=258.228\degree
@@ -688,7 +740,7 @@ R_o&amp;=\frac{U_o}{I_o}\\
 <p>汇总，得：</p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>f/Hz</th>
 <th>max <span class="math inline">\(V_i\)</span>/mV</th>
 <th>max<span class="math inline">\(V_o\)</span>/mV</th>
@@ -697,35 +749,35 @@ R_o&amp;=\frac{U_o}{I_o}\\
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>30</td>
 <td>6.620</td>
 <td>65.526</td>
 <td>51.132</td>
 <td>9.90</td>
 </tr>
-<tr class="even">
+<tr>
 <td>1k</td>
 <td>5.334</td>
 <td>238.006</td>
 <td>168.75</td>
 <td>44.62</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>100k</td>
 <td>5.282</td>
 <td>236.081</td>
 <td>181.548</td>
 <td>44.70</td>
 </tr>
-<tr class="even">
+<tr>
 <td>4M</td>
 <td>1.582</td>
 <td>73.091</td>
 <td>180</td>
 <td>46.20</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>100M</td>
 <td>0.193</td>
 <td>2.919</td>
@@ -738,38 +790,75 @@ R_o&amp;=\frac{U_o}{I_o}\\
 <h4 id="原电路最大不失真输出电压">原电路最大不失真输出电压</h4>
 <p>原电路如图所示：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140024492.png" srcset="/img/loading.gif" lazyload alt="image-20220605152356360" /><figcaption aria-hidden="true">image-20220605152356360</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140024492.png" srcset="/img/loading.gif" lazyload
+alt="image-20220605152356360" />
+<figcaption aria-hidden="true">image-20220605152356360</figcaption>
 </figure>
-<p>设置信号源电压为变量<span class="math inline">\(v_i\)</span>，用参数扫描功能，从<span class="math inline">\(5\text{mV}\)</span>到<span class="math inline">\(15\text{mv}\)</span>扫描，用瞬态分析，分析时间设置为一个周期，即<span class="math inline">\(0.001\text{ms}\)</span>，得图形：</p>
+<p>设置信号源电压为变量<span
+class="math inline">\(v_i\)</span>，用参数扫描功能，从<span
+class="math inline">\(5\text{mV}\)</span>到<span
+class="math inline">\(15\text{mv}\)</span>扫描，用瞬态分析，分析时间设置为一个周期，即<span
+class="math inline">\(0.001\text{ms}\)</span>，得图形：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140024553.png" srcset="/img/loading.gif" lazyload alt="image-20220605152905709" /><figcaption aria-hidden="true">image-20220605152905709</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140024553.png" srcset="/img/loading.gif" lazyload
+alt="image-20220605152905709" />
+<figcaption aria-hidden="true">image-20220605152905709</figcaption>
 </figure>
-<p>可见在约<span class="math inline">\(10\text{mV}\)</span>时出现饱和失真。将信号源设置为<span class="math inline">\(10\text{mV}\)</span>，用示波器分析</p>
+<p>可见在约<span
+class="math inline">\(10\text{mV}\)</span>时出现饱和失真。将信号源设置为<span
+class="math inline">\(10\text{mV}\)</span>，用示波器分析</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140024548.png" srcset="/img/loading.gif" lazyload alt="image-20220605153150707" /><figcaption aria-hidden="true">image-20220605153150707</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140024548.png" srcset="/img/loading.gif" lazyload
+alt="image-20220605153150707" />
+<figcaption aria-hidden="true">image-20220605153150707</figcaption>
 </figure>
-<p>可得最大不失真电压为<span class="math inline">\(4.5\text{mV}\)</span>左右。</p>
-<h4 id="调整电阻后的最大不失真输出电压">调整电阻后的最大不失真输出电压</h4>
-<p>调整<span class="math inline">\(R_1\)</span>,<span class="math inline">\(R_2\)</span>的比值，加入射级电阻，电路及参数扫描结果如下：</p>
+<p>可得最大不失真电压为<span
+class="math inline">\(4.5\text{mV}\)</span>左右。</p>
+<h4
+id="调整电阻后的最大不失真输出电压">调整电阻后的最大不失真输出电压</h4>
+<p>调整<span class="math inline">\(R_1\)</span>,<span
+class="math inline">\(R_2\)</span>的比值，加入射级电阻，电路及参数扫描结果如下：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140024772.png" srcset="/img/loading.gif" lazyload alt="image-20220605151534469" /><figcaption aria-hidden="true">image-20220605151534469</figcaption>
-</figure>
-<figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140024184.png" srcset="/img/loading.gif" lazyload alt="image-20220605151417177" /><figcaption aria-hidden="true">image-20220605151417177</figcaption>
-</figure>
-<p>将信号源设置为<span class="math inline">\(211\text{mV}\)</span>，用示波器分析：</p>
-<figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140024256.png" srcset="/img/loading.gif" lazyload alt="image-20220605153340470" /><figcaption aria-hidden="true">image-20220605153340470</figcaption>
-</figure>
-<p>此时输出电压约为<span class="math inline">\(2.2\text{V}\)</span>，比之前的电路提升了487.8倍。</p>
-<h4 id="添加有源负载后的最大不失真电压">添加有源负载后的最大不失真电压</h4>
-<figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140024661.png" srcset="/img/loading.gif" lazyload alt="image-20220702230017279" /><figcaption aria-hidden="true">image-20220702230017279</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140024772.png" srcset="/img/loading.gif" lazyload
+alt="image-20220605151534469" />
+<figcaption aria-hidden="true">image-20220605151534469</figcaption>
 </figure>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140024407.png" srcset="/img/loading.gif" lazyload alt="image-20220702230157561" /><figcaption aria-hidden="true">image-20220702230157561</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140024184.png" srcset="/img/loading.gif" lazyload
+alt="image-20220605151417177" />
+<figcaption aria-hidden="true">image-20220605151417177</figcaption>
 </figure>
-<p>最大不失真输出电压进一步提高到了<span class="math inline">\(3.13V\)</span>左右。</p>
+<p>将信号源设置为<span
+class="math inline">\(211\text{mV}\)</span>，用示波器分析：</p>
+<figure>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140024256.png" srcset="/img/loading.gif" lazyload
+alt="image-20220605153340470" />
+<figcaption aria-hidden="true">image-20220605153340470</figcaption>
+</figure>
+<p>此时输出电压约为<span
+class="math inline">\(2.2\text{V}\)</span>，比之前的电路提升了487.8倍。</p>
+<h4
+id="添加有源负载后的最大不失真电压">添加有源负载后的最大不失真电压</h4>
+<figure>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140024661.png" srcset="/img/loading.gif" lazyload
+alt="image-20220702230017279" />
+<figcaption aria-hidden="true">image-20220702230017279</figcaption>
+</figure>
+<figure>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140024407.png" srcset="/img/loading.gif" lazyload
+alt="image-20220702230157561" />
+<figcaption aria-hidden="true">image-20220702230157561</figcaption>
+</figure>
+<p>最大不失真输出电压进一步提高到了<span
+class="math inline">\(3.13V\)</span>左右。</p>
 <h2 id="射极跟随器分析与设计">射极跟随器分析与设计</h2>
 <h3 id="实验目的-1">实验目的</h3>
 <ol type="1">
@@ -779,31 +868,38 @@ R_o&amp;=\frac{U_o}{I_o}\\
 </ol>
 <h3 id="原始电路图">原始电路图</h3>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140024870.png" srcset="/img/loading.gif" lazyload alt="image-20220606233327519" /><figcaption aria-hidden="true">image-20220606233327519</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140024870.png" srcset="/img/loading.gif" lazyload
+alt="image-20220606233327519" />
+<figcaption aria-hidden="true">image-20220606233327519</figcaption>
 </figure>
 <h3 id="射随器仿真实验">射随器仿真实验</h3>
-<h4 id="进行直流工作点分析判断工作状态-1">进行直流工作点分析，判断工作状态</h4>
+<h4
+id="进行直流工作点分析判断工作状态-1">进行直流工作点分析，判断工作状态</h4>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140025118.png" srcset="/img/loading.gif" lazyload alt="image-20220606202123233" /><figcaption aria-hidden="true">image-20220606202123233</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140025118.png" srcset="/img/loading.gif" lazyload
+alt="image-20220606202123233" />
+<figcaption aria-hidden="true">image-20220606202123233</figcaption>
 </figure>
 <p>结果如下：</p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Variable</th>
 <th>Operating point value</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>I(Q1[IC])</td>
 <td>0.001601</td>
 </tr>
-<tr class="even">
+<tr>
 <td>V(3)-V(1)</td>
 <td>0.63146175</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>V(vcc)-V(1)</td>
 <td>7.89915</td>
 </tr>
@@ -817,7 +913,10 @@ I_c=1.6\text{mA}
 <h4 id="测量输入电阻-1">测量输入电阻</h4>
 <p>电路及仿真结果如图：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140025202.png" srcset="/img/loading.gif" lazyload alt="image-20220606204235062" /><figcaption aria-hidden="true">image-20220606204235062</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140025202.png" srcset="/img/loading.gif" lazyload
+alt="image-20220606204235062" />
+<figcaption aria-hidden="true">image-20220606204235062</figcaption>
 </figure>
 <p>则有： <span class="math display">\[
 I_i=\frac{u_1}{R_4}=2.5\times10^{-8}\text{A}\\
@@ -827,59 +926,86 @@ R_i=356.44\text{k}\Omega
 <h4 id="测量输出电阻-1">测量输出电阻</h4>
 <p>电路及相关测量结果如下：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140025225.png" srcset="/img/loading.gif" lazyload alt="image-20220606210346703" /><figcaption aria-hidden="true">image-20220606210346703</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140025225.png" srcset="/img/loading.gif" lazyload
+alt="image-20220606210346703" />
+<figcaption aria-hidden="true">image-20220606210346703</figcaption>
 </figure>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140025664.png" srcset="/img/loading.gif" lazyload alt="image-20220606210415737" /><figcaption aria-hidden="true">image-20220606210415737</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140025664.png" srcset="/img/loading.gif" lazyload
+alt="image-20220606210415737" />
+<figcaption aria-hidden="true">image-20220606210415737</figcaption>
 </figure>
-<p>设开关闭合时电压为<span class="math inline">\(V_1\)</span>，开关打开时电压为<span class="math inline">\(V_2\)</span>，有： <span class="math display">\[
+<p>设开关闭合时电压为<span
+class="math inline">\(V_1\)</span>，开关打开时电压为<span
+class="math inline">\(V_2\)</span>，有： <span class="math display">\[
 R_0=\frac{V_2-V_1}{V_1}R_l=17.7\Omega
 \]</span></p>
 <h4 id="用测量仪表测定幅频相频曲线-1">用测量仪表测定幅频、相频曲线</h4>
 <p>电路图如下：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140025885.png" srcset="/img/loading.gif" lazyload alt="image-20220606213854747" /><figcaption aria-hidden="true">image-20220606213854747</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140025885.png" srcset="/img/loading.gif" lazyload
+alt="image-20220606213854747" />
+<figcaption aria-hidden="true">image-20220606213854747</figcaption>
 </figure>
 <p>测量结果如下：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140025698.png" srcset="/img/loading.gif" lazyload alt="image-20220606214506998" /><figcaption aria-hidden="true">image-20220606214506998</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140025698.png" srcset="/img/loading.gif" lazyload
+alt="image-20220606214506998" />
+<figcaption aria-hidden="true">image-20220606214506998</figcaption>
 </figure>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140025954.png" srcset="/img/loading.gif" lazyload alt="image-20220606214610105" /><figcaption aria-hidden="true">image-20220606214610105</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140025954.png" srcset="/img/loading.gif" lazyload
+alt="image-20220606214610105" />
+<figcaption aria-hidden="true">image-20220606214610105</figcaption>
 </figure>
 <h4 id="用交流分析测幅频相频曲线-1">用交流分析测幅频、相频曲线</h4>
 <p>结果如图：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140025598.png" srcset="/img/loading.gif" lazyload alt="image-20220606215412272" /><figcaption aria-hidden="true">image-20220606215412272</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140025598.png" srcset="/img/loading.gif" lazyload
+alt="image-20220606215412272" />
+<figcaption aria-hidden="true">image-20220606215412272</figcaption>
 </figure>
 <h4 id="最大不失真输出电压">最大不失真输出电压</h4>
-<p>由参数扫描得，射随器最大不失真输出电压为<span class="math inline">\(7.158\text{V}\)</span></p>
+<p>由参数扫描得，射随器最大不失真输出电压为<span
+class="math inline">\(7.158\text{V}\)</span></p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140025557.png" srcset="/img/loading.gif" lazyload alt="image-20220606231952324" /><figcaption aria-hidden="true">image-20220606231952324</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140025557.png" srcset="/img/loading.gif" lazyload
+alt="image-20220606231952324" />
+<figcaption aria-hidden="true">image-20220606231952324</figcaption>
 </figure>
 <h3 id="有源负载射随器仿真实验">有源负载射随器仿真实验</h3>
 <h4 id="直流工作点分析">直流工作点分析</h4>
 <p>电路图和直流工作点分析结果如下，其中绿色部分为镜像电流源负载</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140025064.png" srcset="/img/loading.gif" lazyload alt="image-20220606221933500" /><figcaption aria-hidden="true">image-20220606221933500</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140025064.png" srcset="/img/loading.gif" lazyload
+alt="image-20220606221933500" />
+<figcaption aria-hidden="true">image-20220606221933500</figcaption>
 </figure>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Variable</th>
 <th>Operating point value</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>I(Q1[IC])</td>
 <td>0.00160115</td>
 </tr>
-<tr class="even">
+<tr>
 <td>V(3)-V(1)</td>
 <td>0.63146373</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>V(vcc)-V(1)</td>
 <td>7.89959</td>
 </tr>
@@ -889,52 +1015,87 @@ R_0=\frac{V_2-V_1}{V_1}R_l=17.7\Omega
 <h4 id="测量输入电阻-2">测量输入电阻</h4>
 <p>电路图和相关测量结果如下：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140025648.png" srcset="/img/loading.gif" lazyload alt="image-20220606230225977" /><figcaption aria-hidden="true">image-20220606230225977</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140025648.png" srcset="/img/loading.gif" lazyload
+alt="image-20220606230225977" />
+<figcaption aria-hidden="true">image-20220606230225977</figcaption>
 </figure>
 <p>有： <span class="math display">\[
 R_i=\frac{V_S}{V_i-V_s}R_6=429.42\text{kV}
 \]</span></p>
 <h4 id="测量输出电阻-2">测量输出电阻</h4>
-<p>电路图和相关测量结果如下：<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140025729.png" srcset="/img/loading.gif" lazyload alt="image-20220606225533334" /></p>
+<p>电路图和相关测量结果如下：<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140025729.png" srcset="/img/loading.gif" lazyload
+alt="image-20220606225533334" /></p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140025237.png" srcset="/img/loading.gif" lazyload alt="image-20220606225549913" /><figcaption aria-hidden="true">image-20220606225549913</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140025237.png" srcset="/img/loading.gif" lazyload
+alt="image-20220606225549913" />
+<figcaption aria-hidden="true">image-20220606225549913</figcaption>
 </figure>
-<p>设开关闭合时电压为<span class="math inline">\(V_1\)</span>，开关打开时电压为<span class="math inline">\(V_2\)</span>，有： <span class="math display">\[
+<p>设开关闭合时电压为<span
+class="math inline">\(V_1\)</span>，开关打开时电压为<span
+class="math inline">\(V_2\)</span>，有： <span class="math display">\[
 R_0=\frac{V_2-V_1}{V_1}R_l=17.7\Omega
 \]</span></p>
 <h4 id="用测量仪表测定幅频相频曲线-2">用测量仪表测定幅频、相频曲线</h4>
 <figure>
-<img src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220606230655603.png" srcset="/img/loading.gif" lazyload alt="image-20220606230655603" /><figcaption aria-hidden="true">image-20220606230655603</figcaption>
+<img
+src="https://raw.githubusercontent.com/SuzumiyaAkizuki/image/main/image-20220606230655603.png" srcset="/img/loading.gif" lazyload
+alt="image-20220606230655603" />
+<figcaption aria-hidden="true">image-20220606230655603</figcaption>
 </figure>
 <p>测量结果如下：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140026152.png" srcset="/img/loading.gif" lazyload alt="image-20220606230740927" /><figcaption aria-hidden="true">image-20220606230740927</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140026152.png" srcset="/img/loading.gif" lazyload
+alt="image-20220606230740927" />
+<figcaption aria-hidden="true">image-20220606230740927</figcaption>
 </figure>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140026747.png" srcset="/img/loading.gif" lazyload alt="image-20220606230803991" /><figcaption aria-hidden="true">image-20220606230803991</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140026747.png" srcset="/img/loading.gif" lazyload
+alt="image-20220606230803991" />
+<figcaption aria-hidden="true">image-20220606230803991</figcaption>
 </figure>
 <h4 id="用交流分析测幅频相频曲线-2">用交流分析测幅频、相频曲线</h4>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140026280.png" srcset="/img/loading.gif" lazyload alt="image-20220606231140129" /><figcaption aria-hidden="true">image-20220606231140129</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140026280.png" srcset="/img/loading.gif" lazyload
+alt="image-20220606231140129" />
+<figcaption aria-hidden="true">image-20220606231140129</figcaption>
 </figure>
 <h4 id="最大不失真输出电压-1">最大不失真输出电压</h4>
-<p>由参数扫描得，有源负载射随器最大不失真输出电压为<span class="math inline">\(7.920\text{V}\)</span></p>
+<p>由参数扫描得，有源负载射随器最大不失真输出电压为<span
+class="math inline">\(7.920\text{V}\)</span></p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140026527.png" srcset="/img/loading.gif" lazyload alt="image-20220606231847858" /><figcaption aria-hidden="true">image-20220606231847858</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140026527.png" srcset="/img/loading.gif" lazyload
+alt="image-20220606231847858" />
+<figcaption aria-hidden="true">image-20220606231847858</figcaption>
 </figure>
 <p>修改电路，再进行参数扫描</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140026369.png" srcset="/img/loading.gif" lazyload alt="image-20220606232942274" /><figcaption aria-hidden="true">image-20220606232942274</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140026369.png" srcset="/img/loading.gif" lazyload
+alt="image-20220606232942274" />
+<figcaption aria-hidden="true">image-20220606232942274</figcaption>
 </figure>
-<p>得最大不失真输出电压为<span class="math inline">\(9.621\text{V}\)</span>,比最初提升了<span class="math inline">\(34.41\%\)</span></p>
+<p>得最大不失真输出电压为<span
+class="math inline">\(9.621\text{V}\)</span>,比最初提升了<span
+class="math inline">\(34.41\%\)</span></p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140026809.png" srcset="/img/loading.gif" lazyload alt="image-20220606232756093" /><figcaption aria-hidden="true">image-20220606232756093</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202409140026809.png" srcset="/img/loading.gif" lazyload
+alt="image-20220606232756093" />
+<figcaption aria-hidden="true">image-20220606232756093</figcaption>
 </figure>
 <h2 id="感想和体会">感想和体会</h2>
 <p>这部分大家就自己写哈。</p>
 <hr />
 <p>本次实验涉及到的各个文件的下载地址：</p>
-<p><a target="_blank" rel="noopener" href="https://docsdown.oss-cn-beijing.aliyuncs.com/%E5%85%B1%E5%B0%84%E6%94%BE%E5%A4%A7%E5%99%A8%E5%92%8C%E5%B0%84%E6%9E%81%E8%B7%9F%E9%9A%8F%E5%99%A8.zip">共射放大器和射极跟随器实验下载</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://docsdown.oss-cn-beijing.aliyuncs.com/%E5%85%B1%E5%B0%84%E6%94%BE%E5%A4%A7%E5%99%A8%E5%92%8C%E5%B0%84%E6%9E%81%E8%B7%9F%E9%9A%8F%E5%99%A8.zip">共射放大器和射极跟随器实验下载</a></p>
 <hr />
 <p>本站的运行成本约为每个月5元人民币，如果您觉得本站有用，欢迎打赏：</p>
 <p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202501120027592.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:25%;" /></p>

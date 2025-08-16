@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202210310011371.jpg">
 <meta property="article:published_time" content="2022-10-26T02:00:12.000Z">
-<meta property="article:modified_time" content="2025-01-20T16:35:30.570Z">
+<meta property="article:modified_time" content="2025-01-20T16:35:30.000Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="DSP">
 <meta name="twitter:card" content="summary_large_image">
@@ -670,13 +670,24 @@
 <li><p>周期序列和非周期序列</p>
 <p>周期序列的定义： <span class="math display">\[
 \exists N\neq 0\ \forall n\ x[n]=x[n+N]
-\]</span> 满足上面式子的序列称为周期序列，否则称为非周期序列。需要提醒的是：如果一个序列满足上面的式子，它一定是无限长的双边序列，也就是<span class="math inline">\(n\)</span>从负无穷取遍正无穷。例如：<span class="math inline">\(x[n]=\sin (\pi n/5)\)</span>是周期序列，但<span class="math inline">\(x[n]=u[n]\sin(\pi n/5)\)</span>不是周期序列。</p></li>
+\]</span>
+满足上面式子的序列称为周期序列，否则称为非周期序列。需要提醒的是：如果一个序列满足上面的式子，它一定是无限长的双边序列，也就是<span
+class="math inline">\(n\)</span>从负无穷取遍正无穷。例如：<span
+class="math inline">\(x[n]=\sin (\pi n/5)\)</span>是周期序列，但<span
+class="math inline">\(x[n]=u[n]\sin(\pi
+n/5)\)</span>不是周期序列。</p></li>
 <li><p>能量序列和功率序列</p>
-<p>如果对序列<span class="math inline">\(x[n]\)</span>有： <span class="math display">\[
+<p>如果对序列<span class="math inline">\(x[n]\)</span>有： <span
+class="math display">\[
 E=\sum_{n=-\infty}^{\infty}\lvert x[n]\rvert^2&lt;\infty
-\]</span> 称该序列为能量有限序列，简称能量序列。对于能量无限序列，如果另有： <span class="math display">\[
-P=\lim_{N\to \infty}\frac{1}{2N+1}\sum_{n=-N}^N \lvert x[n] \rvert ^2&lt;\infty
-\]</span> 则称该序列为功率有限序列，简称功率序列。需要注意的是：周期序列一般来说都是功率序列。周期序列的功率为： <span class="math display">\[
+\]</span>
+称该序列为能量有限序列，简称能量序列。对于能量无限序列，如果另有： <span
+class="math display">\[
+P=\lim_{N\to \infty}\frac{1}{2N+1}\sum_{n=-N}^N \lvert x[n] \rvert
+^2&lt;\infty
+\]</span>
+则称该序列为功率有限序列，简称功率序列。需要注意的是：周期序列一般来说都是功率序列。周期序列的功率为：
+<span class="math display">\[
 P=\lim_{N\to \infty} \frac{1}{N} \sum_{n=n}^{N-1}\lvert x[n]\rvert^2
 \]</span></p></li>
 </ul>
@@ -686,69 +697,119 @@ P=\lim_{N\to \infty} \frac{1}{N} \sum_{n=n}^{N-1}\lvert x[n]\rvert^2
 <li><p>复指数序列</p>
 <p>对于指数序列 <span class="math display">\[
 x[n]=A\alpha^n
-\]</span> 如果<span class="math inline">\(A,\alpha\)</span>是复数，那么这个序列是复指数序列。若有<span class="math inline">\(A=|A|\angle \varphi,\alpha=|\alpha|\angle \omega_0\)</span>，则复指数序列也可以表示成： <span class="math display">\[
+\]</span> 如果<span
+class="math inline">\(A,\alpha\)</span>是复数，那么这个序列是复指数序列。若有<span
+class="math inline">\(A=|A|\angle \varphi,\alpha=|\alpha|\angle
+\omega_0\)</span>，则复指数序列也可以表示成： <span
+class="math display">\[
 x[n]=|A||\alpha|^n\exp [j(\omega_0n+\varphi)]
-\]</span> 复指数序列表现为一列不断收缩或者扩张的螺旋。特别地，当<span class="math inline">\(|\alpha|=1\)</span>时，复指数序列的幅值保持不变。此时，如果满足 <span class="math display">\[
+\]</span> 复指数序列表现为一列不断收缩或者扩张的螺旋。特别地，当<span
+class="math inline">\(|\alpha|=1\)</span>时，复指数序列的幅值保持不变。此时，如果满足
+<span class="math display">\[
 \frac {\omega_0}{2N}\in \mathbb Q
-\]</span> 则复指数序列是周期序列。其周期为： <span class="math display">\[
+\]</span> 则复指数序列是周期序列。其周期为： <span
+class="math display">\[
 N=\frac{2\pi m}{\omega_0}\in \mathbb Z^+
-\]</span> 其中<span class="math inline">\(m\)</span>是能让<span class="math inline">\(N\)</span>成为正整数的整数。</p>
+\]</span> 其中<span class="math inline">\(m\)</span>是能让<span
+class="math inline">\(N\)</span>成为正整数的整数。</p>
 <blockquote>
 <p>【例】计算以下序列的最小正周期： <span class="math display">\[
 x[n]=e^{j\frac {6\pi}{31}n}
 \]</span> 【解】由于 <span class="math display">\[
 N=\frac{2\pi m}{\omega}=\frac{31}{3}m
-\]</span> 取<span class="math inline">\(m=3\)</span>，得最小正周期为<span class="math inline">\(N=31\)</span></p>
+\]</span> 取<span
+class="math inline">\(m=3\)</span>，得最小正周期为<span
+class="math inline">\(N=31\)</span></p>
 </blockquote>
-<p>无论复指数序列是不是周期序列，<span class="math inline">\(\omega_0\)</span>都称作这个序列的数字频率。对于连续时间信号来说，频率越大，信号震荡得越快。但是对于复指数序列来说，<span class="math inline">\(\omega_0\)</span>从<span class="math inline">\(0\)</span>增加到<span class="math inline">\(\pi\)</span>时，振荡得越来越快；从<span class="math inline">\(\pi\)</span>增加到<span class="math inline">\(2\pi\)</span>时，振荡得越来越慢，并且以<span class="math inline">\(2\pi\)</span>为周期。</p>
-<p>这初看有些不好理解，但是实际上是因为复指数序列是离散时间序列，时间最细的粒度是<span class="math inline">\(1\)</span>（不同于连续时间序列的时间定义在连续统上，时间最细的粒度是无穷小）。复指数序列振荡最快的情形，可以想象这样的序列： <span class="math display">\[
+<p>无论复指数序列是不是周期序列，<span
+class="math inline">\(\omega_0\)</span>都称作这个序列的数字频率。对于连续时间信号来说，频率越大，信号震荡得越快。但是对于复指数序列来说，<span
+class="math inline">\(\omega_0\)</span>从<span
+class="math inline">\(0\)</span>增加到<span
+class="math inline">\(\pi\)</span>时，振荡得越来越快；从<span
+class="math inline">\(\pi\)</span>增加到<span
+class="math inline">\(2\pi\)</span>时，振荡得越来越慢，并且以<span
+class="math inline">\(2\pi\)</span>为周期。</p>
+<p>这初看有些不好理解，但是实际上是因为复指数序列是离散时间序列，时间最细的粒度是<span
+class="math inline">\(1\)</span>（不同于连续时间序列的时间定义在连续统上，时间最细的粒度是无穷小）。复指数序列振荡最快的情形，可以想象这样的序列：
+<span class="math display">\[
 x[n]=Ae^{j\pi n}
-\]</span> 也就是<span class="math inline">\(x[n]=A(-1)^n\)</span>，它振荡得再快，也就是每过1个时间变一下符号而已嘛。</p>
-<p>当<span class="math inline">\(\omega_0&gt;0\)</span>时，表示在复平面内逆时针旋转，否则为顺时针旋转。</p></li>
+\]</span> 也就是<span
+class="math inline">\(x[n]=A(-1)^n\)</span>，它振荡得再快，也就是每过1个时间变一下符号而已嘛。</p>
+<p>当<span
+class="math inline">\(\omega_0&gt;0\)</span>时，表示在复平面内逆时针旋转，否则为顺时针旋转。</p></li>
 </ul>
 <h3 id="离散时间系统">离散时间系统</h3>
 <p>和连续时间系统的理论差不多，有线性、时不变、因果、记忆、稳定等等。</p>
-<p>对于线性时不变<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="需要注意的是，我们平常做题见到的很多系统都不是线性时不变系统。例如：如果进行了压扩变换，那么系统往往是时变的。我们平常所进行的“调幅”(即频率搬移)乘以一个$\cos$，由于产生了新的频率分量，也不是线性时不变的。">[1]</span></a></sup>系统，同样可以用卷积表示。即：如果<strong>线性时不变系统</strong>的单位脉冲响应是<span class="math inline">\(h[n]\)</span>，对于任意输入序列<span class="math inline">\(x[n]\)</span>，有响应： <span class="math display">\[
+<p>对于线性时不变<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span
+class="hint--top hint--rounded"
+aria-label="需要注意的是，我们平常做题见到的很多系统都不是线性时不变系统。例如：如果进行了压扩变换，那么系统往往是时变的。我们平常所进行的“调幅”(即频率搬移)乘以一个$\cos$，由于产生了新的频率分量，也不是线性时不变的。">[1]</span></a></sup>系统，同样可以用卷积表示。即：如果<strong>线性时不变系统</strong>的单位脉冲响应是<span
+class="math inline">\(h[n]\)</span>，对于任意输入序列<span
+class="math inline">\(x[n]\)</span>，有响应： <span
+class="math display">\[
 y[n]=\sum_{k=-\infty}^\infty x[k]h[n-k]=x[n]*h[n]
 \]</span></p>
 <p>卷积有交换律、结合律，对加法有左分配律。</p>
 <p>LTI系统是因果系统等价于其单位脉冲响应是因果序列。</p>
-<p>LTI系统稳定等价于其单位脉冲响应绝对可和，即： <span class="math display">\[
+<p>LTI系统稳定等价于其单位脉冲响应绝对可和，即： <span
+class="math display">\[
 S=\sum_{k=-\infty}^\infty \lvert h[k] \rvert &lt; \infty
 \]</span></p>
 <ul>
 <li><p>线性常系数差分方程</p>
 <p>差分方程的概念、表示方法和解法略，在之前的“Z变换”一文中有说明。</p>
-<p>线性系统的输入序列<span class="math inline">\(x[n]\equiv 0\)</span>时，有输出序列<span class="math inline">\(y[n]\equiv 0\)</span>。这个结论是显然成立的：如果对于<span class="math inline">\(x[n]\equiv 0\)</span>的输出不全为零的话，设<span class="math inline">\(a[n]\)</span>单独输入时的输出为<span class="math inline">\(b[n]\)</span>，那么对于<span class="math inline">\(a[n]+x[n]\)</span>的输入，输出将为<span class="math inline">\(b[n]+y[n]\)</span>，可是<span class="math inline">\(a[n]+x[n]=a[n]\)</span>呀，<span class="math inline">\(y[n]\)</span>不全为零，那么系统对于同样的输入不就有两个不同输出了吗？这显然是荒诞的。</p>
+<p>线性系统的输入序列<span class="math inline">\(x[n]\equiv
+0\)</span>时，有输出序列<span class="math inline">\(y[n]\equiv
+0\)</span>。这个结论是显然成立的：如果对于<span
+class="math inline">\(x[n]\equiv 0\)</span>的输出不全为零的话，设<span
+class="math inline">\(a[n]\)</span>单独输入时的输出为<span
+class="math inline">\(b[n]\)</span>，那么对于<span
+class="math inline">\(a[n]+x[n]\)</span>的输入，输出将为<span
+class="math inline">\(b[n]+y[n]\)</span>，可是<span
+class="math inline">\(a[n]+x[n]=a[n]\)</span>呀，<span
+class="math inline">\(y[n]\)</span>不全为零，那么系统对于同样的输入不就有两个不同输出了吗？这显然是荒诞的。</p>
 <blockquote>
 <p>【例】对于下列方程描述的系统： <span class="math display">\[
 y[n]-ay[n-1]=x[n]
-\]</span> 初始条件为<span class="math inline">\(y[-1]=1\)</span>，那么这是线性系统吗？</p>
-<p>【解】对于全零输入，其输出序列为<span class="math inline">\(y[n]=a^{n+1}\)</span>，不全为零，因此不是线性系统。</p>
+\]</span> 初始条件为<span
+class="math inline">\(y[-1]=1\)</span>，那么这是线性系统吗？</p>
+<p>【解】对于全零输入，其输出序列为<span
+class="math inline">\(y[n]=a^{n+1}\)</span>，不全为零，因此不是线性系统。</p>
 </blockquote>
 <p>这道例题说明：不是一切用常系数线性差分方程表示的系统都是线性系统，更不用说线性时不变了。事实上，如果要系统是因果的LTI系统，必须要满足“初始松弛”的条件，也就是初始状态为零。</p></li>
 </ul>
 <h2 id="dtftdfs和z变换">DTFT、DFS和Z变换</h2>
 <h3 id="离散时间傅里叶变换dtft">离散时间傅里叶变换(DTFT)</h3>
-<p>首先，我们可以回忆一下连续时间信号的傅里叶变换： <span class="math display">\[
+<p>首先，我们可以回忆一下连续时间信号的傅里叶变换： <span
+class="math display">\[
 \begin{align}
 X(j\Omega)=\int_{-\infty}^\infty x(t)e^{-j\Omega t}\mathbf dt\\
-x(t)=\frac{1}{2\pi}\int_{-\infty}^\infty X(j\Omega)e^{j\Omega t}\mathbf d\Omega
+x(t)=\frac{1}{2\pi}\int_{-\infty}^\infty X(j\Omega)e^{j\Omega t}\mathbf
+d\Omega
 \end{align}
 \]</span></p>
 <h4 id="dtft的定义">DTFT的定义</h4>
-<p>和连续时间傅里叶变换类似，DTFT是要把序列<span class="math inline">\(x[n]\)</span>表示序列<span class="math inline">\(e^{j\omega n }\mathbf d\omega\)</span>的线性组合： <span class="math display">\[
-x[n]=\frac{1}{2\pi}\int_{-\infty}^\infty X(e^{j\omega})e^{j\omega n}d\omega
+<p>和连续时间傅里叶变换类似，DTFT是要把序列<span
+class="math inline">\(x[n]\)</span>表示序列<span
+class="math inline">\(e^{j\omega n }\mathbf d\omega\)</span>的线性组合：
+<span class="math display">\[
+x[n]=\frac{1}{2\pi}\int_{-\infty}^\infty X(e^{j\omega})e^{j\omega
+n}d\omega
 \]</span> 则权函数可以表示为： <span class="math display">\[
 X(e^{j\omega})=\sum_{n=-\infty}^\infty x[n]e^{-j\omega n}
-\]</span> 这就是离散时间傅里叶变换的性质。需要强调的是：<span class="math inline">\(X(e^{j\omega})\)</span>是<span class="math inline">\(\omega\)</span>的连续函数，称为频谱密度函数。它是周期为<span class="math inline">\(2\pi\)</span>的周期函数。</p>
+\]</span> 这就是离散时间傅里叶变换的性质。需要强调的是：<span
+class="math inline">\(X(e^{j\omega})\)</span>是<span
+class="math inline">\(\omega\)</span>的连续函数，称为频谱密度函数。它是周期为<span
+class="math inline">\(2\pi\)</span>的周期函数。</p>
 <h4 id="dtft的性质和相关定理">DTFT的性质和相关定理</h4>
-<p>假如<span class="math inline">\(x[n]\)</span>的DTFT是<span class="math inline">\(X(e^{j\omega})\)</span>，那么</p>
+<p>假如<span class="math inline">\(x[n]\)</span>的DTFT是<span
+class="math inline">\(X(e^{j\omega})\)</span>，那么</p>
 <ol type="1">
 <li><p>线性</p></li>
 <li><p>时域移位性质： <span class="math display">\[
 x[n-n_d]\to e^{j\omega n_d}X(e^{j\omega})
-\]</span> 时域移位不会影响幅度频谱，但会引起相位频谱的线性变化，其斜率为<span class="math inline">\(-n_d\)</span></p></li>
+\]</span>
+时域移位不会影响幅度频谱，但会引起相位频谱的线性变化，其斜率为<span
+class="math inline">\(-n_d\)</span></p></li>
 <li><p>频域移位性质： <span class="math display">\[
 e^{j\omega_0n}\to X(e^{j(\omega-\omega_0)})
 \]</span></p></li>
@@ -764,13 +825,21 @@ x^*[n]\to X^*(e^{-j\omega})
 <li><p>时、频域卷积，帕塞瓦尔定理。</p></li>
 </ol>
 <h4 id="dtft的对称性">DTFT的对称性</h4>
-<p>对于一个序列<span class="math inline">\(x[n]\)</span>，有其共轭逆序序列<span class="math inline">\(x^*[-n]\)</span>，利用这个序列，我们可以把原序列分解<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="为什么说“分解”呢？因为$x[n]=x_e[n]+x_o[n]$显然成立。">[2]</span></a></sup>成共轭对称序列和共轭反对称序列，即： <span class="math display">\[
+<p>对于一个序列<span
+class="math inline">\(x[n]\)</span>，有其共轭逆序序列<span
+class="math inline">\(x^*[-n]\)</span>，利用这个序列，我们可以把原序列分解<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span
+class="hint--top hint--rounded"
+aria-label="为什么说“分解”呢？因为$x[n]=x_e[n]+x_o[n]$显然成立。">[2]</span></a></sup>成共轭对称序列和共轭反对称序列，即：
+<span class="math display">\[
 \begin{align}
 x_e[n]=\frac 12(x[n]+x^*[-n])\\
 x_o[n]=\frac 12(x[n]-x^*[-n])
 \end{align}
-\]</span> 同样，对于连续函数（当然这里说的连续函数就是<span class="math inline">\(X(e^{j\omega})\)</span>，也可以按照类似的方法进行分解。</p>
-<p>共轭对称序列<span class="math inline">\(x_e[n]\)</span>的实部偶对称，虚部奇对称；共轭反对称序列<span class="math inline">\(x_o[n]\)</span>的实部奇对称，虚部偶对称。</p>
+\]</span> 同样，对于连续函数（当然这里说的连续函数就是<span
+class="math inline">\(X(e^{j\omega})\)</span>，也可以按照类似的方法进行分解。</p>
+<p>共轭对称序列<span
+class="math inline">\(x_e[n]\)</span>的实部偶对称，虚部奇对称；共轭反对称序列<span
+class="math inline">\(x_o[n]\)</span>的实部奇对称，虚部偶对称。</p>
 <p>利用“共轭性质”，“线性性质”，有： <span class="math display">\[
 \begin{align}
 x_{Re}[n]\to X_e(e^{j\omega})\\
@@ -778,12 +847,19 @@ jx_{Im}[n]\to X_o(e^{j\omega})\\
 x_e[n]\to X_{Re}(e^{j\omega})\\
 x_o[n]\to jX_{Im}(e^{j\omega})
 \end{align}
-\]</span> 由第一个式子，可以看出：实序列的DTFT幅度谱是偶函数，相位谱是奇函数。</p>
+\]</span>
+由第一个式子，可以看出：实序列的DTFT幅度谱是偶函数，相位谱是奇函数。</p>
 <h3 id="离散傅里叶级数dfs">离散傅里叶级数（DFS）</h3>
-<p>DFS就是把DTFT里面的<span class="math inline">\(\omega\)</span>换成<span class="math inline">\(2\pi k/N\)</span>，其中<span class="math inline">\(N\)</span>是原序列的周期，<span class="math inline">\(k\)</span>是变换后得到的权序列的自变量。</p>
+<p>DFS就是把DTFT里面的<span
+class="math inline">\(\omega\)</span>换成<span
+class="math inline">\(2\pi k/N\)</span>，其中<span
+class="math inline">\(N\)</span>是原序列的周期，<span
+class="math inline">\(k\)</span>是变换后得到的权序列的自变量。</p>
 <h3 id="z变换">Z变换</h3>
 <p>没啥好说的这个，上学期都学过了。</p>
-<p>首先要注意的就是，<span class="math inline">\(X(z)\)</span>本质上来说还是个幂级数，以原序列为系数，即： <span class="math display">\[
+<p>首先要注意的就是，<span
+class="math inline">\(X(z)\)</span>本质上来说还是个幂级数，以原序列为系数，即：
+<span class="math display">\[
 X(z)=\sum_{n=-\infty}^{\infty}x[n]z^{-n}
 \]</span> 在分析某些问题时，这种思维会很有用。</p>
 <hr />
@@ -794,10 +870,17 @@ X(z)=\sum_{n=-\infty}^{\infty}x[n]z^{-n}
 <div class="footnote-list">
 <ol>
 <li>
-<span id="fn:1" class="footnote-text"><span>需要注意的是，我们平常做题见到的很多系统都不是线性时不变系统。例如：如果进行了压扩变换，那么系统往往是时变的。我们平常所进行的“调幅”(即频率搬移)乘以一个<span class="math inline">()</span>，由于产生了新的频率分量，也不是线性时不变的。 <a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩︎</a></span></span>
+<span id="fn:1"
+class="footnote-text"><span>需要注意的是，我们平常做题见到的很多系统都不是线性时不变系统。例如：如果进行了压扩变换，那么系统往往是时变的。我们平常所进行的“调幅”(即频率搬移)乘以一个<span
+class="math inline">()</span>，由于产生了新的频率分量，也不是线性时不变的。
+<a href="#fnref:1" rev="footnote" class="footnote-backref">
+↩︎</a></span></span>
 </li>
 <li>
-<span id="fn:2" class="footnote-text"><span>为什么说“分解”呢？因为<span class="math inline">(x[n]=x_e[n]+x_o[n])</span>显然成立。 <a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩︎</a></span></span>
+<span id="fn:2" class="footnote-text"><span>为什么说“分解”呢？因为<span
+class="math inline">(x[n]=x_e[n]+x_o[n])</span>显然成立。
+<a href="#fnref:2" rev="footnote" class="footnote-backref">
+↩︎</a></span></span>
 </li>
 </ol>
 </div>

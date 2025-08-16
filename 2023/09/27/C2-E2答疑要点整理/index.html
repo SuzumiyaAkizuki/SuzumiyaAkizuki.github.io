@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202401031033773.png">
 <meta property="article:published_time" content="2023-09-27T02:25:25.000Z">
-<meta property="article:modified_time" content="2025-01-20T16:35:31.126Z">
+<meta property="article:modified_time" content="2025-01-20T16:35:30.000Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="C语言">
 <meta property="article:tag" content="程序设计基础">
@@ -574,10 +574,22 @@
 <p>在进入循环前定义的变量，如果在每趟循环开始或结束时不进行重置值操作，那么在进入下一趟循环后会保持原有值不变，从而导致存在多组数据的题目中产生输出出错的问题。<strong>此问题尤见于多组输入输出问题中。</strong></p>
 <p>下面是一道例题，以及一种典型的<strong>错误</strong>写法：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">/*</span><br><span class="hljs-comment">例题：给定n,m，分别计算n组输入中每组的m个数之和</span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-comment">//一种比较典型的错误写法如下</span><br><span class="hljs-type">int</span> n, m, sum = <span class="hljs-number">0</span>, tmp;<br><span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d&quot;</span>, &amp;n, &amp;m);<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; ++i)&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; m; ++j)&#123;<br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;tmp);<br>        sum = sum + tmp;<br>    &#125;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>, sum);<br>&#125;<br></code></pre></td></tr></table></figure>
-<p>错误的原因：<code>sum</code> 变量虽然在声明时被初始化置为 <span class="math inline">\(0\)</span> ，但在内层循环结束、输出 <code>sum</code> 的值后，<strong><code>sum</code> 并没有被重新置为 <span class="math inline">\(0\)</span></strong>，而是<strong>在进入下一次外层循环时保持原值</strong>，这就导致当外层循环跑后面的 <span class="math inline">\(n-1\)</span> 趟时，<code>sum</code> 变量的初始值不是 <span class="math inline">\(0\)</span>，从而每次累加 <code>tmp</code> 值都会出错</p>
-<p>要避免这样的错误，就需要在每次跑 <span class="math inline">\(m\)</span> 趟循环累加之前，先将<code>sum</code>变量置为 <span class="math inline">\(0\)</span> ，或者在输出<code>sum</code>变量后，立刻将<code>sum</code>的值置<span class="math inline">\(0\)</span>，如下：</p>
+<p>错误的原因：<code>sum</code> 变量虽然在声明时被初始化置为 <span
+class="math inline">\(0\)</span> ，但在内层循环结束、输出
+<code>sum</code> 的值后，<strong><code>sum</code> 并没有被重新置为 <span
+class="math inline">\(0\)</span></strong>，而是<strong>在进入下一次外层循环时保持原值</strong>，这就导致当外层循环跑后面的
+<span class="math inline">\(n-1\)</span> 趟时，<code>sum</code>
+变量的初始值不是 <span class="math inline">\(0\)</span>，从而每次累加
+<code>tmp</code> 值都会出错</p>
+<p>要避免这样的错误，就需要在每次跑 <span
+class="math inline">\(m\)</span>
+趟循环累加之前，先将<code>sum</code>变量置为 <span
+class="math inline">\(0\)</span>
+，或者在输出<code>sum</code>变量后，立刻将<code>sum</code>的值置<span
+class="math inline">\(0\)</span>，如下：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">/*</span><br><span class="hljs-comment">例题：给定n,m，分别计算n组输入中每组的m个数之和</span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-comment">//正确写法之一</span><br><span class="hljs-type">int</span> n, m, sum = <span class="hljs-number">0</span>, tmp;<br><span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d&quot;</span>, &amp;n, &amp;m);<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; ++i)&#123;<br>    sum = <span class="hljs-number">0</span>;	<span class="hljs-comment">//可以在内层循环开始前，置sum为0</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; m; ++j)&#123;<br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;tmp);<br>        sum = sum + tmp;<br>    &#125;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>, sum);<br>    <span class="hljs-comment">//也可以在输出sum后，在这里将sum置为0</span><br>&#125;<br></code></pre></td></tr></table></figure>
-<p>另外，由于 C99 不要求所有的变量定义声明都写在<code>main</code>函数中的最上面，也可以在进入内层循环之前定义计数变量<code>sum</code>。这样，新定义的变量作用域就是本次外层循环，当外层循环的一趟结束时，在循环内定义的变量<code>sum</code>会被清理掉，在循环外无法使用该变量，进入下一趟外层循环时，又会重新定义声明一个新的<code>sum</code>变量：</p>
+<p>另外，由于 C99
+不要求所有的变量定义声明都写在<code>main</code>函数中的最上面，也可以在进入内层循环之前定义计数变量<code>sum</code>。这样，新定义的变量作用域就是本次外层循环，当外层循环的一趟结束时，在循环内定义的变量<code>sum</code>会被清理掉，在循环外无法使用该变量，进入下一趟外层循环时，又会重新定义声明一个新的<code>sum</code>变量：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">/*</span><br><span class="hljs-comment">例题：给定n,m，分别计算n组输入中每组的m个数之和</span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-comment">//正确写法之二</span><br><span class="hljs-type">int</span> n, m;<br><span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d&quot;</span>, &amp;n, &amp;m);<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; ++i)&#123;<br>    <span class="hljs-type">int</span> sum = <span class="hljs-number">0</span>;	<span class="hljs-comment">//循环内定义并初始化sum变量</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; m; ++j)&#123;<br>        <span class="hljs-type">int</span> tmp;<br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;tmp);<br>        sum = sum + tmp;<br>    &#125;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>, sum);<br>&#125;<br></code></pre></td></tr></table></figure>
 <h2 id="运算过程中的数据类型问题">运算过程中的数据类型问题</h2>
 <p><code>int</code>类型变量所能存入的整数是有大小范围的。当两个<code>int</code>类型变量执行运算时，如果结果超出了<code>int</code>变量所能存入的范围，就会<strong>立即发生溢出</strong>，即使将结果赋值给<code>long long int</code>变量也是将错误的值存入了变量。因此，当题给数据范围存在溢出风险时，要么<strong>直接使用<code>long long int</code></strong>类型变量存储和运算，要么在运算前将其中一个运算数使用<strong>强制类型转换</strong>先转为<code>long long int</code>，这样才能得到正确的结果。</p>
@@ -585,7 +597,10 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>    <span class="hljs-type">long</span> <span class="hljs-type">long</span> <span class="hljs-type">int</span> a=<span class="hljs-number">2000000000</span>*<span class="hljs-number">2</span>;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%lld\n&quot;</span>,a);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>它会输出正确答案<code>4000000000</code>吗？错了！它的运行结果是：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202309271653275.png" srcset="/img/loading.gif" lazyload alt="image-20230927165310913" /><figcaption aria-hidden="true">image-20230927165310913</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202309271653275.png" srcset="/img/loading.gif" lazyload
+alt="image-20230927165310913" />
+<figcaption aria-hidden="true">image-20230927165310913</figcaption>
 </figure>
 <p>可以看到结果和我们预料到的不一样，因为出现了有符号整型数溢出的未定义行为。如果你看了上一期答疑要点，在编译选项里加入了<code>-Wall</code>，那么这段代码会有一个警告：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-attr">[警告]</span> integer <span class="hljs-attribute">overflow</span> in expression <span class="hljs-selector-attr">[-Woverflow]</span><br></code></pre></td></tr></table></figure>
@@ -593,17 +608,28 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>    <span class="hljs-type">long</span> <span class="hljs-type">long</span> <span class="hljs-type">int</span> a=<span class="hljs-number">2000000000LL</span>*<span class="hljs-number">2LL</span>;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%lld\n&quot;</span>,a);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>这样就对了：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202309271658411.png" srcset="/img/loading.gif" lazyload alt="image-20230927165807322" /><figcaption aria-hidden="true">image-20230927165807322</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202309271658411.png" srcset="/img/loading.gif" lazyload
+alt="image-20230927165807322" />
+<figcaption aria-hidden="true">image-20230927165807322</figcaption>
 </figure>
 <p>同样的道理，当除号的两个运算数都是整型时，本次执行的除法是整除，即使将结果赋给<code>double</code>类型变量也只是存入了错误的值。例如：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202309271714885.png" srcset="/img/loading.gif" lazyload alt="image-20230927171426815" /><figcaption aria-hidden="true">image-20230927171426815</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202309271714885.png" srcset="/img/loading.gif" lazyload
+alt="image-20230927171426815" />
+<figcaption aria-hidden="true">image-20230927171426815</figcaption>
 </figure>
 <p>如果想要让除法成为浮点数除法，需要在执行除法前，先使用强制类型转换将运算数转为<code>double</code>类型。</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202309271715559.png" srcset="/img/loading.gif" lazyload alt="image-20230927171548493" /><figcaption aria-hidden="true">image-20230927171548493</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202309271715559.png" srcset="/img/loading.gif" lazyload
+alt="image-20230927171548493" />
+<figcaption aria-hidden="true">image-20230927171548493</figcaption>
 </figure>
-<p>我们的建议是：如果一个表达式，你希望它最终的结果是浮点数，那么其中的每个量都要是浮点数。变量，使用强制类型转换<code>(double)</code>或使用乘以 <code>1.0</code> 的方式转为浮点数；常量，不要写作 <code>2</code> 而是写作 <code>2.0</code> 来声明其为浮点数。</p>
+<p>我们的建议是：如果一个表达式，你希望它最终的结果是浮点数，那么其中的每个量都要是浮点数。变量，使用强制类型转换<code>(double)</code>或使用乘以
+<code>1.0</code> 的方式转为浮点数；常量，不要写作 <code>2</code>
+而是写作 <code>2.0</code> 来声明其为浮点数。</p>
 <h2 id="数组的定义使用与全局数组">数组的定义使用与全局数组</h2>
 <p>数组的定义方式为：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">数组中元素的类型 数组名[数组大小];<br></code></pre></td></tr></table></figure>

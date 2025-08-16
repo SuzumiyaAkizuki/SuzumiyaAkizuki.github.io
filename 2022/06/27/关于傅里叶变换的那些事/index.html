@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/fly.jpg">
 <meta property="article:published_time" content="2022-06-27T04:03:52.000Z">
-<meta property="article:modified_time" content="2025-01-20T16:35:30.021Z">
+<meta property="article:modified_time" content="2025-01-20T16:35:30.000Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="信号与系统">
 <meta name="twitter:card" content="summary_large_image">
@@ -658,28 +658,43 @@
             
               <div class="markdown-body">
                 
-                <p>所谓的变换，也就是信号的正交分解。如果两个函数的内积为<span class="math inline">\(0\)</span>，我们称为这两个函数正交。那么对于任意信号<span class="math inline">\(f(t)\)</span>，都可以写成一组正交函数系的和的形式（可以对比正交向量理解），这就是信号的正交分解。通过正交分解，可以对信号的特性有进一步的认识，也可以简化信号的分析和计算。</p>
+                <p>所谓的变换，也就是信号的正交分解。如果两个函数的内积为<span
+class="math inline">\(0\)</span>，我们称为这两个函数正交。那么对于任意信号<span
+class="math inline">\(f(t)\)</span>，都可以写成一组正交函数系的和的形式（可以对比正交向量理解），这就是信号的正交分解。通过正交分解，可以对信号的特性有进一步的认识，也可以简化信号的分析和计算。</p>
 <span id="more"></span>
 <h2 id="傅里叶级数">傅里叶级数</h2>
-<p>傅里叶级数是 <strong>周期信号</strong> 基于正交函数系<span class="math inline">\(\{e^{j\omega t}\}\)</span>的正交分解。</p>
+<p>傅里叶级数是 <strong>周期信号</strong> 基于正交函数系<span
+class="math inline">\(\{e^{j\omega t}\}\)</span>的正交分解。</p>
 <h3 id="三角函数形式的傅里叶级数">三角函数形式的傅里叶级数</h3>
-<p>三角函数形式的傅里叶级数就是我们最熟悉的傅里叶级数。对于满足以下条件的函数<span class="math inline">\(f(t)\)</span>:</p>
+<p>三角函数形式的傅里叶级数就是我们最熟悉的傅里叶级数。对于满足以下条件的函数<span
+class="math inline">\(f(t)\)</span>:</p>
 <ul>
-<li>周期函数，周期为<span class="math inline">\(T_1\)</span>，角频率为<span class="math inline">\(\omega_1=2\pi/T_1\)</span></li>
+<li>周期函数，周期为<span
+class="math inline">\(T_1\)</span>，角频率为<span
+class="math inline">\(\omega_1=2\pi/T_1\)</span></li>
 <li>间断点个数有限（可数）</li>
 <li>极大极小值个数有限（可数）</li>
 <li>绝对可积</li>
 </ul>
 <p>有： <span class="math display">\[
-f(t)=a_{0}+\sum_{n=1}^{\infty}\left(a_{n} \cos n \omega_{1} t+b_{n} \sin n \omega_{1} t\right)
-\]</span> 其中<span class="math inline">\(a_0\)</span>叫直流分量，<span class="math inline">\(a_n\)</span>叫<span class="math inline">\(n\)</span>次谐波余弦分量，<span class="math inline">\(b_n\)</span>叫<span class="math inline">\(n\)</span>次谐波正弦分量。有计算公式： <span class="math display">\[
-a_0=\frac{1} {T_{1} } \int_{-\frac{T_{1} } {2} }^{\frac{T_{1} } {2} } f(t) \mathrm{d} t
+f(t)=a_{0}+\sum_{n=1}^{\infty}\left(a_{n} \cos n \omega_{1} t+b_{n} \sin
+n \omega_{1} t\right)
+\]</span> 其中<span class="math inline">\(a_0\)</span>叫直流分量，<span
+class="math inline">\(a_n\)</span>叫<span
+class="math inline">\(n\)</span>次谐波余弦分量，<span
+class="math inline">\(b_n\)</span>叫<span
+class="math inline">\(n\)</span>次谐波正弦分量。有计算公式： <span
+class="math display">\[
+a_0=\frac{1} {T_{1} } \int_{-\frac{T_{1} } {2} }^{\frac{T_{1} } {2} }
+f(t) \mathrm{d} t
 \]</span></p>
 <p><span class="math display">\[
-a_n=\frac{2} {T_{1} } \int_{-\frac{T_{1} } {2} }^{\frac{T_{1} } {2} } f(t) \cos n \omega_{1} t \mathrm{~d} t
+a_n=\frac{2} {T_{1} } \int_{-\frac{T_{1} } {2} }^{\frac{T_{1} } {2} }
+f(t) \cos n \omega_{1} t \mathrm{~d} t
 \]</span></p>
 <p><span class="math display">\[
-b_n=\frac{2} {T_{1} } \int_{-\frac{T_{1} } {2} }^{\frac{T_{1} } {2} } f(t) \sin n \omega_{1} t \mathrm{~d} t
+b_n=\frac{2} {T_{1} } \int_{-\frac{T_{1} } {2} }^{\frac{T_{1} } {2} }
+f(t) \sin n \omega_{1} t \mathrm{~d} t
 \]</span></p>
 <p>当然，也可通过和差化积公式，转换成只有正弦或余弦分量的形式，此处不再赘述。</p>
 <p>有： <span class="math display">\[
@@ -692,58 +707,79 @@ a_n=a_{-n},-b_n=b_{-n}
 <p><span class="math display">\[
 \cos x=\frac 12 (e^{jx}+e^{-jx})
 \]</span></p>
-<p>代入三角函数形式傅里叶级数中，就能得到指数形式傅里叶级数。这里给出部分关键步骤供参考。 <span class="math display">\[
+<p>代入三角函数形式傅里叶级数中，就能得到指数形式傅里叶级数。这里给出部分关键步骤供参考。
+<span class="math display">\[
 \begin{aligned}
-f(t)&amp;=a_{0}+\sum_{n=1}^{\infty}\left(a_{n} \cos n \omega_{1} t+b_{n} \sin n \omega_{1} t\right)\\\\
-&amp;=a_{0}+\sum_{n=1}^{\infty}\left(\frac{a_{n}-j b_{n} } {2} e^{j n \omega_{1} t}+\frac{a_{n}+j b_{n} } {2} e^{-j n \omega_{1} t}\right)\\\\
-&amp;=a_{0}+\sum_{n=1}^{\infty} \frac{a_{n}-j b_{n} } {2} e^{j n \omega_{1} t}+\sum_{n=-\infty}^{-1} \frac{a_{n}-j b_{n} } {2} e^{j n \omega_{1} t} &amp; a_n=a_{-n},-b_n=b_{-n}\\\\
-&amp;=\sum_{n=-\infty}^{\infty} F\left(n \omega_{1}\right) e^{j n \omega_{1} t}
+f(t)&amp;=a_{0}+\sum_{n=1}^{\infty}\left(a_{n} \cos n \omega_{1} t+b_{n}
+\sin n \omega_{1} t\right)\\\\
+&amp;=a_{0}+\sum_{n=1}^{\infty}\left(\frac{a_{n}-j b_{n} } {2} e^{j n
+\omega_{1} t}+\frac{a_{n}+j b_{n} } {2} e^{-j n \omega_{1} t}\right)\\\\
+&amp;=a_{0}+\sum_{n=1}^{\infty} \frac{a_{n}-j b_{n} } {2} e^{j n
+\omega_{1} t}+\sum_{n=-\infty}^{-1} \frac{a_{n}-j b_{n} } {2} e^{j n
+\omega_{1} t} &amp; a_n=a_{-n},-b_n=b_{-n}\\\\
+&amp;=\sum_{n=-\infty}^{\infty} F\left(n \omega_{1}\right) e^{j n
+\omega_{1} t}
 \end{aligned}
 \]</span> 其中 <span class="math display">\[
-F\left(n \omega_{1}\right)=\begin{cases}a_{0}, &amp; n=0 \\\\ \frac{a_{n}-j b_{n} } {2}, &amp; n \neq 0\end{cases}
+F\left(n \omega_{1}\right)=\begin{cases}a_{0}, &amp; n=0 \\\\
+\frac{a_{n}-j b_{n} } {2}, &amp; n \neq 0\end{cases}
 \]</span> 即 <span class="math display">\[
-F(n\omega_1)=\frac{1} {T_{1} } \int_{-\frac{T_{1} } {2} }^{\frac{T_{1} } {2} } f(t) e^{-j n \omega_{1} t} \mathrm{d} t
-\]</span> 可以看出，<span class="math inline">\(F\left(n \omega_{1}\right)\)</span>一般而言是一个复数。它的模长和幅角满足： <span class="math display">\[
+F(n\omega_1)=\frac{1} {T_{1} } \int_{-\frac{T_{1} } {2} }^{\frac{T_{1} }
+{2} } f(t) e^{-j n \omega_{1} t} \mathrm{d} t
+\]</span> 可以看出，<span class="math inline">\(F\left(n
+\omega_{1}\right)\)</span>一般而言是一个复数。它的模长和幅角满足： <span
+class="math display">\[
 |F\left(n \omega_{1}\right)|=\frac 12 \sqrt{a_n^2+b_n^2}
 \]</span></p>
 <p><span class="math display">\[
 \tan \varphi_n=-\frac{b_n} {a_n}
 \]</span></p>
 <h3 id="函数的对称性和傅里叶级数">函数的对称性和傅里叶级数</h3>
-<p>因为<span class="math inline">\(\cos\)</span>是偶函数，<span class="math inline">\(\sin\)</span>是奇函数，所以函数本身的奇偶对称性和傅里叶系数的奇偶对称性有关系。</p>
+<p>因为<span class="math inline">\(\cos\)</span>是偶函数，<span
+class="math inline">\(\sin\)</span>是奇函数，所以函数本身的奇偶对称性和傅里叶系数的奇偶对称性有关系。</p>
 <table>
+
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: center;">信号</th>
-<th style="text-align: center;"><span class="math inline">\(a_n\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(b_n\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(F(n\omega_1)\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(\varphi_n\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(a_n\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(b_n\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(F(n\omega_1)\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(\varphi_n\)</span></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: center;">奇函数</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">不为0</td>
 <td style="text-align: center;">纯虚数</td>
-<td style="text-align: center;"><span class="math inline">\(\pm \pi/2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\pm
+\pi/2\)</span></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;">偶函数</td>
 <td style="text-align: center;">不为0</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">实数</td>
-<td style="text-align: center;"><span class="math inline">\(\pm \pi\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\pm
+\pi\)</span></td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;">奇谐函数<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="在一个周期里的两个半周期里呈现奇对称的函数，即$f(t)=-f(t\pm \frac T2)$​">[1]</span></a></sup></td>
+<tr>
+<td
+style="text-align: center;">奇谐函数<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span
+class="hint--top hint--rounded"
+aria-label="在一个周期里的两个半周期里呈现奇对称的函数，即$f(t)=-f(t\pm \frac T2)$​">[1]</span></a></sup></td>
 <td style="text-align: center;">只含奇次谐波</td>
 <td style="text-align: center;">只含奇次谐波</td>
 <td style="text-align: center;">同前</td>
 <td style="text-align: center;">同前</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;">偶谐函数</td>
 <td style="text-align: center;">只含直流分量和偶次谐波</td>
 <td style="text-align: center;">同前</td>
@@ -752,12 +788,19 @@ F(n\omega_1)=\frac{1} {T_{1} } \int_{-\frac{T_{1} } {2} }^{\frac{T_{1} } {2} } f
 </tr>
 </tbody>
 </table>
-<p>我们需要注意到：一个“偶谐函数”，和一个周期为<span class="math inline">\(T_1/2\)</span>的函数，实质上是一回事。</p>
+<p>我们需要注意到：一个“偶谐函数”，和一个周期为<span
+class="math inline">\(T_1/2\)</span>的函数，实质上是一回事。</p>
 <h3 id="从傅里叶级数看傅里叶变换">从傅里叶级数看傅里叶变换</h3>
-<p>傅里叶级数只能描述周期函数。但是我如果非得描述非周期函数，又会怎么样呢？我们来考虑一下怎么把非周期函数强行变成周期函数，其实只需要让周期<span class="math inline">\(T\)</span>趋向于无穷大就好了。</p>
+<p>傅里叶级数只能描述周期函数。但是我如果非得描述非周期函数，又会怎么样呢？我们来考虑一下怎么把非周期函数强行变成周期函数，其实只需要让周期<span
+class="math inline">\(T\)</span>趋向于无穷大就好了。</p>
 <p>对于 <span class="math display">\[
-F(n\omega_1)=\frac{1} {T_{1} } \int_{-\frac{T_{1} } {2} }^{\frac{T_{1} } {2} } f(t) e^{-j n \omega_{1} t} \mathrm{d} t
-\]</span> 让<span class="math inline">\(T\)</span>趋向于无穷大，则<span class="math inline">\(\omega\)</span>趋向于无穷小。因为函数满足绝对可积条件，所以右边是一个有限值比无穷大，趋向于0。而左边因为<span class="math inline">\(\omega\)</span>趋向于无穷小，取值点趋向于连续。有没有发现，这个过程有一点点像随机变量从连续型变成离散型时，分布列的变化情况（一方面，取值趋向于无穷小；另一方面，自变量趋向于连续）。于是，类似于“概率论”的知识，我们也可以定义“频谱密度函数”，让<span class="math inline">\(n\omega_1\to\omega\)</span>，有 <span class="math display">\[
+F(n\omega_1)=\frac{1} {T_{1} } \int_{-\frac{T_{1} } {2} }^{\frac{T_{1} }
+{2} } f(t) e^{-j n \omega_{1} t} \mathrm{d} t
+\]</span> 让<span class="math inline">\(T\)</span>趋向于无穷大，则<span
+class="math inline">\(\omega\)</span>趋向于无穷小。因为函数满足绝对可积条件，所以右边是一个有限值比无穷大，趋向于0。而左边因为<span
+class="math inline">\(\omega\)</span>趋向于无穷小，取值点趋向于连续。有没有发现，这个过程有一点点像随机变量从连续型变成离散型时，分布列的变化情况（一方面，取值趋向于无穷小；另一方面，自变量趋向于连续）。于是，类似于“概率论”的知识，我们也可以定义“频谱密度函数”，让<span
+class="math inline">\(n\omega_1\to\omega\)</span>，有 <span
+class="math display">\[
 F(\omega)=\int_{-\infty}^\infty f(t)e^{-j\omega t}\mathrm{d}t
 \]</span> 这就是我们常说的傅里叶变换。</p>
 <h2 id="傅里叶变换">傅里叶变换</h2>
@@ -803,7 +846,8 @@ f(t)=e^{-a|t|}
 0 &amp; t=0\\\\
 -1 &amp; t&lt;0
 \end{cases}
-\]</span> 为求符号函数的傅里叶变换，先求“奇双边指数函数”的傅里叶变换，然后让指数系数趋向于0即可。</p>
+\]</span>
+为求符号函数的傅里叶变换，先求“奇双边指数函数”的傅里叶变换，然后让指数系数趋向于0即可。</p>
 <p>奇双边指数函数，即 <span class="math display">\[
 f(t)=\begin{cases}
 e^{-at} &amp;t&gt;0\\\\
@@ -814,11 +858,19 @@ e^{-at} &amp;t&gt;0\\\\
 \mathscr{F}[f(t)]=\frac{-2j\omega} {a^2+\omega^2}
 \]</span></p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220627114355617.png" srcset="/img/loading.gif" lazyload alt="image-20220627114355617" /><figcaption aria-hidden="true">image-20220627114355617</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220627114355617.png" srcset="/img/loading.gif" lazyload
+alt="image-20220627114355617" />
+<figcaption aria-hidden="true">image-20220627114355617</figcaption>
 </figure>
-<p>当<span class="math inline">\(a\to0\)</span>时，这个函数就趋向于<span class="math inline">\(\text{sgn}(t)\)</span>。如图是<span class="math inline">\(a=0.01\)</span>的图像：</p>
+<p>当<span class="math inline">\(a\to0\)</span>时，这个函数就趋向于<span
+class="math inline">\(\text{sgn}(t)\)</span>。如图是<span
+class="math inline">\(a=0.01\)</span>的图像：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220627114553417.png" srcset="/img/loading.gif" lazyload alt="image-20220627114553417" /><figcaption aria-hidden="true">image-20220627114553417</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220627114553417.png" srcset="/img/loading.gif" lazyload
+alt="image-20220627114553417" />
+<figcaption aria-hidden="true">image-20220627114553417</figcaption>
 </figure>
 <p>则有： <span class="math display">\[
 \mathscr{F}[\text{sgn}(t)]=\frac 2{j\omega}
@@ -843,8 +895,10 @@ e^{-at} &amp;t&gt;0\\\\
 <ul>
 <li><span class="math inline">\(|F(\omega)|\)</span>是偶函数</li>
 <li><span class="math inline">\(\varphi(\omega)\)</span>是奇函数</li>
-<li>如果<span class="math inline">\(f(t)\)</span>是实偶函数，则<span class="math inline">\(F(\omega)\)</span>是实偶函数</li>
-<li>如果<span class="math inline">\(f(t)\)</span>是实奇函数，则<span class="math inline">\(F(\omega)\)</span>是虚奇函数</li>
+<li>如果<span class="math inline">\(f(t)\)</span>是实偶函数，则<span
+class="math inline">\(F(\omega)\)</span>是实偶函数</li>
+<li>如果<span class="math inline">\(f(t)\)</span>是实奇函数，则<span
+class="math inline">\(F(\omega)\)</span>是虚奇函数</li>
 </ul></li>
 </ol>
 <h4 id="基于时间运算的性质">基于时间运算的性质</h4>
@@ -857,18 +911,24 @@ e^{-at} &amp;t&gt;0\\\\
 \]</span> 可以说：时移不改变幅频特性，而改变相频特性。</p></li>
 <li><p>压扩性质 <span class="math display">\[
 \mathscr F[f(at)]=\frac 1{|a|}F\left(\frac \omega a\right)
-\]</span> 对于频域带限信号，时域的压缩和扩展，会导致频谱范围的增大和减小，频率分量的减少和增加。</p></li>
+\]</span>
+对于频域带限信号，时域的压缩和扩展，会导致频谱范围的增大和减小，频率分量的减少和增加。</p></li>
 <li><p>时域综合性质 <span class="math display">\[
-\mathscr F[f(at+b)]=\frac 1{|a|}F\left(\frac \omega a\right)e^{j\omega\frac ba}
+\mathscr F[f(at+b)]=\frac 1{|a|}F\left(\frac \omega
+a\right)e^{j\omega\frac ba}
 \]</span></p></li>
 <li><p>线性</p></li>
 <li><p>时域微分性质 <span class="math display">\[
 \mathscr F[f&#39;(t)]=j\omega F(\omega)
 \]</span> 进一步： <span class="math display">\[
 \mathscr F[f^{(n)}(t)]=(j\omega)^nF(\omega)
-\]</span> 因为函数加上任意常数后，微分都相同。在运用这个性质时，要把信号的直流分量提取出来单独处理。例如：尝试利用时域微分性质和线性性质分别由<span class="math inline">\(\text{sgn}(t)\)</span>函数的傅里叶变换计算<span class="math inline">\(u(t)\)</span>的傅里叶变换，并比较结果。</p></li>
+\]</span>
+因为函数加上任意常数后，微分都相同。在运用这个性质时，要把信号的直流分量提取出来单独处理。例如：尝试利用时域微分性质和线性性质分别由<span
+class="math inline">\(\text{sgn}(t)\)</span>函数的傅里叶变换计算<span
+class="math inline">\(u(t)\)</span>的傅里叶变换，并比较结果。</p></li>
 <li><p>时域积分性质 <span class="math display">\[
-\mathscr F\left[\int_{-\infty}^t f(\tau)\mathrm d\tau\right]=\frac {F(\omega)} {j\omega}+\pi F(0)\delta(\omega)
+\mathscr F\left[\int_{-\infty}^t f(\tau)\mathrm d\tau\right]=\frac
+{F(\omega)} {j\omega}+\pi F(0)\delta(\omega)
 \]</span></p></li>
 </ol>
 <h4 id="基于频域运算的性质">基于频域运算的性质</h4>
@@ -889,7 +949,8 @@ e^{-at} &amp;t&gt;0\\\\
 \mathscr F[f_1(t)f_2(t)]=\frac 1{2\pi}F_1(\omega)\bigotimes F_2(\omega)
 \]</span></p></li>
 </ol>
-<h3 id="由变换的性质计算常用信号的傅里叶变换">由变换的性质计算常用信号的傅里叶变换</h3>
+<h3
+id="由变换的性质计算常用信号的傅里叶变换">由变换的性质计算常用信号的傅里叶变换</h3>
 <ol type="1">
 <li><p>直流信号<span class="math inline">\(E\)</span></p>
 <p>由 <span class="math display">\[
@@ -917,108 +978,156 @@ e^{-at} &amp;t&gt;0\\\\
 \sin \omega_0t=\frac{1} {2j}(e^{j\omega_0t}-e^{-j\omega_0t})\\\\
 \cos \omega_0t=\frac 12 (e^{j\omega_0t}+e^{-j\omega_0t})
 \]</span> 有： <span class="math display">\[
-\mathscr F[\sin(\omega_0 t)]=-j\pi [\delta(\omega-\omega_0)-\delta(\omega+\omega_0)]\\\\
-\mathscr F [\cos(\omega_0 t)]=\pi[\delta(\omega-\omega_0)+\delta(\omega+\omega_0)]
+\mathscr F[\sin(\omega_0 t)]=-j\pi
+[\delta(\omega-\omega_0)-\delta(\omega+\omega_0)]\\\\
+\mathscr F [\cos(\omega_0
+t)]=\pi[\delta(\omega-\omega_0)+\delta(\omega+\omega_0)]
 \]</span></p></li>
 <li><p>三角脉冲信号</p>
-<p>定义三角脉冲信号<span class="math inline">\(T_\tau(t)\)</span>为形如下面的信号，计算傅里叶变换。</p>
+<p>定义三角脉冲信号<span
+class="math inline">\(T_\tau(t)\)</span>为形如下面的信号，计算傅里叶变换。</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/2BED7AAC8763AB14671045D511389210.png" srcset="/img/loading.gif" lazyload alt="img" /><figcaption aria-hidden="true">img</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/2BED7AAC8763AB14671045D511389210.png" srcset="/img/loading.gif" lazyload
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
 </figure>
 <p>由 <span class="math display">\[
 \mathscr F[G_N(t)]=2N\text{Sa}(N\omega)
-\]</span> 则三角脉冲信号<span class="math inline">\(T_\tau(t)\)</span>是门信号的卷积，具体地： <span class="math display">\[
-T_\tau(t)=\sqrt{\frac 1\tau}G_{\frac \tau2}(t)\bigotimes\sqrt{\frac 1\tau}G_{\frac \tau2}(t)
+\]</span> 则三角脉冲信号<span
+class="math inline">\(T_\tau(t)\)</span>是门信号的卷积，具体地： <span
+class="math display">\[
+T_\tau(t)=\sqrt{\frac 1\tau}G_{\frac \tau2}(t)\bigotimes\sqrt{\frac
+1\tau}G_{\frac \tau2}(t)
 \]</span> 由于 <span class="math display">\[
-\mathscr F\left[\sqrt{\frac 1\tau}G_{\frac \tau2}(t)\right]=\sqrt{\tau}\text{Sa}\left(\frac \tau2\omega\right)
+\mathscr F\left[\sqrt{\frac 1\tau}G_{\frac
+\tau2}(t)\right]=\sqrt{\tau}\text{Sa}\left(\frac \tau2\omega\right)
 \]</span> 和卷积性质，有： <span class="math display">\[
 \mathscr F[T_\tau(t)]=\tau\text{Sa}^2\left(\frac \tau2 \omega\right)
 \]</span></p></li>
 </ol>
 <p>现将常用信号的傅里叶变换归纳如下：</p>
 <table>
+
 <thead>
-<tr class="header">
-<th style="text-align: center;"><span class="math inline">\(f(t)\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(F(\omega)\)</span></th>
+<tr>
+<th style="text-align: center;"><span
+class="math inline">\(f(t)\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(F(\omega)\)</span></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(\delta(t)\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(\delta(t)\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
 </tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(\delta (t-t_0)\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(e^{-j\omega t_0}\)</span></td>
+<tr>
+<td style="text-align: center;"><span class="math inline">\(\delta
+(t-t_0)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(e^{-j\omega
+t_0}\)</span></td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(2\pi\delta(\omega)\)</span></td>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(2\pi\delta(\omega)\)</span></td>
 </tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(e^{j\omega_0t}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(2\pi\delta(\omega-\omega_0)\)</span></td>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(e^{j\omega_0t}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(2\pi\delta(\omega-\omega_0)\)</span></td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(u(t)\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\pi\delta(\omega)-\frac 1{j\omega}\)</span></td>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(u(t)\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\pi\delta(\omega)-\frac 1{j\omega}\)</span></td>
 </tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(sgn(t)\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\frac 2{j\omega}\)</span></td>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(sgn(t)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac
+2{j\omega}\)</span></td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(\cos(\omega_0t)\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\pi[\delta(\omega-\omega_0)+\delta(\omega+\omega_0)]\)</span></td>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(\cos(\omega_0t)\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\pi[\delta(\omega-\omega_0)+\delta(\omega+\omega_0)]\)</span></td>
 </tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(\sin(\omega_0t)\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(-j\pi [\delta(\omega-\omega_0)-\delta(\omega+\omega_0)]\)</span></td>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(\sin(\omega_0t)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(-j\pi
+[\delta(\omega-\omega_0)-\delta(\omega+\omega_0)]\)</span></td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(e^{-a\|t\|}\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\frac{2a} {a^2+\omega^2}\)</span></td>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(e^{-a\|t\|}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{2a}
+{a^2+\omega^2}\)</span></td>
 </tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(G_N(t)\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(2NSa(N\omega)\)</span></td>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(G_N(t)\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(2NSa(N\omega)\)</span></td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(T_\tau(t)\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\tau\text{Sa}^2\left(\frac \tau2 \omega\right)\)</span></td>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(T_\tau(t)\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\tau\text{Sa}^2\left(\frac \tau2
+\omega\right)\)</span></td>
 </tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(e^{-at}u(t)\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\frac{1} {j\omega+a}\)</span></td>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(e^{-at}u(t)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{1}
+{j\omega+a}\)</span></td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(1/t\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(-j\pi\text{sgn}(\omega)\)</span></td>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(1/t\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(-j\pi\text{sgn}(\omega)\)</span></td>
 </tr>
 </tbody>
 </table>
 <p>这里提出一个趣味问题：</p>
 <blockquote>
 <p>【例】：是否存在一个时域、频域都有限的信号？</p>
-<p>【解】：不存在。如果时域有限，则信号可以表示为： <span class="math display">\[
+<p>【解】：不存在。如果时域有限，则信号可以表示为： <span
+class="math display">\[
 f(t)=f(t)G_N(t-t_0)
-\]</span> 而<span class="math inline">\(G_N(t)\)</span>的傅里叶变换的频带是无限的。卷积之后，频带也是无限长的。频域有限情况同理可知。</p>
+\]</span> 而<span
+class="math inline">\(G_N(t)\)</span>的傅里叶变换的频带是无限的。卷积之后，频带也是无限长的。频域有限情况同理可知。</p>
 </blockquote>
 <h3 id="周期信号的傅里叶变换">周期信号的傅里叶变换</h3>
 <p>在之前，我们研究的是周期信号的傅里叶级数，和非周期信号的傅里叶变换。现在为了把它们都纳入傅里叶分析的框架中，我们要讨论周期信号的傅里叶变换。</p>
-<p>我们都知道，周期信号的傅里叶系数<span class="math inline">\(F(n\omega)\)</span>叫“频谱函数”，而非周期信号的傅里叶变换<span class="math inline">\(F(\omega)\)</span>叫“频谱密度函数”。那么如果我们非要用频谱密度函数来表示频谱函数，那么结果应该是出现在其角频率各次谐波处的冲激函数。（请联想概率论中，如果我们非要用“概率密度函数”来表示离散分布的“分布函数”，那么会出现什么现象？）</p>
+<p>我们都知道，周期信号的傅里叶系数<span
+class="math inline">\(F(n\omega)\)</span>叫“频谱函数”，而非周期信号的傅里叶变换<span
+class="math inline">\(F(\omega)\)</span>叫“频谱密度函数”。那么如果我们非要用频谱密度函数来表示频谱函数，那么结果应该是出现在其角频率各次谐波处的冲激函数。（请联想概率论中，如果我们非要用“概率密度函数”来表示离散分布的“分布函数”，那么会出现什么现象？）</p>
 <p>周期函数的傅里叶系数和它一个周期内函数的傅里叶变换的关系为：</p>
 <p><span class="math display">\[
 F(n\omega_1)=\left.\frac 1{T_1}F_1(\omega)\right|_{\omega=n\omega_1}
 \]</span></p>
 <p>对于周期函数的傅里叶级数</p>
 <p><span class="math display">\[
-f(t)=\sum_{n=-\infty}^{\infty} F\left(n \omega_{1}\right) e^{j n \omega_{1} t}
+f(t)=\sum_{n=-\infty}^{\infty} F\left(n \omega_{1}\right) e^{j n
+\omega_{1} t}
 \]</span></p>
 <p>作傅里叶变换：</p>
 <p><span class="math display">\[
-\mathscr F\left[\sum_{n=-\infty}^{\infty} F\left(n \omega_{1}\right) e^{j n \omega_{1} t}\right]=\sum_{n=-\infty}^{\infty}F(n\omega_1)\mathscr F[e^{jn\omega_1 t}]
+\mathscr F\left[\sum_{n=-\infty}^{\infty} F\left(n \omega_{1}\right)
+e^{j n \omega_{1}
+t}\right]=\sum_{n=-\infty}^{\infty}F(n\omega_1)\mathscr F[e^{jn\omega_1
+t}]
 \]</span></p>
 <p>由于频移性质：</p>
 <p><span class="math display">\[
@@ -1026,7 +1135,9 @@ f(t)=\sum_{n=-\infty}^{\infty} F\left(n \omega_{1}\right) e^{j n \omega_{1} t}
 \]</span></p>
 <p>故：</p>
 <p><span class="math display">\[
-\mathscr F[f(t)]=\mathscr F\left[\sum_{n=-\infty}^{\infty} F\left(n \omega_{1}\right) e^{j n \omega_{1} t}\right]=2\pi\sum_{n=-\infty}^{\infty}F(n\omega_1)\delta(\omega-n\omega_1)
+\mathscr F[f(t)]=\mathscr F\left[\sum_{n=-\infty}^{\infty} F\left(n
+\omega_{1}\right) e^{j n \omega_{1}
+t}\right]=2\pi\sum_{n=-\infty}^{\infty}F(n\omega_1)\delta(\omega-n\omega_1)
 \]</span></p>
 <p>这就是一般周期信号的傅里叶变换。</p>
 <h4 id="典型周期信号的傅里叶变换">典型周期信号的傅里叶变换</h4>
@@ -1042,7 +1153,8 @@ F(n\omega_1)|_{n=\pm 1}=\frac 12
 \]</span></p>
 <p>则其傅里叶变换为：</p>
 <p><span class="math display">\[
-\mathscr F[\cos(\omega_1 t)]=\pi[\delta(\omega-\omega_1)+\delta(\omega+\omega_1)]
+\mathscr F[\cos(\omega_1
+t)]=\pi[\delta(\omega-\omega_1)+\delta(\omega+\omega_1)]
 \]</span></p></li>
 <li><p>周期冲激信号</p>
 <p>周期冲激信号经常被用来采样，所以也算是一个常用的信号。我们来看一下它的傅里叶变换。</p>
@@ -1052,75 +1164,118 @@ F(n\omega_1)|_{n=\pm 1}=\frac 12
 \]</span></p>
 <p>其傅里叶系数为：</p>
 <p><span class="math display">\[
-F(n\omega_1)=\left.\frac 1{T_1}F_1(\omega)\right|_{\omega=n\omega_1}=\frac1{T_1}
+F(n\omega_1)=\left.\frac
+1{T_1}F_1(\omega)\right|_{\omega=n\omega_1}=\frac1{T_1}
 \]</span></p>
 <p>则其傅里叶变换为：</p>
 <p><span class="math display">\[
-\mathscr F[\delta_{T_1}(t)]=\frac {2\pi} {T_1}\sum_{n=-\infty}^\infty \delta(\omega-n\omega_1)=\omega_1\sum_{n=-\infty}^\infty \delta(\omega-n\omega_1)
+\mathscr F[\delta_{T_1}(t)]=\frac {2\pi} {T_1}\sum_{n=-\infty}^\infty
+\delta(\omega-n\omega_1)=\omega_1\sum_{n=-\infty}^\infty
+\delta(\omega-n\omega_1)
 \]</span></p>
 <p>可以看出：周期冲激信号的傅里叶变换也是周期冲激信号。</p></li>
 <li><p>周期矩形脉冲信号</p>
-<p>周期矩形脉冲信号有两个参数：周期<span class="math inline">\(T_1\)</span>，脉宽<span class="math inline">\(\tau\)</span>，即：<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/AFA6FB4DBB59084944CDA2465162854F.png" srcset="/img/loading.gif" lazyload alt="img" /></p>
-<p>记作：<span class="math inline">\(G_{T_1,\tau}(t)\)</span>，图中<span class="math inline">\(E=1\)</span>.</p>
+<p>周期矩形脉冲信号有两个参数：周期<span
+class="math inline">\(T_1\)</span>，脉宽<span
+class="math inline">\(\tau\)</span>，即：<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/AFA6FB4DBB59084944CDA2465162854F.png" srcset="/img/loading.gif" lazyload
+alt="img" /></p>
+<p>记作：<span class="math inline">\(G_{T_1,\tau}(t)\)</span>，图中<span
+class="math inline">\(E=1\)</span>.</p>
 <p>在一个周期中，其傅里叶变换为：</p>
 <p><span class="math display">\[
-\mathscr F[G_{0,\tau}(t)]=\tau\text{Sa}\left(\frac{\omega\tau} {2}\right)
+\mathscr F[G_{0,\tau}(t)]=\tau\text{Sa}\left(\frac{\omega\tau}
+{2}\right)
 \]</span></p>
 <p>则周期矩形脉冲的傅里叶系数为</p>
 <p><span class="math display">\[
-F(n\omega_1)=\frac{\tau} {T_1}\text{Sa}\left(\frac{n\omega_1\tau} {2}\right)
+F(n\omega_1)=\frac{\tau} {T_1}\text{Sa}\left(\frac{n\omega_1\tau}
+{2}\right)
 \]</span></p>
 <p>故周期矩形脉冲的傅里叶变换为</p>
 <p><span class="math display">\[
-\tau\omega_1\sum_{n=-\infty}^{\infty}\text{Sa}\left(\frac{n\omega_1\tau} {2}\right)\delta(\omega-n\omega_1)
+\tau\omega_1\sum_{n=-\infty}^{\infty}\text{Sa}\left(\frac{n\omega_1\tau}
+{2}\right)\delta(\omega-n\omega_1)
 \]</span></p></li>
 </ol>
 <h3 id="抽样">抽样</h3>
 <p>一个基本的抽样过程等效于以下的模型：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/BEE55B4CEAA391E54CF074AFBC5F30B1.png" srcset="/img/loading.gif" lazyload alt="img" /><figcaption aria-hidden="true">img</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/BEE55B4CEAA391E54CF074AFBC5F30B1.png" srcset="/img/loading.gif" lazyload
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
 </figure>
-<p>这里的"<span class="math inline">\(\bigotimes\)</span>"是乘法的意思。即有：</p>
+<p>这里的"<span
+class="math inline">\(\bigotimes\)</span>"是乘法的意思。即有：</p>
 <p><span class="math display">\[
 f_s(t)=f(t)p(t)
 \]</span></p>
-<p>这里的<span class="math inline">\(p(t)\)</span>就是脉冲信号，比如说周期冲激信号，周期矩形脉冲信号等等。</p>
+<p>这里的<span
+class="math inline">\(p(t)\)</span>就是脉冲信号，比如说周期冲激信号，周期矩形脉冲信号等等。</p>
 <p>利用傅里叶变换的卷积定理，有（这里要熟练掌握冲激函数的卷积性质）：</p>
 <p><span class="math display">\[
-\mathscr F[f_s(t)]=\frac 1{T_s}\sum_{n=-\infty}^{\infty}P_0(n\omega_s)F(\omega-n\omega_s)
+\mathscr F[f_s(t)]=\frac
+1{T_s}\sum_{n=-\infty}^{\infty}P_0(n\omega_s)F(\omega-n\omega_s)
 \]</span></p>
-<p>也就是说，抽样信号的频谱是连续信号频谱以<span class="math inline">\(\omega_s\)</span>为周期的周期延拓，并收到脉冲信号频谱<span class="math inline">\(P_0(n\omega_s)\)</span>和脉冲信号周期<span class="math inline">\(T_s\)</span>的加权。</p>
-<p>于是，我们发现，如果要求不发生频域混叠，那么原始连续信号必须在频域是带限信号。但是这实际上是不可能存在的。但是信号的主要频域往往确实是有限的，其它部分的分量可以忽略不计，为此我们可以定义<span class="math inline">\(-3\text{dB}\)</span>带宽，零点带宽等带宽（记作<span class="math inline">\(\omega_m\)</span>），把信号近似为一个频域带限信号。</p>
-<p>那么，一个带限信号<span class="math inline">\(f(t)\)</span>,如果其频谱存在在频域区间<span class="math inline">\([-\omega_m,\omega_m]\)</span>，则可用抽样值唯一表示<span class="math inline">\(f(t)\)</span>,抽样值的间隔不能大于<span class="math inline">\(T_s=\frac{1} {2f_m}\)</span>,其中<span class="math inline">\(f_m=\frac{\omega_m} {2\pi}\)</span>，否则会发生频域混叠，这就是奈奎斯特采样定理。我们把<span class="math inline">\(f_s=2f_m\)</span>称作“奈奎斯特频率”，这是不发生频域混叠的最小抽样频率。</p>
-<p>为了从抽样信号中恢复出原始信号，对理想冲激抽样，我们用一个截止频率为<span class="math inline">\(\omega_c\)</span>，幅度增益为<span class="math inline">\(T_s\)</span>的零延时低通滤波器即可，其中<span class="math inline">\(\omega_c\)</span>满足<span class="math inline">\(\omega_c\in[\omega_m,\omega_s-\omega_m]\)</span>.对于理想矩形脉冲抽样，滤波器的幅度增益应为<span class="math inline">\(T_s/(E\tau)\)</span></p>
+<p>也就是说，抽样信号的频谱是连续信号频谱以<span
+class="math inline">\(\omega_s\)</span>为周期的周期延拓，并收到脉冲信号频谱<span
+class="math inline">\(P_0(n\omega_s)\)</span>和脉冲信号周期<span
+class="math inline">\(T_s\)</span>的加权。</p>
+<p>于是，我们发现，如果要求不发生频域混叠，那么原始连续信号必须在频域是带限信号。但是这实际上是不可能存在的。但是信号的主要频域往往确实是有限的，其它部分的分量可以忽略不计，为此我们可以定义<span
+class="math inline">\(-3\text{dB}\)</span>带宽，零点带宽等带宽（记作<span
+class="math inline">\(\omega_m\)</span>），把信号近似为一个频域带限信号。</p>
+<p>那么，一个带限信号<span
+class="math inline">\(f(t)\)</span>,如果其频谱存在在频域区间<span
+class="math inline">\([-\omega_m,\omega_m]\)</span>，则可用抽样值唯一表示<span
+class="math inline">\(f(t)\)</span>,抽样值的间隔不能大于<span
+class="math inline">\(T_s=\frac{1} {2f_m}\)</span>,其中<span
+class="math inline">\(f_m=\frac{\omega_m}
+{2\pi}\)</span>，否则会发生频域混叠，这就是奈奎斯特采样定理。我们把<span
+class="math inline">\(f_s=2f_m\)</span>称作“奈奎斯特频率”，这是不发生频域混叠的最小抽样频率。</p>
+<p>为了从抽样信号中恢复出原始信号，对理想冲激抽样，我们用一个截止频率为<span
+class="math inline">\(\omega_c\)</span>，幅度增益为<span
+class="math inline">\(T_s\)</span>的零延时低通滤波器即可，其中<span
+class="math inline">\(\omega_c\)</span>满足<span
+class="math inline">\(\omega_c\in[\omega_m,\omega_s-\omega_m]\)</span>.对于理想矩形脉冲抽样，滤波器的幅度增益应为<span
+class="math inline">\(T_s/(E\tau)\)</span></p>
 <h2 id="连续系统实频域分析">连续系统实频域分析</h2>
 <p>所谓的连续系统实频域分析，也就是利用傅里叶变换来分析连续系统。在本节，将首先介绍系统传递函数的概念，再介绍一类比较理想的系统：无失真系统，然后分析一类具体的系统：低通滤波器。</p>
 <h3 id="系统频率响应">系统频率响应</h3>
-<p>定义系统单位冲激响应<span class="math inline">\(h(t)\)</span>的傅里叶变换为系统频率响应。即：</p>
+<p>定义系统单位冲激响应<span
+class="math inline">\(h(t)\)</span>的傅里叶变换为系统频率响应。即：</p>
 <p><span class="math display">\[
 H(\omega)=\int_{-\infty}^\infty h(t)e^{-j\omega t}\mathrm d t
 \]</span></p>
-<p>如果系统的激励为<span class="math inline">\(e(t)\)</span>,激励的傅里叶变换为<span class="math inline">\(E(\omega)\)</span>，那么对系统的响应的傅里叶变换，有：</p>
+<p>如果系统的激励为<span
+class="math inline">\(e(t)\)</span>,激励的傅里叶变换为<span
+class="math inline">\(E(\omega)\)</span>，那么对系统的响应的傅里叶变换，有：</p>
 <p><span class="math display">\[
 R(\omega)=E(\omega)\cdot H(\omega)
 \]</span></p>
-<p>如果系统输入的是复指数信号<span class="math inline">\(e^{j\omega_0 t}\)</span>，那么有：</p>
+<p>如果系统输入的是复指数信号<span class="math inline">\(e^{j\omega_0
+t}\)</span>，那么有：</p>
 <p><span class="math display">\[
 R=2\pi\delta(\omega-\omega_0)H(\omega)
 \]</span></p>
 <p>则有：</p>
 <p><span class="math display">\[
-r(t)=\frac 1{2\pi}\int_{-\infty}^{\infty}2\pi\delta(\omega-\omega_0)H(\omega)e^{j\omega t}\mathrm d t=e^{j\omega_0t}H(\omega_0)
+r(t)=\frac
+1{2\pi}\int_{-\infty}^{\infty}2\pi\delta(\omega-\omega_0)H(\omega)e^{j\omega
+t}\mathrm d t=e^{j\omega_0t}H(\omega_0)
 \]</span></p>
 <p>这说明：系统对不同频率的正弦信号的幅度和相位加权不相同；不同的系统对相同频率的正弦信号的幅度和相位的加权也不相同。</p>
-<p>对于频率响应<span class="math inline">\(H(\omega)\)</span>，称<span class="math inline">\(|H(\omega)|\)</span>为系统的幅频响应，而<span class="math inline">\(\varphi(\omega)\)</span>为系统的相频响应。</p>
+<p>对于频率响应<span class="math inline">\(H(\omega)\)</span>，称<span
+class="math inline">\(|H(\omega)|\)</span>为系统的幅频响应，而<span
+class="math inline">\(\varphi(\omega)\)</span>为系统的相频响应。</p>
 <p>如果系统用微分方程</p>
 <p><span class="math display">\[
 C_0r^{(n)}(t)+C_1r^{(n-1)}(t)+\cdots+C_nr(t)=E_0e^{(m)}(t)+E_1e^{(m-1)}(t)+\cdots+E_me(t)
 \]</span></p>
 <p>可以直接写出其频率响应：</p>
 <p><span class="math display">\[
-H(\omega)=\frac{\sum_{i=0}^nC_i(j\omega)^{n-i} } {\sum_{j=1}^m E_{j}(j\omega)^{m-j} }
+H(\omega)=\frac{\sum_{i=0}^nC_i(j\omega)^{n-i} } {\sum_{j=1}^m
+E_{j}(j\omega)^{m-j} }
 \]</span></p>
 <p>在已知频率响应和激励，求系统响应时，一般有两种思路。其一是系统激励以傅里叶级数形式给出，这时只需要针对每个谐波分量计算对应的幅频响应和相频响应，然后把响应作用于激励即可。另一种思路是先求出激励的傅里叶变换，然后用图像和系统频率响应相乘，得到响应的傅里叶变换，最后得到结果。</p>
 <h3 id="无失真系统">无失真系统</h3>
@@ -1134,58 +1289,79 @@ H(\omega)=ke^{-j\omega t_0}
 \varphi(\omega)=-\omega t_0
 \]</span></p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/33FCDB8A45A057AE5F76B35B9A69EBCE.png" srcset="/img/loading.gif" lazyload alt="img" /><figcaption aria-hidden="true">img</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/33FCDB8A45A057AE5F76B35B9A69EBCE.png" srcset="/img/loading.gif" lazyload
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
 </figure>
-<p>相频特性是一条直线的含义是：相频特性表示了系统的延时，对信号的所有频率分量，应该有相同的延时，即相位附加值相同。例如输入<span class="math inline">\(E_1\sin(\omega_1t)\)</span>，那么理应得到输出<span class="math inline">\(E_1\sin\left[\omega(t+\varphi(\omega))\right]=E_1\sin\left[\omega(t+\frac{\varphi(\omega)} {\omega})\right]\)</span>，于是，为了对不同的频率分量得到相同的附加相移，就需要：</p>
+<p>相频特性是一条直线的含义是：相频特性表示了系统的延时，对信号的所有频率分量，应该有相同的延时，即相位附加值相同。例如输入<span
+class="math inline">\(E_1\sin(\omega_1t)\)</span>，那么理应得到输出<span
+class="math inline">\(E_1\sin\left[\omega(t+\varphi(\omega))\right]=E_1\sin\left[\omega(t+\frac{\varphi(\omega)}
+{\omega})\right]\)</span>，于是，为了对不同的频率分量得到相同的附加相移，就需要：</p>
 <p><span class="math display">\[
-\forall \omega_1,\omega_2,\frac{\varphi(\omega_1)} {\omega_1}=\frac{\varphi(\omega_2)} {\omega_2}
+\forall \omega_1,\omega_2,\frac{\varphi(\omega_1)}
+{\omega_1}=\frac{\varphi(\omega_2)} {\omega_2}
 \]</span></p>
 <h3 id="低通滤波器">低通滤波器</h3>
 <p>理想滤波器是在特定频段范围内的无失真传输系统。这里之所以只讨论低通滤波器，是其它滤波器可以由低通滤波器转换而来。具体如何转换，我们后面再说。</p>
 <p>理想低通滤波器的频响特性如下：</p>
 <p><span class="math display">\[
-H(\omega)= \begin{cases}e^{-j \omega t_{0} } &amp; |\omega|&lt;\omega_{c} \\\\ 0 &amp; |\omega| \geq \omega_{c}\end{cases}
+H(\omega)= \begin{cases}e^{-j \omega t_{0} } &amp;
+|\omega|&lt;\omega_{c} \\\\ 0 &amp; |\omega| \geq \omega_{c}\end{cases}
 \]</span></p>
 <p>注意，切不可以以为理想低通滤波器的频响函数是频域门函数，因为还要考虑附加相移（时域延迟）。有：</p>
 <p><span class="math display">\[
-|{H}(\omega)|= \begin{cases}1 &amp; |\omega|&lt;\omega_{c} \\\\ 0 &amp; |\omega| \geq \omega_{c}\end{cases}
+|{H}(\omega)|= \begin{cases}1 &amp; |\omega|&lt;\omega_{c} \\\\ 0 &amp;
+|\omega| \geq \omega_{c}\end{cases}
 \]</span></p>
 <p><span class="math display">\[
-\varphi(\omega)= \begin{cases}-\omega t_{0} &amp; |\omega|&lt;\omega_{c} \\\\ 0 &amp; |\omega| \geq \omega_{c}\end{cases}
+\varphi(\omega)= \begin{cases}-\omega t_{0} &amp; |\omega|&lt;\omega_{c}
+\\\\ 0 &amp; |\omega| \geq \omega_{c}\end{cases}
 \]</span></p>
 <p>对频响函数作傅里叶逆变换，可得单位冲激响应：</p>
 <p><span class="math display">\[
 h(t)
-=\frac{\omega_{c} } {\pi} \cdot \text{Sa}\left[\omega_{c}\left(t-t_{0}\right)\right]
+=\frac{\omega_{c} } {\pi} \cdot
+\text{Sa}\left[\omega_{c}\left(t-t_{0}\right)\right]
 \]</span></p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/DF189DDD56F929706856BF8B26DA1D67.png" srcset="/img/loading.gif" lazyload alt="img" /><figcaption aria-hidden="true">img</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/DF189DDD56F929706856BF8B26DA1D67.png" srcset="/img/loading.gif" lazyload
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
 </figure>
 <h4 id="其它滤波器">其它滤波器</h4>
 <ul>
 <li><p>高通滤波器</p>
 <p>无失真全通系统-低通滤波器=高通滤波器。因而，有：</p>
 <p><span class="math display">\[
-H_{h}(\omega)=e^{-\mathrm{j} \omega t_{0} }\left[1-u\left(\omega+\omega_{c}\right)+u\left(\omega-\omega_{c}\right)\right]
+H_{h}(\omega)=e^{-\mathrm{j} \omega t_{0}
+}\left[1-u\left(\omega+\omega_{c}\right)+u\left(\omega-\omega_{c}\right)\right]
 \]</span></p>
 <p><span class="math display">\[
-h_{h}(t)=\delta\left(t-t_{0}\right)-h_{l}(t)=\delta\left(t-t_{0}\right)-\frac{\omega_{c} } {\pi} \cdot \mathrm{Sa}\left[\omega_{c}\left(t-t_{0}\right)\right]
+h_{h}(t)=\delta\left(t-t_{0}\right)-h_{l}(t)=\delta\left(t-t_{0}\right)-\frac{\omega_{c}
+} {\pi} \cdot \mathrm{Sa}\left[\omega_{c}\left(t-t_{0}\right)\right]
 \]</span></p></li>
 <li><p>带通滤波器</p>
 <p>带通滤波器可以由理想低通滤波器频响向两侧搬移，再对相频特性进行修正得到。</p>
 <p><span class="math display">\[
-H_{b}(\omega)=e^{-\mathrm{j} \omega_{0} }\left[\left(u\left(\omega+\omega_{h}\right)-u\left(\omega+\omega_{l}\right)\right)+\left(u\left(\omega-\omega_{l}\right)-u\left(\omega-\omega_{h}\right)\right)\right]
+H_{b}(\omega)=e^{-\mathrm{j} \omega_{0}
+}\left[\left(u\left(\omega+\omega_{h}\right)-u\left(\omega+\omega_{l}\right)\right)+\left(u\left(\omega-\omega_{l}\right)-u\left(\omega-\omega_{h}\right)\right)\right]
 \]</span></p>
 <p><span class="math display">\[
-h_{b}(t)=\frac{2 \omega_{c} } {\pi} \cdot \operatorname{Sa}\left[\omega_{c}\left(t-t_{0}\right)\right] \cos \left[\omega_{0}\left(t-t_{0}\right)\right]
+h_{b}(t)=\frac{2 \omega_{c} } {\pi} \cdot
+\operatorname{Sa}\left[\omega_{c}\left(t-t_{0}\right)\right] \cos
+\left[\omega_{0}\left(t-t_{0}\right)\right]
 \]</span></p>
 <p>其中</p>
 <p><span class="math display">\[
-\omega_{c}=\frac{\omega_{h}-\omega_{l} } {2}, \omega_{0}=\frac{\omega_{h}+\omega_{l} } {2}
+\omega_{c}=\frac{\omega_{h}-\omega_{l} } {2},
+\omega_{0}=\frac{\omega_{h}+\omega_{l} } {2}
 \]</span></p></li>
 </ul>
 <h3 id="系统的因果性">系统的因果性</h3>
-<p>我们都知道，<span class="math inline">\(LTI\)</span>系统因果的充要条件是：</p>
+<p>我们都知道，<span
+class="math inline">\(LTI\)</span>系统因果的充要条件是：</p>
 <p><span class="math display">\[
 h(t)=h(t)u(t)
 \]</span></p>
@@ -1193,24 +1369,33 @@ h(t)=h(t)u(t)
 <h4 id="佩里维纳准则">佩里维纳准则</h4>
 <p>一个幅频响应绝对可积的系统物理可实现的必要条件是：</p>
 <p><span class="math display">\[
-\int_{-\infty}^{\infty}\frac{|\ \ln|H(\omega)|\ |} {1+\omega^2}\mathrm d\omega&lt;\infty
+\int_{-\infty}^{\infty}\frac{|\ \ln|H(\omega)|\ |} {1+\omega^2}\mathrm
+d\omega&lt;\infty
 \]</span></p>
-<p>从直观角度考虑，佩里维纳准则要求系统的幅频响应不能衰减得太快。特别的，如果幅频响应在某个连续频带上为<span class="math inline">\(0\)</span>，那么系统就不可实现。</p>
+<p>从直观角度考虑，佩里维纳准则要求系统的幅频响应不能衰减得太快。特别的，如果幅频响应在某个连续频带上为<span
+class="math inline">\(0\)</span>，那么系统就不可实现。</p>
 <h4 id="希尔伯特变换">希尔伯特变换</h4>
 <p>接下来从时域入手，讨论判断系统因果性的充要条件。</p>
-<p>从用卷积性质计算<span class="math inline">\(h(t)u(t)\)</span>的傅里叶变换入手，设<span class="math inline">\(H(\omega)=R(\omega)+jX(\omega)\)</span>，那么<span class="math inline">\(R,X\)</span>构成一希尔伯特变换对。所谓的希尔伯特变换是指：</p>
+<p>从用卷积性质计算<span
+class="math inline">\(h(t)u(t)\)</span>的傅里叶变换入手，设<span
+class="math inline">\(H(\omega)=R(\omega)+jX(\omega)\)</span>，那么<span
+class="math inline">\(R,X\)</span>构成一希尔伯特变换对。所谓的希尔伯特变换是指：</p>
 <p><span class="math display">\[
 \hat{x}(t)=\mathscr H[x(t)]=x(t)\bigotimes\frac1{\pi t}
 \]</span></p>
 <p>把卷积展开，有：</p>
 <p><span class="math display">\[
 \begin{aligned}
-\hat{x}(t) &amp;=\frac{1} {\pi} \int_{-\infty}^{\infty} x(\tau) \frac{1} {t-\tau} d \tau \\\\
-&amp;=-\frac{1} {\pi} \int_{-\infty}^{\infty} x(t+\tau) \frac{1} {\tau} d \tau \\\\
-&amp;=\frac{1} {\pi} \int_{-\infty}^{\infty} x(t-\tau) \frac{1} {\tau} d \tau
+\hat{x}(t) &amp;=\frac{1} {\pi} \int_{-\infty}^{\infty} x(\tau) \frac{1}
+{t-\tau} d \tau \\\\
+&amp;=-\frac{1} {\pi} \int_{-\infty}^{\infty} x(t+\tau) \frac{1} {\tau}
+d \tau \\\\
+&amp;=\frac{1} {\pi} \int_{-\infty}^{\infty} x(t-\tau) \frac{1} {\tau} d
+\tau
 \end{aligned}
 \]</span></p>
-<p>对一个系统作希尔伯特变换，实质上是将其经过一个<span class="math inline">\(\pi/2\)</span>相移器（注意：这里不是时移）。</p>
+<p>对一个系统作希尔伯特变换，实质上是将其经过一个<span
+class="math inline">\(\pi/2\)</span>相移器（注意：这里不是时移）。</p>
 <p>希尔伯特变换将在《随机过程理论》中再次详细说明，这里只提两个重要性质：</p>
 <ul>
 <li><p><span class="math display">\[
@@ -1220,7 +1405,8 @@ h(t)=h(t)u(t)
 \mathscr H[\hat{x}(t)]=-x(t)
 \]</span></p></li>
 </ul>
-<p>则系统因果的充要条件是：频响函数<span class="math inline">\(H(\omega)\)</span>的实部和虚部是一对希尔伯特变换对。</p>
+<p>则系统因果的充要条件是：频响函数<span
+class="math inline">\(H(\omega)\)</span>的实部和虚部是一对希尔伯特变换对。</p>
 <h3 id="相关定理以及能量和功率">相关定理，以及能量和功率</h3>
 <p>为了动态地描述两个信号的相关关系，避免基于内积定义的相关系数所带来的种种漏洞.</p>
 <p>对于能量信号，我们定义相关函数：</p>
@@ -1233,11 +1419,13 @@ R(\tau)=\int_{-\infty}^{\infty} f(t) f^{*}(t-\tau) d t
 \]</span></p>
 <p>如果信号是功率信号，上面的积分可能不收敛。定义功率信号的相关函数：</p>
 <p><span class="math display">\[
-R_{12}(\tau)=\lim _{T \rightarrow \infty} \frac{1} {T} \int_{-\frac{T} {2} }^{\frac{T} {2} } f_{1}(t) f_{2}^{*}(t-\tau) \mathrm{d} t
+R_{12}(\tau)=\lim _{T \rightarrow \infty} \frac{1} {T} \int_{-\frac{T}
+{2} }^{\frac{T} {2} } f_{1}(t) f_{2}^{*}(t-\tau) \mathrm{d} t
 \]</span></p>
 <p>自相关函数：</p>
 <p><span class="math display">\[
-R(\tau)=\lim _{T \rightarrow \infty} \frac{1} {T} \int_{-\frac{T} {2} }^{\frac{T} {2} } f(t) f^{*}(t-\tau) d t
+R(\tau)=\lim _{T \rightarrow \infty} \frac{1} {T} \int_{-\frac{T} {2}
+}^{\frac{T} {2} } f(t) f^{*}(t-\tau) d t
 \]</span></p>
 <p>在下学期学的《随机过程理论》中，我们将从期望的角度重新认识相关函数。</p>
 <p>有“相关定理”：</p>
@@ -1250,9 +1438,11 @@ R(\tau)=\lim _{T \rightarrow \infty} \frac{1} {T} \int_{-\frac{T} {2} }^{\frac{T
 \]</span></p>
 <p>联想到帕塞瓦尔定理：</p>
 <p><span class="math display">\[
-\int_{-\infty}^{\infty}|f(t)|^2\mathrm d t=\int_{-\infty}^{\infty}|F(2\pi f)|^2\mathrm d f
+\int_{-\infty}^{\infty}|f(t)|^2\mathrm d
+t=\int_{-\infty}^{\infty}|F(2\pi f)|^2\mathrm d f
 \]</span></p>
-<p>我们可以令<span class="math inline">\(\varepsilon(\omega)=|F(\omega)|^2\)</span>为“能量密度函数”，也叫“能量谱函数”，它反映了能量在频域上的分布。则能量谱函数和能量信号自相关函数是一对傅里叶变换对。</p>
+<p>我们可以令<span
+class="math inline">\(\varepsilon(\omega)=|F(\omega)|^2\)</span>为“能量密度函数”，也叫“能量谱函数”，它反映了能量在频域上的分布。则能量谱函数和能量信号自相关函数是一对傅里叶变换对。</p>
 <p>对于功率信号，定义功率谱函数：</p>
 <p><span class="math display">\[
 p(\omega)=\lim_{T\to \infty}\frac{|F_T(\omega)|^2} {T}
@@ -1265,7 +1455,11 @@ p(\omega)=\lim_{T\to \infty}\frac{|F_T(\omega)|^2} {T}
 <div class="footnote-list">
 <ol>
 <li>
-<span id="fn:1" class="footnote-text"><span>在一个周期里的两个半周期里呈现奇对称的函数，即<span class="math inline">(f(t)=-f(tT2))</span>​ <a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩︎</a></span></span>
+<span id="fn:1"
+class="footnote-text"><span>在一个周期里的两个半周期里呈现奇对称的函数，即<span
+class="math inline">(f(t)=-f(tT2))</span>​
+<a href="#fnref:1" rev="footnote" class="footnote-backref">
+↩︎</a></span></span>
 </li>
 </ol>
 </div>

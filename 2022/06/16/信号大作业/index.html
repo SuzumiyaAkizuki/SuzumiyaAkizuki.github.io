@@ -19,16 +19,16 @@
   <meta name="author" content="SuzumiyaAkizuki">
   <meta name="keywords" content="">
   
-    <meta name="description" content="这是信号与系统的实验报告。我信号与系统总共就扣了几分，也不知道是期末扣的，还是实验扣的。即使全是实验扣的，这实验也算做的挺好的。于是把报告发出来给大家参考。 这是大作业，频分复用系统设计">
+    <meta name="description" content="这是信号与系统的实验报告。我信号与系统总共就扣了几分，也不知道是期末扣的，还是实验扣的。即使全是实验扣的，这实验也算做的挺好的。于是把报告发出来给大家参考。 这是大作业，频分复用系统设计">
 <meta property="og:type" content="article">
 <meta property="og:title" content="信号与系统课程设计：频分复用系统设计">
 <meta property="og:url" content="https://suzumiyaakizuki.github.io/2022/06/16/%E4%BF%A1%E5%8F%B7%E5%A4%A7%E4%BD%9C%E4%B8%9A/index.html">
 <meta property="og:site_name" content="凉宫秋月的文艺部">
-<meta property="og:description" content="这是信号与系统的实验报告。我信号与系统总共就扣了几分，也不知道是期末扣的，还是实验扣的。即使全是实验扣的，这实验也算做的挺好的。于是把报告发出来给大家参考。 这是大作业，频分复用系统设计">
+<meta property="og:description" content="这是信号与系统的实验报告。我信号与系统总共就扣了几分，也不知道是期末扣的，还是实验扣的。即使全是实验扣的，这实验也算做的挺好的。于是把报告发出来给大家参考。 这是大作业，频分复用系统设计">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220616172628586.png">
 <meta property="article:published_time" content="2022-06-16T07:41:18.000Z">
-<meta property="article:modified_time" content="2025-01-20T16:35:30.850Z">
+<meta property="article:modified_time" content="2025-01-20T16:35:30.000Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="信号与系统">
 <meta name="twitter:card" content="summary_large_image">
@@ -523,19 +523,24 @@
             
               <div class="markdown-body">
                 
-                <p>这是信号与系统的实验报告。我信号与系统总共就扣了几分，也不知道是期末扣的，还是实验扣的。即使全是实验扣的，这实验也算做的挺好的。于是把报告发出来给大家参考。 这是大作业，频分复用系统设计</p>
+                <p>这是信号与系统的实验报告。我信号与系统总共就扣了几分，也不知道是期末扣的，还是实验扣的。即使全是实验扣的，这实验也算做的挺好的。于是把报告发出来给大家参考。
+这是大作业，频分复用系统设计</p>
 <span id="more"></span>
 <h2 id="实验目的">实验目的</h2>
-<p>本次实验尝试设计一种频分复用系统，接收三个带限信号，通过选取不同的调制频率<span class="math inline">\(\omega_c\)</span>，将所需传输的信号的频谱搬移到不同频段，在同一物理信道中传输多路信号。频分复用的原理框图如下：</p>
+<p>本次实验尝试设计一种频分复用系统，接收三个带限信号，通过选取不同的调制频率<span
+class="math inline">\(\omega_c\)</span>，将所需传输的信号的频谱搬移到不同频段，在同一物理信道中传输多路信号。频分复用的原理框图如下：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/41CA9D78D2872ED5A23ED8B6346EC6EC.png" srcset="/img/loading.gif" lazyload alt="img" /><figcaption aria-hidden="true">img</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/41CA9D78D2872ED5A23ED8B6346EC6EC.png" srcset="/img/loading.gif" lazyload
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
 </figure>
 <h2 id="实验过程">实验过程</h2>
 <h3 id="读取信号">读取信号</h3>
 <p>输入信号以列表的方式给出，表的形式如下：</p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th><span class="math inline">\(t\)</span></th>
 <th><span class="math inline">\(f_1(t)\)</span></th>
 <th><span class="math inline">\(f_2(t)\)</span></th>
@@ -543,55 +548,55 @@
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>-10</td>
 <td>-0.0498</td>
 <td>0.0032</td>
 <td>0.0031</td>
 </tr>
-<tr class="even">
+<tr>
 <td>-9.9</td>
 <td>-0.0424</td>
 <td>0.0023</td>
 <td>0.0032</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>-9.8</td>
 <td>-0.0344</td>
 <td>0.0015</td>
 <td>0.0031</td>
 </tr>
-<tr class="even">
+<tr>
 <td>-9.7</td>
 <td>-0.0258</td>
 <td>0.0008</td>
 <td>0.003</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>-9.6</td>
 <td>-0.0167</td>
 <td>0.0004</td>
 <td>0.0028</td>
 </tr>
-<tr class="even">
+<tr>
 <td>-9.5</td>
 <td>-0.0073</td>
 <td>0.0001</td>
 <td>0.0025</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>…</td>
 <td>…</td>
 <td>…</td>
 <td>…</td>
 </tr>
-<tr class="even">
+<tr>
 <td>9.8</td>
 <td>-0.0344</td>
 <td>0.0015</td>
 <td>0.0031</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>9.9</td>
 <td>-0.0424</td>
 <td>0.0023</td>
@@ -604,63 +609,98 @@
 <p>其中<code>tf</code>结构体是为运算方便定义的结构，其中有两个<code>double</code>型量，即<code>t</code>和<code>f</code>，用来存储时间-信号表。</p>
 <p>原始信号的波形如下：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220616164757519.png" srcset="/img/loading.gif" lazyload alt="image-20220616164757519" /><figcaption aria-hidden="true">image-20220616164757519</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220616164757519.png" srcset="/img/loading.gif" lazyload
+alt="image-20220616164757519" />
+<figcaption aria-hidden="true">image-20220616164757519</figcaption>
 </figure>
-<h3 id="获取原始信号的频域图像分析频域特征">获取原始信号的频域图像，分析频域特征</h3>
+<h3
+id="获取原始信号的频域图像分析频域特征">获取原始信号的频域图像，分析频域特征</h3>
 <p>对三个原始信号作傅里叶变换，并绘制频域图像：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">double</span> W[MAXN], F1[MAXN], F2[MAXN], F3[MAXN];<br>cnt = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">double</span> w = <span class="hljs-number">-3.0</span>; w &lt;= <span class="hljs-number">3.0</span>; w += <span class="hljs-number">0.01</span>) &#123;<br>    W[cnt] = w;<br>    F1[cnt] = <span class="hljs-built_in">fourierTransform</span>(w, tf_f1, length);<br>    F2[cnt] = <span class="hljs-built_in">fourierTransform</span>(w, tf_f2, length);<br>    F3[cnt] = <span class="hljs-built_in">fourierTransform</span>(w, tf_f3, length);<br>    ++cnt;<br>&#125;<br><span class="hljs-function">Graph <span class="hljs-title">inputWSignal</span><span class="hljs-params">(WIDTH, HIGHT, <span class="hljs-number">0.0</span>, <span class="hljs-number">0.0</span>, <span class="hljs-number">8</span>, <span class="hljs-number">8</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, line_blue, grid, background, axis, <span class="hljs-string">&quot;inputW.ppm&quot;</span>)</span></span>;<br>inputWSignal.<span class="hljs-built_in">drawXY</span>(W, F1, cnt, line_blue);<br>inputWSignal.<span class="hljs-built_in">drawXY</span>(W, F2, cnt, line_green);<br>inputWSignal.<span class="hljs-built_in">drawXY</span>(W, F3, cnt, line_red);<br>inputWSignal.<span class="hljs-built_in">draw</span>();<br></code></pre></td></tr></table></figure>
 <p>其中<code>fourierTransform</code>函数定义如下：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">fourierTransform</span><span class="hljs-params">(<span class="hljs-type">double</span> w, tf f[], <span class="hljs-type">int</span> length)</span> </span>&#123;<br>	<span class="hljs-type">double</span> ans = <span class="hljs-number">0.0</span>;<br>	<span class="hljs-type">double</span> step = f[<span class="hljs-number">1</span>].t - f[<span class="hljs-number">0</span>].t;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; length; ++i) &#123;<br>		ans = ans + f[i].f * <span class="hljs-built_in">cos</span>(w * f[i].t) * step;<br>	&#125;<br>	<span class="hljs-keyword">return</span> ans;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>绘制出的频域波形如下：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220616164823488.png" srcset="/img/loading.gif" lazyload alt="image-20220616164823488" /><figcaption aria-hidden="true">image-20220616164823488</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220616164823488.png" srcset="/img/loading.gif" lazyload
+alt="image-20220616164823488" />
+<figcaption aria-hidden="true">image-20220616164823488</figcaption>
 </figure>
-<p>可以看出，输入的三个信号都是带限信号。有： <span class="math display">\[
+<p>可以看出，输入的三个信号都是带限信号。有： <span
+class="math display">\[
 \omega_{m1}=1\\
 \omega_{m2}=2\\
 \omega_{m3}=\frac \pi 2
-\]</span> 因此，我们可以使用频分复用的方法把这三个信号合在一个信道中传输。</p>
+\]</span>
+因此，我们可以使用频分复用的方法把这三个信号合在一个信道中传输。</p>
 <h3 id="频域搬移和信道组合">频域搬移和信道组合</h3>
 <p>由公式： <span class="math display">\[
 g(t)=\sum_{i=1}^3 f_i(t)\cos(\omega_it)
-\]</span> 我们可以将这三个信号的频域进行搬移，并组合在一个信道中进行传输。其中<span class="math inline">\(\cos(\omega_it)\)</span>就起到了幅度调制，频域搬移的作用。这是因为： <span class="math display">\[
+\]</span>
+我们可以将这三个信号的频域进行搬移，并组合在一个信道中进行传输。其中<span
+class="math inline">\(\cos(\omega_it)\)</span>就起到了幅度调制，频域搬移的作用。这是因为：
+<span class="math display">\[
 \begin{aligned}
-\mathscr{F}[f(t)\cos(\omega_0 t)]&amp;=\frac{1}{2\pi}\mathscr{F}[f(t)]\bigotimes\mathscr{F}[\cos(\omega_0 t)]\\
+\mathscr{F}[f(t)\cos(\omega_0
+t)]&amp;=\frac{1}{2\pi}\mathscr{F}[f(t)]\bigotimes\mathscr{F}[\cos(\omega_0
+t)]\\
 &amp;=\frac{1}{2\pi}F(\omega)\bigotimes\pi[\delta(\omega+\omega_0)+\delta(\omega-\omega_0)]\\
 &amp;=\frac 12[F(\omega+\omega_0)-F(\omega-\omega_0)]
 \end{aligned}
-\]</span> 在选择载波频率时，考虑到原始采样频率为<span class="math inline">\(f=10\text{Hz}\)</span>，所以载波频率分别选择 <span class="math display">\[
+\]</span> 在选择载波频率时，考虑到原始采样频率为<span
+class="math inline">\(f=10\text{Hz}\)</span>，所以载波频率分别选择 <span
+class="math display">\[
 \omega_1=5,\omega_2=12.5,\omega_3=20
 \]</span> 这部分的代码是：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">double</span> omega1 = <span class="hljs-number">5.0</span>, omega2 = <span class="hljs-number">12.5</span>, omega3 = <span class="hljs-number">20.0</span>;<br><span class="hljs-type">double</span> g[MAXN];<br>cnt = <span class="hljs-number">0</span>;<br>tf tf_g[MAXN];<br><span class="hljs-type">int</span> g_length = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">double</span> t = <span class="hljs-number">-10.0</span>; t &lt;= <span class="hljs-number">10.0</span>; t += <span class="hljs-number">0.1</span>) &#123;<br>	g[cnt] = (f1[cnt] * <span class="hljs-built_in">cos</span>(omega1 * t) + f2[cnt] * <span class="hljs-built_in">cos</span>(omega2 * t) + f3[cnt] * <span class="hljs-built_in">cos</span>(omega3 * t));<br>	tf_g[cnt] = (tf) &#123;t, g[cnt]&#125;;<br>	++cnt;<br>&#125;<br>g_length = cnt;<br><span class="hljs-function">Graph <span class="hljs-title">GT</span><span class="hljs-params">(WIDTH, HIGHT, <span class="hljs-number">0.0</span>, <span class="hljs-number">0.0</span>, <span class="hljs-number">22</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, line_blue, grid, background, axis, <span class="hljs-string">&quot;GT.ppm&quot;</span>)</span></span>;<br>GT.<span class="hljs-built_in">drawXY</span>(T, g, cnt, line_blue);<br><span class="hljs-type">double</span> G[MAXN], w2[MAXN];<br>cnt = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">double</span> w = <span class="hljs-number">-40</span>; w &lt;= <span class="hljs-number">40</span>; w += <span class="hljs-number">0.1</span>) &#123;<br>	w2[cnt] = w;<br>	G[cnt] = <span class="hljs-built_in">fourierTransform</span>(w, tf_g, g_length);<br>	++cnt;<br>&#125;<br><span class="hljs-function">Graph <span class="hljs-title">GW</span><span class="hljs-params">(WIDTH, HIGHT, <span class="hljs-number">0.0</span>, <span class="hljs-number">0.0</span>, <span class="hljs-number">85</span>, <span class="hljs-number">5</span>, <span class="hljs-number">5</span>, <span class="hljs-number">1</span>, line_blue, grid, background, axis, <span class="hljs-string">&quot;GW.ppm&quot;</span>)</span></span>;<br>GW.<span class="hljs-built_in">drawXY</span>(w2, G, cnt, line_blue);<br></code></pre></td></tr></table></figure>
-<p>同时分别画出了<span class="math inline">\(g(t)\)</span>的时域、频域图像，如下：</p>
+<p>同时分别画出了<span
+class="math inline">\(g(t)\)</span>的时域、频域图像，如下：</p>
 <p>时域图像：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220616172004693.png" srcset="/img/loading.gif" lazyload alt="image-20220616172004693" /><figcaption aria-hidden="true">image-20220616172004693</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220616172004693.png" srcset="/img/loading.gif" lazyload
+alt="image-20220616172004693" />
+<figcaption aria-hidden="true">image-20220616172004693</figcaption>
 </figure>
 <p>频域图像：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220616171953072.png" srcset="/img/loading.gif" lazyload alt="image-20220616171953072" /><figcaption aria-hidden="true">image-20220616171953072</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220616171953072.png" srcset="/img/loading.gif" lazyload
+alt="image-20220616171953072" />
+<figcaption aria-hidden="true">image-20220616171953072</figcaption>
 </figure>
 <p>可见：已经实现了频域搬移。</p>
 <h3 id="使用带通滤波器接受信号">使用带通滤波器接受信号</h3>
-<p>在解调过程中，使用带通滤波器接受信号。对于三个信号，分别采用中心频率为<span class="math inline">\(\omega_i\)</span>，通过频带宽度为<span class="math inline">\(\omega_{mi}\)</span>的带通滤波器。信号<span class="math inline">\(g(t)\)</span>经过带通滤波器以后，被分为了三路信号。对这三路信号，每一路再乘以<span class="math inline">\(\cos(\omega_i t)\)</span>，就把频带移动到了中间。如下图所示：</p>
+<p>在解调过程中，使用带通滤波器接受信号。对于三个信号，分别采用中心频率为<span
+class="math inline">\(\omega_i\)</span>，通过频带宽度为<span
+class="math inline">\(\omega_{mi}\)</span>的带通滤波器。信号<span
+class="math inline">\(g(t)\)</span>经过带通滤波器以后，被分为了三路信号。对这三路信号，每一路再乘以<span
+class="math inline">\(\cos(\omega_i
+t)\)</span>，就把频带移动到了中间。如下图所示：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220616172628586.png" srcset="/img/loading.gif" lazyload alt="image-20220616172628586" /><figcaption aria-hidden="true">image-20220616172628586</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220616172628586.png" srcset="/img/loading.gif" lazyload
+alt="image-20220616172628586" />
+<figcaption aria-hidden="true">image-20220616172628586</figcaption>
 </figure>
 <p>我们再对这三个信号过一个低通滤波器，就能恢复出原来的信号了。</p>
 <p>这部分的代码如下：</p>
 <ol type="1">
 <li><p>通过带通滤波器分开三路信号：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">double</span> G1[MAXN], G2[MAXN], G3[MAXN];<br>wF wF_g1[MAXN], wF_g2[MAXN], wF_g3[MAXN];<br>cnt = <span class="hljs-number">0</span>;<br><span class="hljs-built_in">memset</span>(G1, <span class="hljs-number">0</span>, <span class="hljs-built_in">sizeof</span>(G1));<br><span class="hljs-built_in">memset</span>(G2, <span class="hljs-number">0</span>, <span class="hljs-built_in">sizeof</span>(G2));<br><span class="hljs-built_in">memset</span>(G3, <span class="hljs-number">0</span>, <span class="hljs-built_in">sizeof</span>(G3));<br><span class="hljs-keyword">for</span> (<span class="hljs-type">double</span> w = <span class="hljs-number">-40</span>; w &lt;= <span class="hljs-number">40</span>; w += <span class="hljs-number">0.1</span>) &#123;<br>	G1[cnt] = G[cnt] * <span class="hljs-built_in">bandPassFilter</span>(<span class="hljs-number">5.0</span>, <span class="hljs-number">5.0</span>, w);<br>	G2[cnt] = G[cnt] * <span class="hljs-built_in">bandPassFilter</span>(<span class="hljs-number">12.5</span>, <span class="hljs-number">5.0</span>, w);<br>	G3[cnt] = G[cnt] * <span class="hljs-built_in">bandPassFilter</span>(<span class="hljs-number">20.0</span>, PI, w);<br>	wF_g1[cnt] = (wF) &#123;w, G1[cnt]&#125;;<br>	wF_g2[cnt] = (wF) &#123;w, G2[cnt]&#125;;<br>	wF_g3[cnt] = (wF) &#123;w, G3[cnt]&#125;;<br>	++cnt;<br>&#125;<br></code></pre></td></tr></table></figure></li>
-<li><p>分别再乘以<span class="math inline">\(\cos(\omega_i t)\)</span>再次搬移频域</p>
+<li><p>分别再乘以<span class="math inline">\(\cos(\omega_i
+t)\)</span>再次搬移频域</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">int</span> G1length = cnt;<br>cnt = <span class="hljs-number">0</span>;<br><span class="hljs-type">double</span> fG1[MAXN], fG2[MAXN], fG3[MAXN];<br>tf tf_fG1[MAXN], tf_fG2[MAXN], tf_fG3[MAXN];<br><span class="hljs-keyword">for</span> (<span class="hljs-type">double</span> t = <span class="hljs-number">-10.0</span>; t &lt;= <span class="hljs-number">10.0</span>; t += <span class="hljs-number">0.1</span>) &#123;<br>	fG1[cnt] = <span class="hljs-built_in">fourierInvTransform</span>(t, wF_g1, G1length);<br>	fG2[cnt] = <span class="hljs-built_in">fourierInvTransform</span>(t, wF_g2, G1length);<br>	fG3[cnt] = <span class="hljs-built_in">fourierInvTransform</span>(t, wF_g3, G1length);<br>	fG1[cnt] *= <span class="hljs-built_in">cos</span>(omega1 * t);<br>	fG2[cnt] *= <span class="hljs-built_in">cos</span>(omega2 * t);<br>	fG3[cnt] *= <span class="hljs-built_in">cos</span>(omega3 * t);<br>	tf_fG1[cnt] = (tf) &#123;t, fG1[cnt]&#125;;<br>	tf_fG2[cnt] = (tf) &#123;t, fG2[cnt]&#125;;<br>	tf_fG3[cnt] = (tf) &#123;t, fG3[cnt]&#125;;<br>	++cnt;<br>&#125;<br></code></pre></td></tr></table></figure></li>
 <li><p>通过低通滤波器，恢复原始信号，并绘制出输出信号</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">double</span> GfG1[MAXN], GfG2[MAXN], GfG3[MAXN];<br>wF wf_gfg1[MAXN], wf_gfg2[MAXN], wf_gfg3[MAXN];<br>cnt = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">double</span> w = <span class="hljs-number">-40</span>; w &lt;= <span class="hljs-number">40</span>; w += <span class="hljs-number">0.1</span>) &#123;<br>	GfG1[cnt] = <span class="hljs-built_in">fourierTransform</span>(w, tf_fG1, g_length);<br>	GfG2[cnt] = <span class="hljs-built_in">fourierTransform</span>(w, tf_fG2, g_length);<br>	GfG3[cnt] = <span class="hljs-built_in">fourierTransform</span>(w, tf_fG3, g_length);<br>	GfG1[cnt] *= <span class="hljs-built_in">bandPassFilter</span>(<span class="hljs-number">0</span>, <span class="hljs-number">5</span>, w)*<span class="hljs-number">2.0</span>;<br>	GfG2[cnt] *= <span class="hljs-built_in">bandPassFilter</span>(<span class="hljs-number">0</span>, <span class="hljs-number">5</span>, w)*<span class="hljs-number">2.0</span>;<br>	GfG3[cnt] *= <span class="hljs-built_in">bandPassFilter</span>(<span class="hljs-number">0</span>, <span class="hljs-number">5</span>, w)*<span class="hljs-number">2.0</span>;<br>	wf_gfg1[cnt] = (wF) &#123;w, GfG1[cnt]&#125;;<br>	wf_gfg2[cnt] = (wF) &#123;w, GfG2[cnt]&#125;;<br>	wf_gfg3[cnt] = (wF) &#123;w, GfG3[cnt]&#125;;<br>	++cnt;<br>&#125;<br>length = cnt;<br><span class="hljs-type">double</span> finalf1[MAXN], finalf2[MAXN], finalf3[MAXN];<br>cnt = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">double</span> t = <span class="hljs-number">-10</span>; t &lt;= <span class="hljs-number">10</span>; t += <span class="hljs-number">0.1</span>) &#123;<br>	finalf1[cnt] = <span class="hljs-built_in">fourierInvTransform</span>(t, wf_gfg1, length);<br>	finalf2[cnt] = <span class="hljs-built_in">fourierInvTransform</span>(t, wf_gfg2, length);<br>	finalf3[cnt] = <span class="hljs-built_in">fourierInvTransform</span>(t, wf_gfg3, length);<br>	++cnt;<br>&#125;<br><span class="hljs-function">Graph <span class="hljs-title">outputSignal</span><span class="hljs-params">(WIDTH, HIGHT, <span class="hljs-number">0.0</span>, <span class="hljs-number">0.0</span>, <span class="hljs-number">22</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, line_blue, grid, background, axis, <span class="hljs-string">&quot;output.ppm&quot;</span>)</span></span>;<br>outputSignal.<span class="hljs-built_in">drawXY</span>(T, finalf1, cnt, line_blue);<br>outputSignal.<span class="hljs-built_in">drawXY</span>(T, finalf2, cnt, line_green);<br>outputSignal.<span class="hljs-built_in">drawXY</span>(T, finalf3, cnt, line_red);<br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br></code></pre></td></tr></table></figure></li>
 </ol>
 <p>输出信号的波形如下：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220616173101518.png" srcset="/img/loading.gif" lazyload alt="image-20220616173101518" /><figcaption aria-hidden="true">image-20220616173101518</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/image-20220616173101518.png" srcset="/img/loading.gif" lazyload
+alt="image-20220616173101518" />
+<figcaption aria-hidden="true">image-20220616173101518</figcaption>
 </figure>
 <p>可以看出，本次实验较好地完成了频分复用信号传输的任务。</p>
 <p>计算三个信号的均方误差，有：</p>

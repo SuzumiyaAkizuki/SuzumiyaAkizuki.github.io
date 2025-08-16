@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212102332475.jpg">
 <meta property="article:published_time" content="2022-12-04T12:52:13.000Z">
-<meta property="article:modified_time" content="2025-01-20T16:35:30.393Z">
+<meta property="article:modified_time" content="2025-01-20T16:35:30.000Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="实变泛函">
 <meta property="article:tag" content="数学">
@@ -447,9 +447,14 @@
 <p>实变函数和泛函分析是一门广度极强的学科，融合了分析、代数、抽代、拓扑等数学各个方面的知识。在学习时要能建立起各个概念之间的联系。</p>
 <span id="more"></span>
 <h2 id="点集">点集</h2>
-<h3 id="rn中的线性运算内积和范数"><span class="math inline">\(R^n\)</span>中的线性运算、内积和范数</h3>
-<h4 id="n维欧氏空间rn"><span class="math inline">\(n\)</span>维欧氏空间<span class="math inline">\(R^n\)</span></h4>
-<p><span class="math inline">\(R^n\)</span>指的是<span class="math inline">\(n\)</span>维向量组成的集合： <span class="math display">\[
+<h3 id="rn中的线性运算内积和范数"><span
+class="math inline">\(R^n\)</span>中的线性运算、内积和范数</h3>
+<h4 id="n维欧氏空间rn"><span
+class="math inline">\(n\)</span>维欧氏空间<span
+class="math inline">\(R^n\)</span></h4>
+<p><span class="math inline">\(R^n\)</span>指的是<span
+class="math inline">\(n\)</span>维向量组成的集合： <span
+class="math display">\[
 R^n=\{(x_1,x_2,\cdots,x_n):x_i\in R,i=1,2,\cdots n\}
 \]</span> 在这个集合上定义加法和数乘： <span class="math display">\[
 \begin{aligned}
@@ -457,20 +462,27 @@ R^n=\{(x_1,x_2,\cdots,x_n):x_i\in R,i=1,2,\cdots n\}
 &amp;x+y=(x_1+y_1,x_2+y_2,\cdots,x_n+y_n)\\
 &amp;\lambda x=(\lambda x_1,\lambda x_2,\cdots,\lambda x_n)
 \end{aligned}
-\]</span> 其满足所谓的“线性运算八条性质”：对任意的<span class="math inline">\(x,y\in R^n;\lambda,\mu\in R\)</span></p>
+\]</span> 其满足所谓的“线性运算八条性质”：对任意的<span
+class="math inline">\(x,y\in R^n;\lambda,\mu\in R\)</span></p>
 <ol type="1">
 <li><span class="math inline">\(x+y=y+x\)</span></li>
 <li><span class="math inline">\(x+y+z=(x+y)+z=x+(y+z)\)</span></li>
 <li><span class="math inline">\(x+0=x\)</span>;</li>
 <li><span class="math inline">\(x+(-x)=0\)</span></li>
 <li><span class="math inline">\(1x=x\)</span></li>
-<li><span class="math inline">\(\lambda(x+y)=\lambda x+\lambda y\)</span></li>
-<li><span class="math inline">\((\lambda+\mu) x=\lambda x+\mu x\)</span></li>
-<li><span class="math inline">\((\lambda \mu) x=\lambda(\mu x)\)</span></li>
+<li><span class="math inline">\(\lambda(x+y)=\lambda x+\lambda
+y\)</span></li>
+<li><span class="math inline">\((\lambda+\mu) x=\lambda x+\mu
+x\)</span></li>
+<li><span class="math inline">\((\lambda \mu) x=\lambda(\mu
+x)\)</span></li>
 </ol>
-<p>对于<span class="math inline">\(\forall x,y\in R^n\)</span>，定义<strong>内积</strong>： <span class="math display">\[
+<p>对于<span class="math inline">\(\forall x,y\in
+R^n\)</span>，定义<strong>内积</strong>： <span class="math display">\[
 (x,y)=\sum_{i=1}^n x_iy_i
-\]</span> 内积满足以下三条性质：对于任意的<span class="math inline">\(x,y,z\in R^n\)</span>，任意的<span class="math inline">\(\lambda,\mu\in R\)</span>，有：</p>
+\]</span> 内积满足以下三条性质：对于任意的<span
+class="math inline">\(x,y,z\in R^n\)</span>，任意的<span
+class="math inline">\(\lambda,\mu\in R\)</span>，有：</p>
 <ol type="1">
 <li>正定性：<span class="math inline">\((x,x)\geq 0\)</span></li>
 <li>对称性：<span class="math inline">\((x,y)=(y,x)\)</span></li>
@@ -480,41 +492,104 @@ R^n=\{(x_1,x_2,\cdots,x_n):x_i\in R,i=1,2,\cdots n\}
 <li><span class="math inline">\((\lambda x,y)=\lambda(x,y)\)</span></li>
 </ol></li>
 </ol>
-<p>定义了内积的<span class="math inline">\(n\)</span>维向量空间被称为“<strong>内积空间</strong>”，也叫“<strong>欧几里得空间</strong>”.</p>
-<p>对于一般的内积空间<span class="math inline">\(X\)</span>，总成立柯西-施瓦茨不等式： <span class="math display">\[
+<p>定义了内积的<span
+class="math inline">\(n\)</span>维向量空间被称为“<strong>内积空间</strong>”，也叫“<strong>欧几里得空间</strong>”.</p>
+<p>对于一般的内积空间<span
+class="math inline">\(X\)</span>，总成立柯西-施瓦茨不等式： <span
+class="math display">\[
 |(x,y)|\leq ||x||\cdot||y||
-\]</span> 其中<span class="math inline">\(||x||=\sqrt{(x,x)}\)</span>，称之为向量的<strong>范数</strong>。范数满足以下三条性质：</p>
+\]</span> 其中<span
+class="math inline">\(||x||=\sqrt{(x,x)}\)</span>，称之为向量的<strong>范数</strong>。范数满足以下三条性质：</p>
 <ol type="1">
-<li>正定性：<span class="math inline">\(||x||\geq 0\)</span>，取到<span class="math inline">\(0\)</span>当且仅当<span class="math inline">\(x=0\)</span></li>
-<li>齐次性：<span class="math inline">\(||\lambda x||=|\lambda|\cdot ||x||\)</span></li>
-<li>三角不等式：<span class="math inline">\(||x+y||\leq||x||+||y||\)</span></li>
+<li>正定性：<span class="math inline">\(||x||\geq 0\)</span>，取到<span
+class="math inline">\(0\)</span>当且仅当<span
+class="math inline">\(x=0\)</span></li>
+<li>齐次性：<span class="math inline">\(||\lambda x||=|\lambda|\cdot
+||x||\)</span></li>
+<li>三角不等式：<span
+class="math inline">\(||x+y||\leq||x||+||y||\)</span></li>
 </ol>
-<p>其实，只要<span class="math inline">\(f(x)\)</span>满足以上三个条件，那么它就可以被称作范数，范数不只有上面所提到的那一种定义。</p>
+<p>其实，只要<span
+class="math inline">\(f(x)\)</span>满足以上三个条件，那么它就可以被称作范数，范数不只有上面所提到的那一种定义。</p>
 <p>对三角不等式的证明可以先对式子两边取平方，再运用柯西-施瓦茨不等式。</p>
-<p>如果<span class="math inline">\(x,y\in R^n\)</span>且<span class="math inline">\(x,y\neq 0\)</span> ,则存在实数<span class="math inline">\(\theta\in[0,\pi]\)</span>，满足： <span class="math display">\[
+<p>如果<span class="math inline">\(x,y\in R^n\)</span>且<span
+class="math inline">\(x,y\neq 0\)</span> ,则存在实数<span
+class="math inline">\(\theta\in[0,\pi]\)</span>，满足： <span
+class="math display">\[
 \cos \theta=\frac{(x,y)}{||x||\cdot ||y||}
 \]</span> 这个实数称为两个向量之间的<strong>夹角</strong>。</p>
-<p>最后，我们定义<strong>两点间的距离</strong>：<span class="math inline">\(d(x,y)=||x-y||\)</span>。距离的本质是范数，满足范数的性质。</p>
-<h4 id="rn中点列的极限"><span class="math inline">\(R^n\)</span>中点列的极限</h4>
-<p>设<span class="math inline">\(\{x_k\}\)</span>是<span class="math inline">\(R^n\)</span>中的点列，如果<span class="math inline">\(\forall \epsilon&gt;0,\exists N,\forall k&gt;N,||x_k-a||&lt;\epsilon\)</span>，称<span class="math inline">\(\{x_k\}\)</span>收敛于<span class="math inline">\(a\)</span>，记作： <span class="math display">\[
+<p>最后，我们定义<strong>两点间的距离</strong>：<span
+class="math inline">\(d(x,y)=||x-y||\)</span>。距离的本质是范数，满足范数的性质。</p>
+<h4 id="rn中点列的极限"><span
+class="math inline">\(R^n\)</span>中点列的极限</h4>
+<p>设<span class="math inline">\(\{x_k\}\)</span>是<span
+class="math inline">\(R^n\)</span>中的点列，如果<span
+class="math inline">\(\forall \epsilon&gt;0,\exists N,\forall
+k&gt;N,||x_k-a||&lt;\epsilon\)</span>，称<span
+class="math inline">\(\{x_k\}\)</span>收敛于<span
+class="math inline">\(a\)</span>，记作： <span class="math display">\[
 \lim_{n\to \infty}x_k=a
 \]</span> 点列的极限满足以下四条性质：</p>
 <ol type="1">
 <li>点列的极限如果存在，那么唯一</li>
 <li>收敛点列必定有界</li>
-<li><span class="math inline">\(\lim_{k\to \infty}(x_k+y_k)=a+b\)</span></li>
-<li><span class="math inline">\(\forall \lambda \in R,\lim_{k\to \infty} (\lambda x_k)=\lambda a\)</span></li>
+<li><span class="math inline">\(\lim_{k\to
+\infty}(x_k+y_k)=a+b\)</span></li>
+<li><span class="math inline">\(\forall \lambda \in R,\lim_{k\to \infty}
+(\lambda x_k)=\lambda a\)</span></li>
 </ol>
 <p>点列收敛等价于点列的每个分量都收敛（即按分量收敛）。</p>
-<h3 id="rn中点集的基本概念和性质"><span class="math inline">\(R^n\)</span>中点集的基本概念和性质</h3>
-<p><span class="math inline">\(a\in R^n,r&gt;0\)</span>，则称集合<span class="math inline">\(\{x\in R^n:||x-a||&lt;r\}\)</span>称为以<span class="math inline">\(a\)</span>为心，<span class="math inline">\(r\)</span>为半径的“<strong>开球</strong>”或者“<strong>球形邻域</strong>”，记作<span class="math inline">\(B_r(a)\)</span>.</p>
-<p>令<span class="math inline">\(\bar B_r(a)=\{x\in R^n:||x-a||\leq r\}\)</span>，称作“<strong>闭球</strong>”</p>
-<p>令<span class="math inline">\(B_r^o(a)=\{x\in R^n:0&lt;||x-a||&lt;r\}\)</span>，称作“<strong>去心开球</strong>”</p>
-<p>若<span class="math inline">\(E\subset R^n,\exists r&gt;0,s.t. E\subset B_r(0)\)</span>，称<span class="math inline">\(E\)</span>是<strong>有界</strong>的。否则，称<span class="math inline">\(E\)</span>是<strong>无界</strong>的。</p>
+<h3 id="rn中点集的基本概念和性质"><span
+class="math inline">\(R^n\)</span>中点集的基本概念和性质</h3>
+<p><span class="math inline">\(a\in R^n,r&gt;0\)</span>，则称集合<span
+class="math inline">\(\{x\in R^n:||x-a||&lt;r\}\)</span>称为以<span
+class="math inline">\(a\)</span>为心，<span
+class="math inline">\(r\)</span>为半径的“<strong>开球</strong>”或者“<strong>球形邻域</strong>”，记作<span
+class="math inline">\(B_r(a)\)</span>.</p>
+<p>令<span class="math inline">\(\bar B_r(a)=\{x\in R^n:||x-a||\leq
+r\}\)</span>，称作“<strong>闭球</strong>”</p>
+<p>令<span class="math inline">\(B_r^o(a)=\{x\in
+R^n:0&lt;||x-a||&lt;r\}\)</span>，称作“<strong>去心开球</strong>”</p>
+<p>若<span class="math inline">\(E\subset R^n,\exists r&gt;0,s.t.
+E\subset B_r(0)\)</span>，称<span
+class="math inline">\(E\)</span>是<strong>有界</strong>的。否则，称<span
+class="math inline">\(E\)</span>是<strong>无界</strong>的。</p>
 <h4 id="点">点</h4>
-<p>如果<span class="math inline">\(a\in E,\exists r&gt;0,s.t. B_r(a)\subset E\)</span>，则<span class="math inline">\(a\)</span>叫做<span class="math inline">\(E\)</span>的<strong>内点</strong>，如果<span class="math inline">\(a\)</span>是<span class="math inline">\(E^c\)</span>(<span class="math inline">\(E\)</span>的补集)的内点，那么<span class="math inline">\(a\)</span>叫做<span class="math inline">\(E\)</span>的<strong>外点</strong>。如果<span class="math inline">\(a\)</span>对<span class="math inline">\(E\)</span>来说既不是内点，也不是外点，那么<span class="math inline">\(a\)</span>叫做<span class="math inline">\(E\)</span>的<strong>边界点</strong>。</p>
-<p>换句话说：以<span class="math inline">\(a\)</span>为心的任意邻域内都存在属于<span class="math inline">\(E\)</span>的点，同时也存在不属于<span class="math inline">\(E\)</span>的点，那么<span class="math inline">\(a\)</span>叫做<span class="math inline">\(E\)</span>的边界点。</p>
-<p>如果以<span class="math inline">\(a\)</span>为心的任意球形邻域中都含有<span class="math inline">\(E\)</span>的无限多个点，那么<span class="math inline">\(a\)</span>叫做<span class="math inline">\(E\)</span>的<strong>聚点</strong>，也叫<strong>极限点</strong>。聚点的定义可以简化，也就是说，只要以<span class="math inline">\(a\)</span>为心的任意球形邻域中都含有<span class="math inline">\(E\)</span>中不同于<span class="math inline">\(a\)</span>的一个点，那么<span class="math inline">\(a\)</span>就是<span class="math inline">\(E\)</span>的聚点。很显然，这两种说法实际上是等价的。还有一种等价的说法：从<span class="math inline">\(E\)</span>中选出互不相同的点组成点列<span class="math inline">\(\{x_k\}\)</span>，如果<span class="math inline">\(\lim_{k\to \infty}x_k=a\)</span>，那么<span class="math inline">\(a\)</span>是<span class="math inline">\(E\)</span>的聚点。<span class="math inline">\(E\)</span>中不是聚点的点叫做<strong>孤立点</strong>。</p>
+<p>如果<span class="math inline">\(a\in E,\exists r&gt;0,s.t.
+B_r(a)\subset E\)</span>，则<span
+class="math inline">\(a\)</span>叫做<span
+class="math inline">\(E\)</span>的<strong>内点</strong>，如果<span
+class="math inline">\(a\)</span>是<span
+class="math inline">\(E^c\)</span>(<span
+class="math inline">\(E\)</span>的补集)的内点，那么<span
+class="math inline">\(a\)</span>叫做<span
+class="math inline">\(E\)</span>的<strong>外点</strong>。如果<span
+class="math inline">\(a\)</span>对<span
+class="math inline">\(E\)</span>来说既不是内点，也不是外点，那么<span
+class="math inline">\(a\)</span>叫做<span
+class="math inline">\(E\)</span>的<strong>边界点</strong>。</p>
+<p>换句话说：以<span
+class="math inline">\(a\)</span>为心的任意邻域内都存在属于<span
+class="math inline">\(E\)</span>的点，同时也存在不属于<span
+class="math inline">\(E\)</span>的点，那么<span
+class="math inline">\(a\)</span>叫做<span
+class="math inline">\(E\)</span>的边界点。</p>
+<p>如果以<span
+class="math inline">\(a\)</span>为心的任意球形邻域中都含有<span
+class="math inline">\(E\)</span>的无限多个点，那么<span
+class="math inline">\(a\)</span>叫做<span
+class="math inline">\(E\)</span>的<strong>聚点</strong>，也叫<strong>极限点</strong>。聚点的定义可以简化，也就是说，只要以<span
+class="math inline">\(a\)</span>为心的任意球形邻域中都含有<span
+class="math inline">\(E\)</span>中不同于<span
+class="math inline">\(a\)</span>的一个点，那么<span
+class="math inline">\(a\)</span>就是<span
+class="math inline">\(E\)</span>的聚点。很显然，这两种说法实际上是等价的。还有一种等价的说法：从<span
+class="math inline">\(E\)</span>中选出互不相同的点组成点列<span
+class="math inline">\(\{x_k\}\)</span>，如果<span
+class="math inline">\(\lim_{k\to \infty}x_k=a\)</span>，那么<span
+class="math inline">\(a\)</span>是<span
+class="math inline">\(E\)</span>的聚点。<span
+class="math inline">\(E\)</span>中不是聚点的点叫做<strong>孤立点</strong>。</p>
 <p>关于各种点之间的关系，有如下的结论：</p>
 <ol type="1">
 <li>内点一定是聚点，外点一定不是聚点</li>
@@ -524,25 +599,51 @@ R^n=\{(x_1,x_2,\cdots,x_n):x_i\in R,i=1,2,\cdots n\}
 <li>如果一个点既不是聚点，也不是边界点，那么一定是外点</li>
 <li>内点必属于集合，外点必不属于集合，边界点不一定属于集合</li>
 </ol>
-<p>我们会发现：聚点不一定在集合内，例子很简单：对于<span class="math inline">\(R^1,E=Q,e=\lim_{k\to \infty}(1+1/n)^n,e\notin E\)</span></p>
-<p>设<span class="math inline">\(A\subset R^n,\forall x\in R^n,\exist r,s.t. \exist a\in A,a\in B_r(x)\)</span>，那么称<span class="math inline">\(A\)</span>在<span class="math inline">\(R^n\)</span>中<strong>稠密</strong>。稠密等价于以下两个结论：</p>
+<p>我们会发现：聚点不一定在集合内，例子很简单：对于<span
+class="math inline">\(R^1,E=Q,e=\lim_{k\to \infty}(1+1/n)^n,e\notin
+E\)</span></p>
+<p>设<span class="math inline">\(A\subset R^n,\forall x\in R^n,\exist
+r,s.t. \exist a\in A,a\in B_r(x)\)</span>，那么称<span
+class="math inline">\(A\)</span>在<span
+class="math inline">\(R^n\)</span>中<strong>稠密</strong>。稠密等价于以下两个结论：</p>
 <ol type="1">
-<li>对<span class="math inline">\(\forall x\in R^n\)</span>，总存在<span class="math inline">\(A\)</span>中的点列收敛于<span class="math inline">\(x\)</span>。</li>
-<li><span class="math inline">\(R^n\)</span>中的点要么是<span class="math inline">\(A\)</span>中的点，要么是<span class="math inline">\(A\)</span>的聚点。</li>
+<li>对<span class="math inline">\(\forall x\in R^n\)</span>，总存在<span
+class="math inline">\(A\)</span>中的点列收敛于<span
+class="math inline">\(x\)</span>。</li>
+<li><span class="math inline">\(R^n\)</span>中的点要么是<span
+class="math inline">\(A\)</span>中的点，要么是<span
+class="math inline">\(A\)</span>的聚点。</li>
 </ol>
 <h4 id="开集">开集</h4>
-<p>点集<span class="math inline">\(E\)</span>的全体内点的集合叫做<span class="math inline">\(E\)</span> 的内部，记作<span class="math inline">\(E^o\)</span>。如果<span class="math inline">\(E=E^o\)</span>，那么称<span class="math inline">\(E\)</span>为<strong>开集</strong>。</p>
-<p>几个经典的开集：空集、<span class="math inline">\(R^n\)</span>、数轴上的开区间、<span class="math inline">\(\{(x,y)|y&gt;0\}\)</span>、开球</p>
+<p>点集<span class="math inline">\(E\)</span>的全体内点的集合叫做<span
+class="math inline">\(E\)</span> 的内部，记作<span
+class="math inline">\(E^o\)</span>。如果<span
+class="math inline">\(E=E^o\)</span>，那么称<span
+class="math inline">\(E\)</span>为<strong>开集</strong>。</p>
+<p>几个经典的开集：空集、<span
+class="math inline">\(R^n\)</span>、数轴上的开区间、<span
+class="math inline">\(\{(x,y)|y&gt;0\}\)</span>、开球</p>
 <p>任意多个开集的并还是开集，有限个开集的交还是开集</p>
 <h4 id="闭集">闭集</h4>
-<p>如果<span class="math inline">\(E\subset R^n\)</span>是开集，那么<span class="math inline">\(E^c\)</span>叫做<strong>闭集</strong>。</p>
-<p>几个经典的闭集：数轴上的闭区间、<span class="math inline">\(R^2\)</span>的横轴和下半平面、有限个点的集合、开球的补</p>
+<p>如果<span class="math inline">\(E\subset
+R^n\)</span>是开集，那么<span
+class="math inline">\(E^c\)</span>叫做<strong>闭集</strong>。</p>
+<p>几个经典的闭集：数轴上的闭区间、<span
+class="math inline">\(R^2\)</span>的横轴和下半平面、有限个点的集合、开球的补</p>
 <p>集合可以既不是开集也不是闭集。</p>
 <p>任意个闭集的交还是闭集，有限个闭集的并还是闭集。</p>
-<p>点集<span class="math inline">\(E\subset R^n\)</span>的全体聚点的集合叫做<span class="math inline">\(E\)</span>的<strong>导集</strong>，记作<span class="math inline">\(E&#39;\)</span>。如果<span class="math inline">\(\bar E=E\cup E&#39;\)</span>，那么<span class="math inline">\(\bar E\)</span>叫做<span class="math inline">\(E\)</span>的<strong>闭包</strong>。</p>
-<p>如果<span class="math inline">\(E\)</span>是闭集，那么它的闭包是它自己。</p>
+<p>点集<span class="math inline">\(E\subset
+R^n\)</span>的全体聚点的集合叫做<span
+class="math inline">\(E\)</span>的<strong>导集</strong>，记作<span
+class="math inline">\(E&#39;\)</span>。如果<span
+class="math inline">\(\bar E=E\cup E&#39;\)</span>，那么<span
+class="math inline">\(\bar E\)</span>叫做<span
+class="math inline">\(E\)</span>的<strong>闭包</strong>。</p>
+<p>如果<span
+class="math inline">\(E\)</span>是闭集，那么它的闭包是它自己。</p>
 <p>内部是含于一个集合的最大开集，闭包是包含一个集合的最小闭集。</p>
-<h3 id="rn中的基本定理"><span class="math inline">\(R^n\)</span>中的基本定理</h3>
+<h3 id="rn中的基本定理"><span
+class="math inline">\(R^n\)</span>中的基本定理</h3>
 <p>我们在学实数的时候经常提“六大定理”，即：</p>
 <ol type="1">
 <li>确界存在定理</li>
@@ -552,20 +653,39 @@ R^n=\{(x_1,x_2,\cdots,x_n):x_i\in R,i=1,2,\cdots n\}
 <li>闭区间套定理</li>
 <li>有限覆盖定理</li>
 </ol>
-<p>在<span class="math inline">\(R^n\)</span>中，前两个定理不再成立，后面的继续成立。</p>
+<p>在<span
+class="math inline">\(R^n\)</span>中，前两个定理不再成立，后面的继续成立。</p>
 <ul>
-<li><p><span class="math inline">\(R^n\)</span>中的有界点列必有收敛子列，也就是：任何无穷点集都含有聚点</p></li>
-<li><p>如果<span class="math inline">\(\{x_k\}\)</span>是<span class="math inline">\(R^n\)</span>中的点列，如果<span class="math inline">\(\forall \varepsilon&gt;0,\exists N=N(\varepsilon)&gt;0,s.t. \forall k,l&gt;N,||x_k-x_l||&lt;\varepsilon\)</span>，称<span class="math inline">\(\{x_k\}\)</span>是基本列。“是基本列”和“收敛”等价。</p></li>
-<li><p>设<span class="math inline">\(\{E_k\}\)</span>是一个闭集列，都不是空集，而且：</p>
+<li><p><span
+class="math inline">\(R^n\)</span>中的有界点列必有收敛子列，也就是：任何无穷点集都含有聚点</p></li>
+<li><p>如果<span class="math inline">\(\{x_k\}\)</span>是<span
+class="math inline">\(R^n\)</span>中的点列，如果<span
+class="math inline">\(\forall \varepsilon&gt;0,\exists
+N=N(\varepsilon)&gt;0,s.t. \forall
+k,l&gt;N,||x_k-x_l||&lt;\varepsilon\)</span>，称<span
+class="math inline">\(\{x_k\}\)</span>是基本列。“是基本列”和“收敛”等价。</p></li>
+<li><p>设<span
+class="math inline">\(\{E_k\}\)</span>是一个闭集列，都不是空集，而且：</p>
 <ul>
 <li>后一项是前一项的子列</li>
-<li><span class="math inline">\(\lim _{k\to \infty} diam(E_k)=0\)</span></li>
+<li><span class="math inline">\(\lim _{k\to \infty}
+diam(E_k)=0\)</span></li>
 </ul>
-<p>那么存在唯一的<span class="math inline">\(\xi \in \bigcap_{k=1}^{\infty} E_k\)</span>，其中<span class="math inline">\(diam(A)=\sup_{\forall x,y\in A}||x-y||\)</span>。</p></li>
-<li><p>设<span class="math inline">\(E\in R^n,\{G_\alpha\}_{\alpha \in \Gamma}\)</span>是<span class="math inline">\(R^n\)</span>中的一个开集族，如果<span class="math inline">\(E\subset \bigcup G_\alpha\)</span>，称<span class="math inline">\(\{G\}\)</span>是<span class="math inline">\(E\)</span>的一个开覆盖。<span class="math inline">\(R^n\)</span>中的有界闭集的任意一个开覆盖都有有限子覆盖</p></li>
+<p>那么存在唯一的<span class="math inline">\(\xi \in
+\bigcap_{k=1}^{\infty} E_k\)</span>，其中<span
+class="math inline">\(diam(A)=\sup_{\forall x,y\in
+A}||x-y||\)</span>。</p></li>
+<li><p>设<span class="math inline">\(E\in R^n,\{G_\alpha\}_{\alpha \in
+\Gamma}\)</span>是<span
+class="math inline">\(R^n\)</span>中的一个开集族，如果<span
+class="math inline">\(E\subset \bigcup G_\alpha\)</span>，称<span
+class="math inline">\(\{G\}\)</span>是<span
+class="math inline">\(E\)</span>的一个开覆盖。<span
+class="math inline">\(R^n\)</span>中的有界闭集的任意一个开覆盖都有有限子覆盖</p></li>
 </ul>
 <h3 id="距离">距离</h3>
-<p>点<span class="math inline">\(x\)</span>和集合<span class="math inline">\(B\)</span>的距离为： <span class="math display">\[
+<p>点<span class="math inline">\(x\)</span>和集合<span
+class="math inline">\(B\)</span>的距离为： <span class="math display">\[
 d(x,B)=\inf\{d(x,y):y\in B\}
 \]</span> 意思就是点到集合中每个点的距离的下确界</p>
 <p>两个集合之间的距离为： <span class="math display">\[
@@ -573,65 +693,100 @@ d(A,B)=\inf\{d(x,y):x\in A,y\in B\}
 \]</span> 意思就是从集合里面任选两个点，它们之间的距离的下确界</p>
 <p>有以下结论：</p>
 <ol type="1">
-<li>如果A是非空闭集，则<span class="math inline">\(\exists y\in A,s.t.d(x,y)=d(x,A)\)</span></li>
-<li>如果AB是非空闭集，则<span class="math inline">\(\exists x\in A,y\in B,s.t. d(x,y)=d(A,B)\)</span></li>
-<li><span class="math inline">\(F_1,F_2\)</span>是不相交的非空闭集，则存在<span class="math inline">\(R^n\)</span>上的连续函数，使得
+<li>如果A是非空闭集，则<span class="math inline">\(\exists y\in
+A,s.t.d(x,y)=d(x,A)\)</span></li>
+<li>如果AB是非空闭集，则<span class="math inline">\(\exists x\in A,y\in
+B,s.t. d(x,y)=d(A,B)\)</span></li>
+<li><span
+class="math inline">\(F_1,F_2\)</span>是不相交的非空闭集，则存在<span
+class="math inline">\(R^n\)</span>上的连续函数，使得
 <ol type="1">
 <li><span class="math inline">\(0\leq f(x)\leq 1\)</span></li>
-<li><span class="math inline">\(f(x)=0,x\in F_1\)</span>；<span class="math inline">\(f(x)=1,x\in F_2\)</span></li>
+<li><span class="math inline">\(f(x)=0,x\in F_1\)</span>；<span
+class="math inline">\(f(x)=1,x\in F_2\)</span></li>
 </ol></li>
 </ol>
 <h3 id="康托尔cantor三分集">康托尔（Cantor）三分集</h3>
-<p>把<span class="math inline">\([0,1]\)</span>三等分，去掉中间的一部分，再把左右两个剩下的三等分，再各自去掉中间的一部分，重复无限次，剩下来的集合就是Cantor三分集（P）。</p>
+<p>把<span
+class="math inline">\([0,1]\)</span>三等分，去掉中间的一部分，再把左右两个剩下的三等分，再各自去掉中间的一部分，重复无限次，剩下来的集合就是Cantor三分集（P）。</p>
 <p>它：</p>
 <ol type="1">
 <li>是闭集，完备集</li>
 <li>没有内点</li>
-<li>是疏朗集，即<span class="math inline">\(\bar P\)</span>(闭包)没有内点</li>
+<li>是疏朗集，即<span class="math inline">\(\bar
+P\)</span>(闭包)没有内点</li>
 <li>基数是连续势</li>
 <li>测度为零，外测度也为零</li>
 </ol>
-<p>康托尔函数<span class="math inline">\(\theta(x)\)</span>：把在构造康托尔集的过程中第<span class="math inline">\(n\)</span>次去掉的<span class="math inline">\(2^{n-1}\)</span>个开区间上依次取值为 <span class="math display">\[
+<p>康托尔函数<span
+class="math inline">\(\theta(x)\)</span>：把在构造康托尔集的过程中第<span
+class="math inline">\(n\)</span>次去掉的<span
+class="math inline">\(2^{n-1}\)</span>个开区间上依次取值为 <span
+class="math display">\[
 \frac {1}{2^n},\frac{3}{2^n},\cdots,\frac{2^n-1}{2^n}
-\]</span> 规定<span class="math inline">\(\theta(0)=0,\theta(1)=1\)</span></p>
-<p>康托尔函数是<span class="math inline">\([0,1]\)</span>上的单调不减连续函数。</p>
+\]</span> 规定<span
+class="math inline">\(\theta(0)=0,\theta(1)=1\)</span></p>
+<p>康托尔函数是<span
+class="math inline">\([0,1]\)</span>上的单调不减连续函数。</p>
 <h2 id="测度论">测度论</h2>
 <p>测度是“长度”、“面积”概念的扩展。</p>
-<p>集合的测度<span class="math inline">\(m:E\to[0,+\infty]\)</span>应当满足：</p>
+<p>集合的测度<span
+class="math inline">\(m:E\to[0,+\infty]\)</span>应当满足：</p>
 <ol type="1">
 <li><p>非负性</p></li>
-<li><p>正则性：若<span class="math inline">\(I=(a,b)\)</span>，则<span class="math inline">\(m(I)=b-a\)</span></p></li>
-<li><p>可数可加性：如果集合<span class="math inline">\(E_1,E_2\cdots\)</span>都有测度且两两不交，那么： <span class="math display">\[
+<li><p>正则性：若<span class="math inline">\(I=(a,b)\)</span>，则<span
+class="math inline">\(m(I)=b-a\)</span></p></li>
+<li><p>可数可加性：如果集合<span
+class="math inline">\(E_1,E_2\cdots\)</span>都有测度且两两不交，那么：
+<span class="math display">\[
 m\left(\bigcup_{k=1}^\infty E_k \right)=\sum_{k=1}^\infty m(E_k)
 \]</span></p></li>
 </ol>
 <p>这里主要讨论勒贝格测度。在定义测度时，先定义勒贝格外测度，然后在其基础上诱导出一个可测集合类，在其上的外测度就是一种期望的测度。</p>
 <h3 id="外测度">外测度</h3>
-<p>对于<span class="math inline">\(R^n\)</span>的子集<span class="math inline">\(E\)</span>，定义非负广义函数： <span class="math display">\[
-m^*(E)=\inf \left\{  \sum_{k=1}^\infty |I_k|:I_1,I_2\cdots\text{是开矩体,且}E\subset \bigcup_{k=1}^\infty I_k\right\}
-\]</span> 开矩体是<span class="math inline">\(n\)</span>个开区间的直积，其体积为每个开区间的长度之积。</p>
+<p>对于<span class="math inline">\(R^n\)</span>的子集<span
+class="math inline">\(E\)</span>，定义非负广义函数： <span
+class="math display">\[
+m^*(E)=\inf \left\{  \sum_{k=1}^\infty
+|I_k|:I_1,I_2\cdots\text{是开矩体,且}E\subset \bigcup_{k=1}^\infty
+I_k\right\}
+\]</span> 开矩体是<span
+class="math inline">\(n\)</span>个开区间的直积，其体积为每个开区间的长度之积。</p>
 <p>外测度有以下性质：</p>
 <ol type="1">
 <li><p>非负性</p></li>
-<li><p>单调性：如果<span class="math inline">\(E_1\subset E_2\)</span>，则<span class="math inline">\(m^*(E_1)\leq m^*(E_2)\)</span></p></li>
-<li><p>次可数可加性：如果集合<span class="math inline">\(E_1,E_2\cdots\)</span>都有测度且两两不交，那么： <span class="math display">\[
+<li><p>单调性：如果<span class="math inline">\(E_1\subset
+E_2\)</span>，则<span class="math inline">\(m^*(E_1)\leq
+m^*(E_2)\)</span></p></li>
+<li><p>次可数可加性：如果集合<span
+class="math inline">\(E_1,E_2\cdots\)</span>都有测度且两两不交，那么：
+<span class="math display">\[
 m^*\left(\bigcup_{k=1}^\infty E_k \right)\leq \sum_{k=1}^\infty m^*(E_k)
 \]</span></p></li>
 <li><p>平移不变性： <span class="math display">\[
 m^*(E+\{a\})=m^*(E)
-\]</span> 其中<span class="math inline">\(E+\{a\}=\{x+a,x\in E\}\)</span></p></li>
+\]</span> 其中<span class="math inline">\(E+\{a\}=\{x+a,x\in
+E\}\)</span></p></li>
 </ol>
 <h3 id="可测集">可测集</h3>
-<p>定义，如果<span class="math inline">\(E,T\in R^n\)</span>： <span class="math display">\[
+<p>定义，如果<span class="math inline">\(E,T\in R^n\)</span>： <span
+class="math display">\[
 m^*(T)=m^*(T\cap E)+m^*(T\cap E^c)
-\]</span> 则称<span class="math inline">\(E\)</span>是勒贝格<strong>可测集</strong>，简称为可测集。此时<span class="math inline">\(m^*(E)\)</span>称为<span class="math inline">\(E\)</span>的测度，记作<span class="math inline">\(m(E)\)</span>。这个等式叫做卡特西奥多里条件。</p>
+\]</span> 则称<span
+class="math inline">\(E\)</span>是勒贝格<strong>可测集</strong>，简称为可测集。此时<span
+class="math inline">\(m^*(E)\)</span>称为<span
+class="math inline">\(E\)</span>的测度，记作<span
+class="math inline">\(m(E)\)</span>。这个等式叫做卡特西奥多里条件。</p>
 <p>这个条件可以等价于： <span class="math display">\[
 m^*(T)\geq m^*(T\cap E)+m^*(T\cap E^c)
-\]</span> 设<span class="math inline">\(R^n\)</span>上的可测集所构成的集族称为M，则：</p>
+\]</span> 设<span
+class="math inline">\(R^n\)</span>上的可测集所构成的集族称为M，则：</p>
 <ol type="1">
 <li>空集属于M</li>
-<li>如果<span class="math inline">\(E\)</span>可测，那么<span class="math inline">\(E^c\)</span>可测</li>
-<li>如果<span class="math inline">\(E_1,E_2\in M\)</span>，则它们的并、交、差都是可测</li>
+<li>如果<span class="math inline">\(E\)</span>可测，那么<span
+class="math inline">\(E^c\)</span>可测</li>
+<li>如果<span class="math inline">\(E_1,E_2\in
+M\)</span>，则它们的并、交、差都是可测</li>
 <li>可测集的有限并也可测，而且满足可列可加</li>
 </ol>
 <p>区间可测，凡是开集或闭集都可测，外测度为零的集合可测且测度为零</p>
@@ -640,184 +795,360 @@ m^*(T)\geq m^*(T\cap E)+m^*(T\cap E^c)
 <p>存在不可测集。</p>
 <h2 id="可测函数">可测函数</h2>
 <h3 id="可测函数的定义和性质">可测函数的定义和性质</h3>
-<p>设<span class="math inline">\(f(x)\)</span>是定义在可测集<span class="math inline">\(E\subset R^n\)</span>上的广义实值函数，若<span class="math inline">\(\forall a\in R\)</span>，<span class="math inline">\(E(f&gt;a)\)</span>（即<span class="math inline">\(\{x\in E:f(x)&gt;a\}\)</span>）都是可测集，则称<span class="math inline">\(f(x)\)</span>为<strong>可测函数</strong>。</p>
+<p>设<span class="math inline">\(f(x)\)</span>是定义在可测集<span
+class="math inline">\(E\subset R^n\)</span>上的广义实值函数，若<span
+class="math inline">\(\forall a\in R\)</span>，<span
+class="math inline">\(E(f&gt;a)\)</span>（即<span
+class="math inline">\(\{x\in
+E:f(x)&gt;a\}\)</span>）都是可测集，则称<span
+class="math inline">\(f(x)\)</span>为<strong>可测函数</strong>。</p>
 <p>以下条件相互等价：</p>
 <ul>
-<li><span class="math inline">\(f(x)\)</span>是可测函数，即<span class="math inline">\(\forall a\in R,E(f&gt; a)\)</span>可测</li>
-<li><span class="math inline">\(\forall a\in R,E(f\geq a)\)</span>可测</li>
-<li><span class="math inline">\(\forall a\in R,E(f&lt; a)\)</span>可测</li>
-<li><span class="math inline">\(\forall a\in R,E(f\leq a)\)</span>可测</li>
+<li><span class="math inline">\(f(x)\)</span>是可测函数，即<span
+class="math inline">\(\forall a\in R,E(f&gt; a)\)</span>可测</li>
+<li><span class="math inline">\(\forall a\in R,E(f\geq
+a)\)</span>可测</li>
+<li><span class="math inline">\(\forall a\in R,E(f&lt;
+a)\)</span>可测</li>
+<li><span class="math inline">\(\forall a\in R,E(f\leq
+a)\)</span>可测</li>
 </ul>
-<p>如果<span class="math inline">\(f(x)\)</span>在可测集<span class="math inline">\(E\)</span>上是可测函数，那么在<span class="math inline">\(E\)</span>的每个可测子集上也是可测函数。</p>
-<p>如果<span class="math inline">\(E=\bigcup_{k=1}^\infty E_k\)</span>，其中每一个<span class="math inline">\(E_k\)</span>都是可测集而且<span class="math inline">\(f(x)\)</span>在其上可测，那么<span class="math inline">\(f(x)\)</span>在<span class="math inline">\(E\)</span>上可测。</p>
-<p>可测函数类关于确界、上下极限封闭。即：如果<span class="math inline">\(\{f_k\}\)</span>都是可测集<span class="math inline">\(E\)</span>上的函数，那么<span class="math inline">\(\sup_k f_k(x),\inf_k f_k(x),\overline{\lim}_{k\to \infty}f_k(x),\underline{\lim}_{k\to \infty}f_k(x)\)</span>都可测。</p>
+<p>如果<span class="math inline">\(f(x)\)</span>在可测集<span
+class="math inline">\(E\)</span>上是可测函数，那么在<span
+class="math inline">\(E\)</span>的每个可测子集上也是可测函数。</p>
+<p>如果<span class="math inline">\(E=\bigcup_{k=1}^\infty
+E_k\)</span>，其中每一个<span
+class="math inline">\(E_k\)</span>都是可测集而且<span
+class="math inline">\(f(x)\)</span>在其上可测，那么<span
+class="math inline">\(f(x)\)</span>在<span
+class="math inline">\(E\)</span>上可测。</p>
+<p>可测函数类关于确界、上下极限封闭。即：如果<span
+class="math inline">\(\{f_k\}\)</span>都是可测集<span
+class="math inline">\(E\)</span>上的函数，那么<span
+class="math inline">\(\sup_k f_k(x),\inf_k f_k(x),\overline{\lim}_{k\to
+\infty}f_k(x),\underline{\lim}_{k\to \infty}f_k(x)\)</span>都可测。</p>
 <p>可测函数类关于加、减、乘、除、数乘、绝对值封闭。</p>
-<p>如果<span class="math inline">\(P(x)\)</span>是一个和集合<span class="math inline">\(E\)</span>中元素<span class="math inline">\(x\)</span>有关的命题，如果存在一个<span class="math inline">\(E\)</span>的零测子集<span class="math inline">\(M\)</span>，使得<span class="math inline">\(P(x)\)</span>在<span class="math inline">\(E/M\)</span>上恒成立，称<span class="math inline">\(P(x)\)</span>在<span class="math inline">\(E\)</span>上<strong>几乎处处成立</strong>，记作<span class="math inline">\(a.e.\)</span></p>
-<p>如果<span class="math inline">\(f(x),g(x)\)</span>都是<span class="math inline">\(E\)</span>上的广义实值函数，且<span class="math inline">\(f(x)=g(x)\ a.e. x\in E\)</span>，那么<span class="math inline">\(f(x)\)</span>可测是<span class="math inline">\(g(x)\)</span>可测的充要条件。</p>
+<p>如果<span class="math inline">\(P(x)\)</span>是一个和集合<span
+class="math inline">\(E\)</span>中元素<span
+class="math inline">\(x\)</span>有关的命题，如果存在一个<span
+class="math inline">\(E\)</span>的零测子集<span
+class="math inline">\(M\)</span>，使得<span
+class="math inline">\(P(x)\)</span>在<span
+class="math inline">\(E/M\)</span>上恒成立，称<span
+class="math inline">\(P(x)\)</span>在<span
+class="math inline">\(E\)</span>上<strong>几乎处处成立</strong>，记作<span
+class="math inline">\(a.e.\)</span></p>
+<p>如果<span class="math inline">\(f(x),g(x)\)</span>都是<span
+class="math inline">\(E\)</span>上的广义实值函数，且<span
+class="math inline">\(f(x)=g(x)\ a.e. x\in E\)</span>，那么<span
+class="math inline">\(f(x)\)</span>可测是<span
+class="math inline">\(g(x)\)</span>可测的充要条件。</p>
 <p>下面定义三种函数：</p>
 <ol type="1">
-<li><p>设<span class="math inline">\(X=R\)</span>的一个子集<span class="math inline">\(E\)</span>，称： <span class="math display">\[
+<li><p>设<span class="math inline">\(X=R\)</span>的一个子集<span
+class="math inline">\(E\)</span>，称： <span class="math display">\[
 \chi_E(x)=\begin{cases}
 1 &amp; x\in E\\
 0 &amp; x\in E^c
 \end{cases}
-\]</span> 为<span class="math inline">\(E\)</span>上的<strong>特征函数</strong>。如果<span class="math inline">\(E\)</span>可测，那么它的特征函数可测。</p></li>
-<li><p>如果<span class="math inline">\(f(x)\)</span>的定义域<span class="math inline">\(E\)</span>可以分为有限个不相交的集合<span class="math inline">\(E_k\)</span>，且<span class="math inline">\(f(x)\)</span>在每个<span class="math inline">\(E_k\)</span>上取常值<span class="math inline">\(c_k\)</span>，那么称<span class="math inline">\(f(x)\)</span>是<span class="math inline">\(E\)</span>上的<strong>简单函数</strong>。（简单理解：取有限个实数）</p></li>
-<li><p>如果在简单函数的定义的基础上，每个<span class="math inline">\(E_k\)</span>都是矩体，称<span class="math inline">\(f(x)\)</span>为<strong>阶梯函数</strong>。</p></li>
+\]</span> 为<span
+class="math inline">\(E\)</span>上的<strong>特征函数</strong>。如果<span
+class="math inline">\(E\)</span>可测，那么它的特征函数可测。</p></li>
+<li><p>如果<span class="math inline">\(f(x)\)</span>的定义域<span
+class="math inline">\(E\)</span>可以分为有限个不相交的集合<span
+class="math inline">\(E_k\)</span>，且<span
+class="math inline">\(f(x)\)</span>在每个<span
+class="math inline">\(E_k\)</span>上取常值<span
+class="math inline">\(c_k\)</span>，那么称<span
+class="math inline">\(f(x)\)</span>是<span
+class="math inline">\(E\)</span>上的<strong>简单函数</strong>。（简单理解：取有限个实数）</p></li>
+<li><p>如果在简单函数的定义的基础上，每个<span
+class="math inline">\(E_k\)</span>都是矩体，称<span
+class="math inline">\(f(x)\)</span>为<strong>阶梯函数</strong>。</p></li>
 </ol>
-<h3 id="可测函数和简单函数的关系简单函数逼近定理">可测函数和简单函数的关系(简单函数逼近定理)</h3>
-<p>如果<span class="math inline">\(f(x)\)</span>是可测集<span class="math inline">\(E\subset R\)</span>上的非负可测函数，当且仅当存在非负可测渐升简单函数列<span class="math inline">\(\{\phi_k(x)\}\)</span>，使得： <span class="math display">\[
+<h3
+id="可测函数和简单函数的关系简单函数逼近定理">可测函数和简单函数的关系(简单函数逼近定理)</h3>
+<p>如果<span class="math inline">\(f(x)\)</span>是可测集<span
+class="math inline">\(E\subset
+R\)</span>上的非负可测函数，当且仅当存在非负可测渐升简单函数列<span
+class="math inline">\(\{\phi_k(x)\}\)</span>，使得： <span
+class="math display">\[
 \lim_{k\to \infty}\phi_k(x)=f(x)
-\]</span> 如果<span class="math inline">\(f(x)\)</span>在<span class="math inline">\(E\)</span>上有界，那么上述收敛是一致的。</p>
+\]</span> 如果<span class="math inline">\(f(x)\)</span>在<span
+class="math inline">\(E\)</span>上有界，那么上述收敛是一致的。</p>
 <blockquote>
-<p>事实上，作简单函数列<span class="math inline">\(\phi_k(x)\)</span>，使得： <span class="math display">\[
+<p>事实上，作简单函数列<span
+class="math inline">\(\phi_k(x)\)</span>，使得： <span
+class="math display">\[
 \phi_k(x)=k\chi_{F_k}(x)+\sum_{i=1}^{k2^k}\frac{i-1}{2^k}\chi_{E_{ki}}(x)
 \]</span> 其中 <span class="math display">\[
-E_{ki}=E\left(\frac{i-1}{2^k}\leq f&lt;\frac i{2^k}\right),F_k=E(f\geq k)
+E_{ki}=E\left(\frac{i-1}{2^k}\leq f&lt;\frac i{2^k}\right),F_k=E(f\geq
+k)
 \]</span> 即满足上述定理的要求。</p>
 </blockquote>
-<p>如果<span class="math inline">\(f(x)\)</span>是可测集<span class="math inline">\(E\)</span>上的可测函数，当且仅当存在可测的简单函数列<span class="math inline">\(\{f_k(x)\}\)</span>，满足：</p>
+<p>如果<span class="math inline">\(f(x)\)</span>是可测集<span
+class="math inline">\(E\)</span>上的可测函数，当且仅当存在可测的简单函数列<span
+class="math inline">\(\{f_k(x)\}\)</span>，满足：</p>
 <ol type="1">
 <li><span class="math inline">\(|f_k(x)|\leq|f(x)|\)</span></li>
-<li><span class="math inline">\(\lim_{k\to \infty}f_k(x)=f(x)\)</span></li>
+<li><span class="math inline">\(\lim_{k\to
+\infty}f_k(x)=f(x)\)</span></li>
 </ol>
-<p>如果<span class="math inline">\(f(x)\)</span>在<span class="math inline">\(E\)</span>上有界，那么上述收敛是一致的。</p>
+<p>如果<span class="math inline">\(f(x)\)</span>在<span
+class="math inline">\(E\)</span>上有界，那么上述收敛是一致的。</p>
 <blockquote>
-<p>在证明时，可以把<span class="math inline">\(f(x)\)</span>分解成正负部之差，利用前面关于非负函数的定理，令 <span class="math display">\[
+<p>在证明时，可以把<span
+class="math inline">\(f(x)\)</span>分解成正负部之差，利用前面关于非负函数的定理，令
+<span class="math display">\[
 f_k(x)=\phi^+_k(x)-\phi^-_k(x)
 \]</span></p>
 </blockquote>
 <h3 id="可测函数的收敛">可测函数的收敛</h3>
-<p>设<span class="math inline">\(f(x),f_k(x)\)</span>都是定义在<span class="math inline">\(E\)</span>上的可测函数，有：</p>
+<p>设<span class="math inline">\(f(x),f_k(x)\)</span>都是定义在<span
+class="math inline">\(E\)</span>上的可测函数，有：</p>
 <ol type="1">
-<li><p>处处收敛：<span class="math inline">\(\forall \epsilon&gt;0,\forall x\in E,\exists K=K(x,\epsilon)\)</span>当<span class="math inline">\(k&gt;K\)</span>时，有：<span class="math inline">\(|f_k(x)-f(x)|&lt;\epsilon\)</span>，记作 <span class="math display">\[
+<li><p>处处收敛：<span class="math inline">\(\forall
+\epsilon&gt;0,\forall x\in E,\exists K=K(x,\epsilon)\)</span>当<span
+class="math inline">\(k&gt;K\)</span>时，有：<span
+class="math inline">\(|f_k(x)-f(x)|&lt;\epsilon\)</span>，记作 <span
+class="math display">\[
 \lim_{k\to \infty}f_k(x)=f(x)
 \]</span></p></li>
-<li><p>几乎处处收敛：存在一个零测集，使得<span class="math inline">\(f_k(x)\)</span>在<span class="math inline">\(E\)</span>中除了这个零测集以外的点上收敛于<span class="math inline">\(f(x)\)</span></p></li>
-<li><p>一致收敛：<span class="math inline">\(\forall \epsilon&gt;0,\forall x\in E,\exists K=K(\epsilon)\)</span>当<span class="math inline">\(k&gt;K\)</span>时，有：<span class="math inline">\(|f_k(x)-f(x)|&lt;\epsilon\)</span>。一致收敛等价于： <span class="math display">\[
+<li><p>几乎处处收敛：存在一个零测集，使得<span
+class="math inline">\(f_k(x)\)</span>在<span
+class="math inline">\(E\)</span>中除了这个零测集以外的点上收敛于<span
+class="math inline">\(f(x)\)</span></p></li>
+<li><p>一致收敛：<span class="math inline">\(\forall
+\epsilon&gt;0,\forall x\in E,\exists K=K(\epsilon)\)</span>当<span
+class="math inline">\(k&gt;K\)</span>时，有：<span
+class="math inline">\(|f_k(x)-f(x)|&lt;\epsilon\)</span>。一致收敛等价于：
+<span class="math display">\[
 \lim_{k\to \infty}\sup_{x\in E}|f_k(x)-f(x)|=0
 \]</span></p></li>
 </ol>
-<p>有Egoroff（叶洛果夫）定理：设<span class="math inline">\(m(E)&lt; \infty\)</span>，如果<span class="math inline">\(\{f_k\}\)</span>在<span class="math inline">\(E\)</span>上几乎处处收敛，那么对于任意的<span class="math inline">\(\delta &gt; 0\)</span>，有<span class="math inline">\(E\)</span>的可测子集<span class="math inline">\(E_\delta,m(E_\delta)&lt;\delta\)</span>，使得<span class="math inline">\(\{f_k\}\)</span>在<span class="math inline">\(E/E_\delta\)</span>上一致收敛。也就是说，几乎处处收敛的函数列是“近一致收敛”的。</p>
+<p>有Egoroff（叶洛果夫）定理：设<span class="math inline">\(m(E)&lt;
+\infty\)</span>，如果<span class="math inline">\(\{f_k\}\)</span>在<span
+class="math inline">\(E\)</span>上几乎处处收敛，那么对于任意的<span
+class="math inline">\(\delta &gt; 0\)</span>，有<span
+class="math inline">\(E\)</span>的可测子集<span
+class="math inline">\(E_\delta,m(E_\delta)&lt;\delta\)</span>，使得<span
+class="math inline">\(\{f_k\}\)</span>在<span
+class="math inline">\(E/E_\delta\)</span>上一致收敛。也就是说，几乎处处收敛的函数列是“近一致收敛”的。</p>
 <blockquote>
-<p>例如，对于函数列<span class="math inline">\(\{f_k=x^k\}\)</span>，<span class="math inline">\(E=[0,1]\)</span>，其处处收敛于 <span class="math display">\[
+<p>例如，对于函数列<span
+class="math inline">\(\{f_k=x^k\}\)</span>，<span
+class="math inline">\(E=[0,1]\)</span>，其处处收敛于 <span
+class="math display">\[
 f(x)=\begin{cases}
 0,&amp;x\in[0,1)\\
 1,&amp;x=1
 \end{cases}
 \]</span> 因 <span class="math display">\[
 \beta_k=\sup_{x\in E}|f_k-f|=1
-\]</span> 不趋向于<span class="math inline">\(0\)</span>，所以它不是一致收敛的。然而只要去掉任意小的区域，把<span class="math inline">\(E\)</span>变成<span class="math inline">\([0,1-\delta]\)</span>，那么就一致收敛了。</p>
+\]</span> 不趋向于<span
+class="math inline">\(0\)</span>，所以它不是一致收敛的。然而只要去掉任意小的区域，把<span
+class="math inline">\(E\)</span>变成<span
+class="math inline">\([0,1-\delta]\)</span>，那么就一致收敛了。</p>
 </blockquote>
-<p>其实还有比几乎处处收敛更弱的收敛，叫做<strong>依测度收敛</strong>。如果<span class="math inline">\(\{f_k\},f\)</span>是可测集<span class="math inline">\(E\)</span>上的几乎处处有限的函数，如果对任意<span class="math inline">\(\varepsilon&gt;0\)</span>，有： <span class="math display">\[
-\lim _{k \rightarrow \infty} m\left(\left\{x \in E:\left|f_k(x)-f(x)\right|&gt;\varepsilon\right\}\right)=0
-\]</span> 即：<span class="math inline">\(f_k\)</span>与<span class="math inline">\(f\)</span>的差值比<span class="math inline">\(\varepsilon\)</span>大的集合的测度趋向于0，那么说<span class="math inline">\(\{f_k\}\)</span>依测度收敛于<span class="math inline">\(f\)</span>。</p>
+<p>其实还有比几乎处处收敛更弱的收敛，叫做<strong>依测度收敛</strong>。如果<span
+class="math inline">\(\{f_k\},f\)</span>是可测集<span
+class="math inline">\(E\)</span>上的几乎处处有限的函数，如果对任意<span
+class="math inline">\(\varepsilon&gt;0\)</span>，有： <span
+class="math display">\[
+\lim _{k \rightarrow \infty} m\left(\left\{x \in
+E:\left|f_k(x)-f(x)\right|&gt;\varepsilon\right\}\right)=0
+\]</span> 即：<span class="math inline">\(f_k\)</span>与<span
+class="math inline">\(f\)</span>的差值比<span
+class="math inline">\(\varepsilon\)</span>大的集合的测度趋向于0，那么说<span
+class="math inline">\(\{f_k\}\)</span>依测度收敛于<span
+class="math inline">\(f\)</span>。</p>
 <p>几乎处处收敛比依测度收敛更强，是因为<strong>几乎处处有限可以推出依测度收敛，反之不然</strong>。</p>
-<p>如果函数列依测度收敛，那么存在函数列的子列<span class="math inline">\(\{f_{k_i}\}\)</span>几乎处处收敛，这叫做<strong>Riesz定理</strong>。</p>
-<p>如果<span class="math inline">\(f\)</span>是可测集<span class="math inline">\(E\)</span>上的几乎处处有限的函数，<span class="math inline">\(\forall \delta&gt;0,\exists F,m(E/F)&lt;\delta\)</span>，使得<span class="math inline">\(f(x)\)</span>在闭集<span class="math inline">\(F\)</span>上连续，这叫做<strong>鲁津定理</strong>。</p>
+<p>如果函数列依测度收敛，那么存在函数列的子列<span
+class="math inline">\(\{f_{k_i}\}\)</span>几乎处处收敛，这叫做<strong>Riesz定理</strong>。</p>
+<p>如果<span class="math inline">\(f\)</span>是可测集<span
+class="math inline">\(E\)</span>上的几乎处处有限的函数，<span
+class="math inline">\(\forall \delta&gt;0,\exists
+F,m(E/F)&lt;\delta\)</span>，使得<span
+class="math inline">\(f(x)\)</span>在闭集<span
+class="math inline">\(F\)</span>上连续，这叫做<strong>鲁津定理</strong>。</p>
 <p>有关可测函数的常见结论和各种收敛的关系总结如下：</p>
 <ul>
 <li>可测函数与零测集无关.</li>
-<li>可测函数是简单函数列处处收敛的极限.(当可测函数有界时, 可做到一致收敛)</li>
+<li>可测函数是简单函数列处处收敛的极限.(当可测函数有界时,
+可做到一致收敛)</li>
 <li>可测函数关于一些运算的封闭性.</li>
-<li>可测集 <span class="math inline">\(E\)</span> 上的连续函数是可测的.</li>
-<li>可测集 <span class="math inline">\(E\)</span> 上的简单函数是可测的.</li>
-<li><span class="math inline">\(R\)</span> 中可测集 <span class="math inline">\(E\)</span> 上的单调函数是可测的.</li>
+<li>可测集 <span class="math inline">\(E\)</span>
+上的连续函数是可测的.</li>
+<li>可测集 <span class="math inline">\(E\)</span>
+上的简单函数是可测的.</li>
+<li><span class="math inline">\(R\)</span> 中可测集 <span
+class="math inline">\(E\)</span> 上的单调函数是可测的.</li>
 </ul>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212121534719.png" srcset="/img/loading.gif" lazyload alt="各种收敛" /><figcaption aria-hidden="true">各种收敛</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202212121534719.png" srcset="/img/loading.gif" lazyload
+alt="各种收敛" />
+<figcaption aria-hidden="true">各种收敛</figcaption>
 </figure>
 <h2 id="勒贝格积分">勒贝格积分</h2>
-<p>首先我们从简单函数出发：假设<span class="math inline">\(\varphi(x)\)</span>是<span class="math inline">\(E\subset R\)</span>上的非负简单函数，在<span class="math inline">\(E_i\)</span>上取值<span class="math inline">\(c_i\)</span>，且<span class="math inline">\(E=\bigcup E_i,E_i\cap E_j=\emptyset\)</span>。也就是说： <span class="math display">\[
+<p>首先我们从简单函数出发：假设<span
+class="math inline">\(\varphi(x)\)</span>是<span
+class="math inline">\(E\subset R\)</span>上的非负简单函数，在<span
+class="math inline">\(E_i\)</span>上取值<span
+class="math inline">\(c_i\)</span>，且<span
+class="math inline">\(E=\bigcup E_i,E_i\cap
+E_j=\emptyset\)</span>。也就是说： <span class="math display">\[
 \varphi(x)=\sum_{i=1}^p c_i\chi_{E_i}(x)
-\]</span> 那么定义<span class="math inline">\(\varphi(x)\)</span>在<span class="math inline">\(E\)</span>上的勒贝格积分（下简称为L积分）为： <span class="math display">\[
+\]</span> 那么定义<span class="math inline">\(\varphi(x)\)</span>在<span
+class="math inline">\(E\)</span>上的勒贝格积分（下简称为L积分）为：
+<span class="math display">\[
 \int _E\varphi(x)dx=\sum_{i=1}^p c_im(E_i)
-\]</span> 根据简单函数逼近定理，我们可以把这个定义扩展到非负可测函数上：如果<span class="math inline">\(f(x)\)</span>是<span class="math inline">\(E\)</span>上的非负可测函数，那么定义<span class="math inline">\(f(x)\)</span>的L积分： <span class="math display">\[
-\int_E f(x)dx=\sup_{\varphi(x)\leq f(x),x\in E}\left\{ \int_E \varphi(x)dx\right\}
-\]</span> 其中<span class="math inline">\(\varphi(x)\)</span>是<span class="math inline">\(E\)</span>上的非负可测简单函数。如果有： <span class="math display">\[
+\]</span>
+根据简单函数逼近定理，我们可以把这个定义扩展到非负可测函数上：如果<span
+class="math inline">\(f(x)\)</span>是<span
+class="math inline">\(E\)</span>上的非负可测函数，那么定义<span
+class="math inline">\(f(x)\)</span>的L积分： <span
+class="math display">\[
+\int_E f(x)dx=\sup_{\varphi(x)\leq f(x),x\in E}\left\{ \int_E
+\varphi(x)dx\right\}
+\]</span> 其中<span class="math inline">\(\varphi(x)\)</span>是<span
+class="math inline">\(E\)</span>上的非负可测简单函数。如果有： <span
+class="math display">\[
 \int_E f(x)dx&lt;\infty
-\]</span> 就称<span class="math inline">\(f(x)\)</span>是<span class="math inline">\(E\)</span>上可积的。</p>
-<p>进一步，因为每个可测函数都可以分解成两个非负可测函数的差（即正部和负部），有： <span class="math display">\[
+\]</span> 就称<span class="math inline">\(f(x)\)</span>是<span
+class="math inline">\(E\)</span>上可积的。</p>
+<p>进一步，因为每个可测函数都可以分解成两个非负可测函数的差（即正部和负部），有：
+<span class="math display">\[
 f(x)=f^+(x)-f^-(x)
 \]</span> 定义可测函数上的L积分： <span class="math display">\[
 \int _Ef(x)dx=\int_Ef^+(x)dx-\int_E f^-(x)dx
 \]</span></p>
 <h3 id="l积分的性质">L积分的性质</h3>
 <h4 id="l积分的条件">L积分的条件</h4>
-<p>以下，记<span class="math inline">\(L(E)\)</span>为在<span class="math inline">\(E\)</span>上L可积的函数构成的集合。</p>
+<p>以下，记<span class="math inline">\(L(E)\)</span>为在<span
+class="math inline">\(E\)</span>上L可积的函数构成的集合。</p>
 <ol type="1">
-<li>【必要条件】：<span class="math inline">\(f(x)\in L(E)\to f(x)\)</span>在<span class="math inline">\(E\)</span>上几乎处处有界</li>
-<li>【充分条件】：<span class="math inline">\(f(x)\)</span>是<span class="math inline">\(E\)</span>上的有界可测函数，<span class="math inline">\(m(E)&lt;+\infty\)</span>，则<span class="math inline">\(f(x)\in L(E)\)</span></li>
-<li>【充分条件】：<span class="math inline">\(f(x)\)</span>是<span class="math inline">\(E\)</span>上的可测函数，<span class="math inline">\(g(x)\in L(E),|f(x)|&lt;g(x)\)</span>，则<span class="math inline">\(f(x)\in L(E)\)</span></li>
+<li>【必要条件】：<span class="math inline">\(f(x)\in L(E)\to
+f(x)\)</span>在<span class="math inline">\(E\)</span>上几乎处处有界</li>
+<li>【充分条件】：<span class="math inline">\(f(x)\)</span>是<span
+class="math inline">\(E\)</span>上的有界可测函数，<span
+class="math inline">\(m(E)&lt;+\infty\)</span>，则<span
+class="math inline">\(f(x)\in L(E)\)</span></li>
+<li>【充分条件】：<span class="math inline">\(f(x)\)</span>是<span
+class="math inline">\(E\)</span>上的可测函数，<span
+class="math inline">\(g(x)\in L(E),|f(x)|&lt;g(x)\)</span>，则<span
+class="math inline">\(f(x)\in L(E)\)</span></li>
 </ol>
 <h4 id="l积分的基本性质">L积分的基本性质</h4>
 <ol type="1">
 <li><p>线性，保序性</p>
 <p>略，和黎曼积分（以下简称R积分）相同</p></li>
 <li><p>有限可加性</p>
-<p>如果<span class="math inline">\(f(x)\in L(E)\)</span>，那么<span class="math inline">\(f(x)\)</span>在<span class="math inline">\(E\)</span>的子集上也L可积。</p>
-<p>如果<span class="math inline">\(E=A\cup B,A\cap B=\emptyset,AB\)</span>可测，那么 <span class="math display">\[
- \int_E f(x)dx=\int_Af(x)dx+\int_Bf(x)dx
- \]</span></p></li>
+<p>如果<span class="math inline">\(f(x)\in L(E)\)</span>，那么<span
+class="math inline">\(f(x)\)</span>在<span
+class="math inline">\(E\)</span>的子集上也L可积。</p>
+<p>如果<span class="math inline">\(E=A\cup  B,A\cap
+B=\emptyset,AB\)</span>可测，那么 <span class="math display">\[
+\int_E f(x)dx=\int_Af(x)dx+\int_Bf(x)dx
+\]</span></p></li>
 <li><p>集合意义</p>
-<p>如果<span class="math inline">\(f(x)\)</span>是<span class="math inline">\(E\subset R^n\)</span>上的非负实值函数，称： <span class="math display">\[
- \underline{G}(f)=\underline{G}_E(f)=\left\{(x, y) \in R^{n+1}: x \in E, 0 \leq y \leq f(x)\right\}
- \]</span> 为<span class="math inline">\(f(x)\)</span>在<span class="math inline">\(E\)</span>上的下方图形，如果<span class="math inline">\(f(x)\)</span>在<span class="math inline">\(E\)</span>上可测，那么他的下方图形在<span class="math inline">\(R^{n+1}\)</span>上也可测，有： <span class="math display">\[
- m(\underline{G}(f))=\int_E f(x) d x
- \]</span> 如果<span class="math inline">\(E\)</span>可测，则<span class="math inline">\(G(f)\)</span>在<span class="math inline">\(R^{n+1}\)</span>上可测，<span class="math inline">\(f(x)\)</span>也 可测，且也有上面的结论</p></li>
+<p>如果<span class="math inline">\(f(x)\)</span>是<span
+class="math inline">\(E\subset R^n\)</span>上的非负实值函数，称： <span
+class="math display">\[
+\underline{G}(f)=\underline{G}_E(f)=\left\{(x, y) \in R^{n+1}: x \in E,
+0 \leq y \leq f(x)\right\}
+\]</span> 为<span class="math inline">\(f(x)\)</span>在<span
+class="math inline">\(E\)</span>上的下方图形，如果<span
+class="math inline">\(f(x)\)</span>在<span
+class="math inline">\(E\)</span>上可测，那么他的下方图形在<span
+class="math inline">\(R^{n+1}\)</span>上也可测，有： <span
+class="math display">\[
+m(\underline{G}(f))=\int_E f(x) d x
+\]</span> 如果<span class="math inline">\(E\)</span>可测，则<span
+class="math inline">\(G(f)\)</span>在<span
+class="math inline">\(R^{n+1}\)</span>上可测，<span
+class="math inline">\(f(x)\)</span>也 可测，且也有上面的结论</p></li>
 </ol>
 <h4 id="l积分的特殊性质">L积分的特殊性质</h4>
 <ol type="1">
 <li><p>零测集上任何函数L积分为零，更进一步，如果两个函数只在一个零测集上有区别，那么这两个函数的L积分相等</p></li>
-<li><p>函数<span class="math inline">\(f(x)\)</span>L可积和其绝对值<span class="math inline">\(|f(x)|\)</span>L可积等价，且积分的绝对值不大于绝对值的积分</p></li>
-<li><p>绝对连续性：如果<span class="math inline">\(f(x)\in L(E)\)</span>，则<span class="math inline">\(\forall \varepsilon &gt;0,\exists \delta&gt;0,s.t. \forall e\in E,m(e)&lt;\delta\)</span>，有： <span class="math display">\[
-\left|\int_e f(x) \mathrm{d} x\right| \leq \int_e|f(x)| \mathrm{d} x&lt;\varepsilon
+<li><p>函数<span class="math inline">\(f(x)\)</span>L可积和其绝对值<span
+class="math inline">\(|f(x)|\)</span>L可积等价，且积分的绝对值不大于绝对值的积分</p></li>
+<li><p>绝对连续性：如果<span class="math inline">\(f(x)\in
+L(E)\)</span>，则<span class="math inline">\(\forall \varepsilon
+&gt;0,\exists \delta&gt;0,s.t. \forall e\in
+E,m(e)&lt;\delta\)</span>，有： <span class="math display">\[
+\left|\int_e f(x) \mathrm{d} x\right| \leq \int_e|f(x)| \mathrm{d}
+x&lt;\varepsilon
 \]</span></p></li>
 <li><p>如果一个函数R可积，那么它L可积，且两个积分的值相等。</p>
-<p>这说明，R积分的有关问题，可以转换为L积分，再利用马上就要说明的L积分的优良性质完成 。</p></li>
+<p>这说明，R积分的有关问题，可以转换为L积分，再利用马上就要说明的L积分的优良性质完成
+。</p></li>
 </ol>
 <h4 id="l积分的优良性质">L积分的优良性质</h4>
-<p>【勒贝格收敛控制定理】如果<span class="math inline">\(\{f_k(x)\}\)</span>是<span class="math inline">\(E\in R^n\)</span>上的可测函数列，且：</p>
+<p>【勒贝格收敛控制定理】如果<span
+class="math inline">\(\{f_k(x)\}\)</span>是<span
+class="math inline">\(E\in R^n\)</span>上的可测函数列，且：</p>
 <ol type="1">
-<li><span class="math inline">\(\lim _{k\to \infty}f_k(x)=f(x)\)</span></li>
-<li><span class="math inline">\(\exists F(x)\in L(E),\forall k,|f_k(x)|\leq F(x)\ a.e.x\in E\)</span></li>
+<li><span class="math inline">\(\lim _{k\to
+\infty}f_k(x)=f(x)\)</span></li>
+<li><span class="math inline">\(\exists F(x)\in L(E),\forall
+k,|f_k(x)|\leq F(x)\ a.e.x\in E\)</span></li>
 </ol>
-<p>那么，<span class="math inline">\(f_k(x),f(x)\in L(E)\)</span>，且积分和极限可以交换次序，有： <span class="math display">\[
-\lim _{k \rightarrow \infty} \int_E f_k(x) \mathrm{d} x=\int_E f(x) \mathrm{d} x=\int_E \lim _{k \rightarrow \infty} f_k(x) \mathrm{d} x .
+<p>那么，<span class="math inline">\(f_k(x),f(x)\in
+L(E)\)</span>，且积分和极限可以交换次序，有： <span
+class="math display">\[
+\lim _{k \rightarrow \infty} \int_E f_k(x) \mathrm{d} x=\int_E f(x)
+\mathrm{d} x=\int_E \lim _{k \rightarrow \infty} f_k(x) \mathrm{d} x .
 \]</span></p>
 <blockquote>
 <p>相比之下，黎曼积分需要函数列一致收敛，才能交换顺序。一致收敛是一个非常强的条件。</p>
 </blockquote>
-<p>推论：如果<span class="math inline">\(\{f_k(x)\}\)</span>是<span class="math inline">\(E\in R^n\)</span>上的可测函数列，且：</p>
+<p>推论：如果<span class="math inline">\(\{f_k(x)\}\)</span>是<span
+class="math inline">\(E\in R^n\)</span>上的可测函数列，且：</p>
 <ol type="1">
-<li><span class="math inline">\(\lim _{k\to \infty}f_k(x)=f(x)\)</span></li>
-<li><span class="math inline">\(\exists M&gt;0,|f_k(x)|\leq M,a.e. x\in E\)</span></li>
+<li><span class="math inline">\(\lim _{k\to
+\infty}f_k(x)=f(x)\)</span></li>
+<li><span class="math inline">\(\exists M&gt;0,|f_k(x)|\leq M,a.e. x\in
+E\)</span></li>
 <li><span class="math inline">\(m(E)&lt;\infty\)</span></li>
 </ol>
-<p>那么，<span class="math inline">\(f_k(x),f(x)\in L(E)\)</span>，且积分和极限可以交换次序，有： <span class="math display">\[
-\lim _{k \rightarrow \infty} \int_E f_k(x) \mathrm{d} x=\int_E f(x) \mathrm{d} x=\int_E \lim _{k \rightarrow \infty} f_k(x) \mathrm{d} x .
-\]</span> 推论：设<span class="math inline">\(u_i(x)\in L(E)\)</span>，且有： <span class="math display">\[
+<p>那么，<span class="math inline">\(f_k(x),f(x)\in
+L(E)\)</span>，且积分和极限可以交换次序，有： <span
+class="math display">\[
+\lim _{k \rightarrow \infty} \int_E f_k(x) \mathrm{d} x=\int_E f(x)
+\mathrm{d} x=\int_E \lim _{k \rightarrow \infty} f_k(x) \mathrm{d} x .
+\]</span> 推论：设<span class="math inline">\(u_i(x)\in
+L(E)\)</span>，且有： <span class="math display">\[
 \sum_{i=1}^{\infty} \int_E\left|u_i(x)\right| d x&lt;+\infty
 \]</span> 则：</p>
 <ol type="1">
-<li><p><span class="math inline">\(\sum_{i=1}^n u_i(x)\)</span>几乎处处收敛</p></li>
-<li><p>其和函数<span class="math inline">\(f(x)\in L(E)\)</span>，且 <span class="math display">\[
-\int_E f(x) \mathrm{d} x=\int_E\left[\sum_{i=1}^{\infty} u_i(x)\right] \mathrm{d} x = \sum_{i=1}^{\infty} \int_E u_i(x) d x
+<li><p><span class="math inline">\(\sum_{i=1}^n
+u_i(x)\)</span>几乎处处收敛</p></li>
+<li><p>其和函数<span class="math inline">\(f(x)\in L(E)\)</span>，且
+<span class="math display">\[
+\int_E f(x) \mathrm{d} x=\int_E\left[\sum_{i=1}^{\infty} u_i(x)\right]
+\mathrm{d} x = \sum_{i=1}^{\infty} \int_E u_i(x) d x
 \]</span></p></li>
 </ol>
 <blockquote>
 <p>【例】求 <span class="math display">\[
-\lim _{n \rightarrow \infty}(R) \int_0^1 \frac{n x}{1+n^2 x^2} \sin n x d x
+\lim _{n \rightarrow \infty}(R) \int_0^1 \frac{n x}{1+n^2 x^2} \sin n x
+d x
 \]</span></p>
 <p>【解】因为原函数列不一致收敛，因此需要用L积分。</p>
 <p>验证勒贝格收敛控制定理： <span class="math display">\[
-\left|f_n(x)\right| \leq\left|\frac{n x}{1+n^2 x^2}\right| \leq \frac{n x}{2 n x}=\frac{1}{2} \stackrel{\Delta}{=} F(x), x \in[0,1]
+\left|f_n(x)\right| \leq\left|\frac{n x}{1+n^2 x^2}\right| \leq \frac{n
+x}{2 n x}=\frac{1}{2} \stackrel{\Delta}{=} F(x), x \in[0,1]
 \]</span></p>
 <p>则有： <span class="math display">\[
 \begin{aligned}
-&amp; \lim _{n \rightarrow \infty}(R) \int_0^1 \frac{n x}{1+n^2 x^2} \sin n x d x \\
-&amp; =\lim _{n \rightarrow \infty}(L) \int_{[0,1]} \frac{n x}{1+n^2 x^2} \sin n x d x \\
-&amp; =(L) \int_{[0,1]}\left(\lim _{n \rightarrow \infty} \frac{n x}{1+n^2 x^2} \sin n x\right) d x \\
+&amp; \lim _{n \rightarrow \infty}(R) \int_0^1 \frac{n x}{1+n^2 x^2}
+\sin n x d x \\
+&amp; =\lim _{n \rightarrow \infty}(L) \int_{[0,1]} \frac{n x}{1+n^2
+x^2} \sin n x d x \\
+&amp; =(L) \int_{[0,1]}\left(\lim _{n \rightarrow \infty} \frac{n
+x}{1+n^2 x^2} \sin n x\right) d x \\
 &amp; =(L) \int_{[0,1]} 0 \mathrm{~d} x=0 .
 \end{aligned}
 \]</span></p>
@@ -830,14 +1161,16 @@ f(x)=f^+(x)-f^-(x)
 <p>首先展开成级数： <span class="math display">\[
 \frac{\ln (1-x)}{x}=-\sum_{n=1}^{\infty} \frac{x^{n-1}}{n}, x \in[0,1)
 \]</span></p>
-<p>我们发现这不是一致收敛的，但是没关系，我们有勒贝格积分： <span class="math display">\[
+<p>我们发现这不是一致收敛的，但是没关系，我们有勒贝格积分： <span
+class="math display">\[
 \begin{aligned}
 &amp;\ (R) \int_0^1 \frac{\ln (1-x)}{x} \mathrm{~d} x \\
 &amp; =(L) \int_{[0,1]} \frac{\ln (1-x)}{x} \mathrm{~d} x \\
-&amp; =(L) \int_{[0,1]}\left(-\sum_{n=1}^{\infty} \frac{x^{n-1}}{n}\right) \mathrm{d} x\\
+&amp; =(L) \int_{[0,1]}\left(-\sum_{n=1}^{\infty}
+\frac{x^{n-1}}{n}\right) \mathrm{d} x\\
 &amp; =-\sum_{n=1}^{\infty}(L) \int_{[0,1]} \frac{x^{n-1}}{n} d x \\
 &amp; =-\sum_{n=1}^{\infty} \frac{1}{n^2} \\
-&amp; =-\frac{\pi^2}{6} 
+&amp; =-\frac{\pi^2}{6}
 \end{aligned}
 \]</span></p>
 </blockquote>

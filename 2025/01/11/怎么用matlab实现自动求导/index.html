@@ -19,16 +19,16 @@
   <meta name="author" content="SuzumiyaAkizuki">
   <meta name="keywords" content="">
   
-    <meta name="description" content="注意：  本文是之前的文章《投影梯度下降法（ee227c Lecture4 学习笔记）》的一部分。因为我觉得可能还会有人需要这个方法，为了方便被搜索引擎搜到，所以单独拿出来写一篇文章。如果要下载源码，请点击原文。 本文所描述的方法只适用于有显式数学表达式的函数，自变量可以是标量、向量、矩阵，但是必须有数学表达式。一般的编程函数，比如里面有for循环啊、if啊、递归等，是用不了的。">
+    <meta name="description" content="注意：  本文是之前的文章《投影梯度下降法（ee227c Lecture4 学习笔记）》的一部分。因为我觉得可能还会有人需要这个方法，为了方便被搜索引擎搜到，所以单独拿出来写一篇文章。如果要下载源码，请点击原文。 本文所描述的方法只适用于有显式数学表达式的函数，自变量可以是标量、向量、矩阵，但是必须有数学表达式。一般的编程函数，比如里面有for循环啊、if啊、递归等，是用不了的。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="怎么用 Matlab 实现 aurograd 自动微分">
 <meta property="og:url" content="https://suzumiyaakizuki.github.io/2025/01/11/%E6%80%8E%E4%B9%88%E7%94%A8matlab%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E6%B1%82%E5%AF%BC/index.html">
 <meta property="og:site_name" content="凉宫秋月的文艺部">
-<meta property="og:description" content="注意：  本文是之前的文章《投影梯度下降法（ee227c Lecture4 学习笔记）》的一部分。因为我觉得可能还会有人需要这个方法，为了方便被搜索引擎搜到，所以单独拿出来写一篇文章。如果要下载源码，请点击原文。 本文所描述的方法只适用于有显式数学表达式的函数，自变量可以是标量、向量、矩阵，但是必须有数学表达式。一般的编程函数，比如里面有for循环啊、if啊、递归等，是用不了的。">
+<meta property="og:description" content="注意：  本文是之前的文章《投影梯度下降法（ee227c Lecture4 学习笔记）》的一部分。因为我觉得可能还会有人需要这个方法，为了方便被搜索引擎搜到，所以单独拿出来写一篇文章。如果要下载源码，请点击原文。 本文所描述的方法只适用于有显式数学表达式的函数，自变量可以是标量、向量、矩阵，但是必须有数学表达式。一般的编程函数，比如里面有for循环啊、if啊、递归等，是用不了的。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202501112313715.png">
 <meta property="article:published_time" content="2025-01-11T14:56:06.000Z">
-<meta property="article:modified_time" content="2025-01-20T16:35:30.953Z">
+<meta property="article:modified_time" content="2025-01-20T16:35:30.000Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="Matlab">
 <meta name="twitter:card" content="summary_large_image">
@@ -561,24 +561,34 @@
                 
                 <p>注意：</p>
 <ol type="1">
-<li>本文是之前的文章<a target="_blank" rel="noopener" href="https://blog.sakizuki.site/2024/12/12/%E6%8A%95%E5%BD%B1%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95%EF%BC%88ee227c%20lecture%204%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%89/#">《投影梯度下降法（ee227c Lecture4 学习笔记）》</a>的一部分。因为我觉得可能还会有人需要这个方法，为了方便被搜索引擎搜到，所以单独拿出来写一篇文章。如果要下载源码，请点击原文。</li>
+<li>本文是之前的文章<a
+target="_blank" rel="noopener" href="https://blog.sakizuki.site/2024/12/12/%E6%8A%95%E5%BD%B1%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95%EF%BC%88ee227c%20lecture%204%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%89/#">《投影梯度下降法（ee227c
+Lecture4
+学习笔记）》</a>的一部分。因为我觉得可能还会有人需要这个方法，为了方便被搜索引擎搜到，所以单独拿出来写一篇文章。如果要下载源码，请点击原文。</li>
 <li>本文所描述的方法只适用于有<strong>显式数学表达式</strong>的函数，<strong>自变量可以是标量、向量、矩阵</strong>，但是必须有数学表达式。一般的编程函数，比如里面有<code>for</code>循环啊、<code>if</code>啊、递归等，是用不了的。</li>
 </ol>
 <span id="more"></span>
 <p>在查文档的时候，发现有<code>gradient</code>、<code>diff2</code>等函数，但是它们都不满足我的需要。在问LLM的时候，LLM给出了这样的回答：</p>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202501112301009.png" srcset="/img/loading.gif" lazyload alt="LLMの胡言乱语" /><figcaption aria-hidden="true">LLMの胡言乱语</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202501112301009.png" srcset="/img/loading.gif" lazyload
+alt="LLMの胡言乱语" />
+<figcaption aria-hidden="true">LLMの胡言乱语</figcaption>
 </figure>
 <p>LLM完全理解了我的需要，然后给出了一个完全错误的回答。所以，接下来的内容，就是实现这个图里面的东西。如果你发现图里面的东西不是你想要的，那可以不用看了。</p>
 <p>接下来利用稀疏逆协方差估计的背景介绍一下所用的方法。</p>
-<p>稀疏逆协方差估计是一种统计方法，用于估计变量之间的依赖关系。该方法通过优化一个包含正则化项的目标函数来实现。其优化目标为： <span class="math display">\[
-\min _{X \in \mathbb{R}^{n \times n}, X \succeq 0}\langle S, X\rangle-\log \operatorname{det}(X)+\alpha\|X\|_1
+<p>稀疏逆协方差估计是一种统计方法，用于估计变量之间的依赖关系。该方法通过优化一个包含正则化项的目标函数来实现。其优化目标为：
+<span class="math display">\[
+\min _{X \in \mathbb{R}^{n \times n}, X \succeq 0}\langle S,
+X\rangle-\log \operatorname{det}(X)+\alpha\|X\|_1
 \]</span> 在这里，我们定义： <span class="math display">\[
 \langle S, X\rangle=\text{tr} (S^\top X)
 \]</span> 和 <span class="math display">\[
 \|X\|_1=\sum_{ij}|X_{ij}|
-\]</span> 在原文中，使用到了<code>python</code>的<code>autograd</code>功能。但是<code>Matlab</code>不带有这个功能，为此，我颇下了一番功夫，最终得到一个解决方案。</p>
-<p>这个问题解决起来很棘手，因为函数的参数都是矩阵。如果只用 <code>syms A</code> 指令，生成的只是单个变量。例如：</p>
+\]</span>
+在原文中，使用到了<code>python</code>的<code>autograd</code>功能。但是<code>Matlab</code>不带有这个功能，为此，我颇下了一番功夫，最终得到一个解决方案。</p>
+<p>这个问题解决起来很棘手，因为函数的参数都是矩阵。如果只用
+<code>syms A</code> 指令，生成的只是单个变量。例如：</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Matlab">&gt;&gt; syms S X<br>&gt;&gt; sparse_inv_cov_syms = trace(S&#x27; * X) - <span class="hljs-built_in">log</span>(det(X)) + <span class="hljs-number">0.1</span> * sum(<span class="hljs-built_in">abs</span>(X),<span class="hljs-string">&#x27;all&#x27;</span>)<br></code></pre></td></tr></table></figure>
 <p>输出</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs Matlab">sparse_inv_cov_syms =<br> <br><span class="hljs-built_in">abs</span>(X)/<span class="hljs-number">10</span> - <span class="hljs-built_in">log</span>(X) + X*<span class="hljs-built_in">conj</span>(S)<br></code></pre></td></tr></table></figure>
@@ -610,7 +620,7 @@
 <p>它就会返回函数</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata">sparse_inv_cov_syms = <span class="hljs-built_in">trace</span>(Ssyms&#x27; * Xsyms) - <span class="hljs-built_in">log</span>(<span class="hljs-built_in">det</span>(Xsyms)) + 0.1 * <span class="hljs-built_in">sum</span>(<span class="hljs-built_in">abs</span>(Xsyms),&#x27;all&#x27;);<br></code></pre></td></tr></table></figure>
 <p>也就是 <span class="math display">\[
- \text{tr}(S^\top X)-\log \operatorname{det}(X)+0.1\|X\|_1
+\text{tr}(S^\top X)-\log \operatorname{det}(X)+0.1\|X\|_1
 \]</span> 在矩阵<code>X</code>处的导数。</p>
 <hr />
 <p>本站的运行成本约为每个月5元人民币，如果您觉得本站有用，欢迎打赏：</p>

@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/illust_67687967_20190605_163831.jpg">
 <meta property="article:published_time" content="2022-05-16T11:09:48.000Z">
-<meta property="article:modified_time" content="2025-01-20T16:35:30.910Z">
+<meta property="article:modified_time" content="2025-01-20T16:35:30.000Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="C">
 <meta property="article:tag" content="信号与系统">
@@ -560,31 +560,37 @@
             
               <div class="markdown-body">
                 
-                <p>本文尝试实现一种利用C语言绘制函数图像的方法。最终输出为PPM格式图片。 <span id="more"></span></p>
+                <p>本文尝试实现一种利用C语言绘制函数图像的方法。最终输出为PPM格式图片。
+<span id="more"></span></p>
 <h2 id="一ppm图片格式">一、PPM图片格式</h2>
 <p>我们首先来看一下我们的问题：怎么用纯C语言写一个<code>plot()</code>函数。那么我们迎面而来遇到的第一个问题就是：我们平常使用的C语言，往往是在一个黑框框里面输入一堆数字，然后输出一堆数字，而现在却要展示一张图片，这怎么做呢？但是我们静下心来想一想，就会发现所谓的图片实际上也是文件，而文件就是可以用C语言的<code>freopen</code>读写的。但是我们平时读写的都是纯文本文件，现在却要写入一张图片文件。怎么做到呢？这时就需要一种非常简单的图片编码：PPM格式。</p>
-<p>PPM格式是 Netpbm <sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="https://en.wikipedia.org/wiki/Netpbm#File_formats">[1]</span></a></sup>的一部分。这个项目使用和定义了几种图形格式。便携式像素映射格式（PPM）、便携式灰图格式（PGM） 和便携式位图格式（PBM） ，旨在便于在平台之间交换。</p>
-<p>一个PPM文件由两部分组成，即文件头和数据流。文件头的第一部分是一个Magic Number，格式为<code>P%d</code>，表示了文件的类型，具体如下表所示：</p>
+<p>PPM格式是 Netpbm
+<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span
+class="hint--top hint--rounded"
+aria-label="https://en.wikipedia.org/wiki/Netpbm#File_formats">[1]</span></a></sup>的一部分。这个项目使用和定义了几种图形格式。便携式像素映射格式（PPM）、便携式灰图格式（PGM）
+和便携式位图格式（PBM） ，旨在便于在平台之间交换。</p>
+<p>一个PPM文件由两部分组成，即文件头和数据流。文件头的第一部分是一个Magic
+Number，格式为<code>P%d</code>，表示了文件的类型，具体如下表所示：</p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>类型</th>
 <th>ASCII （普通）</th>
 <th><strong>二进制（原始）</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>便携式位图（PBM）</td>
 <td>P1</td>
 <td>P4</td>
 </tr>
-<tr class="even">
+<tr>
 <td>便携式灰度图（PGM）</td>
 <td>P2</td>
 <td>P5</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>便携式像素映像（PPM）</td>
 <td>P3</td>
 <td>P6</td>
@@ -596,15 +602,20 @@
 <p>数据流部分是以矩阵形式显示的像素点。接下来我们看几个例子：</p>
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">P1</span><br><span class="hljs-comment"># This is an example bitmap of the letter &quot;J&quot;</span><br><span class="hljs-attribute">6</span> <span class="hljs-number">10</span><br><span class="hljs-attribute">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">0</span><br><span class="hljs-attribute">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">0</span><br><span class="hljs-attribute">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">0</span><br><span class="hljs-attribute">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">0</span><br><span class="hljs-attribute">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">0</span><br><span class="hljs-attribute">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">0</span><br><span class="hljs-attribute">1</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">0</span><br><span class="hljs-attribute">0</span> <span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span><br><span class="hljs-attribute">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span><br><span class="hljs-attribute">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
 <figure>
-<img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/1652669222979.png" srcset="/img/loading.gif" lazyload alt="123" /><figcaption aria-hidden="true">123</figcaption>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/1652669222979.png" srcset="/img/loading.gif" lazyload
+alt="123" />
+<figcaption aria-hidden="true">123</figcaption>
 </figure>
 <p>这是一个PBM（位图）格式的文件，其中0表示白色，1表示黑色。显示成图片的话是这个样子（放大了20倍）</p>
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">P2</span><br><span class="hljs-comment"># Shows the word &quot;FEEP&quot; (example from Netpbm man page on PGM)</span><br><span class="hljs-attribute">24</span> <span class="hljs-number">7</span><br><span class="hljs-attribute">15</span><br><span class="hljs-attribute">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span><br><span class="hljs-attribute">0</span>  <span class="hljs-number">3</span>  <span class="hljs-number">3</span>  <span class="hljs-number">3</span>  <span class="hljs-number">3</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">7</span>  <span class="hljs-number">7</span>  <span class="hljs-number">7</span>  <span class="hljs-number">7</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span> <span class="hljs-number">11</span> <span class="hljs-number">11</span> <span class="hljs-number">11</span> <span class="hljs-number">11</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span> <span class="hljs-number">15</span> <span class="hljs-number">15</span> <span class="hljs-number">15</span> <span class="hljs-number">15</span>  <span class="hljs-number">0</span><br><span class="hljs-attribute">0</span>  <span class="hljs-number">3</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">7</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span> <span class="hljs-number">11</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span> <span class="hljs-number">15</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span> <span class="hljs-number">15</span>  <span class="hljs-number">0</span><br><span class="hljs-attribute">0</span>  <span class="hljs-number">3</span>  <span class="hljs-number">3</span>  <span class="hljs-number">3</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">7</span>  <span class="hljs-number">7</span>  <span class="hljs-number">7</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span> <span class="hljs-number">11</span> <span class="hljs-number">11</span> <span class="hljs-number">11</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span> <span class="hljs-number">15</span> <span class="hljs-number">15</span> <span class="hljs-number">15</span> <span class="hljs-number">15</span>  <span class="hljs-number">0</span><br><span class="hljs-attribute">0</span>  <span class="hljs-number">3</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">7</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span> <span class="hljs-number">11</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span> <span class="hljs-number">15</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span><br><span class="hljs-attribute">0</span>  <span class="hljs-number">3</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">7</span>  <span class="hljs-number">7</span>  <span class="hljs-number">7</span>  <span class="hljs-number">7</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span> <span class="hljs-number">11</span> <span class="hljs-number">11</span> <span class="hljs-number">11</span> <span class="hljs-number">11</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span> <span class="hljs-number">15</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span><br><span class="hljs-attribute">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
 <p>这个一个PGM（灰度图）的例子，我们可以看到第四行，这就是所谓“颜色（分量）的最大值”。它对应的图片是这个样子（当然也经过了放大）：</p>
-<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/1652669278002.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/1652669278002.png" srcset="/img/loading.gif" lazyload /></p>
 <figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs tap">P3           <span class="hljs-comment"># &quot;P3&quot; means this is a RGB color image in ASCII</span><br>3<span class="hljs-number"> 2 </span>         <span class="hljs-comment"># &quot;3 2&quot; is the width and height of the image in pixels</span><br>255          <span class="hljs-comment"># &quot;255&quot; is the maximum value for each color</span><br><span class="hljs-comment"># The part above is the header</span><br><span class="hljs-comment"># The part below is the image data: RGB triplets</span><br>255  <span class="hljs-number"> 0 </span> <span class="hljs-number"> 0 </span> <span class="hljs-comment"># red</span><br> <span class="hljs-number"> 0 </span>255  <span class="hljs-number"> 0 </span> <span class="hljs-comment"># green</span><br> <span class="hljs-number"> 0 </span> <span class="hljs-number"> 0 </span>255  <span class="hljs-comment"># blue</span><br>255<span class="hljs-number"> 255 </span> <span class="hljs-number"> 0 </span> <span class="hljs-comment"># yellow</span><br>255<span class="hljs-number"> 255 </span>255  <span class="hljs-comment"># white</span><br> <span class="hljs-number"> 0 </span> <span class="hljs-number"> 0 </span> <span class="hljs-number"> 0 </span> <span class="hljs-comment"># black</span><br></code></pre></td></tr></table></figure>
 <p>这是一个PPM图片的例子，我们可以看到每个像素点使用了三个数字来指定颜色，也就是我们所说的RGB。</p>
-<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/1652669396133.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/1652669396133.png" srcset="/img/loading.gif" lazyload /></p>
 <p>到这里，你应该已经掌握了PPM格式图片怎么写了吧！</p>
 <h2 id="二定义函数表">二、定义函数表</h2>
 <p>为了方便绘图，首先我们定义PPM数据类型，由RGB三个颜色分量组成。</p>
@@ -616,61 +627,61 @@
 <p>其中各参数的意义如下：</p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>项目</th>
 <th>意义</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>char *name</code></td>
 <td>输出文件的文件名</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>PPMdata **matrix</code></td>
 <td>PPM文件流矩阵，大小至少为height*width</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>const double *x</code></td>
 <td>采样点x坐标</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>double *y</code></td>
 <td>采样点y坐标</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>int width</code></td>
 <td>整个图像的宽度 单位：像素</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>int height</code></td>
 <td>整个图像的高度 单位：像素</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>int arrayLen</code></td>
 <td>采样点的数目</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>double centerX</code></td>
 <td>图片中心点对应的直角坐标X</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>double centerY</code></td>
 <td>图片中心点对应的直角坐标Y</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>double rangeX</code></td>
 <td>X直角坐标范围</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>double rangeY</code></td>
 <td>Y直角坐标范围</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>double gridX</code></td>
 <td>X网格宽度（单位：直角坐标）</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>double gridY</code></td>
 <td>Y网格宽度（单位：直角坐标）</td>
 </tr>
@@ -681,25 +692,25 @@
 <p>其中各参数的意义为：</p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>项目</th>
 <th>意义</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>double num</code></td>
 <td>待转换的直角坐标量x</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>double center</code></td>
 <td>图片该方向中心点对应的直角坐标c</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>double range</code></td>
 <td>该方向直角坐标范围r</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>int picLen</code></td>
 <td>图片该方向的像素大小p</td>
 </tr>
@@ -712,27 +723,28 @@ p\left(\frac 12+\frac{x-c}{r}\right)
 <p>各新参数的意义如下：</p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>项目</th>
 <th>意义</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>int x</code></td>
 <td>要绘制的点的像素X坐标</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>int y</code></td>
 <td>要绘制的点的像素Y坐标</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>PPMdata color</code></td>
 <td>颜色</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>int size</code></td>
-<td>点的大小，最后绘制出来是一个<span class="math inline">\(2size+1\)</span>边长的正方形</td>
+<td>点的大小，最后绘制出来是一个<span
+class="math inline">\(2size+1\)</span>边长的正方形</td>
 </tr>
 </tbody>
 </table>
@@ -741,7 +753,12 @@ p\left(\frac 12+\frac{x-c}{r}\right)
 <p>没有新的参数。</p>
 <p>由于绘图时采用分段线性拟合算法，定义线性函数：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">define</span> linerFunc(x1,y1,x2,y2,x) ((x-x1)*(y2-y1)/(x2-x1)+y1)</span><br></code></pre></td></tr></table></figure>
-<p>这个定义的意思是：<span class="math inline">\(y=\text{linerFunc}(x_1,y_1,x_2,y_2,x)\)</span>表示一条经过<span class="math inline">\((x_1,y_2)\)</span>和<span class="math inline">\((x_2,y_2)\)</span>，以<span class="math inline">\(x\)</span>为自变量的直线。直线方程为： <span class="math display">\[
+<p>这个定义的意思是：<span
+class="math inline">\(y=\text{linerFunc}(x_1,y_1,x_2,y_2,x)\)</span>表示一条经过<span
+class="math inline">\((x_1,y_2)\)</span>和<span
+class="math inline">\((x_2,y_2)\)</span>，以<span
+class="math inline">\(x\)</span>为自变量的直线。直线方程为： <span
+class="math display">\[
 y=(x-x_1)\frac{y_2-y_1}{x_2-x_1}+y_1
 \]</span></p>
 <h2 id="三实现函数">三、实现函数</h2>
@@ -750,34 +767,37 @@ y=(x-x_1)\frac{y_2-y_1}{x_2-x_1}+y_1
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">if</span> (height % <span class="hljs-number">2</span>) ++height;<br><span class="hljs-keyword">if</span> (width % <span class="hljs-number">2</span>) ++width;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; arrayLen; ++i) &#123;<br>    <span class="hljs-keyword">if</span> (x[i] &lt; x[i - <span class="hljs-number">1</span>] &amp;&amp; i &gt;= <span class="hljs-number">1</span>) &#123;<br>        <span class="hljs-built_in">fprintf</span>(<span class="hljs-built_in">stderr</span>, <span class="hljs-string">&quot;ERROR: X is not increasing.\n&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (!(x[i] &gt; centerX - (rangeX / <span class="hljs-number">2.0</span>) &amp;&amp; x[i] &lt; centerX + (rangeX / <span class="hljs-number">2.0</span>))) &#123;<br>        <span class="hljs-built_in">fprintf</span>(<span class="hljs-built_in">stderr</span>, <span class="hljs-string">&quot;ERROR: X out of range.\n&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (!(y[i] &gt; centerY - (rangeY / <span class="hljs-number">2.0</span>) &amp;&amp; y[i] &lt; centerY + (rangeY / <span class="hljs-number">2.0</span>))) &#123;<br>        <span class="hljs-keyword">if</span> (y[i] &gt; centerY + (rangeY / <span class="hljs-number">2.0</span>)) y[i] = centerY + (rangeY / <span class="hljs-number">2.0</span>);<br>        <span class="hljs-keyword">if</span> (y[i] &lt; centerY - (rangeY / <span class="hljs-number">2.0</span>)) y[i] = centerY - (rangeY / <span class="hljs-number">2.0</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>首先，为了方便，我们强制把像素大小设置为偶数。然后主要检查三个事：</p>
 <ol type="1">
-<li><span class="math inline">\(x\)</span>坐标是否严格单调递增。若不是，返回错误并退出。</li>
-<li><span class="math inline">\(x\)</span>坐标是否在范围内。若不是，返回错误并退出。</li>
-<li><span class="math inline">\(y\)</span>坐标是否在范围内。若不是，强制将其设置在范围内。</li>
+<li><span
+class="math inline">\(x\)</span>坐标是否严格单调递增。若不是，返回错误并退出。</li>
+<li><span
+class="math inline">\(x\)</span>坐标是否在范围内。若不是，返回错误并退出。</li>
+<li><span
+class="math inline">\(y\)</span>坐标是否在范围内。若不是，强制将其设置在范围内。</li>
 </ol>
 <h3 id="第二步定义ppmdata颜色">第二步，定义PPMdata颜色。</h3>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c">PPMdata background, axis, grid, line;<br>background = makePPMdata(<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">251</span>);<br>axis = makePPMdata(<span class="hljs-number">28</span>, <span class="hljs-number">28</span>, <span class="hljs-number">28</span>);<br>grid = makePPMdata(<span class="hljs-number">189</span>, <span class="hljs-number">192</span>, <span class="hljs-number">186</span>);<br>line = makePPMdata(<span class="hljs-number">0</span>, <span class="hljs-number">92</span>, <span class="hljs-number">175</span>);<br></code></pre></td></tr></table></figure>
 <p>各变量的意义如下：</p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>项目</th>
 <th>意义</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>background</code></td>
 <td>背景颜色</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>axis</code></td>
 <td>主坐标轴颜色</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>grid</code></td>
 <td>网格颜色</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>line</code></td>
 <td>要画的函数的颜色</td>
 </tr>
@@ -814,7 +834,8 @@ y=(x-x_1)\frac{y_2-y_1}{x_2-x_1}+y_1
 y=\frac{\sin 2x}{2x}
 \]</span> 的图像。</p>
 <p>编译运行，在目录下输出了一个<code>out.ppm</code>文件，打开：</p>
-<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/1652669362308.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/1652669362308.png" srcset="/img/loading.gif" lazyload /></p>
 <p>大功告成咯！</p>
 <h2 id="五更多讨论">五、更多讨论</h2>
 <p>这个代码存在以下问题：</p>
@@ -823,7 +844,8 @@ y=\frac{\sin 2x}{2x}
 </ol>
 <p><span class="math display">\[
    y=\tan x
-\]</span> <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/1652669353744.png" srcset="/img/loading.gif" lazyload /></p>
+\]</span> <img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/1652669353744.png" srcset="/img/loading.gif" lazyload /></p>
 <ol start="2" type="1">
 <li>需要人工指定的变量太多，日后我会开发一版能自动适应采样点，选择合适的坐标、范围的绘图函数。</li>
 </ol>
@@ -834,7 +856,10 @@ y=\frac{\sin 2x}{2x}
 <div class="footnote-list">
 <ol>
 <li>
-<span id="fn:1" class="footnote-text"><span>https://en.wikipedia.org/wiki/Netpbm#File_formats <a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩︎</a></span></span>
+<span id="fn:1"
+class="footnote-text"><span>https://en.wikipedia.org/wiki/Netpbm#File_formats
+<a href="#fnref:1" rev="footnote" class="footnote-backref">
+↩︎</a></span></span>
 </li>
 </ol>
 </div>
