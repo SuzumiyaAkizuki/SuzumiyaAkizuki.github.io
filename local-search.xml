@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>使用开源文生图模型生成二次元图片</title>
+    <link href="/2025/12/18/%E4%BD%BF%E7%94%A8%E5%BC%80%E6%BA%90%E6%96%87%E7%94%9F%E5%9B%BE%E6%A8%A1%E5%9E%8B%E7%94%9F%E6%88%90%E4%BA%8C%E6%AC%A1%E5%85%83%E5%9B%BE%E7%89%87/"/>
+    <url>/2025/12/18/%E4%BD%BF%E7%94%A8%E5%BC%80%E6%BA%90%E6%96%87%E7%94%9F%E5%9B%BE%E6%A8%A1%E5%9E%8B%E7%94%9F%E6%88%90%E4%BA%8C%E6%AC%A1%E5%85%83%E5%9B%BE%E7%89%87/</url>
+    
+    <content type="html"><![CDATA[<p>最近，我有点沉迷于开源文生图。其主要原因，可能是我有了一个<code>RTX 5070Ti</code>笔记本。本文主要介绍的是怎么用，而不是原理，所以我把它放到了「生活」分类里。</p><p>首先，来介绍一些基本概念。</p><ul><li><strong>「大模型」</strong>：是文生图的「画师」，它是整个项目的主要大脑，负责从潜空间中生成图片。也可以叫他「检查点（checkpoint）」。大模型一般来说是一个<code>safetensors</code> 格式的文件，有2~10GB大。其中，分为两类：<ul><li>基底大模型：指官方发布的原始模型，典型的基底大模型有：<code>SD1.5</code>、<code>SDXL</code>、<code>z-image-omni-base</code>。</li><li>微调大模型：指在基底大模型上微调，以适应某种特殊需要（如二次元画风）的模型。典型的微调大模型有：<code>Anything</code>、<code>noobai</code>等。</li></ul></li><li><strong>「UI」</strong>：</li></ul><hr /><p>本站的运行成本约为每个月5元人民币，如果您觉得本站有用，欢迎打赏：</p><p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202501120027592.png" alt="" style="zoom:25%;" /></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>生活</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>机器学习</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>光环（Halo）系列游戏推荐和入门攻略</title>
     <link href="/2025/11/01/%E5%85%89%E7%8E%AF%EF%BC%88Halo%EF%BC%89%E7%B3%BB%E5%88%97%E6%B8%B8%E6%88%8F%E6%8E%A8%E8%8D%90%E5%92%8C%E5%85%A5%E9%97%A8%E6%94%BB%E7%95%A5/"/>
     <url>/2025/11/01/%E5%85%89%E7%8E%AF%EF%BC%88Halo%EF%BC%89%E7%B3%BB%E5%88%97%E6%B8%B8%E6%88%8F%E6%8E%A8%E8%8D%90%E5%92%8C%E5%85%A5%E9%97%A8%E6%94%BB%E7%95%A5/</url>
@@ -2611,9 +2636,9 @@
     
     <tags>
       
-      <tag>信号与系统</tag>
-      
       <tag>C</tag>
+      
+      <tag>信号与系统</tag>
       
     </tags>
     
