@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202412211419341.png">
 <meta property="article:published_time" content="2024-12-21T02:56:50.000Z">
-<meta property="article:modified_time" content="2026-01-11T04:26:48.435Z">
+<meta property="article:modified_time" content="2026-01-11T08:38:10.558Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary_large_image">
@@ -964,7 +964,8 @@ s.t.\ \ &amp; t_i(\boldsymbol{w_i^Tx_i+b_i})\geq 1
 <p>这就是SVM的基本型。利用拉格朗日乘数法的对偶问题，可以写出其对偶型</p>
 <p><span class="math display">\[
 \begin{align}
-\text{minimize}_\alpha\ \ &amp;\sum_{i=1}^N \sum_{j=1}^N \alpha_i
+\text{minimize}_\alpha\ \ &amp;\dfrac 12 \sum_{i=1}^N \sum_{j=1}^N
+\alpha_i
 \alpha_j t_i t_j \boldsymbol{x_i^Tx_j}-\sum_{i=1}^N \alpha_i\\
 s.t. \ \ &amp;\alpha&gt;0\\
 &amp; \sum_{i=1}^N \alpha_i t_i=0
@@ -982,7 +983,8 @@ class="math inline">\(d&#39;\geq
 d\)</span>。此时，SVM的对偶问题变为：</p>
 <p><span class="math display">\[
 \begin{align}
-\text{minimize}_\alpha\ \ &amp;\sum_{i=1}^N \sum_{j=1}^N \alpha_i
+\text{minimize}_\alpha\ \ &amp; \dfrac 12\sum_{i=1}^N \sum_{j=1}^N
+\alpha_i
 \alpha_j t_i t_j
 \phi^T(\boldsymbol{x_i})\phi(\boldsymbol{x_j})-\sum_{i=1}^N \alpha_i\\
 s.t. \ \ &amp;\alpha&gt;0\\
