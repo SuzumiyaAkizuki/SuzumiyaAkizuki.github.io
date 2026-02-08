@@ -1,0 +1,1196 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  <link rel="icon" href="https://akizukipic.oss-cn-beijing.aliyuncs.com/Cache_53fa78c0147b1e1e..jpg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="SuzumiyaAkizuki">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Danbooru 模糊查找 本项目提供一种模糊查找 Danbooru 标签的方法。用户可以凭借模糊的语言描述，查找 Danbooru 数据集中对应的标签。 目前，仅支持使用汉语和英语进行查找。 ⚠查找结果中可能包含NSFW内容。 🔗项目链接：https:&#x2F;&#x2F;huggingface.co&#x2F;spaces&#x2F;SAkizuki&#x2F;DanbooruSearch  使用说明 本程序有三个查找参">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Danbooru模糊查找">
+<meta property="og:url" content="https://suzumiyaakizuki.github.io/2026/02/08/Danbooru%E6%A8%A1%E7%B3%8A%E6%9F%A5%E6%89%BE/index.html">
+<meta property="og:site_name" content="凉宫秋月的文艺部">
+<meta property="og:description" content="Danbooru 模糊查找 本项目提供一种模糊查找 Danbooru 标签的方法。用户可以凭借模糊的语言描述，查找 Danbooru 数据集中对应的标签。 目前，仅支持使用汉语和英语进行查找。 ⚠查找结果中可能包含NSFW内容。 🔗项目链接：https:&#x2F;&#x2F;huggingface.co&#x2F;spaces&#x2F;SAkizuki&#x2F;DanbooruSearch  使用说明 本程序有三个查找参">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202602082204398.png">
+<meta property="article:published_time" content="2026-02-08T13:59:50.000Z">
+<meta property="article:modified_time" content="2026-02-08T14:16:32.922Z">
+<meta property="article:author" content="SuzumiyaAkizuki">
+<meta property="article:tag" content="RAG">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202602082204398.png">
+  
+  
+  
+  <title>Danbooru模糊查找 - 凉宫秋月的文艺部</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="/css/indeximg-hover.css">
+<link rel="stylesheet" href="/css/scrollAnimation.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"suzumiyaakizuki.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"#"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":"68566d9bd00b7bf4691d908988e884c5","google":{"measurement_id":"G-J01HK5TZ0Y"},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"QGqf9VPGTa96KerO0JvDW3Ld-gzGzoHsz","app_key":"RhwwUaYq4lMo1tCJwcQTWdRp","server_url":"https://qgqf9vpg.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?68566d9bd00b7bf4691d908988e884c5";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=G-J01HK5TZ0Y", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', 'G-J01HK5TZ0Y');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>凉宫秋月的文艺部</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>主页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友情链接</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202602082204398.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Danbooru模糊查找"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        SuzumiyaAkizuki
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-02-08 21:59" pubdate>
+          2026年2月8日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          4 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-right: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="技术"
+        id="heading-a95dd3e179418be1ecd2a719a22db70e" role="tab" data-toggle="collapse" href="#collapse-a95dd3e179418be1ecd2a719a22db70e"
+        aria-expanded="true"
+      >
+        技术
+        <span class="list-group-count">(19)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-a95dd3e179418be1ecd2a719a22db70e"
+           role="tabpanel" aria-labelledby="heading-a95dd3e179418be1ecd2a719a22db70e">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2026/02/08/Danbooru%E6%A8%A1%E7%B3%8A%E6%9F%A5%E6%89%BE/" title="Danbooru模糊查找"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">Danbooru模糊查找</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2025/03/12/%E8%A2%AB%E5%8A%A8%E9%9B%B7%E8%BE%BE%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%861%EF%BC%9A%E6%9D%82%E6%B3%A2%E6%B6%88%E9%99%A4%E3%80%90%E7%BF%BB%E8%AF%91%E3%80%91/" title="【翻译】被动雷达信号处理"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【翻译】被动雷达信号处理</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2025/03/10/MIMO%E7%AC%AC%E4%BA%8C%E5%91%A8%E4%BD%9C%E4%B8%9A/" title="MIMO第二周作业"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">MIMO第二周作业</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2025/01/11/%E6%80%8E%E4%B9%88%E7%94%A8matlab%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E6%B1%82%E5%AF%BC/" title="怎么用 Matlab 实现 aurograd 自动微分"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">怎么用 Matlab 实现 aurograd 自动微分</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2024/12/17/%E4%BD%BF%E7%94%A8Matlab%E8%AE%AD%E7%BB%83%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AE%8C%E6%88%90%E8%A1%A8%E6%83%85%E5%8C%85%E5%88%86%E7%B1%BB%E4%BB%BB%E5%8A%A1/" title="使用Matlab训练卷积神经网络完成表情包分类任务"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">使用Matlab训练卷积神经网络完成表情包分类任务</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2024/12/13/%E9%BB%91%E7%AE%B1%E4%BC%98%E5%8C%96%E4%B8%8E%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" title="黑箱优化与强化学习（EE227c Lecture20学习笔记）"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">黑箱优化与强化学习（EE227c Lecture20学习笔记）</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2024/12/12/%E6%8A%95%E5%BD%B1%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95%EF%BC%88ee227c%20Lecture%204%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%89/" title="投影梯度下降法（EE227c Lecture4 学习笔记）"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">投影梯度下降法（EE227c Lecture4 学习笔记）</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2024/11/10/%E5%90%88%E6%88%90%E5%AD%94%E5%BE%84%E9%9B%B7%E8%BE%BE%E7%9A%84%E3%80%8C%E6%96%91%E9%A9%AC%E5%9B%BE%E3%80%8D%E5%88%B0%E5%BA%95%E6%98%AF%E6%80%8E%E4%B9%88%E5%9B%9E%E4%BA%8B/" title="合成孔径雷达的「斑马图」到底是怎么回事"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">合成孔径雷达的「斑马图」到底是怎么回事</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2024/08/15/%E6%80%8E%E4%B9%88%E5%9C%A82024%E5%B9%B4%E7%BB%99CentOS7%E7%9A%84gcc%E5%8D%87%E7%BA%A7/" title="怎么在2024年给CentOS7的gcc升级"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">怎么在2024年给CentOS7的gcc升级</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2024/04/15/%E7%94%A8matlab%20APP%20designer%E5%88%B6%E4%BD%9C%E8%BD%AF%E4%BB%B6%E3%80%81%E8%B0%83%E7%94%A8%E5%A4%96%E9%83%A8%E5%BA%93%E5%B9%B6%E6%89%93%E5%8C%85/" title="用MatlabAPPDesigner制作软件、调用外部库并打包"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">用MatlabAPPDesigner制作软件、调用外部库并打包</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2023/11/17/debug%20%E6%A3%80%E6%9F%A5%E5%8D%95/" title="debug检查单"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">debug检查单</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2023/11/02/C5-E6%E7%AD%94%E7%96%91%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/" title="程序设计基础第五~六周答疑要点整理"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">程序设计基础第五~六周答疑要点整理</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2023/10/18/C4-E4%E7%AD%94%E7%96%91%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/" title="程序设计基础第四周答疑要点整理"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">程序设计基础第四周答疑要点整理</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2023/10/12/C3-E3%E7%AD%94%E7%96%91%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/" title="程序设计基础第三周答疑要点整理"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">程序设计基础第三周答疑要点整理</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2023/10/07/%E6%88%91%E4%BC%9A%E8%87%AA%E5%B7%B1Debug/" title="我会自己Debug"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">我会自己Debug</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2023/10/06/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80%E7%AC%AC%E4%B8%80%E5%91%A8%E7%AD%94%E7%96%91%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/" title="程序设计基础第一周答疑要点整理"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">程序设计基础第一周答疑要点整理</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2023/09/27/C2-E2%E7%AD%94%E7%96%91%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/" title="程序设计基础第二周答疑要点整理"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">程序设计基础第二周答疑要点整理</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/05/23/%E5%85%B3%E4%BA%8E%E7%94%A8R%E8%AF%AD%E8%A8%80%E8%BF%9B%E8%A1%8C%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E7%9A%84%E4%B9%90%E5%AD%90%E4%BA%8C%E5%88%99/" title="关于用R语言进行方差分析的乐子二则"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">关于用R语言进行方差分析的乐子二则</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/05/16/%E4%B8%80%E7%A7%8D%E5%9F%BA%E4%BA%8E%E7%BA%AFC%E8%AF%AD%E8%A8%80%E7%9A%84%E5%87%BD%E6%95%B0%E7%BB%98%E5%9B%BE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="一种基于纯C语言的函数绘图解决方案"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">一种基于纯C语言的函数绘图解决方案</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Danbooru模糊查找</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="danbooru-模糊查找">Danbooru 模糊查找</h2>
+<p>本项目提供一种模糊查找 Danbooru
+标签的方法。用户可以凭借模糊的语言描述，查找 Danbooru
+数据集中对应的标签。</p>
+<p>目前，仅支持使用汉语和英语进行查找。</p>
+<p>⚠查找结果中可能包含NSFW内容。</p>
+<p>🔗项目链接：https://huggingface.co/spaces/SAkizuki/DanbooruSearch</p>
+<p><img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202602082204398.png" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="使用说明">使用说明</h3>
+<p>本程序有三个查找参数：</p>
+<ul>
+<li><p><code>top_k</code>：每个词取前<code>top_k</code>个相关的标签。</p></li>
+<li><p><code>结果上限</code>：对于整个查找，展示综合得分的前N名</p></li>
+<li><p><code>热度权重</code>：0~1，这个数值越高，标签频数在综合得分中的权重越大。推荐设为0.15</p></li>
+</ul>
+<p>设置完查找参数后，用户可以在「画面描述」中输入汉语或英语的词语或自然语言，点击「开始搜索」后，程序将进行查找。</p>
+<h3 id="工作模式">工作模式</h3>
+<h4 id="完整画面查找">完整画面查找</h4>
+<p>你可以输入对画面的完整描述，程序将生成匹配的danbooru标签集。</p>
+<p><strong>示例输入</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">一个穿着白色水手服、蓝色短裙的少女，在下着大雨的城市街道奔跑，她的标签是不甘、愤怒、流泪，她的衣服湿透。<br></code></pre></td></tr></table></figure>
+<p><strong>建议参数</strong></p>
+<ul>
+<li><p><code>top_k</code>：较小，例如5</p></li>
+<li><p><code>结果上限</code>：一般的SDXL系生图模型支持70-80个标签，设为80</p></li>
+<li><p><code>热度权重</code>：0.15</p></li>
+</ul>
+<p><strong>示例输出</strong></p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><span class="hljs-keyword">short_dress, </span>city, streaming_tears, street, white_serafuku, tag, hashtag, <span class="hljs-keyword">clothes, </span>furious, fume, label, rain, <span class="hljs-keyword">blue_background, </span>tears, miniskirt, white_sailor_collar, <span class="hljs-keyword">shorts_under_skirt, </span>dressing, serafuku, costume, <span class="hljs-keyword">shorts_under_dress, </span>dress, crying, <span class="hljs-keyword">blue_skin, </span>undressing, microskirt, object_in_clothes, tearing_up, <span class="hljs-keyword">blue_theme, </span><span class="hljs-keyword">black_serafuku, </span>running, <span class="hljs-keyword">blue_shoes, </span>&gt;:(, <span class="hljs-keyword">shared_clothes, </span><span class="hljs-keyword">clothes_on_and_off, </span><span class="hljs-keyword">blue_liquid, </span><span class="hljs-keyword">jogging, </span><span class="hljs-keyword">clothes_in_front, </span>wiping_tears, grey_serafuku, urban, angry, <span class="hljs-keyword">shorts, </span>fleeing, town, wet_clothes, la_grondement_du_haine, wet_face, slug_girl, price_tag, changing_clothes, <span class="hljs-keyword">clothes_on_floor, </span>angry_sex, wet_shirt, training_bra, wet_hair, <span class="hljs-keyword">sword_girls, </span>cityscape, annoyed, running_on_liquid, outdoors, <span class="hljs-keyword">short_sleeves, </span>supergirl, teardrop, girly_running, after_rain, <span class="hljs-keyword">short_shorts, </span><span class="hljs-keyword">blue_eyes, </span>taking_shelter, city_lights, <span class="hljs-title">|_|</span>, running_towards_viewer, nipple_tag, wet_floor, <span class="hljs-keyword">showering, </span>mourning, ^^^, wet_jacket, w, chasing<br></code></pre></td></tr></table></figure>
+<p>同时，程序输出一份详细的查询结果表格，用户也可以在表格中选择合适的标签</p>
+<figure>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202602082126523.png" srcset="/img/loading.gif" lazyload
+alt="image-20260208212616475" />
+<figcaption aria-hidden="true">image-20260208212616475</figcaption>
+</figure>
+<h4 id="关键词精准查找">关键词精准查找</h4>
+<p>你或许对某个词有模糊的印象，但不知道它对应的danbooru标签具体是什么。此时，你可以使用此程序精确查找。</p>
+<p><strong>示例输入</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">假肢<br></code></pre></td></tr></table></figure>
+<p><strong>建议参数</strong></p>
+<ul>
+<li><p><code>top_k</code>：较小，例如5</p></li>
+<li><p><code>结果上限</code>：较小，例如10</p></li>
+<li><p><code>热度权重</code>：0.15</p></li>
+</ul>
+<p><strong>示例输出</strong></p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey"><span class="hljs-built_in">running_blades,</span> prosthetic_leg, peg_leg, severed_limb, fake_claws, fake_nails, detached_legs, multiple_legs, separated_legs, alternate_footwear<br></code></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202602082129286.png" srcset="/img/loading.gif" lazyload
+alt="image-20260208212925262" />
+<figcaption aria-hidden="true">image-20260208212925262</figcaption>
+</figure>
+<h4 id="概念模糊查找">概念模糊查找</h4>
+<p>你可能像搜索关于某一个概念的关键词。此时，你可以使用此程序进行概念模糊查找。</p>
+<p><strong>示例输入</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">裙子<br></code></pre></td></tr></table></figure>
+<p><strong>建议参数</strong></p>
+<ul>
+<li><p><code>top_k</code>：较大，例如40</p></li>
+<li><p><code>结果上限</code>：较大，例如80</p></li>
+<li><p><code>热度权重</code>：0.15</p></li>
+</ul>
+<p><strong>示例输出</strong></p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">skirt, dress, one_piece, white_skirt, <span class="hljs-keyword">black_skirt, </span>upskirt, skirt_set, long_skirt, long_dress, pink_skirt, skirt_hold, skirt_lift, <span class="hljs-keyword">sweater_dress, </span>skirt_suit, <span class="hljs-keyword">multicolored_skirt, </span>skirt_pull, under_skirt, gown, dress_lift, unworn_skirt, skirt_tug, print_skirt, dress_tug, dress_flower, <span class="hljs-keyword">orange_skirt, </span>flower_skirt, flower_dress, wet_dress, skirt_under_dress, wet_skirt, dress_ribbon, taut_skirt, armored_skirt, culottes, <span class="hljs-keyword">swimsuit_skirt, </span>skort, skirt_rolled_up, dress_flip, skousers, dress_over_shirt, striped_clothes, dress_shirt, sleeveless_dress, undressing, <span class="hljs-keyword">clothes, </span>lingerie, striped_dress, layered_dress, adjusting_clothes, <span class="hljs-keyword">multicolored_dress, </span><span class="hljs-keyword">clothes_between_thighs, </span>hooded_dress, dressing, layered_clothes, <span class="hljs-keyword">clothes_on_floor, </span>evening_gown, dress_shoes, hand_under_clothes, tearing_clothes, <span class="hljs-keyword">multicolored_clothes, </span><span class="hljs-keyword">clothed_female_nude_female, </span><span class="hljs-keyword">clothes_down, </span><span class="hljs-keyword">ballerina, </span>holding_cloth, changing_clothes, <span class="hljs-keyword">shorts_under_dress, </span><span class="hljs-keyword">cloth, </span><span class="hljs-keyword">shirt_under_dress, </span><span class="hljs-keyword">clothes_on_and_off, </span>folded_clothes, hand_under_dress, <span class="hljs-keyword">clothes_on_shoulders, </span>dress_suit, reflective_clothes, night_clothes<br></code></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202602082132644.png" srcset="/img/loading.gif" lazyload
+alt="image-20260208213214790" />
+<figcaption aria-hidden="true">image-20260208213214790</figcaption>
+</figure>
+<h3 id="技术说明">技术说明</h3>
+<p>本项目实现了一个基于 Web
+的语义检索工具。它解决了传统基于关键词匹配在检索绘画标签时，难以处理模糊描述、同义词或自然语言描述的痛点。系统利用预训练的向量模型将用户输入的自然语言描述映射到高维向量空间，并与预先构建的标签向量库进行相似度匹配，最终结合标签热度进行混合排序推荐。</p>
+<p>系统在首次启动或缓存缺失时，执行以下 ETL 流程：</p>
+<ol type="1">
+<li>数据清洗:
+<ul>
+<li>读取标签列表，处理字符编码（UTF-8/GBK）。这是一个保存Danbooru的所有标签的表格文件，其中必须有<code>name</code>（标签名）、<code>cn_name</code>（标签中文含义）、<code>post_count</code>（标签频数）三个字段</li>
+<li>对 <code>post_count</code> 进行对数变换，计算
+<code>max_log_count</code>，用于归一化处理，实现热度加权搜索的同时，防止热门标签权重过大淹没语义相关性。</li>
+</ul></li>
+<li>双语向量化 (Dual-Embedding):
+<ul>
+<li>利用 <code>SentenceTransformer</code> (
+<code>BAAI/bge-m3</code>模型) 分别对 中文含义 (<code>cn_name</code>) 和
+英文标签名 (<code>name</code>) 进行 Embedding 编码。</li>
+<li>生成两个独立的向量矩阵：<code>emb_cn</code> (中文向量库) 和
+<code>emb_en</code> (英文向量库)。</li>
+</ul></li>
+<li>分词优化:
+<ul>
+<li>提取所有中文标签名，生成自定义词典，供 <code>jieba</code>
+分词器加载，确保专业术语被正确切分。</li>
+</ul></li>
+<li>序列化缓存:
+<ul>
+<li>将 DataFrame、向量矩阵、统计元数据打包为
+<code>danbooru_vectors_dual.pkl</code>，大幅缩短后续启动时间。</li>
+</ul></li>
+</ol>
+<p>检索过程采用 语义相似度 + 热度加权 的混合策略：</p>
+<ol type="1">
+<li><p>查询预处理:</p>
+<ul>
+<li>使用 <code>jieba</code> 对用户输入进行分词。</li>
+<li>去除无含义的停用词，保留关键词。</li>
+<li>构建查询列表：<code>[原始完整查询句, 关键词1, 关键词2, ...]</code>。</li>
+</ul></li>
+<li><p>向量检索:</p>
+<ul>
+<li>将查询列表转换为向量。</li>
+<li>并行计算查询向量与 <code>emb_cn</code> 和 <code>emb_en</code>
+的余弦相似度。</li>
+<li>获取 前K 个候选项。</li>
+</ul></li>
+<li><p>混合重排序</p>
+<ul>
+<li><p>根据评分公式：</p>
+<p><span class="math display">\[
+FinalScore = Score_{semantic} \times (1 - w) + Score_{popularity} \times
+w
+\]</span></p>
+<ul>
+<li><span class="math inline">\(Score_{semantic}\)</span>:
+向量余弦相似度。</li>
+<li><span class="math inline">\(Score_{popularity}\)</span>:
+归一化后的热度分数 (<span
+class="math inline">\(\frac{\ln(1+count)}{max\_log\_count}\)</span>)。</li>
+<li><span class="math inline">\(w\)</span>:
+用户可调节的热度权重参数。</li>
+</ul></li>
+</ul></li>
+<li><p>去重与过滤:</p>
+<ul>
+<li>合并中英文检索结果，去除重复标签。</li>
+<li>应用阈值过滤。</li>
+<li>截断结果列表。</li>
+</ul></li>
+</ol>
+<hr />
+<p>本站的运行成本约为每个月5元人民币，如果您觉得本站有用，欢迎打赏，或者给本博客的GitHub项目点一颗星</p>
+<p><a
+target="_blank" rel="noopener" href="https://github.com/SuzumiyaAkizuki/SuzumiyaAkizuki.github.io"><img
+src="https://img.shields.io/github/stars/SuzumiyaAkizuki/SuzumiyaAkizuki.github.io?style=social" srcset="/img/loading.gif" lazyload
+alt="GitHub stars" /></a></p>
+<p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202501120027592.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:25%;" /></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/RAG/" class="print-no-link">#RAG</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Danbooru模糊查找</div>
+      <div>https://suzumiyaakizuki.github.io/2026/02/08/Danbooru模糊查找/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>SuzumiyaAkizuki</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年2月8日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/12/18/%E4%BD%BF%E7%94%A8%E5%BC%80%E6%BA%90%E6%96%87%E7%94%9F%E5%9B%BE%E6%A8%A1%E5%9E%8B%E7%94%9F%E6%88%90%E4%BA%8C%E6%AC%A1%E5%85%83%E5%9B%BE%E7%89%87/" title="使用开源文生图模型生成二次元图片">
+                        <span class="hidden-mobile">使用开源文生图模型生成二次元图片</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.8.0/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"48fb14f9689ae0d11307","clientSecret":"091ab25a88e87bfd9d9d40d97d1d0d932e694059","repo":"SuzumiyaAkizuki.github.io","owner":"SuzumiyaAkizuki","admin":["SuzumiyaAkizuki"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: 'eed54dd9d6b8115288ec72e5e018e80c'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       Powered by: <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br> <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> Copyright © 2019 - 2025 凉宫秋月. All Rights Reserved. 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/scrollAnimation.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
