@@ -434,7 +434,7 @@ sup > a::before,
   .navbar .dropdown-collapse,
   .top-nav-collapse,
   .navbar-col-show {
-    background: rgba(47,65,84,0.7);
+    background: rgba(28,49,68,0.7);
     -webkit-backdrop-filter: blur(3px);
     backdrop-filter: blur(3px);
   }
@@ -443,7 +443,7 @@ sup > a::before,
   .navbar .dropdown-collapse,
   .top-nav-collapse,
   .navbar-col-show {
-    background: #2f4154;
+    background: #1c3144;
   }
 }
 @media (max-width: 767px) {
@@ -846,27 +846,27 @@ i.iconfont {
 }
 :root {
   --color-mode: "light";
-  --body-bg-color: #eee;
-  --board-bg-color: #fff;
-  --text-color: #3c4858;
-  --sec-text-color: #718096;
-  --post-text-color: #2c3e50;
-  --post-heading-color: #1a202c;
-  --post-link-color: #0366d6;
-  --link-hover-color: #30a9de;
-  --link-hover-bg-color: #f8f9fa;
-  --line-color: #eaecef;
-  --navbar-bg-color: #2f4154;
-  --navbar-text-color: #fff;
-  --subtitle-color: #fff;
-  --scrollbar-color: #c4c6c9;
-  --scrollbar-hover-color: #a6a6a6;
+  --body-bg-color: #f6f4e6;
+  --board-bg-color: #fdfcf5;
+  --text-color: #21364d;
+  --sec-text-color: #5c7080;
+  --post-text-color: #21364d;
+  --post-heading-color: #112233;
+  --post-link-color: #1964a3;
+  --link-hover-color: #2885cc;
+  --link-hover-bg-color: #ebf0f5;
+  --line-color: #e6e1d5;
+  --navbar-bg-color: #1c3144;
+  --navbar-text-color: #f6f4e6;
+  --subtitle-color: #d0d9e1;
+  --scrollbar-color: #c2c9d1;
+  --scrollbar-hover-color: #9da9b5;
   --button-bg-color: transparent;
-  --button-hover-bg-color: #f2f3f5;
+  --button-hover-bg-color: #e2e6eb;
   --highlight-bg-color: #f6f8fa;
   --inlinecode-bg-color: rgba(175,184,193,0.2);
-  --fold-title-color: #3c4858;
-  --fold-border-color: #eaecef;
+  --fold-title-color: #21364d;
+  --fold-border-color: #e6e1d5;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -1502,7 +1502,7 @@ figure.highlight td.code > pre {
   transition: border-color 0.2s ease-in-out;
 }
 .markdown-body pre {
-  font-size: 85% !important;
+  font-size: 100% !important;
 }
 .markdown-body pre .mermaid {
   text-align: center;
