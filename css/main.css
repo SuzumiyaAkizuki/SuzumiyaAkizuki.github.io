@@ -858,7 +858,7 @@ i.iconfont {
   --line-color: #e6e1d5;
   --navbar-bg-color: #1c3144;
   --navbar-text-color: #f6f4e6;
-  --subtitle-color: #fff;
+  --subtitle-color: #d0d9e1;
   --scrollbar-color: #c2c9d1;
   --scrollbar-hover-color: #9da9b5;
   --button-bg-color: transparent;
@@ -873,27 +873,27 @@ i.iconfont {
     --color-mode: "dark";
   }
   :root:not([data-user-color-scheme]) {
-    --body-bg-color: #181c27;
-    --board-bg-color: #252d38;
-    --text-color: #c4c6c9;
-    --sec-text-color: #a7a9ad;
-    --post-text-color: #c4c6c9;
-    --post-heading-color: #c4c6c9;
-    --post-link-color: #1589e9;
-    --link-hover-color: #30a9de;
-    --link-hover-bg-color: #364151;
-    --line-color: #435266;
-    --navbar-bg-color: #1f3144;
-    --navbar-text-color: #d0d0d0;
-    --subtitle-color: #d0d0d0;
-    --scrollbar-color: #687582;
-    --scrollbar-hover-color: #9da8b3;
+    --body-bg-color: #1c1a1e;
+    --board-bg-color: #242124;
+    --text-color: #d1c7b7;
+    --sec-text-color: #867f78;
+    --post-text-color: #d1c7b7;
+    --post-heading-color: #f0e3ce;
+    --post-link-color: #b23e52;
+    --link-hover-color: #d05a6e;
+    --link-hover-bg-color: #3d2b2f;
+    --line-color: #3f3536;
+    --navbar-bg-color: #262223;
+    --navbar-text-color: #e8dcca;
+    --subtitle-color: #a39a90;
+    --scrollbar-color: #5e4f50;
+    --scrollbar-hover-color: #857072;
     --button-bg-color: transparent;
-    --button-hover-bg-color: #46647e;
+    --button-hover-bg-color: #3d2b2f;
     --highlight-bg-color: #303030;
     --inlinecode-bg-color: rgba(99,110,123,0.4);
-    --fold-title-color: #c4c6c9;
-    --fold-border-color: #435266;
+    --fold-title-color: #d1c7b7;
+    --fold-border-color: #3f3536;
   }
   :root:not([data-user-color-scheme]) img {
     -webkit-filter: brightness(0.9);
@@ -904,7 +904,7 @@ i.iconfont {
     :root:not([data-user-color-scheme]) .navbar .dropdown-collapse,
     :root:not([data-user-color-scheme]) .top-nav-collapse,
     :root:not([data-user-color-scheme]) .navbar-col-show {
-      background: rgba(31,49,68,0.7);
+      background: rgba(38,34,35,0.7);
       -webkit-backdrop-filter: blur(3px);
       backdrop-filter: blur(3px);
     }
@@ -913,7 +913,7 @@ i.iconfont {
     :root:not([data-user-color-scheme]) .navbar .dropdown-collapse,
     :root:not([data-user-color-scheme]) .top-nav-collapse,
     :root:not([data-user-color-scheme]) .navbar-col-show {
-      background: #1f3144;
+      background: #262223;
     }
   }
   :root:not([data-user-color-scheme]) .license-box {
@@ -927,27 +927,27 @@ i.iconfont {
 }
 @media not print {
   [data-user-color-scheme="dark"] {
-    --body-bg-color: #181c27;
-    --board-bg-color: #252d38;
-    --text-color: #c4c6c9;
-    --sec-text-color: #a7a9ad;
-    --post-text-color: #c4c6c9;
-    --post-heading-color: #c4c6c9;
-    --post-link-color: #1589e9;
-    --link-hover-color: #30a9de;
-    --link-hover-bg-color: #364151;
-    --line-color: #435266;
-    --navbar-bg-color: #1f3144;
-    --navbar-text-color: #d0d0d0;
-    --subtitle-color: #d0d0d0;
-    --scrollbar-color: #687582;
-    --scrollbar-hover-color: #9da8b3;
+    --body-bg-color: #1c1a1e;
+    --board-bg-color: #242124;
+    --text-color: #d1c7b7;
+    --sec-text-color: #867f78;
+    --post-text-color: #d1c7b7;
+    --post-heading-color: #f0e3ce;
+    --post-link-color: #b23e52;
+    --link-hover-color: #d05a6e;
+    --link-hover-bg-color: #3d2b2f;
+    --line-color: #3f3536;
+    --navbar-bg-color: #262223;
+    --navbar-text-color: #e8dcca;
+    --subtitle-color: #a39a90;
+    --scrollbar-color: #5e4f50;
+    --scrollbar-hover-color: #857072;
     --button-bg-color: transparent;
-    --button-hover-bg-color: #46647e;
+    --button-hover-bg-color: #3d2b2f;
     --highlight-bg-color: #303030;
     --inlinecode-bg-color: rgba(99,110,123,0.4);
-    --fold-title-color: #c4c6c9;
-    --fold-border-color: #435266;
+    --fold-title-color: #d1c7b7;
+    --fold-border-color: #3f3536;
   }
   [data-user-color-scheme="dark"] img {
     -webkit-filter: brightness(0.9);
@@ -958,7 +958,7 @@ i.iconfont {
     [data-user-color-scheme="dark"] .navbar .dropdown-collapse,
     [data-user-color-scheme="dark"] .top-nav-collapse,
     [data-user-color-scheme="dark"] .navbar-col-show {
-      background: rgba(31,49,68,0.7);
+      background: rgba(38,34,35,0.7);
       -webkit-backdrop-filter: blur(3px);
       backdrop-filter: blur(3px);
     }
@@ -967,7 +967,7 @@ i.iconfont {
     [data-user-color-scheme="dark"] .navbar .dropdown-collapse,
     [data-user-color-scheme="dark"] .top-nav-collapse,
     [data-user-color-scheme="dark"] .navbar-col-show {
-      background: #1f3144;
+      background: #262223;
     }
   }
   [data-user-color-scheme="dark"] .license-box {
