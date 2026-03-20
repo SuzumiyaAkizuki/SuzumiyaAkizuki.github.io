@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>DanbooruSearchOnline的数据库设计</title>
+    <link href="/2026/03/20/DanbooruSearchOnline%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1/"/>
+    <url>/2026/03/20/DanbooruSearchOnline%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>从原始的 Danbooru数据，到支持中文语义搜索的高质量标签库——这中间到底发生了什么。</p></blockquote><p><imgsrc="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202603201219584.jpeg" /></p><p>之前我做了一个 Danbooru 标签搜索工具 <ahref="https://huggingface.co/spaces/SAkizuki/DanbooruSearch">DanbooruSearch</a>，支持用中文描述直接匹配Danbooru标签，还能根据标签共现关系做关联推荐。（没用过的可以去玩一下，之前专门写过一篇介绍。）</p><p>这个工具能不能用，核心取决于背后的数据库——它需要：</p><ul><li>每个标签有<strong>准确的中文名</strong>和<strong>中文语义描述</strong></li><li>标签之间有<strong>高质量的共现关系</strong></li></ul><p>但 Danbooru的原始数是全英文，没有中文语义；共现数据是原始频率，噪声极大；而Danbooru 每天都在新增标签，Wiki也在持续更新。于是我把整个流程设计成了五步全自动管线：<strong>danbooru-tag-pipeline</strong>。</p><h2 id="原始数据的问题">原始数据的问题</h2><p><strong>没有中文语义。</strong> Danbooru标签全是英文，还经常是日语罗马音、缩写或俚语，对中文用户完全不友好。搜索引擎要支持中文输入，必须给每个标签配上中文名和中文描述。</p><p><strong>Wiki 描述散落各处，质量参差。</strong> Danbooru 官方有 Wiki页面，但内容是英文、格式混乱、且并非每个标签都有。把它变成干净的中文描述，需要进行翻译、清洗、补全。</p><p><strong>共现数据噪声大</strong>。 Danbooru提供的关联数据是基于原始频率的，「猫耳」和「1girl」共现次数极高，但这没什么意义——因为几乎所有标签都和「1girl」高度共现。需要进一步计算统计量，把「真正有关联的配对」和「只是因为都很常见才碰在一起的配对」区分开。</p><p><strong>标签库是动态的</strong>。数万条标签，每次全量重跑既耗时又浪费。需要一套增量更新机制，每次只处理新增和变化的部分。</p><p>管线的五个步骤，就是针对这四个问题逐一设计的。</p><h2 id="五步管线设计">五步管线设计</h2><h3 id="step-1标签同步">Step 1：标签同步</h3><p>数据源头是一个 SQLite 数据库（<code>tag.sqlite</code>），里面存着Danbooru 的标签基础信息。</p><p>这一步做的事很简单：从 SQLite里把符合条件的标签筛出来，同步到主标签表（<code>tags_enhanced.csv</code>）。筛选条件是发帖量≥ 100（太冷门的标签实际上用不到）、且属于通用/角色/作品三类。</p><p><strong>对已有数据的保护</strong>。同步时只刷新<code>post_count</code> 和 <code>category</code>这两个客观字段，绝不覆盖 <code>cn_name</code>——因为这个字段后面会由 LLM填充，是经过处理的内容，不能被原始数据库的机翻内容覆盖掉。</p><h3 id="step-2wiki-抓取">Step 2：Wiki 抓取</h3><p>调用 Danbooru 的 Wiki API，把所有标签的官方英文描述抓下来，存成本地Parquet 数据库。</p><p>这一步比较简单，但是有两个实现细节。</p><p>第一个是<strong>增量更新</strong>。每次全量抓取十几万条记录太慢，所以这一步会读取本地数据库里最新的<code>updated_at</code> 时间戳，只抓这个时间之后有更新的页面。</p><p>第二个是 <strong>Danbooru 的翻页限制</strong>。API 单次最多翻 1000页（每页 100条），超过这个范围就拿不到更老的数据了。应对方法是：当页码逼近上限时，把当前页最后一条记录的时间戳作为新的"上界"，重置到第1 页重新开始翻——相当于把一次大翻页拆成多次小翻页，不丢数据。</p><h3 id="step-3llm-增强">Step 3：LLM 增强</h3><p>拿到英文 Wiki 之后，用大语言模型对每个标签完成四件事：</p><ol type="1"><li><p><strong>生成中文视觉描述</strong>：把英文 Wiki 翻译、提炼成约 50字的中文描述。Wiki为空的标签，让模型凭知识库直接生成；真的一无所知的，返回空字符串，不乱编。</p></li><li><p><strong>修正并扩展中文名</strong>：原始 SQLite里的中文名往往是机翻的，错误率很高。LLM 会结合 Wiki语境重新判断，输出格式是「基础名,同义词1,别名2」的逗号串——例如<code>蝶祈,罪恶王冠,祈妹</code>。这个多词格式直接扩大了搜索引擎的召回覆盖面。</p></li><li><p><strong>角色/作品类标签的防幻觉处理</strong>：</p></li></ol><p>ACG角色名的汉化翻译是一个极度垂直的领域，通用大模型在这里的表现非常糟糕。</p><p>例如：Danbooru 标签 <code>yuitsuka_inori</code>，对应的是 2025年动漫《金牌得主》（Medalist）的女主角。她的姓氏「結束」是一个非常罕见的日文姓氏，汉字写作「結束」，读音Yuitsuka，字面意思是"捆绑、连结"。但如果你直接问大模型，它几乎必然会按音节直觉，把<code>yuitsuka</code>推断为「唯冢」或「唯束」，翻译成「唯冢祈」——而她真正的中文官方译名，是<strong>结束祈</strong>。</p><p>这不是模型知识库覆盖不到的冷门角色，《金牌得主》2025年播出后热度相当高。但「正确的汉字」本身就是一个需要去查、而不是去推断的事实。</p><p>针对这个问题，我的解法是：对所有角色/作品类标签（Danbooru category 3和 4），在调 LLM 之前，先用标签英文名去 <strong>Bangumi API</strong>做一次精准查询，拿到该角色/作品在 Bangumi数据库里登记的官方中文名。然后把这个权威译名作为强参考一起喂给LLM。这相当于给 LLM装上了一个事实核查功能：遇到自己没把握的专有名词时，用数据库里的权威答案压住它的幻觉冲动。<code>yuitsuka_inori</code>这个例子里，Bangumi 会返回「结束祈」，LLM 就不再有机会发挥想象力。</p><ol start="4" type="1"><li><strong>NSFW 标记</strong>：打 <code>0/1</code>标记，供搜索前端的保护模式使用。</li></ol><p>这一步构建出的四个语义维度（英文名、中文核心词、中文扩展词、Wiki描述），就是 DanbooruSearch 能做多维语义匹配的数据基础。</p><p>为了防止 API费用打水漂，这一步有两层保护：一个实时写入的临时文件（进程崩溃后可恢复当次进度），和一个跨会话的永久历史豁免表（已处理的标签下次不再重跑）。</p><h3 id="step-4共现矩阵抓取">Step 4：共现矩阵抓取</h3><p>Danbooru 的 <code>related_tag</code> API会返回每个标签的关联标签列表，以及两者的共现频率（一个 0~1之间的比例值）。</p><p>这一步遍历所有标签，逐一调这个API，把频率乘以该标签的发帖量，还原成近似的绝对共现次数，构成一张完整的原始共现矩阵。</p><p>这一步支持<strong>增量模式</strong>和<strong>全量模式</strong>两种运行方式。增量模式维护一个历史豁免文件（<code>cooc_history.json</code>），记录所有已经抓取过的标签，下次运行时跳过它们，只处理新增的。因为，一般来说我们更多关心这一次更新时新增的标签的共现数据。而至于已有的共现边又增加了多少，可能没有那么的重要。</p><p>日常运行只需要增量模式，全量重建留给标签库大规模重构时使用。</p><p>抓取过程中每 100个标签存一次盘、更新一次进度文件，中断后可以无损恢复。遇到 429限流会自动休眠 3 分钟，无需人工干预。</p><h3 id="step-5pmi-降维截断">Step 5：PMI 降维截断</h3><p>原始共现矩阵有几百万行，数据太大，无用的信息也很多，不能直接用。</p><p>这一步用 PMI（逐点互信息）公式对每个标签对打分：</p><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">PMI(<span class="hljs-keyword">a</span>, b) = <span class="hljs-built_in">log</span>₂( 共现次数 × 总帖数 / (<span class="hljs-keyword">a</span>的发帖量 × b的发帖量) )<br></code></pre></td></tr></table></figure><p>PMI的直觉是：不看绝对共现次数，看的是「这两个标签共现的频率，相比各自独立出现的概率，高出了多少倍」。像「1girl」这种和谁都高频共现的标签，PMI反而会很低，因为它的独立出现概率本来就极高。</p><p>PMI 过滤之后，再做 <strong>Top-K 截断</strong>：对每个标签，只保留PMI 最高的前 K个邻居，剩下的全部丢掉。最终输出一张精简的高质量共现图，这就是搜索引擎关联推荐功能的数据来源。</p><p>这一步还提供了一个 <code>--dry-run</code>模式，可以在不写盘的情况下模拟不同 PMI阈值（1~5）下的数据保留量，帮助在正式执行前找到最合适的参数。</p><h2 id="更多工程上的细节">更多工程上的细节</h2><p>整条管线跑下来大概需要几天（主要瓶颈在共现矩阵抓取，受 Danbooru API频率限制），所以断点续传是必须的。每个需要调用线上API的步骤都有独立的检查点文件，任意位置崩溃都可以从上次进度恢复。</p><p>LLM步骤的费用控制也是一个现实问题。数万条标签，如果每次都全量重跑，成本很高。历史豁免表机制确保每个标签只被处理一次，之后的增量运行只处理真正新增的部分。</p><p>这个管线本身也是可配置的——<code>config.yaml</code>统一管理所有路径和超参数，包括 LLM 模型名称、批处理大小、PMI 阈值、Top-K值等，不需要改代码就能调整行为。</p><h2 id="开源地址">开源地址</h2><p><strong>数据库生产管线</strong>（danbooru-tag-pipeline）：https://github.com/SuzumiyaAkizuki/danbooru-tag-pipeline</p><p><strong>搜索引擎本体</strong>（DanbooruSearchOnline）：https://huggingface.co/spaces/SAkizuki/DanbooruSearch</p><p><strong>ComfyUI 插件版本</strong>：<ahref="https://github.com/SuzumiyaAkizuki/ComfyUI-DanbooruSearcher">https://github.com/SuzumiyaAkizuki/ComfyUI-DanbooruSearcher</a></p><hr /><p>本站的运行成本约为每个月5元人民币，如果您觉得本站有用，欢迎打赏，或者给本博客的GitHub项目点一颗星</p><p><ahref="https://github.com/SuzumiyaAkizuki/SuzumiyaAkizuki.github.io"><imgsrc="https://img.shields.io/github/stars/SuzumiyaAkizuki/SuzumiyaAkizuki.github.io?style=social"alt="GitHub stars" /></a></p><p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202501120027592.png" alt="" style="zoom:25%;" /></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>RAG</tag>
+      
+      <tag>LLM</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>【公告】关于博客域名的说明</title>
     <link href="/2026/03/07/%E3%80%90%E5%85%AC%E5%91%8A%E3%80%91%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E5%9F%9F%E5%90%8D%E7%9A%84%E8%AF%B4%E6%98%8E/"/>
     <url>/2026/03/07/%E3%80%90%E5%85%AC%E5%91%8A%E3%80%91%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E5%9F%9F%E5%90%8D%E7%9A%84%E8%AF%B4%E6%98%8E/</url>
