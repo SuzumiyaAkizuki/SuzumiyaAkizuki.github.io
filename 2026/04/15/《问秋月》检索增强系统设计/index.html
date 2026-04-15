@@ -19,24 +19,25 @@
   <meta name="author" content="SuzumiyaAkizuki">
   <meta name="keywords" content="">
   
-    <meta name="description" content="在合成孔径雷达（以下简称SAR）的波位设计中，经常会遇到一个叫做「斑马图」（或者「菱形图」）的东西，它大概长这样：   image-20241110173408561  斑马图的横轴是脉冲重复频率，纵轴一般是入射角或者距星下点地面距离。其中有两组曲线，分别表示了星下点回波的干扰和发射信号盲区。对于发射和接收公用一个天线的星载 SAR 系统，由于在任何时刻空中同时有发射脉冲、星下点脉冲和">
+    <meta name="description" content="从零搭建个人博客知识库 Agent：RAG + Tool Calling  本文记录「问秋月」项目的完整技术方案，涵盖数据管道设计、混合检索策略、Agent 主循环实现，以及若干在实际开发中踩过的坑。    image-20260415211249173  直接体验：https:&#x2F;&#x2F;huggingface.co&#x2F;spaces&#x2F;SAkizuki&#x2F;WenQiuYue 我斥巨资充了">
 <meta property="og:type" content="article">
-<meta property="og:title" content="合成孔径雷达的「斑马图」到底是怎么回事">
-<meta property="og:url" content="https://suzumiyaakizuki.github.io/2024/11/10/%E5%90%88%E6%88%90%E5%AD%94%E5%BE%84%E9%9B%B7%E8%BE%BE%E7%9A%84%E3%80%8C%E6%96%91%E9%A9%AC%E5%9B%BE%E3%80%8D%E5%88%B0%E5%BA%95%E6%98%AF%E6%80%8E%E4%B9%88%E5%9B%9E%E4%BA%8B/index.html">
+<meta property="og:title" content="《问秋月》检索增强系统设计">
+<meta property="og:url" content="https://suzumiyaakizuki.github.io/2026/04/15/%E3%80%8A%E9%97%AE%E7%A7%8B%E6%9C%88%E3%80%8B%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/index.html">
 <meta property="og:site_name" content="凉宫秋月的电研部">
-<meta property="og:description" content="在合成孔径雷达（以下简称SAR）的波位设计中，经常会遇到一个叫做「斑马图」（或者「菱形图」）的东西，它大概长这样：   image-20241110173408561  斑马图的横轴是脉冲重复频率，纵轴一般是入射角或者距星下点地面距离。其中有两组曲线，分别表示了星下点回波的干扰和发射信号盲区。对于发射和接收公用一个天线的星载 SAR 系统，由于在任何时刻空中同时有发射脉冲、星下点脉冲和">
+<meta property="og:description" content="从零搭建个人博客知识库 Agent：RAG + Tool Calling  本文记录「问秋月」项目的完整技术方案，涵盖数据管道设计、混合检索策略、Agent 主循环实现，以及若干在实际开发中踩过的坑。    image-20260415211249173  直接体验：https:&#x2F;&#x2F;huggingface.co&#x2F;spaces&#x2F;SAkizuki&#x2F;WenQiuYue 我斥巨资充了">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202411102122015.png">
-<meta property="article:published_time" content="2024-11-10T09:29:29.000Z">
-<meta property="article:modified_time" content="2025-01-20T16:35:30.000Z">
+<meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202604152110888.png">
+<meta property="article:published_time" content="2026-04-15T12:25:39.000Z">
+<meta property="article:modified_time" content="2026-04-15T13:16:04.545Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
-<meta property="article:tag" content="SAR">
+<meta property="article:tag" content="RAG">
+<meta property="article:tag" content="LLM">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202411102122015.png">
+<meta name="twitter:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202604152110888.png">
   
   
   
-  <title>合成孔径雷达的「斑马图」到底是怎么回事 - 凉宫秋月的电研部</title>
+  <title>《问秋月》检索增强系统设计 - 凉宫秋月的电研部</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -267,13 +268,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202411102122015.png') no-repeat center center; background-size: cover;">
+     style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202604152110888.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="合成孔径雷达的「斑马图」到底是怎么回事"></span>
+            <span id="subtitle" data-typed-text="《问秋月》检索增强系统设计"></span>
           
         </div>
 
@@ -289,8 +290,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-11-10 17:29" pubdate>
-          2024年11月10日 下午
+        <time datetime="2026-04-15 20:25" pubdate>
+          2026年4月15日 晚上
         </time>
       </span>
     
@@ -301,7 +302,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k 字
+          2k 字
         
       </span>
     
@@ -312,7 +313,7 @@
         
         
         
-          4 分钟
+          6 分钟
         
       </span>
     
@@ -391,7 +392,7 @@
       
         <a href="/2026/04/15/%E3%80%8A%E9%97%AE%E7%A7%8B%E6%9C%88%E3%80%8B%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/" title="《问秋月》检索增强系统设计"
            class="list-group-item list-group-item-action
-           ">
+           active">
           <span class="category-post">《问秋月》检索增强系统设计</span>
         </a>
       
@@ -481,7 +482,7 @@
       
         <a href="/2024/11/10/%E5%90%88%E6%88%90%E5%AD%94%E5%BE%84%E9%9B%B7%E8%BE%BE%E7%9A%84%E3%80%8C%E6%96%91%E9%A9%AC%E5%9B%BE%E3%80%8D%E5%88%B0%E5%BA%95%E6%98%AF%E6%80%8E%E4%B9%88%E5%9B%9E%E4%BA%8B/" title="合成孔径雷达的「斑马图」到底是怎么回事"
            class="list-group-item list-group-item-action
-           active">
+           ">
           <span class="category-post">合成孔径雷达的「斑马图」到底是怎么回事</span>
         </a>
       
@@ -603,211 +604,187 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">合成孔径雷达的「斑马图」到底是怎么回事</h1>
+            <h1 id="seo-header">《问秋月》检索增强系统设计</h1>
             
             
               <div class="markdown-body">
                 
-                <p>在合成孔径雷达（以下简称SAR）的波位设计中，经常会遇到一个叫做「斑马图」（或者「菱形图」）的东西，它大概长这样：</p>
+                <h1
+id="从零搭建个人博客知识库-agentrag-tool-calling">从零搭建个人博客知识库
+Agent：RAG + Tool Calling</h1>
+<blockquote>
+<p>本文记录「问秋月」项目的完整技术方案，涵盖数据管道设计、混合检索策略、Agent
+主循环实现，以及若干在实际开发中踩过的坑。</p>
+</blockquote>
 <figure>
 <img
-src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202411101734786.png" srcset="/img/loading.gif" lazyload
-alt="image-20241110173408561" />
-<figcaption aria-hidden="true">image-20241110173408561</figcaption>
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202604152112180.png" srcset="/img/loading.gif" lazyload
+alt="image-20260415211249173" />
+<figcaption aria-hidden="true">image-20260415211249173</figcaption>
 </figure>
-<p>斑马图的横轴是脉冲重复频率，纵轴一般是入射角或者距星下点地面距离。其中有两组曲线，分别表示了星下点回波的干扰和发射信号盲区。对于发射和接收公用一个天线的星载
-SAR 系统，由于在任何时刻空中同时有发射脉冲、星下点脉冲和回波必须对 PRF
-加以限制，使发射脉冲、星下点脉冲不落在回波窗之中。只有当脉冲重复频率和星下点地面距离的选择在图里的「大菱形区域」里，SAR才能正常工作。如何选择脉冲重复频率或者星下点地面距离，就是所谓的「波位设计」。</p>
-<p>我接触到的很多教材都对这个东西的绘制语焉不详，所以在这里我写一下怎么画。画斑马图的关键是几何关系：</p>
-<figure>
-<img
-src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202411101748589.png" srcset="/img/loading.gif" lazyload
-alt="image-20241110174855700" />
-<figcaption aria-hidden="true">image-20241110174855700</figcaption>
-</figure>
-<p>在这个图中，以点<span
-class="math inline">\(A\)</span>为圆心的圆形表示地球，点<span
-class="math inline">\(C\)</span>表示SAR卫星，点<span
-class="math inline">\(B\)</span>表示目标，点<span
-class="math inline">\(D\)</span>表示SAR卫星和地心的连线，也就是星下点。其它长度和角度的名称如下：</p>
-<ul>
-<li><span class="math inline">\(R_e\)</span>：即线段<span
-class="math inline">\(DA\)</span>的长度，地球半径，已知</li>
-<li><span class="math inline">\(R_p\)</span>：即线段<span
-class="math inline">\(BA\)</span>的长度，也是地球半径，已知</li>
-<li><span class="math inline">\(R_s\)</span>：圆弧<span
-class="math inline">\(DB\)</span>的长度，地距</li>
-<li><span class="math inline">\(R\)</span>：线段<span
-class="math inline">\(CB\)</span>的长度，斜距</li>
-<li><span class="math inline">\(H\)</span>：线段<span
-class="math inline">\(CD\)</span>的长度，卫星高度，已知</li>
-<li><span class="math inline">\(\alpha\)</span>：<span
-class="math inline">\(\angle DCB\)</span>，视角</li>
-<li><span class="math inline">\(\theta\)</span>：<span
-class="math inline">\(\pi-\angle{CBA}\)</span>，入射角</li>
-<li><span class="math inline">\(\gamma\)</span>：<span
-class="math inline">\(\angle{DAB}\)</span>，地心角，显然有：<span
-class="math inline">\(\gamma=\theta-\alpha\)</span></li>
-</ul>
-<p>对于一个SAR系统，要绘制其斑马图，还要知道脉冲宽度<span
-class="math inline">\(\tau\)</span>、斑马图横坐标的范围（最大最小脉冲重复频率）、最大最小中心视角。</p>
-<h2 id="绘制发射信号干扰带的斑马图">绘制发射信号干扰带的斑马图</h2>
-<ol type="1">
-<li><p>计算其前后沿回波时间：</p>
-<p>假设总共要画<span
-class="math inline">\(m\)</span>个曲线，现在正在画第<span
-class="math inline">\(j\)</span>个，当前正在看的脉冲重复频率为<span
-class="math inline">\(f_{PRF}\)</span>，有 <span class="math display">\[
-\begin{align}
-T_{e_1}=\frac{j}{f_{PRF}}-(\tau+T_g)\\\\
-T_{e_1}=\frac{j}{f_{PRF}}+(\tau+T_g)
-\end{align}
-\]</span> 这里面的<span
-class="math inline">\(T_g\)</span>叫做「保护时间带」，我还不太确定这是什么，好像是一种类似于冗余的东西，取<span
-class="math inline">\(0\)</span>也没关系。</p></li>
-<li><p>计算对应的最大最小斜距： <span class="math display">\[
-\begin{align}
-R_{\min}=T_{e_1}\frac
-c2=\left(\frac{j}{f_{PRF}}-(\tau+T_g)\right)\cdot\frac c2\\\\
-R_{\max}=T_{e_2}\frac
-c2=\left(\frac{j}{f_{PRF}}+(\tau+T_g)\right)\cdot\frac c2
-\end{align}
-\]</span></p></li>
-<li><p>计算对应的最大最小视角：</p>
-<p>即解三角形<span class="math inline">\(CBA\)</span>，对<span
-class="math inline">\(\alpha\)</span>应用余弦定理： <span
-class="math display">\[
-\alpha=\arccos\left(\frac{R^2+(R_e+H)^2-R_p^2}{2R(R_e+H)}\right)
-\]</span> 有： <span class="math display">\[
-\begin{align}
-\alpha_{\max}=\arccos\left(\frac{R_\max^2+(R_e+H)^2-R_p^2}{2R_\max(R_e+H)}\right)\\\\
-\alpha_{\min}=\arccos\left(\frac{R_\min^2+(R_e+H)^2-R_p^2}{2R_\min(R_e+H)}\right)
-\end{align}
-\]</span></p></li>
-<li><p>计算对应的最大最小入射角：</p>
-<p>即解三角形<span class="math inline">\(CBA\)</span>，求解<span
-class="math inline">\(\theta\)</span>。</p>
-<p>由余弦定理： <span class="math display">\[
-\angle CBA=\arccos\left(\frac{R_p^2+R^2-(R_e+H)^2}{2R_pR}\right)
-\]</span> 有： <span class="math display">\[
-\begin{align}
-\theta_{\max}=\pi-\arccos\left(\frac{R_p^2+R_{\max}^2-(R_e+H)^2}{2R_pR_{\max}}\right)\\\\
-\theta_{\min}=\pi-\arccos\left(\frac{R_p^2+R_{\min}^2-(R_e+H)^2}{2R_pR_{\min}}\right)
-\end{align}
-\]</span></p></li>
-<li><p>计算最大最小地距：</p>
-<p>由圆弧<span class="math inline">\(DB\)</span>，得：<span
-class="math inline">\(R_s=\gamma R_e=(\theta-\alpha)R_e\)</span>。有：
-<span class="math display">\[
-\begin{align}
-R_{s_\max}=(\theta_\max-\alpha_\max)R_e\\\\
-R_{s_\min}=(\theta_\min-\alpha_\min)R_e
-\end{align}
-\]</span></p></li>
-</ol>
-<p>由上面的推导，可以看出，<span
-class="math inline">\(R_{s\min}\)</span>和<span
-class="math inline">\(R_{s\max}\)</span>总的来说是<span
-class="math inline">\(j\)</span>和<span
-class="math inline">\(f_{PRF}\)</span>的函数。在计算时，我们写一个双重循环，外层循环遍历<span
-class="math inline">\(f_{PRF}\)</span>，内层循环遍历<span
-class="math inline">\(j\)</span>，然后算出<span
-class="math inline">\(R_{s\max},R_{s\min}\)</span>并画图就行了。</p>
-<p>让我们说得再明白一点，也就是说每个<span
-class="math inline">\(j\)</span>对应两条曲线：<span
-class="math inline">\(R_{s\max}(f_{PRF}),R_{s\min}(f_{PRF})\)</span>。</p>
-<p>现在的问题是：<span
-class="math inline">\(j\)</span>怎么取值？首先明确<span
-class="math inline">\(j\)</span>是正整数。如果<span
-class="math inline">\(j\)</span>取得太小，会让三角形无解（表现为<span
-class="math inline">\(\arccos\)</span>函数算出来不是实数）。如果<span
-class="math inline">\(j\)</span>取得太大，会让画出来的曲线没有意义（在图上不显示）。书上说：
-<span class="math display">\[
-\begin{align}
-j_{\min}=\lfloor{T_{e\min}\cdot f_{PRF\min}}\rfloor\\\\
-j_{\max}=\lfloor{T_{e\max}\cdot f_{PRF\max}}\rfloor
-\end{align}
-\]</span> 其中，<span
-class="math inline">\(T_e\)</span>是所选择区域的最近/远斜距对应的回波时间，<span
-class="math inline">\(f_{PRF}\)</span>是所选择的最小/大可能脉冲重复频率。在这里，<span
-class="math inline">\(f_{PRF}\)</span>的最大最小值很容易理解，已经被给定了。但是<span
-class="math inline">\(T_e\)</span>需要计算，因为给定的是最小/大中心视角。</p>
-<p>回到前面的几何关系：</p>
-<figure>
-<img
-src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202411101748589.png" srcset="/img/loading.gif" lazyload
-alt="image-20241110174855700" />
-<figcaption aria-hidden="true">image-20241110174855700</figcaption>
-</figure>
-<p>也就是说，解三角形<span class="math inline">\(CBA\)</span>，给定<span
-class="math inline">\(CA,AB,\alpha\)</span>，求解<span
-class="math inline">\(CB\)</span>。注意在数学里这个三角形似乎并不唯一确定（有两个解），但是在我们这里显然只需要取<span
-class="math inline">\(\angle CBA\)</span>是钝角的那个解。</p>
-<p>过<span class="math inline">\(A\)</span>作直线<span
-class="math inline">\(CB\)</span>的垂线交于点<span
-class="math inline">\(E\)</span>：</p>
-<figure>
-<img
-src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202411102107191.png" srcset="/img/loading.gif" lazyload
-alt="image-20241110210718722" />
-<figcaption aria-hidden="true">image-20241110210718722</figcaption>
-</figure>
-<p>则有： <span class="math display">\[
-AE=(Re+H)\sin\alpha
-\]</span></p>
-<p>于是 <span class="math display">\[
-\angle
-BAE=\arccos\left(\frac{AE}{R_p}\right)=\arccos\left(\frac{(Re+H)\sin\alpha}{R_p}\right)
-\]</span> 则 <span class="math display">\[
-\gamma=\frac \pi2-\alpha-\angle BAE=\frac
-\pi2-\alpha-\arccos\left(\frac{(Re+H)\sin\alpha}{R_p}\right)
-\]</span> 由正弦定理 <span class="math display">\[
-\frac{R_p}{\sin \alpha}=\frac{R}{\sin \gamma}
-\]</span> 有 <span class="math display">\[
-R=\frac{\sin \gamma R_p}{\sin \alpha}
-\]</span> 则 <span class="math display">\[
-T_e=\frac {2R}{c}
-\]</span> 其中<span
-class="math inline">\(c\)</span>是光速。这样一来，我们就把<span
-class="math inline">\(T_e\)</span>表示成了<span
-class="math inline">\(\alpha\)</span>的函数： <span
-class="math display">\[
-T_e=\frac {2}{c} \frac{\sin\left(\frac
-\pi2-\alpha-\arccos\left(\frac{(Re+H)\sin\alpha}{R_p}\right)\right)R_p}{\sin
-\alpha}
-\]</span></p>
-<h2 id="绘制星下点回波区的斑马图">绘制星下点回波区的斑马图</h2>
-<p>首先，计算前后沿回波时间 <span class="math display">\[
-\begin{align}
-T_\min=\frac {2h}c+\frac i {f_{PRF}}-(\tau+T_g)\\\\
-T_\max=\frac {2h}c+\frac i {f_{PRF}}+(\tau+T_g)
-\end{align}
-\]</span></p>
-<p>后面的计算和上一部分的完全一样。</p>
-<p>关于<span class="math inline">\(i\)</span>的取值，有： <span
-class="math display">\[
-\begin{align}
-i_\min&amp;=j_\min-\lfloor (T_{nad}+\tau+2T_g)f_{PRF\min}\rfloor\\\\
-i_\max&amp;=j_\max-\lfloor T_{nad}f_{PRF\min}\rfloor
-\end{align}
-\]</span> 其中 <span class="math display">\[
-T_{nad}=\frac{2h}c-T_g
-\]</span> 称为「星下点回波起始时间」。</p>
-<h2 id="算法伪代码">算法伪代码</h2>
-<figure>
-<img
-src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202411110950937.png" srcset="/img/loading.gif" lazyload
-alt="image-20241111095027940" />
-<figcaption aria-hidden="true">image-20241111095027940</figcaption>
-</figure>
-<figure>
-<img
-src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202411110950386.png" srcset="/img/loading.gif" lazyload
-alt="image-20241111095045845" />
-<figcaption aria-hidden="true">image-20241111095045845</figcaption>
-</figure>
+<p>直接体验：https://huggingface.co/spaces/SAkizuki/WenQiuYue</p>
+<p>我斥巨资充了20块钱的deepseek api费用，快来玩玩吧！</p>
 <hr />
-<p>本站的运行成本约为每个月5元人民币，如果您觉得本站有用，欢迎打赏：</p>
+<h2 id="项目动机">项目动机</h2>
+<p>我的博客（<code>blog.sakizuki.site</code> /
+<code>life.sakizuki.site</code>）用 Hexo 维护，文章散落在两个仓库的
+<code>source/_posts/</code> 里。而且累计访问量已经快超过十万次了。</p>
+<p>时间一长，想翻某篇旧文时，搜索体验很糟——标签太粗、全文搜索召回率低。</p>
+<p>刚好，我之前做过一个向量检索的项目。于是，我就想把博客内容向量化，让
+LLM 以自然语言为入口来检索。顺手把 RAG 和 Agent Tool Calling
+做进来，既好玩，还能作为简历项目。</p>
+<p>核心目标：</p>
+<ul>
+<li>完整的 RAG 工程链路：数据采集 → 分块 → Embedding → 向量检索 →
+生成</li>
+<li>Agent 自主决策：优先查博客，博客没有再联网补充</li>
+<li>有真实可访问的线上 Demo，部署在 HuggingFace Spaces</li>
+</ul>
+<h2 id="整体架构">整体架构</h2>
+<p>系统分为离线和在线两个阶段。</p>
+<p><strong>离线阶段</strong>（一次性运行，结果提交到 HF Spaces）：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">Hexo</span> _posts/<span class="hljs-regexp">*.md</span><br>  → 解析 + 按标题切块<br>  → BGE-M3 双路 Embedding（正文路 + 标题路）<br>  → 写入 ChromaDB + safetensors 缓存<br></code></pre></td></tr></table></figure>
+<p><strong>在线阶段</strong>（每次问答）：</p>
+<figure class="highlight graphql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs graphql">用户提问<br>  → 查询重写（Multi-<span class="hljs-keyword">Query</span>）<br>  → ChromaDB 向量检索 + BM25 关键词检索<br>  → RRF 融合排序<br>  → DeepSeek Tool Calling 循环（rag_search / web_search）<br>  → 流式输出最终回答<br></code></pre></td></tr></table></figure>
+<p>技术选型：</p>
+<table>
+<thead>
+<tr>
+<th>模块</th>
+<th>选型</th>
+<th>理由</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Embedding</td>
+<td>BGE-M3</td>
+<td>经典开源模型，支持长文本</td>
+</tr>
+<tr>
+<td>向量库</td>
+<td>ChromaDB</td>
+<td>纯 Python，本地持久化</td>
+</tr>
+<tr>
+<td>LLM</td>
+<td>deepseek-chat</td>
+<td>低成本，高响应速度，兼容 OpenAI 格式</td>
+</tr>
+<tr>
+<td>网络搜索</td>
+<td>Tavily</td>
+<td>专用于LLM的互联网搜索引擎，返回结构化信息</td>
+</tr>
+<tr>
+<td>后端</td>
+<td>FastAPI + SSE</td>
+<td>流式推送，前端实时渲染</td>
+</tr>
+<tr>
+<td>前端</td>
+<td>纯HTML前端</td>
+<td>轻量化，不引入额外负载和依赖</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>没有用 LangChain。因为，Agent 逻辑只有两个工具，循环不大于5轮，直接写
+Tool Calling
+也很方便，而且我也想通过这个项目理解一下Agent的流程，不想直接调用框架。</p>
+</blockquote>
+<h2
+id="数据库构建从博客文章中构建向量库">数据库构建：从博客文章中构建向量库</h2>
+<h3 id="解析-front-matter">解析 Front Matter</h3>
+<p>Hexo 博客的元数据在 <code>---</code> 包裹的 YAML
+头中，用正则提取后通过 <code>yaml.safe_load</code> 解析，不依赖第三方
+<code>python-frontmatter</code> 包（减少依赖）。</p>
+<p>需要提取的字段：<code>title</code>、<code>date</code>、<code>permalink</code>、<code>categories</code>、<code>tags</code>。</p>
+<h3 id="正文分块">正文分块</h3>
+<p>按 <code>##</code> 和 <code>###</code>
+标题切割，每块保留所属标题的层级上下文。处理逻辑：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">parse_sections</span>(<span class="hljs-params">content: <span class="hljs-built_in">str</span>, article_title: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">list</span>[_Section]:<br>    <span class="hljs-comment"># 维护 cur_h1 / cur_h2 / cur_h3 上下文</span><br>    <span class="hljs-comment"># 遇到新标题时，flush 当前缓冲区，更新上下文</span><br>    ...<br></code></pre></td></tr></table></figure>
+<p>块大小控制：目标 300～600 tokens（用中日韩字符数 +
+空格分词数粗估，误差
+±20%，足够用于阈值判断）。超长块按段落进一步切割，超长段落再按句子切割。</p>
+<h3 id="构建送入-embedding-的文本">构建送入 Embedding 的文本</h3>
+<p>纯正文块缺乏上下文，可能在检索时有问题。为此，我选择在每个块的开头注入元数据头：</p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs gherkin">【文章：某文章标题 |<span class="hljs-string"> 章节：二级标题 </span>|<span class="hljs-string"> 小节：三级标题】</span><br><span class="hljs-string">正文内容...</span><br></code></pre></td></tr></table></figure>
+<p>这样「这篇文章从哪里来的」的语义被编码进向量里，跨章节检索的召回率明显提升。</p>
+<h3 id="双路-embedding">双路 Embedding</h3>
+<p>借鉴DanbooruSearchOnline的经验，我在ChromaDB 里维护两个向量库：</p>
+<ul>
+<li><code>akizuki_blog_content</code>：存
+<code>content_emb</code>（含元数据头的正文）</li>
+<li><code>akizuki_blog_title</code>：存标题路文本（<code>文章标题 - 二级标题 - 三级标题</code>）</li>
+</ul>
+<p>检索时两路加权合并（正文 0.7，标题
+0.3），兼顾语义深度和结构匹配。</p>
+<h3 id="增量更新">增量更新</h3>
+<p>本项目继承了DanbooruSearchOnline的增量更新功能，实现的方式是对块内容做
+MD5 编码，缓存 <code>chunk_ids.json</code> 和 <code>safetensors</code>
+向量文件。每次运行时：</p>
+<ul>
+<li>计算新旧 chunk_id 的差集，只对新块做 Embedding</li>
+<li>从 ChromaDB 删除已消失的块</li>
+<li>将新向量 concat 到缓存后重新保存</li>
+</ul>
+<h2 id="混合检索向量-bm25-rrf">混合检索：向量 + BM25 + RRF</h2>
+<p>借鉴DanbooruSearchOnline的四路检索逻辑，设计了三路检索（正文向量，标题向量，BM25关键字检索）。</p>
+<p>纯向量检索对关键词精确匹配弱（例如搜某个函数名、人名）；纯 BM25
+对语义近义词弱。混合起来时，可以用 RRF 融合，两边取长补短。</p>
+<h3 id="检索流程">检索流程</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">search</span>(<span class="hljs-params">self, queries: <span class="hljs-built_in">list</span>[<span class="hljs-built_in">str</span>], n_results: <span class="hljs-built_in">int</span> = <span class="hljs-number">5</span></span>) -&gt; <span class="hljs-built_in">list</span>[<span class="hljs-built_in">dict</span>]:<br>    k = <span class="hljs-number">60</span>  <span class="hljs-comment"># RRF 平滑参数</span><br>    rrf_scores: <span class="hljs-built_in">dict</span>[<span class="hljs-built_in">str</span>, <span class="hljs-built_in">float</span>] = &#123;&#125;<br><br>    <span class="hljs-keyword">for</span> q <span class="hljs-keyword">in</span> queries:<br>        <span class="hljs-comment"># 双路向量检索</span><br>        vec_results = <span class="hljs-variable language_">self</span>._query_vector(q, n_results)<br>        <span class="hljs-keyword">for</span> rank, item <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(vec_results):<br>            rrf_scores[item[<span class="hljs-string">&quot;id&quot;</span>]] += <span class="hljs-number">1.0</span> / (k + rank + <span class="hljs-number">1</span>)<br><br>        <span class="hljs-comment"># BM25 关键词检索（jieba 分词）</span><br>        bm25_results = <span class="hljs-variable language_">self</span>._query_bm25(q, n_results)<br>        <span class="hljs-keyword">for</span> rank, item <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(bm25_results):<br>            rrf_scores[item[<span class="hljs-string">&quot;id&quot;</span>]] += <span class="hljs-number">1.0</span> / (k + rank + <span class="hljs-number">1</span>)<br><br>    <span class="hljs-keyword">return</span> sorted_by_rrf_score[:n_results]<br></code></pre></td></tr></table></figure>
+<p>BM25 索引在启动时从 ChromaDB
+全量读取文档，在内存里构建，检索延迟可以忽略不计。</p>
+<h3 id="multi-query-查询重写">Multi-Query 查询重写</h3>
+<p>用户的口语化提问向量化后，和博客中专业术语写就的正文往往语义距离较远。在检索前，先用
+LLM 把原始问题改写成 2～4 个高信息密度的检索变体：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs css">输入：秋月去哪里旅游过？<br>输出：<span class="hljs-selector-attr">[<span class="hljs-string">&quot;旅行游记&quot;</span>, <span class="hljs-string">&quot;出行记录&quot;</span>, <span class="hljs-string">&quot;旅途见闻&quot;</span>, <span class="hljs-string">&quot;城市游玩&quot;</span>]</span><br></code></pre></td></tr></table></figure>
+<p>改写要求剔除疑问词和专有名词（博客文章多为第一人称叙述，"秋月"这个词不会出现在正文里）。</p>
+<p>所有查询变体合并去重后，作为 <code>queries: list[str]</code>
+一次性传入 <code>search()</code>，RRF 自然对多次命中的文档加分。</p>
+<h2 id="agent-核心循环">Agent 核心循环</h2>
+<p>Tool Calling 循环的逻辑其实很简单，不需要框架：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python">MAX_ROUNDS = <span class="hljs-number">5</span><br><br><span class="hljs-keyword">while</span> rounds &lt; MAX_ROUNDS:<br>    resp = llm.chat.completions.create(<br>        model=model,<br>        messages=messages,<br>        tools=TOOLS,<br>        tool_choice=<span class="hljs-string">&quot;auto&quot;</span>,<br>    )<br>    choice = resp.choices[<span class="hljs-number">0</span>]<br><br>    <span class="hljs-keyword">if</span> choice.finish_reason == <span class="hljs-string">&quot;tool_calls&quot;</span>:<br>        <span class="hljs-keyword">for</span> tc <span class="hljs-keyword">in</span> choice.message.tool_calls:<br>            result = execute_tool(tc.function.name, json.loads(tc.function.arguments))<br>            messages.append(&#123;<span class="hljs-string">&quot;role&quot;</span>: <span class="hljs-string">&quot;tool&quot;</span>, <span class="hljs-string">&quot;tool_call_id&quot;</span>: tc.<span class="hljs-built_in">id</span>, <span class="hljs-string">&quot;content&quot;</span>: result&#125;)<br>        rounds += <span class="hljs-number">1</span><br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-comment"># LLM 决定直接回答</span><br>        <span class="hljs-keyword">return</span> stream_final_answer(messages)<br><br><span class="hljs-comment"># 超出轮次：强制作答</span><br>messages.append(&#123;<span class="hljs-string">&quot;role&quot;</span>: <span class="hljs-string">&quot;user&quot;</span>, <span class="hljs-string">&quot;content&quot;</span>: <span class="hljs-string">&quot;请根据已收集到的信息直接作答，不要再调用工具。&quot;</span>&#125;)<br><span class="hljs-keyword">return</span> stream_final_answer(messages)<br></code></pre></td></tr></table></figure>
+<p>在设计中，有几个细节：</p>
+<p><strong>工具顺序约束</strong>：System Prompt 明确要求先调
+<code>rag_search</code>，无结果再调 <code>web_search</code>。LLM
+基本能遵守，偶尔会跳过，后续可以用代码强制校验工具调用顺序。</p>
+<p><strong>流式输出时机</strong>：tool_calls
+轮次需要完整响应才能解析参数，不能流式。只在最终回答那一轮启用
+<code>stream=True</code>，同时设置 <code>tool_choice="none"</code>
+防止最后一轮又调工具。</p>
+<p><strong>优雅降级</strong>：超出 MAX_ROUNDS
+时不报错，而是追加强制作答指令，基于已有信息尽力回答。</p>
+<h2 id="前后端通信sse-流式推送">前后端通信：SSE 流式推送</h2>
+<p>后端用 FastAPI + <code>StreamingResponse</code> 推送 SSE 事件，前端
+<code>EventSource</code> 接收。</p>
+<p>事件格式：</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs lasso"><span class="hljs-built_in">data</span>: &#123;<span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;tool_start&quot;</span>, <span class="hljs-string">&quot;tool&quot;</span>: <span class="hljs-string">&quot;rag_search&quot;</span>, <span class="hljs-string">&quot;query&quot;</span>: <span class="hljs-string">&quot;旅行游记&quot;</span>&#125;<br><span class="hljs-built_in">data</span>: &#123;<span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;tool_done&quot;</span>,  <span class="hljs-string">&quot;tool&quot;</span>: <span class="hljs-string">&quot;rag_search&quot;</span>, <span class="hljs-string">&quot;found&quot;</span>: <span class="hljs-literal">true</span>, <span class="hljs-string">&quot;count&quot;</span>: <span class="hljs-number">3</span>&#125;<br><span class="hljs-built_in">data</span>: &#123;<span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;token&quot;</span>,      <span class="hljs-string">&quot;text&quot;</span>: <span class="hljs-string">&quot;根&quot;</span>&#125;<br><span class="hljs-built_in">data</span>: &#123;<span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;token&quot;</span>,      <span class="hljs-string">&quot;text&quot;</span>: <span class="hljs-string">&quot;据&quot;</span>&#125;<br><span class="hljs-built_in">data</span>: &#123;<span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;answer&quot;</span>,     <span class="hljs-string">&quot;sources&quot;</span>: <span class="hljs-meta">[</span><span class="hljs-params">...</span><span class="hljs-meta">]</span>&#125;<br></code></pre></td></tr></table></figure>
+<p>关键细节：Agent
+在子线程里运行（<code>loop.run_in_executor</code>），通过
+<code>asyncio.Queue</code> 把事件传回主协程，再 <code>yield</code> 给
+SSE 流。跨线程通信用
+<code>loop.call_soon_threadsafe(queue.put_nowait, event)</code>。</p>
+<h2 id="后续优化方向">后续优化方向</h2>
+<ul>
+<li><strong>添加重排序</strong>：当前只用 RRF
+融合，是因为数据库内容比较少，TopK也比较小，无需重排序。未来处理较大数据库时吗，可以加
+BGE-Reranker 对 Top-K 结果精排，预计对长尾问题的准确率提升明显</li>
+<li><strong>博客自动同步</strong>：目前手动重跑
+<code>build_index.py</code>，可以接 GitHub Actions，博客 push
+时自动触发增量更新并部署到 HF Spaces</li>
+<li><strong>多轮对话的历史压缩</strong>：history 按轮次裁剪（保留最近 10
+轮），长对话下可以加摘要压缩减少 token 消耗</li>
+</ul>
+<p>最后再放一遍体验链接：https://huggingface.co/spaces/SAkizuki/WenQiuYue</p>
+<hr />
+<p>本站的运行成本约为每个月5元人民币，如果您觉得本站有用，欢迎打赏，或者给本博客的GitHub项目点一颗星</p>
+<p><a
+target="_blank" rel="noopener" href="https://github.com/SuzumiyaAkizuki/SuzumiyaAkizuki.github.io"><img
+src="https://img.shields.io/github/stars/SuzumiyaAkizuki/SuzumiyaAkizuki.github.io?style=social" srcset="/img/loading.gif" lazyload
+alt="GitHub stars" /></a></p>
 <p><img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202501120027592.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:25%;" /></p>
 
                 
@@ -842,7 +819,9 @@ alt="image-20241111095045845" />
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/SAR/" class="print-no-link">#SAR</a>
+        <a href="/tags/RAG/" class="print-no-link">#RAG</a>
+      
+        <a href="/tags/LLM/" class="print-no-link">#LLM</a>
       
     </div>
   
@@ -854,8 +833,8 @@ alt="image-20241111095045845" />
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>合成孔径雷达的「斑马图」到底是怎么回事</div>
-      <div>https://suzumiyaakizuki.github.io/2024/11/10/合成孔径雷达的「斑马图」到底是怎么回事/</div>
+      <div>《问秋月》检索增强系统设计</div>
+      <div>https://suzumiyaakizuki.github.io/2026/04/15/《问秋月》检索增强系统设计/</div>
     </div>
     <div class="license-meta">
       
@@ -867,7 +846,7 @@ alt="image-20241111095045845" />
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年11月10日</div>
+          <div>2026年4月15日</div>
         </div>
       
       
@@ -905,18 +884,12 @@ alt="image-20241111095045845" />
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/12/12/%E6%8A%95%E5%BD%B1%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95%EF%BC%88ee227c%20Lecture%204%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%89/" title="投影梯度下降法（EE227c Lecture4 学习笔记）">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">投影梯度下降法（EE227c Lecture4 学习笔记）</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/10/05/%E7%9F%A9%E9%98%B5%E7%90%86%E8%AE%BA%E7%AC%94%E8%AE%B0/" title="矩阵理论笔记">
-                        <span class="hidden-mobile">矩阵理论笔记</span>
+                      <a href="/2026/03/20/DanbooruSearchOnline%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1/" title="DanbooruSearchOnline的数据库设计">
+                        <span class="hidden-mobile">DanbooruSearchOnline的数据库设计</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -939,7 +912,7 @@ alt="image-20241111095045845" />
         var options = Object.assign(
           {"clientID":"48fb14f9689ae0d11307","clientSecret":"091ab25a88e87bfd9d9d40d97d1d0d932e694059","repo":"SuzumiyaAkizuki.github.io","owner":"SuzumiyaAkizuki","admin":["SuzumiyaAkizuki"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
           {
-            id: '74317bed143dfa894acfbd6f5f97ce12'
+            id: '4390b9bb2857f8bb4b5053789a555d2a'
           }
         )
         var gitalk = new Gitalk(options);
