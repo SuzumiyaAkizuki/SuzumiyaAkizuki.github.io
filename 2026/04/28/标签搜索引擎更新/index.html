@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202604280003812.jpeg">
 <meta property="article:published_time" content="2026-04-28T13:59:50.000Z">
-<meta property="article:modified_time" content="2026-04-27T16:11:29.843Z">
+<meta property="article:modified_time" content="2026-04-28T14:44:20.664Z">
 <meta property="article:author" content="SuzumiyaAkizuki">
 <meta property="article:tag" content="RAG">
 <meta name="twitter:card" content="summary_large_image">
@@ -313,7 +313,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.3k 字
+          2.1k 字
         
       </span>
     
@@ -662,12 +662,13 @@ AI 绘画的 prompt 字符串</li>
 比直接把标签集合塞给 AI 更好用？</h2>
 <p>这个问题我做了一个量化测试。</p>
 <p><strong>实验设计</strong>：底模统一使用
-DeepSeek-V3-0324（无思考模式）。方案 A 是接入本项目的 MCP
+DeepSeek-V4-Flash（无思考模式）。方案 A 是接入本项目的 MCP
 接口，让模型按需调用检索工具；方案 B 是利用该模型的 1M
 上下文窗口，直接将完整的 <code>tags_enhanced.csv</code> 标签数据库塞入
 prompt，让模型在静态上下文中直接回答。两组输入的 Prompt
-完全相同，只有信息获取方式不同。评测模型选用 Gemini 2.5
-Pro，对两组输出隐去来源后进行盲评打分，满分 100 分。</p>
+完全相同，只有信息获取方式不同。评测模型选用 Gemini 3.1
+Pro，对两组输出隐去来源后，使用独立对话窗口进行盲评打分，满分 100
+分。</p>
 <p>测试共 17
 组，覆盖完整画面描述（含人设还原）、关联推荐、概念扩展、角色识别、角色特征搜索等五类场景。</p>
 <p><strong>得分汇总如下：</strong></p>
@@ -810,6 +811,8 @@ Pro，对两组输出隐去来源后进行盲评打分，满分 100 分。</p>
 </tr>
 </tbody>
 </table>
+<p><img
+src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202604282214218.png" srcset="/img/loading.gif" lazyload /></p>
 <p>17 组测试 A 全部高于 B。A 均值 <strong>94.1</strong>（标准差 3.9），B
 均值 <strong>64.8</strong>（标准差 22.5），平均差值 <strong>29.3
 分</strong>（95% CI：[18.3, 40.3]）。</p>
@@ -862,15 +865,6 @@ A（3.9），说明静态注入方案的表现高度依赖任务类型，在部�
 96 分），在另一些场景下几乎完全失效（角色识别类最低 20 分）；MCP
 方案在所有任务类型上均保持稳定。</p>
 <p>失败模式上，B 的问题在不同任务类型里有明显规律：</p>
-<p><strong>角色识别类（第 5、10、11 组）</strong> 是差距最大的场景，B
-得分分别为 20、40、45。B 在第 5
-组（缇宝识别）直接把有三个分身的黄金裔角色答成了「阿格莱雅」，导致整组输出失效；在第
-10
-组（刀剑神域系统管理员）把正确答案「神代凛子」认成了「桐谷直叶」；在第
-11 组（原神厨师香菱）虽然答对角色，但只能提供 <code>cooking</code>
-这一个相关特征标签，而 A 命中了
-<code>guoba_(genshin_impact)</code>、<code>holding_cooking_pot</code>、<code>chili_pepper</code>
-等十余个精确标签。</p>
 <p><strong>概念扩展与领域专有标签（第 4 组）</strong> 差距达 50 分。B
 只能做到 <code>weapon + school_uniform</code> 的字面组合，无法命中
 <code>tactical_school_uniform</code>
@@ -909,18 +903,17 @@ top_k
 <code>/api/docs</code> 可查看）。</p>
 <hr />
 <h2 id="当前运行数据">当前运行数据</h2>
-<p>工具上线至今运行约 4 个月，累计搜索量
-<strong>17,000+</strong>，累计访问量
-<strong>33,000+</strong>，HuggingFace Space 收到 <strong>24 个
-Like</strong>，GitHub <strong>23 个 Star</strong>。</p>
+<p>工具上线至今运行约 3 个月，累计搜索量
+<strong>50,000+</strong>，累计访问量
+<strong>90,000+</strong>，HuggingFace Space 收到 <strong>45 个
+Like</strong>，GitHub <strong>68 个 Star</strong>。 <img
+src="https://dsocounter.oss-cn-hongkong.aliyuncs.com/danbooru_counter/search_stats.png" srcset="/img/loading.gif" lazyload /></p>
 <hr />
 <p>工具地址：https://huggingface.co/spaces/SAkizuki/DanbooruSearch</p>
 <p>ComfyUI
 插件版：https://github.com/SuzumiyaAkizuki/ComfyUI-DanbooruSearcher</p>
 <p>MCP
 接入文档：https://github.com/SuzumiyaAkizuki/DanbooruSearchOnline#mcp-接口</p>
-<p>如果觉得有用，欢迎点个 Like 或
-Star，也可以把链接分享给需要的人。有问题或反馈可以直接在评论区说。</p>
 
                 
               </div>
