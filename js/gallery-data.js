@@ -1,9 +1,135 @@
 window.GALLERY_ITEMS = [
   {
+    "id": "work-1782143873509",
+    "title": "喘息",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606222358032.png",
+    "model": "deepseek-v4-pro / anima-base-1.0",
+    "layout": "",
+    "tags": [
+      "OC",
+      "秋月"
+    ],
+    "prompt": "1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,\n一幅半身镜头画作，她微微张开嘴唇，神情坚毅而严肃，正用戴着手套的手背擦拭嘴角的鲜血。她的另一只手放在腰间的长刀刀柄上。她的脸颊、头发、身体、双手和衣服上都沾满了大片的血迹。背景是一个光线昏暗、充满砂砾感的废墟战场，到处是瓦砾、碎片，狂风卷起阵阵尘土。\n\n画面以人物为主体，近景。",
+    "notes": ""
+  },
+  {
+    "id": "work-1782143764560",
+    "title": "一夜鱼龙舞",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606222356503.png",
+    "model": "deepseek-v4-pro / anima-base-1.0",
+    "layout": "",
+    "tags": [
+      "OC",
+      "春日"
+    ],
+    "prompt": "masterpiece, best quality, score_7, safe, 1girl, upper_body, close-up, blonde hair, blonde eyes, hair between eyes, short hair, ahoge, twintails, short twintails, low twintails, sidelocks, chinese clothes, hanfu, short hanfu, jiaoling ruqun, banbi, beizi_(clothing), short skirt, short mamianqun, red sash, sash, fingerless gloves, hairclip, tassel, looking back, running, cherry blossoms, fallen petals, dusk\n\nA close-up upper-body shot of the girl turning her head mid-stride, her red sash lifting slightly in motion. She gazes directly toward the viewer with a bright, playful expression, soft warm light from paper lanterns illuminating her blonde hair and hanfu details. Cherry blossom petals drift softly across the foreground frame, with the background blurred into a warm bokeh of golden light and muted dusk tones.\n\n",
+    "notes": ""
+  },
+  {
+    "id": "work-1782143583737",
+    "title": "战壕",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606222353382.png",
+    "model": "deepseek-v4-pro / anima-base-1.0",
+    "layout": "",
+    "tags": [
+      "OC",
+      "秋月"
+    ],
+    "prompt": "1girl,white_hair, high_ponytail, small_breasts, sidelocks, parted_lips, dirty_face, blood_on_face,erafuku,blue_skirt, white_shirt, blue_sailor_collar,  short_sleeves, short_skirt, shirt_tucked_in, jacket, knee_pads, elbow_pads, fingerless_gloves, white_legwear, kneehighs, high-top_hiking_sneakers,white dolphin shorts, shorts_under_skirt, combat_helmet, fast_helmet,  bulletproof_vest, microphone, bandaid_on_face, bandaid_on_leg,\n在冰天雪地的冰原上，她单膝跪地（on one knee），在战壕里，正在操纵一杆架在地上的机枪开火，瞄准射击。表情认真、坚定、自信。她穿着宽大的、棕黑色的夹克。 场景的周围，有作为背景，正在对战的敌我战斗军队，有子弹的线条轨迹，展示出激烈的战斗氛围\n凸显人物主体、近景\n风格：@rxdum4style",
+    "notes": ""
+  },
+  {
+    "id": "work-1782143383727",
+    "title": "山4风格偶像大师",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606222350323.png",
+    "model": "deepseek-v4-pro / anima-base-1.0",
+    "layout": "",
+    "tags": [
+      "偶像大师",
+      "菊地真",
+      "LoKR"
+    ],
+    "prompt": "偶像大师中的菊地真穿着星耀季节中的经典常服（深蓝色V领半袖毛衣、百褶短裙、红色衬衫系在腰间，匡威帆布鞋），在舞台上甜美地唱歌。",
+    "notes": ""
+  },
+  {
+    "id": "work-1782143168527",
+    "title": "手绘效果",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606222348435.png",
+    "model": "deepseek-v4-pro / anima-base-1.0",
+    "layout": "",
+    "tags": [
+      "OC",
+      "秋月"
+    ],
+    "prompt": "1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n\n在一间被战火摧毁的发电厂废墟里，上述人物侧坐，倚靠在墙上。她戴着战术头盔。她的嘴里和身上、衣服上有血迹。她的锁骨上有枪伤，流出大量血液。她一只手无力下垂，另一只手艰难地举起手枪瞄准。表情坚定但痛苦。\n\n画面以人物为主体，近景特写，全身，完整构图\n\n风格：一幅具有绘画感的水彩风格动漫角色肖像，松散色墨线条逐渐融入未完成的素描边缘，柔和湿润的水彩渲染与可见的笔刷纹理，色彩鲜艳饱和，背景为多色块渐变效果。",
+    "notes": ""
+  },
+  {
+    "id": "work-1782142977981",
+    "title": "新作品",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606222343615.png",
+    "model": "deepseek-v4-pro / anima-base-1.0",
+    "layout": "",
+    "tags": [
+      "OC",
+      "春日",
+      "秋月",
+      "多人",
+      "Anima"
+    ],
+    "prompt": "Qiuyue：1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n\n\nChunri:1girl,(blonde hair:1.2),blonde_eyes,hair between eyes,short hair,ahoge,twintails,short twintails,chinese_clothes,hanfu,short_hanfu, (jiaoling_ruqun:1.2),banbi,short_skirt,short_mamianqun,sash,red_sash,sidelocks,low twintails, fingerless gloves,beizi_(clothing),hairclip,tassel,\n\n\n在一个公共食堂的桌子上，Chunri和Qiuyue坐在一起吃饭。Qiuyue用勺子给Chunri喂饭，Chunri闭上眼睛，满脸幸福，张开嘴准备吃。Qiuyue睁眼、微笑。\n\n画面以人物为主体，全身，完整构图\n\n风格：蔚蓝档案风格，平涂淡色彩无勾线",
+    "notes": ""
+  },
+  {
+    "id": "work-1782142778109",
+    "title": "菊地真",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606222340530.png",
+    "model": "deepseek-v4-pro / anima-base-1.0",
+    "layout": "",
+    "tags": [
+      "偶像大师",
+      "菊地真",
+      "Anima"
+    ],
+    "prompt": "偶像大师中的菊地真穿着星耀季节中的经典常服（深蓝色V领半袖毛衣、百褶短裙、红色衬衫系在腰间，匡威帆布鞋），在舞台上甜美地唱歌。",
+    "notes": ""
+  },
+  {
+    "id": "work-1782142474981",
+    "title": "向山进发",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606222336097.png",
+    "model": "deepseek-v4-flash / anima-base-1.0",
+    "layout": "",
+    "tags": [
+      "向山进发",
+      "雪村葵",
+      "LoKR",
+      "anima"
+    ],
+    "prompt": "向山进发中的雪村葵在一个雪山的山顶，穿着专业登山装备（冲锋衣、全身安全带、手套、登山杖等等），兴奋地攀登。面向镜头，人物为主体，近景。",
+    "notes": ""
+  },
+  {
+    "id": "work-1782141480049",
+    "title": "夕阳花田",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606222327845.png",
+    "model": "gemini-3.1-pro / Newbie 0.1",
+    "layout": "",
+    "tags": [
+      "OC",
+      "秋月",
+      "Newbie"
+    ],
+    "prompt": "1girl,white_hair,blue_eyes, medium_hair, high_ponytail, small_breasts, sidelocks, parted_lips,serafuku,deep_blue_skirt, white_shirt, deep_blue_sailor_collar,  short_sleeves, short_skirt, shirt_tucked_in, knee_pads, elbow_pads, fingerless_gloves, white_legwear, ankle_socks,striped socks ,sport_socks, high-top_hiking_sneakers,white dolphin shorts, shorts_under_skirt,toned,tactical_clothes, load_bearing_vest, tactical_school_uniform\n\n【请修改已有的tag】，把她的衣服改成：如图所示的衣服。然后添加：膝盖上的吊袜带。 **注意：只改衣服，别的都不改**。\n\n上述人物的牛仔镜头（cowboy shot），她站在一个向日葵花田里，手捧着花束，面对观众微笑。夕阳西下，天上有晚霞和积雨云。\n\n=================\n请优先从以下候选列表中选择合适的标签：\nlegwear_garter,shirt, short_sleeves, shorts, gym_shorts, converse, windbreaker, hood_up, white_shirt, black_shorts, white_hair, black_hood, socks, black_socks, high-waist_shorts,smile, bouquet, flower_field, sunflower, cumulonimbus_cloud, looking_at_viewer, holding_bouquet, sunflower_field, evening, dusk",
+    "notes": ""
+  },
+  {
     "id": "work-1781954731580",
     "title": "虹彩小猫娘",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606201925342.png",
     "model": "deepseek-v4-flash / anima-base-1.0",
+    "layout": "",
     "tags": [
       "OC",
       "Anima"
@@ -16,6 +142,7 @@ window.GALLERY_ITEMS = [
     "title": "快乐小猫娘",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606201925879.png",
     "model": "deepseek-v4-flash / anima-base-1.0",
+    "layout": "",
     "tags": [
       "OC",
       "Anima"
@@ -28,6 +155,7 @@ window.GALLERY_ITEMS = [
     "title": "平涂风",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606201923727.png",
     "model": "deepseek-v4-flash / anima-base-1.0",
+    "layout": "",
     "tags": [
       "OC",
       "秋月",
@@ -42,6 +170,7 @@ window.GALLERY_ITEMS = [
     "title": "别看...",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606201920414.png",
     "model": "gemini-3-flash / Newbie 0.1",
+    "layout": "",
     "tags": [
       "OC",
       "秋月",
@@ -56,6 +185,7 @@ window.GALLERY_ITEMS = [
     "title": "火",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606201919684.png",
     "model": "gemini-3-flash / Newbie 0.1",
+    "layout": "",
     "tags": [
       "OC",
       "秋月",
@@ -70,6 +200,7 @@ window.GALLERY_ITEMS = [
     "title": "光剑",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606201918034.png",
     "model": "gemini-3-flash / Newbie 0.1",
+    "layout": "",
     "tags": [
       "OC",
       "秋月",
@@ -84,6 +215,7 @@ window.GALLERY_ITEMS = [
     "title": "一步一步",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606201916471.png",
     "model": "deepseek-v3.2 / Newbie 0.1",
+    "layout": "",
     "tags": [
       "OC",
       "秋月",
@@ -100,6 +232,7 @@ window.GALLERY_ITEMS = [
     "title": "等你回来",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606201915016.png",
     "model": "gemini-3-flash / Newbie 0.1",
+    "layout": "",
     "tags": [
       "OC",
       "春日",
@@ -114,6 +247,7 @@ window.GALLERY_ITEMS = [
     "title": "中国风",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606201913720.png",
     "model": "grok-4.1-fast / Newbie 0.1",
+    "layout": "",
     "tags": [
       "OC",
       "春日",
@@ -128,6 +262,7 @@ window.GALLERY_ITEMS = [
     "title": "和风",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606201912854.png",
     "model": "grok-4.1-fast / Newbie 0.1",
+    "layout": "",
     "tags": [
       "OC",
       "春日",
@@ -142,6 +277,7 @@ window.GALLERY_ITEMS = [
     "title": "赛博朋克",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606201910789.png",
     "model": "gemini-3-flash / Newbie 0.1",
+    "layout": "",
     "tags": [
       "OC",
       "秋月",
@@ -156,6 +292,7 @@ window.GALLERY_ITEMS = [
     "title": "山中速降",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606201909746.png",
     "model": "gemini-3-flash / Newbie 0.1",
+    "layout": "",
     "tags": [
       "OC",
       "秋月",
@@ -170,6 +307,7 @@ window.GALLERY_ITEMS = [
     "title": "舰",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606201908239.png",
     "model": "gemini-3-flash / Newbie 0.1",
+    "layout": "",
     "tags": [
       "OC",
       "秋月",
@@ -184,6 +322,7 @@ window.GALLERY_ITEMS = [
     "title": "雨中",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606201906488.png",
     "model": "gemini-3-flash / Newbie 0.1",
+    "layout": "",
     "tags": [
       "OC",
       "秋月",
@@ -197,6 +336,7 @@ window.GALLERY_ITEMS = [
     "title": "猫窝同眠",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606201905378.png",
     "model": "kimi-k2.5 / Newbie 0.1",
+    "layout": "",
     "tags": [
       "OC",
       "秋月",
@@ -212,6 +352,7 @@ window.GALLERY_ITEMS = [
     "title": "试衣间",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606201903103.png",
     "model": "claude-sonnet-4.6 / Newbie 0.1",
+    "layout": "",
     "tags": [
       "OC",
       "秋月",
@@ -227,6 +368,7 @@ window.GALLERY_ITEMS = [
     "title": "试衣间",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606201902057.png",
     "model": "gemini-3.1-pro / newbie 0.1",
+    "layout": "",
     "tags": [
       "OC",
       "秋月",
@@ -242,6 +384,7 @@ window.GALLERY_ITEMS = [
     "title": "战后",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606201900259.png",
     "model": "gemini-3-flash / newbie 0.1",
+    "layout": "",
     "tags": [
       "OC",
       "秋月",
@@ -256,6 +399,7 @@ window.GALLERY_ITEMS = [
     "title": "战后",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606201859554.png",
     "model": "gemini-3-flash / newbie 0.1",
+    "layout": "",
     "tags": [
       "OC",
       "秋月",
@@ -270,6 +414,7 @@ window.GALLERY_ITEMS = [
     "title": "秋月山地速降",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606201857085.png",
     "model": "gemini-3-flash / newbie 0.1",
+    "layout": "",
     "tags": [
       "OC",
       "秋月",
@@ -284,6 +429,7 @@ window.GALLERY_ITEMS = [
     "title": "秋月私服卧室",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606201853271.png",
     "model": "deepseek-v4-flash / anima-base-1.0",
+    "layout": "",
     "tags": [
       "OC",
       "秋月",
@@ -298,6 +444,7 @@ window.GALLERY_ITEMS = [
     "title": "秋月私服卧室",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606201852472.png",
     "model": "deepseek-v4-pro / anima-base-1.0",
+    "layout": "",
     "tags": [
       "OC",
       "秋月",
@@ -312,6 +459,7 @@ window.GALLERY_ITEMS = [
     "title": "张力姿势特写",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606201849915.png",
     "model": "deepseek-v4-flash / anima-base-1.0",
+    "layout": "",
     "tags": [
       "OC",
       "秋月",
@@ -326,6 +474,7 @@ window.GALLERY_ITEMS = [
     "title": "杂色手绘特写",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606201611887.png",
     "model": "deepseek-v4-pro / anima-base-1.0",
+    "layout": "",
     "tags": [
       "OC",
       "秋月",
@@ -340,6 +489,7 @@ window.GALLERY_ITEMS = [
     "title": "动感特写",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606201610447.png",
     "model": "deepseek-v4-pro / anima-base-1.0",
+    "layout": "",
     "tags": [
       "OC",
       "秋月",
@@ -354,6 +504,7 @@ window.GALLERY_ITEMS = [
     "title": "抵抗",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606201611897.png",
     "model": "deepseek-v4-flash/ anima-base-1.0",
+    "layout": "",
     "tags": [
       "OC",
       "秋月",
@@ -368,6 +519,7 @@ window.GALLERY_ITEMS = [
     "title": "日式西幻",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606201612082.png",
     "model": "deepseek-v4-pro / anima-base-1.0",
+    "layout": "",
     "tags": [
       "OC",
       "Anima"
@@ -380,6 +532,7 @@ window.GALLERY_ITEMS = [
     "title": "水彩春日",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606201612641.png",
     "model": "deepseek-v4-pro / anima-base-1.0",
+    "layout": "",
     "tags": [
       "OC",
       "水彩",
@@ -393,6 +546,7 @@ window.GALLERY_ITEMS = [
     "title": "Aniart菊地真",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606201608365.png",
     "model": "deepseek-v4-pro / anima-base-1.0 / Anima-Aniart",
+    "layout": "",
     "tags": [
       "菊地真",
       "偶像大师",
@@ -408,6 +562,7 @@ window.GALLERY_ITEMS = [
     "title": "秋月特写",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606131625496.png",
     "model": "deepseek-v4-pro / anima-base-1.0 / Anima-yoshinari-ko",
+    "layout": "",
     "tags": [
       "OC",
       "特写",
@@ -422,6 +577,7 @@ window.GALLERY_ITEMS = [
     "title": "向山进发",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606131627284.png",
     "model": "deepseek-v4-pro / anima-base-1.0 / Anima-yoshinari-ko",
+    "layout": "",
     "tags": [
       "LoKR",
       "双人",
@@ -436,6 +592,7 @@ window.GALLERY_ITEMS = [
     "title": "动态半身",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606201603930.png",
     "model": "deepseek-v4-pro / anima-base-1.0",
+    "layout": "",
     "tags": [
       "OC",
       "秋月",
@@ -451,6 +608,7 @@ window.GALLERY_ITEMS = [
     "title": "指挥官、直升机、夕阳",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606201556617.png",
     "model": "deepseek-v4-pro / anima-base-1.0",
+    "layout": "",
     "tags": [
       "OC",
       "春日",
@@ -466,6 +624,7 @@ window.GALLERY_ITEMS = [
     "title": "指挥官、直升机、夕阳",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606201556455.png",
     "model": "deepseek-v4-pro / anima-base-1.0",
+    "layout": "",
     "tags": [
       "OC",
       "春日",
@@ -481,6 +640,7 @@ window.GALLERY_ITEMS = [
     "title": "指挥官与直升机",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606201556982.png",
     "model": "deepseek-v4-pro / anima-base-1.0",
+    "layout": "",
     "tags": [
       "OC",
       "春日",
@@ -495,6 +655,7 @@ window.GALLERY_ITEMS = [
     "title": "废弃工厂中的战损少女",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606132105429.png",
     "model": "deepseek-v4-pro / Newbie 0.1",
+    "layout": "",
     "tags": [
       "OC",
       "NewBie",
@@ -509,6 +670,7 @@ window.GALLERY_ITEMS = [
     "title": "不良少女 / 辣妹",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606132055129.png",
     "model": "deepseek-v4-pro / anima-base-1.0",
+    "layout": "",
     "tags": [
       "OC",
       "Anima",
@@ -523,6 +685,7 @@ window.GALLERY_ITEMS = [
     "title": "天海春香 x 菊地真",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606132052480.png",
     "model": "deepseek-v4-pro / anima-base-1.0",
+    "layout": "",
     "tags": [
       "Anima",
       "偶像大师",
@@ -536,6 +699,7 @@ window.GALLERY_ITEMS = [
     "title": "富士山脚下露营",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606132122284.png",
     "model": "gemini-3.5-flash / anima-base-1.0",
+    "layout": "",
     "tags": [
       "Anima",
       "跨作品",
