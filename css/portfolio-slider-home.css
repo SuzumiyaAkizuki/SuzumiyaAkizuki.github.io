@@ -898,3 +898,95 @@ body.portfolio-slider-page #navbar .navbar-collapse,
 .portfolio-fluid-home-slide #navbar .navbar-collapse {
   justify-content: flex-end;
 }
+
+
+@media (max-width: 640px), (orientation: portrait) {
+  body.portfolio-slider-page .portfolio-fluid-home-slide > header,
+  body.portfolio-slider-page .portfolio-fluid-home-slide .header-inner,
+  body.portfolio-slider-page #banner,
+  body.portfolio-slider-page #banner .full-bg-img,
+  body.portfolio-slider-page #banner .portfolio-home-hero-mask {
+    height: 100svh !important;
+    min-height: 100svh !important;
+  }
+
+  body.portfolio-slider-page #banner {
+    background-position: 58% center !important;
+    background-size: cover !important;
+  }
+
+  body.portfolio-slider-page #banner .portfolio-home-hero-mask {
+    align-items: center;
+    background:
+      linear-gradient(to bottom,
+        rgba(18,14,20,0.42) 0%,
+        rgba(18,14,20,0.36) 35%,
+        rgba(18,14,20,0.72) 100%),
+      linear-gradient(to right,
+        rgba(18,14,20,0.60) 0%,
+        rgba(18,14,20,0.18) 100%) !important;
+  }
+
+  body.portfolio-slider-page #banner .portfolio-home-hero-content {
+    max-width: min(92vw, 420px);
+    padding: 72px 24px 72px;
+    overflow: visible;
+  }
+
+  body.portfolio-slider-page #banner .eyebrow {
+    font-size: 0.82rem;
+    letter-spacing: 0.18em;
+    margin-bottom: 18px;
+  }
+
+  body.portfolio-slider-page #banner .project-name {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: keep-all;
+    font-size: clamp(2.35rem, 13vw, 3.55rem);
+    line-height: 1.12;
+    letter-spacing: 0;
+    max-width: 100%;
+    margin-bottom: 12px;
+  }
+
+  body.portfolio-slider-page #banner .project-sub {
+    font-size: 0.98rem;
+    line-height: 1.55;
+    margin-bottom: 24px;
+  }
+
+  body.portfolio-slider-page #banner .divider {
+    width: 56px;
+    margin-bottom: 22px;
+  }
+
+  body.portfolio-slider-page #banner .project-desc {
+    font-size: 0.88rem;
+    line-height: 1.75;
+    margin-bottom: 22px;
+    max-width: 100%;
+  }
+
+  body.portfolio-slider-page #banner .feature-pills {
+    gap: 6px;
+  }
+
+  body.portfolio-slider-page #banner .pill {
+    font-size: 0.74rem;
+    padding: 5px 12px;
+  }
+}
+
+@supports (height: 100dvh) {
+  @media (max-width: 640px), (orientation: portrait) {
+    body.portfolio-slider-page .portfolio-fluid-home-slide > header,
+    body.portfolio-slider-page .portfolio-fluid-home-slide .header-inner,
+    body.portfolio-slider-page #banner,
+    body.portfolio-slider-page #banner .full-bg-img,
+    body.portfolio-slider-page #banner .portfolio-home-hero-mask {
+      height: 100dvh !important;
+      min-height: 100dvh !important;
+    }
+  }
+}

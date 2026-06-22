@@ -282,6 +282,8 @@
   
 
 <div id="banner" class="banner" parallax=true
+     data-bg-desktop="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202503102058897.jpg"
+     data-bg-mobile="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202503102058897.jpg"
      style="background: url('https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202503102058897.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     
@@ -359,6 +361,21 @@
     
   </div>
 </div>
+
+<script>
+(function() {
+  var banner = document.getElementById('banner');
+  if (!banner || !banner.dataset.bgDesktop) return;
+  var mq = window.matchMedia('(max-width: 640px), (orientation: portrait)');
+  function applyResponsiveBanner() {
+    var url = mq.matches ? (banner.dataset.bgMobile || banner.dataset.bgDesktop) : banner.dataset.bgDesktop;
+    if (url) banner.style.backgroundImage = 'url("' + url.replace(/"/g, '\"') + '")';
+  }
+  applyResponsiveBanner();
+  if (mq.addEventListener) mq.addEventListener('change', applyResponsiveBanner);
+  else if (mq.addListener) mq.addListener(applyResponsiveBanner);
+})();
+</script>
 
 </div>
 
