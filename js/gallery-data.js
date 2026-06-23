@@ -3,31 +3,101 @@ window.GALLERY_ITEMS = [
     "id": "work-1782203528197",
     "title": "偶像英雄-春香",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606231633330.png",
+    "model": "deepseek-v4-pro / anima-base-1.0 / Anima-yoshinari-ko",
+    "layout": "",
+    "tags": [
+      "偶像大师",
+      "天海春香",
+      "LokR"
+    ],
+    "prompt": "偶像大师中的天海春香穿着演出服【idol_heroes_\\(idolmaster\\),mighty sailor\n， fingerless_gloves, white_cape, red_neckerchief, black_gloves, epaulettes, white_skirt, mighty_sailor, cape】，在舞台上有活力地表演。cowboy_shot，red ribbon in hair\n",
+    "notes": ""
+  },
+  {
+    "id": "work-1782203528197-copy-1782228603499",
+    "title": "偶像英雄-春香 ",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606232331895.png",
+    "model": "deepseek-v4-pro / anima-base-1.0 / Anima-Aniart ",
+    "layout": "",
+    "tags": [
+      "偶像大师",
+      "天海春香",
+      "LokR"
+    ],
+    "prompt": "偶像大师中的天海春香穿着演出服【idol_heroes_\\(idolmaster\\),(mighty sailor:2)\n， fingerless_gloves, white_cape, red_neckerchief, black_gloves, epaulettes, white_skirt, mighty_sailor, cape，midriff】，在舞台上有活力地表演。cowboy_shot，red ribbon in hair，looking at viewer，《蔚蓝档案》风格的平涂、淡色调画风，\n",
+    "notes": ""
+  },
+  {
+    "id": "work-1782203528197-copy-1782228603499-copy-1782228728806",
+    "title": "偶像英雄-春香",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606232331958.png",
+    "model": "deepseek-v4-pro / anima-base-1.0 / Anima-Aniart ",
+    "layout": "",
+    "tags": [
+      "偶像大师",
+      "天海春香",
+      "LokR"
+    ],
+    "prompt": "偶像大师中的天海春香穿着演出服【idol_heroes_\\(idolmaster\\),(mighty sailor:2)\n， fingerless_gloves, white_cape, red_neckerchief, black_gloves, epaulettes, white_skirt, mighty_sailor, cape，midriff】，在舞台上有活力地表演。cowboy_shot，red ribbon in hair，looking at viewer，《蔚蓝档案》风格的平涂、淡色调画风，\n",
+    "notes": ""
+  },
+  {
+    "id": "work-1782203528197-copy-1782227518441",
+    "title": "偶像英雄-春香",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606232311390.png",
+    "model": "deepseek-v4-pro / anima-base-1.0 / Anima-yoshinari-ko",
+    "layout": "",
+    "tags": [
+      "偶像大师",
+      "天海春香",
+      "LokR"
+    ],
+    "prompt": "偶像大师中的天海春香穿着演出服【idol_heroes_\\(idolmaster\\),mighty sailor\n， fingerless_gloves, white_cape, red_neckerchief, black_gloves, epaulettes, white_skirt, mighty_sailor, cape】，在舞台上有活力地表演。cowboy_shot，red ribbon in hair\n",
+    "notes": ""
+  },
+  {
+    "id": "work-1782203528197-copy-1782227168678",
+    "title": "偶像英雄-春香",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606232306961.png",
     "model": "deepseek-v4-pro / anima-base-1.0",
     "layout": "",
     "tags": [
       "偶像大师",
       "天海春香"
     ],
-    "prompt": "偶像大师中的天海春香穿着演出服【idol_heroes_\\(idolmaster\\),mighty sailor\n， fingerless_gloves, white_cape, red_neckerchief, black_gloves, epaulettes, white_skirt, mighty_sailor, cape】，在舞台上有活力地表演。cowboy_shot，red ribbon in hair\n",
+    "prompt": "偶像大师中的天海春香穿着演出服【idol_heroes_\\(idolmaster\\),mighty sailor\n， fingerless_gloves, white_cape, red_neckerchief, black_gloves, epaulettes, white_skirt, mighty_sailor, cape】，在舞台上有活力地表演。cowboy_shot，red ribbon in hair\n@itomugi-kun",
+    "notes": ""
+  },
+  {
+    "id": "work-1782203528197-copy-1782227168678-copy-1782227194130",
+    "title": "偶像英雄-春香",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606232308679.png",
+    "model": "deepseek-v4-pro / anima-base-1.0",
+    "layout": "",
+    "tags": [
+      "偶像大师",
+      "天海春香"
+    ],
+    "prompt": "偶像大师中的天海春香穿着演出服【idol_heroes_\\(idolmaster\\),(mighty sailor:2)\n， fingerless_gloves, white_cape, red_neckerchief, black_gloves, epaulettes, white_skirt, mighty_sailor, cape】，在舞台上有活力地表演。cowboy_shot，red ribbon in hair，looking at viewer\n@suirandanshihao",
     "notes": ""
   },
   {
     "id": "work-1782191839297",
     "title": "偶像英雄-春香",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606231253169.png",
-    "model": "deepseek-v4-pro / anima-base-1.0",
+    "model": "deepseek-v4-pro / anima-base-1.0 / Anima-yoshinari-ko",
     "layout": "",
     "tags": [
       "偶像大师",
-      "天海春香"
+      "天海春香",
+      "LokR"
     ],
     "prompt": "偶像大师中的天海春香穿着idol_heroes_(idolmaster)，fingerless_gloves，演出服，在舞台上有活力地表演。cowboy_shot，red ribbon in hair\n风格：印象派色彩油画笔触",
     "notes": ""
   },
   {
     "id": "work-1782191839297-copy-1782191918253",
-    "title": "偶像英雄-春香 copy",
+    "title": "偶像英雄-春香",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606231306168.png",
     "model": "deepseek-v4-pro / anima-base-1.0",
     "layout": "",
@@ -36,6 +106,19 @@ window.GALLERY_ITEMS = [
       "天海春香"
     ],
     "prompt": "偶像大师中的天海春香穿着idol_heroes_(idolmaster)，fingerless_gloves，演出服，在舞台上有活力地表演。cowboy_shot，red ribbon in hair\n风格：印象派色彩油画笔触",
+    "notes": ""
+  },
+  {
+    "id": "work-1782191839297-copy-1782191918253-copy-1782227396985",
+    "title": "偶像英雄-春香",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606232310521.png",
+    "model": "deepseek-v4-pro / anima-base-1.0",
+    "layout": "",
+    "tags": [
+      "偶像大师",
+      "天海春香"
+    ],
+    "prompt": "偶像大师中的天海春香穿着演出服【idol_heroes_\\(idolmaster\\),mighty sailor\n， fingerless_gloves, white_cape, red_neckerchief, black_gloves, epaulettes, white_skirt, mighty_sailor, cape】，在舞台上有活力地表演。cowboy_shot，red ribbon in hair\n风格：蔚蓝档案风格，平涂淡色彩无勾线（不要用画师标签）",
     "notes": ""
   },
   {
@@ -81,7 +164,7 @@ window.GALLERY_ITEMS = [
     "id": "work-1782143383727",
     "title": "山4风格偶像大师",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606222350323.png",
-    "model": "deepseek-v4-pro / anima-base-1.0",
+    "model": "deepseek-v4-pro / anima-base-1.0 / Anima-yoshinari-ko",
     "layout": "",
     "tags": [
       "偶像大师",
