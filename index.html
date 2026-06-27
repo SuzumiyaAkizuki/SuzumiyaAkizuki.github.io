@@ -1851,6 +1851,334 @@
     </div>
   </div>
 
+  <div class="slide" data-accent="teal">
+    <div class="ambient">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="particles">
+      <div class="particle"></div><div class="particle"></div>
+      <div class="particle"></div><div class="particle"></div>
+      <div class="particle"></div><div class="particle"></div>
+      <div class="particle"></div><div class="particle"></div>
+    </div>
+    <div class="hero">
+      <div class="hero-bg" data-bg-desktop="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606191206023.png" data-bg-mobile="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606201915016.png"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="eyebrow">Models</div>
+        <div class="project-name">我训练的模型</div>
+        <div class="project-sub">以下是我训练的模型们</div>
+        <div class="divider"></div>
+        <div class="url-row">
+          <div class="url-tag">
+            <span class="label">HF</span>
+            <a class="addr" href="https://huggingface.co/SAkizuki" target="_blank" rel="noopener noreferrer">https://huggingface.co/SAkizuki</a>
+          </div>
+          <div class="url-tag">
+            <span class="label">Civitai</span>
+            <a class="addr" href="https://civitai.com/user/Suzumiya_Akizuki" target="_blank" rel="noopener noreferrer">https://civitai.com/user/Suzumiya_Akizuki</a>
+          </div>
+        </div>
+        <div class="project-desc"></div>
+        <div class="feature-pills">
+          <span class="pill">LoRA</span>
+          <span class="pill">LoKR</span>
+          <span class="pill">画面风格训练</span>
+        </div>
+      </div>
+      <div class="scroll-hint">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+        <span>Scroll</span>
+      </div>
+    </div>
+    <div class="details-section">
+      <div class="details-inner">
+<div class="detail-section"><div class="section-label">Anima-yoshinari-ko</div></div>
+<figure class="markdown-image">
+  <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606232311390.png" srcset="/img/loading.gif" lazyload alt="示例图片">
+  <figcaption>示例图片</figcaption>
+</figure>
+<p>下载链接：https://huggingface.co/SAkizuki/Anima-yoshinari-ko</p>
+<details class="expandable locked" open>
+  <summary>模型介绍</summary>
+  <div class="expand-body">
+<p>本模型是一个基于 Anima 训练的 LoKR（Low-Rank Kronecker Product） 画风适配器，目标是捕捉《向山进发4》（Yama no Susume: Next Summit）BD 版 Non-Credit ED 动画截图中呈现的吉成鋼画风特征——手绘质感、水彩渲染、淡雅配色与柔和线条。</p>
+<p>本模型使用 Anima Base v1.0 作为底模，训练集约 300 张来自《向山进发4》BD NCED 的动画截图，经 14 轮迭代训练而成。</p>
+<p>请使用@yoshinari ko触发此画风，强度建议设置为0.5~1.5，过强的模型强度会对构图产生破坏。</p>
+  </div>
+</details>
+<details class="expandable">
+  <summary>详细参数</summary>
+  <div class="expand-body">
+<p><strong>模型规格</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>项目</th>
+      <th>详情</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>模型类型</td>
+      <td>LoKR（Low-Rank Kronecker Product）</td>
+    </tr>
+    <tr>
+      <td>底模</td>
+      <td>Anima Base v1.0</td>
+    </tr>
+    <tr>
+      <td>LoKR Rank</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td>LoKR Alpha</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td>LoKR Factor</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>Full Matrix</td>
+      <td>是</td>
+    </tr>
+    <tr>
+      <td>训练精度</td>
+      <td>FP16</td>
+    </tr>
+    <tr>
+      <td>输出格式</td>
+      <td>SafeTensors</td>
+    </tr>
+  </tbody>
+</table>
+<p><strong>训练参数</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>项目</th>
+      <th>详情</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>训练轮数</td>
+      <td>14 epochs</td>
+    </tr>
+    <tr>
+      <td>批大小</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>梯度累积</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>优化器</td>
+      <td>Automagic</td>
+    </tr>
+    <tr>
+      <td>学习率</td>
+      <td>5×10⁻⁵（UNet）</td>
+    </tr>
+    <tr>
+      <td>学习率调度</td>
+      <td>Cosine with Restarts（3 个周期）</td>
+    </tr>
+    <tr>
+      <td>预热步数</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>训练分辨率</td>
+      <td>1024×576</td>
+    </tr>
+    <tr>
+      <td>最小/最大 Bucket</td>
+      <td>256 / 2048</td>
+    </tr>
+    <tr>
+      <td>CLIP Skip</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>扩散偏移</td>
+      <td>3（Shift）</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+</details>
+<details class="expandable">
+  <summary>示例图片</summary>
+  <div class="expand-body">
+<figure class="markdown-image">
+  <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606231633330.png" srcset="/img/loading.gif" lazyload alt="天海春香">
+  <figcaption>天海春香</figcaption>
+</figure>
+<figure class="markdown-image">
+  <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606232311390.png" srcset="/img/loading.gif" lazyload alt="天海春香">
+  <figcaption>天海春香</figcaption>
+</figure>
+<figure class="markdown-image">
+  <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606222350323.png" srcset="/img/loading.gif" lazyload alt="菊地真">
+  <figcaption>菊地真</figcaption>
+</figure>
+<figure class="markdown-image">
+  <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606131627284.png" srcset="/img/loading.gif" lazyload alt="AOHN">
+  <figcaption>AOHN</figcaption>
+</figure>
+<figure class="markdown-image">
+  <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606131625496.png" srcset="/img/loading.gif" lazyload alt="OC">
+  <figcaption>OC</figcaption>
+</figure>
+  </div>
+</details>
+<div class="detail-section"><div class="section-label">Anima-Aniart</div></div>
+<figure class="markdown-image">
+  <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606232331895.png" srcset="/img/loading.gif" lazyload alt="示例图片">
+  <figcaption>示例图片</figcaption>
+</figure>
+<p>下载链接：https://huggingface.co/SAkizuki/Anima-Aniart</p>
+<details class="expandable locked" open>
+  <summary>模型介绍</summary>
+  <div class="expand-body">
+<p>一款为Anima模型设计的手绘水彩风格LoKR，旨在复现&quot;Ani-Art&quot;独特的手绘、水彩和颜色漂移美学效果。</p>
+<p>本模型使用 Anima Base v1.0 作为底模，训练集约 200 张来自Aniart网站的官方图，经 9 轮迭代训练而成。</p>
+<p>请使用@aniart触发此画风，强度建议设置为0.5~1，过强的模型强度会对构图产生破坏。</p>
+  </div>
+</details>
+<details class="expandable">
+  <summary>详细参数</summary>
+  <div class="expand-body">
+<p><strong>模型规格</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>项目</th>
+      <th>详情</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>模型类型</td>
+      <td>LoKR（Low-Rank Kronecker Product）</td>
+    </tr>
+    <tr>
+      <td>底模</td>
+      <td>Anima Base v1.0</td>
+    </tr>
+    <tr>
+      <td>LoKR Rank</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td>LoKR Alpha</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td>LoKR Factor</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>Full Matrix</td>
+      <td>是</td>
+    </tr>
+    <tr>
+      <td>训练精度</td>
+      <td>FP16</td>
+    </tr>
+    <tr>
+      <td>输出格式</td>
+      <td>SafeTensors</td>
+    </tr>
+  </tbody>
+</table>
+<p><strong>训练参数</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>项目</th>
+      <th>详情</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>训练轮数</td>
+      <td>9 epochs</td>
+    </tr>
+    <tr>
+      <td>批大小</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>梯度累积</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>优化器</td>
+      <td>Automagic</td>
+    </tr>
+    <tr>
+      <td>学习率</td>
+      <td>5×10⁻⁵（UNet）</td>
+    </tr>
+    <tr>
+      <td>学习率调度</td>
+      <td>Cosine with Restarts（3 个周期）</td>
+    </tr>
+    <tr>
+      <td>预热步数</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>训练分辨率</td>
+      <td>512x512</td>
+    </tr>
+    <tr>
+      <td>CLIP Skip</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>扩散偏移</td>
+      <td>3（Shift）</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+</details>
+<details class="expandable">
+  <summary>示例图片</summary>
+  <div class="expand-body">
+<figure class="markdown-image">
+  <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606112122422.png" srcset="/img/loading.gif" lazyload alt="小宫果穗">
+  <figcaption>小宫果穗</figcaption>
+</figure>
+<figure class="markdown-image">
+  <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606112119197.png" srcset="/img/loading.gif" lazyload alt="OC">
+  <figcaption>OC</figcaption>
+</figure>
+<figure class="markdown-image">
+  <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606201608365.png" srcset="/img/loading.gif" lazyload alt="菊地真">
+  <figcaption>菊地真</figcaption>
+</figure>
+<figure class="markdown-image">
+  <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606232331895.png" srcset="/img/loading.gif" lazyload alt="天海春香">
+  <figcaption>天海春香</figcaption>
+</figure>
+<figure class="markdown-image">
+  <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606280052721.png" srcset="/img/loading.gif" lazyload alt="OC">
+  <figcaption>OC</figcaption>
+</figure>
+  </div>
+</details>
+      </div>
+    </div>
+  </div>
+
 
 
 
@@ -1913,6 +2241,7 @@
     <div class="dot" data-i="2"></div>
     <div class="dot" data-i="3"></div>
     <div class="dot" data-i="4"></div>
+    <div class="dot" data-i="5"></div>
   </div>
   <button class="nav-arrow" id="next" aria-label="下一页">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
