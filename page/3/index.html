@@ -2559,14 +2559,42 @@
     return 3;
   }
 
-  function estimateGalleryHeight(item) {
-    var ratio = Number(item.ratio);
-    if (!ratio || ratio <= 0) {
+  function positiveNumber(value) {
+    var number = Number(value);
+    return isFinite(number) && number > 0 ? number : 0;
+  }
+
+  function galleryImageRatio(item) {
+    var ratio = positiveNumber(item.ratio);
+    var width = positiveNumber(item.width || item.w || item.naturalWidth);
+    var height = positiveNumber(item.height || item.h || item.naturalHeight);
+    if (!ratio && width && height) ratio = width / height;
+    if (!ratio) {
       if (/202606132105429/.test(item.image || '')) ratio = 0.72;
       else if (/202606132055129|202606132052480|202606132122284/.test(item.image || '')) ratio = 1.6;
       else ratio = 1;
     }
-    var textCost = 0.34 + ((item.prompt || '').length > 90 ? 0.24 : 0) + ((item.notes || '').length > 0 ? 0.12 : 0);
+    return ratio;
+  }
+
+  function galleryImageAttrs(item) {
+    var width = positiveNumber(item.width || item.w || item.naturalWidth);
+    var height = positiveNumber(item.height || item.h || item.naturalHeight);
+    var attrs = ' loading="lazy" decoding="async"';
+    if (width && height) {
+      width = Math.round(width);
+      height = Math.round(height);
+      attrs += ' width="' + width + '" height="' + height + '" style="aspect-ratio: ' + width + ' / ' + height + ';"';
+    }
+    return attrs;
+  }
+
+  function estimateGalleryHeight(item) {
+    var ratio = galleryImageRatio(item);
+    var promptLength = (item.prompt || '').length;
+    var notesLength = (item.notes || '').length;
+    var tagCount = (item.tags || []).length;
+    var textCost = 0.34 + (promptLength > 90 ? 0.24 : 0) + (promptLength > 360 ? 0.18 : 0) + (notesLength > 0 ? 0.12 : 0) + Math.min(tagCount, 8) * 0.018;
     return (1 / ratio) + textCost;
   }
 
@@ -2579,7 +2607,7 @@
       : '';
     var notesHtml = item.notes ? '<div class="gallery-meta">' + escapeHtml(item.notes) + '</div>' : '';
     return '<article class="gallery-card">' +
-      '<img src="' + escapeHtml(item.image) + '" srcset="/img/loading.gif" lazyload alt="' + escapeHtml(item.title) + '">' +
+      '<img src="' + escapeHtml(item.image) + '" srcset="/img/loading.gif" lazyload alt="' + escapeHtml(item.title) + '"' + galleryImageAttrs(item) + '>' +
       '<div class="gallery-info">' +
         '<div class="gallery-title">' + escapeHtml(item.title) + '</div>' +
         '<div class="gallery-meta"><strong>模型：</strong>' + escapeHtml(item.model || '未填写') + '</div>' +
