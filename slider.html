@@ -1163,6 +1163,56 @@
   var next = document.getElementById('next');
   var hints = document.querySelectorAll('.scroll-hint');
   var current = 0;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var parallaxRaf = null;
+
+  function clamp(value, min, max) {
+    return Math.max(min, Math.min(max, value));
+  }
+
+  function setSlideParallax(slide, index) {
+    var distance = index - current;
+    var scrollTop = slide.scrollTop || 0;
+    var active = index === current;
+    var bgX = clamp(distance * -28, -56, 56);
+    var contentX = clamp(distance * 14, -28, 28);
+    var bgY = active ? clamp(scrollTop * 0.24, 0, 96) : 0;
+    var contentY = active ? -clamp(scrollTop * 0.09, 0, 42) : 0;
+    slide.style.setProperty('--hero-bg-x', bgX + 'px');
+    slide.style.setProperty('--hero-bg-y', bgY + 'px');
+    slide.style.setProperty('--hero-content-x', contentX + 'px');
+    slide.style.setProperty('--hero-content-y', contentY + 'px');
+
+    var banner = slide.querySelector('#banner');
+    if (banner) {
+      if (reduceMotion.matches) {
+        banner.style.removeProperty('background-position');
+      } else {
+        var baseX = window.matchMedia('(max-width: 640px), (orientation: portrait)').matches ? '58%' : '50%';
+        banner.style.setProperty('background-position', 'calc(' + baseX + ' + ' + bgX + 'px) calc(50% + ' + bgY + 'px)', 'important');
+      }
+    }
+  }
+
+  function updateHeroParallax() {
+    parallaxRaf = null;
+    if (reduceMotion.matches) {
+      slides.forEach(function(slide) {
+        slide.style.setProperty('--hero-bg-x', '0px');
+        slide.style.setProperty('--hero-bg-y', '0px');
+        slide.style.setProperty('--hero-content-x', '0px');
+        slide.style.setProperty('--hero-content-y', '0px');
+      });
+      return;
+    }
+    slides.forEach(setSlideParallax);
+  }
+
+  function scheduleHeroParallax() {
+    if (parallaxRaf) return;
+    parallaxRaf = requestAnimationFrame(updateHeroParallax);
+  }
+
   var wheelCD = false;
   var wheelEdgeIntent = null;
   var wheelEdgeTimer = null;
@@ -1212,6 +1262,7 @@
     current = i;
     slides[current].classList.add('active');
     setSliderPosition(0);
+    updateHeroParallax();
     dots.forEach(function(dot, idx) { dot.classList.toggle('active', idx === current); });
     if (prev) prev.disabled = current <= 0;
     if (next) next.disabled = current >= slides.length - 1;
@@ -1223,13 +1274,16 @@
   if (prev) prev.disabled = true;
   if (next) next.disabled = slides.length <= 1;
   applyHeroBackgrounds();
+  updateHeroParallax();
 
   slides.forEach(function(slide) {
     slide.addEventListener('scroll', function() {
       var hint = slide.querySelector('.scroll-hint');
-      if (!hint) return;
-      if (slide.scrollTop > 60) hint.classList.add('hidden');
-      else if (slide === slides[current]) hint.classList.remove('hidden');
+      if (hint) {
+        if (slide.scrollTop > 60) hint.classList.add('hidden');
+        else if (slide === slides[current]) hint.classList.remove('hidden');
+      }
+      if (slide === slides[current]) scheduleHeroParallax();
     });
   });
 

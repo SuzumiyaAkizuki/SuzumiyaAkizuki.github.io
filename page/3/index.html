@@ -2274,6 +2274,56 @@
   var hints  = document.querySelectorAll('.scroll-hint');
   var current = 0;
   var FIRST = 0;  // Fluid home is the first slide
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var parallaxRaf = null;
+
+  function clamp(value, min, max) {
+    return Math.max(min, Math.min(max, value));
+  }
+
+  function setSlideParallax(slide, index) {
+    var distance = index - current;
+    var scrollTop = slide.scrollTop || 0;
+    var active = index === current;
+    var bgX = clamp(distance * -28, -56, 56);
+    var contentX = clamp(distance * 14, -28, 28);
+    var bgY = active ? clamp(scrollTop * 0.24, 0, 96) : 0;
+    var contentY = active ? -clamp(scrollTop * 0.09, 0, 42) : 0;
+    slide.style.setProperty('--hero-bg-x', bgX + 'px');
+    slide.style.setProperty('--hero-bg-y', bgY + 'px');
+    slide.style.setProperty('--hero-content-x', contentX + 'px');
+    slide.style.setProperty('--hero-content-y', contentY + 'px');
+
+    var banner = slide.querySelector('#banner');
+    if (banner) {
+      if (reduceMotion.matches) {
+        banner.style.removeProperty('background-position');
+      } else {
+        var baseX = window.matchMedia('(max-width: 640px), (orientation: portrait)').matches ? '58%' : '50%';
+        banner.style.setProperty('background-position', 'calc(' + baseX + ' + ' + bgX + 'px) calc(50% + ' + bgY + 'px)', 'important');
+      }
+    }
+  }
+
+  function updateHeroParallax() {
+    parallaxRaf = null;
+    if (reduceMotion.matches) {
+      slides.forEach(function(slide) {
+        slide.style.setProperty('--hero-bg-x', '0px');
+        slide.style.setProperty('--hero-bg-y', '0px');
+        slide.style.setProperty('--hero-content-x', '0px');
+        slide.style.setProperty('--hero-content-y', '0px');
+      });
+      return;
+    }
+    slides.forEach(setSlideParallax);
+  }
+
+  function scheduleHeroParallax() {
+    if (parallaxRaf) return;
+    parallaxRaf = requestAnimationFrame(updateHeroParallax);
+  }
+
   slider.style.width = (slides.length * 100) + 'vw';
   prev.disabled = true;
   next.disabled = slides.length <= 1;
@@ -2286,6 +2336,7 @@
     });
   }
   applyHeroBackgrounds();
+  updateHeroParallax();
 
   function resetFluidHomeNavbar() {
     var navbar = document.getElementById('navbar');
@@ -2326,6 +2377,7 @@
     current = i;
     slides[current].classList.add('active');
     setSliderPosition(0);
+    updateHeroParallax();
     // update dots (offset by FIRST)
     dots.forEach(function(d, idx) {
       d.classList.toggle('active', idx + FIRST === current);
@@ -2341,9 +2393,11 @@
   slides.forEach(function(s) {
     s.addEventListener('scroll', function() {
       var h = s.querySelector('.scroll-hint');
-      if (!h) return;
-      if (s.scrollTop > 60) h.classList.add('hidden');
-      else if (s === slides[current]) h.classList.remove('hidden');
+      if (h) {
+        if (s.scrollTop > 60) h.classList.add('hidden');
+        else if (s === slides[current]) h.classList.remove('hidden');
+      }
+      if (s === slides[current]) scheduleHeroParallax();
     });
   });
 
@@ -2443,7 +2497,7 @@
   nav(0, true);
   syncFluidHomeNavbar();
   window.addEventListener('pageshow', syncFluidHomeNavbar);
-  window.addEventListener('resize', syncFluidHomeNavbar);
+  window.addEventListener('resize', function() { syncFluidHomeNavbar(); applyHeroBackgrounds(); scheduleHeroParallax(); });
   document.addEventListener('visibilitychange', syncFluidHomeNavbar);
 
   // expandable: wrap body content + toggle animation
@@ -2590,6 +2644,7 @@
     clearTimeout(galleryResizeTimer);
     galleryResizeTimer = setTimeout(function() {
       applyHeroBackgrounds();
+      scheduleHeroParallax();
       var active = document.querySelector('.gallery-filter.active');
       renderGallery(active ? active.getAttribute('data-tag') : '全部');
     }, 120);

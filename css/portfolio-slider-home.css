@@ -35,6 +35,10 @@ html, body {
   filter: drop-shadow(0 0 18px color-mix(in srgb, var(--accent) 28%, transparent));
 }
 .slide {
+  --hero-bg-x: 0px;
+  --hero-bg-y: 0px;
+  --hero-content-x: 0px;
+  --hero-content-y: 0px;
   width: 100vw; height: 100vh;
   display: flex; flex-direction: column;
   position: relative; overflow-y: auto; overflow-x: hidden;
@@ -92,30 +96,40 @@ html, body {
   display: flex; align-items: center;
   padding: 0;
   position: relative; z-index: 1;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--bg);
 }
 .hero-bg {
-  position: absolute; inset: 0; z-index: 0;
+  position: absolute; inset: -2%; z-index: 0;
   background-size: cover; background-position: center;
-  opacity: 0; transition: opacity 1.2s ease 0.1s;
+  transform: translate3d(var(--hero-bg-x), var(--hero-bg-y), 0) scale(1.04);
+  will-change: transform;
+  opacity: 0;
+  transition: opacity 1.2s ease 0.1s, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .slide.active .hero-bg { opacity: 1; }
 .hero-overlay {
   position: absolute; inset: 0; z-index: 1;
   background:
     linear-gradient(to right,
-      rgba(18,14,20,0.92) 0%,
-      rgba(18,14,20,0.82) 35%,
-      rgba(18,14,20,0.35) 65%,
-      rgba(18,14,20,0.08) 100%),
+      rgba(18,14,20,0.88) 0%,
+      rgba(18,14,20,0.72) 34%,
+      rgba(18,14,20,0.24) 68%,
+      rgba(18,14,20,0.06) 100%),
     linear-gradient(to top,
-      rgba(18,14,20,0.5) 0%,
-      transparent 30%);
+      rgba(22,19,26,0.86) 0%,
+      rgba(22,19,26,0.32) 24%,
+      transparent 48%);
 }
 .hero-content {
   position: relative; z-index: 2;
   max-width: 560px; width: 100%;
   text-align: left;
   padding: 60px 24px 60px 80px;
+  transform: translate3d(var(--hero-content-x), var(--hero-content-y), 0);
+  will-change: transform;
+  transition: transform 0.46s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* ── staggered entrance ── */
@@ -674,6 +688,8 @@ html, body {
 /* ── reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
   .slider { transition: none; }
+  .slide { --hero-bg-x: 0px; --hero-bg-y: 0px; --hero-content-x: 0px; --hero-content-y: 0px; }
+  .hero-bg, .hero-content, body.portfolio-slider-page #banner .portfolio-home-hero-content { transform: none !important; transition: none !important; }
   .hero-content > * { transition: none !important; opacity: 1 !important; transform: none !important; }
   .feature-pills .pill { transition: none !important; opacity: 1 !important; transform: none !important; }
   .details-inner { transition: none; opacity: 1; transform: none; }
@@ -692,9 +708,9 @@ html, body {
   .hero-overlay {
     background:
       linear-gradient(to bottom,
-        rgba(18,14,20,0.78) 0%,
-        rgba(18,14,20,0.52) 42%,
-        rgba(18,14,20,0.88) 100%),
+        rgba(18,14,20,0.66) 0%,
+        rgba(18,14,20,0.44) 42%,
+        rgba(18,14,20,0.82) 100%),
       linear-gradient(to right,
         rgba(18,14,20,0.7) 0%,
         rgba(18,14,20,0.2) 100%);
@@ -791,6 +807,9 @@ body.portfolio-slider-page #banner .portfolio-home-hero-content {
   width: 100%;
   text-align: left;
   padding: 60px 24px 60px 80px;
+  transform: translate3d(var(--hero-content-x), var(--hero-content-y), 0);
+  will-change: transform;
+  transition: transform 0.46s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 body.portfolio-slider-page #banner .portfolio-home-hero-content > * {
