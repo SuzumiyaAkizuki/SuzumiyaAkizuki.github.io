@@ -1,5 +1,289 @@
 window.GALLERY_ITEMS = [
   {
+    "id": "work-1782579363074",
+    "title": "正义红",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606280054412.png",
+    "model": "deepseek-v4-pro / anima-base-1.0 ",
+    "width": 1128,
+    "height": 2456,
+    "tags": [
+      "偶像大师",
+      "小宫果穗",
+      "Anima"
+    ],
+    "prompt": "偶像大师中的小宫果穗穿着演出服【idol_heroes_\\(idolmaster\\),(mighty sailor:2)\n， fingerless_gloves, white_cape, red_neckerchief, black_gloves, epaulettes, white_skirt, mighty_sailor, cape，midriff】，在舞台上有活力地表演。做出和大英雄一般的姿势。cowboy_shot，red ribbon in hair，looking at viewer\nuse the fixed style of (@funitarefu:2.0) and @kataokasan and @mika pikazo and @sy4 and @ogipote and @alien 888",
+    "notes": ""
+  },
+  {
+    "id": "work-1782579363074-copy-1782579742816",
+    "title": "正义红 copy",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606280103505.png",
+    "model": "deepseek-v4-pro / anima-base-1.0 ",
+    "width": 1128,
+    "height": 2456,
+    "tags": [
+      "偶像大师",
+      "小宫果穗",
+      "Anima"
+    ],
+    "prompt": "偶像大师中的小宫果穗穿着演出服【idol_heroes_\\(idolmaster\\),(mighty sailor:2)\n， fingerless_gloves, white_cape, red_neckerchief, black_gloves, epaulettes, white_skirt, mighty_sailor, cape，midriff】，在舞台上有活力地表演。做出和大英雄一般的姿势。cowboy_shot，red ribbon in hair，looking at viewer\nuse the fixed style of (@funitarefu:2.0) and @kataokasan and @mika pikazo and @sy4 and @ogipote and @alien 888",
+    "notes": ""
+  },
+  {
+    "id": "work-1782579363074-copy-1782579413655",
+    "title": "正义红",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606280057460.png",
+    "model": "deepseek-v4-pro / anima-base-1.0 ",
+    "width": 941,
+    "height": 1672,
+    "tags": [
+      "偶像大师",
+      "小宫果穗",
+      "Anima"
+    ],
+    "prompt": "偶像大师中的小宫果穗穿着演出服【idol_heroes_\\(idolmaster\\),(mighty sailor:2)\n， fingerless_gloves, white_cape, red_neckerchief, black_gloves, epaulettes, white_skirt, mighty_sailor, cape，midriff】，在舞台上有活力地表演。做出和大英雄一般的姿势。cowboy_shot，red ribbon in hair，looking at viewer\nuse the fixed style of (@funitarefu:2.0) and @kataokasan and @mika pikazo and @sy4 and @ogipote and @alien 888",
+    "notes": ""
+  },
+  {
+    "id": "work-1782579363074-copy-1782579413655-copy-1782579476941",
+    "title": "正义红",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606280059596.png",
+    "model": "deepseek-v4-pro / anima-base-1.0 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "偶像大师",
+      "小宫果穗",
+      "Anima"
+    ],
+    "prompt": "偶像大师中的小宫果穗穿着演出服【idol_heroes_\\(idolmaster\\),(mighty sailor:2)\n， fingerless_gloves, white_cape, red_neckerchief, black_gloves, epaulettes, white_skirt, mighty_sailor, cape，midriff】，在舞台上有活力地表演。做出和大英雄一般的姿势。cowboy_shot，red ribbon in hair，looking at viewer\nuse the fixed style of @00 gx4",
+    "notes": ""
+  },
+  {
+    "id": "work-1782579363074-copy-1782579413655-copy-1782579476941-copy-1782579670961",
+    "title": "正义红",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606280102359.png",
+    "model": "deepseek-v4-pro / anima-base-1.0 ",
+    "width": 1128,
+    "height": 2456,
+    "tags": [
+      "偶像大师",
+      "小宫果穗",
+      "Anima"
+    ],
+    "prompt": "偶像大师中的小宫果穗穿着演出服【idol_heroes_\\(idolmaster\\),(mighty sailor:2)\n， fingerless_gloves, white_cape, red_neckerchief, black_gloves, epaulettes, white_skirt, mighty_sailor, cape，midriff】，在舞台上有活力地表演。做出和大英雄一般的姿势。cowboy_shot，red ribbon in hair，looking at viewer\n",
+    "notes": ""
+  },
+  {
+    "id": "work-1782579363074-copy-1782579413655-copy-1782579476941-copy-1782579574351",
+    "title": "正义红",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606280100939.png",
+    "model": "deepseek-v4-pro / anima-base-1.0 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "偶像大师",
+      "小宫果穗",
+      "Anima"
+    ],
+    "prompt": "偶像大师中的小宫果穗穿着演出服【idol_heroes_\\(idolmaster\\),(mighty sailor:2)\n， fingerless_gloves, white_cape, red_neckerchief, black_gloves, epaulettes, white_skirt, mighty_sailor, cape，midriff】，在舞台上有活力地表演。做出和大英雄一般的姿势。cowboy_shot，red ribbon in hair，looking at viewer，《蔚蓝档案》风格的平涂、淡色调画风，\n",
+    "notes": ""
+  },
+  {
+    "id": "work-1782578980041",
+    "title": "魔法小猫娘",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606280048067.png",
+    "model": "deepseek-v4-pro / anima-base-1.0 ",
+    "width": 1672,
+    "height": 941,
+    "tags": [
+      "OC",
+      "西幻",
+      "猫娘",
+      "Anima"
+    ],
+    "prompt": "1girl, solo, (cat girl:2),short hair,hair ribbon,orange hair,  ahoge, blue eyes, fingerless gloves, bracer, miniskirt, knee pads, lace-up boots,ankle_boots,capelet, brown boots, holding sword, sword, \n一位活泼的少女冒险家（上述人物）在阳光斑驳的森林中。请你设计一个正在使用魔法战斗的姿势，能体现其活泼和元气。cowboy_shot.她一只手持短剑一只手使用魔法。looking at viewer。\n@ningen mame",
+    "notes": ""
+  },
+  {
+    "id": "work-1782578980041-copy-1782579027224",
+    "title": "魔法小猫娘",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606280050575.png",
+    "model": "deepseek-v4-pro / anima-base-1.0 / Anima-yoshinari-ko",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "西幻",
+      "猫娘",
+      "LoKR",
+      "Anima"
+    ],
+    "prompt": "1girl, solo, (cat girl:2),short hair,hair ribbon,orange hair,  ahoge, blue eyes, fingerless gloves, bracer, miniskirt, knee pads, lace-up boots,ankle_boots,capelet, brown boots, holding sword, sword, \n一位活泼的少女冒险家（上述人物）在阳光斑驳的森林中。请你设计一个正在使用魔法战斗的姿势，能体现其活泼和元气。cowboy_shot.她一只手持短剑一只手使用魔法。looking at viewer。\n",
+    "notes": ""
+  },
+  {
+    "id": "work-1782578662579",
+    "title": "魔法小猫娘",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606280042458.png",
+    "model": "deepseek-v4-pro / anima-base-1.0 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "西幻",
+      "猫娘",
+      "Anima"
+    ],
+    "prompt": "1girl, solo, (cat girl:2),short hair,hair ribbon,orange hair,  ahoge, blue eyes, fingerless gloves, bracer, miniskirt, knee pads, lace-up boots,ankle_boots,capelet, brown boots, holding sword, sword, \n一位活泼的少女冒险家（上述人物）在阳光斑驳的森林中。请你设计一个正在使用魔法战斗的姿势，能体现其活泼和元气。cowboy_shot.她一只手持短剑一只手使用魔法。looking at viewer。\n@jam (nandade)",
+    "notes": ""
+  },
+  {
+    "id": "work-1782578662579-copy-1782578797555",
+    "title": "魔法小猫娘",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606280052721.png",
+    "model": "deepseek-v4-pro / anima-base-1.0 / Anima-Aniart ",
+    "width": 1152,
+    "height": 2048,
+    "tags": [
+      "OC",
+      "西幻",
+      "猫娘",
+      "Anima",
+      "aniart"
+    ],
+    "prompt": "1girl, solo, (cat girl:2),short hair,hair ribbon,orange hair,  ahoge, blue eyes, fingerless gloves, bracer, miniskirt, knee pads, lace-up boots,ankle_boots,capelet, brown boots, holding sword, sword, \n一位活泼的少女冒险家（上述人物）在阳光斑驳的森林中。请你设计一个正在使用魔法战斗的姿势，能体现其活泼和元气。cowboy_shot.她一只手持短剑一只手使用魔法。looking at viewer。\n@aniart",
+    "notes": ""
+  },
+  {
+    "id": "work-1782578662579-copy-1782578765754",
+    "title": "魔法小猫娘 copy",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606280044849.png",
+    "model": "deepseek-v4-pro / anima-base-1.0 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "西幻",
+      "猫娘",
+      "Anima"
+    ],
+    "prompt": "1girl, solo, (cat girl:2),short hair,hair ribbon,orange hair,  ahoge, blue eyes, fingerless gloves, bracer, miniskirt, knee pads, lace-up boots,ankle_boots,capelet, brown boots, holding sword, sword, \n一位活泼的少女冒险家（上述人物）在阳光斑驳的森林中。请你设计一个正在使用魔法战斗的姿势，能体现其活泼和元气。cowboy_shot.她一只手持短剑一只手使用魔法。looking at viewer。\n@ningen mame",
+    "notes": ""
+  },
+  {
+    "id": "work-1782578362757",
+    "title": "胜利凯旋归来",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606280025857.png",
+    "model": "deepseek-v4-pro / anima-base-1.0 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "秋月",
+      "武装JK",
+      "Anima"
+    ],
+    "prompt": "(1girl,solo:1.1),(1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips, small_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n),\nmilitary,(goggles on head:1.1),goggles,fighter jet,\n,smiling,blue scarf,standing on the aircraft carrier deck,war ship,aircraft carrier,waving,holding a helmet,calling,arm up,running,runway,(fighter jet parked on the runway:1.1),\nin winter,early morning,ocean,starry sky,aurora,\n,front view,eye-contact,(cowboy_shot:1.2),\nmika_pikazo, ",
+    "notes": "我感觉汉语里面有很多词语都是重复意义叠加，比如「感觉」、「词语」、「重复」、「意义」和「叠加」"
+  },
+  {
+    "id": "work-1782578362757-copy-1782578474570",
+    "title": "胜利凯旋归来",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606280026501.png",
+    "model": "deepseek-v4-pro / anima-base-1.0 ",
+    "width": 1128,
+    "height": 2456,
+    "tags": [
+      "OC",
+      "秋月",
+      "武装JK",
+      "Anima"
+    ],
+    "prompt": "(1girl,solo:1.1),(1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips, small_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n),\nmilitary,(goggles on head:1.1),goggles,fighter jet,\n,smiling,blue scarf,standing on the aircraft carrier deck,war ship,aircraft carrier,waving,holding a helmet,calling,arm up,running,runway,(fighter jet parked on the runway:1.1),\nin winter,early morning,ocean,starry sky,aurora,\n,front view,eye-contact,(cowboy_shot:1.2),\nmika_pikazo, ",
+    "notes": ""
+  },
+  {
+    "id": "work-1782578306498",
+    "title": "胜利凯旋归来",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606280025337.png",
+    "model": "deepseek-v4-pro / anima-base-1.0 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "秋月",
+      "武装JK",
+      "Anima"
+    ],
+    "prompt": "(1girl,solo:1.1),(1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips, small_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n),\nmilitary,(goggles on head:1.1),goggles,fighter jet,\n,smiling,blue scarf,standing on the aircraft carrier deck,war ship,aircraft carrier,waving,holding a helmet,calling,arm up,running,runway,(fighter jet parked on the runway:1.1),\nin winter,early morning,ocean,starry sky,aurora,\n,front view,eye-contact,(cowboy_shot:1.2),\nmika_pikazo, ",
+    "notes": ""
+  },
+  {
+    "id": "work-1782578214787",
+    "title": "激战",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606280030426.png",
+    "model": "deepseek-v4-pro / anima-base-1.0 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "秋月",
+      "武装JK",
+      "Anima"
+    ],
+    "prompt": "(1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips, small_breasts,serafuku,white_shirt,deep_blue_sailor_collar,red_neckerchief, short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n),\n在冰天雪地的冰原上，她单膝跪地（on one knee），在战壕里，正在操纵一杆突击步枪开火，瞄准射击。表情认真、坚定、自信。她穿着宽大的、棕黑色的夹克。 场景的周围，有作为背景，正在对战的敌我战斗军队，有子弹的线条轨迹，展示出激烈的战斗氛围。\n凸显人物主体、近景\nmika_pikazo, cogecha,",
+    "notes": ""
+  },
+  {
+    "id": "work-1782578214787-copy-1782578291553",
+    "title": "激战 copy",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606280028521.png",
+    "model": "deepseek-v4-pro / anima-base-1.0 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "秋月",
+      "武装JK",
+      "Anima"
+    ],
+    "prompt": "(1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips, small_breasts,serafuku,white_shirt,deep_blue_sailor_collar,red_neckerchief, short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n),\n在冰天雪地的冰原上，她单膝跪地（on one knee），在战壕里，正在操纵一杆突击步枪开火，瞄准射击。表情认真、坚定、自信。她穿着宽大的、棕黑色的夹克。 场景的周围，有作为背景，正在对战的敌我战斗军队，有子弹的线条轨迹，展示出激烈的战斗氛围。\n凸显人物主体、近景\nmika_pikazo,",
+    "notes": ""
+  },
+  {
+    "id": "work-1782578214787-copy-1782578247821",
+    "title": "激战",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606280029999.png",
+    "model": "deepseek-v4-pro / anima-base-1.0 ",
+    "width": 1128,
+    "height": 2456,
+    "tags": [
+      "OC",
+      "秋月",
+      "武装JK",
+      "Anima"
+    ],
+    "prompt": "(1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips, small_breasts,serafuku,white_shirt,deep_blue_sailor_collar,red_neckerchief, short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n),\n在冰天雪地的冰原上，她单膝跪地（on one knee），在战壕里，正在操纵一杆突击步枪开火，瞄准射击。表情认真、坚定、自信。她穿着宽大的、棕黑色的夹克。 场景的周围，有作为背景，正在对战的敌我战斗军队，有子弹的线条轨迹，展示出激烈的战斗氛围。\n凸显人物主体、近景\nmika_pikazo, cogecha,",
+    "notes": ""
+  },
+  {
+    "id": "work-1782578164558",
+    "title": "激战",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606280035983.png",
+    "model": "deepseek-v4-pro / anima-base-1.0 ",
+    "width": 1128,
+    "height": 2456,
+    "tags": [
+      "OC",
+      "秋月",
+      "武装JK",
+      "Anima"
+    ],
+    "prompt": "(1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips, small_breasts,serafuku,white_shirt,deep_blue_sailor_collar,red_neckerchief, short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n),\n在冰天雪地的冰原上，她单膝跪地（on one knee），在战壕里，正在操纵一杆突击步枪开火，瞄准射击。表情认真、坚定、自信。她穿着宽大的、棕黑色的夹克。 场景的周围，有作为背景，正在对战的敌我战斗军队，有子弹的线条轨迹，展示出激烈的战斗氛围。她的脸上、腿上有污渍且贴着创可贴。\n凸显人物主体、近景\nmika_pikazo, cogecha,",
+    "notes": ""
+  },
+  {
     "id": "work-1782203528197",
     "title": "偶像英雄-春香",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606231633330.png",
