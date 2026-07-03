@@ -1,5 +1,177 @@
 window.GALLERY_ITEMS = [
   {
+    "id": "work-1783092444026",
+    "title": "冲锋",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202607032326848.png",
+    "model": "deepseek-v4-pro / anima-base-1.0 ",
+    "width": 1128,
+    "height": 2456,
+    "tags": [
+      "OC",
+      "秋月",
+      "Anima"
+    ],
+    "prompt": "1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n\n这是我的一个原创角色，请你先把她的衣服改成：上衣是黑色打底衣、迷彩战术夹克（military_fatigues），防弹背心，卷起袖子，戴着露指手套；护膝，穿着迷彩长裤，战术靴，fast helmet。在一场激烈的战斗中，她在战壕里，拿着一把突击步枪开火。她的脸上和腿上有污渍和创可贴。\nuse the fixed style of @mika pikazo and @cogecha",
+    "notes": ""
+  },
+  {
+    "id": "work-1783092444026-copy-1783092546892",
+    "title": "冲锋",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202607032328401.png",
+    "model": "deepseek-v4-pro / anima-base-1.0 ",
+    "width": 1128,
+    "height": 2456,
+    "tags": [
+      "OC",
+      "秋月",
+      "Anima"
+    ],
+    "prompt": "1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n\n这是我的一个原创角色，请你先把她的衣服改成：上衣是黑色打底衣、迷彩战术夹克（military_fatigues），防弹背心，卷起袖子，戴着露指手套；护膝，穿着迷彩长裤，战术靴，fast helmet。在一场激烈的战斗中，她在战壕里，拿着一把突击步枪开火。她的脸上和腿上有污渍和创可贴。\nuse the fixed style of @mika pikazo and @cogecha",
+    "notes": ""
+  },
+  {
+    "id": "work-1783092444026-copy-1783092546892-copy-1783092559247",
+    "title": "虽然这不合理，但是这很好看",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202607032330492.png",
+    "model": "deepseek-v4-pro / anima-base-1.0 ",
+    "width": 1128,
+    "height": 2456,
+    "tags": [
+      "OC",
+      "秋月",
+      "Anima"
+    ],
+    "prompt": "1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n\n这是我的一个原创角色，请你先把她的衣服改成：上衣是黑色打底衣、迷彩战术夹克（military_fatigues），防弹背心，卷起袖子，戴着露指手套；护膝，穿着迷彩短裤，战术靴，黑色过膝袜，fast helmet。在一场激烈的战斗中，她在战壕里，拿着一把突击步枪开火。她的脸上和腿上有污渍和创可贴。\nuse the fixed style of @mika pikazo and @cogecha",
+    "notes": ""
+  },
+  {
+    "id": "work-1783092299230",
+    "title": "临战",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202607032324502.png",
+    "model": "deepseek-v4-pro / anima-base-1.0 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "秋月",
+      "Anima",
+      "武装JK"
+    ],
+    "prompt": "1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n\n在一个机场，上述人物正在登上一架科幻风格战斗机，准备投入战斗。她站在舷梯上，一只胳膊抱着头盔。风吹动她的衣服，表情严肃，坚定。回头看观众。背景的天空上有极光。画面以人物为主体，cowboy_shot\nuse the fixed style of @mika pikazo",
+    "notes": ""
+  },
+  {
+    "id": "work-1783092241681",
+    "title": "临战",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202607032323248.png",
+    "model": "deepseek-v4-pro / anima-base-1.0 ",
+    "width": 1128,
+    "height": 2456,
+    "tags": [
+      "OC",
+      "秋月",
+      "Anima",
+      "武装JK"
+    ],
+    "prompt": "1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n\n在一个机场，上述人物正在登上一架科幻风格战斗机，准备投入战斗。她站在舷梯上，一只胳膊抱着头盔。风吹动她的衣服，表情严肃，坚定。回头看观众。背景的天空上有极光。画面以人物为主体，cowboy_shot\nuse the fixed style of @mika pikazo and @cogecha",
+    "notes": ""
+  },
+  {
+    "id": "work-1783092164317",
+    "title": "休憩",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202607032322835.png",
+    "model": "deepseek-v4-pro / anima-base-1.0 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "秋月",
+      "Anima"
+    ],
+    "prompt": "1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n\n这是我的一个原创角色，请你先把她的衣服改成：上衣是黑色打底衣、迷彩战术夹克（military_fatigues），防弹背心，卷起袖子，戴着露指手套；护膝，穿着迷彩 **长裤** ，高帮运动鞋，fast helmet。在战斗的间隙，她倚靠在一个废弃工厂的墙壁上坐着休息，一只手拿起一杯咖啡准备喝。她的脸上和腿上有污渍和创可贴。表情是苦中作乐的笑容。注意是长裤。\n",
+    "notes": ""
+  },
+  {
+    "id": "work-1783091629523",
+    "title": "临战",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202607032313047.png",
+    "model": "deepseek-v4-pro / anima-base-1.0 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "秋月",
+      "Anima",
+      "武装JK"
+    ],
+    "prompt": "1girl,(solo:3),white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n\n在一个机场，上述人物正在登上一架科幻风格战斗机。日落时分，她站在舷梯上，回头看向观众。一只胳膊抱着头盔。风吹动她的头发，表情严肃，坚定。画面以人物为主体，cowboy_shot。\n风格：印象派色彩油画笔触，史诗感，结构光丁达尔效应\n@myabit,@chongzhen 085,@mika_pikazo,@jty,@kani biimu",
+    "notes": ""
+  },
+  {
+    "id": "work-1783091629523-copy-1783091854319",
+    "title": "临战 copy",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202607032321969.png",
+    "model": "deepseek-v4-pro / anima-base-1.0 ",
+    "width": 1672,
+    "height": 941,
+    "tags": [
+      "OC",
+      "秋月",
+      "Anima",
+      "武装JK"
+    ],
+    "prompt": "1girl,(solo:3),white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n\n在一个机场，上述人物正在登上一架科幻风格战斗机。日落时分，她站在舷梯上，回头看向观众。一只胳膊抱着头盔。风吹动她的头发，表情严肃，坚定。画面以人物为主体，cowboy_shot。\n风格：印象派色彩油画笔触，史诗感，结构光丁达尔效应\nuse the fixed style of (@funitarefu:2.0) and @kataokasan and @mika pikazo and @sy4 and @ogipote and @alien 888",
+    "notes": ""
+  },
+  {
+    "id": "work-1783091629523-copy-1783091744092",
+    "title": "临战",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202607032313653.png",
+    "model": "deepseek-v4-pro / anima-base-1.0 ",
+    "width": 2048,
+    "height": 1640,
+    "tags": [
+      "OC",
+      "秋月",
+      "Anima",
+      "武装JK"
+    ],
+    "prompt": "1girl,(solo:3),white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n\n在一个机场，上述人物正在登上一架科幻风格战斗机。日落时分，她站在舷梯上，回头看向观众。一只胳膊抱着头盔。风吹动她的头发，表情严肃，坚定。画面以人物为主体，cowboy_shot。\n风格：印象派色彩油画笔触，史诗感，结构光丁达尔效应\n@myabit,@chongzhen 085,@mika_pikazo,@jty,@kani biimu",
+    "notes": ""
+  },
+  {
+    "id": "work-1783091629523-copy-1783091744092-copy-1783091827405",
+    "title": "临战",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202607032317493.png",
+    "model": "deepseek-v4-pro / anima-base-1.0 ",
+    "width": 1640,
+    "height": 1640,
+    "tags": [
+      "OC",
+      "秋月",
+      "Anima",
+      "武装JK"
+    ],
+    "prompt": "1girl,(solo:3),white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n\n在一个机场，上述人物正在登上一架科幻风格战斗机。日落时分，她站在舷梯上，回头看向观众。一只胳膊抱着头盔。风吹动她的头发，表情严肃，坚定。画面以人物为主体，cowboy_shot。\n风格：印象派色彩油画笔触，史诗感，结构光丁达尔效应\n@myabit,@chongzhen 085,@mika_pikazo,@jty",
+    "notes": ""
+  },
+  {
+    "id": "work-1783091629523-copy-1783091675296",
+    "title": "临战",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202607032313751.png",
+    "model": "deepseek-v4-pro / anima-base-1.0 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "秋月",
+      "Anima",
+      "武装JK"
+    ],
+    "prompt": "1girl,(solo:3),white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n\n在一个机场，上述人物正在登上一架科幻风格战斗机。日落时分，她站在舷梯上，回头看向观众。一只胳膊抱着头盔。风吹动她的头发，表情严肃，坚定。画面以人物为主体，cowboy_shot。\n风格：印象派色彩油画笔触，史诗感，结构光丁达尔效应\nuse the fixed style of @mika pikazo and @cogecha",
+    "notes": ""
+  },
+  {
     "id": "work-1782579363074",
     "title": "正义红",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606280054412.png",
