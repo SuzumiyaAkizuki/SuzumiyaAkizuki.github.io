@@ -936,9 +936,9 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">#信号与系统</a>
-            
               <a href="/tags/C/">#C</a>
+            
+              <a href="/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">#信号与系统</a>
             
           </div>
         
@@ -2595,7 +2595,7 @@
       : '';
     var notesHtml = item.notes ? '<div class="gallery-meta">' + escapeHtml(item.notes) + '</div>' : '';
     return '<article class="gallery-card">' +
-      '<img src="' + escapeHtml(item.image) + '" srcset="/img/loading.gif" lazyload alt="' + escapeHtml(item.title) + '"' + galleryImageAttrs(item) + '>' +
+      (String.fromCharCode(60) + 'img src="' + escapeHtml(item.image) + '" alt="' + escapeHtml(item.title) + '"' + galleryImageAttrs(item) + '>') +
       '<div class="gallery-info">' +
         '<div class="gallery-title">' + escapeHtml(item.title) + '</div>' +
         '<div class="gallery-meta"><strong>模型：</strong>' + escapeHtml(item.model || '未填写') + '</div>' +

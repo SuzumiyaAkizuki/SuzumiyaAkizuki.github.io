@@ -2592,7 +2592,7 @@
       : '';
     var notesHtml = item.notes ? '<div class="gallery-meta">' + escapeHtml(item.notes) + '</div>' : '';
     return '<article class="gallery-card">' +
-      '<img src="' + escapeHtml(item.image) + '" srcset="/img/loading.gif" lazyload alt="' + escapeHtml(item.title) + '"' + galleryImageAttrs(item) + '>' +
+      (String.fromCharCode(60) + 'img src="' + escapeHtml(item.image) + '" alt="' + escapeHtml(item.title) + '"' + galleryImageAttrs(item) + '>') +
       '<div class="gallery-info">' +
         '<div class="gallery-title">' + escapeHtml(item.title) + '</div>' +
         '<div class="gallery-meta"><strong>模型：</strong>' + escapeHtml(item.model || '未填写') + '</div>' +
