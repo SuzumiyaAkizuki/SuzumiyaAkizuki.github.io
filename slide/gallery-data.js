@@ -1,5 +1,125 @@
 window.GALLERY_ITEMS = [
   {
+    "id": "work-1784034841004",
+    "title": "看招",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202607142121690.png",
+    "model": "deepseek-v4-pro / anima-base-1.0  / Anima-yoshinari-ko",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "秋月",
+      "女仆装"
+    ],
+    "prompt": "1girl, solo, white hair, blue eyes, medium hair, high ponytail, sidelocks, maid, frills, short sleeves,back bow, juliet sleeves, criss-cross back-straps（不露背）, frilled skirt,\nfrilled straps,frilled  dress, apron, cat ear hairband, neck bell, elbow pads, knee pads, fingerless gloves, thighlet, white socks, frilled socks, high tops,converse,dolphin shorts, shorts under skirt, small breasts, toned\n\n\n这是我的一个原创角色，她腾空跃起在阳光洒落的森林中，她蓝眸闪烁，灿烂地笑着挥手致意，一手持剑。动态近景构图采用 Mika Pikazo 风格的夸张饱和色彩与高对比，运动线条、镜头光晕和散落的光粒子点缀在虚化的森林背景之上。",
+    "notes": ""
+  },
+  {
+    "id": "work-1784034841004-copy-1784035891063",
+    "title": "看招",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202607142131034.png",
+    "model": "deepseek-v4-pro / anima-base-1.0  ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "秋月",
+      "女仆装"
+    ],
+    "prompt": "1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n\n这是我的一个原创角色，请你先把她的衣服改成：女仆装，女仆装短袖荷叶边连衣裙，juliet_sleeves，criss-cross_back-straps，围裙，戴着护膝护肘和半指手套，皮腿环，白色三折短袜，帆布鞋，猫耳发箍，铃铛项圈。\n她在一处中式庭院中，穿着上述女仆装练剑。高马尾里有几绺乱发飘散，脸上有汗珠，表情温柔、微笑。faceing at viewer, depth of field，dynamic angle,dynamic pose\n近景，以人物为主体.",
+    "notes": ""
+  },
+  {
+    "id": "work-1784034841004-copy-1784035891063-copy-1784035983244",
+    "title": "看招",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202607142132899.png",
+    "model": "deepseek-v4-pro / anima-base-1.0  ",
+    "width": 1128,
+    "height": 2456,
+    "tags": [
+      "OC",
+      "秋月",
+      "女仆装"
+    ],
+    "prompt": "1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n\n这是我的一个原创角色，请你先把她的衣服改成：女仆装，女仆装短袖荷叶边连衣裙，juliet_sleeves，criss-cross_back-straps，围裙，戴着护膝护肘和半指手套，皮腿环，白色三折短袜，帆布鞋，猫耳发箍，铃铛项圈。\n她在一处中式庭院中，穿着上述女仆装练剑。高马尾里有几绺乱发飘散，脸上有汗珠，表情温柔、微笑。faceing at viewer, depth of field，dynamic angle,dynamic pose\n近景，以人物为主体.",
+    "notes": ""
+  },
+  {
+    "id": "work-1784034841004-copy-1784035891063-copy-1784035983244-copy-1784036055058",
+    "title": "看招",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202607142133224.png",
+    "model": "deepseek-v4-pro / anima-base-1.0  ",
+    "width": 1128,
+    "height": 2456,
+    "tags": [
+      "OC",
+      "秋月",
+      "女仆装"
+    ],
+    "prompt": "1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n\n这是我的一个原创角色，请你先把她的衣服改成：女仆装，女仆装短袖荷叶边连衣裙，juliet_sleeves，criss-cross_back-straps，围裙，戴着护膝护肘和半指手套，皮腿环，白色三折短袜，帆布鞋，猫耳发箍，铃铛项圈。\n她在一处中式庭院中，穿着上述女仆装练剑。高马尾里有几绺乱发飘散，脸上有汗珠，表情温柔、微笑。faceing at viewer, depth of field，dynamic angle,dynamic pose\n近景，以人物为主体.",
+    "notes": ""
+  },
+  {
+    "id": "work-1784034841004-copy-1784035572235",
+    "title": "看招",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202607142127790.png",
+    "model": "deepseek-v4-pro / anima-base-1.0  / Anima-yoshinari-ko",
+    "width": 1128,
+    "height": 2456,
+    "tags": [
+      "OC",
+      "秋月",
+      "女仆装"
+    ],
+    "prompt": "1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n\n这是我的一个原创角色，请你先把她的衣服改成：女仆装，女仆装短袖荷叶边连衣裙，juliet_sleeves，criss-cross_back-straps，围裙，戴着护膝护肘和半指手套，皮腿环，白色三折短袜，短靴，猫耳发箍，铃铛项圈。\n她在一处中式庭院中，穿着上述女仆装练剑。高马尾里有几绺乱发飘散，脸上有汗珠，表情温柔、微笑。faceing at viewer, depth of field，dynamic angle,dynamic pose\n近景，以人物为主体.",
+    "notes": ""
+  },
+  {
+    "id": "work-1784034841004-copy-1784035456972",
+    "title": "请多指教",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202607142125786.png",
+    "model": "deepseek-v4-pro / anima-base-1.0",
+    "width": 1128,
+    "height": 2456,
+    "tags": [
+      "OC",
+      "秋月",
+      "女仆装"
+    ],
+    "prompt": "1girl, solo, white hair, blue eyes, medium hair, high ponytail, sidelocks, maid, frills, short sleeves, juliet sleeves, criss-cross back-straps, frilled skirt, apron, cat ear hairband, neck bell, elbow pads, knee pads, half gloves, thighlet, white socks, frilled socks, high tops,converse,  dolphin shorts, shorts under skirt, small breasts, toned\n\n\n这是我的一个原创角色，她在一处中式庭院中，穿着上述服装，拿着一把剑，做出图中所示的动作（注意，只复刻图中的动作，人设、环境用我的设定）.表情是温柔地微笑\ncowboy_shot（你可以删除不应当在cowboy shot中出现的提示词，比如鞋子）",
+    "notes": ""
+  },
+  {
+    "id": "work-1784034841004-copy-1784035456972-copy-1784035749024",
+    "title": "请多指教",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202607142129039.png",
+    "model": "deepseek-v4-flash / anima-base-1.0",
+    "width": 1128,
+    "height": 2456,
+    "tags": [
+      "OC",
+      "秋月",
+      "女仆装"
+    ],
+    "prompt": "1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n\n这是我的一个原创角色，请你先把她的衣服改成：女仆装，女仆装短袖荷叶边连衣裙，juliet_sleeves，criss-cross_back-straps，围裙，戴着护膝护肘和半指手套，皮腿环，白色三折短袜，高帮帆布鞋，猫耳发箍，铃铛项圈。\n她在一处中式庭院中，穿着上述服装，拿着一把剑。头胸部特写，表情温柔、微笑，她的头发和衣服被风吹动。faceing at viewer, depth of field，dynamic angle,dynamic pose，blurred foreground\n",
+    "notes": ""
+  },
+  {
+    "id": "work-1784034841004-copy-1784035361681",
+    "title": "请多指教",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202607142123111.png",
+    "model": "deepseek-v4-pro / anima-base-1.0",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "秋月",
+      "女仆装"
+    ],
+    "prompt": "1girl, solo, white hair, blue eyes, medium hair, high ponytail, sidelocks, maid, frills, short sleeves, juliet sleeves, criss-cross back-straps, frilled skirt, apron, cat ear hairband, neck bell, elbow pads, knee pads, half gloves, thighlet, white socks, frilled socks, high tops,converse,  dolphin shorts, shorts under skirt, small breasts, toned\n\n\n这是我的一个原创角色，她在一处中式庭院中，穿着上述服装，拿着一把剑，做出图中所示的动作（注意，只复刻图中的动作，人设、环境用我的设定）.表情是温柔地微笑\ncowboy_shot（你可以删除不应当在cowboy shot中出现的提示词，比如鞋子）",
+    "notes": ""
+  },
+  {
     "id": "work-1783092444026",
     "title": "冲锋",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202607032326848.png",
