@@ -2520,14 +2520,26 @@
     });
   }
 
+  function tagKey(value) {
+    return String(value || '').trim().toLowerCase();
+  }
+
   function uniqueTags(items) {
     var seen = Object.create(null);
+    var labels = [];
     items.forEach(function(item) {
       (item.tags || []).forEach(function(tag) {
-        if (tag) seen[tag] = true;
+        var label = String(tag || '');
+        var key = tagKey(label);
+        if (key && !seen[key]) {
+          seen[key] = true;
+          labels.push(label);
+        }
       });
     });
-    return Object.keys(seen).sort();
+    return labels.sort(function(a, b) {
+      return tagKey(a).localeCompare(tagKey(b));
+    });
   }
 
   function shuffleGalleryItems(items) {
@@ -2613,13 +2625,19 @@
 
     var items = window.galleryItems || [];
     var activeFilter = filter || '全部';
-    var visible = activeFilter === '全部'
+    var activeFilterKey = tagKey(activeFilter);
+    var visible = activeFilterKey === tagKey('全部')
       ? items
-      : items.filter(function(item) { return (item.tags || []).indexOf(activeFilter) !== -1; });
+      : items.filter(function(item) {
+          return (item.tags || []).some(function(tag) {
+            return tagKey(tag) === activeFilterKey;
+          });
+        });
 
     var tags = ['全部'].concat(uniqueTags(items));
     filters.innerHTML = tags.map(function(tag) {
-      return '<button class="gallery-filter' + (tag === activeFilter ? ' active' : '') + '" type="button" data-tag="' + escapeHtml(tag) + '">' + escapeHtml(tag) + '</button>';
+      var isActive = tagKey(tag) === activeFilterKey;
+      return '<button class="gallery-filter' + (isActive ? ' active' : '') + '" type="button" data-tag="' + escapeHtml(tag) + '">' + escapeHtml(tag) + '</button>';
     }).join('');
 
     if (!visible.length) {
