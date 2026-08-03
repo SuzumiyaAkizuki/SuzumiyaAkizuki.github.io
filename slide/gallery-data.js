@@ -1,5 +1,451 @@
 window.GALLERY_ITEMS = [
   {
+    "id": "work-1785763863827",
+    "title": "共演",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260803_213015_804058_0006_1652.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 1152,
+    "height": 2048,
+    "tags": [
+      "OC",
+      "秋月",
+      "吊带裙",
+      "Anima",
+      "偶像大师",
+      "菊地真"
+    ],
+    "prompt": "秋月：1girl, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, headset, parted_lips, small_breasts, toned， puffy_short_sleeves, white_blouse, frilled_collar, lace-trimmed_collar, suspender_skirt, light_blue_skirt, frilled_skirt, short_skirt, kneehighs, white_socks, converse, sneakers, hair_ribbon, blue_ribbon\n\n在一处livehouse的舞台上，秋月和穿着「偶像英雄演出服」（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt）的偶像大师中的菊地真（idolmaster, kikuchi_makoto）一起在舞台上唱歌演出。菊地真的表情是活力、自信。而秋月的表情则略有紧张和害羞。\n近景全身，以人物为主体。场景明亮。前方视角。",
+    "notes": ""
+  },
+  {
+    "id": "work-9ea30901-f35a-418b-9d98-c4eda027e477",
+    "title": "共演",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260803_221120_841319_0027_1207.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "秋月",
+      "吊带裙",
+      "Anima",
+      "偶像大师",
+      "菊地真"
+    ],
+    "prompt": "秋月：1girl, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, headset, parted_lips, small_breasts, toned， puffy_short_sleeves, white_blouse, frilled_collar, lace-trimmed_collar, suspender_skirt, light_blue_skirt, frilled_skirt, short_skirt, kneehighs, white_socks, converse, sneakers, hair_ribbon, blue_ribbon\n\n在一处livehouse的舞台上，秋月和穿着「偶像英雄演出服」（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt）的偶像大师中的菊地真（idolmaster, kikuchi_makoto）一起在舞台上唱歌演出。菊地真的表情是活力、自信。而秋月的表情则略有紧张和害羞。\n近景全身，以人物为主体。场景明亮。前方视角。",
+    "notes": ""
+  },
+  {
+    "id": "work-93426da1-3a85-4327-9450-8ebf3b2038f7",
+    "title": "共演",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260803_220140_334316_0020_8349.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 1152,
+    "height": 2048,
+    "tags": [
+      "OC",
+      "秋月",
+      "吊带裙",
+      "Anima",
+      "偶像大师",
+      "菊地真"
+    ],
+    "prompt": "秋月：1girl, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, headset, parted_lips, small_breasts, toned， puffy_short_sleeves, white_blouse, frilled_collar, lace-trimmed_collar, suspender_skirt, light_blue_skirt, frilled_skirt, short_skirt, kneehighs, white_socks, converse, sneakers, hair_ribbon, blue_ribbon\n\n在一处livehouse的舞台上，秋月和穿着「偶像英雄演出服」（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt）的偶像大师中的菊地真（idolmaster, kikuchi_makoto）一起在舞台上唱歌演出。菊地真的表情是活力、自信。而秋月的表情则略有紧张和害羞。\n近景全身，以人物为主体。场景明亮。前方视角。",
+    "notes": ""
+  },
+  {
+    "id": "work-b8d74900-f83a-485a-847a-357009d523d3",
+    "title": "共演",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260803_220916_806272_0025_4390.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "秋月",
+      "吊带裙",
+      "Anima",
+      "偶像大师",
+      "菊地真"
+    ],
+    "prompt": "秋月：1girl, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, headset, parted_lips, small_breasts, toned， puffy_short_sleeves, white_blouse, frilled_collar, lace-trimmed_collar, suspender_skirt, light_blue_skirt, frilled_skirt, short_skirt, kneehighs, white_socks, converse, sneakers, hair_ribbon, blue_ribbon\n\n在一处livehouse的舞台上，秋月和穿着「偶像英雄演出服」（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt）的偶像大师中的菊地真（idolmaster, kikuchi_makoto）一起在舞台上唱歌演出。菊地真的表情是活力、自信。而秋月的表情则略有紧张和害羞。\n近景全身，以人物为主体。场景明亮。前方视角。",
+    "notes": ""
+  },
+  {
+    "id": "work-0a596b60-ccbb-4fb3-94d8-dcdde15fd52d",
+    "title": "共演",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260803_215354_536729_0016_2185.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "秋月",
+      "吊带裙",
+      "Anima",
+      "偶像大师",
+      "菊地真"
+    ],
+    "prompt": "秋月：1girl, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, headset, parted_lips, small_breasts, toned， puffy_short_sleeves, white_blouse, frilled_collar, lace-trimmed_collar, suspender_skirt, light_blue_skirt, frilled_skirt, short_skirt, kneehighs, white_socks, converse, sneakers, hair_ribbon, blue_ribbon\n\n在一处livehouse的舞台上，秋月和穿着「偶像英雄演出服」（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt）的偶像大师中的菊地真（idolmaster, kikuchi_makoto）一起在舞台上唱歌演出。菊地真的表情是活力、自信。而秋月的表情则略有紧张和害羞。\n近景全身，以人物为主体。场景明亮。前方视角。",
+    "notes": ""
+  },
+  {
+    "id": "work-a612fa7e-7cad-4d4b-9eea-e352d0c23ef8",
+    "title": "共演",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260803_215757_351490_0018_7347.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 1152,
+    "height": 2048,
+    "tags": [
+      "OC",
+      "秋月",
+      "吊带裙",
+      "Anima",
+      "偶像大师",
+      "菊地真"
+    ],
+    "prompt": "秋月：1girl, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, headset, parted_lips, small_breasts, toned， puffy_short_sleeves, white_blouse, frilled_collar, lace-trimmed_collar, suspender_skirt, light_blue_skirt, frilled_skirt, short_skirt, kneehighs, white_socks, converse, sneakers, hair_ribbon, blue_ribbon\n\n在一处livehouse的舞台上，秋月和穿着「偶像英雄演出服」（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt）的偶像大师中的菊地真（idolmaster, kikuchi_makoto）一起在舞台上唱歌演出。菊地真的表情是活力、自信。而秋月的表情则略有紧张和害羞。\n近景全身，以人物为主体。场景明亮。前方视角。",
+    "notes": ""
+  },
+  {
+    "id": "work-57c093ce-4ed2-4984-8af5-f65c65d31ef0",
+    "title": "共演",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260803_213409_040973_0008_4997.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 1152,
+    "height": 2048,
+    "tags": [
+      "OC",
+      "秋月",
+      "吊带裙",
+      "Anima",
+      "偶像大师",
+      "菊地真"
+    ],
+    "prompt": "秋月：1girl, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, headset, parted_lips, small_breasts, toned， puffy_short_sleeves, white_blouse, frilled_collar, lace-trimmed_collar, suspender_skirt, light_blue_skirt, frilled_skirt, short_skirt, kneehighs, white_socks, converse, sneakers, hair_ribbon, blue_ribbon\n\n在一处livehouse的舞台上，秋月和穿着「偶像英雄演出服」（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt）的偶像大师中的菊地真（idolmaster, kikuchi_makoto）一起在舞台上唱歌演出。菊地真的表情是活力、自信。而秋月的表情则略有紧张和害羞。\n近景全身，以人物为主体。场景明亮。前方视角。",
+    "notes": ""
+  },
+  {
+    "id": "work-1785762186177",
+    "title": "文学少女",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260803_210202_817213_0046_2988.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "秋月",
+      "吊带裙",
+      "Anima"
+    ],
+    "prompt": "1girl, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, headset, parted_lips, small_breasts, toned， puffy_short_sleeves, white_blouse, frilled_collar, lace-trimmed_collar, suspender_skirt, light_blue_skirt, frilled_skirt, short_skirt, kneehighs, white_socks, converse, sneakers, hair_ribbon, blue_ribbon\n\n上述人物站在一间图书馆的书架间，拿着一本书阅读。看向观众。表情微笑。\n近景全身，以人物为主体。场景明亮。侧前方视角。",
+    "notes": ""
+  },
+  {
+    "id": "work-a57d6576-5a43-4f20-a9d7-c068aff6c02a",
+    "title": "文学少女",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260803_210814_717835_0049_1636.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 1128,
+    "height": 2456,
+    "tags": [
+      "OC",
+      "秋月",
+      "吊带裙",
+      "Anima"
+    ],
+    "prompt": "1girl, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, headset, parted_lips, small_breasts, toned， puffy_short_sleeves, white_blouse, frilled_collar, lace-trimmed_collar, suspender_skirt, light_blue_skirt, frilled_skirt, short_skirt, kneehighs, white_socks, converse, sneakers, hair_ribbon, blue_ribbon\n\n上述人物站在一间图书馆的书架间，拿着一本书阅读。看向观众。表情微笑。\n近景全身，以人物为主体。场景明亮。侧前方视角。",
+    "notes": ""
+  },
+  {
+    "id": "work-f3dfc336-edba-4fb4-87a4-2f2f9c00bb19",
+    "title": "文学少女",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260803_211819_935041_0002_4844.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "秋月",
+      "吊带裙",
+      "Anima"
+    ],
+    "prompt": "1girl, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, headset, parted_lips, small_breasts, toned， puffy_short_sleeves, white_blouse, frilled_collar, lace-trimmed_collar, suspender_skirt, light_blue_skirt, frilled_skirt, short_skirt, kneehighs, white_socks, converse, sneakers, hair_ribbon, blue_ribbon\n\n上述人物站在一间图书馆的书架间，拿着一本书阅读。看向观众。表情微笑。\n近景全身，以人物为主体。场景明亮。侧前方视角。",
+    "notes": ""
+  },
+  {
+    "id": "work-66f13f02-eda5-4c00-a5a6-26c4aab7b56d",
+    "title": "文学少女",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260803_210649_308078_0048_2307.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 1128,
+    "height": 2456,
+    "tags": [
+      "OC",
+      "秋月",
+      "吊带裙",
+      "Anima"
+    ],
+    "prompt": "1girl, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, headset, parted_lips, small_breasts, toned， puffy_short_sleeves, white_blouse, frilled_collar, lace-trimmed_collar, suspender_skirt, light_blue_skirt, frilled_skirt, short_skirt, kneehighs, white_socks, converse, sneakers, hair_ribbon, blue_ribbon\n\n上述人物站在一间图书馆的书架间，拿着一本书阅读。看向观众。表情微笑。\n近景全身，以人物为主体。场景明亮。侧前方视角。",
+    "notes": ""
+  },
+  {
+    "id": "work-1785748934622",
+    "title": "战斗",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260803_172104_133036_0015_5556.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "秋月",
+      "武装JK",
+      "Anima"
+    ],
+    "prompt": "1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n\n请你设计一个她在战斗中受伤但仍然顽强战斗的场景。在一处冒着烟和火的工厂废墟里，她靠在墙上侧坐（yokozuwari），一只手无力地垂下，另一只手举着手枪瞄准射击。她的衣服上和脸上有血迹。她的锁骨处有枪伤。表情痛苦但坚定。\n近景全身，以人物为主体。正面视角，面向镜头。场景明亮",
+    "notes": ""
+  },
+  {
+    "id": "work-1d97956e-e47e-41f9-84eb-f6804ab7be55",
+    "title": "雪原冲锋",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260803_173729_203479_0025_2506.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 1152,
+    "height": 2048,
+    "tags": [
+      "OC",
+      "秋月",
+      "武装JK",
+      "Anima"
+    ],
+    "prompt": "1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n请你设计一个她在战斗的场景。在冰天雪地的雪原上，她抱着一杆突击步枪，正在战场上冲锋陷阵，奔跑。她举枪瞄准并开火。附近有正在交战的军队。\n近景全身，以人物为主体。正面视角，面向镜头。场景明亮",
+    "notes": ""
+  },
+  {
+    "id": "work-eae5e974-0b09-42c7-b4ee-77c5b38d6aca",
+    "title": "雪原冲锋",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260803_174126_524632_0028_1092.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 1152,
+    "height": 2048,
+    "tags": [
+      "OC",
+      "秋月",
+      "武装JK",
+      "Anima"
+    ],
+    "prompt": "1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n请你设计一个她在战斗的场景。在冰天雪地的雪原上，她抱着一杆突击步枪，正在战场上冲锋陷阵，奔跑。她举枪瞄准并开火。附近有正在交战的军队。\n近景全身，以人物为主体。正面视角，面向镜头。场景明亮",
+    "notes": ""
+  },
+  {
+    "id": "work-1605eef6-35c9-42e9-932a-5d9e19791b91",
+    "title": "受伤",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260803_180727_229541_0035_3819.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 1152,
+    "height": 2048,
+    "tags": [
+      "OC",
+      "秋月",
+      "武装JK",
+      "Anima"
+    ],
+    "prompt": "1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers,fast_helmet\n\n请你设计一个她在战斗的场景。在冰天雪地的雪原上，她身受重伤，艰难地前进。一只手捂住侧腹部流出的大量血液，另一只手举着手枪警惕地戒备。表情痛苦、坚定。身后留下一道血迹。\n近景全身，以人物为主体。场景明亮。侧前方视角。",
+    "notes": ""
+  },
+  {
+    "id": "work-be2ffe58-45ce-462a-aeff-cd970818bfb5",
+    "title": "受伤",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260803_181217_130551_0038_6131.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "秋月",
+      "武装JK",
+      "Anima"
+    ],
+    "prompt": "1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers,fast_helmet\n\n请你设计一个她在战斗的场景。在冰天雪地的雪原上，她身受重伤，艰难地前进。一只手捂住侧腹部流出的大量血液，另一只手举着手枪警惕地戒备。表情痛苦、坚定。身后留下一道血迹。\n近景全身，以人物为主体。场景明亮。侧前方视角。",
+    "notes": ""
+  },
+  {
+    "id": "work-b6207bc1-dc66-456f-acbf-b3fb63d791fa",
+    "title": "受伤",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260803_181435_851133_0039_3721.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "秋月",
+      "武装JK",
+      "Anima"
+    ],
+    "prompt": "1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers,fast_helmet\n\n请你设计一个她在战斗的场景。在冰天雪地的雪原上，她身受重伤，艰难地匍匐前进。一只手捂住侧腹部流出的大量血液，另一只手举着手枪警惕地戒备。表情痛苦、坚定。身后留下一道血迹。\n近景全身，以人物为主体。场景明亮。侧前方视角。",
+    "notes": ""
+  },
+  {
+    "id": "work-8a76d421-480f-46d7-a022-8376e5523d27",
+    "title": "受伤",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260803_181734_035091_0041_6340.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "秋月",
+      "武装JK",
+      "Anima"
+    ],
+    "prompt": "1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers,fast_helmet\n\n请你设计一个她在战斗的场景。在冰天雪地的雪原上，她身受重伤，艰难地匍匐前进。一只手捂住侧腹部流出的大量血液，另一只手举着手枪警惕地戒备。表情痛苦、坚定。身后留下一道血迹。\n近景全身，以人物为主体。场景明亮。侧前方视角。",
+    "notes": ""
+  },
+  {
+    "id": "work-1dc9fb78-2e27-4101-9cba-c26557b88db4",
+    "title": "受伤",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260803_182041_941162_0044_1460.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "秋月",
+      "武装JK",
+      "Anima"
+    ],
+    "prompt": "1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers,fast_helmet\n\n请你设计一个她在战斗的场景。在冰天雪地的雪原上，她身受重伤，艰难地匍匐前进。一只手捂住侧腹部流出的大量血液，另一只手举着手枪警惕地戒备。表情痛苦、坚定。身后留下一道血迹。\n近景全身，以人物为主体。场景明亮。侧前方视角。",
+    "notes": ""
+  },
+  {
+    "id": "work-8b30b8a6-2e1d-441c-9bae-ce0313b62280",
+    "title": "雪原冲锋",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260803_174321_223802_0030_9001.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "秋月",
+      "武装JK",
+      "Anima"
+    ],
+    "prompt": "1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n请你设计一个她在战斗的场景。在冰天雪地的雪原上，她抱着一杆突击步枪，正在战场上冲锋陷阵，奔跑。她举枪瞄准并开火。附近有正在交战的军队。\n近景全身，以人物为主体。正面视角，面向镜头。场景明亮",
+    "notes": ""
+  },
+  {
+    "id": "work-85083861-0d59-482d-936d-954af9bca699",
+    "title": "战斗",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260803_171539_225024_0012_6150.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "秋月",
+      "武装JK",
+      "Anima"
+    ],
+    "prompt": "1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n\n请你设计一个她在战斗中受伤但仍然顽强战斗的场景。在一处冒着烟和火的工厂废墟里，她靠在墙上侧坐（yokozuwari），一只手无力地垂下，另一只手举着手枪瞄准射击。她的衣服上和脸上有血迹。她的锁骨处有枪伤。表情痛苦但坚定。\n近景全身，以人物为主体。正面视角，面向镜头。场景明亮",
+    "notes": ""
+  },
+  {
+    "id": "work-1bd380da-4664-4dab-856f-ed199a11da06",
+    "title": "战斗",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260803_172440_719699_0016_8995.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 / Anima-yoshinari-ko",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "秋月",
+      "武装JK",
+      "Anima"
+    ],
+    "prompt": "1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n\n请你设计一个她在战斗中受伤但仍然顽强战斗的场景。在一处冒着烟和火的工厂废墟里，她靠在墙上侧坐（yokozuwari），一只手无力地垂下，另一只手举着手枪瞄准射击。她的衣服上和脸上有血迹。她的锁骨处有枪伤。表情痛苦但坚定。\n近景全身，以人物为主体。正面视角，面向镜头。场景明亮",
+    "notes": ""
+  },
+  {
+    "id": "work-8123bcf5-0e60-49a0-b078-cb7b8478213c",
+    "title": "战斗",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260803_172627_501392_0017_8738.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 / Anima-yoshinari-ko",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "秋月",
+      "武装JK",
+      "Anima"
+    ],
+    "prompt": "1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n\n请你设计一个她在战斗中受伤但仍然顽强战斗的场景。在一处冒着烟和火的工厂废墟里，她靠在墙上侧坐（yokozuwari），一只手无力地垂下，另一只手举着手枪瞄准射击。她的衣服上和脸上有血迹。她的锁骨处有枪伤。表情痛苦但坚定。\n近景全身，以人物为主体。正面视角，面向镜头。场景明亮",
+    "notes": ""
+  },
+  {
+    "id": "work-102dd2b6-a703-48b9-80e6-ccc0a8df94d9",
+    "title": "战斗",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260803_172728_429470_0018_4481.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 / Anima-yoshinari-ko",
+    "width": 1152,
+    "height": 2048,
+    "tags": [
+      "OC",
+      "秋月",
+      "武装JK",
+      "Anima"
+    ],
+    "prompt": "1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n\n请你设计一个她在战斗中受伤但仍然顽强战斗的场景。在一处冒着烟和火的工厂废墟里，她靠在墙上侧坐（yokozuwari），一只手无力地垂下，另一只手举着手枪瞄准射击。她的衣服上和脸上有血迹。她的锁骨处有枪伤。表情痛苦但坚定。\n近景全身，以人物为主体。正面视角，面向镜头。场景明亮",
+    "notes": ""
+  },
+  {
+    "id": "work-d93cca05-5b06-4951-96a9-fc9523a7f0c4",
+    "title": "战斗",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260803_173040_426826_0021_4462.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 1152,
+    "height": 2048,
+    "tags": [
+      "OC",
+      "秋月",
+      "武装JK",
+      "Anima"
+    ],
+    "prompt": "1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n\n请你设计一个她在战斗中受伤但仍然顽强战斗的场景。在一处冒着烟和火的工厂废墟里，她靠在墙上侧坐（yokozuwari），一只手无力地垂下，另一只手举着手枪瞄准射击。她的衣服上和脸上有血迹。她的锁骨处有枪伤。表情痛苦但坚定。\n近景全身，以人物为主体。正面视角，面向镜头。场景明亮",
+    "notes": ""
+  },
+  {
+    "id": "work-3703367d-650c-491b-b4bf-e435f4e86821",
+    "title": "战斗",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260803_173259_355705_0023_6641.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "秋月",
+      "武装JK",
+      "Anima"
+    ],
+    "prompt": "1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n\n请你设计一个她在战斗中受伤但仍然顽强战斗的场景。在一处冒着烟和火的工厂废墟里，她靠在墙上侧坐（yokozuwari），一只手无力地垂下，另一只手举着手枪瞄准射击。她的衣服上和脸上有血迹。她的锁骨处有枪伤。表情痛苦但坚定。\n近景全身，以人物为主体。正面视角，面向镜头。场景明亮",
+    "notes": ""
+  },
+  {
+    "id": "work-1dde93fa-90d1-40de-80b7-2dccddb206a2",
+    "title": "战斗",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260803_173152_680402_0022_7168.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1",
+    "width": 1152,
+    "height": 2048,
+    "tags": [
+      "OC",
+      "秋月",
+      "武装JK",
+      "Anima"
+    ],
+    "prompt": "1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,headset\nparted_lips\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,elbow_pads,fingerless_gloves,toned,tactical_school_uniform,utility_vest\ndeep_blue_skirt,short_skirt,knee_pads,white dolphin shorts,shorts_under_skirt\nwhite_legwear,ankle_socks,striped socks,sport_socks,high-top_hiking_sneakers\n\n请你设计一个她在战斗中受伤但仍然顽强战斗的场景。在一处冒着烟和火的工厂废墟里，她靠在墙上侧坐（yokozuwari），一只手无力地垂下，另一只手举着手枪瞄准射击。她的衣服上和脸上有血迹。她的锁骨处有枪伤。表情痛苦但坚定。\n近景全身，以人物为主体。正面视角，面向镜头。场景明亮",
+    "notes": ""
+  },
+  {
     "id": "work-1784648035881",
     "title": "随性",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202607212337820.png",
