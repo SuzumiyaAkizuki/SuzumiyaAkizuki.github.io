@@ -18,6 +18,258 @@ window.GALLERY_ITEMS = [
     "notes": ""
   },
   {
+    "id": "work-76f14cf8-7d0f-4d3d-bcf2-30cee1995e0b",
+    "title": "共演",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260804_212332_602821_0007_2239.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "秋月",
+      "吊带裙",
+      "Anima",
+      "偶像大师",
+      "天海春香"
+    ],
+    "prompt": "秋月：1girl, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, headset, parted_lips, small_breasts, toned， puffy_short_sleeves, white_blouse, frilled_collar, lace-trimmed_collar, suspender_skirt, light_blue_skirt, frilled_skirt, short_skirt, kneehighs, white_socks, converse, sneakers, hair_ribbon, blue_ribbon\n\n在一处livehouse的舞台上，秋月和穿着「偶像英雄演出服」（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt）的偶像大师中的菊地真（idolmaster, kikuchi_makoto）一起在舞台上唱歌演出。菊地真的表情是活力、自信。而秋月的表情则略有紧张和害羞。\n近景全身，以人物为主体。场景明亮。前方视角。",
+    "notes": ""
+  },
+  {
+    "id": "work-834edd41-2b9d-46ec-ba6d-67a698233603",
+    "title": "共演",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260804_213104_613065_0012_4738.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "秋月",
+      "吊带裙",
+      "Anima",
+      "偶像大师",
+      "天海春香"
+    ],
+    "prompt": "秋月：1girl, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, headset, parted_lips, small_breasts, toned， puffy_short_sleeves, white_blouse, frilled_collar, lace-trimmed_collar, suspender_skirt, light_blue_skirt, frilled_skirt, short_skirt, kneehighs, white_socks, converse, sneakers, hair_ribbon, blue_ribbon\n\n在一处livehouse的舞台上，秋月和穿着「偶像英雄演出服」（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt）的偶像大师中的菊地真（idolmaster, kikuchi_makoto）一起在舞台上唱歌演出。菊地真的表情是活力、自信。而秋月的表情则略有紧张和害羞。\n近景全身，以人物为主体。场景明亮。前方视角。",
+    "notes": ""
+  },
+  {
+    "id": "work-daa895a5-9810-4733-a22d-2dda003fcdcc",
+    "title": "共演",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260804_213204_737049_0013_2002.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "秋月",
+      "吊带裙",
+      "Anima",
+      "偶像大师",
+      "天海春香"
+    ],
+    "prompt": "秋月：1girl, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, headset, parted_lips, small_breasts, toned， puffy_short_sleeves, white_blouse, frilled_collar, lace-trimmed_collar, suspender_skirt, light_blue_skirt, frilled_skirt, short_skirt, kneehighs, white_socks, converse, sneakers, hair_ribbon, blue_ribbon\n\n在一处livehouse的舞台上，秋月和穿着「偶像英雄演出服」（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt）的偶像大师中的菊地真（idolmaster, kikuchi_makoto）一起在舞台上唱歌演出。菊地真的表情是活力、自信。而秋月的表情则略有紧张和害羞。\n近景全身，以人物为主体。场景明亮。前方视角。",
+    "notes": ""
+  },
+  {
+    "id": "work-76f91ce9-358a-44b1-970a-3b24c97cfcc0",
+    "title": "共演",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260804_220250_092949_0031_6168.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 1152,
+    "height": 2048,
+    "tags": [
+      "OC",
+      "秋月",
+      "吊带裙",
+      "Anima",
+      "偶像大师",
+      "天海春香"
+    ],
+    "prompt": "秋月：1girl, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, headset, parted_lips, small_breasts, toned， puffy_short_sleeves, white_blouse, frilled_collar, lace-trimmed_collar, suspender_skirt, light_blue_skirt, frilled_skirt, short_skirt, kneehighs, white_socks, converse, sneakers, hair_ribbon, blue_ribbon\n\n在一处livehouse的舞台上，秋月和穿着「偶像英雄演出服」（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt）的偶像大师中的菊地真（idolmaster, kikuchi_makoto）一起在舞台上唱歌演出。菊地真的表情是活力、自信。而秋月的表情则略有紧张和害羞。\n近景全身，以人物为主体。场景明亮。前方视角。",
+    "notes": ""
+  },
+  {
+    "id": "work-076fca32-5484-4de5-95d1-ff2a41cfb665",
+    "title": "共演",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260804_214917_396202_0021_6957.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "秋月",
+      "吊带裙",
+      "Anima",
+      "偶像大师",
+      "天海春香"
+    ],
+    "prompt": "秋月：1girl, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, headset, parted_lips, small_breasts, toned， puffy_short_sleeves, white_blouse, frilled_collar, lace-trimmed_collar, suspender_skirt, light_blue_skirt, frilled_skirt, short_skirt, kneehighs, white_socks, converse, sneakers, hair_ribbon, blue_ribbon\n\n在一处livehouse的舞台上，秋月和穿着「偶像英雄演出服」（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt）的偶像大师中的菊地真（idolmaster, kikuchi_makoto）一起在舞台上唱歌演出。菊地真的表情是活力、自信。而秋月的表情则略有紧张和害羞。\n近景全身，以人物为主体。场景明亮。前方视角。",
+    "notes": ""
+  },
+  {
+    "id": "work-d0904ef5-c838-4550-9b3c-c2260c657bbf",
+    "title": "共演",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260804_215225_580571_0022_2045.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "秋月",
+      "吊带裙",
+      "Anima",
+      "偶像大师",
+      "天海春香"
+    ],
+    "prompt": "秋月：1girl, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, headset, parted_lips, small_breasts, toned， puffy_short_sleeves, white_blouse, frilled_collar, lace-trimmed_collar, suspender_skirt, light_blue_skirt, frilled_skirt, short_skirt, kneehighs, white_socks, converse, sneakers, hair_ribbon, blue_ribbon\n\n在一处livehouse的舞台上，秋月和穿着「偶像英雄演出服」（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt）的偶像大师中的菊地真（idolmaster, kikuchi_makoto）一起在舞台上唱歌演出。菊地真的表情是活力、自信。而秋月的表情则略有紧张和害羞。\n近景全身，以人物为主体。场景明亮。前方视角。",
+    "notes": ""
+  },
+  {
+    "id": "work-d0707ca9-0bd7-48f5-98bc-26008c46188e",
+    "title": "共演",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260804_220003_460616_0028_2420.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "秋月",
+      "吊带裙",
+      "Anima",
+      "偶像大师",
+      "天海春香"
+    ],
+    "prompt": "秋月：1girl, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, headset, parted_lips, small_breasts, toned， puffy_short_sleeves, white_blouse, frilled_collar, lace-trimmed_collar, suspender_skirt, light_blue_skirt, frilled_skirt, short_skirt, kneehighs, white_socks, converse, sneakers, hair_ribbon, blue_ribbon\n\n在一处livehouse的舞台上，秋月和穿着「偶像英雄演出服」（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt）的偶像大师中的菊地真（idolmaster, kikuchi_makoto）一起在舞台上唱歌演出。菊地真的表情是活力、自信。而秋月的表情则略有紧张和害羞。\n近景全身，以人物为主体。场景明亮。前方视角。",
+    "notes": ""
+  },
+  {
+    "id": "work-af220866-a391-4b82-958f-ef824ff9ac15",
+    "title": "共演",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260804_215629_025971_0027_4773.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "秋月",
+      "吊带裙",
+      "Anima",
+      "偶像大师",
+      "天海春香"
+    ],
+    "prompt": "秋月：1girl, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, headset, parted_lips, small_breasts, toned， puffy_short_sleeves, white_blouse, frilled_collar, lace-trimmed_collar, suspender_skirt, light_blue_skirt, frilled_skirt, short_skirt, kneehighs, white_socks, converse, sneakers, hair_ribbon, blue_ribbon\n\n在一处livehouse的舞台上，秋月和穿着「偶像英雄演出服」（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt）的偶像大师中的菊地真（idolmaster, kikuchi_makoto）一起在舞台上唱歌演出。菊地真的表情是活力、自信。而秋月的表情则略有紧张和害羞。\n近景全身，以人物为主体。场景明亮。前方视角。",
+    "notes": ""
+  },
+  {
+    "id": "work-edbf17e5-9e5e-4470-a274-dc71b40c3951",
+    "title": "共演",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260804_215413_665158_0024_6440.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "秋月",
+      "吊带裙",
+      "Anima",
+      "偶像大师",
+      "天海春香"
+    ],
+    "prompt": "秋月：1girl, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, headset, parted_lips, small_breasts, toned， puffy_short_sleeves, white_blouse, frilled_collar, lace-trimmed_collar, suspender_skirt, light_blue_skirt, frilled_skirt, short_skirt, kneehighs, white_socks, converse, sneakers, hair_ribbon, blue_ribbon\n\n在一处livehouse的舞台上，秋月和穿着「偶像英雄演出服」（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt）的偶像大师中的菊地真（idolmaster, kikuchi_makoto）一起在舞台上唱歌演出。菊地真的表情是活力、自信。而秋月的表情则略有紧张和害羞。\n近景全身，以人物为主体。场景明亮。前方视角。",
+    "notes": ""
+  },
+  {
+    "id": "work-03b0c4f5-5033-42cb-8d3e-004c03865467",
+    "title": "共演",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260804_214219_930293_0017_1087.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 1152,
+    "height": 2048,
+    "tags": [
+      "OC",
+      "秋月",
+      "吊带裙",
+      "Anima",
+      "偶像大师",
+      "天海春香"
+    ],
+    "prompt": "秋月：1girl, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, headset, parted_lips, small_breasts, toned， puffy_short_sleeves, white_blouse, frilled_collar, lace-trimmed_collar, suspender_skirt, light_blue_skirt, frilled_skirt, short_skirt, kneehighs, white_socks, converse, sneakers, hair_ribbon, blue_ribbon\n\n在一处livehouse的舞台上，秋月和穿着「偶像英雄演出服」（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt）的偶像大师中的菊地真（idolmaster, kikuchi_makoto）一起在舞台上唱歌演出。菊地真的表情是活力、自信。而秋月的表情则略有紧张和害羞。\n近景全身，以人物为主体。场景明亮。前方视角。",
+    "notes": ""
+  },
+  {
+    "id": "work-67ac40f9-6928-426d-b391-bec960290f4a",
+    "title": "共演",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260804_214648_060938_0019_8764.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 1152,
+    "height": 2048,
+    "tags": [
+      "OC",
+      "秋月",
+      "吊带裙",
+      "Anima",
+      "偶像大师",
+      "天海春香"
+    ],
+    "prompt": "秋月：1girl, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, headset, parted_lips, small_breasts, toned， puffy_short_sleeves, white_blouse, frilled_collar, lace-trimmed_collar, suspender_skirt, light_blue_skirt, frilled_skirt, short_skirt, kneehighs, white_socks, converse, sneakers, hair_ribbon, blue_ribbon\n\n在一处livehouse的舞台上，秋月和穿着「偶像英雄演出服」（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt）的偶像大师中的菊地真（idolmaster, kikuchi_makoto）一起在舞台上唱歌演出。菊地真的表情是活力、自信。而秋月的表情则略有紧张和害羞。\n近景全身，以人物为主体。场景明亮。前方视角。",
+    "notes": ""
+  },
+  {
+    "id": "work-97bc11b5-db7d-4883-9e71-8e66bc105298",
+    "title": "共演",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260804_212519_926126_0008_2388.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "秋月",
+      "吊带裙",
+      "Anima",
+      "偶像大师",
+      "天海春香"
+    ],
+    "prompt": "秋月：1girl, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, headset, parted_lips, small_breasts, toned， puffy_short_sleeves, white_blouse, frilled_collar, lace-trimmed_collar, suspender_skirt, light_blue_skirt, frilled_skirt, short_skirt, kneehighs, white_socks, converse, sneakers, hair_ribbon, blue_ribbon\n\n在一处livehouse的舞台上，秋月和穿着「偶像英雄演出服」（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt）的偶像大师中的菊地真（idolmaster, kikuchi_makoto）一起在舞台上唱歌演出。菊地真的表情是活力、自信。而秋月的表情则略有紧张和害羞。\n近景全身，以人物为主体。场景明亮。前方视角。",
+    "notes": ""
+  },
+  {
+    "id": "work-fca9c3e7-5d64-449c-9ca5-60f04d86a263",
+    "title": "共演",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260804_210507_469689_0001_9572.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 1128,
+    "height": 2456,
+    "tags": [
+      "OC",
+      "秋月",
+      "吊带裙",
+      "Anima",
+      "偶像大师",
+      "菊地真"
+    ],
+    "prompt": "秋月：1girl, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, headset, parted_lips, small_breasts, toned， puffy_short_sleeves, white_blouse, frilled_collar, lace-trimmed_collar, suspender_skirt, light_blue_skirt, frilled_skirt, short_skirt, kneehighs, white_socks, converse, sneakers, hair_ribbon, blue_ribbon\n\n在一处livehouse的舞台上，秋月和穿着「偶像英雄演出服」（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt）的偶像大师中的菊地真（idolmaster, kikuchi_makoto）一起在舞台上唱歌演出。菊地真的表情是活力、自信。而秋月的表情则略有紧张和害羞。\n近景全身，以人物为主体。场景明亮。前方视角。",
+    "notes": ""
+  },
+  {
+    "id": "work-e8dec71d-eefa-4194-b08e-30fca866b1ff",
+    "title": "共演",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260804_211124_570432_0004_2778.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 1128,
+    "height": 2456,
+    "tags": [
+      "OC",
+      "秋月",
+      "吊带裙",
+      "Anima",
+      "偶像大师",
+      "菊地真"
+    ],
+    "prompt": "秋月：1girl, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, headset, parted_lips, small_breasts, toned， puffy_short_sleeves, white_blouse, frilled_collar, lace-trimmed_collar, suspender_skirt, light_blue_skirt, frilled_skirt, short_skirt, kneehighs, white_socks, converse, sneakers, hair_ribbon, blue_ribbon\n\n在一处livehouse的舞台上，秋月和穿着「偶像英雄演出服」（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt）的偶像大师中的菊地真（idolmaster, kikuchi_makoto）一起在舞台上唱歌演出。菊地真的表情是活力、自信。而秋月的表情则略有紧张和害羞。\n近景全身，以人物为主体。场景明亮。前方视角。",
+    "notes": ""
+  },
+  {
     "id": "work-9ea30901-f35a-418b-9d98-c4eda027e477",
     "title": "共演",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260803_221120_841319_0027_1207.jpeg",

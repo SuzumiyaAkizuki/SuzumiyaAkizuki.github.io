@@ -577,6 +577,106 @@ html, body {
 .gallery-info {
   padding: 16px 18px 18px;
 }
+.gallery-card > img {
+  cursor: zoom-in;
+}
+.gallery-card > img:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -3px;
+}
+body.gallery-lightbox-open {
+  overflow: hidden;
+}
+.gallery-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(8, 6, 12, 0.82);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.18s ease, visibility 0.18s ease;
+}
+.gallery-lightbox.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+.gallery-lightbox-frame {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(80vw, 1400px);
+  height: min(80vh, 900px);
+  padding: 22px;
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: var(--radius);
+  background: rgba(22, 19, 26, 0.96);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.48);
+  overflow: hidden;
+  scrollbar-gutter: stable;
+}
+.gallery-lightbox-frame.is-portrait {
+  align-items: flex-start;
+  overflow-x: hidden;
+  overflow-y: auto;
+  justify-content: center;
+  padding: 48px 22px 22px;
+  scrollbar-color: color-mix(in srgb, var(--accent) 70%, transparent) transparent;
+  scrollbar-width: thin;
+}
+.gallery-lightbox-frame.is-portrait::-webkit-scrollbar { width: 8px; }
+.gallery-lightbox-frame.is-portrait::-webkit-scrollbar-track { background: transparent; }
+.gallery-lightbox-frame.is-portrait::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 70%, transparent);
+}
+.gallery-lightbox-frame.is-portrait .gallery-lightbox-image {
+  width: min(68vw, 980px);
+  max-width: 100%;
+  max-height: none;
+  height: auto;
+  margin: 0 auto;
+}
+.gallery-lightbox-image {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+.gallery-lightbox-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--text);
+  background: rgba(255,255,255,0.08);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.gallery-lightbox-close:hover,
+.gallery-lightbox-close:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(255,255,255,0.14);
+}
+.gallery-lightbox-close:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 .gallery-title {
   font-family: var(--font-display);
   font-size: 1rem;
@@ -738,6 +838,19 @@ html, body {
     max-width: calc(100vw - 32px);
   }
   .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-lightbox { padding: 12px; }
+  .gallery-lightbox-frame {
+    width: calc(100vw - 24px);
+    height: calc(100vh - 48px);
+    padding: 14px;
+  }
+  .gallery-lightbox-close { top: 6px; right: 6px; }
+  .gallery-lightbox-frame.is-portrait {
+    padding: 44px 14px 14px;
+  }
+  .gallery-lightbox-frame.is-portrait .gallery-lightbox-image {
+    width: calc(100vw - 64px);
+  }
   .screenshot-area.placeholder { padding: 36px 16px; }
   .pill { font-size: 0.8rem; padding: 5px 14px; }
   .nav { height: 64px; gap: 16px; }
@@ -2307,6 +2420,7 @@ body.portfolio-slider-page #navbar .navbar-collapse,
   });
 
   document.addEventListener('keydown', function(e) {
+    if (document.querySelector('.gallery-lightbox')) return;
     if (e.key === 'ArrowLeft') { e.preventDefault(); nav(current - 1); }
     if (e.key === 'ArrowRight') { e.preventDefault(); nav(current + 1); }
   });
@@ -2492,6 +2606,73 @@ body.portfolio-slider-page #navbar .navbar-collapse,
     '</article>';
   }
 
+  function openGalleryLightbox(image) {
+    var lightbox = document.createElement('div');
+    var frame = document.createElement('div');
+    var close = document.createElement('button');
+    var enlarged = document.createElement('img');
+    var previousActive = document.activeElement;
+    var closed = false;
+
+    lightbox.className = 'gallery-lightbox';
+    lightbox.setAttribute('role', 'dialog');
+    lightbox.setAttribute('aria-modal', 'true');
+    lightbox.setAttribute('aria-label', image.alt || 'Enlarged image');
+    frame.className = 'gallery-lightbox-frame';
+    close.className = 'gallery-lightbox-close';
+    close.type = 'button';
+    close.setAttribute('aria-label', 'Close enlarged image');
+    close.textContent = '\u00d7';
+    enlarged.className = 'gallery-lightbox-image';
+    enlarged.src = image.currentSrc || image.src;
+    enlarged.alt = image.alt || '';
+    enlarged.decoding = 'async';
+
+    function updateLightboxImageMode() {
+      var width = image.naturalWidth || parseFloat(image.getAttribute('width')) || 0;
+      var height = image.naturalHeight || parseFloat(image.getAttribute('height')) || 0;
+      frame.classList.toggle('is-portrait', height > width * 1.15);
+    }
+
+    enlarged.addEventListener('load', updateLightboxImageMode);
+    updateLightboxImageMode();
+    frame.appendChild(close);
+    frame.appendChild(enlarged);
+    lightbox.appendChild(frame);
+    document.body.appendChild(lightbox);
+    document.body.classList.add('gallery-lightbox-open');
+
+    function closeLightbox() {
+      if (closed) return;
+      closed = true;
+      document.removeEventListener('keydown', onKeydown);
+      lightbox.classList.remove('is-open');
+      document.body.classList.remove('gallery-lightbox-open');
+      window.setTimeout(function() {
+        if (lightbox.parentNode) lightbox.parentNode.removeChild(lightbox);
+        if (previousActive && typeof previousActive.focus === 'function') previousActive.focus();
+      }, 180);
+    }
+
+    function onKeydown(e) {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        e.stopPropagation();
+        closeLightbox();
+      }
+    }
+
+    close.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', onKeydown);
+    window.requestAnimationFrame(function() {
+      lightbox.classList.add('is-open');
+      close.focus();
+    });
+  }
+
   function renderGallery(filter) {
     var grid = document.getElementById('gallery-grid');
     var filters = document.getElementById('gallery-filters');
@@ -2531,6 +2712,21 @@ body.portfolio-slider-page #navbar .navbar-collapse,
     grid.innerHTML = columns.map(function(column) {
       return '<div class="gallery-column">' + column.cards.join('') + '</div>';
     }).join('');
+
+    grid.querySelectorAll('.gallery-card > img').forEach(function(image) {
+      image.setAttribute('tabindex', '0');
+      image.setAttribute('role', 'button');
+      image.setAttribute('aria-label', 'Click to enlarge: ' + (image.alt || 'image'));
+      image.addEventListener('click', function() {
+        openGalleryLightbox(image);
+      });
+      image.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openGalleryLightbox(image);
+        }
+      });
+    });
 
     filters.querySelectorAll('.gallery-filter').forEach(function(button) {
       button.addEventListener('click', function() {

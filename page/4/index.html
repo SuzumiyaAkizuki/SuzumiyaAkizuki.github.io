@@ -2387,6 +2387,7 @@
   });
 
   document.addEventListener('keydown', function(e) {
+    if (document.querySelector('.gallery-lightbox')) return;
     if (e.key === 'ArrowLeft')  { e.preventDefault(); nav(current - 1); }
     if (e.key === 'ArrowRight') { e.preventDefault(); nav(current + 1); }
   });
@@ -2609,6 +2610,73 @@
     '</article>';
   }
 
+  function openGalleryLightbox(image) {
+    var lightbox = document.createElement('div');
+    var frame = document.createElement('div');
+    var close = document.createElement('button');
+    var enlarged = document.createElement('img');
+    var previousActive = document.activeElement;
+    var closed = false;
+
+    lightbox.className = 'gallery-lightbox';
+    lightbox.setAttribute('role', 'dialog');
+    lightbox.setAttribute('aria-modal', 'true');
+    lightbox.setAttribute('aria-label', image.alt || '放大图片');
+    frame.className = 'gallery-lightbox-frame';
+    close.className = 'gallery-lightbox-close';
+    close.type = 'button';
+    close.setAttribute('aria-label', '关闭放大图片');
+    close.textContent = '\u00d7';
+    enlarged.className = 'gallery-lightbox-image';
+    enlarged.src = image.currentSrc || image.src;
+    enlarged.alt = image.alt || '';
+    enlarged.decoding = 'async';
+
+    function updateLightboxImageMode() {
+      var width = image.naturalWidth || parseFloat(image.getAttribute('width')) || 0;
+      var height = image.naturalHeight || parseFloat(image.getAttribute('height')) || 0;
+      frame.classList.toggle('is-portrait', height > width * 1.15);
+    }
+
+    enlarged.addEventListener('load', updateLightboxImageMode);
+    updateLightboxImageMode();
+    frame.appendChild(close);
+    frame.appendChild(enlarged);
+    lightbox.appendChild(frame);
+    document.body.appendChild(lightbox);
+    document.body.classList.add('gallery-lightbox-open');
+
+    function closeLightbox() {
+      if (closed) return;
+      closed = true;
+      document.removeEventListener('keydown', onKeydown);
+      lightbox.classList.remove('is-open');
+      document.body.classList.remove('gallery-lightbox-open');
+      window.setTimeout(function() {
+        if (lightbox.parentNode) lightbox.parentNode.removeChild(lightbox);
+        if (previousActive && typeof previousActive.focus === 'function') previousActive.focus();
+      }, 180);
+    }
+
+    function onKeydown(e) {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        e.stopPropagation();
+        closeLightbox();
+      }
+    }
+
+    close.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', onKeydown);
+    window.requestAnimationFrame(function() {
+      lightbox.classList.add('is-open');
+      close.focus();
+    });
+  }
+
   function renderGallery(filter) {
     var grid = document.getElementById('gallery-grid');
     var filters = document.getElementById('gallery-filters');
@@ -2652,6 +2720,21 @@
     grid.querySelectorAll('.gallery-prompt').forEach(function(detail) {
       detail.addEventListener('toggle', function() {
         detail.closest('.gallery-card').scrollIntoView({ block: 'nearest' });
+      });
+    });
+
+    grid.querySelectorAll('.gallery-card > img').forEach(function(image) {
+      image.setAttribute('tabindex', '0');
+      image.setAttribute('role', 'button');
+      image.setAttribute('aria-label', '点击放大：' + (image.alt || '图片'));
+      image.addEventListener('click', function() {
+        openGalleryLightbox(image);
+      });
+      image.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openGalleryLightbox(image);
+        }
       });
     });
 
