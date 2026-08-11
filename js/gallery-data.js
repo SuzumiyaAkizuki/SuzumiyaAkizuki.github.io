@@ -1,5 +1,380 @@
 window.GALLERY_ITEMS = [
   {
+    "id": "work-1786456175345",
+    "title": "树下",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260811_214905_854499_0000_1895.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 1128,
+    "height": 2456,
+    "tags": [
+      "OC",
+      "春日",
+      "Anima"
+    ],
+    "prompt": "1girl,solo,loli, beret, ankle boots, belt boots, boots, (low twintails:1.5), (short twintails:1.5), blonde hair, red bow, emblem, blue eyes, petite, brown capelet, gold buttons, white shirt, checkered bowtie, pleated skirt, white pantyhose\n\n春日樱花树下，她开心地原地转起了圈——百褶裙像花伞一样旋开，斗篷和双马尾跟着一起飞舞。粉色花瓣被她的旋转卷起，在她周身形成一道花之漩涡。她一只手轻轻拉着裙摆，笑得灿烂。整个画面像八音盒里的芭蕾小人，甜美又灵动。\n使用anima-aesthetic模型",
+    "notes": ""
+  },
+  {
+    "id": "work-0df5c233-23ab-4da8-85ff-3a92cd1fb4da",
+    "title": "树下",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260811_222142_995745_0006_2317.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 1448,
+    "height": 816,
+    "tags": [
+      "OC",
+      "春日",
+      "Anima"
+    ],
+    "prompt": "1girl,solo,loli, beret, ankle boots, belt boots, boots, (low twintails:1.5), (short twintails:1.5), blonde hair, red bow, emblem, blue eyes, petite, brown capelet, gold buttons, white shirt, checkered bowtie, pleated skirt, white pantyhose\n\n春日樱花树下，她开心地原地转起了圈——百褶裙像花伞一样旋开，斗篷和双马尾跟着一起飞舞。粉色花瓣被她的旋转卷起，在她周身形成一道花之漩涡。她一只手轻轻拉着裙摆，笑得灿烂。整个画面像八音盒里的芭蕾小人，甜美又灵动。\n使用anima-aesthetic模型",
+    "notes": ""
+  },
+  {
+    "id": "work-b5f4aec2-c532-4b68-95f2-a5ada6300c15",
+    "title": "树下",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260811_222346_969133_0007_3771.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 1448,
+    "height": 816,
+    "tags": [
+      "OC",
+      "春日",
+      "Anima"
+    ],
+    "prompt": "1girl,solo,loli, beret, ankle boots, belt boots, boots, (low twintails:1.5), (short twintails:1.5), blonde hair, red bow, emblem, blue eyes, petite, brown capelet, gold buttons, white shirt, checkered bowtie, pleated skirt, white pantyhose\n\n春日樱花树下，她开心地原地转起了圈——百褶裙像花伞一样旋开，斗篷和双马尾跟着一起飞舞。粉色花瓣被她的旋转卷起，在她周身形成一道花之漩涡。她一只手轻轻拉着裙摆，笑得灿烂。整个画面像八音盒里的芭蕾小人，甜美又灵动。\n使用anima-aesthetic模型",
+    "notes": ""
+  },
+  {
+    "id": "work-65e7e5c5-5e2a-4a64-8fa5-1a2b3eca176f",
+    "title": "树下",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260811_223911_921436_0012_1838.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 816,
+    "height": 1448,
+    "tags": [
+      "OC",
+      "春日",
+      "Anima"
+    ],
+    "prompt": "1girl,solo,loli, beret, ankle boots, belt boots, boots, (low twintails:1.5), (short twintails:1.5), blonde hair, red bow, emblem, blue eyes, petite, brown capelet, gold buttons, white shirt, checkered bowtie, pleated skirt, white pantyhose\n\n春日樱花树下，她开心地原地转起了圈——百褶裙像花伞一样旋开，斗篷和双马尾跟着一起飞舞。粉色花瓣被她的旋转卷起，在她周身形成一道花之漩涡。她一只手轻轻拉着裙摆，笑得灿烂。整个画面像八音盒里的芭蕾小人，甜美又灵动。\n使用anima-aesthetic模型",
+    "notes": ""
+  },
+  {
+    "id": "work-c2d024d8-6774-4385-b1e0-aa5f6c6c73c5",
+    "title": "树下",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260811_224339_504938_0013_5993.jpeg",
+    "model": "deepseek-v4-flash / miaomiaoHarem_aniAnimeColoring10",
+    "width": 816,
+    "height": 1448,
+    "tags": [
+      "OC",
+      "春日",
+      "Anima"
+    ],
+    "prompt": "1girl,solo,loli, beret, ankle boots, belt boots, boots, (low twintails:1.5), (short twintails:1.5), blonde hair, red bow, emblem, blue eyes, petite, brown capelet, gold buttons, white shirt, checkered bowtie, pleated skirt, white pantyhose\n\n春日樱花树下，她开心地原地转起了圈——百褶裙像花伞一样旋开，斗篷和双马尾跟着一起飞舞。粉色花瓣被她的旋转卷起，在她周身形成一道花之漩涡。她一只手轻轻拉着裙摆，笑得灿烂。整个画面像八音盒里的芭蕾小人，甜美又灵动。\n使用anima-aesthetic模型",
+    "notes": ""
+  },
+  {
+    "id": "work-b4ddcd2f-a91b-42b2-a081-6dd2444bc10d",
+    "title": "树下",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260811_230714_081665_0002_1710.jpeg",
+    "model": " deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 816,
+    "height": 1448,
+    "tags": [
+      "OC",
+      "春日",
+      "Anima"
+    ],
+    "prompt": "1girl,solo,loli, beret, ankle boots, belt boots, boots, (low twintails:1.5), (short twintails:1.5), blonde hair, red bow, emblem, blue eyes, petite, brown capelet, gold buttons, white shirt, checkered bowtie, pleated skirt, white pantyhose\n\n春日樱花树下，她开心地原地转起了圈——百褶裙像花伞一样旋开，斗篷和双马尾跟着一起飞舞。粉色花瓣被她的旋转卷起，在她周身形成一道花之漩涡。她一只手轻轻拉着裙摆，笑得灿烂。整个画面像八音盒里的芭蕾小人，甜美又灵动。\n使用anima-aesthetic模型",
+    "notes": ""
+  },
+  {
+    "id": "work-e7bfb700-2675-49d4-931c-a4598c3aa2b2",
+    "title": "树下",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260811_233730_034791_0011_2687.jpeg",
+    "model": " deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 816,
+    "height": 1448,
+    "tags": [
+      "OC",
+      "春日",
+      "Anima"
+    ],
+    "prompt": "1girl,solo,loli, beret, ankle boots, belt boots, boots, (low twintails:1.5), (short twintails:1.5), blonde hair, red bow, emblem, blue eyes, petite, brown capelet, gold buttons, white shirt, checkered bowtie, pleated skirt, white pantyhose\n\n春日樱花树下，她开心地原地转起了圈——百褶裙像花伞一样旋开，斗篷和双马尾跟着一起飞舞。粉色花瓣被她的旋转卷起，在她周身形成一道花之漩涡。她一只手轻轻拉着裙摆，笑得灿烂。整个画面像八音盒里的芭蕾小人，甜美又灵动。\n使用anima-aesthetic模型",
+    "notes": ""
+  },
+  {
+    "id": "work-1816569b-835b-48c5-957f-42e4e33ebec8",
+    "title": "树下",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260811_234128_948041_0013_3712.jpeg",
+    "model": " deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 1448,
+    "height": 816,
+    "tags": [
+      "OC",
+      "春日",
+      "Anima"
+    ],
+    "prompt": "1girl,solo,loli, beret, ankle boots, belt boots, boots, (low twintails:1.5), (short twintails:1.5), blonde hair, red bow, emblem, blue eyes, petite, brown capelet, gold buttons, white shirt, checkered bowtie, pleated skirt, white pantyhose\n\n春日樱花树下，她开心地原地转起了圈——百褶裙像花伞一样旋开，斗篷和双马尾跟着一起飞舞。粉色花瓣被她的旋转卷起，在她周身形成一道花之漩涡。她一只手轻轻拉着裙摆，笑得灿烂。整个画面像八音盒里的芭蕾小人，甜美又灵动。\n使用anima-aesthetic模型",
+    "notes": ""
+  },
+  {
+    "id": "work-73af6632-fc7f-4551-a736-bc3760ffa837",
+    "title": "树下",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260811_215515_089443_0002_6106.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 800,
+    "height": 1744,
+    "tags": [
+      "OC",
+      "春日",
+      "Anima"
+    ],
+    "prompt": "1girl,solo,loli, beret, ankle boots, belt boots, boots, (low twintails:1.5), (short twintails:1.5), blonde hair, red bow, emblem, blue eyes, petite, brown capelet, gold buttons, white shirt, checkered bowtie, pleated skirt, white pantyhose\n\n春日樱花树下，她开心地原地转起了圈——百褶裙像花伞一样旋开，斗篷和双马尾跟着一起飞舞。粉色花瓣被她的旋转卷起，在她周身形成一道花之漩涡。她一只手轻轻拉着裙摆，笑得灿烂。整个画面像八音盒里的芭蕾小人，甜美又灵动。\n使用anima-aesthetic模型",
+    "notes": ""
+  },
+  {
+    "id": "work-dff9f285-5522-4308-9283-d09cc3982915",
+    "title": "树下",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260811_231053_208172_0004_6130.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 816,
+    "height": 1448,
+    "tags": [
+      "OC",
+      "春日",
+      "Anima"
+    ],
+    "prompt": "1girl,solo,loli, beret, ankle boots, belt boots, boots, (low twintails:1.5), (short twintails:1.5), blonde hair, red bow, emblem, blue eyes, petite, brown capelet, gold buttons, white shirt, checkered bowtie, pleated skirt, white pantyhose\n\n春日樱花树下，她开心地原地转起了圈——百褶裙像花伞一样旋开，斗篷和双马尾跟着一起飞舞。粉色花瓣被她的旋转卷起，在她周身形成一道花之漩涡。她一只手轻轻拉着裙摆，笑得灿烂。整个画面像八音盒里的芭蕾小人，甜美又灵动。\n使用anima-aesthetic模型",
+    "notes": ""
+  },
+  {
+    "id": "work-1fb498fa-e179-4a96-8e52-0f9f383d25c0",
+    "title": "树下",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260811_232509_095186_0007_8013.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 816,
+    "height": 1448,
+    "tags": [
+      "OC",
+      "春日",
+      "Anima"
+    ],
+    "prompt": "1girl,solo,loli, beret, ankle boots, belt boots, boots, (low twintails:1.5), (short twintails:1.5), blonde hair, red bow, emblem, blue eyes, petite, brown capelet, gold buttons, white shirt, checkered bowtie, pleated skirt, white pantyhose\n\n春日樱花树下，她开心地原地转起了圈——百褶裙像花伞一样旋开，斗篷和双马尾跟着一起飞舞。粉色花瓣被她的旋转卷起，在她周身形成一道花之漩涡。她一只手轻轻拉着裙摆，笑得灿烂。整个画面像八音盒里的芭蕾小人，甜美又灵动。\n使用anima-aesthetic模型",
+    "notes": ""
+  },
+  {
+    "id": "work-1786372556161",
+    "title": "夜空",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260809_235556_630469_0036_5465.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 1152,
+    "height": 2048,
+    "tags": [
+      "OC",
+      "春日",
+      "Anima"
+    ],
+    "prompt": "1girl,solo,loli,mberet, ankle boots, belt boots, boots, (low twintails:1.5), (short twintails:1.5), blonde hair, red bow, emblem, blue eyes, petite, brown capelet, gold buttons, white shirt, checkered bowtie, pleated skirt, white pantyhose\n\n在夜晚的都市天台，环境明亮，上述人物坐在天台的边缘，双腿悬空，一只手拨弄自己的头发，微笑（light smile）着看向镜头。微风吹动她的头发和衣服。全身，近景特写，以人物为主题。",
+    "notes": ""
+  },
+  {
+    "id": "work-d67166b5-02e8-4ddd-9146-f3a461da8093",
+    "title": "街道",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260810_225032_997892_0043_3427.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 1152,
+    "height": 2048,
+    "tags": [
+      "OC",
+      "春日",
+      "Anima"
+    ],
+    "prompt": "1girl,solo,loli,mberet, ankle boots, belt boots, boots, (low twintails:1.5), (short twintails:1.5), blonde hair, red bow, emblem, blue eyes, petite, brown capelet, gold buttons, white shirt, checkered bowtie, pleated skirt, white pantyhose\n\n请你为我设计一个能体现她的温柔的魅力的场景。户外，现代化城市背景。cow boy shot，近景特写以人物为主体，使用anima-aesthetic模型。",
+    "notes": ""
+  },
+  {
+    "id": "work-6c19d38a-e226-441e-8aed-3e9f8eacd99a",
+    "title": "茶会",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260810_225718_715548_0044_5685.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 1152,
+    "height": 2048,
+    "tags": [
+      "OC",
+      "春日",
+      "Anima"
+    ],
+    "prompt": "1girl,solo,loli,mberet, ankle boots, belt boots, boots, (low twintails:1.5), (short twintails:1.5), blonde hair, red bow, emblem, blue eyes, petite, brown capelet, gold buttons, white shirt, checkered bowtie, pleated skirt, white pantyhose\n\n黄金时刻的露天咖啡座，她双手捧着茶杯和茶托，桌上摆着茶壶和一小块蛋糕。枫叶在她身旁打着旋儿飘落，夕阳把她的金发染成蜂蜜色。她微笑着看向镜头——仿佛在说\"要一起喝一杯吗\"。棕色斗篷和秋日暖色调融为一体，整个画面像一杯温热的红茶一样治愈。",
+    "notes": ""
+  },
+  {
+    "id": "work-8acd0fed-c134-4f42-b3a4-c840099c2568",
+    "title": "茶会",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260810_230650_565235_0047_4095.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 1152,
+    "height": 2048,
+    "tags": [
+      "OC",
+      "春日",
+      "Anima"
+    ],
+    "prompt": "1girl,solo,loli,mberet, ankle boots, belt boots, boots, (low twintails:1.5), (short twintails:1.5), blonde hair, red bow, emblem, blue eyes, petite, brown capelet, gold buttons, white shirt, checkered bowtie, pleated skirt, white pantyhose\n\n黄金时刻的露天咖啡座，她双手捧着茶杯和茶托，桌上摆着茶壶和一小块蛋糕。枫叶在她身旁打着旋儿飘落，夕阳把她的金发染成蜂蜜色。她微笑着看向镜头——仿佛在说\"要一起喝一杯吗\"。棕色斗篷和秋日暖色调融为一体，整个画面像一杯温热的红茶一样治愈。",
+    "notes": ""
+  },
+  {
+    "id": "work-b6762f8d-4748-46a6-960d-633c921673dc",
+    "title": "茶会",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260810_231007_040499_0049_4766.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 1152,
+    "height": 2048,
+    "tags": [
+      "OC",
+      "春日",
+      "Anima"
+    ],
+    "prompt": "1girl,solo,loli,mberet, ankle boots, belt boots, boots, (low twintails:1.5), (short twintails:1.5), blonde hair, red bow, emblem, blue eyes, petite, brown capelet, gold buttons, white shirt, checkered bowtie, pleated skirt, white pantyhose\n\n黄金时刻的露天咖啡座，她双手捧着茶杯和茶托，桌上摆着茶壶和一小块蛋糕。枫叶在她身旁打着旋儿飘落，夕阳把她的金发染成蜂蜜色。她微笑着看向镜头——仿佛在说\"要一起喝一杯吗\"。棕色斗篷和秋日暖色调融为一体，整个画面像一杯温热的红茶一样治愈。",
+    "notes": ""
+  },
+  {
+    "id": "work-8dfbde03-b86b-41e1-9e55-3b57fcd38192",
+    "title": "茶会",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260810_231224_685641_0050_4584.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 1152,
+    "height": 2048,
+    "tags": [
+      "OC",
+      "春日",
+      "Anima"
+    ],
+    "prompt": "1girl,solo,loli,mberet, ankle boots, belt boots, boots, (low twintails:1.5), (short twintails:1.5), blonde hair, red bow, emblem, blue eyes, petite, brown capelet, gold buttons, white shirt, checkered bowtie, pleated skirt, white pantyhose\n\n黄金时刻的露天咖啡座，她双手捧着茶杯和茶托，桌上摆着茶壶和一小块蛋糕。枫叶在她身旁打着旋儿飘落，夕阳把她的金发染成蜂蜜色。她微笑着看向镜头——仿佛在说\"要一起喝一杯吗\"。棕色斗篷和秋日暖色调融为一体，整个画面像一杯温热的红茶一样治愈。",
+    "notes": ""
+  },
+  {
+    "id": "work-6af3a6c5-2e80-45ec-a316-42612a7f2214",
+    "title": "茶会",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260810_231501_281576_0051_5303.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "春日",
+      "Anima"
+    ],
+    "prompt": "1girl,solo,loli,mberet, ankle boots, belt boots, boots, (low twintails:1.5), (short twintails:1.5), blonde hair, red bow, emblem, blue eyes, petite, brown capelet, gold buttons, white shirt, checkered bowtie, pleated skirt, white pantyhose\n\n黄金时刻的露天咖啡座，她双手捧着茶杯和茶托，桌上摆着茶壶和一小块蛋糕。枫叶在她身旁打着旋儿飘落，夕阳把她的金发染成蜂蜜色。她微笑着看向镜头——仿佛在说\"要一起喝一杯吗\"。棕色斗篷和秋日暖色调融为一体，整个画面像一杯温热的红茶一样治愈。",
+    "notes": ""
+  },
+  {
+    "id": "work-9e4d61ae-8e98-41c6-8d55-f1b1704ae6b0",
+    "title": "茶会",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260810_232720_066175_0055_5726.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "春日",
+      "Anima"
+    ],
+    "prompt": "1girl,solo,loli,mberet, ankle boots, belt boots, boots, (low twintails:1.5), (short twintails:1.5), blonde hair, red bow, emblem, blue eyes, petite, brown capelet, gold buttons, white shirt, checkered bowtie, pleated skirt, white pantyhose\n\n黄金时刻的露天咖啡座，她双手捧着茶杯和茶托，桌上摆着茶壶和一小块蛋糕。枫叶在她身旁打着旋儿飘落，夕阳把她的金发染成蜂蜜色。她微笑着看向镜头——仿佛在说\"要一起喝一杯吗\"。棕色斗篷和秋日暖色调融为一体，整个画面像一杯温热的红茶一样治愈。",
+    "notes": ""
+  },
+  {
+    "id": "work-69f565a8-6cb4-4870-a7b2-5e1eb905571e",
+    "title": "茶会",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260810_233922_785595_0058_3348.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "春日",
+      "Anima"
+    ],
+    "prompt": "1girl,solo,loli,mberet, ankle boots, belt boots, boots, (low twintails:1.5), (short twintails:1.5), blonde hair, red bow, emblem, blue eyes, petite, brown capelet, gold buttons, white shirt, checkered bowtie, pleated skirt, white pantyhose\n\n黄金时刻的露天咖啡座，她双手捧着茶杯和茶托，桌上摆着茶壶和一小块蛋糕。枫叶在她身旁打着旋儿飘落，夕阳把她的金发染成蜂蜜色。她微笑着看向镜头——仿佛在说\"要一起喝一杯吗\"。棕色斗篷和秋日暖色调融为一体，整个画面像一杯温热的红茶一样治愈。",
+    "notes": ""
+  },
+  {
+    "id": "work-d3962193-8b9f-46fb-8070-7da8bfc02be0",
+    "title": "茶会",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260810_234228_971856_0059_9623.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 1128,
+    "height": 2456,
+    "tags": [
+      "OC",
+      "春日",
+      "Anima"
+    ],
+    "prompt": "1girl,solo,loli,mberet, ankle boots, belt boots, boots, (low twintails:1.5), (short twintails:1.5), blonde hair, red bow, emblem, blue eyes, petite, brown capelet, gold buttons, white shirt, checkered bowtie, pleated skirt, white pantyhose\n\n黄金时刻的露天咖啡座，她双手捧着茶杯和茶托，桌上摆着茶壶和一小块蛋糕。枫叶在她身旁打着旋儿飘落，夕阳把她的金发染成蜂蜜色。她微笑着看向镜头——仿佛在说\"要一起喝一杯吗\"。棕色斗篷和秋日暖色调融为一体，整个画面像一杯温热的红茶一样治愈。",
+    "notes": ""
+  },
+  {
+    "id": "work-a33b9145-33f3-4d87-8767-510908b46e0e",
+    "title": "茶会",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260810_235311_909648_0060_5499.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 1128,
+    "height": 2456,
+    "tags": [
+      "OC",
+      "春日",
+      "Anima"
+    ],
+    "prompt": "1girl,solo,loli,mberet, ankle boots, belt boots, boots, (low twintails:1.5), (short twintails:1.5), blonde hair, red bow, emblem, blue eyes, petite, brown capelet, gold buttons, white shirt, checkered bowtie, pleated skirt, white pantyhose\n\n黄金时刻的露天咖啡座，她双手捧着茶杯和茶托，桌上摆着茶壶和一小块蛋糕。枫叶在她身旁打着旋儿飘落，夕阳把她的金发染成蜂蜜色。她微笑着看向镜头——仿佛在说\"要一起喝一杯吗\"。棕色斗篷和秋日暖色调融为一体，整个画面像一杯温热的红茶一样治愈。",
+    "notes": ""
+  },
+  {
+    "id": "work-9f0564ca-3d51-4982-a2fa-69db5742dc5e",
+    "title": "茶会",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260810_233604_734288_0057_7140.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 2048,
+    "height": 1152,
+    "tags": [
+      "OC",
+      "春日",
+      "Anima"
+    ],
+    "prompt": "1girl,solo,loli,mberet, ankle boots, belt boots, boots, (low twintails:1.5), (short twintails:1.5), blonde hair, red bow, emblem, blue eyes, petite, brown capelet, gold buttons, white shirt, checkered bowtie, pleated skirt, white pantyhose\n\n黄金时刻的露天咖啡座，她双手捧着茶杯和茶托，桌上摆着茶壶和一小块蛋糕。枫叶在她身旁打着旋儿飘落，夕阳把她的金发染成蜂蜜色。她微笑着看向镜头——仿佛在说\"要一起喝一杯吗\"。棕色斗篷和秋日暖色调融为一体，整个画面像一杯温热的红茶一样治愈。",
+    "notes": ""
+  },
+  {
+    "id": "work-a077f8ba-8ea4-4ab2-b348-b2f085fc84c0",
+    "title": "茶会",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260810_230257_602123_0045_5123.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 1152,
+    "height": 2048,
+    "tags": [
+      "OC",
+      "春日",
+      "Anima"
+    ],
+    "prompt": "1girl,solo,loli,mberet, ankle boots, belt boots, boots, (low twintails:1.5), (short twintails:1.5), blonde hair, red bow, emblem, blue eyes, petite, brown capelet, gold buttons, white shirt, checkered bowtie, pleated skirt, white pantyhose\n\n黄金时刻的露天咖啡座，她双手捧着茶杯和茶托，桌上摆着茶壶和一小块蛋糕。枫叶在她身旁打着旋儿飘落，夕阳把她的金发染成蜂蜜色。她微笑着看向镜头——仿佛在说\"要一起喝一杯吗\"。棕色斗篷和秋日暖色调融为一体，整个画面像一杯温热的红茶一样治愈。",
+    "notes": ""
+  },
+  {
+    "id": "work-3d6620a8-bca4-48db-848e-8df251d8058d",
+    "title": "夜空",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260810_224307_110230_0041_1390.jpeg",
+    "model": "deepseek-v4-flash / anima-aesthetic-v1.1 ",
+    "width": 1152,
+    "height": 2048,
+    "tags": [
+      "OC",
+      "春日",
+      "Anima"
+    ],
+    "prompt": "1girl,solo,loli,mberet, ankle boots, belt boots, boots, (low twintails:1.5), (short twintails:1.5), blonde hair, red bow, emblem, blue eyes, petite, brown capelet, gold buttons, white shirt, checkered bowtie, pleated skirt, white pantyhose\n\n在夜晚的都市天台，环境明亮，上述人物坐在天台的边缘，双腿悬空，一只手拨弄自己的头发，微笑（light smile）着看向镜头。微风吹动她的头发和衣服。全身，近景特写，以人物为主题。",
+    "notes": ""
+  },
+  {
     "id": "work-1785763863827",
     "title": "共演",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260803_213015_804058_0006_1652.jpeg",
