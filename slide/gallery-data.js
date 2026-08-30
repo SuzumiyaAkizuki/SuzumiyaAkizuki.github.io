@@ -1,5 +1,461 @@
 window.GALLERY_ITEMS = [
   {
+    "id": "work-1788014115882",
+    "title": "拨云见日",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260829_223450_107671_0114_7672.jpeg",
+    "model": "kimi-k3 / anima-aesthetic-v1.1 ",
+    "width": null,
+    "height": null,
+    "tags": [
+      "春日",
+      "Anima"
+    ],
+    "prompt": "在一列列车里，原创角色（1girl,beret, ankle boots, belt boots, boots, (low twintails:1.5), (short twintails:1.5), blonde hair, red bow, emblem, blue eyes, petite, brown capelet, gold buttons, white shirt, checkered bowtie, pleated skirt, white pantyhose）坐在座位上，扭头看向窗外。窗外是一片辽阔的原野，雨后的阴天，即将放晴，几束阳光穿过云彩洒向地面（sunbeam）.",
+    "notes": ""
+  },
+  {
+    "id": "work-4b970fab-c950-4ea5-a1f9-6f357ce9953e",
+    "title": "拨云见日",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260829_223932_442872_0117_5251.jpeg",
+    "model": "kimi-k3 / anima-aesthetic-v1.1 ",
+    "width": null,
+    "height": null,
+    "tags": [
+      "春日",
+      "Anima"
+    ],
+    "prompt": "在一列列车里，原创角色（1girl,beret, ankle boots, belt boots, boots, (low twintails:1.5), (short twintails:1.5), blonde hair, red bow, emblem, blue eyes, petite, brown capelet, gold buttons, white shirt, checkered bowtie, pleated skirt, white pantyhose）坐在座位上，扭头看向窗外。窗外是一片辽阔的原野，雨后的阴天，即将放晴，几束阳光穿过云彩洒向地面（sunbeam）.",
+    "notes": ""
+  },
+  {
+    "id": "work-3bbf3a44-c051-404a-bbc1-33a55bd7562d",
+    "title": "拨云见日",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260829_224636_310093_0120_2359.jpeg",
+    "model": "kimi-k3 / anima-aesthetic-v1.1 ",
+    "width": null,
+    "height": null,
+    "tags": [
+      "春日",
+      "Anima"
+    ],
+    "prompt": "在一列列车里，原创角色（1girl,beret, ankle boots, belt boots, boots, (low twintails:1.5), (short twintails:1.5), blonde hair, red bow, emblem, blue eyes, petite, brown capelet, gold buttons, white shirt, checkered bowtie, pleated skirt, white pantyhose）坐在座位上，扭头看向窗外。窗外是一片辽阔的原野，雨后的阴天，即将放晴，几束阳光穿过云彩洒向地面（sunbeam）.",
+    "notes": ""
+  },
+  {
+    "id": "work-102bc434-df69-41ca-b624-12ce8ff8d893",
+    "title": "拨云见日",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260829_224803_389564_0121_3449.jpeg",
+    "model": "kimi-k3 / anima-aesthetic-v1.1 ",
+    "width": null,
+    "height": null,
+    "tags": [
+      "春日",
+      "Anima"
+    ],
+    "prompt": "在一列列车里，原创角色（1girl,beret, ankle boots, belt boots, boots, (low twintails:1.5), (short twintails:1.5), blonde hair, red bow, emblem, blue eyes, petite, brown capelet, gold buttons, white shirt, checkered bowtie, pleated skirt, white pantyhose）坐在座位上，扭头看向窗外。窗外是一片辽阔的原野，雨后的阴天，即将放晴，几束阳光穿过云彩洒向地面（sunbeam）.",
+    "notes": ""
+  },
+  {
+    "id": "work-7a5607db-5229-46e0-bc4c-6ffced0ffefc",
+    "title": "拨云见日",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260829_225719_562314_0128_3149.jpeg",
+    "model": "kimi-k3 / anima-aesthetic-v1.1 ",
+    "width": null,
+    "height": null,
+    "tags": [
+      "春日",
+      "Anima"
+    ],
+    "prompt": "在一列列车里，原创角色（1girl,beret, ankle boots, belt boots, boots, (low twintails:1.5), (short twintails:1.5), blonde hair, red bow, emblem, blue eyes, petite, brown capelet, gold buttons, white shirt, checkered bowtie, pleated skirt, white pantyhose）坐在座位上，扭头看向窗外。窗外是一片辽阔的原野，雨后的阴天，即将放晴，几束阳光穿过云彩洒向地面（sunbeam）.",
+    "notes": ""
+  },
+  {
+    "id": "work-a60a1073-e560-4fb5-bc66-1e48bb1dee1b",
+    "title": "拨云见日",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260829_230123_662533_0132_1591.jpeg",
+    "model": "kimi-k3 / anima-aesthetic-v1.1 ",
+    "width": null,
+    "height": null,
+    "tags": [
+      "春日",
+      "Anima"
+    ],
+    "prompt": "在一列列车里，原创角色（1girl,beret, ankle boots, belt boots, boots, (low twintails:1.5), (short twintails:1.5), blonde hair, red bow, emblem, blue eyes, petite, brown capelet, gold buttons, white shirt, checkered bowtie, pleated skirt, white pantyhose）坐在座位上，扭头看向窗外。窗外是一片辽阔的原野，雨后的阴天，即将放晴，几束阳光穿过云彩洒向地面（sunbeam）.",
+    "notes": ""
+  },
+  {
+    "id": "work-8f1675d3-df7e-4e24-9c1f-6c292af5931a",
+    "title": "拨云见日",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260829_230433_882535_0135_2898.jpeg",
+    "model": "kimi-k3 / anima-aesthetic-v1.1 ",
+    "width": null,
+    "height": null,
+    "tags": [
+      "春日",
+      "Anima"
+    ],
+    "prompt": "在一列列车里，原创角色（1girl,beret, ankle boots, belt boots, boots, (low twintails:1.5), (short twintails:1.5), blonde hair, red bow, emblem, blue eyes, petite, brown capelet, gold buttons, white shirt, checkered bowtie, pleated skirt, white pantyhose）坐在座位上，扭头看向窗外。窗外是一片辽阔的原野，雨后的阴天，即将放晴，几束阳光穿过云彩洒向地面（sunbeam）.",
+    "notes": ""
+  },
+  {
+    "id": "work-95ad0e1b-6483-4257-a48e-2507bd988ef1",
+    "title": "拨云见日",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260829_224503_376031_0119_1689.jpeg",
+    "model": "kimi-k3 / anima-aesthetic-v1.1 ",
+    "width": null,
+    "height": null,
+    "tags": [
+      "春日",
+      "Anima"
+    ],
+    "prompt": "在一列列车里，原创角色（1girl,beret, ankle boots, belt boots, boots, (low twintails:1.5), (short twintails:1.5), blonde hair, red bow, emblem, blue eyes, petite, brown capelet, gold buttons, white shirt, checkered bowtie, pleated skirt, white pantyhose）坐在座位上，扭头看向窗外。窗外是一片辽阔的原野，雨后的阴天，即将放晴，几束阳光穿过云彩洒向地面（sunbeam）.",
+    "notes": ""
+  },
+  {
+    "id": "work-1787992362728",
+    "title": "巨构",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260829_163214_753087_0078_1970.jpeg",
+    "model": "kimi-k3 / anima-aesthetic-v1.1 ",
+    "width": 1808,
+    "height": 1016,
+    "tags": [
+      "风景",
+      "Anima"
+    ],
+    "prompt": "一个穿着水手服，黑色短发的女生，静静伫立在旷野上。她的衣服被风吹动。旷野上有一座异常巨大的巨构，有几何美感。天空湛蓝，有云朵和飞鸟。请你着重渲染一种 **孤寂感** ，似乎全世界只有她一个人了，突出她与巨构的对比。请你仔细设计巨构，不要只是一座高塔。为了渲染其尺寸，巨构可以溢出画布。\n夕阳西下，金色的 **体积光** 映照在巨构上，并产生金色的反射。\n参考tag：megastructure, grand scale, scenery, building, fantasy, ruins\n人物别太小了，稍微大点儿，但是不要抢占画面主体",
+    "notes": ""
+  },
+  {
+    "id": "work-4a28ece2-26ea-479d-94f7-5f2e6f11a12c",
+    "title": "巨构",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260829_165316_026333_0091_2246.jpeg",
+    "model": "kimi-k3 / anima-aesthetic-v1.1 ",
+    "width": 1016,
+    "height": 1808,
+    "tags": [
+      "风景",
+      "Anima"
+    ],
+    "prompt": "一个穿着水手服，黑色短发的女生，静静伫立在旷野上。她的衣服被风吹动。旷野上有一座异常巨大的巨构，有几何美感。天空湛蓝，有云朵和飞鸟。请你着重渲染一种 **孤寂感** ，似乎全世界只有她一个人了，突出她与巨构的对比。请你仔细设计巨构，不要只是一座高塔。为了渲染其尺寸，巨构可以溢出画布。\n夕阳西下，金色的 **体积光** 映照在巨构上，并产生金色的反射。\n参考tag：megastructure, grand scale, scenery, building, fantasy, ruins\n人物别太小了，稍微大点儿，但是不要抢占画面主体",
+    "notes": ""
+  },
+  {
+    "id": "work-580a38d8-3a97-493e-bf03-c70d4730caec",
+    "title": "巨构",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260829_171522_604045_0101_6221.jpeg",
+    "model": "kimi-k3 / anima-aesthetic-v1.1 ",
+    "width": 1016,
+    "height": 1808,
+    "tags": [
+      "风景",
+      "Anima"
+    ],
+    "prompt": "一个穿着水手服，黑色短发的女生，静静伫立在旷野上。她的衣服被风吹动。旷野上有一座异常巨大的巨构，有几何美感。天空湛蓝，有云朵和飞鸟。请你着重渲染一种 **孤寂感** ，似乎全世界只有她一个人了，突出她与巨构的对比。请你仔细设计巨构，不要只是一座高塔。为了渲染其尺寸，巨构可以溢出画布。\n夕阳西下，金色的 **体积光** 映照在巨构上，并产生金色的反射。\n参考tag：megastructure, grand scale, scenery, building, fantasy, ruins\n人物别太小了，稍微大点儿，但是不要抢占画面主体",
+    "notes": ""
+  },
+  {
+    "id": "work-152b4636-9d86-4831-9926-636470cb97f6",
+    "title": "巨构",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260829_163516_026992_0080_2024.jpeg",
+    "model": "kimi-k3 / anima-aesthetic-v1.1 ",
+    "width": 1808,
+    "height": 1016,
+    "tags": [
+      "风景",
+      "Anima"
+    ],
+    "prompt": "一个穿着水手服，黑色短发的女生，静静伫立在旷野上。她的衣服被风吹动。旷野上有一座异常巨大的巨构，有几何美感。天空湛蓝，有云朵和飞鸟。请你着重渲染一种 **孤寂感** ，似乎全世界只有她一个人了，突出她与巨构的对比。请你仔细设计巨构，不要只是一座高塔。为了渲染其尺寸，巨构可以溢出画布。\n夕阳西下，金色的 **体积光** 映照在巨构上，并产生金色的反射。\n参考tag：megastructure, grand scale, scenery, building, fantasy, ruins\n人物别太小了，稍微大点儿，但是不要抢占画面主体",
+    "notes": ""
+  },
+  {
+    "id": "work-dd278e01-6318-4256-866d-92e8ca5d1d2c",
+    "title": "巨构",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260829_164127_835722_0083_7648.jpeg",
+    "model": "kimi-k3 / anima-aesthetic-v1.1 ",
+    "width": 1808,
+    "height": 1016,
+    "tags": [
+      "风景",
+      "Anima"
+    ],
+    "prompt": "一个穿着水手服，黑色短发的女生，静静伫立在旷野上。她的衣服被风吹动。旷野上有一座异常巨大的巨构，有几何美感。天空湛蓝，有云朵和飞鸟。请你着重渲染一种 **孤寂感** ，似乎全世界只有她一个人了，突出她与巨构的对比。请你仔细设计巨构，不要只是一座高塔。为了渲染其尺寸，巨构可以溢出画布。\n夕阳西下，金色的 **体积光** 映照在巨构上，并产生金色的反射。\n参考tag：megastructure, grand scale, scenery, building, fantasy, ruins\n人物别太小了，稍微大点儿，但是不要抢占画面主体",
+    "notes": ""
+  },
+  {
+    "id": "work-1787845356023",
+    "title": "等待...",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260827_234208_033700_0063_8737.jpeg",
+    "model": "kimi-k3 / anima-aesthetic-v1.1 ",
+    "width": 1016,
+    "height": 1808,
+    "tags": [
+      "秋月",
+      "Anima"
+    ],
+    "prompt": "秋月（criss-cross_straps, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, parted_lips, small_breasts, toned, puffy_short_sleeves, white_shirt, frilled_collar, lace-trimmed_collar, suspender_skirt, frilled_skirt, kneehighs, white_socks, converse, hair_ribbon, blue_ribbon，外面套着一件羽绒服）坐在一处小型火车站的站房中，正在等车。窗外是冬日的夜景，飘着鹅毛大雪。站房内部的光照是暖色调，秋月捧着一杯热茶小口啜饮。\n请你在书写提示词时，渲染那种在鹅毛大雪中孤身一人的孤独感，和秋月即将和心上人相见的温馨和期待感。",
+    "notes": ""
+  },
+  {
+    "id": "work-774b14a5-5be2-4411-90f8-62ec969b1d04",
+    "title": "等待...",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260827_234303_804502_0064_3851.jpeg",
+    "model": "kimi-k3 / anima-aesthetic-v1.1 ",
+    "width": 1016,
+    "height": 1808,
+    "tags": [
+      "秋月",
+      "Anima"
+    ],
+    "prompt": "秋月（criss-cross_straps, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, parted_lips, small_breasts, toned, puffy_short_sleeves, white_shirt, frilled_collar, lace-trimmed_collar, suspender_skirt, frilled_skirt, kneehighs, white_socks, converse, hair_ribbon, blue_ribbon，外面套着一件羽绒服）坐在一处小型火车站的站房中，正在等车。窗外是冬日的夜景，飘着鹅毛大雪。站房内部的光照是暖色调，秋月捧着一杯热茶小口啜饮。\n请你在书写提示词时，渲染那种在鹅毛大雪中孤身一人的孤独感，和秋月即将和心上人相见的温馨和期待感。",
+    "notes": ""
+  },
+  {
+    "id": "work-d8401a5b-993d-4c43-b3a4-df618deacc31",
+    "title": "等待...",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260827_234809_706238_0067_8679.jpeg",
+    "model": "kimi-k3 / anima-aesthetic-v1.1 ",
+    "width": 1016,
+    "height": 1808,
+    "tags": [
+      "秋月",
+      "Anima"
+    ],
+    "prompt": "秋月（criss-cross_straps, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, parted_lips, small_breasts, toned, puffy_short_sleeves, white_shirt, frilled_collar, lace-trimmed_collar, suspender_skirt, frilled_skirt, kneehighs, white_socks, converse, hair_ribbon, blue_ribbon，外面套着一件羽绒服）坐在一处小型火车站的站房中，正在等车。窗外是冬日的夜景，飘着鹅毛大雪。站房内部的光照是暖色调，秋月捧着一杯热茶小口啜饮。\n请你在书写提示词时，渲染那种在鹅毛大雪中孤身一人的孤独感，和秋月即将和心上人相见的温馨和期待感。",
+    "notes": ""
+  },
+  {
+    "id": "work-68aeadc7-ded7-474a-936d-ff48972e7967",
+    "title": "等待...",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260828_221001_408162_0079_2126.jpeg",
+    "model": "kimi-k3 / anima-aesthetic-v1.1 ",
+    "width": 1808,
+    "height": 1016,
+    "tags": [
+      "秋月",
+      "Anima"
+    ],
+    "prompt": "秋月（criss-cross_straps, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, parted_lips, small_breasts, toned, puffy_short_sleeves, white_shirt, frilled_collar, lace-trimmed_collar, suspender_skirt, frilled_skirt, kneehighs, white_socks, converse, hair_ribbon, blue_ribbon，外面套着一件羽绒服）坐在一处小型火车站的站房中，正在等车。窗外是冬日的夜景，飘着鹅毛大雪。站房内部的光照是暖色调，秋月捧着一杯热茶小口啜饮。\n请你在书写提示词时，渲染那种在鹅毛大雪中孤身一人的孤独感，和秋月即将和心上人相见的温馨和期待感。",
+    "notes": ""
+  },
+  {
+    "id": "work-7c3f00ef-5b47-4317-9435-a2e9d89d2b8d",
+    "title": "等待...",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260827_235641_163306_0073_6975.jpeg",
+    "model": "kimi-k3 / anima-aesthetic-v1.1 ",
+    "width": 1016,
+    "height": 1808,
+    "tags": [
+      "秋月",
+      "Anima"
+    ],
+    "prompt": "秋月（criss-cross_straps, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, parted_lips, small_breasts, toned, puffy_short_sleeves, white_shirt, frilled_collar, lace-trimmed_collar, suspender_skirt, frilled_skirt, kneehighs, white_socks, converse, hair_ribbon, blue_ribbon，外面套着一件羽绒服）坐在一处小型火车站的站房中，正在等车。窗外是冬日的夜景，飘着鹅毛大雪。站房内部的光照是暖色调，秋月捧着一杯热茶小口啜饮。\n请你在书写提示词时，渲染那种在鹅毛大雪中孤身一人的孤独感，和秋月即将和心上人相见的温馨和期待感。",
+    "notes": ""
+  },
+  {
+    "id": "work-ed9f711c-2c6f-443b-8b0c-57034a0fc52e",
+    "title": "等待...",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260828_221209_193494_0081_1486.jpeg",
+    "model": "kimi-k3 / anima-aesthetic-v1.1 ",
+    "width": 1808,
+    "height": 1016,
+    "tags": [
+      "秋月",
+      "Anima"
+    ],
+    "prompt": "秋月（criss-cross_straps, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, parted_lips, small_breasts, toned, puffy_short_sleeves, white_shirt, frilled_collar, lace-trimmed_collar, suspender_skirt, frilled_skirt, kneehighs, white_socks, converse, hair_ribbon, blue_ribbon，外面套着一件羽绒服）坐在一处小型火车站的站房中，正在等车。窗外是冬日的夜景，飘着鹅毛大雪。站房内部的光照是暖色调，秋月捧着一杯热茶小口啜饮。\n请你在书写提示词时，渲染那种在鹅毛大雪中孤身一人的孤独感，和秋月即将和心上人相见的温馨和期待感。",
+    "notes": ""
+  },
+  {
+    "id": "work-ba05ea54-d08b-4add-b8b4-68d878ae513e",
+    "title": "等待...",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260828_221440_455656_0082_7606.jpeg",
+    "model": "kimi-k3 / anima-aesthetic-v1.1 ",
+    "width": 1808,
+    "height": 1016,
+    "tags": [
+      "秋月",
+      "Anima"
+    ],
+    "prompt": "秋月（criss-cross_straps, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, parted_lips, small_breasts, toned, puffy_short_sleeves, white_shirt, frilled_collar, lace-trimmed_collar, suspender_skirt, frilled_skirt, kneehighs, white_socks, converse, hair_ribbon, blue_ribbon，外面套着一件羽绒服）坐在一处小型火车站的站房中，正在等车。窗外是冬日的夜景，飘着鹅毛大雪。站房内部的光照是暖色调，秋月捧着一杯热茶小口啜饮。\n请你在书写提示词时，渲染那种在鹅毛大雪中孤身一人的孤独感，和秋月即将和心上人相见的温馨和期待感。",
+    "notes": ""
+  },
+  {
+    "id": "work-13917cc7-63a8-44a2-98ad-c32ad5db05bc",
+    "title": "等待...",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260828_222129_558241_0086_4171.jpeg",
+    "model": "kimi-k3 / anima-aesthetic-v1.1 ",
+    "width": 1808,
+    "height": 1016,
+    "tags": [
+      "秋月",
+      "Anima"
+    ],
+    "prompt": "秋月（criss-cross_straps, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, parted_lips, small_breasts, toned, puffy_short_sleeves, white_shirt, frilled_collar, lace-trimmed_collar, suspender_skirt, frilled_skirt, kneehighs, white_socks, converse, hair_ribbon, blue_ribbon，外面套着一件羽绒服）坐在一处小型火车站的站房中，正在等车。窗外是冬日的夜景，飘着鹅毛大雪。站房内部的光照是暖色调，秋月捧着一杯热茶小口啜饮。\n请你在书写提示词时，渲染那种在鹅毛大雪中孤身一人的孤独感，和秋月即将和心上人相见的温馨和期待感。",
+    "notes": ""
+  },
+  {
+    "id": "work-618af469-05ee-4abd-b816-cb97cd80aa4d",
+    "title": "等待...",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260828_000535_339824_0077_7250.jpeg",
+    "model": "kimi-k3 / anima-aesthetic-v1.1 ",
+    "width": 1808,
+    "height": 1016,
+    "tags": [
+      "秋月",
+      "Anima"
+    ],
+    "prompt": "秋月（criss-cross_straps, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, parted_lips, small_breasts, toned, puffy_short_sleeves, white_shirt, frilled_collar, lace-trimmed_collar, suspender_skirt, frilled_skirt, kneehighs, white_socks, converse, hair_ribbon, blue_ribbon，外面套着一件羽绒服）坐在一处小型火车站的站房中，正在等车。窗外是冬日的夜景，飘着鹅毛大雪。站房内部的光照是暖色调，秋月捧着一杯热茶小口啜饮。\n请你在书写提示词时，渲染那种在鹅毛大雪中孤身一人的孤独感，和秋月即将和心上人相见的温馨和期待感。",
+    "notes": ""
+  },
+  {
+    "id": "work-6598834e-ac5f-4773-80ae-afd74c9a2cd3",
+    "title": "等待...",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260827_235024_084564_0069_1775.jpeg",
+    "model": "kimi-k3 / anima-aesthetic-v1.1 ",
+    "width": 1016,
+    "height": 1808,
+    "tags": [
+      "秋月",
+      "Anima"
+    ],
+    "prompt": "秋月（criss-cross_straps, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, parted_lips, small_breasts, toned, puffy_short_sleeves, white_shirt, frilled_collar, lace-trimmed_collar, suspender_skirt, frilled_skirt, kneehighs, white_socks, converse, hair_ribbon, blue_ribbon，外面套着一件羽绒服）坐在一处小型火车站的站房中，正在等车。窗外是冬日的夜景，飘着鹅毛大雪。站房内部的光照是暖色调，秋月捧着一杯热茶小口啜饮。\n请你在书写提示词时，渲染那种在鹅毛大雪中孤身一人的孤独感，和秋月即将和心上人相见的温馨和期待感。",
+    "notes": ""
+  },
+  {
+    "id": "work-465e8e71-c941-4352-87fb-cd69c45c4d5e",
+    "title": "等待...",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260827_234708_135278_0066_3459.jpeg",
+    "model": "kimi-k3 / anima-aesthetic-v1.1 ",
+    "width": 1016,
+    "height": 1808,
+    "tags": [
+      "秋月",
+      "Anima"
+    ],
+    "prompt": "秋月（criss-cross_straps, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, parted_lips, small_breasts, toned, puffy_short_sleeves, white_shirt, frilled_collar, lace-trimmed_collar, suspender_skirt, frilled_skirt, kneehighs, white_socks, converse, hair_ribbon, blue_ribbon，外面套着一件羽绒服）坐在一处小型火车站的站房中，正在等车。窗外是冬日的夜景，飘着鹅毛大雪。站房内部的光照是暖色调，秋月捧着一杯热茶小口啜饮。\n请你在书写提示词时，渲染那种在鹅毛大雪中孤身一人的孤独感，和秋月即将和心上人相见的温馨和期待感。",
+    "notes": ""
+  },
+  {
+    "id": "work-1787842671162",
+    "title": "冬季傍晚铁道口",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260827_225611_574068_0039_7693.jpeg",
+    "model": "kimi-k3 / anima-aesthetic-v1.1 ",
+    "width": 1808,
+    "height": 1016,
+    "tags": [
+      "风景",
+      "秋月",
+      "Anima"
+    ],
+    "prompt": "一个穿着水手服，白色，中等长度头发，高马尾的女生（1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,toned,），站在一个铁路道口边，回头微笑。画面中有红绿灯、汽车、云彩、路人、飞鸟等应当出现的物体。\n气氛是傍晚，夕阳西下，天空中有晚霞。冬季，有雪花中天上飞舞。本次构图以环境、气氛为主，体现画面那种闲适、平静、日常美好的气氛，以人物为辅，人物只出现头胸部，位于画面右下侧。\n人物稍微大点儿，但是不要抢占画面主体",
+    "notes": ""
+  },
+  {
+    "id": "work-6620e915-6b43-4863-9b9d-b63b47bb5e82",
+    "title": "冬季傍晚铁道口",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260827_232832_578503_0057_7662.jpeg",
+    "model": "kimi-k3 / anima-aesthetic-v1.1 ",
+    "width": 1808,
+    "height": 1016,
+    "tags": [
+      "风景",
+      "秋月",
+      "Anima"
+    ],
+    "prompt": "一个穿着水手服，白色，中等长度头发，高马尾的女生（1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,toned,），站在一个铁路道口边，回头微笑。画面中有红绿灯、汽车、云彩、路人、飞鸟等应当出现的物体。\n气氛是傍晚，夕阳西下，天空中有晚霞。冬季，有雪花中天上飞舞。本次构图以环境、气氛为主，体现画面那种闲适、平静、日常美好的气氛，以人物为辅，人物只出现头胸部，位于画面右下侧。\n人物稍微大点儿，但是不要抢占画面主体",
+    "notes": ""
+  },
+  {
+    "id": "work-1c307e41-fb07-4369-96da-a720341d2bfc",
+    "title": "冬季傍晚铁道口",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260827_230118_243181_0041_8821.jpeg",
+    "model": "kimi-k3 / anima-aesthetic-v1.1 ",
+    "width": 1808,
+    "height": 1016,
+    "tags": [
+      "风景",
+      "秋月",
+      "Anima"
+    ],
+    "prompt": "一个穿着水手服，白色，中等长度头发，高马尾的女生（1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,toned,），站在一个铁路道口边，回头微笑。画面中有红绿灯、汽车、云彩、路人、飞鸟等应当出现的物体。\n气氛是傍晚，夕阳西下，天空中有晚霞。冬季，有雪花中天上飞舞。本次构图以环境、气氛为主，体现画面那种闲适、平静、日常美好的气氛，以人物为辅，人物只出现头胸部，位于画面右下侧。\n人物稍微大点儿，但是不要抢占画面主体",
+    "notes": ""
+  },
+  {
+    "id": "work-a107d99e-d730-4196-9886-f36e282d306f",
+    "title": "冬季傍晚铁道口",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260827_230515_149607_0043_3387.jpeg",
+    "model": "kimi-k3 / anima-aesthetic-v1.1 ",
+    "width": 1808,
+    "height": 1016,
+    "tags": [
+      "风景",
+      "秋月",
+      "Anima"
+    ],
+    "prompt": "一个穿着水手服，白色，中等长度头发，高马尾的女生（1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,toned,），站在一个铁路道口边，回头微笑。画面中有红绿灯、汽车、云彩、路人、飞鸟等应当出现的物体。\n气氛是傍晚，夕阳西下，天空中有晚霞。冬季，有雪花中天上飞舞。本次构图以环境、气氛为主，体现画面那种闲适、平静、日常美好的气氛，以人物为辅，人物只出现头胸部，位于画面右下侧。\n人物稍微大点儿，但是不要抢占画面主体",
+    "notes": ""
+  },
+  {
+    "id": "work-bf6a957e-21c8-4a74-b515-27a6b5768d53",
+    "title": "冬季傍晚铁道口",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260827_231400_266754_0050_5274.jpeg",
+    "model": "kimi-k3 / anima-aesthetic-v1.1 ",
+    "width": 1016,
+    "height": 1808,
+    "tags": [
+      "风景",
+      "秋月",
+      "Anima"
+    ],
+    "prompt": "一个穿着水手服，白色，中等长度头发，高马尾的女生（1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,toned,），站在一个铁路道口边，回头微笑。画面中有红绿灯、汽车、云彩、路人、飞鸟等应当出现的物体。\n气氛是傍晚，夕阳西下，天空中有晚霞。冬季，有雪花中天上飞舞。本次构图以环境、气氛为主，体现画面那种闲适、平静、日常美好的气氛，以人物为辅，人物只出现头胸部，位于画面右下侧。\n人物稍微大点儿，但是不要抢占画面主体",
+    "notes": ""
+  },
+  {
+    "id": "work-19469ec2-8856-46c3-8133-fd3ce1edff3f",
+    "title": "冬季傍晚铁道口",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260827_231744_300326_0052_5035.jpeg",
+    "model": "kimi-k3 / anima-aesthetic-v1.1 ",
+    "width": 1016,
+    "height": 1808,
+    "tags": [
+      "风景",
+      "秋月",
+      "Anima"
+    ],
+    "prompt": "一个穿着水手服，白色，中等长度头发，高马尾的女生（1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,toned,），站在一个铁路道口边，回头微笑。画面中有红绿灯、汽车、云彩、路人、飞鸟等应当出现的物体。\n气氛是傍晚，夕阳西下，天空中有晚霞。冬季，有雪花中天上飞舞。本次构图以环境、气氛为主，体现画面那种闲适、平静、日常美好的气氛，以人物为辅，人物只出现头胸部，位于画面右下侧。\n人物稍微大点儿，但是不要抢占画面主体",
+    "notes": ""
+  },
+  {
+    "id": "work-70d6425d-b5b9-49b8-9ba2-010ccc03f8ed",
+    "title": "冬季傍晚铁道口",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260827_231958_872496_0053_9494.jpeg",
+    "model": "kimi-k3 / anima-aesthetic-v1.1 ",
+    "width": 1016,
+    "height": 1808,
+    "tags": [
+      "风景",
+      "秋月",
+      "Anima"
+    ],
+    "prompt": "一个穿着水手服，白色，中等长度头发，高马尾的女生（1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,toned,），站在一个铁路道口边，回头微笑。画面中有红绿灯、汽车、云彩、路人、飞鸟等应当出现的物体。\n气氛是傍晚，夕阳西下，天空中有晚霞。冬季，有雪花中天上飞舞。本次构图以环境、气氛为主，体现画面那种闲适、平静、日常美好的气氛，以人物为辅，人物只出现头胸部，位于画面右下侧。\n人物稍微大点儿，但是不要抢占画面主体",
+    "notes": ""
+  },
+  {
+    "id": "work-9857a607-b994-45c8-ac34-2480879985c9",
+    "title": "冬季傍晚铁道口",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260827_232418_590773_0056_5894.jpeg",
+    "model": "kimi-k3 / anima-aesthetic-v1.1 ",
+    "width": 1016,
+    "height": 1808,
+    "tags": [
+      "风景",
+      "秋月",
+      "Anima"
+    ],
+    "prompt": "一个穿着水手服，白色，中等长度头发，高马尾的女生（1girl,white_hair,blue_eyes,medium_hair,high_ponytail,sidelocks,\nsmall_breasts,serafuku,white_shirt,deep_blue_sailor_collar,short_sleeves,shirt_tucked_in,toned,），站在一个铁路道口边，回头微笑。画面中有红绿灯、汽车、云彩、路人、飞鸟等应当出现的物体。\n气氛是傍晚，夕阳西下，天空中有晚霞。冬季，有雪花中天上飞舞。本次构图以环境、气氛为主，体现画面那种闲适、平静、日常美好的气氛，以人物为辅，人物只出现头胸部，位于画面右下侧。\n人物稍微大点儿，但是不要抢占画面主体",
+    "notes": ""
+  },
+  {
     "id": "work-1786456175345",
     "title": "树下",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260811_214905_854499_0000_1895.jpeg",
