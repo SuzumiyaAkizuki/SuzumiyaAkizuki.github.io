@@ -1,11 +1,221 @@
 window.GALLERY_ITEMS = [
   {
+    "id": "work-1789737104290",
+    "title": "山间·春香",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260918_205054_206586_0027_2869.jpeg",
+    "model": "deepseek-v4.1-flash / anima-aesthetic-v1.1 ",
+    "width": 992,
+    "height": 2168,
+    "tags": [
+      "天海春香",
+      "Anima"
+    ],
+    "prompt": "偶像大师中的天海春香（amami_haruka, red_ribbon, red_bow, hair_ribbon, green_eyes, brown_hair, short_hair, hair_bow, idolmaster）穿着偶像英雄演出服（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt,short_sleeves ）站在山顶。\n\n画面为大腿以上的取景，人物主导整个画面，居于中央，上身回转、越过肩膀回望观者。一阵强风横扫画面，吹起她的短发并把披风下摆吹向一侧，脸上带着淡淡笑意。她身后整片背景展开为明亮的淡蓝水彩天空与流动云朵，右上方温暖的阳光为她的头发与肩膀镶上轮廓光；柔和的绿蓝色环境明显次于她被照亮的脸庞与双眼。",
+    "notes": ""
+  },
+  {
+    "id": "work-84dcc002-1a76-45de-88d1-a07efaa4d1ac",
+    "title": "山间·春香",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260918_211720_278192_0029_8154.jpeg",
+    "model": "deepseek-v4.1-flash / anima-aesthetic-v1.1 ",
+    "width": 992,
+    "height": 2168,
+    "tags": [
+      "天海春香",
+      "Anima"
+    ],
+    "prompt": "偶像大师中的天海春香（amami_haruka, red_ribbon, red_bow, hair_ribbon, green_eyes, brown_hair, short_hair, hair_bow, idolmaster）穿着偶像英雄演出服（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt,short_sleeves ）站在山顶。\n\n画面为大腿以上的取景，人物主导整个画面，居于中央，上身回转、越过肩膀回望观者。一阵强风横扫画面，吹起她的短发并把披风下摆吹向一侧，脸上带着淡淡笑意。她身后整片背景展开为明亮的淡蓝水彩天空与流动云朵，右上方温暖的阳光为她的头发与肩膀镶上轮廓光；柔和的绿蓝色环境明显次于她被照亮的脸庞与双眼。",
+    "notes": ""
+  },
+  {
+    "id": "work-61a5dcb0-c325-4a55-846a-cf4a276b3c38",
+    "title": "山间·春香",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260918_211917_530189_0030_4229.jpeg",
+    "model": "deepseek-v4.1-flash / anima-aesthetic-v1.1 ",
+    "width": 1808,
+    "height": 1016,
+    "tags": [
+      "天海春香",
+      "Anima"
+    ],
+    "prompt": "偶像大师中的天海春香（amami_haruka, red_ribbon, red_bow, hair_ribbon, green_eyes, brown_hair, short_hair, hair_bow, idolmaster）穿着偶像英雄演出服（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt,short_sleeves ）站在山顶。\n\n画面为大腿以上的取景，人物主导整个画面，居于中央，上身回转、越过肩膀回望观者。一阵强风横扫画面，吹起她的短发并把披风下摆吹向一侧，脸上带着淡淡笑意。她身后整片背景展开为明亮的淡蓝水彩天空与流动云朵，右上方温暖的阳光为她的头发与肩膀镶上轮廓光；柔和的绿蓝色环境明显次于她被照亮的脸庞与双眼。",
+    "notes": ""
+  },
+  {
+    "id": "work-173a5518-3fa3-49cf-97ee-e2fcb9c5610a",
+    "title": "山间·春香",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260918_221606_046184_0044_4204.jpeg",
+    "model": "deepseek-v4.1-flash / anima-aesthetic-v1.1 ",
+    "width": 1808,
+    "height": 1016,
+    "tags": [
+      "天海春香",
+      "Anima"
+    ],
+    "prompt": "偶像大师中的天海春香（amami_haruka, red_ribbon, red_bow, hair_ribbon, green_eyes, brown_hair, short_hair, hair_bow, idolmaster）穿着偶像英雄演出服（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt,short_sleeves ）站在山顶。\n\n画面为大腿以上的取景，人物主导整个画面，居于中央，上身回转、越过肩膀回望观者。一阵强风横扫画面，吹起她的短发并把披风下摆吹向一侧，脸上带着淡淡笑意。她身后整片背景展开为明亮的淡蓝水彩天空与流动云朵，右上方温暖的阳光为她的头发与肩膀镶上轮廓光；柔和的绿蓝色环境明显次于她被照亮的脸庞与双眼。",
+    "notes": ""
+  },
+  {
+    "id": "work-570a53f4-081f-4c4f-bece-cf39c7644bc8",
+    "title": "山间·春香",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260918_212108_589238_0031_7545.jpeg",
+    "model": "deepseek-v4.1-flash / anima-aesthetic-v1.1 ",
+    "width": 1808,
+    "height": 1016,
+    "tags": [
+      "天海春香",
+      "Anima"
+    ],
+    "prompt": "偶像大师中的天海春香（amami_haruka, red_ribbon, red_bow, hair_ribbon, green_eyes, brown_hair, short_hair, hair_bow, idolmaster）穿着偶像英雄演出服（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt,short_sleeves ）站在山顶。\n\n画面为大腿以上的取景，人物主导整个画面，居于中央，上身回转、越过肩膀回望观者。一阵强风横扫画面，吹起她的短发并把披风下摆吹向一侧，脸上带着淡淡笑意。她身后整片背景展开为明亮的淡蓝水彩天空与流动云朵，右上方温暖的阳光为她的头发与肩膀镶上轮廓光；柔和的绿蓝色环境明显次于她被照亮的脸庞与双眼。",
+    "notes": ""
+  },
+  {
+    "id": "work-f06f09b8-933e-4f68-bc9d-6fa29515897a",
+    "title": "山间·春香",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260918_213038_753669_0035_7535.jpeg",
+    "model": "deepseek-v4.1-flash / anima-aesthetic-v1.1 ",
+    "width": 1016,
+    "height": 1808,
+    "tags": [
+      "天海春香",
+      "Anima"
+    ],
+    "prompt": "偶像大师中的天海春香（amami_haruka, red_ribbon, red_bow, hair_ribbon, green_eyes, brown_hair, short_hair, hair_bow, idolmaster）穿着偶像英雄演出服（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt,short_sleeves ）站在山顶。\n\n画面为大腿以上的取景，人物主导整个画面，居于中央，上身回转、越过肩膀回望观者。一阵强风横扫画面，吹起她的短发并把披风下摆吹向一侧，脸上带着淡淡笑意。她身后整片背景展开为明亮的淡蓝水彩天空与流动云朵，右上方温暖的阳光为她的头发与肩膀镶上轮廓光；柔和的绿蓝色环境明显次于她被照亮的脸庞与双眼。",
+    "notes": ""
+  },
+  {
+    "id": "work-c2d45a65-56ca-46b1-bb08-fc0720e71199",
+    "title": "山间·春香",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260918_220429_407235_0039_1510.jpeg",
+    "model": "deepseek-v4.1-flash / anima-aesthetic-v1.1 ",
+    "width": 1808,
+    "height": 1016,
+    "tags": [
+      "天海春香",
+      "Anima"
+    ],
+    "prompt": "偶像大师中的天海春香（amami_haruka, red_ribbon, red_bow, hair_ribbon, green_eyes, brown_hair, short_hair, hair_bow, idolmaster）穿着偶像英雄演出服（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt,short_sleeves ）站在山顶。\n\n画面为大腿以上的取景，人物主导整个画面，居于中央，上身回转、越过肩膀回望观者。一阵强风横扫画面，吹起她的短发并把披风下摆吹向一侧，脸上带着淡淡笑意。她身后整片背景展开为明亮的淡蓝水彩天空与流动云朵，右上方温暖的阳光为她的头发与肩膀镶上轮廓光；柔和的绿蓝色环境明显次于她被照亮的脸庞与双眼。",
+    "notes": ""
+  },
+  {
+    "id": "work-d2d0bfd7-9349-4c97-b606-e4de7004a436",
+    "title": "山间·春香",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260918_220828_471706_0041_6281.jpeg",
+    "model": "deepseek-v4.1-flash / anima-aesthetic-v1.1 ",
+    "width": 1016,
+    "height": 1808,
+    "tags": [
+      "天海春香",
+      "Anima"
+    ],
+    "prompt": "偶像大师中的天海春香（amami_haruka, red_ribbon, red_bow, hair_ribbon, green_eyes, brown_hair, short_hair, hair_bow, idolmaster）穿着偶像英雄演出服（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt,short_sleeves ）站在山顶。\n\n画面为大腿以上的取景，人物主导整个画面，居于中央，上身回转、越过肩膀回望观者。一阵强风横扫画面，吹起她的短发并把披风下摆吹向一侧，脸上带着淡淡笑意。她身后整片背景展开为明亮的淡蓝水彩天空与流动云朵，右上方温暖的阳光为她的头发与肩膀镶上轮廓光；柔和的绿蓝色环境明显次于她被照亮的脸庞与双眼。",
+    "notes": ""
+  },
+  {
+    "id": "work-a204a097-fb1e-40a4-8329-a2f2574c0e49",
+    "title": "山间·春香",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260918_221418_474015_0043_6827.jpeg",
+    "model": "deepseek-v4.1-flash / anima-aesthetic-v1.1 ",
+    "width": 1808,
+    "height": 1016,
+    "tags": [
+      "天海春香",
+      "Anima"
+    ],
+    "prompt": "偶像大师中的天海春香（amami_haruka, red_ribbon, red_bow, hair_ribbon, green_eyes, brown_hair, short_hair, hair_bow, idolmaster）穿着偶像英雄演出服（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt,short_sleeves ）站在山顶。\n\n画面为大腿以上的取景，人物主导整个画面，居于中央，上身回转、越过肩膀回望观者。一阵强风横扫画面，吹起她的短发并把披风下摆吹向一侧，脸上带着淡淡笑意。她身后整片背景展开为明亮的淡蓝水彩天空与流动云朵，右上方温暖的阳光为她的头发与肩膀镶上轮廓光；柔和的绿蓝色环境明显次于她被照亮的脸庞与双眼。",
+    "notes": ""
+  },
+  {
+    "id": "work-77664f98-78ab-4086-9f72-cf7b665ac8cf",
+    "title": "山间·春香",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260918_221215_857005_0042_3681.jpeg",
+    "model": "deepseek-v4.1-flash / anima-aesthetic-v1.1 ",
+    "width": 1016,
+    "height": 1808,
+    "tags": [
+      "天海春香",
+      "Anima"
+    ],
+    "prompt": "偶像大师中的天海春香（amami_haruka, red_ribbon, red_bow, hair_ribbon, green_eyes, brown_hair, short_hair, hair_bow, idolmaster）穿着偶像英雄演出服（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt,short_sleeves ）站在山顶。\n\n画面为大腿以上的取景，人物主导整个画面，居于中央，上身回转、越过肩膀回望观者。一阵强风横扫画面，吹起她的短发并把披风下摆吹向一侧，脸上带着淡淡笑意。她身后整片背景展开为明亮的淡蓝水彩天空与流动云朵，右上方温暖的阳光为她的头发与肩膀镶上轮廓光；柔和的绿蓝色环境明显次于她被照亮的脸庞与双眼。",
+    "notes": ""
+  },
+  {
+    "id": "work-1cbc66b2-ff55-4c74-83df-a3f3eb8e5864",
+    "title": "山间·春香",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260918_212215_331369_0032_2966.jpeg",
+    "model": "deepseek-v4.1-flash / anima-aesthetic-v1.1 ",
+    "width": 1016,
+    "height": 1808,
+    "tags": [
+      "天海春香",
+      "Anima"
+    ],
+    "prompt": "偶像大师中的天海春香（amami_haruka, red_ribbon, red_bow, hair_ribbon, green_eyes, brown_hair, short_hair, hair_bow, idolmaster）穿着偶像英雄演出服（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt,short_sleeves ）站在山顶。\n\n画面为大腿以上的取景，人物主导整个画面，居于中央，上身回转、越过肩膀回望观者。一阵强风横扫画面，吹起她的短发并把披风下摆吹向一侧，脸上带着淡淡笑意。她身后整片背景展开为明亮的淡蓝水彩天空与流动云朵，右上方温暖的阳光为她的头发与肩膀镶上轮廓光；柔和的绿蓝色环境明显次于她被照亮的脸庞与双眼。",
+    "notes": ""
+  },
+  {
+    "id": "work-828cfc80-5d4c-4a00-a923-ff9aa7271b2d",
+    "title": "山间·春香",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260918_202024_070958_0022_5221.jpeg",
+    "model": "deepseek-v4.1-flash / anima-aesthetic-v1.1 ",
+    "width": 1016,
+    "height": 1808,
+    "tags": [
+      "天海春香",
+      "Anima"
+    ],
+    "prompt": "偶像大师中的天海春香（amami_haruka, red_ribbon, red_bow, hair_ribbon, green_eyes, brown_hair, short_hair, hair_bow, idolmaster）穿着偶像英雄演出服（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt,short_sleeves ）站在山顶。\n\n画面为大腿以上的取景，人物主导整个画面，居于中央，上身回转、越过肩膀回望观者。一阵强风横扫画面，吹起她的短发并把披风下摆吹向一侧，脸上带着淡淡笑意。她身后整片背景展开为明亮的淡蓝水彩天空与流动云朵，右上方温暖的阳光为她的头发与肩膀镶上轮廓光；柔和的绿蓝色环境明显次于她被照亮的脸庞与双眼。",
+    "notes": ""
+  },
+  {
+    "id": "work-998dc555-4869-4504-a4e4-4f6380c9037d",
+    "title": "山间·春香",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260918_195203_360253_0020_2423.jpeg",
+    "model": "deepseek-v4.1-flash / anima-aesthetic-v1.1 ",
+    "width": 1808,
+    "height": 1016,
+    "tags": [
+      "天海春香",
+      "Anima"
+    ],
+    "prompt": "偶像大师中的天海春香（amami_haruka, red_ribbon, red_bow, hair_ribbon, green_eyes, brown_hair, short_hair, hair_bow, idolmaster）穿着偶像英雄演出服（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt,short_sleeves ）站在山顶。\n\n画面为大腿以上的取景，人物主导整个画面，居于中央，上身回转、越过肩膀回望观者。一阵强风横扫画面，吹起她的短发并把披风下摆吹向一侧，脸上带着淡淡笑意。她身后整片背景展开为明亮的淡蓝水彩天空与流动云朵，右上方温暖的阳光为她的头发与肩膀镶上轮廓光；柔和的绿蓝色环境明显次于她被照亮的脸庞与双眼。",
+    "notes": ""
+  },
+  {
+    "id": "work-4f31f2ac-d17a-49e5-901e-46f36d460195",
+    "title": "山间·春香",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260918_174625_840736_0009_8762.jpeg",
+    "model": "deepseek-v4.1-flash / anima-aesthetic-v1.1 ",
+    "width": 1808,
+    "height": 1016,
+    "tags": [
+      "天海春香",
+      "Anima"
+    ],
+    "prompt": "偶像大师中的天海春香（amami_haruka, red_ribbon, red_bow, hair_ribbon, green_eyes, brown_hair, short_hair, hair_bow, idolmaster）穿着偶像英雄演出服（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt,short_sleeves ）站在山顶。\n\n画面为大腿以上的取景，人物主导整个画面，居于中央，上身回转、越过肩膀回望观者。一阵强风横扫画面，吹起她的短发并把披风下摆吹向一侧，脸上带着淡淡笑意。她身后整片背景展开为明亮的淡蓝水彩天空与流动云朵，右上方温暖的阳光为她的头发与肩膀镶上轮廓光；柔和的绿蓝色环境明显次于她被照亮的脸庞与双眼。",
+    "notes": ""
+  },
+  {
+    "id": "work-3b3847a4-2f84-4ae6-90fa-6cbf0a11376b",
+    "title": "山间·春香",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260918_192914_952957_0016_9916.jpeg",
+    "model": "deepseek-v4.1-flash / anima-aesthetic-v1.1 ",
+    "width": 1016,
+    "height": 1808,
+    "tags": [
+      "天海春香",
+      "Anima"
+    ],
+    "prompt": "偶像大师中的天海春香（amami_haruka, red_ribbon, red_bow, hair_ribbon, green_eyes, brown_hair, short_hair, hair_bow, idolmaster）穿着偶像英雄演出服（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt,short_sleeves ）站在山顶。\n\n画面为大腿以上的取景，人物主导整个画面，居于中央，上身回转、越过肩膀回望观者。一阵强风横扫画面，吹起她的短发并把披风下摆吹向一侧，脸上带着淡淡笑意。她身后整片背景展开为明亮的淡蓝水彩天空与流动云朵，右上方温暖的阳光为她的头发与肩膀镶上轮廓光；柔和的绿蓝色环境明显次于她被照亮的脸庞与双眼。",
+    "notes": ""
+  },
+  {
     "id": "work-1788014115882",
     "title": "拨云见日",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260829_223450_107671_0114_7672.jpeg",
     "model": "kimi-k3 / anima-aesthetic-v1.1 ",
-    "width": null,
-    "height": null,
+    "width": 1808,
+    "height": 1016,
     "tags": [
       "春日",
       "Anima"
@@ -18,8 +228,8 @@ window.GALLERY_ITEMS = [
     "title": "拨云见日",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260829_223932_442872_0117_5251.jpeg",
     "model": "kimi-k3 / anima-aesthetic-v1.1 ",
-    "width": null,
-    "height": null,
+    "width": 1016,
+    "height": 1808,
     "tags": [
       "春日",
       "Anima"
@@ -32,8 +242,8 @@ window.GALLERY_ITEMS = [
     "title": "拨云见日",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260829_224636_310093_0120_2359.jpeg",
     "model": "kimi-k3 / anima-aesthetic-v1.1 ",
-    "width": null,
-    "height": null,
+    "width": 1016,
+    "height": 1808,
     "tags": [
       "春日",
       "Anima"
@@ -46,8 +256,8 @@ window.GALLERY_ITEMS = [
     "title": "拨云见日",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260829_224803_389564_0121_3449.jpeg",
     "model": "kimi-k3 / anima-aesthetic-v1.1 ",
-    "width": null,
-    "height": null,
+    "width": 1016,
+    "height": 1808,
     "tags": [
       "春日",
       "Anima"
@@ -60,8 +270,8 @@ window.GALLERY_ITEMS = [
     "title": "拨云见日",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260829_225719_562314_0128_3149.jpeg",
     "model": "kimi-k3 / anima-aesthetic-v1.1 ",
-    "width": null,
-    "height": null,
+    "width": 1016,
+    "height": 1808,
     "tags": [
       "春日",
       "Anima"
@@ -74,8 +284,8 @@ window.GALLERY_ITEMS = [
     "title": "拨云见日",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260829_230123_662533_0132_1591.jpeg",
     "model": "kimi-k3 / anima-aesthetic-v1.1 ",
-    "width": null,
-    "height": null,
+    "width": 1016,
+    "height": 1808,
     "tags": [
       "春日",
       "Anima"
@@ -88,8 +298,8 @@ window.GALLERY_ITEMS = [
     "title": "拨云见日",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260829_230433_882535_0135_2898.jpeg",
     "model": "kimi-k3 / anima-aesthetic-v1.1 ",
-    "width": null,
-    "height": null,
+    "width": 1808,
+    "height": 1016,
     "tags": [
       "春日",
       "Anima"
@@ -102,8 +312,8 @@ window.GALLERY_ITEMS = [
     "title": "拨云见日",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260829_224503_376031_0119_1689.jpeg",
     "model": "kimi-k3 / anima-aesthetic-v1.1 ",
-    "width": null,
-    "height": null,
+    "width": 1016,
+    "height": 1808,
     "tags": [
       "春日",
       "Anima"
