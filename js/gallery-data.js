@@ -1,5 +1,243 @@
 window.GALLERY_ITEMS = [
   {
+    "id": "work-1791448161729",
+    "title": "元素战争",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20261008_160615_670103_0215_1686.jpeg",
+    "model": "gemini-3.7-flash / anima-aesthetic-v1.1 ",
+    "width": 1016,
+    "height": 1808,
+    "tags": [
+      "荧",
+      "Anima"
+    ],
+    "prompt": "人物「lumine_(elemental_warfare)」（必须在提示词中包含这个人物名称，她的参考标签为：1girl, solo, blonde_hair, short_hair, long_sidelocks, brown_eyes, hair_flower, white_flower, headset, white_scarf, white_shirt, blue_sleeves, short_sleeves, tactical_vest, fingerless_gloves, shorts, blue_belt, thigh_holster, kneepads, uneven_legwear, thighhighs, kneehighs, lace-up_boots,single thighhigh）\n在一处都市的楼顶，她做出帅气可爱的two-finger_salute, hand_on_own_hip, one_eye_closed动作，背景是云海和摩天大楼群。风吹动她的衣服和头发。\n环境明亮无暗部。以人物为主体，全身。人物占3/4画幅，城市背景占1/4画幅。使用aesthetic模型。分级safe。",
+    "notes": ""
+  },
+  {
+    "id": "work-b7be1071-d57b-41fc-b431-b50fb73c370b",
+    "title": "元素战争",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20261008_170940_543653_0240_6171.jpeg",
+    "model": "gemini-3.7-flash / anima-aesthetic-v1.1 ",
+    "width": 1016,
+    "height": 1808,
+    "tags": [
+      "荧",
+      "Anima"
+    ],
+    "prompt": "人物「lumine_(elemental_warfare)」（必须在提示词中包含这个人物名称，她的参考标签为：1girl, solo, blonde_hair, short_hair, long_sidelocks, brown_eyes, hair_flower, white_flower, headset, white_scarf, white_shirt, blue_sleeves, short_sleeves, tactical_vest, fingerless_gloves, shorts, blue_belt, thigh_holster, kneepads, uneven_legwear, thighhighs, kneehighs, lace-up_boots,single thighhigh）\n\n(handgun:1.1), holding_gun, aiming, military_operator, indoors, parted_lips, pain, arm_support, yokozuwari, (gunshot_wound:1.1), dying, blood_from_mouth, teardrop, (under_fire:1.2), broken_helmet, bulletproof_vest, microphone, bandaid_on_face, bandaid_on_leg, blood_on_face, dirty_face, projectile_trail, torn_clothes, blood_on_clothes, blood_on_leg, bleeding_from_forehead,shoot with one hand\n \n环境明亮无暗部。以人物为主体，全身。使用aesthetic模型。分级safe。",
+    "notes": ""
+  },
+  {
+    "id": "work-42dad8b4-55ce-46ee-a0f3-81f3c5454b05",
+    "title": "元素战争",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20261008_170907_830379_0239_9681.jpeg",
+    "model": "gemini-3.7-flash / anima-aesthetic-v1.1 ",
+    "width": 1016,
+    "height": 1808,
+    "tags": [
+      "荧",
+      "Anima"
+    ],
+    "prompt": "人物「lumine_(elemental_warfare)」（必须在提示词中包含这个人物名称，她的参考标签为：1girl, solo, blonde_hair, short_hair, long_sidelocks, brown_eyes, hair_flower, white_flower, headset, white_scarf, white_shirt, blue_sleeves, short_sleeves, tactical_vest, fingerless_gloves, shorts, blue_belt, thigh_holster, kneepads, uneven_legwear, thighhighs, kneehighs, lace-up_boots,single thighhigh）\n\n(handgun:1.1), holding_gun, aiming, military_operator, indoors, parted_lips, pain, arm_support, yokozuwari, (gunshot_wound:1.1), dying, blood_from_mouth, teardrop, (under_fire:1.2), broken_helmet, bulletproof_vest, microphone, bandaid_on_face, bandaid_on_leg, blood_on_face, dirty_face, projectile_trail, torn_clothes, blood_on_clothes, blood_on_leg, bleeding_from_forehead,shoot with one hand\n \n环境明亮无暗部。以人物为主体，全身。使用aesthetic模型。分级safe。",
+    "notes": ""
+  },
+  {
+    "id": "work-6187bc99-75da-4b7d-b910-47a9706181a1",
+    "title": "元素战争",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20261008_160317_636409_0212_2002.jpeg",
+    "model": "gemini-3.7-flash / anima-aesthetic-v1.1 ",
+    "width": 1016,
+    "height": 1808,
+    "tags": [
+      "荧",
+      "Anima"
+    ],
+    "prompt": "人物「lumine_(elemental_warfare)」（必须在提示词中包含这个人物名称，她的参考标签为：1girl, solo, blonde_hair, short_hair, long_sidelocks, brown_eyes, hair_flower, white_flower, headset, white_scarf, white_shirt, blue_sleeves, short_sleeves, tactical_vest, fingerless_gloves, shorts, blue_belt, thigh_holster, kneepads, uneven_legwear, thighhighs, kneehighs, lace-up_boots,single thighhigh）\n在一处都市的楼顶，她做出帅气可爱的two-finger_salute, hand_on_own_hip, one_eye_closed动作，背景是云海和摩天大楼群。风吹动她的衣服和头发。\n环境明亮无暗部。以人物为主体，全身。人物占3/4画幅，城市背景占1/4画幅。使用aesthetic模型。分级safe。",
+    "notes": ""
+  },
+  {
+    "id": "work-964b1bcc-3609-4620-ac1e-e89d02568445",
+    "title": "元素战争",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20261008_163436_402959_0216_5488.jpeg",
+    "model": "gemini-3.7-flash / anima-aesthetic-v1.1 ",
+    "width": 1808,
+    "height": 1016,
+    "tags": [
+      "荧",
+      "Anima"
+    ],
+    "prompt": "人物「lumine_(elemental_warfare)」（必须在提示词中包含这个人物名称，她的参考标签为：1girl, solo, blonde_hair, short_hair, long_sidelocks, brown_eyes, hair_flower, white_flower, headset, white_scarf, white_shirt, blue_sleeves, short_sleeves, tactical_vest, fingerless_gloves, shorts, blue_belt, thigh_holster, kneepads, uneven_legwear, thighhighs, kneehighs, lace-up_boots,single thighhigh）\n在一处都市的楼顶，她做出帅气可爱的two-finger_salute, hand_on_own_hip, one_eye_closed动作，背景是云海和摩天大楼群。风吹动她的衣服和头发。\n环境明亮无暗部。以人物为主体，全身。人物占3/4画幅，城市背景占1/4画幅。使用aesthetic模型。分级safe。",
+    "notes": ""
+  },
+  {
+    "id": "work-53b5574f-9bbc-4748-a9c0-a7dc42388205",
+    "title": "元素战争",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20261008_163740_815774_0218_9977.jpeg",
+    "model": "gemini-3.7-flash / anima-aesthetic-v1.1 ",
+    "width": 1808,
+    "height": 1016,
+    "tags": [
+      "荧",
+      "Anima"
+    ],
+    "prompt": "人物「lumine_(elemental_warfare)」（必须在提示词中包含这个人物名称，她的参考标签为：1girl, solo, blonde_hair, short_hair, long_sidelocks, brown_eyes, hair_flower, white_flower, headset, white_scarf, white_shirt, blue_sleeves, short_sleeves, tactical_vest, fingerless_gloves, shorts, blue_belt, thigh_holster, kneepads, uneven_legwear, thighhighs, kneehighs, lace-up_boots,single thighhigh）\n在一处都市的楼顶，她做出帅气可爱的two-finger_salute, hand_on_own_hip, one_eye_closed动作，背景是云海和摩天大楼群。风吹动她的衣服和头发。\n环境明亮无暗部。以人物为主体，全身。人物占3/4画幅，城市背景占1/4画幅。使用aesthetic模型。分级safe。",
+    "notes": ""
+  },
+  {
+    "id": "work-86a23d44-d949-48c3-a5b6-6e14e98c89b5",
+    "title": "元素战争",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20261008_164029_152139_0221_1547.jpeg",
+    "model": "gemini-3.7-flash / anima-aesthetic-v1.1 ",
+    "width": 1808,
+    "height": 1016,
+    "tags": [
+      "荧",
+      "Anima"
+    ],
+    "prompt": "人物「lumine_(elemental_warfare)」（必须在提示词中包含这个人物名称，她的参考标签为：1girl, solo, blonde_hair, short_hair, long_sidelocks, brown_eyes, hair_flower, white_flower, headset, white_scarf, white_shirt, blue_sleeves, short_sleeves, tactical_vest, fingerless_gloves, shorts, blue_belt, thigh_holster, kneepads, uneven_legwear, thighhighs, kneehighs, lace-up_boots,single thighhigh）\n在一处都市的楼顶，她做出帅气可爱的two-finger_salute, hand_on_own_hip, one_eye_closed动作，背景是云海和摩天大楼群。风吹动她的衣服和头发。\n环境明亮无暗部。以人物为主体，全身。人物占3/4画幅，城市背景占1/4画幅。使用aesthetic模型。分级safe。",
+    "notes": ""
+  },
+  {
+    "id": "work-1e914216-b024-40f7-bcbe-07f6f791319a",
+    "title": "元素战争",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20261008_165324_606291_0228_7412.jpeg",
+    "model": "gemini-3.7-flash / anima-aesthetic-v1.1 ",
+    "width": 1808,
+    "height": 1016,
+    "tags": [
+      "荧",
+      "Anima"
+    ],
+    "prompt": "人物「lumine_(elemental_warfare)」（必须在提示词中包含这个人物名称，她的参考标签为：1girl, solo, blonde_hair, short_hair, long_sidelocks, brown_eyes, hair_flower, white_flower, headset, white_scarf, white_shirt, blue_sleeves, short_sleeves, tactical_vest, fingerless_gloves, shorts, blue_belt, thigh_holster, kneepads, uneven_legwear, thighhighs, kneehighs, lace-up_boots,single thighhigh）\n上述人物戴着战术护目镜，背着突击步枪，在山间速降（rappelling, holding_rope, assault_rifle, rope, harness），表情严肃、紧张。脸上有创可贴。\n环境明亮无暗部。以人物为主体，全身。人物占3/4画幅，群山背景占1/4画幅。使用aesthetic模型。分级safe。",
+    "notes": ""
+  },
+  {
+    "id": "work-36ab3378-e986-480d-89e0-bef3c44b4bc4",
+    "title": "元素战争",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20261008_165815_205312_0233_1806.jpeg",
+    "model": "gemini-3.7-flash / anima-aesthetic-v1.1 ",
+    "width": 1016,
+    "height": 1808,
+    "tags": [
+      "荧",
+      "Anima"
+    ],
+    "prompt": "人物「lumine_(elemental_warfare)」（必须在提示词中包含这个人物名称，她的参考标签为：1girl, solo, blonde_hair, short_hair, long_sidelocks, brown_eyes, hair_flower, white_flower, headset, white_scarf, white_shirt, blue_sleeves, short_sleeves, tactical_vest, fingerless_gloves, shorts, blue_belt, thigh_holster, kneepads, uneven_legwear, thighhighs, kneehighs, lace-up_boots,single thighhigh）\n\n(handgun:1.1), holding_gun, military_operator, indoors, taking_cover, pillar, serious, standing, looking_to_the_side, two-handed, v_arms, under_fire, bulletproof_vest, microphone, bandaid_on_face, bandaid_on_leg, blood_on_face, dirty_face\n环境明亮无暗部。以人物为主体，全身。使用aesthetic模型。分级safe。在一处都市的楼顶，她做出帅气可爱的two-finger_salute, hand_on_own_hip, one_eye_closed动作，背景是云海和摩天大楼群。风吹动她的衣服和头发。\n环境明亮无暗部。以人物为主体，全身。人物占3/4画幅，城市背景占1/4画幅。使用aesthetic模型。分级safe。",
+    "notes": ""
+  },
+  {
+    "id": "work-3ff4b4c6-6945-4437-8332-b1b4cb19806e",
+    "title": "元素战争",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20261008_170356_488934_0236_3783.jpeg",
+    "model": "gemini-3.7-flash / anima-aesthetic-v1.1 ",
+    "width": 1808,
+    "height": 1016,
+    "tags": [
+      "荧",
+      "Anima"
+    ],
+    "prompt": "人物「lumine_(elemental_warfare)」（必须在提示词中包含这个人物名称，她的参考标签为：1girl, solo, blonde_hair, short_hair, long_sidelocks, brown_eyes, hair_flower, white_flower, headset, white_scarf, white_shirt, blue_sleeves, short_sleeves, tactical_vest, fingerless_gloves, shorts, blue_belt, thigh_holster, kneepads, uneven_legwear, thighhighs, kneehighs, lace-up_boots,single thighhigh）\n\n(handgun:1.1), holding_gun, aiming, military_operator, indoors, parted_lips, pain, arm_support, yokozuwari, (gunshot_wound:1.1), dying, blood_from_mouth, teardrop, (under_fire:1.2), broken_helmet, bulletproof_vest, microphone, bandaid_on_face, bandaid_on_leg, blood_on_face, dirty_face, projectile_trail, torn_clothes, blood_on_clothes, blood_on_leg, bleeding_from_forehead, \n环境明亮无暗部。以人物为主体，全身。使用aesthetic模型。分级safe。",
+    "notes": ""
+  },
+  {
+    "id": "work-65e72902-84a6-4004-a360-09fecf88346a",
+    "title": "元素战争",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20261008_165743_875596_0232_7259.jpeg",
+    "model": "gemini-3.7-flash / anima-aesthetic-v1.1 ",
+    "width": 1016,
+    "height": 1808,
+    "tags": [
+      "荧",
+      "Anima"
+    ],
+    "prompt": "人物「lumine_(elemental_warfare)」（必须在提示词中包含这个人物名称，她的参考标签为：1girl, solo, blonde_hair, short_hair, long_sidelocks, brown_eyes, hair_flower, white_flower, headset, white_scarf, white_shirt, blue_sleeves, short_sleeves, tactical_vest, fingerless_gloves, shorts, blue_belt, thigh_holster, kneepads, uneven_legwear, thighhighs, kneehighs, lace-up_boots,single thighhigh）\n\n(handgun:1.1), holding_gun, military_operator, indoors, taking_cover, pillar, serious, standing, looking_to_the_side, two-handed, v_arms, under_fire, bulletproof_vest, microphone, bandaid_on_face, bandaid_on_leg, blood_on_face, dirty_face\n环境明亮无暗部。以人物为主体，全身。使用aesthetic模型。分级safe。在一处都市的楼顶，她做出帅气可爱的two-finger_salute, hand_on_own_hip, one_eye_closed动作，背景是云海和摩天大楼群。风吹动她的衣服和头发。\n环境明亮无暗部。以人物为主体，全身。人物占3/4画幅，城市背景占1/4画幅。使用aesthetic模型。分级safe。",
+    "notes": ""
+  },
+  {
+    "id": "work-6543aecf-983f-4bec-a79f-d7e758c0d5aa",
+    "title": "元素战争",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20261008_164550_575742_0223_5454.jpeg",
+    "model": "gemini-3.7-flash / anima-aesthetic-v1.1 ",
+    "width": 1808,
+    "height": 1016,
+    "tags": [
+      "荧",
+      "Anima"
+    ],
+    "prompt": "人物「lumine_(elemental_warfare)」（必须在提示词中包含这个人物名称，她的参考标签为：1girl, solo, blonde_hair, short_hair, long_sidelocks, brown_eyes, hair_flower, white_flower, headset, white_scarf, white_shirt, blue_sleeves, short_sleeves, tactical_vest, fingerless_gloves, shorts, blue_belt, thigh_holster, kneepads, uneven_legwear, thighhighs, kneehighs, lace-up_boots,single thighhigh）\n上述人物戴着战术护目镜，背着突击步枪，在山间速降（rappelling, holding_rope, assault_rifle, rope, harness），表情严肃、紧张。脸上有创可贴。\n环境明亮无暗部。以人物为主体，全身。人物占3/4画幅，群山背景占1/4画幅。使用aesthetic模型。分级safe。",
+    "notes": ""
+  },
+  {
+    "id": "work-1c968b30-6cd4-4cfa-9f84-62754872edaa",
+    "title": "元素战争",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20261008_154601_147282_0203_1656.jpeg",
+    "model": "gemini-3.7-flash / anima-aesthetic-v1.1 ",
+    "width": 1016,
+    "height": 1808,
+    "tags": [
+      "荧",
+      "Anima"
+    ],
+    "prompt": "人物「lumine_(elemental_warfare)」（必须在提示词中包含这个人物名称，她的参考标签为：1girl, solo, blonde_hair, short_hair, long_sidelocks, brown_eyes, hair_flower, white_flower, headset, white_scarf, white_shirt, blue_sleeves, short_sleeves, tactical_vest, fingerless_gloves, shorts, blue_belt, thigh_holster, kneepads, uneven_legwear, thighhighs, kneehighs, lace-up_boots,single thighhigh）\n在一处都市的楼顶，她做出帅气可爱的two-finger_salute, hand_on_own_hip, one_eye_closed动作，背景是云海和摩天大楼群。风吹动她的衣服和头发。\n环境明亮无暗部。以人物为主体，全身。人物占3/4画幅，城市背景占1/4画幅。使用aesthetic模型。分级safe。",
+    "notes": ""
+  },
+  {
+    "id": "work-e5410c7a-0f68-4e23-a177-1e2d585cae41",
+    "title": "元素战争",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20261008_170726_980193_0237_9971.jpeg",
+    "model": "gemini-3.7-flash / anima-aesthetic-v1.1 ",
+    "width": 1808,
+    "height": 1016,
+    "tags": [
+      "荧",
+      "Anima"
+    ],
+    "prompt": "人物「lumine_(elemental_warfare)」（必须在提示词中包含这个人物名称，她的参考标签为：1girl, solo, blonde_hair, short_hair, long_sidelocks, brown_eyes, hair_flower, white_flower, headset, white_scarf, white_shirt, blue_sleeves, short_sleeves, tactical_vest, fingerless_gloves, shorts, blue_belt, thigh_holster, kneepads, uneven_legwear, thighhighs, kneehighs, lace-up_boots,single thighhigh）\n在一处都市的楼顶，她做出帅气可爱的two-finger_salute, hand_on_own_hip, one_eye_closed动作，背景是云海和摩天大楼群。风吹动她的衣服和头发。\n环境明亮无暗部。以人物为主体，全身。人物占3/4画幅，城市背景占1/4画幅。使用aesthetic模型。分级safe。",
+    "notes": ""
+  },
+  {
+    "id": "work-ee942374-355a-4962-8d6e-e6548e75451d",
+    "title": "元素战争",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20261008_170800_143300_0238_8543.jpeg",
+    "model": "gemini-3.7-flash / anima-aesthetic-v1.1 ",
+    "width": 1808,
+    "height": 1016,
+    "tags": [
+      "荧",
+      "Anima"
+    ],
+    "prompt": "人物「lumine_(elemental_warfare)」（必须在提示词中包含这个人物名称，她的参考标签为：1girl, solo, blonde_hair, short_hair, long_sidelocks, brown_eyes, hair_flower, white_flower, headset, white_scarf, white_shirt, blue_sleeves, short_sleeves, tactical_vest, fingerless_gloves, shorts, blue_belt, thigh_holster, kneepads, uneven_legwear, thighhighs, kneehighs, lace-up_boots,single thighhigh）\n在一处都市的楼顶，她做出帅气可爱的two-finger_salute, hand_on_own_hip, one_eye_closed动作，背景是云海和摩天大楼群。风吹动她的衣服和头发。\n环境明亮无暗部。以人物为主体，全身。人物占3/4画幅，城市背景占1/4画幅。使用aesthetic模型。分级safe。",
+    "notes": ""
+  },
+  {
+    "id": "work-a0eee8f4-6e0f-4dbe-afda-d71e3ca9ca8f",
+    "title": "元素战争",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20261008_155519_116121_0208_9302.jpeg",
+    "model": "gemini-3.7-flash / anima-aesthetic-v1.1 ",
+    "width": 1016,
+    "height": 1808,
+    "tags": [
+      "荧",
+      "Anima"
+    ],
+    "prompt": "人物「lumine_(elemental_warfare)」（必须在提示词中包含这个人物名称，她的参考标签为：1girl, solo, blonde_hair, short_hair, long_sidelocks, brown_eyes, hair_flower, white_flower, headset, white_scarf, white_shirt, blue_sleeves, short_sleeves, tactical_vest, fingerless_gloves, shorts, blue_belt, thigh_holster, kneepads, uneven_legwear, thighhighs, kneehighs, lace-up_boots,single thighhigh）\n在一处都市的楼顶，她做出帅气可爱的two-finger_salute, hand_on_own_hip, one_eye_closed动作，背景是云海和摩天大楼群。风吹动她的衣服和头发。\n环境明亮无暗部。以人物为主体，全身。人物占3/4画幅，城市背景占1/4画幅。使用aesthetic模型。分级safe。",
+    "notes": ""
+  },
+  {
+    "id": "work-a1dbbbf2-4137-4175-b955-d7e683e1a3fa",
+    "title": "元素战争",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20261008_160544_329845_0214_1554.jpeg",
+    "model": "gemini-3.7-flash / anima-aesthetic-v1.1 ",
+    "width": 1016,
+    "height": 1808,
+    "tags": [
+      "荧",
+      "Anima"
+    ],
+    "prompt": "人物「lumine_(elemental_warfare)」（必须在提示词中包含这个人物名称，她的参考标签为：1girl, solo, blonde_hair, short_hair, long_sidelocks, brown_eyes, hair_flower, white_flower, headset, white_scarf, white_shirt, blue_sleeves, short_sleeves, tactical_vest, fingerless_gloves, shorts, blue_belt, thigh_holster, kneepads, uneven_legwear, thighhighs, kneehighs, lace-up_boots,single thighhigh）\n在一处都市的楼顶，她做出帅气可爱的two-finger_salute, hand_on_own_hip, one_eye_closed动作，背景是云海和摩天大楼群。风吹动她的衣服和头发。\n环境明亮无暗部。以人物为主体，全身。人物占3/4画幅，城市背景占1/4画幅。使用aesthetic模型。分级safe。",
+    "notes": ""
+  },
+  {
     "id": "work-1789737104290",
     "title": "山间·春香",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20260918_205054_206586_0027_2869.jpeg",

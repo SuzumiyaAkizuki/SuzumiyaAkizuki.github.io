@@ -2169,6 +2169,146 @@
 </figure>
   </div>
 </details>
+<div class="detail-section"><div class="section-label">Anima-lumine_elemental_warfare</div></div>
+<figure class="markdown-image">
+  <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20261008_102528_811439_0120_3994.jpeg" srcset="/img/loading.gif" lazyload alt="示例图片">
+  <figcaption>示例图片</figcaption>
+</figure>
+<details class="expandable locked" open>
+  <summary>模型介绍</summary>
+  <div class="expand-body">
+<p>下载链接：https://huggingface.co/SAkizuki/anima-lumine_elemental_warfare</p>
+<p>本模型是基于 <a href="https://huggingface.co/circlestone-labs/Anima" target="_blank" rel="noopener noreferrer">circlestone-labs/Anima</a> 的 Anima Base v1.0 训练的角色服装 LoRA，用于还原《原神》荧的「Elemental Warfare」造型。</p>
+<p>该造型保留荧的金色短发、长侧发和白色花饰，搭配蓝白短袖上衣、白色围巾、深色短裤、蓝色腰带、露指手套、长短不对称的袜子及系带短靴。训练素材包含战术装备版与无护具基础服装版，并覆盖不同视角、表情和动作。</p>
+<p>请注意：使用空格代替下划线，并使用反斜杠对小括号转义。</p>
+<pre><code class="language-text">lumine \(elemental warfare\)</code></pre>
+<p>以下是推荐的提示词，可作为起始示例。</p>
+<p><strong>战术装备版：</strong></p>
+<pre><code class="language-text">lumine \(elemental warfare\), 1girl, solo, blonde hair, short hair, long sidelocks, brown eyes, hair flower, white flower, headset, white scarf, white shirt, blue sleeves, short sleeves, tactical vest, fingerless gloves, shorts, blue belt, thigh holster, kneepads, uneven legwear, thighhighs, kneehighs, lace-up boots, standing, full body, looking at viewer, simple background</code></pre>
+<p><strong>无护具基础服装版：</strong></p>
+<pre><code class="language-text">lumine \(elemental warfare\), 1girl, solo, blonde hair, short hair, long sidelocks, brown eyes, hair flower, white flower, white scarf, white shirt, blue sleeves, short sleeves, fingerless gloves, shorts, blue belt, uneven legwear, thighhighs, kneehighs, lace-up boots, standing, full body, looking at viewer, simple background</code></pre>
+  </div>
+</details>
+<details class="expandable">
+  <summary>详细参数</summary>
+  <div class="expand-body">
+<p><strong>模型规格</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>项目</th>
+      <th>详情</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>模型类型</td>
+      <td>Anima LoRA</td>
+    </tr>
+    <tr>
+      <td>底模</td>
+      <td>Anima Base v1.0</td>
+    </tr>
+    <tr>
+      <td>LoRA Rank / Alpha</td>
+      <td>32 / 32</td>
+    </tr>
+    <tr>
+      <td>训练范围</td>
+      <td>仅扩散模型；不训练文本编码器</td>
+    </tr>
+    <tr>
+      <td>文本编码器</td>
+      <td>Qwen3 0.6B Base</td>
+    </tr>
+    <tr>
+      <td>VAE</td>
+      <td>Qwen Image VAE</td>
+    </tr>
+    <tr>
+      <td>保存精度</td>
+      <td>FP16</td>
+    </tr>
+    <tr>
+      <td>输出格式</td>
+      <td>SafeTensors</td>
+    </tr>
+  </tbody>
+</table>
+<p><strong>训练参数</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>项目</th>
+      <th>配置值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>最大训练轮数</td>
+      <td>20 epochs</td>
+    </tr>
+    <tr>
+      <td>批大小 / 梯度累积</td>
+      <td>2 / 1</td>
+    </tr>
+    <tr>
+      <td>优化器</td>
+      <td>Automagic</td>
+    </tr>
+    <tr>
+      <td>扩散模型学习率</td>
+      <td>2 × 10⁻⁵</td>
+    </tr>
+    <tr>
+      <td>学习率调度</td>
+      <td>Cosine with Restarts</td>
+    </tr>
+    <tr>
+      <td>调度周期数 / 预热步数</td>
+      <td>2 / 50</td>
+    </tr>
+    <tr>
+      <td>目标训练分辨率</td>
+      <td>1024 × 1024</td>
+    </tr>
+    <tr>
+      <td>分辨率分桶</td>
+      <td>开启；256–2048，步长 64，不放大输入图片</td>
+    </tr>
+    <tr>
+      <td>时间步采样</td>
+      <td>Shift；Discrete Flow Shift = 3</td>
+    </tr>
+    <tr>
+      <td>水平翻转增强</td>
+      <td>开启</td>
+    </tr>
+    <tr>
+      <td>训练随机种子</td>
+      <td>1337</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+</details>
+<details class="expandable">
+  <summary>示例图片</summary>
+  <div class="expand-body">
+<figure class="markdown-image">
+  <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20261008_160615_670103_0215_1686.jpeg" srcset="/img/loading.gif" lazyload alt="">
+</figure>
+<figure class="markdown-image">
+  <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20261008_170940_543653_0240_6171.jpeg" srcset="/img/loading.gif" lazyload alt="">
+</figure>
+<figure class="markdown-image">
+  <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20261008_163740_815774_0218_9977.jpeg" srcset="/img/loading.gif" lazyload alt="">
+</figure>
+<figure class="markdown-image">
+  <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20261008_164550_575742_0223_5454.jpeg" srcset="/img/loading.gif" lazyload alt="">
+</figure>
+  </div>
+</details>
       </div>
     </div>
   </div>
