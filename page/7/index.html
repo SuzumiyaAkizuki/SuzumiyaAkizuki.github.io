@@ -1867,6 +1867,317 @@
       <div class="particle"></div><div class="particle"></div>
     </div>
     <div class="hero">
+      <div class="hero-bg" data-bg-desktop="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202611180007191.png" data-bg-mobile="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/1245464326756.png"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="eyebrow">在线画板 Agent</div>
+        <div class="project-name">MOSS Canvas Agent</div>
+        <div class="project-sub">可视化构图画板与 AI 协同提示词创作工具</div>
+        <div class="divider"></div>
+        <div class="url-row">
+          <div class="url-tag">
+            <span class="label">在线画板</span>
+            <a class="addr" href="https://huggingface.co/spaces/SAkizuki/WenQiuYue" target="_blank" rel="noopener noreferrer">https://huggingface.co/spaces/SAkizuki/WenQiuYue</a>
+          </div>
+          <div class="url-tag">
+            <span class="label">ComfyUI 插件</span>
+            <a class="addr" href="https://github.com/SuzumiyaAkizuki/ComfyUI-NewBie-LLM-Formatter" target="_blank" rel="noopener noreferrer">https://github.com/SuzumiyaAkizuki/ComfyUI-NewBie-LLM-Formatter</a>
+          </div>
+        </div>
+        <div class="project-desc">专为 MOSS-Image 打造的可视化构图画板。你无需背诵英文标签或手动换算坐标，只需像搭积木一样拉出方框，或用日常中文告诉 AI 助手「秋枫」，即可自由安排人物、物体与文字排版，还能直连本机 ComfyUI 一键出图、看着底图对话精修。</div>
+        <div class="feature-pills">
+          <span class="pill">可视化拉框构图</span>
+          <span class="pill">AI 协同排版</span>
+          <span class="pill">局部精准精修</span>
+          <span class="pill">35 种画风预设</span>
+          <span class="pill">本机 ComfyUI 直连</span>
+        </div>
+      </div>
+      <div class="scroll-hint">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+        <span>Scroll</span>
+      </div>
+    </div>
+    <div class="details-section">
+      <div class="details-inner">
+<div class="detail-section"><div class="section-label">核心亮点</div></div>
+<figure class="markdown-image">
+  <img src="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202611180008920.png" srcset="/img/loading.gif" lazyload alt="MOSS 在线画板生成的双人下午茶插画成图">
+  <figcaption>MOSS 在线画板生成的双人下午茶插画成图</figcaption>
+</figure>
+<details class="expandable locked" open>
+  <summary>告别「角色串色」与「排版翻车」</summary>
+  <div class="expand-body">
+<p>平时用 AI 画图时，你是否也遇到过这些烦恼：想让两个角色一左一右坐着喝茶，AI 却总是把她们画重叠或搞混衣服特征；想做一张带标题的海报，却很难用文字说清标题、副标题和人物各自该放在哪个角落；面对长串的英文标签和复杂的坐标数字，不知从何下手。</p>
+<p><strong>MOSS 在线画板</strong>正是为了解决这些问题而设计的。你不需要背诵任何英文标签，也不用自己计算像素坐标——只需要在画布上像搭积木一样拉出几个方框，或者直接用中文把想法告诉右侧的 AI 助手「秋枫」，就能轻松定好画面构图、自动生成全套专业提示词。</p>
+  </div>
+</details>
+<details class="expandable locked" open>
+  <summary>三分钟认识画板工作台</summary>
+  <div class="expand-body">
+<p>从秋月空间首页点击 <strong>「MOSS 在线画板」</strong>（或直接访问 <code>/moss</code>），你会看到一个分为上、左、中、右四个区域的工作台（手机访问时可通过顶部的「画布 / 属性 / AI 对话」标签随时切换）：</p>
+<figure class="markdown-image">
+  <img src="&lt;https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202611180005331.png&gt;" srcset="/img/loading.gif" lazyload alt="MOSS 在线画板完整界面总览">
+  <figcaption>MOSS 在线画板完整界面总览</figcaption>
+</figure>
+<ul>
+  <li><strong>顶部工具栏</strong>：管理你的作品。支持<strong>新建</strong>、<strong>导入/导出草稿</strong>、<strong>导出 PNG 构图参考图</strong>、点击<strong>生成图片</strong>（连接本地 ComfyUI），或点击<strong>复制提示词</strong>把排好的构图拿去生图。觉得右侧聊天栏占地方时，可随时点<strong>收起 AI</strong> 把空间让给画布。</li>
+  <li><strong>左栏（构图画布）</strong>：你和秋枫共同摆弄画面的地方。画布用不同颜色的方框区分元素类型：</li>
+  <li><strong>蓝色框</strong>：人物（如少女、飞行员）</li>
+  <li><strong>金色框</strong>：物体（如月亮、书架、茶具）</li>
+  <li><strong>粉紫色框</strong>：文字（如海报主标题、标语）</li>
+  <li><strong>青色高亮</strong>：当前被你点选中的框，拖动四角小方块即可调整大小和位置。</li>
+  <li><strong>中栏（画布与元素属性）</strong>：调整画布宽高、挑选画风预设、填写整体画面描述，以及修改每一个方框里的具体描述、可见文字和调色板。</li>
+  <li><strong>右栏（AI 助手「秋枫」）</strong>：你的专属画板搭档。无论是从零构思画面、查标签、选画风，还是修改某个局部动作，直接跟她打字聊天即可。</li>
+</ul>
+<p>左、中、右三栏之间的两条竖线都可以用鼠标左右拖动，自由调整面板宽窄，不会影响画布本身的像素尺寸。</p>
+  </div>
+</details>
+<div class="detail-section"><div class="section-label">两种上手方式</div></div>
+<details class="expandable locked" open>
+  <summary>方式一：动动嘴皮子，让秋枫从零帮你排好一切</summary>
+  <div class="expand-body">
+<p>如果你脑子里只有一个画面想法，连画布设多大、方框怎么摆都不想操心：</p>
+<p>1. <strong>直接发消息</strong>：在右侧聊天框告诉秋枫你想画什么。例如：</p>
+<p>2. <strong>秋枫全自动编排</strong>：无需提前设置尺寸。秋枫会自动按用途计算合适的画布宽高，去标签库搜索准确的英文绘画标签，挑选契合的画风，把人物、物体、文字方框整齐摆到画布上，还会自动截图检查排版是否合理。 3. <strong>随手微调</strong>：等秋枫排好后，所有方框都会呈现在左侧画布上。觉得哪个框偏了一点，直接用鼠标拖一拖就能改。</p>
+<ul>
+  <li><em>「帮我设计一张横版宣传图，左边是标题文字，右边是一位金发双马尾、穿学院风毛衣背心的少女。」</em></li>
+  <li><em>「做一张竖版海报，画面大概 2M 像素，主题是月夜下的双人百合。」</em></li>
+</ul>
+<figure class="markdown-image">
+  <img src="&lt;D:\WenQiuYue\docs\moss guide images\202610281538099.png&gt;" srcset="/img/loading.gif" lazyload alt="秋枫自动检索标签、选择画风并完成画板排版的全过程">
+  <figcaption>秋枫自动检索标签、选择画风并完成画板排版的全过程</figcaption>
+</figure>
+  </div>
+</details>
+<details class="expandable locked" open>
+  <summary>方式二：自己先拉框定位置，再让秋枫填细节</summary>
+  <div class="expand-body">
+<p>如果你对构图有明确想法（比如想还原某张海报的版式）：</p>
+<p>1. <strong>设定画布大小</strong>：在中栏「画布设置」里选一个常用尺寸预设（如横版 <code>1280 × 720</code> 或方形 <code>1024 × 1024</code>），或手动输入宽高（数字需为 16 的倍数，如 <code>720</code>、<code>1024</code>、<code>1344</code>），点击 <strong>「应用尺寸」</strong>。 2. <strong>在画布上拉框</strong>：点击左上角的 <strong>「画框」</strong> 按钮，在画布上按住鼠标左键拖拽，拉出你想要的区域。 3. <strong>标记类型与文字</strong>：在中栏下方把刚画好的框设为「人物」「物体」或「文字」。如果是文字框，在 <strong>「实际可见文字」</strong> 中填好想要显示在画面上的字（支持中文、英文和换行）。 4. <strong>交给秋枫补全润色</strong>：在右侧对秋枫说：<em>「按我摆好的位置，帮我补全所有区域的英文描述和标签。」</em></p>
+  </div>
+</details>
+<div class="detail-section"><div class="section-label">构图实战与排版技巧</div></div>
+<p>画布上的方框并不是死板的格子，它们可以<strong>重叠、嵌套、大框套小框</strong>。点击展开下方四个真实场景案例，把透明构图框叠在成图上，一眼就能掌握排框诀窍：</p>
+<details class="expandable">
+  <summary>案例一：海报与封面排版（人物、景物与多层文字分离）</summary>
+  <div class="expand-body">
+<p>制作活动封面、宣传图或贺图时，可以把背景里的重要景物（如月亮）、前景人物和不同层级的标题分成独立的框。</p>
+<figure class="markdown-image">
+  <img src="&lt;https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202611180005987.png&gt;" srcset="/img/loading.gif" lazyload alt="横版宣传图叠图效果：左侧四层文字框与右侧月亮、双人框分层排布">
+  <figcaption>横版宣传图叠图效果：左侧四层文字框与右侧月亮、双人框分层排布</figcaption>
+</figure>
+<figure class="markdown-image">
+  <img src="&lt;https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202611180005896.png&gt;" srcset="/img/loading.gif" lazyload alt="方形封面叠图效果：左上角页眉、中部手写体主标题、底部副标题与右侧人物月亮组合">
+  <figcaption>方形封面叠图效果：左上角页眉、中部手写体主标题、底部副标题与右侧人物月亮组合</figcaption>
+</figure>
+<p><strong>排框诀窍：</strong> 把页眉小字、主标题、副标题分别建成独立的「文字」框，并在中栏填好各自要显示的文字原文。人物框和文字框稍微有一点交叠也没关系，画面反而更有前后层次感。</p>
+<p><strong>可以直接复制给秋枫的指令示例：</strong></p>
+<pre><code class="language-text">720×720，做一张方形封面。右上角是一轮弯月，右下方是戴耳机的金发少女；左上角写小字“WENQIUYUE · 问秋月 PRESENTS”，中间偏左分两行写手写体大标题“15 Billion Tokens”和“问秋月 · 壹佰伍拾亿词元”，底下再加一行小副标题。</code></pre>
+  </div>
+</details>
+<details class="expandable">
+  <summary>案例二：双人互动与远近景深（大框套小框）</summary>
+  <div class="expand-body">
+<p>画多个人物和丰富场景时，用大框定背景，再用小框锁定前景角色和桌面道具，角色之间就绝不会「串衣服」或「抢位置」。</p>
+<figure class="markdown-image">
+  <img src="&lt;D:\WenQiuYue\docs\moss guide images\202610281632871.png&gt;" srcset="/img/loading.gif" lazyload alt="双人下午茶构图框叠图效果：左侧书架、后方大窗云海、左右两位少女与中间茶点桌">
+  <figcaption>双人下午茶构图框叠图效果：左侧书架、后方大窗云海、左右两位少女与中间茶点桌</figcaption>
+</figure>
+<p><strong>排框诀窍：</strong> <code>4 物体</code> 框住整扇大窗户和窗外云海，<code>5 物体</code> 框住最左边的书架；<code>1 人物</code> 和 <code>2 人物</code> 一左一右对坐；中间用 <code>3 物体</code> 单独框出桌上的茶壶和三层甜品架。</p>
+<p><strong>可以直接复制给秋枫的指令示例：</strong></p>
+<pre><code class="language-text">1280×720，画两位少女在窗边圆桌喝下午茶：左边金发双马尾少女端着茶杯，右边白发马尾少女托腮微笑，中间桌上放着茶具和甜点，背景是大窗户外的云海远山，最左边有木头书架。</code></pre>
+  </div>
+</details>
+<details class="expandable">
+  <summary>案例三：复杂动作与精致道具（把同一角色拆成多个框）</summary>
+  <div class="expand-body">
+<p>当你想画拔刀、弹琴等精细动作，只用一个大人物框往往很难控制手部和武器的位置。这时可以把同一个人的不同部位拆开框定。</p>
+<figure class="markdown-image">
+  <img src="&lt;https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202611180005050.png&gt;" srcset="/img/loading.gif" lazyload alt="单角色动作拆解叠图效果：人物总框内细分头部、握刀手臂、躯干以及刀柄刀鞘">
+  <figcaption>单角色动作拆解叠图效果：人物总框内细分头部、握刀手臂、躯干以及刀柄刀鞘</figcaption>
+</figure>
+<p><strong>排框诀窍：</strong> 用 <code>1 人物</code> 控制整个人物的范围，里面再用 <code>2 人物</code> 框住头部表情、<code>3 人物</code> 框住握刀的右臂、<code>4 人物</code> 框住和服上身；同时用 <code>5 物体</code> 和 <code>6 物体</code> 精准标出刀柄和刀鞘的走向，外围加上 <code>7 物体</code> 铺满飘落的樱花。</p>
+<p><strong>可以直接复制给秋枫的指令示例：</strong></p>
+<pre><code class="language-text">帮我画一位白发红瞳的和服武士少女正在拔刀，用多个框把她的头部特写、右手握刀柄的动作、刀鞘走向分开控制，背景加上飘落的樱花瓣。</code></pre>
+  </div>
+</details>
+<details class="expandable">
+  <summary>案例四：大透视场景与微小细节定位</summary>
+  <div class="expand-body">
+<p>在大透视场景里，哪怕是远处航母甲板上的一团火光，或是船头一个小小的编号，都可以用小框精准锚定。</p>
+<figure class="markdown-image">
+  <img src="&lt;D:\WenQiuYue\docs\moss guide images\202610281643934.png&gt;" srcset="/img/loading.gif" lazyload alt="战机座舱俯瞰航母叠图效果：左侧座舱与女飞行员，右侧远景航母、战机群、极光与船头微小文字框">
+  <figcaption>战机座舱俯瞰航母叠图效果：左侧座舱与女飞行员，右侧远景航母、战机群、极光与船头微小文字框</figcaption>
+</figure>
+<p><strong>排框诀窍：</strong> 左半边用大框定住前景的战机座舱和女飞行员，右半边层层框出远处的海面航母、空中的战机群与极光、甲板上的爆炸火光，并在航母船头放一个小小的 <code>4 文字</code> 框。</p>
+<p><strong>可以直接复制给秋枫的指令示例：</strong></p>
+<pre><code class="language-text">1280×720，第一视角战机座舱内坐着白发女飞行员，右侧窗外下方海面是一艘正在遇袭起火的航母，空中还有战机群与极光；在航母舰艏位置留一个微小文字区域。</code></pre>
+  </div>
+</details>
+<div class="detail-section"><div class="section-label">改画与精修的三大法宝</div></div>
+<details class="expandable locked" open>
+  <summary>点选元素「局部修改」：指哪改哪，绝不误伤</summary>
+  <div class="expand-body">
+<p>想改某个人的动作或某行字，又怕 AI 把其他已经排好的部分乱改一通？</p>
+<ul>
+  <li><strong>操作方法</strong>：直接在左侧画布上点击你要改的那个方框（按住键盘 <code>Shift</code> 键可点选多个，也可以在中栏元素列表里打勾）。这时右下角聊天输入框上方会出现一行提示：<strong><code>当前选中：X ×</code></strong>。</li>
+  <li><strong>保护效果</strong>：只要带着这个选中提示发消息（例如<em>「把这个选中角色的衣服改成白色水手服」</em>），系统就会<strong>自动锁死其他所有未被选中的元素</strong>，只允许秋枫修改你选中的那几个框和整体氛围描述。</li>
+  <li><strong>恢复全局修改</strong>：点一下提示条上的 <code>×</code>，或在画布空白处点一下取消选中，即可回到修改整张画面的状态。</li>
+</ul>
+  </div>
+</details>
+<details class="expandable locked" open>
+  <summary>勾选「锁定布局」：保住排版，只改画风和细节</summary>
+  <div class="expand-body">
+<p>如果你已经把所有方框的位置、大小和文字内容调得非常满意，只想让秋枫帮你换个画风，或者把英文描述写得更细腻：</p>
+<ul>
+  <li><strong>操作方法</strong>：把中栏画布设置下方的 <strong>「锁定布局」</strong> 打上勾，再去跟秋枫提要求。</li>
+  <li><strong>保护效果</strong>：开启后，画布尺寸、方框数量、每个框的位置大小以及文字框里的字都会被牢牢固定，秋枫只会帮你润色画面描述和标签。</li>
+</ul>
+  </div>
+</details>
+<details class="expandable locked" open>
+  <summary>35 种精选画风预设与实时色块调色板</summary>
+  <div class="expand-body">
+<p>不知道怎么用语言形容想要的画风和配色？</p>
+<ul>
+  <li><strong>挑选内置预设</strong>：点开中栏的 <strong>「风格预设」</strong> 下拉菜单，内置 35 种精心调校的画风（如「彩纸马赛克：碎片色彩」「刮刀厚涂：大胆色面」等），选中后可展开查看风格原文。</li>
+  <li><strong>让秋枫挑选或原创</strong>：你也可以在聊天时对秋枫说<em>「帮我从风格库里挑一个适合这张图的画风」</em>，或者说<em>「不用预设风格，帮我自己设计一种复古胶片水彩风」</em>。</li>
+  <li><strong>调色板色块预览</strong>：点开中栏的「全局更多属性」或「元素更多属性」，在<strong>调色板</strong>里输入颜色英文名或十六进制色号（如 <code>#ff99aa, skyblue</code>），输入框下方会立刻显示出直观的彩色小色块。</li>
+</ul>
+  </div>
+</details>
+<div class="detail-section"><div class="section-label">导出提示词与连接本机 ComfyUI</div></div>
+<figure class="markdown-image">
+  <img src="&lt;D:\WenQiuYue\docs\moss guide images\cea86f0e443c75d94014ef05c745a4f8.png&gt;" srcset="/img/loading.gif" lazyload alt="在画板中连接本机 ComfyUI 直接生成图片并铺在画布底层，右侧继续对话微调动作">
+  <figcaption>在画板中连接本机 ComfyUI 直接生成图片并铺在画布底层，右侧继续对话微调动作</figcaption>
+</figure>
+<details class="expandable locked" open>
+  <summary>路线 A：一键复制提示词（零配置即用）</summary>
+  <div class="expand-body">
+<p>如果不在本机跑图，只需点击顶部工具栏醒目的 <strong>「复制提示词」</strong> 按钮：</p>
+<ul>
+  <li>系统会立即把当前画板编译成标准的 MOSS 提示词，弹窗显示并自动复制到你的剪贴板（也可点击「下载提示词」保存为 <code>.txt</code> 文件）。</li>
+  <li>拿去任何支持 MOSS-Image 的生图平台粘贴使用即可，记得在生图端设置与画板相同的宽高尺寸。</li>
+</ul>
+  </div>
+</details>
+<details class="expandable locked" open>
+  <summary>路线 B：连接本机 ComfyUI 一键出图、看着底图对话精修</summary>
+  <div class="expand-body">
+<p>如果你自己电脑上装了 ComfyUI，可以把在线画板和本机 ComfyUI 连起来。点一下顶部 <strong>「生成图片」</strong> 就能直接出图，生成的图会自动铺在画布方框的正下方，方便你对照着画面继续微调。</p>
+<p>最方便的是：只要画布底下显示着生成的图片，你接着在右边跟秋枫对话时（使用支持看图的 AI 模型），<strong>秋枫也能亲眼看到这张刚生成的图</strong>！你可以直接指着画面对她说：</p>
+<pre><code class="language-text">交换一下她两只手的动作，靠近屏幕的这只手整理额前碎发，远离屏幕的那只手自然下垂。</code></pre>
+<p>秋枫就会对照实际生图效果，精准帮你调整对应方框的描述或位置。</p>
+  </div>
+</details>
+<details class="expandable">
+  <summary>本机 ComfyUI 首次连接与工作流设置步骤</summary>
+  <div class="expand-body">
+<p>点击顶部工具栏的 <strong>「ComfyUI 设置」</strong> 打开配置窗口（只需首次设置一次）：</p>
+<figure class="markdown-image">
+  <img src="&lt;D:\WenQiuYue\docs\moss guide images\5ec4e6e2bffcee8ce5e7b2ac854c7099.png&gt;" srcset="/img/loading.gif" lazyload alt="本地 ComfyUI 连接与工作流绑定设置弹窗">
+  <figcaption>本地 ComfyUI 连接与工作流绑定设置弹窗</figcaption>
+</figure>
+<p>1. <strong>填地址与添加跨域启动参数</strong>：</p>
+<p>2. <strong>导入 API 工作流</strong>：</p>
+<p>3. <strong>核对节点绑定与高级参数</strong>：</p>
+<ul>
+  <li>默认服务地址为 <code>http://127.0.0.1:8188</code>。</li>
+  <li>点击弹窗里的 <strong>「复制启动参数」</strong> 按钮（会复制一段形如 <code>--enable-cors-header &quot;https://...&quot;</code> 的参数），把它加到你平时启动本机 ComfyUI 的命令末尾，然后<strong>重启 ComfyUI</strong>。若浏览器询问「是否允许访问本地网络」，请选择<strong>允许</strong>。</li>
+  <li>点击 <strong>「检测连接」</strong>，看到绿色的「已连接 · ComfyUI ...」即表示连接成功。</li>
+  <li>若还没有现成工作流，可先点击 <strong>「下载参考工作流」</strong>，在 ComfyUI 中打开并将模型文件名改为你电脑里的实际名称。</li>
+  <li>在 ComfyUI 中将工作流<strong>导出为 API 格式（Export API）</strong>，再点击弹窗里的 <strong>「导入 API 工作流」</strong> 选入该文件。</li>
+  <li>导入后系统会自动识别 <strong>提示词输入</strong>、<strong>宽度输入</strong>、<strong>高度输入</strong> 和 <strong>结果图片节点</strong>，核对无误后点击 <strong>「保存配置」</strong>。</li>
+  <li>展开底部的 <strong>「高级参数设置」</strong>，无需切回 ComfyUI 界面，即可在网页上直接调整采样步数、CFG、采样器、模型或 LoRA，并将随机种子设为「沿用工作流」「每次随机」或「固定值」。</li>
+</ul>
+  </div>
+</details>
+<details class="expandable">
+  <summary>附：在 ComfyUI 节点界面内直接使用画板插件</summary>
+  <div class="expand-body">
+<p>除了在线网页版，如果你安装了配套的 <code>ComfyUI-NewBie-LLM-Formatter</code> 插件，也可以直接在 ComfyUI 的工作流画布中添加「MOSS 布局画布」节点，在节点内体验同样顺滑的手工拉框与 Agent 辅助排版：</p>
+<figure class="markdown-image">
+  <img src="&lt;https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202611180006051.jpg&gt;" srcset="/img/loading.gif" lazyload alt="ComfyUI 插件内置的 MOSS 布局画布界面">
+  <figcaption>ComfyUI 插件内置的 MOSS 布局画布界面</figcaption>
+</figure>
+<figure class="markdown-image">
+  <img src="&lt;https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202611180006932.png&gt;" srcset="/img/loading.gif" lazyload alt="MOSS 布局画布节点在 ComfyUI 完整工作流中的连接方式">
+  <figcaption>MOSS 布局画布节点在 ComfyUI 完整工作流中的连接方式</figcaption>
+</figure>
+  </div>
+</details>
+<div class="detail-section"><div class="section-label">实用小工具与常见问题</div></div>
+<details class="expandable">
+  <summary>对齐排版、透明叠图导出与本地备份</summary>
+  <div class="expand-body">
+<ul>
+  <li><strong>一键对齐与等距排列</strong>：画布左下角设有一排排版按钮。按住 <code>Shift</code> 选中 <strong>2 个以上</strong>方框，即可使用 <strong>「左对齐」「水平居中」「右对齐」</strong>；选中 <strong>3 个以上</strong>方框，即可使用 <strong>「水平均布」「竖直均布」</strong>，排列多行文字或分镜格时瞬间整整齐齐。</li>
+  <li><strong>随时撤销与重做</strong>：无论是自己拖歪了框，还是觉得秋枫刚改的一版不如上一版，直接点击画布左上角的 <strong>「撤销」</strong>（快捷键 <code>Ctrl + Z</code>），或点击秋枫聊天回复下方的 <strong>「撤销本次修改」</strong>，即可一键退回原样。</li>
+  <li><strong>导出 PNG 透明框线图</strong>：点击顶部 <strong>「导出 PNG」</strong>，除了「原样导出」外，还可选择 <strong>「导出透明框线与标签」</strong>（支持调节框线粗细、字号与深色外描边）。它会生成一张背景全透明、只带彩色框线与编号标签的图，方便你叠在任何成图上核对位置。</li>
+  <li><strong>自动保存与草稿导入导出</strong>：草稿、生成底图和对话记录都会自动保存在当前浏览器中，刷新页面不会丢失。清理浏览器缓存或跨设备使用前，可点击顶部 <strong>「导出草稿」</strong> 保存为 <code>.json</code> 文件，下次点击 <strong>「导入草稿」</strong> 即可继续编辑。</li>
+</ul>
+  </div>
+</details>
+<details class="expandable">
+  <summary>常见问题速查表</summary>
+  <div class="expand-body">
+<table>
+  <thead>
+    <tr>
+      <th>遇到的情况</th>
+      <th>原因说明</th>
+      <th>解决办法</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>点发送没反应，中栏下方出现红字提示</strong></td>
+      <td>1. 处于局部修改状态（只选中了部分方框），但画布上还有未选中的空方框没填描述；&lt;br&gt;2. 勾选了「锁定布局」，但画布上有「文字」框还没填实际可见文字。</td>
+      <td>按中栏红字提示补齐空缺的描述或文字；或者先点画布空白处取消选中、取消勾选「锁定布局」再发送。</td>
+    </tr>
+    <tr>
+      <td><strong>点击「复制提示词」提示无法导出</strong></td>
+      <td>画布还没设宽高、全局描述为空、没有任何方框，或某个方框漏填了描述/可见文字。</td>
+      <td>看一眼中栏底部的提示文字，缺哪项补哪项（或直接让秋枫帮你补全），再点击复制即可。</td>
+    </tr>
+    <tr>
+      <td><strong>修改画布尺寸后，原来的生成底图不见了</strong></td>
+      <td>生成的底图与当时的画布构图尺寸绑定，改变尺寸比例后为防止画面变形会自动隐藏。</td>
+      <td>把画布尺寸改回生成该图时的宽高，底图就会重新显示；或者在新尺寸下重新点一次「生成图片」。</td>
+    </tr>
+    <tr>
+      <td><strong>连接本地 ComfyUI 提示连接失败</strong></td>
+      <td>ComfyUI 未启动、未追加跨域启动参数重启，或浏览器拦截了本地网络访问权限。</td>
+      <td>确认本机 ComfyUI 正在运行，复制「ComfyUI 设置」里的启动参数加到启动命令末尾并重启 ComfyUI，同时在浏览器地址栏权限设置中允许「本地网络访问」。</td>
+    </tr>
+    <tr>
+      <td><strong>秋枫提示任务暂停，让输入「继续」</strong></td>
+      <td>画面要求非常细致，秋枫单轮搜索标签和调整画板的步骤达到了单次上限（17 步）。</td>
+      <td>前面的进度都已完整保留，直接在聊天框发送「<strong>继续</strong>」两个字，她就会接着把剩下的步骤做完。</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+</details>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" data-accent="teal">
+    <div class="ambient">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="particles">
+      <div class="particle"></div><div class="particle"></div>
+      <div class="particle"></div><div class="particle"></div>
+      <div class="particle"></div><div class="particle"></div>
+      <div class="particle"></div><div class="particle"></div>
+    </div>
+    <div class="hero">
       <div class="hero-bg" data-bg-desktop="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606232311390.png" data-bg-mobile="https://akizukipic.oss-cn-beijing.aliyuncs.com/img/202606280052721.png"></div>
       <div class="hero-overlay"></div>
       <div class="hero-content">
@@ -2390,6 +2701,7 @@
     <div class="dot" data-i="3"></div>
     <div class="dot" data-i="4"></div>
     <div class="dot" data-i="5"></div>
+    <div class="dot" data-i="6"></div>
   </div>
   <button class="nav-arrow" id="next" aria-label="下一页">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
