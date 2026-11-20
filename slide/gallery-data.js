@@ -1,5 +1,414 @@
 window.GALLERY_ITEMS = [
   {
+    "id": "work-1795189449154",
+    "title": "200万",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/moss/d9edfd747a286d85ac4940b644fdbeacc8b3f29d713d4d7f005aca03958a16bd.jpg",
+    "model": "deepseek-v4.1-flash / moss-image-base",
+    "width": 1856,
+    "height": 1056,
+    "tags": [
+      "moss"
+    ],
+    "prompt": "这个项目的总搜索量达到了二百万次，请你帮我做一个贺图。要求至少包括：\n1. 项目的名称\n2. 功能简单介绍（一句话口号即可）\n3. 搜索200万次，Hugging Face  184 Likes，Github 298 Stars\n\n在设计时请强调「搜索200万次」。文字信息有机的和整个图片融合，不强行用蒙版底色等方法。\n\n请使用这两个人物，两个人物要有互动，营造百合CP感。二次元风格，比例自定，横版，总像素1M。\n人物A：criss-cross_straps, white_hair, blue_eyes, medium_hair, high_ponytail, sidelocks, small_breasts, toned, puffy_short_sleeves, white_shirt, frilled_collar, lace-trimmed_collar, suspender_skirt, frilled_skirt, kneehighs, white_socks, converse, hair_ribbon, blue_ribbon\n\n人物B：1girl,beret, ankle boots, belt boots, boots, (low twintails:1.5), (short twintails:1.5), blonde hair, red bow, emblem, blue eyes, petite, brown capelet, gold buttons, white shirt, checkered bowtie, pleated skirt, white pantyhose\n\n我给你的是全身描述，你在设计时并不必要设计全身构图。你可以根据自己的设计取舍特征tag。",
+    "notes": ""
+  },
+  {
+    "id": "work-33225baf-fc6d-4c3b-8322-0a3f3440ce43",
+    "title": "200万",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/moss/a425ef3d1d9d8512f3c1d770f73623b02f0fb9d08ebbf2563f2b28b2537858b0.jpg",
+    "model": "deepseek-v4.1-flash / moss-image-base",
+    "width": 1904,
+    "height": 1072,
+    "tags": [
+      "moss"
+    ],
+    "prompt": "偶像大师中的天海春香（amami_haruka, red_ribbon, red_bow, hair_ribbon, green_eyes, brown_hair, short_hair, hair_bow, idolmaster）穿着偶像英雄演出服（idol_heroes_\\(idolmaster\\), mighty_sailor, white_cape, serafuku, fingerless_gloves, neckerchief, red_neckerchief, white_skirt, cloak, pleated_skirt,short_sleeves ）站在山顶。\n\n画面为大腿以上的取景，人物主导整个画面，居于中央，上身回转、视线越过肩膀回望观者。一阵强风横扫画面，吹起她的短发并把披风下摆吹向一侧，脸上带着淡淡笑意。她身后整片背景展开为明亮的淡蓝水彩天空与流动云朵，远处是层叠的群山，时间是秋季，层林尽染。右上方温暖的阳光为她的头发与肩膀镶上轮廓光；柔和的暖色环境明显次于她被照亮的脸庞与双眼。她一只手在整理额前的碎发，另一只手自然下垂，标签是浅浅的微笑，体现其少女魅力。",
+    "notes": ""
+  },
+  {
+    "id": "work-1795189222552",
+    "title": "洛茜",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/moss/ddb8b9229cf2155ceeb4881b1def823d8b427273e328939185e3dc6f2c35b0d0.jpg",
+    "model": "deepseek-v4.1-flash / moss-image-base",
+    "width": 1200,
+    "height": 1616,
+    "tags": [
+      "moss",
+      "洛茜",
+      "明日方舟"
+    ],
+    "prompt": "画一个《明日方舟终末地》里的洛茜。\n请注意：这是一次测试任务，请认真对待。测试的主要难点有两个：\n1. 这是一个很新的人物，模型训练的数据库中不一定有，所以需要你通过描述来重建人物特征。\n2. 如上所述，需要你通过各种方法（包括但不限于多模态上网搜索），来尽可能详细地了解并描述其特征。",
+    "notes": ""
+  },
+  {
+    "id": "work-f0f19a60-fac3-47f1-b19a-3644b79138cb",
+    "title": "洛茜",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/moss/14d93ca3d60c22988154206e0717dbbfb643d92a974afff147cfa8f696618a03.jpg",
+    "model": "deepseek-v4.1-flash / moss-image-base",
+    "width": 1200,
+    "height": 1616,
+    "tags": [
+      "moss",
+      "洛茜",
+      "明日方舟"
+    ],
+    "prompt": "画一个《明日方舟终末地》里的洛茜。\n请注意：这是一次测试任务，请认真对待。测试的主要难点有两个：\n1. 这是一个很新的人物，模型训练的数据库中不一定有，所以需要你通过描述来重建人物特征。\n2. 如上所述，需要你通过各种方法（包括但不限于多模态上网搜索），来尽可能详细地了解并描述其特征。",
+    "notes": ""
+  },
+  {
+    "id": "work-1795189200706",
+    "title": "彩叶",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/moss/7dbd227be52eaff0a368600e580d31e441fb5b2636b8038bce0bbe730ddda14a.jpg",
+    "model": "deepseek-v4.1-flash / moss-image-base",
+    "width": 1184,
+    "height": 1648,
+    "tags": [
+      "moss"
+    ],
+    "prompt": "画一个《超时空辉夜姬》里的酒寄彩叶（月读游戏内形态）。1M总像素，A4纸竖版。\n请注意：这是一次测试任务，请认真对待。测试的主要难点有两个：\n1. 这是一个很新的人物，模型训练的数据库中不一定有，所以需要你通过描述来重建人物特征。\n2. 如上所述，需要你通过各种方法（包括但不限于多模态上网搜索），来尽可能详细地了解并描述其特征。\n3. 这个人物在现实世界、月读游戏内有不同的形态，请你务必进行区分。",
+    "notes": ""
+  },
+  {
+    "id": "work-1795188904873",
+    "title": "13个鸡蛋",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/moss/546ba521f8c4d84fb5f029bda2e0ea45c6aa6c1ed7811d7e1c571d9e30e22369.jpg",
+    "model": "deepseek-v4.1-flash / moss-image-base",
+    "width": 1408,
+    "height": 1408,
+    "tags": [
+      "moss"
+    ],
+    "prompt": "画一个「盒子里有13个鸡蛋」的图片，用BBOX规定鸡蛋的位置和数量，务必是13个，你可以用生图工具迭代检查",
+    "notes": ""
+  },
+  {
+    "id": "work-1795186831513",
+    "title": "问秋月",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/moss/6da024116c12c49b3031ed7ded1983b3bd40be6f56e632d6137dc396acd07be1.jpg",
+    "model": "gemini-4-hydrgon / moss-image-base",
+    "width": 2144,
+    "height": 912,
+    "tags": [
+      "moss"
+    ],
+    "prompt": "为这个项目做一个公众号封面，白底，简洁，二次元风格，体现科技感。文字尽量少（项目标题WenQiuYue，功能：博客问答、标签搜索、MOSS画板）。这是项目的吉祥物，我给你的是全身人设，你的设计没必要一定出现全身，可以裁剪我的标签\nberet, ankle boots, belt boots, boots, (low twintails:1.5), (short twintails:1.5), blonde hair, red bow, emblem, blue eyes, petite, brown capelet, gold buttons, white shirt, checkered bowtie, pleated skirt, white pantyhose",
+    "notes": ""
+  },
+  {
+    "id": "work-1795186790852",
+    "title": "小樱",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/moss/98b10aca2746c480a035fea216aec1e682231a7bc696fbfd2561766e1461423d.jpg",
+    "model": "gemini-4-hydrgon / moss-image-base",
+    "width": 1200,
+    "height": 1616,
+    "tags": [
+      "moss",
+      "小樱"
+    ],
+    "prompt": "生成一张穿着友枝小学校服的木之本樱，穿着轮滑鞋，戴着护膝护肘和露指手套（这是一个现存的人物形象，请你参考这张图里面的形象，注意仅参考形象，不参考动作）的图片，请你自行设定一个体现其青春活力的姿势和环境。",
+    "notes": ""
+  },
+  {
+    "id": "work-856c540e-b296-4bf1-b837-78b0956a4878",
+    "title": "小樱",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/moss/4ee0eaf90d4bca17ec5093777efdfb24cbe8159f701a827290401a4223cb8de7.jpg",
+    "model": "gemini-4-hydrgon / moss-image-base",
+    "width": 1008,
+    "height": 1792,
+    "tags": [
+      "moss",
+      "小樱"
+    ],
+    "prompt": "生成一张穿着友枝小学校服的木之本樱，穿着轮滑鞋，戴着护膝护肘和露指手套（这是一个现存的人物形象，请参考我上传的图片，仅参考图片中的形象，注意各个部件的颜色，不参考动作）的图片，请你自行设定一个体现其青春活力的姿势和环境。\n再设计一个她穿着这个套装，手持魔法棒，进行魔法战斗的动作和场景。她的表情要有战斗时的坚毅。场景要符合魔法氛围。\n\n\n",
+    "notes": ""
+  },
+  {
+    "id": "work-1795186674902",
+    "title": "彩特琳徳",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/moss/6219fc2f8dcec08cc2fe0fcc7f843de39916a9c9ef66f6667f82cd0fa88d68d3.jpg",
+    "model": "gemini-4-hydrgon / moss-image-base",
+    "width": 1136,
+    "height": 1728,
+    "tags": [
+      "moss",
+      "原神"
+    ],
+    "prompt": "画一张《原神》中彩特琳徳，和其世界任务《空之神殿》的概念插画。你可以上网搜索这个人的人设、故事，以设计画面。画面要有艺术性，属于概念插画。参考我给你的图片，是人物形象参考和场景参考，不是动作参考。请你仔细参考服装（白丝袜、玛丽珍鞋，大臂上的袖套等等）。可以迭代修改几轮。",
+    "notes": ""
+  },
+  {
+    "id": "work-7bc62166-0c2a-4caf-a2ba-f860fe3acc4f",
+    "title": "彩特琳徳",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/moss/b3ca73f41a24a54424c109a0a39b02af15e5a3f41974811feca1fb39028ffaa9.jpg",
+    "model": "gemini-4-hydrgon / moss-image-base",
+    "width": 1136,
+    "height": 1728,
+    "tags": [
+      "moss",
+      "原神"
+    ],
+    "prompt": "画一张《原神》中彩特琳徳，和其世界任务《空之神殿》的概念插画。你可以上网搜索这个人的人设、故事，以设计画面。画面要有艺术性，属于概念插画。参考我给你的图片，是人物形象参考和场景参考，不是动作参考。请你仔细参考服装（白丝袜、玛丽珍鞋，大臂上的袖套等等）。可以迭代修改几轮。",
+    "notes": ""
+  },
+  {
+    "id": "work-0ac1acf1-4205-488c-b09a-93e4e9056be6",
+    "title": "彩特琳徳",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/moss/55a895a0fd34560110371b4736956af8eb41c61ad278aefc8ed9efcdb6512ea6.jpg",
+    "model": "gemini-4-hydrgon / moss-image-base",
+    "width": 1136,
+    "height": 1728,
+    "tags": [
+      "moss",
+      "原神"
+    ],
+    "prompt": "画一张《原神》中彩特琳徳，和其世界任务《空之神殿》的概念插画。你可以上网搜索这个人的人设、故事，以设计画面。画面要有艺术性，属于概念插画。参考我给你的图片，是人物形象参考和场景参考，不是动作参考。请你仔细参考服装（白丝袜、玛丽珍鞋，大臂上的袖套等等）。可以迭代修改几轮。",
+    "notes": ""
+  },
+  {
+    "id": "work-b4cffdd5-02e4-4141-91ff-6b9d42ba47e4",
+    "title": "彩特琳徳",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/moss/d6369848523858fabc401069c7155f4601566ddfda60c1ae941a2f96eb8c7f9e.jpg",
+    "model": "gemini-4-hydrgon / moss-image-base",
+    "width": 1136,
+    "height": 1728,
+    "tags": [
+      "moss",
+      "原神"
+    ],
+    "prompt": "画一张《原神》中彩特琳徳，和其世界任务《空之神殿》的概念插画。你可以上网搜索这个人的人设、故事，以设计画面。画面要有艺术性，属于概念插画。参考我给你的图片，是人物形象参考和场景参考，不是动作参考。请你仔细参考服装（白丝袜、玛丽珍鞋，大臂上的袖套等等）。可以迭代修改几轮。",
+    "notes": ""
+  },
+  {
+    "id": "work-8687db33-6f38-4296-901f-2cc090baa74f",
+    "title": "彩特琳徳",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/moss/4d7bb3ab5f89c427a47a500e903026470911189f3b976e3a5873e40a29ac65de.jpg",
+    "model": "gemini-4-hydrgon / moss-image-base",
+    "width": 1136,
+    "height": 1728,
+    "tags": [
+      "moss",
+      "原神"
+    ],
+    "prompt": "画一张《原神》中彩特琳徳，和其世界任务《空之神殿》的概念插画。你可以上网搜索这个人的人设、故事，以设计画面。画面要有艺术性，属于概念插画。参考我给你的图片，是人物形象参考和场景参考，不是动作参考。请你仔细参考服装（白丝袜、玛丽珍鞋，大臂上的袖套等等）。可以迭代修改几轮。",
+    "notes": ""
+  },
+  {
+    "id": "work-1795186173770",
+    "title": "艾瑟雅",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/moss/1f4ed7f6da8c4322202b3cb84253dc49b66d407ffb13bba350af1db177b6c1af.jpg",
+    "model": "deepseek-v4.1-flash / moss-image-base",
+    "width": 1856,
+    "height": 1056,
+    "tags": [
+      "moss",
+      "艾瑟雅",
+      "末日时在做什么"
+    ],
+    "prompt": "画一个《末日时在做什么》里的艾瑟雅·麦杰·瓦尔卡利斯，你需要上网查询她的相关信息，使用第一部作品的人物形象，设计一个符合她的人设的场景。你可以试生成一张，并看图后迭代一次。注意：这是一个相当冷门的角色，所以数据库里可能没有对应的标签，需要你仔细描述其特征。总像素1M。",
+    "notes": ""
+  },
+  {
+    "id": "work-4458ffc9-b60f-4063-9676-efa5c1787aa8",
+    "title": "艾瑟雅",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/moss/524422ab09c844e2656d00efb57fb2caefa31fbad85b69a0ccf1f550c236968a.jpg",
+    "model": "deepseek-v4.1-flash / moss-image-base",
+    "width": 1728,
+    "height": 1136,
+    "tags": [
+      "moss",
+      "艾瑟雅",
+      "末日时在做什么"
+    ],
+    "prompt": "画一个《末日时在做什么》里的艾瑟雅·麦杰·瓦尔卡利斯，你需要上网查询她的相关信息，使用第一部作品的人物形象，设计一个符合她的人设的场景。你可以试生成一张，并看图后迭代一次。注意：这是一个相当冷门的角色，所以数据库里可能没有对应的标签，需要你仔细描述其特征。总像素1M。",
+    "notes": ""
+  },
+  {
+    "id": "work-00ea062d-fbd2-46c0-87df-6ae7f076d459",
+    "title": "艾瑟雅",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/moss/8b20a6080edc37ff93d899740f352b2fe086959a48905009a99876e261c565f4.jpg",
+    "model": "deepseek-v4.1-flash / moss-image-base",
+    "width": 1728,
+    "height": 1136,
+    "tags": [
+      "moss",
+      "艾瑟雅",
+      "末日时在做什么"
+    ],
+    "prompt": "画一个《末日时在做什么》里的艾瑟雅·麦杰·瓦尔卡利斯，你需要上网查询她的相关信息，使用第一部作品的人物形象，设计一个符合她的人设的场景。你可以试生成一张，并看图后迭代一次。注意：这是一个相当冷门的角色，所以数据库里可能没有对应的标签，需要你仔细描述其特征。总像素1M。",
+    "notes": ""
+  },
+  {
+    "id": "work-1795186099812",
+    "title": "桃华",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/moss/665e19a1bbf00d40c7cbb0347ef2ba1ee6912761613e7d530b7de7c40f3055db.jpg",
+    "model": "deepseek-v4.1-flash / moss-image-base",
+    "width": 1648,
+    "height": 1184,
+    "tags": [
+      "moss",
+      "偶像大师"
+    ],
+    "prompt": "画一张偶像大师中樱井桃华的插画，A4横版，1M像素",
+    "notes": ""
+  },
+  {
+    "id": "work-1795186070477",
+    "title": "构成主义春日",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/moss/7bf07e1430fdde0244671266973b82f2cd98e9c3da8eee7605b7b022ab3e6396.jpg",
+    "model": "deepseek-v4.1-flash / moss-image-base",
+    "width": 1136,
+    "height": 1728,
+    "tags": [
+      "moss",
+      "凉宫春日"
+    ],
+    "prompt": "画一个「二次元+构成主义」的插画，参考这个风格，人物选择凉宫春日，1M像素",
+    "notes": ""
+  },
+  {
+    "id": "work-29739de1-07ba-4ca5-a776-7d62c14efee8",
+    "title": "构成主义春日",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/moss/ecf9f75505eb7c089bdfce467a393f87f8627eb0732bc8a0df26938277c48a69.jpg",
+    "model": "deepseek-v4.1-flash / moss-image-base",
+    "width": 816,
+    "height": 1232,
+    "tags": [
+      "moss",
+      "凉宫春日"
+    ],
+    "prompt": "画一个「二次元+构成主义」的插画，参考这个风格，人物选择凉宫春日，1M像素",
+    "notes": ""
+  },
+  {
+    "id": "work-1f0212b0-9795-489a-a5ed-e5fe64042e93",
+    "title": "构成主义春日",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/moss/24228d8283b5984e7995610cc27c9ff529b7b248f20e8a7546b1f75651652da4.jpg",
+    "model": "deepseek-v4.1-flash / moss-image-base",
+    "width": 1136,
+    "height": 1728,
+    "tags": [
+      "moss",
+      "凉宫春日"
+    ],
+    "prompt": "画一个「二次元+构成主义」的插画，参考这个风格，人物选择凉宫春日，1M像素",
+    "notes": ""
+  },
+  {
+    "id": "work-da3d4f0f-ac29-45bd-b131-65aed99d8fd5",
+    "title": "构成主义春日",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/moss/a7e5a9008215e73eedadbab234bd59e854482f97fc68dfedfa88c742c961d562.jpg",
+    "model": "deepseek-v4.1-flash / moss-image-base",
+    "width": 1136,
+    "height": 1728,
+    "tags": [
+      "moss",
+      "凉宫春日"
+    ],
+    "prompt": "画一个「二次元+构成主义」的插画，参考这个风格，人物选择凉宫春日，1M像素",
+    "notes": ""
+  },
+  {
+    "id": "work-9b5a08ca-d3bf-4fb9-9951-d58d6adf1552",
+    "title": "构成主义春日",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/moss/f6bbf7d96bf5140727b1a391f865bde5fcc00a027703f6b42c47d40ce7cfcda6.jpg",
+    "model": "deepseek-v4.1-flash / moss-image-base",
+    "width": 816,
+    "height": 1232,
+    "tags": [
+      "moss",
+      "凉宫春日"
+    ],
+    "prompt": "画一个「二次元+构成主义」的插画，参考这个风格，人物选择凉宫春日，1M像素",
+    "notes": ""
+  },
+  {
+    "id": "work-1795185867216",
+    "title": "艾瑟雅和珂朵莉",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/moss/59f340ca007956d784464b6617e65f808994905ec418ab9b3d5f79fb7786068d.jpg",
+    "model": "deepseek-v4.1-flash / moss-image-base",
+    "width": 1648,
+    "height": 1184,
+    "tags": [
+      "moss",
+      "艾瑟雅",
+      "珂朵莉",
+      "末日时在做什么"
+    ],
+    "prompt": "画一个《末日时在做什么》里的艾瑟雅·麦杰·瓦尔卡利斯和珂朵莉 诺塔 瑟尼欧莉丝的双人插画，A4横版，你需要上网查询她们的相关信息，使用第一部作品的人物形象，设计一个符合她们的人设的场景。都用常服（不是军装的那个）\n注意：这是两个相当冷门的角色，所以数据库里可能没有对应的标签，需要你仔细描述其特征。总像素1M。你可以通过试生成迭代提示词，最多迭代3次，可以提前结束。",
+    "notes": ""
+  },
+  {
+    "id": "work-1795183944435",
+    "title": "艾瑟雅",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/moss/b7b8e64c17868f405f1dc2cf47a84841e4ddb51cef25fe8c0836c0129b6de454.png",
+    "model": "deepseek-v4.1-flash / moss-image-base",
+    "width": 1728,
+    "height": 1136,
+    "tags": [
+      "moss",
+      "艾瑟雅",
+      "末日时在做什么"
+    ],
+    "prompt": "画一个《末日时在做什么》里的艾瑟雅·麦杰·瓦尔卡利斯，你需要上网查询她的相关信息，设计一个符合她的人设的场景\n像素数改成1M，然后根据现在的图片迭代一下，就用第一部的形象，我感觉猫耳有点小，然后鞋子不太对\n嗯，感觉差不多了，你可以再对比迭代一次，修修细节",
+    "notes": ""
+  },
+  {
+    "id": "work-4db047fb-b377-48df-bb18-f0e8f0017fba",
+    "title": "艾瑟雅",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/moss/34b6773dc6a07c217d08a7f409b04cf458fc6a6ebb03873cf9a41d7441716877.png",
+    "model": "deepseek-v4.1-flash / moss-image-base",
+    "width": 1728,
+    "height": 1136,
+    "tags": [
+      "moss",
+      "艾瑟雅",
+      "末日时在做什么"
+    ],
+    "prompt": "画一个《末日时在做什么》里的艾瑟雅·麦杰·瓦尔卡利斯，你需要上网查询她的相关信息，设计一个符合她的人设的场景\n像素数改成1M，然后根据现在的图片迭代一下，就用第一部的形象，我感觉猫耳有点小，然后鞋子不太对\n嗯，感觉差不多了，你可以再对比迭代一次，修修细节",
+    "notes": ""
+  },
+  {
+    "id": "work-db526d21-a417-41a9-9226-2d35be37b0b5",
+    "title": "艾瑟雅",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/moss/ee19f331c7438b00665b85327a6855ff953ad9dc7922f0061499b3d4d33e4667.png",
+    "model": "deepseek-v4.1-flash / moss-image-base",
+    "width": 1728,
+    "height": 1136,
+    "tags": [
+      "moss",
+      "艾瑟雅",
+      "末日时在做什么"
+    ],
+    "prompt": "画一个《末日时在做什么》里的艾瑟雅·麦杰·瓦尔卡利斯，你需要上网查询她的相关信息，设计一个符合她的人设的场景\n像素数改成1M，然后根据现在的图片迭代一下，就用第一部的形象，我感觉猫耳有点小，然后鞋子不太对\n嗯，感觉差不多了，你可以再对比迭代一次，修修细节",
+    "notes": ""
+  },
+  {
+    "id": "work-1795183860472",
+    "title": "鹈鹕骑自行车",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/moss/2e0d21cc11b9be9883b8984c9e9d3d46b540764834025852f0b7be05b4f2e743.png",
+    "model": "deepseek-v4.1-flash / moss-image-base",
+    "width": 1424,
+    "height": 1424,
+    "tags": [
+      "moss"
+    ],
+    "prompt": "画一个鹈鹕骑自行车",
+    "notes": ""
+  },
+  {
+    "id": "work-1795183800443",
+    "title": "十三个鸡蛋",
+    "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/moss/e878ae26bd17b72160743eca9aa94cf194d6ede907d9af286ea26016a45c26ee.png",
+    "model": "deepseek-v4.1-flash / moss-image-base",
+    "width": 1616,
+    "height": 1200,
+    "tags": [
+      "moss"
+    ],
+    "prompt": "一张13个鸡蛋的图片，鸡蛋杂乱地放置在桌面上，数量必须保证正确。你可以用BBOX来画每个鸡蛋，1M像素",
+    "notes": ""
+  },
+  {
     "id": "work-1791448161729",
     "title": "元素战争",
     "image": "https://akizukipic.oss-cn-beijing.aliyuncs.com/img/compressed_20261008_160615_670103_0215_1686.jpeg",
